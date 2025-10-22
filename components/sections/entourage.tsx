@@ -47,7 +47,7 @@ export function Entourage() {
       title: "TO GUIDE US IN OUR WAY",
       subtitle: "Our ushers and usherettes",
       layout: "two-column",
-      roles: ["Usher", "Usherette"],
+      roles: ["Groomsman", "Bridesmaid"],
       icon: <Users className="w-5 h-5" />,
     },
     {
@@ -98,6 +98,7 @@ export function Entourage() {
     "TO CLOTH US AS ONE": "clothe-us-as-one",
     "TO BIND US TOGETHER": "bind-us-together",
     "TO LIGHT OUR PATH": "light-our-path",
+    "TO GUIDE US IN OUR WAY": "guide-us-in-our-way",
   }
 
   const getMembersByRole = (roleNames: string[], categoryTitle?: string) => {

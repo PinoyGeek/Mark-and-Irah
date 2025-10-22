@@ -52,11 +52,13 @@ export const entourage = [
   { role: "Best Man", name: "Mr. Justine F. Dote" },
   { role: "Maid of Honor", name: "Ms. Dona Liz D. Donina" },
 
-  { role: "Groomsman", name: "Mr. Mhel Jay S. Mulingbayan" },
-  { role: "Groomsman", name: "Mr. Kim Harold C. Bueno" },
-  { role: "Bridesmaid", name: "Ms. Jusmine F. Dote" },
-  { role: "Bridesmaid", name: "Ms. Alondra Nicole M. Odal" },
-  { role: "Bridesmaid", name: "Ms. Catherine R. Beraquit" },
+  // To Guide Us In Our Way
+  { role: "Groomsman", name: "Mr. Joshua O. Barola", group: "guide-us-in-our-way" },
+  { role: "Groomsman", name: "Mr. Mhel Jay S. Mulingbayan", group: "guide-us-in-our-way" },
+  { role: "Groomsman", name: "Mr. Kim Harold C. Bueno", group: "guide-us-in-our-way" },
+  { role: "Bridesmaid", name: "Ms. Jusmine F. Dote", group: "guide-us-in-our-way" },
+  { role: "Bridesmaid", name: "Ms. Alondra Nicole M. Odal", group: "guide-us-in-our-way" },
+  { role: "Bridesmaid", name: "Ms. Catherine R. Beraquit", group: "guide-us-in-our-way" },
   // To Light Our Path
   { role: "Groomsman", name: "Mr. Harris Kevin De Castro", group: "light-our-path" },
   { role: "Bridesmaid", name: "Atty. Elizabeth Guino", group: "light-our-path" },
