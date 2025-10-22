@@ -107,12 +107,6 @@ export function Narrative() {
           </div>
         </div>
 
-        {/* Mobile hint - only visible on small screens */}
-        <div className="lg:hidden mt-12 p-4 bg-primary/10 rounded-xl border-2 border-primary/20 text-center backdrop-blur-sm">
-          <p className="text-sm text-primary font-sans font-medium">
-            ✨ Tap and drag the cards to discover our love story
-          </p>
-        </div>
       </div>
     </Section>
   )
