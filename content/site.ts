@@ -30,7 +30,7 @@ export const siteConfig = {
     location: "MAX AND BEA RESORT @ Lutucan 1, Sariaya, Quezon",
   },
   dressCode:
-    "Rustic formal. Think flowy, breathable fabrics in lilac and sage green tones. Bring a light layer for the evening breeze.",
+    "Rustic formal. Think flowy, breathable fabrics in lilac and sage green tones. Bring a light layer for the evening breeze. Kindly refrain from wearing T-shirts, shorts, denim, or slippers.",
   narrative: `Love, like nature, blooms best when nurtured under open skies.
 
 We've always dreamed of a celebration that feels alive, where laughter dances with the breeze, vows echo beneath the trees, and joy blossoms in every corner.
@@ -51,22 +51,25 @@ But if you desire to give nonetheless, a monetary gift is the one we suggest.`,
 export const entourage = [
   { role: "Best Man", name: "Mr. Justine F. Dote" },
   { role: "Maid of Honor", name: "Ms. Dona Liz D. Donina" },
-  { role: "Groomsman", name: "Mr. Jedrick C. Bueno" },
-  { role: "Bridesmaid", name: "Ms. Sharmaine D. Anonuevo" },
-  { role: "Groomsman", name: "Mr. Zoren Marco" },
-  { role: "Bridesmaid", name: "Ms. Jhenssel Shane M. Mercado" },
-  { role: "Groomsman", name: "Mr. Ian Carlo P. Cruzat" },
-  { role: "Bridesmaid", name: "Atty. Misha Ela R. Ferrer" },
-  { role: "Groomsman", name: "Mr. Jomar Dote" },
-  { role: "Bridesmaid", name: "Ms. Christine Joy R. Beraquit" },
-  { role: "Groomsman", name: "Mr. Harris Kevin De Castro" },
-  { role: "Bridesmaid", name: "Atty. Elizabeth Guino" },
-  { role: "Usher", name: "Mr. Joshua O. Barola" },
-  { role: "Usher", name: "Mr. Mhel Jay S. Mulingbayan" },
-  { role: "Usher", name: "Mr. Kim Harold C. Bueno" },
-  { role: "Usherette", name: "Ms. Jusmine F. Dote" },
-  { role: "Usherette", name: "Ms. Alondra Nicole M. Odal" },
-  { role: "Usherette", name: "Ms. Catherine R. Beraquit" },
+
+  { role: "Groomsman", name: "Mr. Mhel Jay S. Mulingbayan" },
+  { role: "Groomsman", name: "Mr. Kim Harold C. Bueno" },
+  { role: "Bridesmaid", name: "Ms. Jusmine F. Dote" },
+  { role: "Bridesmaid", name: "Ms. Alondra Nicole M. Odal" },
+  { role: "Bridesmaid", name: "Ms. Catherine R. Beraquit" },
+  // To Light Our Path
+  { role: "Groomsman", name: "Mr. Harris Kevin De Castro", group: "light-our-path" },
+  { role: "Bridesmaid", name: "Atty. Elizabeth Guino", group: "light-our-path" },
+  // To Bind Us Together
+  { role: "Groomsman", name: "Mr. Ian Carlo P. Cruzat", group: "bind-us-together" },
+  { role: "Bridesmaid", name: "Atty. Misha Ela R. Ferrer", group: "bind-us-together" },
+  { role: "Groomsman", name: "Mr. Jomar Dote", group: "bind-us-together" },
+  { role: "Bridesmaid", name: "Ms. Christine Joy R. Beraquit", group: "bind-us-together" },
+  // To Clothe Us As One
+  { role: "Groomsman", name: "Mr. Jedrick C. Bueno", group: "clothe-us-as-one" },
+  { role: "Bridesmaid", name: "Ms. Sharmaine D. Anonuevo", group: "clothe-us-as-one" },
+  { role: "Groomsman", name: "Mr. Zoren Marco", group: "clothe-us-as-one" },
+  { role: "Bridesmaid", name: "Ms. Jhenssel Shane M. Mercado", group: "clothe-us-as-one" },
   { role: "Ring Bearer", name: "Mar Inigo Keith R. Lucido" },
   { role: "Bible Bearer", name: "Chris Alexander Cay" },
   { role: "Coin Bearer", name: "Nash Arjrey B. De Guia" },

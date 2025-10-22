@@ -94,8 +94,19 @@ export function Entourage() {
     },
   ]
 
-  const getMembersByRole = (roleNames: string[]) => {
-    return entourage.filter((member) => roleNames.includes(member.role))
+  const categoryGroupMap: Record<string, string | undefined> = {
+    "TO CLOTH US AS ONE": "clothe-us-as-one",
+    "TO BIND US TOGETHER": "bind-us-together",
+    "TO LIGHT OUR PATH": "light-our-path",
+  }
+
+  const getMembersByRole = (roleNames: string[], categoryTitle?: string) => {
+    const group = categoryGroupMap[categoryTitle ?? ""]
+    return entourage.filter((member) => {
+      const roleMatch = roleNames.includes(member.role)
+      if (!group) return roleMatch && !member.group
+      return roleMatch && member.group === group
+    })
   }
 
   const getRoleIcon = (role: string) => {
@@ -145,7 +156,7 @@ export function Entourage() {
 
         <div className="space-y-12 sm:space-y-16 md:space-y-20 max-w-7xl mx-auto">
         {roleCategories.map((category, idx) => {
-          const members = getMembersByRole(category.roles)
+          const members = getMembersByRole(category.roles, category.title)
           if (members.length === 0) return null
 
           return (
