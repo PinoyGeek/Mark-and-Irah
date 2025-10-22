@@ -260,14 +260,6 @@ export function Messages() {
           <MessageWallDisplay messages={messages} loading={loading} />
         </div>
 
-        {/* Footer Message */}
-        <div className="mt-12 sm:mt-16 lg:mt-20 text-center px-4">
-          <div className="inline-flex items-center gap-2 sm:gap-3 text-white bg-[#9CAF88] backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-sm border border-[#9CAF88]/20 hover:bg-[#9CAF88]/90 hover:shadow-md transition-all duration-300">
-            <Heart className="h-3 w-3 sm:h-4 sm:w-4 fill-current" />
-            <span className="text-xs sm:text-sm font-lora font-medium">Messages are sent directly to the couple</span>
-            <Heart className="h-3 w-3 sm:h-4 sm:w-4 fill-current" />
-          </div>
-        </div>
       </div>
     </Section>
   )

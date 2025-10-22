@@ -45,13 +45,6 @@ export function Gallery() {
           </div>
         </div>
 
-        <div className="text-center space-y-3">
-          <div className="inline-block bg-[#9CAF88] backdrop-blur-md px-6 py-3 rounded-full border border-[#9CAF88]/40">
-            <p className="text-sm sm:text-base font-medium text-white tracking-wide">
-              Scroll or drag to explore our beautiful moments 
-            </p>
-          </div>
-        </div>
       </div>
 
       {/* Lightbox Modal */}
