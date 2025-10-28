@@ -124,11 +124,11 @@ export function Narrative() {
                 sendToBackOnClick={false}
                 cardDimensions={{ width: 280, height: 320 }}
                 cardsData={[
-                  { id: 1, img: "/Couple_img/couple (1).webp" },
+                  { id: 1, img: "/Couple_img/couple (11).webp" },
                   { id: 2, img: "/Couple_img/couple (2).webp" },
                   { id: 3, img: "/Couple_img/couple (3).webp" },
                   { id: 4, img: "/Couple_img/couple (4).webp" },
-                  { id: 5, img: "/Couple_img/couple (5).webp" },
+                  { id: 5, img: "/Couple_img/couple (1).webp" },
                 ]}
                 animationConfig={{ stiffness: 260, damping: 20 }}
               />

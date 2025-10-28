@@ -6,20 +6,20 @@ import { Section } from "@/components/section"
 import CircularGallery from "@/components/circular-gallery"
 
 const galleryItems = [
-  { image: "/Couple_img/couple (1).webp", text: "First Dance" },   
-  { image: "/Couple_img/couple (2).webp", text: "Ceremony Moment" },
-  { image: "/Couple_img/couple (3).webp", text: "Bride & Groom" },
-  { image: "/Couple_img/couple (4).webp", text: "Reception Joy" },
-  { image: "/Couple_img/couple (5).webp", text: "Celebration" },
-  { image: "/Couple_img/couple (6).webp", text: "Forever Starts" },
-  { image: "/Couple_img/couple (7).webp", text: "Love Blooms" },
-  { image: "/Couple_img/couple (8).webp", text: "Love Blooms" },
-  { image: "/Couple_img/couple (9).webp", text: "Love Blooms" },
-  { image: "/Couple_img/couple (10).webp", text: "Love Blooms" },
-  { image: "/Couple_img/couple (11).webp", text: "Love Blooms" },
-  { image: "/Couple_img/couple (12).webp", text: "Love Blooms" },
-  { image: "/Couple_img/couple (13).webp", text: "Love Blooms" },
-  { image: "/Couple_img/couple (14).webp", text: "Love Blooms" },
+  { image: "/Couple_img/couple (1).JPG", text: "First Dance" },   
+  { image: "/Couple_img/couple (2).JPG", text: "Ceremony Moment" },
+  { image: "/Couple_img/couple (3).JPG", text: "Bride & Groom" },
+  { image: "/Couple_img/couple (4).JPG", text: "Reception Joy" },
+  { image: "/Couple_img/couple (5).JPG", text: "Celebration" },
+  { image: "/Couple_img/couple (6).JPG", text: "Forever Starts" },
+  { image: "/Couple_img/couple (7).JPG", text: "Love Blooms" },
+  { image: "/Couple_img/couple (8).JPG", text: "Love Blooms" },
+  { image: "/Couple_img/couple (9).JPG", text: "Love Blooms" },
+  { image: "/Couple_img/couple (10).JPG", text: "Love Blooms" },
+  { image: "/Couple_img/couple (11).JPG", text: "Love Blooms" },
+  { image: "/Couple_img/couple (12).JPG", text: "Love Blooms" },
+  { image: "/Couple_img/couple (13).JPG", text: "Love Blooms" },
+  { image: "/Couple_img/couple (14).JPG", text: "Love Blooms" },
 ]
 
 export function Gallery() {

@@ -155,6 +155,14 @@ class Media {
       wrapS: this.gl.CLAMP_TO_EDGE,
       wrapT: this.gl.CLAMP_TO_EDGE,
     })
+    // Initialize with a tiny placeholder to avoid black before image load
+    const placeholder = document.createElement("canvas")
+    placeholder.width = 2
+    placeholder.height = 2
+    const phx = placeholder.getContext("2d")
+    phx.fillStyle = "#333"
+    phx.fillRect(0, 0, 2, 2)
+    texture.image = placeholder
     this.program = new Program(this.gl, {
       depthTest: false,
       depthWrite: false,
@@ -218,13 +226,27 @@ class Media {
       transparent: true,
     })
     const img = new Image()
-    img.crossOrigin = "anonymous"
+    // Only set crossOrigin for absolute/remote URLs
+    const isRemote = /^(http|https):\/\//.test(this.image)
+    if (isRemote) img.crossOrigin = "anonymous"
     img.src = this.image
-    img.onload = () => {
+    const applyImage = () => {
       texture.image = img
-      // Ensure upload on some mobile browsers
       texture.needsUpdate = true
-      this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight]
+      this.program.uniforms.uImageSizes.value = [img.naturalWidth || 1, img.naturalHeight || 1]
+    }
+    img.onload = applyImage
+    if ("decode" in img && typeof img.decode === "function") {
+      img
+        .decode()
+        .then(applyImage)
+        .catch(() => {
+          // Fallback to onload already set
+        })
+    }
+    img.onerror = () => {
+      // Keep placeholder, but set a sane size ratio
+      this.program.uniforms.uImageSizes.value = [1, 1]
     }
   }
   createMesh() {
@@ -340,6 +362,15 @@ class App {
     this.gl = this.renderer.gl
     this.gl.clearColor(0, 0, 0, 0)
     this.container.appendChild(this.gl.canvas)
+    // Handle context lost/restored on some mobile browsers
+    this.onContextLost = (e) => {
+      e.preventDefault()
+    }
+    this.onContextRestored = () => {
+      this.onResize()
+    }
+    this.gl.canvas.addEventListener("webglcontextlost", this.onContextLost, false)
+    this.gl.canvas.addEventListener("webglcontextrestored", this.onContextRestored, false)
   }
   createCamera() {
     this.camera = new Camera(this.gl)
@@ -474,6 +505,10 @@ class App {
     window.removeEventListener("touchend", this.boundOnTouchUp)
     if (this.renderer && this.renderer.gl && this.renderer.gl.canvas.parentNode) {
       this.renderer.gl.canvas.parentNode.removeChild(this.renderer.gl.canvas)
+    }
+    if (this.gl && this.gl.canvas) {
+      this.gl.canvas.removeEventListener("webglcontextlost", this.onContextLost)
+      this.gl.canvas.removeEventListener("webglcontextrestored", this.onContextRestored)
     }
   }
 }
