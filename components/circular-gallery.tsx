@@ -147,7 +147,13 @@ class Media {
   }
   createShader() {
     const texture = new Texture(this.gl, {
-      generateMipmaps: true,
+      // Mobile WebGL1 black textures often come from NPOT + mipmaps.
+      // Disable mipmaps and clamp to edge for wide device support.
+      generateMipmaps: false,
+      minFilter: this.gl.LINEAR,
+      magFilter: this.gl.LINEAR,
+      wrapS: this.gl.CLAMP_TO_EDGE,
+      wrapT: this.gl.CLAMP_TO_EDGE,
     })
     this.program = new Program(this.gl, {
       depthTest: false,
@@ -216,6 +222,8 @@ class Media {
     img.src = this.image
     img.onload = () => {
       texture.image = img
+      // Ensure upload on some mobile browsers
+      texture.needsUpdate = true
       this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight]
     }
   }
