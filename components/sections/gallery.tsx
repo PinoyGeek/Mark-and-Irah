@@ -6,20 +6,20 @@ import { Section } from "@/components/section"
 // Removed circular gallery in favor of a responsive masonry layout
 
 const galleryItems = [
-  { image: "/Couple_img/couple (1).JPG", text: "First Dance" },   
-  { image: "/Couple_img/couple (2).JPG", text: "Ceremony Moment" },
-  { image: "/Couple_img/couple (3).JPG", text: "Bride & Groom" },
-  { image: "/Couple_img/couple (4).JPG", text: "Reception Joy" },
-  { image: "/Couple_img/couple (5).JPG", text: "Celebration" },
-  { image: "/Couple_img/couple (6).JPG", text: "Forever Starts" },
-  { image: "/Couple_img/couple (7).JPG", text: "Love Blooms" },
-  { image: "/Couple_img/couple (8).JPG", text: "Love Blooms" },
-  { image: "/Couple_img/couple (9).JPG", text: "Love Blooms" },
-  { image: "/Couple_img/couple (10).JPG", text: "Love Blooms" },
-  { image: "/Couple_img/couple (11).JPG", text: "Love Blooms" },
-  { image: "/Couple_img/couple (12).JPG", text: "Love Blooms" },
-  { image: "/Couple_img/couple (13).JPG", text: "Love Blooms" },
-  { image: "/Couple_img/couple (14).JPG", text: "Love Blooms" },
+  { image: "/Couple_img/couple (1).JPG", text: "Kate & Christian" },   
+  { image: "/Couple_img/couple (2).JPG", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (3).JPG", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (4).JPG", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (5).JPG", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (6).JPG", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (7).JPG", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (8).JPG", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (9).JPG", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (10).JPG", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (11).JPG", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (12).JPG", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (13).JPG", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (14).JPG", text: "Kate & Christian" },
 ]
 
 export function Gallery() {
