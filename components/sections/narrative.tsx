@@ -129,15 +129,6 @@ export function Narrative() {
                   { id: 3, img: "/Couple_img/couple (3).webp" },
                   { id: 4, img: "/Couple_img/couple (4).webp" },
                   { id: 5, img: "/Couple_img/couple (5).webp" },
-                  { id: 6, img: "/Couple_img/couple (6).webp" },
-                  { id: 7, img: "/Couple_img/couple (7).webp" },
-                  { id: 8, img: "/Couple_img/couple (8).webp" },
-                  { id: 9, img: "/Couple_img/couple (9).webp" },
-                  { id: 10, img: "/Couple_img/couple (10).webp" },
-                  { id: 11, img: "/Couple_img/couple (14).webp" },
-                  { id: 12, img: "/Couple_img/couple (12).webp" },
-                  { id: 13, img: "/Couple_img/couple (13).webp" },
-                  { id: 14, img: "/Couple_img/couple (11).webp" },
                 ]}
                 animationConfig={{ stiffness: 260, damping: 20 }}
               />
