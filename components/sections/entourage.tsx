@@ -2,7 +2,6 @@
 
 import { entourage } from "@/content/site"
 import { Heart, Users, Flower2, Crown, Sparkles } from "lucide-react"
-import dynamic from "next/dynamic"
 
 
 interface EntourageRole {
@@ -16,64 +15,99 @@ interface EntourageRole {
 export function Entourage() {
   const roleCategories: EntourageRole[] = [
     {
+      title: "KATE'S IMMEDIATE FAMILY",
+      subtitle: "",
+      layout: "centered",
+      roles: ["Kate Immediate Family"],
+      icon: <Heart className="w-5 h-5" />,
+    },
+    {
+      title: "CHRISTIAN'S IMMEDIATE FAMILY",
+      subtitle: "",
+      layout: "centered",
+      roles: ["Christian Immediate Family"],
+      icon: <Heart className="w-5 h-5" />,
+    },
+    {
       title: "TO ASSIST US IN OUR NEEDS",
-      subtitle: "Our closest friends and confidants",
+      subtitle: "Best Man, Maid of Honor, Matron of Honor",
       layout: "two-column",
-      roles: ["Best Man", "Maid of Honor"],
+      roles: ["Best Man", "Maid of Honor", "Matron of Honor"],
       icon: <Heart className="w-5 h-5" />,
     },
     {
       title: "TO CLOTH US AS ONE",
-      subtitle: "Our wedding party",
+      subtitle: "Clothing sponsors",
       layout: "two-column",
       roles: ["Groomsman", "Bridesmaid"],
       icon: <Users className="w-5 h-5" />,
     },
     {
       title: "TO BIND US TOGETHER",
-      subtitle: "Our wedding party",
+      subtitle: "Binding sponsors",
       layout: "two-column",
       roles: ["Groomsman", "Bridesmaid"],
       icon: <Users className="w-5 h-5" />,
     },
     {
       title: "TO LIGHT OUR PATH",
-      subtitle: "Our wedding party",
+      subtitle: "Path sponsors",
       layout: "centered",
       roles: ["Groomsman", "Bridesmaid"],
       icon: <Sparkles className="w-5 h-5" />,
     },
     {
+      title: "TO LIGHT OUR UNITY",
+      subtitle: "Candle sponsors",
+      layout: "two-column",
+      roles: ["Groomsman", "Bridesmaid"],
+      icon: <Sparkles className="w-5 h-5" />,
+    },
+    {
+      title: "TO VEIL US AS ONE",
+      subtitle: "Veil sponsors",
+      layout: "two-column",
+      roles: ["Groomsman", "Bridesmaid"],
+      icon: <Heart className="w-5 h-5" />,
+    },
+    {
       title: "TO GUIDE US IN OUR WAY",
-      subtitle: "Our ushers and usherettes",
+      subtitle: "Groomsmen and Bridesmaids",
       layout: "two-column",
       roles: ["Groomsman", "Bridesmaid"],
       icon: <Users className="w-5 h-5" />,
     },
     {
+      title: "TO UNITE US WITH LOVE",
+      subtitle: "Cord sponsors",
+      layout: "two-column",
+      roles: ["Groomsman", "Bridesmaid"],
+      icon: <Heart className="w-5 h-5" />,
+    },
+    {
       title: "TO CARRY OUR SYMBOL OF LOVE",
-      subtitle: "Our ring bearer",
+      subtitle: "Ring Bearer",
       layout: "centered",
       roles: ["Ring Bearer"],
       icon: <Heart className="w-5 h-5" />,
     },
     {
       title: "TO CARRY OUR SYMBOL OF FAITH",
-      subtitle: "Our bible bearer",
+      subtitle: "Bible Bearer",
       layout: "centered",
       roles: ["Bible Bearer"],
       icon: <Crown className="w-5 h-5" />,
     },
     {
       title: "TO CARRY OUR SYMBOL OF TREASURES",
-      subtitle: "Our coin bearer",
+      subtitle: "Coin Bearer",
       layout: "centered",
       roles: ["Coin Bearer"],
       icon: <Crown className="w-5 h-5" />,
     },
     {
       title: "TO SHOWER OUR AISLE WITH FLOWERS",
-      subtitle: "Our flower girls",
+      subtitle: "Flower Girls",
       layout: "centered",
       roles: ["Flower Girl"],
       icon: <Flower2 className="w-5 h-5" />,
@@ -95,16 +129,22 @@ export function Entourage() {
   ]
 
   const categoryGroupMap: Record<string, string | undefined> = {
-    "TO CLOTH US AS ONE": "clothe-us-as-one",
-    "TO BIND US TOGETHER": "bind-us-together",
-    "TO LIGHT OUR PATH": "light-our-path",
-    "TO GUIDE US IN OUR WAY": "guide-us-in-our-way",
+    "KATE'S IMMEDIATE FAMILY": undefined,
+    "CHRISTIAN'S IMMEDIATE FAMILY": undefined,
+    "TO CLOTH US AS ONE": "clothing",
+    "TO BIND US TOGETHER": "binding",
+    "TO LIGHT OUR PATH": "path",
+    "TO LIGHT OUR UNITY": "candle",
+    "TO VEIL US AS ONE": "veil",
+    "TO GUIDE US IN OUR WAY": "", // Empty string means no group filter
+    "TO UNITE US WITH LOVE": "cord",
   }
 
   const getMembersByRole = (roleNames: string[], categoryTitle?: string) => {
     const group = categoryGroupMap[categoryTitle ?? ""]
     return entourage.filter((member) => {
       const roleMatch = roleNames.includes(member.role)
+      if (group === "") return roleMatch && !member.group
       if (!group) return roleMatch && !member.group
       return roleMatch && member.group === group
     })
@@ -114,28 +154,29 @@ export function Entourage() {
     switch (role) {
       case "Best Man":
       case "Maid of Honor":
-        return <Heart className="w-4 h-4" style={{ color: '#593163' }} />
+      case "Matron of Honor":
+        return <Heart className="w-4 h-4" style={{ color: '#525E2C' }} />
       case "Groomsman":
       case "Bridesmaid":
-        return <Users className="w-4 h-4" style={{ color: '#593163' }} />
+        return <Users className="w-4 h-4" style={{ color: '#525E2C' }} />
       case "Usher":
       case "Usherette":
-        return <Users className="w-4 h-4" style={{ color: '#593163' }} />
+        return <Users className="w-4 h-4" style={{ color: '#525E2C' }} />
       case "Ring Bearer":
-        return <Heart className="w-4 h-4" style={{ color: '#593163' }} />
+        return <Heart className="w-4 h-4" style={{ color: '#525E2C' }} />
       case "Bible Bearer":
       case "Coin Bearer":
-        return <Crown className="w-4 h-4" style={{ color: '#593163' }} />
+        return <Crown className="w-4 h-4" style={{ color: '#525E2C' }} />
       case "Flower Girl":
-        return <Flower2 className="w-4 h-4" style={{ color: '#593163' }} />
+        return <Flower2 className="w-4 h-4" style={{ color: '#525E2C' }} />
       case "Little Groom":
       case "Little Bride":
-        return <Heart className="w-4 h-4" style={{ color: '#593163' }} />
+        return <Heart className="w-4 h-4" style={{ color: '#525E2C' }} />
       case "Little Groomsman":
       case "Little Bridesmaid":
-        return <Sparkles className="w-4 h-4" style={{ color: '#593163' }} />
+        return <Sparkles className="w-4 h-4" style={{ color: '#525E2C' }} />
       default:
-        return <Users className="w-4 h-4" style={{ color: '#593163' }} />
+        return <Users className="w-4 h-4" style={{ color: '#525E2C' }} />
     }
   }
 
@@ -156,7 +197,13 @@ export function Entourage() {
         </div>
 
         <div className="space-y-12 sm:space-y-16 md:space-y-20 max-w-7xl mx-auto">
-        {roleCategories.map((category, idx) => {
+        {roleCategories
+          .filter((c) => ![
+            "TO CLOTH US AS ONE",
+            "TO BIND US TOGETHER",
+            "TO LIGHT OUR PATH",
+          ].includes(c.title))
+          .map((category, idx) => {
           const members = getMembersByRole(category.roles, category.title)
           if (members.length === 0) return null
 
@@ -188,12 +235,14 @@ export function Entourage() {
                     {members.map((member, i) => (
                       <div
                         key={i}
-                        className="group/member relative bg-white/80 backdrop-blur-sm rounded-xl px-4 sm:px-6 py-3 sm:py-4 border border-primary/20 shadow-lg hover:shadow-xl hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 min-w-[180px] sm:min-w-[200px]"
+                        className="group/member relative bg-white/90 backdrop-blur-sm rounded-xl px-4 sm:px-6 py-3 sm:py-4 border border-primary/30 shadow-lg hover:shadow-2xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] min-w-[180px] sm:min-w-[200px]"
                       >
                         <div className="flex items-center justify-center gap-2 sm:gap-3">
-                          {getRoleIcon(member.role)}
+                          <div className="group-hover/member:scale-110 transition-transform duration-300">
+                            {getRoleIcon(member.role)}
+                          </div>
                           <div className="text-center">
-                            <p className="font-inter font-semibold text-foreground text-sm sm:text-base">
+                            <p className="font-inter font-semibold text-foreground text-sm sm:text-base group-hover/member:text-primary transition-colors duration-300">
                               {member.name}
                             </p>
                             <p className="font-inter text-xs text-muted-foreground mt-1">
@@ -208,50 +257,119 @@ export function Entourage() {
 
                 {category.layout === "two-column" && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                    {/* Left column */}
-                    <div className="space-y-2 sm:space-y-3">
-                      {members.slice(0, Math.ceil(members.length / 2)).map((member, i) => (
-                        <div
-                          key={i}
-                          className="group/member bg-white/80 backdrop-blur-sm rounded-xl px-4 sm:px-5 py-3 sm:py-4 border border-primary/20 shadow-md hover:shadow-lg hover:border-primary/40 transition-all duration-300 hover:-translate-y-1"
-                        >
-                          <div className="flex items-center gap-2 sm:gap-3">
-                            {getRoleIcon(member.role)}
-                            <div>
-                              <p className="font-inter font-semibold text-foreground text-sm sm:text-base">
-                                {member.name}
-                              </p>
-                              <p className="font-inter text-xs text-muted-foreground mt-1">
-                                {member.role}
-                              </p>
-                            </div>
+                    {/* Check if we should split by role (Groomsman/Bridesmaid) */}
+                    {category.roles.includes("Groomsman") && category.roles.includes("Bridesmaid") ? (
+                      <>
+                        {/* Left column - Groomsmen */}
+                        <div className="space-y-2 sm:space-y-3">
+                          <div className="mb-2 sm:mb-3 text-center md:text-left">
+                            <h4 className="text-xs sm:text-sm font-semibold text-white/80 uppercase tracking-wider">
+                              GROOMSMEN
+                            </h4>
                           </div>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    {/* Right column */}
-                    {members.length > 1 && (
-                      <div className="space-y-2 sm:space-y-3">
-                        {members.slice(Math.ceil(members.length / 2)).map((member, i) => (
-                          <div
-                            key={i}
-                            className="group/member bg-white/80 backdrop-blur-sm rounded-xl px-4 sm:px-5 py-3 sm:py-4 border border-secondary/20 shadow-md hover:shadow-lg hover:border-secondary/40 transition-all duration-300 hover:-translate-y-1"
-                          >
-                            <div className="flex items-center gap-2 sm:gap-3">
-                              {getRoleIcon(member.role)}
-                              <div>
-                                <p className="font-inter font-semibold text-foreground text-sm sm:text-base">
-                                  {member.name}
-                                </p>
-                                <p className="font-inter text-xs text-muted-foreground mt-1">
-                                  {member.role}
-                                </p>
+                          {members.filter(m => m.role === "Groomsman").map((member, i) => (
+                            <div
+                              key={i}
+                              className="group/member bg-white/90 backdrop-blur-sm rounded-xl px-4 sm:px-5 py-3 sm:py-4 border border-primary/30 shadow-md hover:shadow-xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02]"
+                            >
+                              <div className="flex items-center gap-2 sm:gap-3">
+                                <div className="group-hover/member:scale-110 transition-transform duration-300">
+                                  {getRoleIcon(member.role)}
+                                </div>
+                                <div>
+                                  <p className="font-inter font-semibold text-foreground text-sm sm:text-base group-hover/member:text-primary transition-colors duration-300">
+                                    {member.name}
+                                  </p>
+                                  <p className="font-inter text-xs text-muted-foreground mt-1">
+                                    {member.role}
+                                  </p>
+                                </div>
                               </div>
                             </div>
+                          ))}
+                        </div>
+                        
+                        {/* Right column - Bridesmaids */}
+                        <div className="space-y-2 sm:space-y-3">
+                          <div className="mb-2 sm:mb-3 text-center md:text-left">
+                            <h4 className="text-xs sm:text-sm font-semibold text-white/80 uppercase tracking-wider">
+                              BRIDESMAIDS
+                            </h4>
                           </div>
-                        ))}
-                      </div>
+                          {members.filter(m => m.role === "Bridesmaid").map((member, i) => (
+                            <div
+                              key={i}
+                              className="group/member bg-white/90 backdrop-blur-sm rounded-xl px-4 sm:px-5 py-3 sm:py-4 border border-secondary/30 shadow-md hover:shadow-xl hover:border-secondary/50 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02]"
+                            >
+                              <div className="flex items-center gap-2 sm:gap-3">
+                                <div className="group-hover/member:scale-110 transition-transform duration-300">
+                                  {getRoleIcon(member.role)}
+                                </div>
+                                <div>
+                                  <p className="font-inter font-semibold text-foreground text-sm sm:text-base group-hover/member:text-secondary transition-colors duration-300">
+                                    {member.name}
+                                  </p>
+                                  <p className="font-inter text-xs text-muted-foreground mt-1">
+                                    {member.role}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        {/* Left column - Generic split */}
+                        <div className="space-y-2 sm:space-y-3">
+                          {members.slice(0, Math.ceil(members.length / 2)).map((member, i) => (
+                            <div
+                              key={i}
+                              className="group/member bg-white/90 backdrop-blur-sm rounded-xl px-4 sm:px-5 py-3 sm:py-4 border border-primary/30 shadow-md hover:shadow-xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02]"
+                            >
+                              <div className="flex items-center gap-2 sm:gap-3">
+                                <div className="group-hover/member:scale-110 transition-transform duration-300">
+                                  {getRoleIcon(member.role)}
+                                </div>
+                                <div>
+                                  <p className="font-inter font-semibold text-foreground text-sm sm:text-base group-hover/member:text-primary transition-colors duration-300">
+                                    {member.name}
+                                  </p>
+                                  <p className="font-inter text-xs text-muted-foreground mt-1">
+                                    {member.role}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        {/* Right column */}
+                        {members.length > 1 && (
+                          <div className="space-y-2 sm:space-y-3">
+                            {members.slice(Math.ceil(members.length / 2)).map((member, i) => (
+                              <div
+                                key={i}
+                                className="group/member bg-white/90 backdrop-blur-sm rounded-xl px-4 sm:px-5 py-3 sm:py-4 border border-secondary/30 shadow-md hover:shadow-xl hover:border-secondary/50 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02]"
+                              >
+                                <div className="flex items-center gap-2 sm:gap-3">
+                                  <div className="group-hover/member:scale-110 transition-transform duration-300">
+                                    {getRoleIcon(member.role)}
+                                  </div>
+                                  <div>
+                                    <p className="font-inter font-semibold text-foreground text-sm sm:text-base group-hover/member:text-secondary transition-colors duration-300">
+                                      {member.name}
+                                    </p>
+                                    <p className="font-inter text-xs text-muted-foreground mt-1">
+                                      {member.role}
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </>
                     )}
                   </div>
                 )}

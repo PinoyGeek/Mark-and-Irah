@@ -43,14 +43,19 @@ interface DigitProps {
 
 function Digit({ place, value, height, digitStyle }: DigitProps) {
   const valueRoundedToPlace = Math.floor(value / place)
-  const animatedValue = useSpring(valueRoundedToPlace)
+  const animatedValue = useSpring(valueRoundedToPlace, {
+    stiffness: 400,
+    damping: 40,
+    mass: 1,
+  })
 
   useEffect(() => {
     animatedValue.set(valueRoundedToPlace)
   }, [animatedValue, valueRoundedToPlace])
 
   const defaultStyle: React.CSSProperties = {
-    height,
+    height: "100%",
+    minHeight: height,
     position: "relative",
     width: "1ch",
     fontVariantNumeric: "tabular-nums",
@@ -112,7 +117,7 @@ export default function Counter({
   }
 
   const defaultCounterStyle: React.CSSProperties = {
-    fontSize,
+    fontSize: `clamp(${fontSize * 0.7}px, 5vw, ${fontSize}px)`,
     display: "flex",
     gap: gap,
     overflow: "hidden",

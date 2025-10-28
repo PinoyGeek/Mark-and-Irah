@@ -36,7 +36,7 @@ export function RSVP({ onSuccess }: RSVPFormProps) {
 
     try {
       await fetch(
-        "https://docs.google.com/forms/d/e/1FAIpQLSfJ0svKhXSXpOPWANlAUMt3zWPJjovN5wsrBPWCtKUsQ0113A/formResponse",
+        "https://docs.google.com/forms/d/e/1FAIpQLSf52GDWoTqGYCDJrPUfiNVBCPurGNeg5VMmiNi1UHwn5cvBeg/formResponse",
         {
           method: "POST",
           mode: "no-cors",

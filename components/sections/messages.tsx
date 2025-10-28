@@ -3,7 +3,6 @@
 import { useRef, useState, useCallback, useEffect } from "react"
 import { MessageCircle, Heart, Sparkles, Send } from "lucide-react"
 import { Section } from "@/components/section"
-import { Heading } from "@/components/heading"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -26,6 +25,10 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
   const formRef = useRef<HTMLFormElement>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isFocused, setIsFocused] = useState(false)
+  const [nameValue, setNameValue] = useState("")
+  const [messageValue, setMessageValue] = useState("")
+  const [focusedField, setFocusedField] = useState<string | null>(null)
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const { toast } = useToast()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -42,7 +45,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
 
     try {
       await fetch(
-        "https://docs.google.com/forms/d/e/1FAIpQLScfCiTEiDMPTz5c3ug3ENYE_bWnfIxn_2x9yZb8jTtP7uGlFg/formResponse",
+        "https://docs.google.com/forms/d/e/1FAIpQLSdD7ku2BIZF9p4SNO3l3SzVlFmHj41ZK2MzdiZBzzQTj0_sJg/formResponse",
         {
           method: "POST",
           mode: "no-cors",
@@ -56,7 +59,14 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
         duration: 3000,
       })
 
+      setIsSubmitted(true)
+      setNameValue("")
+      setMessageValue("")
       formRef.current?.reset()
+      
+      // Reset submitted state after animation
+      setTimeout(() => setIsSubmitted(false), 1000)
+      
       if (onSuccess) onSuccess()
       if (onMessageSent) onMessageSent()
     } catch (error) {
@@ -78,12 +88,30 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
       <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-secondary/10 rounded-full blur-md animate-pulse sm:w-16 sm:h-16 sm:-bottom-6 sm:-right-6"></div>
       <div className="absolute top-1/2 -left-2 w-6 h-6 bg-secondary/15 rounded-full blur-sm animate-pulse sm:w-8 sm:h-8 sm:-left-3"></div>
       
-      <Card className={`relative w-full border border-secondary/20 shadow-lg bg-white/95 backdrop-blur-sm transition-all duration-500 group overflow-hidden ${
-        isFocused ? 'shadow-2xl scale-[1.02] border-secondary/40' : 'hover:shadow-xl'
-      }`}>
-        {/* Enhanced gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-secondary/10 opacity-60"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent"></div>
+      <Card className={`relative w-full border border-white/30 shadow-2xl bg-white/40 backdrop-blur-md transition-all duration-500 group overflow-hidden ${
+        isFocused ? 'shadow-2xl scale-[1.02] border-white/50 bg-white/50' : 'hover:shadow-2xl hover:bg-white/45'
+      } ${isSubmitted ? 'animate-bounce' : ''}`}>
+        {/* Glass effect gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-white/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent"></div>
+        
+        {/* Frosted glass effect */}
+        <div className="absolute inset-0 backdrop-blur-xl bg-gradient-to-br from-white/10 to-white/5"></div>
+        
+        {/* Animated shine effect */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+        
+        {/* Success animation overlay */}
+        {isSubmitted && (
+          <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 to-green-300/10 flex items-center justify-center z-20 pointer-events-none">
+            <div className="flex flex-col items-center gap-2 animate-pulse">
+              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
+                <Sparkles className="h-8 w-8 text-white" />
+              </div>
+              <p className="text-green-600 font-semibold text-lg">Sent!</p>
+            </div>
+          </div>
+        )}
         
         <CardContent className="relative p-6 sm:p-8 lg:p-10">
           {/* Header with icon */}
@@ -112,43 +140,90 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             {/* Name Field */}
             <div className="space-y-2 sm:space-y-3">
               <label className="block text-sm sm:text-base font-medium text-foreground font-lora flex items-center gap-2">
-                <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-full flex items-center justify-center">
+                <div className={`w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  focusedField === 'name' ? 'scale-110 bg-secondary/30' : ''
+                }`}>
                   <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-secondary" />
                 </div>
                 Your Name
               </label>
-              <Input
-                name="name"
-                required
-                placeholder="Enter your name"
-                className="w-full border border-secondary/30 focus:border-secondary rounded-xl py-3 sm:py-4 px-4 sm:px-5 text-sm sm:text-base font-lora placeholder:text-foreground/50 transition-all duration-300 hover:border-secondary/50 focus:ring-4 focus:ring-secondary/20 bg-white/90 shadow-sm hover:shadow-md focus:shadow-lg"
-              />
+              <div className="relative">
+                <Input
+                  name="name"
+                  required
+                  value={nameValue}
+                  onChange={(e) => setNameValue(e.target.value)}
+                  onFocus={() => setFocusedField('name')}
+                  onBlur={() => setFocusedField(null)}
+                  placeholder="Enter your name"
+                  className={`w-full border rounded-xl py-3 sm:py-4 px-4 sm:px-5 text-sm sm:text-base font-lora placeholder:text-foreground/50 transition-all duration-300 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md focus:shadow-lg ${
+                    focusedField === 'name' 
+                      ? 'border-white/50 focus:border-white/70 focus:ring-4 focus:ring-white/30 shadow-lg bg-white/70' 
+                      : 'border-white/30 hover:border-white/40'
+                  }`}
+                />
+                {nameValue && (
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Message Field */}
             <div className="space-y-2 sm:space-y-3">
-              <label className="block text-sm sm:text-base font-medium text-foreground font-lora flex items-center gap-2">
-                <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-full flex items-center justify-center">
-                  <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 text-secondary" />
-                </div>
-                Your Message
-              </label>
-              <Textarea
-                name="message"
-                required
-                placeholder="Share your love, memories, or well wishes..."
-                className="w-full border border-secondary/30 focus:border-secondary rounded-xl min-h-[100px] sm:min-h-[120px] text-sm sm:text-base font-lora placeholder:text-foreground/50 transition-all duration-300 hover:border-secondary/50 focus:ring-4 focus:ring-secondary/20 resize-none bg-white/90 shadow-sm hover:shadow-md focus:shadow-lg py-3 sm:py-4 px-4 sm:px-5"
-              />
+              <div className="flex items-center justify-between">
+                <label className="block text-sm sm:text-base font-medium text-foreground font-lora flex items-center gap-2">
+                  <div className={`w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    focusedField === 'message' ? 'scale-110 bg-secondary/30' : ''
+                  }`}>
+                    <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 text-secondary" />
+                  </div>
+                  Your Message
+                </label>
+                {messageValue && (
+                  <span className={`text-xs font-lora transition-colors ${
+                    messageValue.length > 500 ? 'text-red-500' : 'text-foreground/50'
+                  }`}>
+                    {messageValue.length}/500
+                  </span>
+                )}
+              </div>
+              <div className="relative">
+                <Textarea
+                  name="message"
+                  required
+                  value={messageValue}
+                  onChange={(e) => {
+                    if (e.target.value.length <= 500) {
+                      setMessageValue(e.target.value)
+                    }
+                  }}
+                  onFocus={() => setFocusedField('message')}
+                  onBlur={() => setFocusedField(null)}
+                  placeholder="Share your love, memories, or well wishes..."
+                  className={`w-full border rounded-xl min-h-[100px] sm:min-h-[120px] text-sm sm:text-base font-lora placeholder:text-foreground/50 transition-all duration-300 resize-none bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md focus:shadow-lg py-3 sm:py-4 px-4 sm:px-5 ${
+                    focusedField === 'message' 
+                      ? 'border-white/50 focus:border-white/70 focus:ring-4 focus:ring-white/30 shadow-lg bg-white/70' 
+                      : 'border-white/30 hover:border-white/40'
+                  }`}
+                />
+                {messageValue && (
+                  <div className="absolute right-3 top-3">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Submit Button */}
             <Button
               type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-secondary via-secondary to-secondary/90 hover:from-secondary/90 hover:via-secondary hover:to-secondary text-white py-3 sm:py-4 px-6 sm:px-8 rounded-xl text-sm sm:text-base font-lora font-semibold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group"
+              disabled={isSubmitting || !nameValue.trim() || !messageValue.trim()}
+              className="w-full bg-gradient-to-r from-secondary/90 via-secondary to-secondary/90 hover:from-secondary hover:via-secondary/90 hover:to-secondary text-white py-3 sm:py-4 px-6 sm:px-8 rounded-xl text-sm sm:text-base font-lora font-semibold shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group border border-white/20"
             >
               {/* Button background animation */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
               
               {isSubmitting ? (
                 <span className="flex items-center justify-center gap-2 relative z-10">
@@ -179,7 +254,7 @@ export function Messages() {
   const fetchMessages = useCallback(() => {
     setLoading(true)
     fetch(
-      "https://script.google.com/macros/s/AKfycbw9dm3mEfKdzCd95GjvRKEtgKWp7dgny6jA_tpWaXyEvZ_GWvGBvmz8kH2xtlY3XSID/exec"
+      "https://script.google.com/macros/s/AKfycbzwjRqarHkb5e_i1HXmHIPg_Ax41tGVwCfb750nzOnIzqy8QiIhvShe9Hzt-g_10FCGVA/exec"
     )
       .then((res) => res.json())
       .then((data) => {

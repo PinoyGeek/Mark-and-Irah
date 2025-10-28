@@ -13,7 +13,7 @@ export function SnapShare() {
   const [isMobile, setIsMobile] = useState(false)
 
   const websiteUrl = typeof window !== "undefined" ? window.location.href : "https://example.com"
-  const hashtags = ["#AMEzinglyBlessedWithJANuineLove"]
+  const hashtags = ["#OfficiallyKATEAndCHRIS"]
   const shareText = `Join us in celebrating our special day! Check out our wedding website: ${websiteUrl} ${hashtags.join(" ")} 💕`
 
   useEffect(() => {
@@ -143,10 +143,10 @@ export function SnapShare() {
               <h4 className="font-playfair text-base sm:text-lg font-bold text-ink mb-4 text-center">Our Favorite Moments</h4>
               <div className="grid grid-cols-2 gap-2 sm:gap-3">
                 {[
-                  "/Couple_img/couple_1.png",
-                  "/Couple_img/couple_2.png",
-                  "/Couple_img/couple_3.png",
-                  "/Couple_img/couple_4.png",
+                  "/Couple_img/couple (1).webp",
+                  "/Couple_img/couple (11).webp",
+                  "/Couple_img/couple (7).webp",
+                  "/Couple_img/couple (9).webp",
                 ].map((src) => (
                   <motion.div key={src} className="relative aspect-square rounded-xl overflow-hidden shadow-md ring-1 ring-amber-100/60" whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
                     <Image src={src} alt="Couple photo" fill className="object-cover" />
@@ -171,7 +171,7 @@ export function SnapShare() {
                 <button
                   onClick={downloadQRCode}
                   className="flex items-center gap-2 mx-auto px-3.5 py-2 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md text-xs sm:text-sm"
-                  style={{ backgroundColor: '#593163', color: 'white' }}
+                  style={{ backgroundColor: '#525E2C', color: 'white' }}
                 >
                   <Download className="w-3.5 h-3.5" style={{ color: 'white' }} />
                   <span className="font-lora">Download QR</span>
@@ -225,8 +225,7 @@ export function SnapShare() {
             </p>
             <div className="flex items-center justify-center gap-2">
               <div className="text-center">
-                <span className="block font-playfair text-teal font-bold text-lg sm:text-xl">– Amelyn A. Mote & Jan Erick D. Añonuevo –</span>
-                <span className="block font-lora text-ink/70 text-sm">“Jam” & “Jan”</span>
+                <span className="block font-playfair text-teal font-bold text-lg sm:text-xl">– Kate & Christian –</span>
               </div>
             </div>
           </div>

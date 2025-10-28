@@ -9,17 +9,17 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "--font-serif" })
 
 export const metadata: Metadata = {
-  title: "Amelyn 'Jam' Mote & Jan Erick 'Jan' Añonuevo - Wedding Invitation",
+  title: "Christian & Kate - Wedding Invitation",
   description:
-    "You're invited to the wedding of Amelyn 'Jam' Mote and Jan Erick 'Jan' Añonuevo! Join us on December 3, 2025. A celebration of love, nature, and forever. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+    "You're invited to the wedding of Christian & Kate! Join us on January 10, 2026. A celebration of love, faith, and forever. RSVP, read our love story, view our gallery, and leave a message for the couple.",
   keywords:
-    "Amelyn Jam Mote Jan Erick Añonuevo wedding, garden wedding, Filipino wedding, RSVP, wedding gallery, wedding message wall, wedding invitation, 2025 weddings, love story, guestbook, wedding registry, wedding details, wedding venues Philippines, #JamAndJanWedding",
+    "Christian Kate wedding, Filipino wedding, RSVP, wedding gallery, wedding message wall, wedding invitation, 2026 weddings, love story, guestbook, wedding registry, wedding details, wedding venues Cebu, #ChristianAndKateWedding",
   authors: [
-    { name: "Amelyn 'Jam' Mote" },
-    { name: "Jan Erick 'Jan' Añonuevo" },
+    { name: "Christian" },
+    { name: "Kate" },
   ],
-  creator: "Amelyn 'Jam' Mote & Jan Erick 'Jan' Añonuevo",
-  publisher: "Amelyn 'Jam' Mote & Jan Erick 'Jan' Añonuevo",
+  creator: "Christian & Kate",
+  publisher: "Christian & Kate",
   formatDetection: {
     email: false,
     address: false,
@@ -49,11 +49,11 @@ export const metadata: Metadata = {
   },
   manifest: "/favicon_io/site.webmanifest",
   openGraph: {
-    title: "Amelyn 'Jam' Mote & Jan Erick 'Jan' Añonuevo Wedding | December 3, 2025",
+    title: "Christian & Kate Wedding | January 10, 2026",
     description:
-      "Celebrate the union of Amelyn 'Jam' Mote and Jan Erick 'Jan' Añonuevo on December 3, 2025. A celebration of love, nature, and forever. Discover our love story, RSVP, view the gallery, and leave your wishes!",
+      "Celebrate the union of Christian & Kate on January 10, 2026. A celebration of love, faith, and forever. Discover our love story, RSVP, view the gallery, and leave your wishes!",
     url: "https://jam-jan-invitation.vercel.app/",
-    siteName: "Amelyn 'Jam' Mote & Jan Erick 'Jan' Añonuevo Wedding",
+    siteName: "Christian & Kate Wedding",
     locale: "en_PH",
     type: "website",
     images: [
@@ -61,17 +61,17 @@ export const metadata: Metadata = {
         url: "https://jam-jan-invitation.vercel.app/Couple_img/couple_2.png",
         width: 1200,
         height: 630,
-        alt: "Amelyn 'Jam' Mote & Jan Erick 'Jan' Añonuevo Wedding Invitation - December 3, 2025",
+        alt: "Christian & Kate Wedding Invitation - January 10, 2026",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amelyn 'Jam' Mote & Jan Erick 'Jan' Añonuevo Wedding Invitation",
+    title: "Christian & Kate Wedding Invitation",
     description:
-      "You're invited to the wedding of Amelyn 'Jam' Mote and Jan Erick 'Jan' Añonuevo! December 3, 2025. A celebration of love, nature, and forever. RSVP, view our gallery, and leave a message! #JamAndJanWedding",
+      "You're invited to the wedding of Christian & Kate! January 10, 2026. A celebration of love, faith, and forever. RSVP, view our gallery, and leave a message! #ChristianAndKateWedding",
     images: ["https://jam-jan-invitation.vercel.app/Couple_img/couple_2.png"],
-    creator: "@jamandjan",
+    creator: "@christianandkate",
   },
   robots: {
     index: true,
@@ -91,28 +91,28 @@ export const metadata: Metadata = {
     "application/ld+json": JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Event",
-      name: "Amelyn 'Jam' Mote & Jan Erick 'Jan' Añonuevo Wedding",
-      startDate: "2025-12-03T16:00:00+08:00",
-      endDate: "2025-12-03T22:00:00+08:00",
+      name: "Christian & Kate Wedding",
+      startDate: "2026-01-10T14:00:00+08:00",
+      endDate: "2026-01-10T22:00:00+08:00",
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       location: [
         {
           "@type": "Place",
-          name: "Garden Venue",
+          name: "Saint Joseph the Patriarch Church",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Philippines",
+            addressLocality: "Mabolo, Cebu",
             addressCountry: "PH",
           },
         },
       ],
       image: ["https://jam-jan-invitation.vercel.app/Couple_img/couple_2.png"],
       description:
-        "You're invited to the wedding of Amelyn 'Jam' Mote and Jan Erick 'Jan' Añonuevo! Join us on December 3, 2025. A celebration of love, nature, and forever. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+        "You're invited to the wedding of Christian & Kate! Join us on January 10, 2026. A celebration of love, faith, and forever. RSVP, read our love story, view our gallery, and leave a message for the couple.",
       organizer: {
         "@type": "Person",
-        name: "Amelyn 'Jam' Mote & Jan Erick 'Jan' Añonuevo",
+        name: "Christian & Kate",
       },
       offers: {
         "@type": "Offer",
@@ -121,7 +121,7 @@ export const metadata: Metadata = {
         price: "0",
         priceCurrency: "PHP",
       },
-      eventHashtag: "#JamAndJanWedding",
+      eventHashtag: "#ChristianAndKateWedding",
     }),
   },
 }
@@ -134,10 +134,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#5f674f" />
+        <meta name="theme-color" content="#525E2C" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${inter.variable} ${greatVibes.variable} font-inter antialiased bg-background text-foreground`}>
+      <body className={`${inter.variable} ${greatVibes.variable} font-inter antialiased text-foreground`}>
         <Navbar />
         {children}
         <Analytics />

@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Section } from "@/components/section"
 import { Loader2, Mail, Calendar, MessageSquare, Heart, Sparkles, Star } from "lucide-react"
 
 type GuestEntry = {
@@ -34,7 +33,7 @@ export function BookOfGuests() {
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbw_peHqEVKLefWB-z6GtLunk-zoQhJCYLx-eshuZhHaYsL0HeBCy9PKXyiy72IT9qPx/exec",
+        "https://script.google.com/macros/s/AKfycbwWCVDoMdWzLCC0oopoCIcrAcoXbdHijfM3ED3XF4wvV_pOkzvMwl0yGBD-ZpSW4K-_/exec",
         { cache: "no-store" }
       )
 
@@ -114,62 +113,122 @@ export function BookOfGuests() {
   }
 
   return (
-    <Section id="guests" className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-[#9CAF88] via-[#9CAF88] to-[#8a9a73]">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-10 w-20 h-20 bg-white/5 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute top-32 right-16 w-16 h-16 bg-white/5 rounded-full blur-lg animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-white/5 rounded-full blur-xl animate-pulse delay-2000"></div>
-        <div className="absolute bottom-32 right-1/3 w-12 h-12 bg-white/5 rounded-full blur-lg animate-pulse delay-500"></div>
+    <div 
+      id="guests" 
+      className="relative py-20 md:py-32 overflow-hidden"
+      style={{ 
+        background: 'linear-gradient(135deg, #909E8D 0%, #525E2C 50%, #909E8D 100%)'
+      }}
+    >
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Floating geometric shapes */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-[#D1AB6D]/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-20 right-20 w-24 h-24 bg-[#E0CFB5]/15 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-[#D1AB6D]/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#E0CFB5]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
+        
+        {/* Decorative lines */}
+        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D1AB6D]/30 to-transparent" />
+        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E0CFB5]/25 to-transparent" />
+        
+        {/* Corner decorative elements */}
+        <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#D1AB6D]/15 via-[#E0CFB5]/10 to-transparent rounded-br-3xl" />
+        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#D1AB6D]/15 via-[#E0CFB5]/10 to-transparent rounded-bl-3xl" />
+        <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#D1AB6D]/15 via-[#E0CFB5]/10 to-transparent rounded-tr-3xl" />
+        <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[#D1AB6D]/15 via-[#E0CFB5]/10 to-transparent rounded-tl-3xl" />
       </div>
 
       {/* Enhanced title section */}
       <div className="relative z-10 text-center mb-8 md:mb-20">
+        {/* Decorative ornaments */}
+        <div className="flex items-center justify-center gap-6 mb-6">
+          <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#D1AB6D]/60 to-[#D1AB6D]/30" />
+          <div className="flex gap-2">
+            <div className="w-2 h-2 bg-[#D1AB6D] rounded-full" />
+            <div className="w-1 h-1 bg-[#E0CFB5] rounded-full self-center" />
+            <div className="w-2 h-2 bg-[#D1AB6D] rounded-full" />
+          </div>
+          <div className="w-16 h-px bg-gradient-to-l from-transparent via-[#D1AB6D]/60 to-[#D1AB6D]/30" />
+        </div>
+
         <div className="inline-flex items-center gap-1 md:gap-3 mb-2 md:mb-4">
           <Sparkles className="text-white/80 h-3 w-3 md:h-6 md:w-6 animate-pulse" />
           <span className="text-white/80 font-lora text-xs md:text-sm uppercase tracking-wider">Guest Registry</span>
-          <Sparkles className="text-white/80 h-3 w-3 md:h-6 md:w-6 animate-pulse delay-500" />
+          <Sparkles className="text-white/80 h-3 w-3 md:h-6 md:w-6 animate-pulse" style={{ animationDelay: '0.5s' }} />
         </div>
-        <h2 className="text-5xl sm:text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-3 md:mb-6 text-balance drop-shadow-2xl">
-          Book of Guests
+        
+        <h2 className="text-5xl sm:text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-3 md:mb-6 text-balance drop-shadow-2xl relative">
+          <span className="relative z-10">Book of Guests</span>
+          {/* Text glow effect */}
+          <span className="absolute inset-0 text-[#D1AB6D]/20 blur-2xl -z-10">Book of Guests</span>
         </h2>
+        
         <p className="text-sm md:text-xl text-white/90 font-sans font-light max-w-2xl mx-auto px-4 leading-relaxed">
           See who's celebrating with us on our special day
         </p>
+
+        {/* Bottom decorative ornaments */}
+        <div className="flex items-center justify-center gap-6 mt-8">
+          <div className="w-12 h-px bg-gradient-to-r from-transparent via-[#E0CFB5]/40 to-[#E0CFB5]/20" />
+          <div className="w-1 h-1 bg-[#E0CFB5] rounded-full" />
+          <div className="w-12 h-px bg-gradient-to-l from-transparent via-[#E0CFB5]/40 to-[#E0CFB5]/20" />
+        </div>
       </div>
 
       {/* Enhanced guests content */}
       <div className="relative z-10">
         {/* Premium stats card */}
-        <div className="text-center mb-4 sm:mb-12 px-4 sm:px-0">
-          <div className="relative bg-gradient-to-r from-white/95 to-white/90 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-8 md:p-10 border border-white/30 shadow-2xl max-w-3xl mx-auto">
-
-            
-            <div className="flex items-center justify-center gap-1 md:gap-3 mb-2 md:mb-4">
-              <div className="bg-gradient-to-r from-[#593163] to-[#593163]/80 p-1 md:p-3 rounded-full shadow-lg">
-                <Heart className="text-white h-3 w-3 md:h-6 md:w-6" />
+        <div className="text-center mb-6 sm:mb-12 px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="relative max-w-3xl mx-auto">
+            {/* Main card */}
+            <div className="relative bg-gradient-to-br from-white via-[#F0F0F0] to-white backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 border-2 border-[#D1AB6D]/30 shadow-lg">
+              {/* Decorative corner accents */}
+              <div className="absolute -top-1 -left-1 w-4 h-4 bg-gradient-to-br from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
+              <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-bl from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
+              <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-gradient-to-tr from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-gradient-to-tl from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
+              
+              {/* Inner decorative border */}
+              <div className="absolute inset-2 border border-[#D1AB6D]/20 rounded-xl" />
+              
+              {/* Content */}
+              <div className="relative z-10">
+                <div className="flex items-center justify-center gap-1 md:gap-3 mb-2 md:mb-4">
+                  <div className="bg-gradient-to-r from-[#525E2C] to-[#525E2C]/80 p-1 md:p-3 rounded-full shadow-lg">
+                    <Heart className="text-white h-3 w-3 md:h-6 md:w-6" />
+                  </div>
+                  <h3 className="text-sm sm:text-2xl md:text-3xl font-playfair font-bold text-[#525E2C]">
+                    {totalGuests} {totalGuests === 1 ? "Guest" : "Guests"} Celebrating With Us
+                  </h3>
+                </div>
+                <p className="text-xs sm:text-base md:text-lg text-gray-600 font-lora leading-relaxed">
+                  Thank you to everyone who has RSVP'd! We can't wait to celebrate with you.
+                </p>
               </div>
-              <h3 className="text-sm sm:text-2xl md:text-3xl font-playfair font-bold text-[#593163]">
-                {totalGuests} {totalGuests === 1 ? "Guest" : "Guests"} Celebrating With Us
-              </h3>
             </div>
-            <p className="text-xs sm:text-base md:text-lg text-gray-600 font-lora leading-relaxed">
-              Thank you to everyone who has RSVP'd! We can't wait to celebrate with you.
-            </p>
           </div>
         </div>
 
         {/* Enhanced guest list container */}
-        <div className="max-w-5xl mx-auto px-2 sm:px-0">
-          <div className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-8 md:p-10 shadow-2xl border border-white/30">
+        <div className="max-w-5xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="relative bg-gradient-to-br from-white via-[#F0F0F0] to-white backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-2xl border-2 border-[#D1AB6D]/30">
+            {/* Decorative corner accents */}
+            <div className="absolute -top-1 -left-1 w-4 h-4 bg-gradient-to-br from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
+            <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-bl from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
+            <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-gradient-to-tr from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
+            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-gradient-to-tl from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
+            
+            {/* Inner decorative border */}
+            <div className="absolute inset-2 border border-[#D1AB6D]/20 rounded-xl" />
             {isLoading ? (
               <div className="flex items-center justify-center h-24 sm:h-48">
                 <div className="flex flex-col items-center gap-2 md:gap-4">
                   <div className="relative">
-                    <Loader2 className="h-6 w-6 md:h-10 md:w-10 animate-spin text-[#593163]" />
-                    <div className="absolute inset-0 h-6 w-6 md:h-10 md:w-10 animate-ping rounded-full bg-[#593163]/20"></div>
+                    <Loader2 className="h-6 w-6 md:h-10 md:w-10 animate-spin text-[#525E2C]" />
+                    <div className="absolute inset-0 h-6 w-6 md:h-10 md:w-10 animate-ping rounded-full bg-[#525E2C]/20"></div>
                   </div>
-                  <span className="text-[#593163] font-lora text-xs md:text-lg font-medium">Loading guests...</span>
+                  <span className="text-[#525E2C] font-lora text-xs md:text-lg font-medium">Loading guests...</span>
                 </div>
               </div>
             ) : error ? (
@@ -183,7 +242,7 @@ export function BookOfGuests() {
               </div>
             ) : guests.length === 0 ? (
               <div className="flex items-center justify-center py-10 sm:py-16">
-                <div className="relative text-center bg-gradient-to-br from-[#593163] to-[#593163]/90 rounded-2xl px-6 sm:px-10 py-8 sm:py-12 shadow-2xl border border-white/20 max-w-xl w-full">
+                <div className="relative text-center bg-gradient-to-br from-[#525E2C] to-[#525E2C]/90 rounded-2xl px-6 sm:px-10 py-8 sm:py-12 shadow-2xl border border-white/20 max-w-xl w-full">
                   {/* Decorative glow */}
                   <div className="absolute -inset-1 rounded-2xl bg-white/10 blur-xl opacity-30 pointer-events-none" />
                   <div className="relative">
@@ -200,7 +259,7 @@ export function BookOfGuests() {
                       Be the first to RSVP and kick off the celebration!
                     </p>
                     <div className="mt-4 sm:mt-6 flex justify-center">
-                      <div className="inline-flex items-center gap-2 bg-white text-[#593163] rounded-full px-3 sm:px-5 py-1.5 sm:py-2 shadow-md">
+                      <div className="inline-flex items-center gap-2 bg-white text-[#525E2C] rounded-full px-3 sm:px-5 py-1.5 sm:py-2 shadow-md">
                         <Sparkles className="h-4 w-4" />
                         <span className="text-xs sm:text-sm font-lora">Use the RSVP form above</span>
                       </div>
@@ -209,55 +268,56 @@ export function BookOfGuests() {
                 </div>
               </div>
             ) : (
-              <div className="space-y-2 sm:space-y-6">
+              <div className="space-y-2 sm:space-y-6 relative z-10">
                 {guests.map((guest, index) => (
                   <div
                     key={index}
-                    className={`group relative p-2 sm:p-6 rounded-md sm:rounded-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-0.5 ring-1 ring-[#593163]/10 ${
-                      index % 2 === 0 
-                        ? "bg-gradient-to-r from-[#593163]/5 to-white border border-[#593163]/20" 
-                        : "bg-gradient-to-r from-white to-[#593163]/5 border border-[#593163]/20"
-                    } hover:border-[#593163]/40 group-hover:ring-2 group-hover:ring-[#593163]/30`}
+                    className="relative"
                   >
-                    {/* Decorative accent */}
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#593163] to-transparent rounded-t-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    {/* Main card */}
+                    <div className={`relative p-2 sm:p-6 rounded-md sm:rounded-xl border-2 ${
+                      index % 2 === 0 
+                        ? "bg-gradient-to-r from-[#525E2C]/5 to-white border-[#525E2C]/20" 
+                        : "bg-gradient-to-r from-white to-[#525E2C]/5 border-[#525E2C]/20"
+                    }`}>
                     
                     <div className="flex flex-col gap-2 sm:gap-4">
                       {/* Header section */}
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-3">
-                        <div className="flex-1">
-                          <div className="flex items-start gap-1 sm:gap-3">
-                            <div className="relative">
-                              <div className="h-6 w-6 sm:h-12 sm:w-12 rounded-full bg-gradient-to-br from-[#593163] to-[#8b5da8] text-white flex items-center justify-center font-semibold shadow-lg ring-2 ring-white text-xs sm:text-base">
-                                {getInitials(guest.name)}
-                              </div>
-                              <div className="pointer-events-none absolute -inset-0.5 rounded-full bg-gradient-to-br from-[#593163]/40 to-transparent blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            </div>
-                            <div className="min-w-0">
-                              <h4 className="font-lora text-gray-800 text-sm sm:text-xl font-semibold leading-tight">
-                                {guest.name}
-                              </h4>
-                              <div className="flex items-center text-xs sm:text-sm text-gray-600 mt-0.5 sm:mt-1">
-                                <Mail className="h-2 w-2 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-[#593163] flex-shrink-0" />
-                                <span className="font-lora break-all truncate text-xs sm:text-sm">{guest.email}</span>
-                              </div>
-                            </div>
+                      <div className="flex items-start gap-2 sm:gap-3">
+                        {/* Avatar */}
+                        <div className="relative h-8 w-8 sm:h-12 sm:w-12 flex-shrink-0">
+                          <div className="h-full w-full rounded-full bg-gradient-to-br from-[#525E2C] to-[#909E8D] text-white flex items-center justify-center font-semibold shadow-lg ring-2 ring-white text-xs sm:text-base">
+                            {getInitials(guest.name)}
                           </div>
                         </div>
-                        <div className="bg-gradient-to-r from-[#593163] to-[#593163]/90 text-white font-lora px-2 sm:px-4 py-0.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold shadow-lg self-start sm:self-auto">
-                          {guest.guests} {parseInt(guest.guests) === 1 ? "Guest" : "Guests"}
+                        
+                        {/* Name and Email */}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
+                            <h4 className="font-lora text-gray-800 text-sm sm:text-xl font-semibold leading-tight">
+                              {guest.name}
+                            </h4>
+                            {/* Guest count badge */}
+                            <div className="bg-gradient-to-r from-[#525E2C] to-[#525E2C]/90 text-white font-lora px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-semibold shadow-lg inline-flex self-start sm:self-auto">
+                              {guest.guests} {parseInt(guest.guests) === 1 ? "Guest" : "Guests"}
+                            </div>
+                          </div>
+                          <div className="flex items-center text-xs sm:text-sm text-gray-600 mt-0.5 sm:mt-1">
+                            <Mail className="h-2 w-2 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-[#525E2C] flex-shrink-0" />
+                            <span className="font-lora break-all truncate text-xs sm:text-sm">{guest.email}</span>
+                          </div>
                         </div>
                       </div>
 
                       {/* Divider */}
-                      <div className="h-px bg-gradient-to-r from-transparent via-[#593163]/20 to-transparent" />
+                      <div className="h-px bg-gradient-to-r from-transparent via-[#525E2C]/20 to-transparent" />
 
                       {/* Premium message section */}
                       {guest.message && (
                         <div className="relative">
-                          <div className="bg-gradient-to-r from-[#593163]/10 to-[#593163]/5 rounded-md sm:rounded-xl p-2 sm:p-4 border-l-2 sm:border-l-4 border-[#593163]">
+                          <div className="bg-gradient-to-r from-[#525E2C]/10 to-[#525E2C]/5 rounded-md sm:rounded-xl p-2 sm:p-4 border-l-2 sm:border-l-4 border-[#525E2C]">
                             <div className="flex items-start gap-1 sm:gap-3">
-                              <div className="bg-[#593163] p-0.5 sm:p-2 rounded-full flex-shrink-0">
+                              <div className="bg-[#525E2C] p-0.5 sm:p-2 rounded-full flex-shrink-0">
                                 <MessageSquare className="h-2 w-2 sm:h-4 sm:w-4 text-white" />
                               </div>
                               <div className="flex-1">
@@ -273,7 +333,7 @@ export function BookOfGuests() {
                       {/* Footer with timestamp */}
                       <div className="flex items-center justify-between pt-1 sm:pt-2 border-t border-gray-200">
                         <div className="text-xs text-gray-500 flex items-center gap-0.5 sm:gap-2">
-                          <Calendar className="h-2 w-2 sm:h-3 sm:w-3 text-[#593163]" />
+                          <Calendar className="h-2 w-2 sm:h-3 sm:w-3 text-[#525E2C]" />
                           <span className="font-lora text-xs">RSVP'd on {formatDate(guest.timestamp)}</span>
                         </div>
                         <div className="flex items-center gap-0.5 sm:gap-1">
@@ -282,6 +342,7 @@ export function BookOfGuests() {
                         </div>
                       </div>
                     </div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -289,6 +350,6 @@ export function BookOfGuests() {
           </div>
         </div>
       </div>
-    </Section>
+    </div>
   )
 }

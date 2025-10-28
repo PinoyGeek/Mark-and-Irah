@@ -1,18 +1,54 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "motion/react"
 import { Instagram, Facebook, MapPin, Calendar, Clock, Heart, MessageCircle } from "lucide-react"
 
 export function Footer() {
   const year = new Date().getFullYear()
-  const [scrollY, setScrollY] = useState(0)
+
+  const quotes = [
+    "In every love story, there's a moment when two hearts become one, and ours is just beginning.",
+    "Two souls, one heart—forever entwined in the journey of love and faith together.",
+    "Love is not about finding the perfect person, but learning to see an imperfect person perfectly."
+  ]
+
+  const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0)
+  const [displayedText, setDisplayedText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [isPaused, setIsPaused] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    if (isPaused) {
+      const pauseTimeout = setTimeout(() => {
+        setIsPaused(false)
+      }, 3000)
+      return () => clearTimeout(pauseTimeout)
+    }
+
+    if (isDeleting) {
+      if (displayedText.length > 0) {
+        const deleteTimeout = setTimeout(() => {
+          setDisplayedText(displayedText.slice(0, -1))
+        }, 30)
+        return () => clearTimeout(deleteTimeout)
+      } else {
+        setIsDeleting(false)
+        setCurrentQuoteIndex((prev) => (prev + 1) % quotes.length)
+      }
+    } else {
+      const currentQuote = quotes[currentQuoteIndex]
+      if (displayedText.length < currentQuote.length) {
+        const typeTimeout = setTimeout(() => {
+          setDisplayedText(currentQuote.slice(0, displayedText.length + 1))
+        }, 50)
+        return () => clearTimeout(typeTimeout)
+      } else {
+        setIsPaused(true)
+        setIsDeleting(true)
+      }
+    }
+  }, [displayedText, isDeleting, isPaused, currentQuoteIndex, quotes])
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -36,24 +72,92 @@ export function Footer() {
   ] as const
 
   return (
-    <footer className="relative z-20 mt-16 bg-[#9caf88] text-cream overflow-hidden">
-      {/* Decorative parallax blobs */}
-      <div className="absolute inset-0 opacity-20">
-        <motion.div
-          className="absolute top-16 left-8 w-64 h-64 bg-cream/30 rounded-full mix-blend-multiply blur-3xl"
-          style={{ y: scrollY * 0.25 }}
-          animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.25, 0.15] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-16 right-8 w-64 h-64 bg-cream/20 rounded-full mix-blend-multiply blur-3xl"
-          style={{ y: -scrollY * 0.2 }}
-          animate={{ scale: [1.1, 1, 1.1], opacity: [0.2, 0.12, 0.2] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
+    <footer 
+      className="relative z-20 mt-16 text-cream overflow-hidden"
+      style={{ 
+        background: 'linear-gradient(135deg, #909E8D 0%, #525E2C 50%, #909E8D 100%)'
+      }}
+    >
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Floating geometric shapes */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-[#D1AB6D]/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-20 right-20 w-24 h-24 bg-[#E0CFB5]/15 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-[#D1AB6D]/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#E0CFB5]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
+        
+        {/* Decorative lines */}
+        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D1AB6D]/30 to-transparent" />
+        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E0CFB5]/25 to-transparent" />
+        
+        {/* Corner decorative elements */}
+        <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#D1AB6D]/15 via-[#E0CFB5]/10 to-transparent rounded-br-3xl" />
+        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#D1AB6D]/15 via-[#E0CFB5]/10 to-transparent rounded-bl-3xl" />
+        <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#D1AB6D]/15 via-[#E0CFB5]/10 to-transparent rounded-tr-3xl" />
+        <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[#D1AB6D]/15 via-[#E0CFB5]/10 to-transparent rounded-tl-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-16">
+        {/* Wedding date presentation */}
+        <motion.div className="flex justify-center px-2 sm:px-4 mb-16" variants={fadeInUp}>
+          <div className="max-w-2xl w-full">
+            {/* Header */}
+            <div className="text-center mb-8">
+              <p className="text-xs sm:text-sm md:text-base text-[#E0CFB5] font-semibold uppercase tracking-[0.2em] mb-3 drop-shadow-md">
+                Save The Date
+              </p>
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="w-8 h-px bg-gradient-to-r from-transparent to-[#D1AB6D]/50" />
+                <div className="w-1.5 h-1.5 bg-[#D1AB6D] rounded-full" />
+                <div className="w-8 h-px bg-gradient-to-l from-transparent to-[#D1AB6D]/50" />
+              </div>
+            </div>
+
+            {/* Date Section */}
+            <div className="mb-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+                {/* Day and Month */}
+                <div className="text-center sm:text-right">
+                  <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#F0F0F0] leading-none drop-shadow-lg">
+                    January
+                  </p>
+                  <p className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-[#D1AB6D] leading-none mt-1 drop-shadow-lg">
+                    10
+                  </p>
+                </div>
+                
+                {/* Separator */}
+                <div className="hidden sm:block w-px h-16 bg-gradient-to-b from-transparent via-[#D1AB6D]/50 to-transparent" />
+                
+                {/* Year */}
+                <div className="text-center sm:text-left">
+                  <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#F0F0F0] leading-none drop-shadow-lg">
+                    2026
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Time Section */}
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-[#D1AB6D] rounded-full animate-pulse" />
+                <p className="text-lg sm:text-xl md:text-2xl font-sans font-semibold text-[#E0CFB5] tracking-wide drop-shadow-md">
+                  2:00 PM
+                </p>
+                <div className="w-2 h-2 bg-[#D1AB6D] rounded-full animate-pulse" />
+              </div>
+            </div>
+
+            {/* Bottom decorative element */}
+            <div className="flex items-center justify-center mt-6">
+              <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#D1AB6D]/40 to-transparent" />
+              <div className="mx-3 w-1 h-1 bg-[#E0CFB5] rounded-full" />
+              <div className="w-16 h-px bg-gradient-to-l from-transparent via-[#D1AB6D]/40 to-transparent" />
+            </div>
+          </div>
+        </motion.div>
+
         <motion.div className="grid grid-cols-1 lg:grid-cols-4 gap-10 mb-12" variants={staggerChildren} initial="initial" animate="animate">
           {/* Couple Info */}
           <motion.div className="lg:col-span-2" variants={fadeInUp}>
@@ -62,23 +166,24 @@ export function Footer() {
                 <div className="w-12 h-12 bg-white/15 rounded-full flex items-center justify-center border border-white/20">
                   <Heart className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-serif text-3xl md:text-4xl font-bold text-white">Jam & Jan</h3>
+                <h3 className="font-serif text-3xl md:text-4xl font-bold text-white">Kate & Christian</h3>
               </div>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 font-lora text-white/95">
                   <Calendar className="w-5 h-5 text-white/80" />
-                  <span className="text-lg">December 3, 2025</span>
+                  <span className="text-lg">January 10, 2026</span>
                 </div>
                 <div className="flex items-center gap-3 font-lora text-white/90">
                   <MapPin className="w-5 h-5 text-white/70" />
-                  <span>Garden Venue</span>
+                  <span>St. Joseph the Patriarch Parish, Cebu</span>
                 </div>
               </div>
             </div>
 
             <motion.div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/15" whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
-              <blockquote className="font-lora text-white/95 italic text-lg leading-relaxed">
-                "In every love story, there's a moment when two hearts become one, and ours is just beginning."
+              <blockquote className="font-lora text-white/95 italic text-lg leading-relaxed min-h-[80px]">
+                "{displayedText}
+                <span className="inline-block w-0.5 h-6 bg-white/95 ml-1 animate-pulse">|</span>"
               </blockquote>
               <div className="flex items-center gap-2 mt-4">
                 <div className="w-2 h-2 bg-white/70 rounded-full" />
@@ -100,11 +205,11 @@ export function Footer() {
               <div className="space-y-3 font-lora text-white/90 text-sm">
                 <div className="flex items-center gap-3">
                   <MapPin className="w-4 h-4 text-white/70" />
-                  <span>Garden Venue</span>
+                  <span>St. Joseph the Patriarch Parish</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="w-4 h-4 text-white/70" />
-                  <span>3:00 PM</span>
+                  <span>2:00 PM</span>
                 </div>
               </div>
             </motion.div>
@@ -119,7 +224,7 @@ export function Footer() {
               <div className="space-y-3 font-lora text-white/90 text-sm">
                 <div className="flex items-center gap-3">
                   <MapPin className="w-4 h-4 text-white/70" />
-                  <span>Reception Hall</span>
+                  <span>Golden Peak Hotel & Suites, Cebu</span>
                 </div>
               </div>
             </motion.div>
@@ -132,13 +237,13 @@ export function Footer() {
                 <div className="w-2 h-8 bg-white/50 rounded-full" /> Get in Touch
               </h4>
               <div className="flex items-center gap-3">
-                <a href="https://www.instagram.com/cattorneyyy" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white/5 ring-1 ring-white/15 hover:bg-white/10 transition-colors">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white/5 ring-1 ring-white/15 hover:bg-white/10 transition-colors">
                   <Instagram className="w-5 h-5 text-white" />
                 </a>
-                <a href="https://www.facebook.com/share/1BH779VKpX/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white/5 ring-1 ring-white/15 hover:bg-white/10 transition-colors">
+                <a href="https://www.facebook.com/bunnykate.15" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white/5 ring-1 ring-white/15 hover:bg-white/10 transition-colors">
                   <Facebook className="w-5 h-5 text-white" />
                 </a>
-                <a href="https://www.tiktok.com/@cattorneyyy?_t=ZS-90kTa4UFZXW&_r=1" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white/5 ring-1 ring-white/15 hover:bg-white/10 transition-colors">
+                <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white/5 ring-1 ring-white/15 hover:bg-white/10 transition-colors">
                   <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                   </svg>
@@ -163,42 +268,42 @@ export function Footer() {
         <motion.div className="border-t border-white/20 pt-8" variants={fadeInUp}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <p className="text-white/85 font-lora text-sm">© {year} Jam & Jan. All rights reserved.</p>
+              <p className="text-white/85 font-lora text-sm">© {year} Kate & Christian. All rights reserved.</p>
               <p className="text-white/90 font-lora text-sm mt-1">
                 Made with 💕 for our special day
               </p>
-              <div className="space-y-1">
-                <p className="text-white/80 font-lora text-xs">
-                  Developed by{" "}
-                  <a 
-                    href="https://lance28-beep.github.io/portfolio-website/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-white hover:text-white/80 transition-colors duration-200 underline decoration-white/50 hover:decoration-white/70"
-                  >
-                    Lance Valle
-                  </a>
-                </p>
-                <p className="text-white/80 font-lora text-xs">
-                  Want a website like this? Visit{" "}
-                  <a 
-                    href="https://www.facebook.com/WeddingInvitationNaga" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-white hover:text-white/80 transition-colors duration-200 underline decoration-white/50 hover:decoration-white/70"
-                  >
-                    Wedding Invitation Naga
-                  </a>
-                </p>
-              </div>
             </div>
-
+            
+            <div className="text-center md:text-right space-y-1">
+              <p className="text-white/80 font-lora text-xs">
+                Developed by{" "}
+                <a 
+                  href="https://lance28-beep.github.io/portfolio-website/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-white/80 transition-colors duration-200 underline decoration-white/50 hover:decoration-white/70"
+                >
+                  Lance Valle
+                </a>
+              </p>
+              <p className="text-white/80 font-lora text-xs">
+                Want a website like this? Visit{" "}
+                <a 
+                  href="https://www.facebook.com/WeddingInvitationNaga" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-white/80 transition-colors duration-200 underline decoration-white/50 hover:decoration-white/70"
+                >
+                  Wedding Invitation Naga
+                </a>
+              </p>
+            </div>
           </div>
         </motion.div>
 
         {/* Floating Messenger Button */}
         <a
-          href="https://m.me/amelyn.mote"
+          href="https://m.me/bunnykate.15"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Contact us on Messenger"

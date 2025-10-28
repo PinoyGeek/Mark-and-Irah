@@ -3,151 +3,147 @@
 import { useState } from "react"
 import Image from "next/image"
 import { Section } from "@/components/section"
+import { Gift, Heart, Download, ExternalLink } from "lucide-react"
 
 export function Registry() {
   const [showGCash, setShowGCash] = useState(false)
-  const [showBPI, setShowBPI] = useState(false)
+  
   return (
     <Section id="registry" className="relative py-20 md:py-32 overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      </div>
+
       {/* Title */}
-      <div className="relative z-10 text-center mb-10 md:mb-16">
-        <h2 className="text-5xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-3 sm:mb-4 text-balance">
-          Monetary Gifts
-        </h2>
-        <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed font-sans max-w-2xl mx-auto px-4">
+      <div className="relative z-10 text-center mb-12 md:mb-16">
+        <div className="inline-flex items-center justify-center gap-3 mb-6">
+          <Gift className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white text-balance drop-shadow-lg">
+            Monetary Gifts
+          </h2>
+          <Heart className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
+        </div>
+        <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed font-sans max-w-3xl mx-auto px-4">
           Your love and presence are more than enough. If you wish to bless us with a monetary gift,
-          please feel free to use any of the options below. Thank you for being part of our story.
+          please feel free to use the option below. Thank you for being part of our story.
         </p>
       </div>
 
       {/* Content */}
-      <div className="relative z-10">
-        <div className="max-w-4xl mx-auto">
-          {/* Appreciation Note */}
-          <div className="rounded-xl p-5 sm:p-6 md:p-8 border bg-card/50 backdrop-blur">
-            <div className="text-center">
-              <div className="space-y-3 max-w-3xl mx-auto px-2">
-                <p className="text-white/90 leading-relaxed text-sm sm:text-base">
-                  WITH ALL THAT WE HAVE, WE ARE TRULY BLESSED, YOUR PRESENCE, AND PRAYER ARE THAT WE REQUEST. BUT IF YOU DESIRE TO GIVE NONETHELESS MONETARY GIFT IS THE ONE WE SUGGEST.
-                </p>
+      <div className="relative z-10 max-w-2xl mx-auto px-4">
+        {/* Appreciation Note */}
+        <div className="rounded-2xl p-6 sm:p-8 md:p-10 border bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-md shadow-lg mb-10">
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center mb-4">
+              <Heart className="w-6 h-6 text-primary mr-2" />
+              <h3 className="text-xl sm:text-2xl font-bold" style={{ color: '#525E2C' }}>A Note from Us</h3>
+              <Heart className="w-6 h-6 text-primary ml-2" />
+            </div>
+            <p className="leading-relaxed text-base sm:text-lg font-normal max-w-2xl mx-auto" style={{ color: '#525E2C' }}>
+              With all that we have, we are truly blessed. Your presence and prayers are what we request.
+              But if you desire to give nonetheless, monetary gift is the one we suggest.
+            </p>
+          </div>
+        </div>
+
+        {/* GCash QR Card */}
+        <div className="rounded-2xl border bg-gradient-to-br from-card to-card/80 p-8 sm:p-10 shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div className="mb-6">
+            <div className="flex items-center justify-between gap-4 mb-4">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg ring-4 ring-blue-500/20">
+                  <span className="text-white font-bold text-2xl sm:text-3xl">G</span>
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1" style={{ color: '#525E2C' }}>GCash</h3>
+                  <p className="text-sm sm:text-base" style={{ color: '#525E2C' }}>Send your monetary gift</p>
+                </div>
               </div>
+              <button
+                type="button"
+                onClick={() => setShowGCash(v => !v)}
+                aria-expanded={showGCash}
+                className="inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50 shrink-0 shadow-lg hover:shadow-xl hover:scale-105"
+                style={{ 
+                  backgroundColor: '#525E2C',
+                  color: '#D1AB6D'
+                }}
+              >
+                {showGCash ? "Hide QR" : "Show QR"}
+              </button>
             </div>
           </div>
 
-          {/* QR Options */}
-          <div className="mt-8 sm:mt-10 grid grid-cols-1 gap-4 sm:gap-5">
-            {/* GCash */}
-            <div className="rounded-xl border bg-card p-4 sm:p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-foreground">GCash</h3>
-                  <p className="text-xs text-muted-foreground mt-0.5">Scan or download the QR to send</p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setShowGCash(v => !v)}
-                  aria-expanded={showGCash}
-                  className="inline-flex items-center justify-center rounded-md border px-3 py-1.5 text-sm font-medium text-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
-                >
-                  {showGCash ? "Hide QR" : "Show QR"}
-                </button>
+          {/* QR Code Display */}
+          <div className={`transition-all duration-500 overflow-hidden ${showGCash ? 'max-h-[1200px] opacity-100' : 'max-h-0 opacity-0'}`}>
+            <p className="mb-4 text-base sm:text-lg leading-relaxed" style={{ color: '#525E2C' }}>Scan the QR code below or download it to send via your GCash app</p>
+            
+            <a
+              href="/QR/GCASH.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open full-size GCash QR in a new tab"
+              className="block group"
+            >
+              <div className="aspect-square w-full overflow-hidden rounded-2xl border-4 border-white/20 bg-gradient-to-br from-white to-gray-50 p-8 sm:p-10 ring-0 group-hover:ring-4 ring-blue-500/30 transition-all duration-300 group-hover:scale-[1.02] shadow-inner">
+                <Image
+                  src="/QR/GCASH.png"
+                  alt="GCash QR Code"
+                  width={800}
+                  height={800}
+                  priority
+                  className="h-full w-full object-contain drop-shadow-2xl"
+                />
               </div>
-              <div className={`transition-all duration-300 overflow-hidden ${showGCash ? 'max-h-[1200px] opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
-                <a
-                  href="/QR/Gcash.png"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open full-size GCash QR in a new tab"
-                  className="block group"
-                >
-                  <div className="aspect-square w-full overflow-hidden rounded-lg border bg-white p-3 sm:p-4 ring-0 group-hover:ring-2 ring-primary/30 transition">
-                    <Image
-                      src="/QR/Gcash.png"
-                      alt="GCash QR Code"
-                      width={800}
-                      height={800}
-                      priority
-                      className="h-full w-full object-contain drop-shadow-sm"
-                    />
-                  </div>
-                </a>
-                <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-muted-foreground">Scan with your GCash app to send.</p>
-                <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
-                  <a
-                    href="/QR/Gcash.png"
-                    download
-                    className="inline-flex w-full sm:w-auto items-center justify-center rounded-md border px-3 py-2 text-sm font-medium text-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
-                  >
-                    Download QR
-                  </a>
-                  <a
-                    href="/QR/Gcash.png"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex w-full sm:w-auto items-center justify-center rounded-md bg-primary text-primary-foreground px-3 py-2 text-sm font-medium hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
-                  >
-                    Open Full Size
-                  </a>
+            </a>
+            
+            {/* Instructions */}
+            <div className="mt-6 p-5 rounded-xl bg-blue-500/10 border border-blue-500/20">
+              <div className="flex items-start gap-3">
+                <div className="text-2xl">💡</div>
+                <div>
+                  <p className="text-sm sm:text-base font-semibold mb-1" style={{ color: '#525E2C' }}>How to use:</p>
+                  <ol className="text-sm sm:text-base space-y-1 list-decimal list-inside ml-2" style={{ color: '#525E2C' }}>
+                    <li>Open your GCash app</li>
+                    <li>Tap on "Scan QR"</li>
+                    <li>Point your camera at this QR code</li>
+                    <li>Enter your desired amount and send</li>
+                  </ol>
                 </div>
               </div>
             </div>
 
-            {/* BPI */}
-            <div className="rounded-xl border bg-card p-4 sm:p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-foreground">BPI</h3>
-                  <p className="text-xs text-muted-foreground mt-0.5">Scan or download the QR to send</p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setShowBPI(v => !v)}
-                  aria-expanded={showBPI}
-                  className="inline-flex items-center justify-center rounded-md border px-3 py-1.5 text-sm font-medium text-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
-                >
-                  {showBPI ? "Hide QR" : "Show QR"}
-                </button>
-              </div>
-              <div className={`transition-all duration-300 overflow-hidden ${showBPI ? 'max-h-[1200px] opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
-                <a
-                  href="/QR/BPI.png"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open full-size BPI QR in a new tab"
-                  className="block group"
-                >
-                  <div className="aspect-square w-full overflow-hidden rounded-lg border bg-white p-3 sm:p-4 ring-0 group-hover:ring-2 ring-primary/30 transition">
-                    <Image
-                      src="/QR/BPI.png"
-                      alt="BPI QR Code"
-                      width={800}
-                      height={800} 
-                      className="h-full w-full object-contain drop-shadow-sm"
-                    />
-                  </div>
-                </a>
-                <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-muted-foreground">Scan with your BPI app to send.</p>
-                <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
-                  <a
-                    href="/QR/BPI.png"
-                    download
-                    className="inline-flex w-full sm:w-auto items-center justify-center rounded-md border px-3 py-2 text-sm font-medium text-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
-                  >
-                    Download QR
-                  </a>
-                  <a
-                    href="/QR/BPI.png"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex w-full sm:w-auto items-center justify-center rounded-md bg-primary text-primary-foreground px-3 py-2 text-sm font-medium hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
-                  >
-                    Open Full Size
-                  </a>
-                </div>
-              </div>
+            {/* Action Buttons */}
+            <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <a
+                href="/QR/GCASH.png"
+                download
+                className="inline-flex items-center justify-center gap-3 rounded-xl border-2 border-white/20 bg-card/80 backdrop-blur-sm hover:bg-card hover:border-white/40 px-6 py-4 text-base font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 group"
+                style={{ color: '#525E2C' }}
+              >
+                <Download className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <span>Download QR</span>
+              </a>
+              <a
+                href="/QR/GCASH.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-4 text-base font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 group shadow-lg hover:shadow-xl"
+              >
+                <ExternalLink className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <span>Open Full Size</span>
+              </a>
             </div>
           </div>
+        </div>
 
+        {/* Thank you message */}
+        <div className="mt-12 text-center">
+          <p className="text-base sm:text-lg text-white italic">
+            Thank you for your generosity ❤️
+          </p>
         </div>
       </div>
     </Section>
