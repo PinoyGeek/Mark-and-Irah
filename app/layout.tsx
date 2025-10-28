@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://jam-jan-invitation.vercel.app/"),
+  metadataBase: new URL("https://Kate-and-Christian-invitation.vercel.app/"),
   alternates: {
-    canonical: "https://jam-jan-invitation.vercel.app/",
+    canonical: "https://Kate-and-Christian-invitation.vercel.app/",
   },
   icons: {
     icon: [
@@ -52,13 +52,13 @@ export const metadata: Metadata = {
     title: "Christian & Kate Wedding | January 10, 2026",
     description:
       "Celebrate the union of Christian & Kate on January 10, 2026. A celebration of love, faith, and forever. Discover our love story, RSVP, view the gallery, and leave your wishes!",
-    url: "https://jam-jan-invitation.vercel.app/",
+    url: "https://Kate-and-Christian-invitation.vercel.app/",
     siteName: "Christian & Kate Wedding",
     locale: "en_PH",
     type: "website",
     images: [
       {
-        url: "https://jam-jan-invitation.vercel.app/Couple_img/couple_2.png",
+        url: "https://Kate-and-Christian-invitation.vercel.app/couple.png",
         width: 1200,
         height: 630,
         alt: "Christian & Kate Wedding Invitation - January 10, 2026",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     title: "Christian & Kate Wedding Invitation",
     description:
       "You're invited to the wedding of Christian & Kate! January 10, 2026. A celebration of love, faith, and forever. RSVP, view our gallery, and leave a message! #ChristianAndKateWedding",
-    images: ["https://jam-jan-invitation.vercel.app/Couple_img/couple_2.png"],
+    images: ["https://Kate-and-Christian-invitation.vercel.app/couple.png"],
     creator: "@christianandkate",
   },
   robots: {
@@ -107,7 +107,7 @@ export const metadata: Metadata = {
           },
         },
       ],
-      image: ["https://jam-jan-invitation.vercel.app/Couple_img/couple_2.png"],
+      image: ["https://Kate-and-Christian-invitation.vercel.app/couple.png"],
       description:
         "You're invited to the wedding of Christian & Kate! Join us on January 10, 2026. A celebration of love, faith, and forever. RSVP, read our love story, view our gallery, and leave a message for the couple.",
       organizer: {
@@ -116,7 +116,7 @@ export const metadata: Metadata = {
       },
       offers: {
         "@type": "Offer",
-        url: "https://jam-jan-invitation.vercel.app/",
+        url: "https://Kate-and-Christian-invitation.vercel.app/",
         availability: "https://schema.org/InStock",
         price: "0",
         priceCurrency: "PHP",
