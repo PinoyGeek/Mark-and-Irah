@@ -6,29 +6,35 @@ import { Section } from "@/components/section"
 // Removed circular gallery in favor of a responsive masonry layout
 
 const galleryItems = [
-  { image: "/Couple_img/couple (1).JPG", text: "Kate & Christian" },   
-  { image: "/Couple_img/couple (2).JPG", text: "Kate & Christian" },
-  { image: "/Couple_img/couple (3).JPG", text: "Kate & Christian" },
-  { image: "/Couple_img/couple (4).JPG", text: "Kate & Christian" },
-  { image: "/Couple_img/couple (5).JPG", text: "Kate & Christian" },
-  { image: "/Couple_img/couple (6).JPG", text: "Kate & Christian" },
-  { image: "/Couple_img/couple (7).JPG", text: "Kate & Christian" },
-  { image: "/Couple_img/couple (8).JPG", text: "Kate & Christian" },
-  { image: "/Couple_img/couple (9).JPG", text: "Kate & Christian" },
-  { image: "/Couple_img/couple (10).JPG", text: "Kate & Christian" },
-  { image: "/Couple_img/couple (11).JPG", text: "Kate & Christian" },
-  { image: "/Couple_img/couple (12).JPG", text: "Kate & Christian" },
-  { image: "/Couple_img/couple (13).JPG", text: "Kate & Christian" },
-  { image: "/Couple_img/couple (14).JPG", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (1).webp", text: "Kate & Christian" },   
+  { image: "/Couple_img/couple (2).webp", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (3).webp", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (4).webp", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (5).webp", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (6).webp", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (7).webp", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (8).webp", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (9).webp", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (10).webp", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (11).webp", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (12).webp", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (13).webp", text: "Kate & Christian" },
+  { image: "/Couple_img/couple (14).webp", text: "Kate & Christian" },
 ]
 
 export function Gallery() {
   const [selectedImage, setSelectedImage] = useState<(typeof galleryItems)[0] | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
-  const [loaded, setLoaded] = useState<Record<number, boolean>>({})
+  // reserved for potential skeleton tracking; not used after fade-in simplification
   const [touchStartX, setTouchStartX] = useState<number | null>(null)
   const [touchDeltaX, setTouchDeltaX] = useState(0)
+  const [zoomScale, setZoomScale] = useState(1)
+  const [pan, setPan] = useState({ x: 0, y: 0 })
+  const [pinchStartDist, setPinchStartDist] = useState<number | null>(null)
+  const [pinchStartScale, setPinchStartScale] = useState(1)
+  const [lastTap, setLastTap] = useState(0)
+  const [panStart, setPanStart] = useState<{ x: number; y: number; panX: number; panY: number } | null>(null)
 
   useEffect(() => {
     // Simulate loading for better UX
@@ -82,6 +88,13 @@ export function Gallery() {
       prev.src = galleryItems[(currentIndex - 1 + galleryItems.length) % galleryItems.length].image
     }
   }, [selectedImage, currentIndex])
+
+  const clamp = (val: number, min: number, max: number) => Math.min(max, Math.max(min, val))
+  const resetZoom = () => {
+    setZoomScale(1)
+    setPan({ x: 0, y: 0 })
+    setPanStart(null)
+  }
 
   return (
     <Section
@@ -193,8 +206,7 @@ export function Gallery() {
                           loading="lazy"
                           decoding="async"
                           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                          onLoad={() => setLoaded((s) => ({ ...s, [index]: true }))}
-                          className={`w-full h-auto object-cover align-top transition-transform duration-300 group-hover:scale-[1.02] ${loaded[index] ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
+                          className="w-full h-auto object-cover align-top transition-transform duration-300 group-hover:scale-[1.02]"
                         />
                       </button>
                     ))}
@@ -214,28 +226,64 @@ export function Gallery() {
       {/* Enhanced Lightbox Modal */}
         {selectedImage && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 animate-in fade-in duration-300"
+          className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 animate-in fade-in duration-300"
           onClick={() => setSelectedImage(null)}
         >
             <div
               className="relative max-w-6xl w-full h-full sm:h-auto flex flex-col items-center justify-center"
-              onClick={(e) => e.stopPropagation()}
               onTouchStart={(e) => {
-                setTouchStartX(e.touches[0].clientX)
-                setTouchDeltaX(0)
+                if (e.touches.length === 1) {
+                  const now = Date.now()
+                  if (now - lastTap < 300) {
+                    setZoomScale((s) => (s > 1 ? 1 : 2))
+                    setPan({ x: 0, y: 0 })
+                  }
+                  setLastTap(now)
+                  const t = e.touches[0]
+                  setTouchStartX(t.clientX)
+                  setTouchDeltaX(0)
+                  if (zoomScale > 1) {
+                    setPanStart({ x: t.clientX, y: t.clientY, panX: pan.x, panY: pan.y })
+                  }
+                }
+                if (e.touches.length === 2) {
+                  const dx = e.touches[0].clientX - e.touches[1].clientX
+                  const dy = e.touches[0].clientY - e.touches[1].clientY
+                  const dist = Math.hypot(dx, dy)
+                  setPinchStartDist(dist)
+                  setPinchStartScale(zoomScale)
+                }
               }}
               onTouchMove={(e) => {
-                if (touchStartX === null) return
-                setTouchDeltaX(e.touches[0].clientX - touchStartX)
+                if (e.touches.length === 2 && pinchStartDist) {
+                  const dx = e.touches[0].clientX - e.touches[1].clientX
+                  const dy = e.touches[0].clientY - e.touches[1].clientY
+                  const dist = Math.hypot(dx, dy)
+                  const scale = clamp((dist / pinchStartDist) * pinchStartScale, 1, 3)
+                  setZoomScale(scale)
+                } else if (e.touches.length === 1) {
+                  const t = e.touches[0]
+                  if (zoomScale > 1 && panStart) {
+                    const dx = t.clientX - panStart.x
+                    const dy = t.clientY - panStart.y
+                    setPan({ x: panStart.panX + dx, y: panStart.panY + dy })
+                  } else if (touchStartX !== null) {
+                    setTouchDeltaX(t.clientX - touchStartX)
+                  }
+                }
               }}
               onTouchEnd={() => {
-                if (Math.abs(touchDeltaX) > 50) {
+                setPinchStartDist(null)
+                setPanStart(null)
+                if (zoomScale === 1 && Math.abs(touchDeltaX) > 50) {
                   navigateImage(touchDeltaX > 0 ? 'prev' : 'next')
                 }
                 setTouchStartX(null)
                 setTouchDeltaX(0)
               }}
             >
+            {/* Top gradient for button contrast and safe area */}
+            <div className="pointer-events-none absolute top-0 left-0 right-0 h-16 sm:h-20 bg-gradient-to-b from-black/60 to-transparent" />
             {/* Image counter */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 sm:top-6 z-20 bg-[#D1AB6D]/20 backdrop-blur-md rounded-full px-4 py-2 border border-[#D1AB6D]/40">
               <span className="text-sm sm:text-base font-semibold text-[#E0CFB5]">
@@ -243,25 +291,17 @@ export function Gallery() {
               </span>
             </div>
 
-            {/* Close button */}
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-2 right-2 sm:top-4 sm:right-4 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full p-2 sm:p-3 transition-all duration-300 border border-white/20 hover:border-white/40"
-              aria-label="Close lightbox"
-            >
-              <X size={20} className="sm:w-6 sm:h-6 text-white" />
-            </button>
-
             {/* Navigation buttons */}
+
             <button
               onClick={(e) => {
                 e.stopPropagation()
                 navigateImage('prev')
               }}
-              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full p-2 sm:p-3 transition-all duration-300 border border-white/20 hover:border-white/40"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full p-3 sm:p-4 transition-all duration-300 border border-white/20 hover:border-white/40"
               aria-label="Previous image"
             >
-              <ChevronLeft size={24} className="sm:w-8 sm:h-8 text-white" />
+              <ChevronLeft size={28} className="sm:w-9 sm:h-9 text-white" />
             </button>
 
             <button
@@ -269,19 +309,47 @@ export function Gallery() {
                 e.stopPropagation()
                 navigateImage('next')
               }}
-              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full p-2 sm:p-3 transition-all duration-300 border border-white/20 hover:border-white/40"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full p-3 sm:p-4 transition-all duration-300 border border-white/20 hover:border-white/40"
               aria-label="Next image"
             >
-              <ChevronRight size={24} className="sm:w-8 sm:h-8 text-white" />
+              <ChevronRight size={28} className="sm:w-9 sm:h-9 text-white" />
             </button>
 
             {/* Image container */}
-            <div className="relative w-full h-full flex items-center justify-center mt-12 sm:mt-16 mb-16 sm:mb-20">
-              <img
-                src={selectedImage.image || "/placeholder.svg"}
-                alt={selectedImage.text}
-                className="max-w-full max-h-[70vh] sm:max-h-[80vh] object-contain rounded-lg shadow-2xl"
-              />
+            <div className="relative w-full h-full flex items-center justify-center mt-12 sm:mt-16 mb-20 overflow-hidden">
+              <div
+                className="relative inline-block"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img
+                  src={selectedImage.image || "/placeholder.svg"}
+                  alt={selectedImage.text}
+                  style={{ transform: `translate3d(${pan.x}px, ${pan.y}px, 0) scale(${zoomScale})`, transition: pinchStartDist ? 'none' : 'transform 200ms ease-out' }}
+                  className="max-w-full max-h-[70vh] sm:max-h-[80vh] object-contain rounded-lg shadow-2xl will-change-transform"
+                />
+                {/* Close button anchored to image corner */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setSelectedImage(null)
+                  }}
+                  className="absolute top-2 right-2 z-30 bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full p-2 sm:p-2.5 transition-all duration-200 border border-white/30"
+                  aria-label="Close lightbox"
+                >
+                  <X size={20} className="text-white" />
+                </button>
+                {zoomScale > 1 && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      resetZoom()
+                    }}
+                    className="absolute bottom-2 right-2 bg-white/10 hover:bg-white/20 text-white rounded-full px-3 py-1 text-xs border border-white/30"
+                  >
+                    Reset
+                  </button>
+                )}
+              </div>
             </div>
 
             {/* Image description */}
