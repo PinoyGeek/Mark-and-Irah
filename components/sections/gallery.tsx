@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { Section } from "@/components/section"
-import CircularGallery from "@/components/circular-gallery"
+// Removed circular gallery in favor of a responsive masonry layout
 
 const galleryItems = [
   { image: "/Couple_img/couple (1).JPG", text: "First Dance" },   
@@ -26,6 +26,9 @@ export function Gallery() {
   const [selectedImage, setSelectedImage] = useState<(typeof galleryItems)[0] | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
+  const [loaded, setLoaded] = useState<Record<number, boolean>>({})
+  const [touchStartX, setTouchStartX] = useState<number | null>(null)
+  const [touchDeltaX, setTouchDeltaX] = useState(0)
 
   useEffect(() => {
     // Simulate loading for better UX
@@ -57,6 +60,28 @@ export function Gallery() {
     window.addEventListener('keydown', handleKeyPress)
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [selectedImage, currentIndex, navigateImage])
+
+  // Prevent background scroll when lightbox is open
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [selectedImage])
+
+  // Preload adjacent images for smoother nav
+  useEffect(() => {
+    if (selectedImage) {
+      const next = new Image()
+      next.src = galleryItems[(currentIndex + 1) % galleryItems.length].image
+      const prev = new Image()
+      prev.src = galleryItems[(currentIndex - 1 + galleryItems.length) % galleryItems.length].image
+    }
+  }, [selectedImage, currentIndex])
 
   return (
     <Section
@@ -143,21 +168,37 @@ export function Gallery() {
                 <div className="absolute inset-2 sm:inset-3 bg-gradient-to-br from-[#D1AB6D]/10 to-transparent rounded-xl sm:rounded-2xl" />
                 
                 {/* Gallery content */}
-                <div className="relative z-10 h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] w-full">
+                <div className="relative z-10 w-full">
                   {isLoading ? (
-                    <div className="flex items-center justify-center h-full">
+                    <div className="flex items-center justify-center h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px]">
                       <div className="w-16 h-16 border-4 border-[#D1AB6D]/30 border-t-[#D1AB6D] rounded-full animate-spin" />
                     </div>
-                  ) : (
-                    <CircularGallery
-                      items={galleryItems}
-                      bend={3}
-                      textColor="#E0CFB5"
-                      borderRadius={0.05}
-                      scrollEase={0.02}
-                      font="bold 48px Figtree"
-                    />
-                  )}
+                  ) : null}
+
+                  <div className="columns-2 sm:columns-3 md:columns-4 gap-2 sm:gap-3 md:gap-4">
+                    {galleryItems.map((item, index) => (
+                      <button
+                        key={item.image + index}
+                        type="button"
+                        className="group mb-2 sm:mb-3 md:mb-4 w-full break-inside-avoid overflow-hidden rounded-lg border border-[#D1AB6D]/40 bg-[#3d461d]/40 shadow-[0_4px_20px_rgba(82,94,44,0.25)] hover:shadow-[0_8px_28px_rgba(82,94,44,0.35)] transition-shadow"
+                        onClick={() => {
+                          setSelectedImage(item)
+                          setCurrentIndex(index)
+                        }}
+                        aria-label={`Open image`}
+                      >
+                        <img
+                          src={item.image}
+                          alt={item.text}
+                          loading="lazy"
+                          decoding="async"
+                          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                          onLoad={() => setLoaded((s) => ({ ...s, [index]: true }))}
+                          className={`w-full h-auto object-cover align-top transition-transform duration-300 group-hover:scale-[1.02] ${loaded[index] ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
+                        />
+                      </button>
+                    ))}
+                  </div>
                 </div>
                 
                 {/* Enhanced decorative sparkle effects */}
@@ -171,12 +212,30 @@ export function Gallery() {
       </div>
 
       {/* Enhanced Lightbox Modal */}
-      {selectedImage && (
+        {selectedImage && (
         <div
           className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 animate-in fade-in duration-300"
           onClick={() => setSelectedImage(null)}
         >
-          <div className="relative max-w-6xl w-full h-full sm:h-auto flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <div
+              className="relative max-w-6xl w-full h-full sm:h-auto flex flex-col items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+              onTouchStart={(e) => {
+                setTouchStartX(e.touches[0].clientX)
+                setTouchDeltaX(0)
+              }}
+              onTouchMove={(e) => {
+                if (touchStartX === null) return
+                setTouchDeltaX(e.touches[0].clientX - touchStartX)
+              }}
+              onTouchEnd={() => {
+                if (Math.abs(touchDeltaX) > 50) {
+                  navigateImage(touchDeltaX > 0 ? 'prev' : 'next')
+                }
+                setTouchStartX(null)
+                setTouchDeltaX(0)
+              }}
+            >
             {/* Image counter */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 sm:top-6 z-20 bg-[#D1AB6D]/20 backdrop-blur-md rounded-full px-4 py-2 border border-[#D1AB6D]/40">
               <span className="text-sm sm:text-base font-semibold text-[#E0CFB5]">
