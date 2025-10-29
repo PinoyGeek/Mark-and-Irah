@@ -51,16 +51,17 @@ export function Hero() {
         <div className="flex flex-col items-center space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-10">
           
           {/* Main Heading Section */}
-          <div className="text-center space-y-3 sm:space-y-4 md:space-y-6 w-full">
-            {/* Subtitle - Getting Married */}
-            <p className="text-xs sm:text-sm md:text-base tracking-[0.3em] uppercase text-[#D1AB6D] font-light mb-1 sm:mb-2 md:mb-4">
-              are getting married
-            </p>
+          <div className="text-center space-y-1 sm:space-y-2 md:space-y-3 w-full">
+
 
             {/* Names */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold text-[#F0F0F0] tracking-wide leading-tight drop-shadow-2xl">
               {siteConfig.couple.bride} & {siteConfig.couple.groom}
             </h1>
+                        {/* Subtitle - Getting Married */}
+          <p className="text-xs sm:text-sm md:text-base tracking-[0.3em] uppercase text-[#D1AB6D] font-light mb-0 sm:mb-1 md:mb-2">
+              are getting married
+            </p>
 
             {/* Decorative Line */}
             <div className="flex items-center justify-center gap-3 sm:gap-4 my-2 sm:my-3 md:my-4 lg:my-6">

@@ -35,7 +35,7 @@ export const siteConfig = {
   },
   dressCode: {
     theme: "Semi-Formal Attire",
-    colors: ["#525E2C", "#909E8D", "#D1AB6D", "#E0CFB5", "#F0F0F0"],
+    colors: [ "#909E8D", "#D1AB6D", "#E0CFB5", "#F0F0F0"],
     sponsors: {
       ladies: "Blue gown / long dress",
       gentlemen: "Black suit and tie"
@@ -52,7 +52,7 @@ Three years after graduation, fate decided to draw their lines together. It star
 
 Then one day, they met again at a construction site. This time, they talked — really talked. And something was different. She found him interesting, warm, and genuine. From then on, messages turned into conversations, and conversations turned into something deeper.
 
-It was during Sinulog when he invited her to visit Sto. Niño Church. They shared prayers, laughter, and lunch — spending the whole day simply enjoying each other's company. That day, something in her heart shifted. Days after she realized that maybe, just maybe, this was the man she had been praying for — someone who would bring her closer to God.
+It was during Sinulog when he invited her to visit Sto. Niño Church. They shared prayers & laughter — spending the whole day simply enjoying each other's company. That day, something in her heart shifted. Days after she realized that maybe, just maybe, this was the man she had been praying for — someone who would bring her closer to God.
 
 Months later, they made it official. From then on, they have learned, grown, and become better together in all aspects of life. Their love is not the kind you see in movies — not perfect, not always grand. But it is real, quiet, and steadfast. Two people, choosing each other every single day.
 
@@ -69,14 +69,14 @@ export const entourage = [
   { role: "Best Man", name: "Mr. ____________" },
   { role: "Matron of Honor", name: "Jairah Glaze Ortiaga" },
   
-  // Kate's Immediate Family
-  { role: "Kate Immediate Family", name: "Engr. Marlo Dela Peña" },
-  { role: "Kate Immediate Family", name: "Normalita Dela Peña" },
+  // Kate's Family
+  { role: "Father", name: "Engr. Marlo Dela Peña", group: "kate-family" },
+  { role: "Mother", name: "Normalita Dela Peña", group: "kate-family" },
   
-  // Christian's Immediate Family
-  { role: "Christian Immediate Family", name: "Rosario Gana-an" },
-  { role: "Christian Immediate Family", name: "Engr. Rowell Ian Gana-an" },
-  { role: "Christian Immediate Family", name: "Ar. April Gana-an — Charie" },
+  // Christian's Family
+  { role: "Mother", name: "Rosario Gana-an", group: "christian-family" },
+  { role: "Brother", name: "Engr. Rowell Ian Gana-an", group: "christian-family" },
+  { role: "Sister", name: "Ar. April Gana-an", group: "christian-family" },
   
   // Clothing sponsors - TO CLOTH US AS ONE
   { role: "Groomsman", name: "Mr. ____________", group: "clothing" },
@@ -138,7 +138,7 @@ export const principalSponsors = [
   { name: "Engr. Leonides Paragsa", spouse: "Marifel Paragsa" },
   { name: "Engr. Amy Lauron", spouse: "Charito Lauron" },
   { name: "Duke Ng", spouse: "Jeanette Layne" },
-  { name: "Ar. Jerome Buenaventura", spouse: "Mrs. _______" },
+  { name: "Ar. Jerome Buenaventura", spouse: "Mrs.Rosa Ann Buenaventura" },
   { name: "Sonny Maglente", spouse: "Sunshine Maglente" },
   { name: "Joseph Berondo", spouse: "Katherine Berondo" },
   { name: "Jun Gana-an", spouse: "Bing Gana-an" },

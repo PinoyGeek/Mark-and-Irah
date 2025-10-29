@@ -32,7 +32,7 @@ const faqItems: FAQItem[] = [
   {
     question: "When is the RSVP deadline?",
     answer:
-      "Please RSVP by January 8, 2026. This helps us plan properly for our celebration. [RSVP_LINK]Click here to RSVP[/RSVP_LINK]",
+      "Kindly RSVP by December 20,2025. Your response will help us finalize our guest list. Thank you!. [RSVP_LINK]Click here to RSVP[/RSVP_LINK]",
   },
   {
     question: "Is there parking available?",
@@ -42,7 +42,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Can I bring a plus one?",
     answer:
-      "Please RSVP with the exact number of guests when you receive your invitation. If you need to bring an additional guest, please contact us directly.",
+      "We're so excited to haave you celebrate with us! Unfortunately, due to limited space and our venue's capacity, we're unable to accommodate additional guests. We truly hope you understand and we can't wait to celebrate together on the day!",
   },
   {
     question: "What if I have dietary restrictions or allergies?",
@@ -181,14 +181,7 @@ export function FAQ() {
                               <div>
                                 <p className="text-[#525E2C] font-semibold text-xs sm:text-sm mb-2">Color Palette:</p>
                                 <div className="flex gap-2 flex-wrap items-center">
-                                  <div className="flex items-center gap-2 bg-white/60 px-3 py-2 rounded-lg border border-[#525E2C]/20">
-                                    <div 
-                                      className="w-8 h-8 rounded-full shadow-md border-2 border-white ring-2 ring-[#525E2C]/20" 
-                                      style={{ backgroundColor: '#525E2C' }}
-                                      title="Dark Green"
-                                    />
-                                    <span className="text-xs text-[#525E2C] font-medium">Dark Green</span>
-                                  </div>
+                          
                                   <div className="flex items-center gap-2 bg-white/60 px-3 py-2 rounded-lg border border-[#525E2C]/20">
                                     <div 
                                       className="w-8 h-8 rounded-full shadow-md border-2 border-white ring-2 ring-[#525E2C]/20" 
