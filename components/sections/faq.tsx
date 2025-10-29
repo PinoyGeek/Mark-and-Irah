@@ -42,7 +42,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Can I bring a plus one?",
     answer:
-      "We're so excited to haave you celebrate with us! Unfortunately, due to limited space and our venue's capacity, we're unable to accommodate additional guests. We truly hope you understand and we can't wait to celebrate together on the day!",
+      "We're so excited to have you celebrate with us! Unfortunately, due to limited space and our venue's capacity, we're unable to accommodate additional guests. We truly hope you understand and we can't wait to celebrate together on the day!",
   },
   {
     question: "What if I have dietary restrictions or allergies?",
