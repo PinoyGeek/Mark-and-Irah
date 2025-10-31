@@ -38,7 +38,7 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
     return (
       <div className="space-y-4 sm:space-y-6">
         {[1, 2, 3].map((i) => (
-          <Card key={i} className="border border-secondary/20 shadow-lg bg-white/90 backdrop-blur-sm">
+          <Card key={i} className="border border-[#BB8A3D]/20 shadow-lg bg-white/90 backdrop-blur-sm">
             <CardContent className="p-4 sm:p-6">
               <div className="flex justify-between items-start mb-3 sm:mb-4">
                 <div className="flex items-center space-x-3">
@@ -88,7 +88,7 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
       {visibleMessages.map((msg, index) => (
         <Card
           key={index}
-          className={`border border-secondary/20 shadow-lg bg-white/90 backdrop-blur-sm hover:shadow-xl transition-all duration-500 group overflow-hidden transform ${
+          className={`relative border-2 border-[#BB8A3D]/30 shadow-[0_8px_32px_rgba(64,41,33,0.16)] bg-white/90 backdrop-blur-sm hover:shadow-[0_12px_40px_rgba(64,41,33,0.24)] transition-all duration-500 group overflow-hidden transform rounded-2xl ${
             isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
           }`}
           style={{
@@ -96,15 +96,16 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
             animation: isAnimating ? 'none' : 'fadeInUp 0.6s ease-out forwards'
           }}
         >
-          {/* Card background effects */}
-          <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-secondary/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary/20 via-secondary to-secondary/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+          {/* Card background effects in gold palette */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#BB8A3D]/5 via-transparent to-[#CDAC77]/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#BB8A3D]/30 via-[#CDAC77] to-[#BB8A3D]/30 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+          <div className="absolute -inset-[1px] rounded-2xl pointer-events-none" style={{ boxShadow: 'inset 0 0 0 1px rgba(187,138,61,0.15)' }} />
           
           <CardContent className="relative p-4 sm:p-6 lg:p-8">
             <div className="flex justify-between items-start mb-3 sm:mb-4">
               <div className="flex items-center space-x-3 sm:space-x-4">
                 <div className="relative">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-secondary/80 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#BB8A3D] to-[#CDAC77] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <span className="text-white font-lora text-sm sm:text-base font-semibold">
                       {msg.name
                         .split(" ")
@@ -114,7 +115,7 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
                     </span>
                   </div>
                   {/* Avatar glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-secondary/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#BB8A3D]/30 to-[#CDAC77]/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
                 </div>
                 <div className="min-w-0 flex-1">
                   <h4 className="font-lora text-foreground text-base sm:text-lg font-semibold truncate">{msg.name}</h4>
@@ -130,20 +131,20 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <Heart className="h-4 w-4 sm:h-5 sm:w-5 text-secondary/60 fill-secondary/20 group-hover:fill-secondary/40 group-hover:text-secondary transition-all duration-300" />
-                <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-secondary/40 group-hover:text-secondary/60 transition-colors duration-300" />
+                <Heart className="h-4 w-4 sm:h-5 sm:w-5 text-[#BB8A3D]/70 fill-[#BB8A3D]/20 group-hover:fill-[#BB8A3D]/40 group-hover:text-[#BB8A3D] transition-all duration-300" />
+                <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-[#CDAC77]/60 group-hover:text-[#CDAC77] transition-colors duration-300" />
               </div>
             </div>
             
             <div className="relative">
-              <span className="absolute -left-1 -top-1 sm:-left-2 sm:-top-2 text-2xl sm:text-4xl text-secondary/30 font-playfair group-hover:text-secondary/50 transition-colors duration-300">"</span>
+              <span className="absolute -left-1 -top-1 sm:-left-2 sm:-top-2 text-2xl sm:text-4xl text-[#BB8A3D]/30 font-playfair group-hover:text-[#BB8A3D]/50 transition-colors duration-300">"</span>
               <p className="text-foreground/80 text-sm sm:text-base leading-relaxed pl-4 sm:pl-6 font-lora group-hover:text-foreground/90 transition-colors duration-300">{msg.message}</p>
-              <span className="absolute -right-1 -bottom-1 sm:-right-2 sm:-bottom-2 text-2xl sm:text-4xl text-secondary/30 font-playfair group-hover:text-secondary/50 transition-colors duration-300">"</span>
+              <span className="absolute -right-1 -bottom-1 sm:-right-2 sm:-bottom-2 text-2xl sm:text-4xl text-[#BB8A3D]/30 font-playfair group-hover:text-[#BB8A3D]/50 transition-colors duration-300">"</span>
             </div>
             
             {/* Message bottom accent */}
             <div className="mt-3 sm:mt-4 flex justify-end">
-              <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-secondary/30 to-transparent group-hover:via-secondary/50 transition-colors duration-300"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#BB8A3D]/40 to-transparent group-hover:via-[#BB8A3D]/60 transition-colors duration-300"></div>
             </div>
           </CardContent>
         </Card>

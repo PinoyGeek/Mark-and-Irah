@@ -9,25 +9,25 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "--font-serif" })
 
 export const metadata: Metadata = {
-  title: "Christian & Kate - Wedding Invitation",
+  title: "Erda & Russell - Wedding Invitation",
   description:
-    "You're invited to the wedding of Christian & Kate! Join us on January 10, 2026. A celebration of love, faith, and forever. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+    "You're invited to the wedding of Erda & Russell! Join us on January 10, 2026 in La Trinidad, Benguet. RSVP, read our love story, view our gallery, and leave a message for the couple.",
   keywords:
     "Christian Kate wedding, Filipino wedding, RSVP, wedding gallery, wedding message wall, wedding invitation, 2026 weddings, love story, guestbook, wedding registry, wedding details, wedding venues Cebu, #ChristianAndKateWedding",
   authors: [
-    { name: "Christian" },
-    { name: "Kate" },
+    { name: "Erda" },
+    { name: "Russell" },
   ],
-  creator: "Christian & Kate",
-  publisher: "Christian & Kate",
+  creator: "Erda & Russell",
+  publisher: "Erda & Russell",
   formatDetection: {
     email: false,
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://kate-and-christian-invitation.vercel.app/"),
+  metadataBase: new URL("https://Erda-and-Russell-invitation.vercel.app/"),
   alternates: {
-    canonical: "https://kate-and-christian-invitation.vercel.app/",
+    canonical: "https://Erda-and-Russell-invitation.vercel.app/",
   },
   icons: {
     icon: [
@@ -49,29 +49,29 @@ export const metadata: Metadata = {
   },
   manifest: "/favicon_io/site.webmanifest",
   openGraph: {
-    title: "Christian & Kate Wedding | January 10, 2026",
+    title: "Erda & Russell Wedding | January 10, 2026",
     description:
-      "Celebrate the union of Christian & Kate on January 10, 2026. A celebration of love, faith, and forever. Discover our love story, RSVP, view the gallery, and leave your wishes!",
-    url: "https://kate-and-christian-invitation.vercel.app/",
-    siteName: "Christian & Kate Wedding",
+      "Celebrate the union of Erda & Russell on January 10, 2026 in La Trinidad, Benguet. Discover our love story, RSVP, view the gallery, and leave your wishes!",
+    url: "https://Erda-and-Russell-invitation.vercel.app/",
+    siteName: "Erda & Russell Wedding",
     locale: "en_PH",
     type: "website",
     images: [
       {
-        url: "https://kate-and-christian-invitation.vercel.app/couple.png",
+        url: "https://Erda-and-Russell-invitation.vercel.app/Couple_img/couple (1).jpg",
         width: 1200,
         height: 630,
-        alt: "Christian & Kate Wedding Invitation - January 10, 2026",
+        alt: "Erda & Russell Wedding Invitation - January 10, 2026",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Christian & Kate Wedding Invitation",
+    title: "Erda & Russell Wedding Invitation",
     description:
-      "You're invited to the wedding of Christian & Kate! January 10, 2026. A celebration of love, faith, and forever. RSVP, view our gallery, and leave a message! #ChristianAndKateWedding",
-    images: ["https://kate-and-christian-invitation.vercel.app/couple.png"],
-    creator: "@christianandkate",
+      "You're invited to the wedding of Erda & Russell! January 10, 2026. RSVP, view our gallery, and leave a message! #ErdaAndRussellWedding",
+    images: ["https://Erda-and-Russell-invitation.vercel.app/Couple_img/couple (1).jpg"],
+    creator: "@erdaandrussell",
   },
   robots: {
     index: true,
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
     "application/ld+json": JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Event",
-      name: "Christian & Kate Wedding",
+      name: "Erda & Russell Wedding",
       startDate: "2026-01-10T14:00:00+08:00",
       endDate: "2026-01-10T22:00:00+08:00",
       eventStatus: "https://schema.org/EventScheduled",
@@ -99,29 +99,29 @@ export const metadata: Metadata = {
       location: [
         {
           "@type": "Place",
-          name: "Saint Joseph the Patriarch Church",
+          name: "San Jose the Husband of Mary Parish",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Mabolo, Cebu",
+            addressLocality: "Buyagan, La Trinidad, Benguet",
             addressCountry: "PH",
           },
         },
       ],
-      image: ["https://kate-and-christian-invitation.vercel.app/couple.png"],
+      image: ["https://Erda-and-Russell-invitation.vercel.app/Couple_img/couple (1).jpg"],
       description:
-        "You're invited to the wedding of Christian & Kate! Join us on January 10, 2026. A celebration of love, faith, and forever. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+        "You're invited to the wedding of Erda & Russell! Join us on January 10, 2026 in La Trinidad, Benguet. RSVP, read our love story, view our gallery, and leave a message for the couple.",
       organizer: {
         "@type": "Person",
-        name: "Christian & Kate",
+        name: "Erda & Russell",
       },
       offers: {
         "@type": "Offer",
-        url: "https://kate-and-christian-invitation.vercel.app/",
+        url: "https://Erda-and-Russell-invitation.vercel.app/",
         availability: "https://schema.org/InStock",
         price: "0",
         priceCurrency: "PHP",
       },
-      eventHashtag: "#ChristianAndKateWedding",
+      eventHashtag: "#ErdaAndRussellWedding",
     }),
   },
 }

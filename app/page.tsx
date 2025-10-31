@@ -27,7 +27,7 @@ export default function Home() {
       {/* Silk Background Animation */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Suspense fallback={<div className="w-full h-full bg-gradient-to-b from-primary/10 to-secondary/5" />}>
-          <Silk speed={2} scale={1.1} color="#909E8D" noiseIntensity={0.8} rotation={0.3} />
+          <Silk speed={5} scale={1.1} color="#402921" noiseIntensity={0.8} rotation={0.3} />
         </Suspense>
       </div>
 

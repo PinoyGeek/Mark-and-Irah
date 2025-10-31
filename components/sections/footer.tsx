@@ -73,28 +73,38 @@ export function Footer() {
 
   return (
     <footer 
-      className="relative z-20 mt-16 text-cream overflow-hidden"
-      style={{ 
-        background: 'linear-gradient(135deg, #909E8D 0%, #525E2C 50%, #909E8D 100%)'
-      }}
+      className="relative z-20 mt-16 text-cream overflow-hidden bg-gradient-to-b from-[#402921] via-[#583016] to-[#402921]"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Floating geometric shapes */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-[#D1AB6D]/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-20 right-20 w-24 h-24 bg-[#E0CFB5]/15 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-20 left-20 w-40 h-40 bg-[#D1AB6D]/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#E0CFB5]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute top-10 left-10 w-32 h-32 bg-[#BB8A3D]/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-20 right-20 w-24 h-24 bg-[#CDAC77]/15 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-[#BB8A3D]/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#CDAC77]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
         
         {/* Decorative lines */}
-        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D1AB6D]/30 to-transparent" />
-        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E0CFB5]/25 to-transparent" />
+        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#BB8A3D]/30 to-transparent" />
+        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CDAC77]/25 to-transparent" />
         
         {/* Corner decorative elements */}
-        <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#D1AB6D]/15 via-[#E0CFB5]/10 to-transparent rounded-br-3xl" />
-        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#D1AB6D]/15 via-[#E0CFB5]/10 to-transparent rounded-bl-3xl" />
-        <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#D1AB6D]/15 via-[#E0CFB5]/10 to-transparent rounded-tr-3xl" />
-        <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[#D1AB6D]/15 via-[#E0CFB5]/10 to-transparent rounded-tl-3xl" />
+        <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-br-3xl" />
+        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-bl-3xl" />
+        <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-tr-3xl" />
+        <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-tl-3xl" />
+        {/* Decorative corner images */}
+        <img
+          src="/decoration/corner_right-top.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute top-0 right-0 w-36 sm:w-44 md:w-56 lg:w-64 opacity-80 select-none"
+        />
+        {/* <img
+          src="/decoration/corner_right-top.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute bottom-0 left-0 w-28 sm:w-36 md:w-48 lg:w-56 opacity-70 rotate-180 select-none"
+        /> */}
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-16">

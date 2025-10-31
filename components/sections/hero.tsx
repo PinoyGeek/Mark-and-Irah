@@ -2,26 +2,24 @@
 
 import { Button } from "@/components/button"
 import { siteConfig } from "@/content/site"
-import dynamic from "next/dynamic"
 import BounceCards from "@/components/bounce-cards"
 
-const Silk = dynamic(() => import("@/components/silk"), { ssr: false })
+ 
 
 export function Hero() {
   const weddingImages: string[] = [
-    "/Couple_img/couple (7).webp",
-    "/Couple_img/couple (13).webp",
-    "/Couple_img/couple (11).webp",
-    "/Couple_img/couple (1).webp",
-    "/Couple_img/couple (9).webp"
+    "/Couple_img/couple (2).jpg",
+    "/Couple_img/couple (3).jpg",
+    "/Couple_img/couple (1).jpg",
+
   ]
 
   const transformStyles: string[] = [
-    "rotate(5deg) translate(-120px)",
-    "rotate(0deg) translate(-50px)",
-    "rotate(-5deg)",
-    "rotate(5deg) translate(50px)",
-    "rotate(-5deg) translate(120px)",
+    // "rotate(5deg) translate(-120px)",
+    "rotate(5deg) translate(-110px)",
+    "rotate(0deg)",
+    "rotate(-5deg) translate(110px)",
+    // "rotate(-5deg) translate(120px)",
   ]
 
   return (
@@ -29,14 +27,25 @@ export function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-0 pb-8 sm:pb-12"
     >
-      {/* Background Layers */}
-      <div className="absolute inset-0 w-full h-full">
-        <Silk speed={5} scale={1} color="#909E8D" noiseIntensity={1.5} rotation={0} />
-      </div>
+      {/* Background Silk removed; using page-level Silk background */}
 
       {/* Multi-layered Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#525E2C]/20 via-[#909E8D]/15 to-[#D1AB6D]/8"></div>
       <div className="absolute inset-0 bg-black/30 backdrop-blur-sm md:bg-black/20"></div>
+
+      {/* Top corner floral decorations */}
+      <img
+        src="/decoration/hero-flower-corner-top-left.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute top-0 left-0 z-10 w-40 sm:w-56 md:w-72 lg:w-80 opacity-90 select-none pointer-events-none"
+      />
+      <img
+        src="/decoration/hero-flower-corner-top-left.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute top-0 right-0 z-10 w-40 sm:w-56 md:w-72 lg:w-80 opacity-90 select-none pointer-events-none transform scale-x-[-1]"
+      />
 
       {/* Decorative Elements */}
       <div className="absolute top-20 left-10 w-20 h-20 md:w-32 md:h-32 opacity-10">
@@ -55,9 +64,13 @@ export function Hero() {
 
 
             {/* Names */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold text-[#F0F0F0] tracking-wide leading-tight drop-shadow-2xl">
-              {siteConfig.couple.bride} & {siteConfig.couple.groom}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold text-[#F0F0F0] tracking-wide leading-tight drop-shadow-2xl pb-0 mb-0">
+              {siteConfig.couple.brideNickname} & {siteConfig.couple.groomNickname}
             </h1>
+            {/* Full Names (smaller) */}
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#E0CFB5] font-medium -mt-1 sm:-mt-2 md:-mt-3">
+              {siteConfig.couple.bride} & {siteConfig.couple.groom}
+            </p>
                         {/* Subtitle - Getting Married */}
           <p className="text-xs sm:text-sm md:text-base tracking-[0.3em] uppercase text-[#D1AB6D] font-light mb-0 sm:mb-1 md:mb-2">
               are getting married
@@ -123,14 +136,14 @@ export function Hero() {
             <Button
               href="#narrative"
               variant="primary"
-              className="min-w-[140px] sm:min-w-[160px] md:min-w-[180px] px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 text-sm sm:text-base md:text-lg font-semibold tracking-wide rounded-lg transition-all duration-500 ease-in-out bg-gradient-to-r from-[#525E2C] via-[#909E8D] to-[#525E2C] border border-[#D1AB6D]/40 text-[#F0F0F0] shadow-lg hover:shadow-xl hover:scale-[1.02] hover:border-[#D1AB6D]/60 hover:text-white hover:from-[#6B7A3A] hover:via-[#A0B09D] hover:to-[#6B7A3A] active:scale-[0.98]"
+              className="min-w-[140px] sm:min-w-[160px] md:min-w-[180px] px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 text-sm sm:text-base md:text-lg font-semibold tracking-wide rounded-lg transition-all duration-500 ease-in-out bg-gradient-to-r from-[#402921] via-[#583016] to-[#402921] border border-[#BB8A3D] text-[#FFF6E7] shadow-lg hover:shadow-xl hover:scale-[1.02] hover:border-[#CDAC77] hover:text-[#FFF6E7] hover:from-[#583016] hover:via-[#BB8A3D] hover:to-[#583016] active:scale-[0.98]"
             >
               Our Love Story
             </Button>
             <Button
               href="#rsvp"
               variant="outline"
-              className="min-w-[140px] sm:min-w-[160px] md:min-w-[180px] px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 text-sm sm:text-base md:text-lg font-semibold tracking-wide rounded-lg transition-all duration-500 ease-in-out bg-[#D1AB6D] border-2 border-[#D1AB6D] text-[#525E2C] text-center shadow-md hover:shadow-lg hover:scale-[1.02] hover:bg-[#DDC4A0] hover:border-[#E8D5BB] hover:text-white active:scale-[0.98]"
+              className="min-w-[140px] sm:min-w-[160px] md:min-w-[180px] px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 text-sm sm:text-base md:text-lg font-semibold tracking-wide rounded-lg transition-all duration-500 ease-in-out bg-[#BB8A3D] border-2 border-[#FFF6E7] text-white text-center shadow-md hover:shadow-lg hover:scale-[1.02] hover:bg-[#CDAC77] hover:border-[#FFF6E7] hover:text-white active:scale-[0.98]"
             >
               RSVP
             </Button>

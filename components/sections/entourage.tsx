@@ -1,190 +1,25 @@
 "use client"
 
-import { entourage } from "@/content/site"
 import { Heart, Users, Flower2, Crown, Sparkles } from "lucide-react"
 
 
-interface EntourageRole {
-  title: string
-  subtitle: string
-  layout: "single" | "two-column" | "centered"
-  roles: string[]
-  icon?: React.ReactNode
-}
-
 export function Entourage() {
-  const roleCategories: EntourageRole[] = [
-    {
-      title: "KATE'S PARENTS",
-      subtitle: "",
-      layout: "centered",
-      roles: ["Father", "Mother"],
-      icon: <Heart className="w-5 h-5" />,
-    },
-    {
-      title: "CHRISTIAN'S PARENTS",
-      subtitle: "",
-      layout: "centered",
-      roles: ["Mother", "Brother", "Sister"],
-      icon: <Heart className="w-5 h-5" />,
-    },
-    {
-      title: "TO ASSIST US IN OUR NEEDS",
-      subtitle: "Best Man, Maid of Honor, Matron of Honor",
-      layout: "two-column",
-      roles: ["Best Man", "Maid of Honor", "Matron of Honor"],
-      icon: <Heart className="w-5 h-5" />,
-    },
-    {
-      title: "TO CLOTH US AS ONE",
-      subtitle: "Clothing sponsors",
-      layout: "two-column",
-      roles: ["Groomsman", "Bridesmaid"],
-      icon: <Users className="w-5 h-5" />,
-    },
-    {
-      title: "TO BIND US TOGETHER",
-      subtitle: "Binding sponsors",
-      layout: "two-column",
-      roles: ["Groomsman", "Bridesmaid"],
-      icon: <Users className="w-5 h-5" />,
-    },
-    {
-      title: "TO LIGHT OUR PATH",
-      subtitle: "Path sponsors",
-      layout: "centered",
-      roles: ["Groomsman", "Bridesmaid"],
-      icon: <Sparkles className="w-5 h-5" />,
-    },
-    {
-      title: "TO LIGHT OUR UNITY",
-      subtitle: "Candle sponsors",
-      layout: "two-column",
-      roles: ["Groomsman", "Bridesmaid"],
-      icon: <Sparkles className="w-5 h-5" />,
-    },
-    {
-      title: "TO VEIL US AS ONE",
-      subtitle: "Veil sponsors",
-      layout: "two-column",
-      roles: ["Groomsman", "Bridesmaid"],
-      icon: <Heart className="w-5 h-5" />,
-    },
-    {
-      title: "TO GUIDE US IN OUR WAY",
-      subtitle: "Groomsmen and Bridesmaids",
-      layout: "two-column",
-      roles: ["Groomsman", "Bridesmaid"],
-      icon: <Users className="w-5 h-5" />,
-    },
-    {
-      title: "TO UNITE US WITH LOVE",
-      subtitle: "Cord sponsors",
-      layout: "two-column",
-      roles: ["Groomsman", "Bridesmaid"],
-      icon: <Heart className="w-5 h-5" />,
-    },
-    {
-      title: "TO CARRY OUR SYMBOL OF LOVE",
-      subtitle: "Ring Bearer",
-      layout: "centered",
-      roles: ["Ring Bearer"],
-      icon: <Heart className="w-5 h-5" />,
-    },
-    {
-      title: "TO CARRY OUR SYMBOL OF FAITH",
-      subtitle: "Bible Bearer",
-      layout: "centered",
-      roles: ["Bible Bearer"],
-      icon: <Crown className="w-5 h-5" />,
-    },
-    {
-      title: "TO CARRY OUR SYMBOL OF TREASURES",
-      subtitle: "Coin Bearer",
-      layout: "centered",
-      roles: ["Coin Bearer"],
-      icon: <Crown className="w-5 h-5" />,
-    },
-    {
-      title: "TO SHOWER OUR AISLE WITH FLOWERS",
-      subtitle: "Flower Girls",
-      layout: "centered",
-      roles: ["Flower Girl"],
-      icon: <Flower2 className="w-5 h-5" />,
-    },
-    {
-      title: "Little Groom & Little Bride",
-      subtitle: "Our little ones",
-      layout: "two-column",
-      roles: ["Little Groom", "Little Bride"],
-      icon: <Heart className="w-5 h-5" />,
-    },
-    {
-      title: "Little Wedding Party",
-      subtitle: "Our little wedding party",
-      layout: "two-column",
-      roles: ["Little Groomsman", "Little Bridesmaid"],
-      icon: <Sparkles className="w-5 h-5" />,
-    },
-  ]
-
-  const categoryGroupMap: Record<string, string | undefined> = {
-    "KATE'S PARENTS": "kate-family",
-    "CHRISTIAN'S PARENTS": "christian-family",
-    "TO CLOTH US AS ONE": "clothing",
-    "TO BIND US TOGETHER": "binding",
-    "TO LIGHT OUR PATH": "path",
-    "TO LIGHT OUR UNITY": "candle",
-    "TO VEIL US AS ONE": "veil",
-    "TO GUIDE US IN OUR WAY": "", // Empty string means no group filter
-    "TO UNITE US WITH LOVE": "cord",
-  }
-
-  const getMembersByRole = (roleNames: string[], categoryTitle?: string) => {
-    const group = categoryGroupMap[categoryTitle ?? ""]
-    return entourage.filter((member) => {
-      const roleMatch = roleNames.includes(member.role)
-      if (group === "") return roleMatch && !member.group
-      if (!group) return roleMatch && !member.group
-      return roleMatch && member.group === group
-    })
-  }
-
-  const getRoleIcon = (role: string) => {
-    switch (role) {
-      case "Best Man":
-      case "Maid of Honor":
-      case "Matron of Honor":
-        return <Heart className="w-4 h-4" style={{ color: '#525E2C' }} />
-      case "Groomsman":
-      case "Bridesmaid":
-        return <Users className="w-4 h-4" style={{ color: '#525E2C' }} />
-      case "Usher":
-      case "Usherette":
-        return <Users className="w-4 h-4" style={{ color: '#525E2C' }} />
-      case "Ring Bearer":
-        return <Heart className="w-4 h-4" style={{ color: '#525E2C' }} />
-      case "Bible Bearer":
-      case "Coin Bearer":
-        return <Crown className="w-4 h-4" style={{ color: '#525E2C' }} />
-      case "Flower Girl":
-        return <Flower2 className="w-4 h-4" style={{ color: '#525E2C' }} />
-      case "Little Groom":
-      case "Little Bride":
-        return <Heart className="w-4 h-4" style={{ color: '#525E2C' }} />
-      case "Little Groomsman":
-      case "Little Bridesmaid":
-        return <Sparkles className="w-4 h-4" style={{ color: '#525E2C' }} />
-      default:
-        return <Users className="w-4 h-4" style={{ color: '#525E2C' }} />
-    }
-  }
 
   return (
     <section
       id="entourage"
       className="relative min-h-screen py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 overflow-hidden"
     >
+      {/* Decorative background elements for motif cohesion */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="hidden sm:block absolute top-8 left-6 w-24 h-24 bg-[#BB8A3D]/10 rounded-full blur-2xl animate-pulse" />
+        <div className="hidden sm:block absolute top-20 right-10 w-20 h-20 bg-[#CDAC77]/15 rounded-full blur-xl animate-pulse delay-1000" />
+        <div className="hidden sm:block absolute bottom-16 left-10 w-28 h-28 bg-[#BB8A3D]/8 rounded-full blur-2xl animate-pulse delay-2000" />
+        <div className="sm:hidden absolute top-6 right-6 w-14 h-14 bg-[#CDAC77]/12 rounded-full blur-lg" />
+        <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#BB8A3D]/25 to-transparent" />
+        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CDAC77]/20 to-transparent" />
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
@@ -196,198 +31,195 @@ export function Entourage() {
           </p>
         </div>
 
-        <div className="space-y-12 sm:space-y-16 md:space-y-20 max-w-7xl mx-auto">
-        {roleCategories
-          .filter((c) => ![
-            "TO CLOTH US AS ONE",
-            "TO BIND US TOGETHER",
-            "TO LIGHT OUR PATH",
-          ].includes(c.title))
-          .map((category, idx) => {
-          const members = getMembersByRole(category.roles, category.title)
-          if (members.length === 0) return null
-
-          return (
-            <div key={idx} className="group">
-              {/* Category Header */}
-              <div className="text-center mb-6 sm:mb-8 md:mb-10">
-                <div className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-primary/10 to-secondary/10 backdrop-blur-sm rounded-2xl px-4 sm:px-6 py-2 sm:py-3 border border-primary/20 mb-3 sm:mb-4 group-hover:border-primary/40 transition-all duration-300">
-                  {category.icon && (
-                    <div className="text-white group-hover:scale-110 transition-transform duration-300">
-                      {category.icon}
-                    </div>
-                  )}
-                  <h3 className="font-cursive text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white uppercase tracking-wider">
-                    {category.title}
-                  </h3>
-                </div>
-                {category.subtitle && (
-                  <p className="text-xs sm:text-sm text-white italic">
-                    {category.subtitle}
-                  </p>
-                )}
-              </div>
-
-              {/* Members Container */}
-              <div className="relative">
-                {category.layout === "centered" && (
-                  <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">
-                    {members.map((member, i) => (
-                      <div
-                        key={i}
-                        className="group/member relative bg-white/90 backdrop-blur-sm rounded-xl px-4 sm:px-6 py-3 sm:py-4 border border-primary/30 shadow-lg hover:shadow-2xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] min-w-[180px] sm:min-w-[200px]"
-                      >
-                        <div className="flex items-center justify-center gap-2 sm:gap-3">
-                          <div className="group-hover/member:scale-110 transition-transform duration-300">
-                            {getRoleIcon(member.role)}
-                          </div>
-                          <div className="text-center">
-                            <p className="font-inter font-semibold text-foreground text-sm sm:text-base group-hover/member:text-primary transition-colors duration-300">
-                              {member.name}
-                            </p>
-                            <p className="font-inter text-xs text-muted-foreground mt-1">
-                              {member.role}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {category.layout === "two-column" && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                    {/* Check if we should split by role (Groomsman/Bridesmaid) */}
-                    {category.roles.includes("Groomsman") && category.roles.includes("Bridesmaid") ? (
-                      <>
-                        {/* Left column - Groomsmen */}
-                        <div className="space-y-2 sm:space-y-3">
-                          <div className="mb-2 sm:mb-3 text-center md:text-left">
-                            <h4 className="text-xs sm:text-sm font-semibold text-white/80 uppercase tracking-wider">
-                              GROOMSMEN
-                            </h4>
-                          </div>
-                          {members.filter(m => m.role === "Groomsman").map((member, i) => (
-                            <div
-                              key={i}
-                              className="group/member bg-white/90 backdrop-blur-sm rounded-xl px-4 sm:px-5 py-3 sm:py-4 border border-primary/30 shadow-md hover:shadow-xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02]"
-                            >
-                              <div className="flex items-center gap-2 sm:gap-3">
-                                <div className="group-hover/member:scale-110 transition-transform duration-300">
-                                  {getRoleIcon(member.role)}
-                                </div>
-                                <div>
-                                  <p className="font-inter font-semibold text-foreground text-sm sm:text-base group-hover/member:text-primary transition-colors duration-300">
-                                    {member.name}
-                                  </p>
-                                  <p className="font-inter text-xs text-muted-foreground mt-1">
-                                    {member.role}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                        
-                        {/* Right column - Bridesmaids */}
-                        <div className="space-y-2 sm:space-y-3">
-                          <div className="mb-2 sm:mb-3 text-center md:text-left">
-                            <h4 className="text-xs sm:text-sm font-semibold text-white/80 uppercase tracking-wider">
-                              BRIDESMAIDS
-                            </h4>
-                          </div>
-                          {members.filter(m => m.role === "Bridesmaid").map((member, i) => (
-                            <div
-                              key={i}
-                              className="group/member bg-white/90 backdrop-blur-sm rounded-xl px-4 sm:px-5 py-3 sm:py-4 border border-secondary/30 shadow-md hover:shadow-xl hover:border-secondary/50 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02]"
-                            >
-                              <div className="flex items-center gap-2 sm:gap-3">
-                                <div className="group-hover/member:scale-110 transition-transform duration-300">
-                                  {getRoleIcon(member.role)}
-                                </div>
-                                <div>
-                                  <p className="font-inter font-semibold text-foreground text-sm sm:text-base group-hover/member:text-secondary transition-colors duration-300">
-                                    {member.name}
-                                  </p>
-                                  <p className="font-inter text-xs text-muted-foreground mt-1">
-                                    {member.role}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        {/* Left column - Generic split */}
-                        <div className="space-y-2 sm:space-y-3">
-                          {members.slice(0, Math.ceil(members.length / 2)).map((member, i) => (
-                            <div
-                              key={i}
-                              className="group/member bg-white/90 backdrop-blur-sm rounded-xl px-4 sm:px-5 py-3 sm:py-4 border border-primary/30 shadow-md hover:shadow-xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02]"
-                            >
-                              <div className="flex items-center gap-2 sm:gap-3">
-                                <div className="group-hover/member:scale-110 transition-transform duration-300">
-                                  {getRoleIcon(member.role)}
-                                </div>
-                                <div>
-                                  <p className="font-inter font-semibold text-foreground text-sm sm:text-base group-hover/member:text-primary transition-colors duration-300">
-                                    {member.name}
-                                  </p>
-                                  <p className="font-inter text-xs text-muted-foreground mt-1">
-                                    {member.role}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                        
-                        {/* Right column */}
-                        {members.length > 1 && (
-                          <div className="space-y-2 sm:space-y-3">
-                            {members.slice(Math.ceil(members.length / 2)).map((member, i) => (
-                              <div
-                                key={i}
-                                className="group/member bg-white/90 backdrop-blur-sm rounded-xl px-4 sm:px-5 py-3 sm:py-4 border border-secondary/30 shadow-md hover:shadow-xl hover:border-secondary/50 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02]"
-                              >
-                                <div className="flex items-center gap-2 sm:gap-3">
-                                  <div className="group-hover/member:scale-110 transition-transform duration-300">
-                                    {getRoleIcon(member.role)}
-                                  </div>
-                                  <div>
-                                    <p className="font-inter font-semibold text-foreground text-sm sm:text-base group-hover/member:text-secondary transition-colors duration-300">
-                                      {member.name}
-                                    </p>
-                                    <p className="font-inter text-xs text-muted-foreground mt-1">
-                                      {member.role}
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                      </>
-                    )}
-                  </div>
-                )}
-              </div>
-
-              {/* Decorative divider */}
-              {idx < roleCategories.length - 1 && (
-                <div className="flex justify-center pt-6 sm:pt-8">
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-                    <div className="w-2 h-2 bg-primary/40 rounded-full"></div>
-                    <div className="w-16 h-px bg-gradient-to-r from-transparent via-secondary/30 to-transparent"></div>
-                  </div>
-                </div>
-              )}
+        <div className="space-y-8 sm:space-y-12 md:space-y-16 max-w-5xl mx-auto">
+          <div>
+            <div className="text-center mb-5 sm:mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#FFF6E7]">The Couple</h3>
             </div>
-          )
-        })}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+              <div className="bg-white/90 rounded-xl p-4 border border-[#BB8A3D]/30">
+                <div className="flex flex-col items-center justify-center text-center gap-1">
+                  <div className="flex items-center justify-center gap-2">
+                    <Heart className="w-4 h-4 text-[#BB8A3D]" />
+                    <p className="text-[#402921] font-semibold">Erda Precious Ricohermoso</p>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#583016]/80">Bride</p>
+                </div>
+              </div>
+              <div className="bg-white/90 rounded-xl p-4 border border-[#BB8A3D]/30">
+                <div className="flex flex-col items-center justify-center text-center gap-1">
+                  <div className="flex items-center justify-center gap-2">
+                    <Heart className="w-4 h-4 text-[#BB8A3D]" />
+                    <p className="text-[#402921] font-semibold">Russell Ticbaen</p>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#583016]/80">Groom</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <div className="text-center mb-3 sm:mb-4"><h4 className="text-base sm:text-lg font-semibold text-[#FFF6E7]">Parents of the Bride</h4></div>
+              <div className="space-y-2">
+                <div className="bg-white/90 rounded-lg p-3 border border-[#BB8A3D]/30">
+                  <div className="flex flex-col items-center justify-center text-center gap-0.5">
+                    <div className="flex items-center justify-center gap-2"><Users className="w-4 h-4 text-[#CDAC77]" /><p className="text-[#402921]">Jaime Balajadia</p></div>
+                    <p className="text-xs text-[#583016]/80">(Uncle)</p>
+                  </div>
+                </div>
+                <div className="bg-white/90 rounded-lg p-3 border border-[#BB8A3D]/30"><div className="flex items-center justify-center gap-2 text-center"><Users className="w-4 h-4 text-[#CDAC77]" /><p className="text-[#402921]">Eloida Ricohermoso</p></div></div>
+              </div>
+            </div>
+            <div>
+              <div className="text-center mb-3 sm:mb-4"><h4 className="text-base sm:text-lg font-semibold text-[#FFF6E7]">Parents of the Groom</h4></div>
+              <div className="space-y-2">
+                <div className="bg-white/90 rounded-lg p-3 border border-[#BB8A3D]/30">
+                  <div className="flex flex-col items-center justify-center text-center gap-0.5">
+                    <div className="flex items-center justify-center gap-2"><Users className="w-4 h-4 text-[#CDAC77]" /><p className="text-[#402921]">Perry Ticbaen</p></div>
+                    <p className="text-xs text-[#583016]/80">(Brother)</p>
+                  </div>
+                </div>
+                <div className="bg-white/90 rounded-lg p-3 border border-[#BB8A3D]/30"><div className="flex items-center justify-center gap-2 text-center"><Users className="w-4 h-4 text-[#CDAC77]" /><p className="text-[#402921]">Felicitas Ticbaen</p></div></div>
+              </div>
+            </div>
+          </div>
+
+       
+          <div className="flex justify-center py-4">
+            <div className="h-px w-40 sm:w-64 bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-transparent"></div>
+          </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+            <div className="bg-white/90 rounded-xl p-4 border border-[#BB8A3D]/30">
+              <div className="flex flex-col items-center justify-center text-center gap-1">
+                <div className="flex items-center justify-center gap-2"><Crown className="w-4 h-4 text-[#BB8A3D]" /><p className="text-[#402921] font-semibold">Imeeliza Timpug</p></div>
+                <p className="text-xs sm:text-sm text-[#583016]/80">Maid/Matron of Honor</p>
+              </div>
+            </div>
+            <div className="bg-white/90 rounded-xl p-4 border border-[#BB8A3D]/30">
+              <div className="flex flex-col items-center justify-center text-center gap-1">
+                <div className="flex items-center justify-center gap-2"><Crown className="w-4 h-4 text-[#BB8A3D]" /><p className="text-[#402921] font-semibold">Red Casallo</p></div>
+                <p className="text-xs sm:text-sm text-[#583016]/80">Best Man</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="text-center mb-3 sm:mb-4">
+              <h4 className="text-base sm:text-lg font-semibold text-[#FFF6E7]">Bridesmaids & Groomsmen </h4>
+            </div>
+            {(() => {
+              const bridesmaids = [
+                "Thea Lynn Dela Cruz",
+                "Keara Zane A Cariño",
+                "Fidnah Gracia Padallan",
+                "Lorna Ladisla",
+                "Carla Vanessa Tabilin",
+                "Romela Tolentino",
+                "Emmalyn Lipio",
+                "Carmen Pascual",
+                "Ciddie Manota",
+              ]
+              const groomsmen = [
+                "Noah Alcaria",
+                "Jervin Garcia",
+                "Myric Mateo",
+                "Caughvan Faustino",
+                "Jayson Torquiano",
+                "Jendah Egino",
+                "Vincent Saguinsin",
+                "Frederick Manota",
+                "Emerson Sulit",
+              ]
+              const maxLen = Math.max(bridesmaids.length, groomsmen.length)
+              return (
+                <div className="space-y-1.5 sm:space-y-2">
+                  {Array.from({ length: maxLen }).map((_, i) => (
+                    <div key={i} className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {bridesmaids[i] && (
+                        <div className="group bg-white/90 rounded-lg p-3 sm:p-3.5 border border-[#BB8A3D]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#BB8A3D]/60">
+                          <div className="flex items-center justify-center gap-2 text-center">
+                            <Users className="w-4 h-4 text-[#CDAC77]" />
+                            <p className="text-[#402921] text-sm sm:text-base transition-colors duration-300 group-hover:text-[#BB8A3D]">{bridesmaids[i]}</p>
+                          </div>
+                        </div>
+                      )}
+                      {groomsmen[i] && (
+                        <div className="group bg-white/90 rounded-lg p-3 sm:p-3.5 border border-[#BB8A3D]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#BB8A3D]/60">
+                          <div className="flex items-center justify-center gap-2 text-center">
+                            <Users className="w-4 h-4 text-[#CDAC77]" />
+                            <p className="text-[#402921] text-sm sm:text-base transition-colors duration-300 group-hover:text-[#BB8A3D]">{groomsmen[i]}</p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )
+            })()}
+          </div>
+
+          <div className="space-y-4">
+            <div className="text-center"><h4 className="text-base sm:text-lg font-semibold text-[#FFF6E7]">Secondary Sponsors</h4></div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2 sm:gap-3">
+              <div className="bg-white/90 rounded-xl p-3 sm:p-4 border border-[#BB8A3D]/30 text-center">
+                <p className="text-[#402921] font-semibold mb-2 text-center">Candle Sponsors</p>
+                <ul className="space-y-1">
+                  <li className="text-[#402921] flex items-center justify-center gap-2"><Sparkles className="w-4 h-4 text-[#BB8A3D]" /><span>Romela Tolentino</span></li>
+                </ul>
+              </div>
+              <div className="bg-white/90 rounded-xl p-3 sm:p-4 border border-[#BB8A3D]/30 text-center">
+                <p className="text-[#402921] font-semibold mb-2 text-center">Veil Sponsors</p>
+                <ul className="space-y-1">
+                  <li className="text-[#402921] flex items-center justify-center gap-2"><Sparkles className="w-4 h-4 text-[#BB8A3D]" /><span>Carla Vanessa Tabilin</span></li>
+                </ul>
+              </div>
+              <div className="bg-white/90 rounded-xl p-3 sm:p-4 border border-[#BB8A3D]/30 text-center">
+                <p className="text-[#402921] font-semibold mb-2 text-center">Cord Sponsors</p>
+                <ul className="space-y-1">
+                  <li className="text-[#402921] flex items-center justify-center gap-2"><Sparkles className="w-4 h-4 text-[#BB8A3D]" /><span>Emmalyn Lipio</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="text-center mb-4"><h4 className="text-lg font-semibold text-[#FFF6E7]">Flower Girls</h4></div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+              {[
+                "Kirsten Elija Leyson",
+                "Blake Juan",
+                "Reign Arastel Rivera",
+                "Paige Yael Ticbaen (Little Bride)",
+              ].map((name) => (
+                <div key={name} className="bg-white/90 rounded-lg p-3 border border-[#BB8A3D]/30"><div className="flex items-center justify-center gap-2 text-center"><Flower2 className="w-4 h-4 text-[#BB8A3D]" /><p className="text-[#402921]">{name}</p></div></div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="text-center mb-4"><h4 className="text-lg font-semibold text-[#FFF6E7]">Ring/ Coin Bearers</h4></div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              {[
+                "Khaleb Dwayne M. Beltran",
+                "Lucas Rhaiden Beltran",
+                "Dean James Ticbaen",
+              ].map((name) => (
+                <div key={name} className="bg-white/90 rounded-lg p-3 border border-[#BB8A3D]/30"><div className="flex items-center justify-center gap-2 text-center"><Crown className="w-4 h-4 text-[#CDAC77]" /><p className="text-[#402921]">{name}</p></div></div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="text-center mb-4"><h4 className="text-lg font-semibold text-[#FFF6E7]">Readers (1st Reading, Responsorial, Prayers of the Faithful)</h4></div>
+            <div className="bg-white/90 rounded-xl p-4 border border-[#BB8A3D]/30">
+              <div className="flex items-center justify-center gap-2 text-center">
+                <Sparkles className="w-4 h-4 text-[#BB8A3D]" />
+                <p className="text-[#402921]">Mrs. Alda Unidad</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
