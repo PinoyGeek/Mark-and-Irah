@@ -159,7 +159,7 @@ export function Details() {
 
           <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-4 md:mb-6 relative z-10">
             <p className="text-sm sm:text-base md:text-lg font-semibold text-[#402921]">{siteConfig.ceremony.venue}</p>
-            <p className="text-xs sm:text-sm text-[#402921] opacity-70">Mabolo, Cebu City</p>
+            <p className="text-xs sm:text-sm text-[#402921] opacity-70">Buyagan, La Trinidad, Benguet</p>
             <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base text-[#402921]">
               <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#BB8A3D] flex-shrink-0" />
               <span>
@@ -254,7 +254,7 @@ export function Details() {
 
           <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-4 md:mb-6 relative z-10">
             <p className="text-sm sm:text-base md:text-lg font-semibold text-[#402921]">{siteConfig.reception.venue}</p>
-            <p className="text-xs sm:text-sm text-[#402921] opacity-70">Escario Cebu</p>
+            <p className="text-xs sm:text-sm text-[#402921] opacity-70"> Buyagan, La Trinidad, Benguet</p>
             <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base text-[#402921]">
               <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#BB8A3D] flex-shrink-0" />
               <span>
@@ -523,7 +523,7 @@ export function Details() {
                     </h3>
                     <div className="flex items-center gap-2 text-sm text-[#402921] opacity-70">
                       <MapPin className="w-4 h-4 text-[#BB8A3D]" />
-                      <span>{showImageModal === 'ceremony' ? 'Mabolo, Cebu City' : 'Escario Cebu'}</span>
+                      <span>{showImageModal === 'ceremony' ? siteConfig.ceremony.location : siteConfig.reception.location}</span>
           </div>
 
                     {/* Date & Time info */}
