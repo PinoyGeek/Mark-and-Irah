@@ -176,7 +176,7 @@ export function Footer() {
                 <div className="w-12 h-12 bg-white/15 rounded-full flex items-center justify-center border border-white/20">
                   <Heart className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-serif text-3xl md:text-4xl font-bold text-white">Kate & Christian</h3>
+                <h3 className="font-serif text-3xl md:text-4xl font-bold text-white">Erda & Russell</h3>
               </div>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 font-lora text-white/95">
@@ -185,7 +185,7 @@ export function Footer() {
                 </div>
                 <div className="flex items-center gap-3 font-lora text-white/90">
                   <MapPin className="w-5 h-5 text-white/70" />
-                  <span>St. Joseph the Patriarch Parish, Cebu</span>
+                  <span>San Jose the Husband of Mary Parish, Buyagan, La Trinidad, Benguet</span>
                 </div>
               </div>
             </div>
@@ -215,7 +215,7 @@ export function Footer() {
               <div className="space-y-3 font-lora text-white/90 text-sm">
                 <div className="flex items-center gap-3">
                   <MapPin className="w-4 h-4 text-white/70" />
-                  <span>St. Joseph the Patriarch Parish</span>
+                  <span>San Jose the Husband of Mary Parish, Buyagan, La Trinidad, Benguet</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="w-4 h-4 text-white/70" />
@@ -234,7 +234,7 @@ export function Footer() {
               <div className="space-y-3 font-lora text-white/90 text-sm">
                 <div className="flex items-center gap-3">
                   <MapPin className="w-4 h-4 text-white/70" />
-                  <span>Golden Peak Hotel & Suites, Cebu</span>
+                  <span>D & L Garden Pavilion, Halsema Highway, La Trinidad, Benguet</span>
                 </div>
               </div>
             </motion.div>
@@ -250,7 +250,7 @@ export function Footer() {
                 <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white/5 ring-1 ring-white/15 hover:bg-white/10 transition-colors">
                   <Instagram className="w-5 h-5 text-white" />
                 </a>
-                <a href="https://www.facebook.com/bunnykate.15" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white/5 ring-1 ring-white/15 hover:bg-white/10 transition-colors">
+                <a href="https://www.facebook.com/knginalawagan" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white/5 ring-1 ring-white/15 hover:bg-white/10 transition-colors">
                   <Facebook className="w-5 h-5 text-white" />
                 </a>
                 <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white/5 ring-1 ring-white/15 hover:bg-white/10 transition-colors">
@@ -278,7 +278,7 @@ export function Footer() {
         <motion.div className="border-t border-white/20 pt-8" variants={fadeInUp}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <p className="text-white/85 font-lora text-sm">© {year} Kate & Christian. All rights reserved.</p>
+              <p className="text-white/85 font-lora text-sm">© {year} Erda & Russell. All rights reserved.</p>
               <p className="text-white/90 font-lora text-sm mt-1">
                 Made with 💕 for our special day
               </p>
@@ -313,7 +313,7 @@ export function Footer() {
 
         {/* Floating Messenger Button */}
         <a
-          href="https://m.me/bunnykate.15"
+          href="https://m.me/knginalawagan"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Contact us on Messenger"
