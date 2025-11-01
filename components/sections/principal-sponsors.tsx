@@ -1,10 +1,92 @@
 "use client"
 
-import { Section } from "@/components/section"
-import { principalSponsors } from "@/content/site"
-import { Heart, Users } from "lucide-react"
 
 export function PrincipalSponsors() {
+  // Helper component for elegant section titles
+  const SectionTitle = ({ children }: { children: React.ReactNode }) => (
+    <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-semibold text-[#BB8A3D] mb-4 sm:mb-6 text-center tracking-wide">
+      {children}
+    </h3>
+  )
+
+  // Helper component for name items
+  const NameItem = ({ name }: { name: string }) => (
+    <div className="flex items-center justify-center py-2 sm:py-2.5">
+      <p className="text-[#FFF6E7] text-sm sm:text-base font-light text-center">{name}</p>
+    </div>
+  )
+
+  // Helper component for two-column layout wrapper
+  const TwoColumnLayout = ({ 
+    children, 
+    leftTitle, 
+    rightTitle,
+    singleTitle,
+    centerContent = false 
+  }: { 
+    children: React.ReactNode
+    leftTitle?: string
+    rightTitle?: string
+    singleTitle?: string
+    centerContent?: boolean
+  }) => {
+    if (singleTitle) {
+      return (
+        <div className="mb-8 sm:mb-10 md:mb-12">
+          <SectionTitle>{singleTitle}</SectionTitle>
+          <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
+            {children}
+          </div>
+        </div>
+      )
+    }
+
+    return (
+      <div className="mb-8 sm:mb-10 md:mb-12">
+        <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-4 sm:gap-x-6 md:gap-x-8 mb-4 sm:mb-6">
+          {leftTitle && (
+            <SectionTitle>{leftTitle}</SectionTitle>
+          )}
+          {rightTitle && (
+            <SectionTitle>{rightTitle}</SectionTitle>
+          )}
+        </div>
+        <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
+          {children}
+        </div>
+      </div>
+    )
+  }
+
+  // Parse sponsor data from the provided list
+  const sponsors = [
+    { name: "Honorable Mayor Roderick Awingan", spouse: "Mrs. November Awingan" },
+    { name: "Engr. Roy Kepes", spouse: "Vice Gov. Mary Rose Kepes Fongwan" },
+    { name: "Councilor Nestor Fongwan, Jr.", spouse: "Mrs. Alda Unidad" },
+    { name: "Rev. Pastor Cresente Faustino", spouse: "Mrs. Cecilia Panlilio" },
+    { name: "Kagawad Joseph Aliado", spouse: "Mrs. Araceli Pitogo" },
+    { name: "Mr. Pio Macliing", spouse: "Dra. Edna Coloma" },
+    { name: "Mr. Cresencio Francisco", spouse: "Dr. Editha Francisco" },
+    { name: "Mr. Aurelio Sab-it", spouse: "Mrs. Ester Sab-it" },
+    { name: "Mr. Fabian Dupiano", spouse: "Mrs. Mary Christine Dupiano" },
+    { name: "Mr. Roberto Dosdos", spouse: "Mrs. Angelica Dosdos" },
+    { name: "Mr. George Sacla", spouse: "Mrs. Minda De Bolt Sacla" },
+    { name: "Mr. Elmo Casallo", spouse: "Mrs. Nora Casallo" },
+    { name: "Engr. Jimmy Atayoc Sr", spouse: "Mrs. Mercedes Atayoc" },
+    { name: "Mr. Tomas Moyongan", spouse: "Mrs. Betty Moyongan" },
+    { name: "Mr. Roger Balantin", spouse: "Mrs. Delia Balantin" },
+    { name: "Mr. Jony Balao", spouse: "Mrs. Conception Balao" },
+    { name: "Mr. Pampilo Balajadia", spouse: "Mrs. Angela Balajadia" },
+    { name: "Mr. Junvic Suguinsin", spouse: "Mrs. Nida Saguinsin" },
+    { name: "Mr. Alan M. Serduar", spouse: "Mrs. Oliva Serduar" },
+    { name: "Mr. Peter Ticbaen", spouse: "Mrs. Carina C. Watanabe" },
+    { name: "Mr. Salino Dosdos Jr", spouse: "Mrs. Angelica Balajadia" },
+    { name: "Mr. Miguel Franco", spouse: "Mrs. Marga Sison" },
+    { name: "Mr. Eduardo Dosdos", spouse: "Mrs. Lavenia Inson" },
+    { name: "Mr. Roger Mateo", spouse: "Mrs. Gina Guiang" },
+    { name: "Mrs. Reine Bernadeth Bolanos", spouse: "" },
+  ]
+
   return (
     <section 
       id="sponsors" 
@@ -42,7 +124,7 @@ export function PrincipalSponsors() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
           {/* Decorative ornaments */}
@@ -57,11 +139,10 @@ export function PrincipalSponsors() {
           </div>
 
           <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-[#FFF6E7] mb-6 text-balance drop-shadow-lg relative">
-            <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-br from-[#BB8A3D] via-[#CDAC77] to-[#FFF6E7]">Principal Sponsors</span>
-            {/* Text glow effect */}
-            <span className="absolute inset-0 text-[#BB8A3D]/20 blur-2xl -z-10">Principal Sponsors</span>
-          </h2>
- 
+          <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-br from-[#BB8A3D] via-[#CDAC77] to-[#FFF6E7]">Principal Sponsors</span>
+          {/* Text glow effect */}
+        </h2>
+
           <p className="text-lg md:text-xl text-[#FFF6E7] font-sans font-light max-w-2xl mx-auto px-4 leading-relaxed">
             Our Beloved Godparents
           </p>
@@ -74,57 +155,28 @@ export function PrincipalSponsors() {
           </div>
         </div>
 
-        {/* Sponsors Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-          {principalSponsors.map((sponsor, index) => (
-            <div
-              key={index}
-              className="group relative"
-            >
-              {/* Glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#D1AB6D]/20 via-[#E0CFB5]/10 to-[#D1AB6D]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
-              
-              {/* Main card */}
-              <div className="relative bg-gradient-to-br from-white via-[#F0F0F0] to-white backdrop-blur-md rounded-2xl p-5 sm:p-6 border-2 border-[#D1AB6D]/30 shadow-lg hover:shadow-2xl hover:border-[#D1AB6D]/60 transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02]">
-                {/* Decorative corner accents */}
-                <div className="absolute -top-1 -left-1 w-4 h-4 bg-gradient-to-br from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-bl from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
-                <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-gradient-to-tr from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
-                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-gradient-to-tl from-[#D1AB6D] to-[#E0CFB5] rounded-full blur-sm opacity-70" />
-                
-                {/* Inner decorative border */}
-                <div className="absolute inset-2 border border-[#D1AB6D]/20 rounded-xl group-hover:border-[#D1AB6D]/40 transition-all duration-500" />
-                
-                {/* Shimmer effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shimmer rounded-2xl" />
-                
-                {/* Content */}
-                <div className="relative z-10 text-center space-y-3">
-                  {/* Heart icon */}
-                  <div className="flex justify-center mb-2">
-                    <div className="p-2 bg-gradient-to-br from-[#D1AB6D]/20 to-[#E0CFB5]/20 rounded-full group-hover:scale-110 transition-transform duration-500">
-                      <Heart className="w-5 h-5 text-[#525E2C]" />
-                    </div>
-                  </div>
-                  
-                  {/* Names */}
-                  <div className="space-y-2">
-                    <p className="text-sm sm:text-base font-semibold text-[#525E2C] leading-relaxed group-hover:text-[#D1AB6D] transition-colors duration-300">
-                      {sponsor.name}
-                    </p>
-                    <div className="flex items-center justify-center gap-2">
-                      <div className="w-8 h-px bg-gradient-to-r from-transparent via-[#D1AB6D]/40 to-transparent" />
-                      <span className="text-xs text-[#909E8D]">&</span>
-                      <div className="w-8 h-px bg-gradient-to-l from-transparent via-[#D1AB6D]/40 to-transparent" />
-                    </div>
-                    <p className="text-sm sm:text-base font-semibold text-[#525E2C] leading-relaxed group-hover:text-[#D1AB6D] transition-colors duration-300">
-                      {sponsor.spouse}
-                    </p>
-                  </div>
+        {/* Sponsors in Two-Column Layout */}
+        <div className="max-w-5xl mx-auto">
+          <TwoColumnLayout singleTitle="Principal Sponsors">
+            <div className="space-y-3">
+              {sponsors.map((sponsor, idx) => (
+                <div key={idx}>
+                  <NameItem name={sponsor.name} />
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
+            <div className="space-y-3">
+              {sponsors.map((sponsor, idx) => (
+                <div key={idx}>
+                  {sponsor.spouse ? (
+                    <NameItem name={sponsor.spouse} />
+                  ) : (
+                    <div className="py-2 sm:py-2.5"></div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </TwoColumnLayout>
         </div>
       </div>
     </section>

@@ -46,67 +46,14 @@ export const siteConfig = {
     },
     note: "Please avoid jeans and casual attire."
   },
-  narrative: `I can't remember when you weren't there
-  When I didn't care for anyone but you
-  I swear we've been through everything there is
-  Can't imagine anything we've missed
-  Can't imagine anything the two of us can't do \n
-  
-  Through the years
-  You've never let me down
-  You've turned my life around
-  The sweetest days I've found
-  I've found with you
-  Through the years
-  I've never been afraid
-  I've loved the life we've made
-  And I'm so glad I've stayed
-  Right here with you
-  Through the years  \n
-  
-  I can't remember what I used to do
-  Who I trusted, whom I listened to before
-  I swear you've taught me everything I know
-  Can't imagine needing someone so
-  But through the years it seems to me
-  I need you more and more \n
-  
-  Through the years
-  Through all the good and bad
-  I know how much we had
-  I've always been so glad
-  To be with you
-  Through the years
-  It's better every day
-  You've kissed my tears away
-  As long as it's okay
-  I'll stay with you
-  Through the years \n
-  
-  Through the years
-  When everything went wrong
-  Together we were strong
-  I know that I belong
-  Right here with you
-  Through the years
-  I never had a doubt
-  We'd always work things out
-  I've learned what love's about
-  By loving you
-  Through the years \n
-  
-  Through the years
-  You've never let me down
-  You've turned my life around
-  The sweetest days I've found
-  I've found with you
-  Through the years
-  It's better every day
-  You've kissed my tears away
-  As long as it's okay
-  I'll stay with you
-  Through the years`,
-  giftNote: `With all that we have, we are truly blessed. Your presence and prayer are all that we request.
+  narrative: `It all started right here — where fate decided our paths should cross. \n
+“Yes, beb, dito kami nagkakilala,” Erda says with a smile. \n
+One day, Russell suddenly went down to Manila — without her knowing. Then came that unforgettable call while he was in a taxi: \n
+“Paano pumunta ng Angono?” he asked. \n
+And just like that, her heart (and her hair) grew a little longer that day. 😉 \n
+Twelve years later — after countless memories, laughter, and adventures — their love has only grown deeper. Together, they’ve built a beautiful life and now share it with the greatest blessing of all: their wonderful child, who completed their lovely family. 💖 \n
+From that first “Hi, babe” to this “I do,” their story has always been written with love — and it’s only the beginning. 💍✨ \n `,
+  giftNote: `With all that we have, we are truly blessed. Your presence and prayer are all that we request. \n
 But if you desire to give nonetheless, a monetary gift is the one we suggest.`,
   colors: {
     primary: "#525E2C",
