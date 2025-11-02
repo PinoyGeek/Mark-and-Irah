@@ -358,8 +358,8 @@ export function Details() {
             {typeof siteConfig.dressCode === 'object' && siteConfig.dressCode.sponsors && (
               <div className="mb-4 bg-white/60 rounded-lg p-3 border border-[#BB8A3D]/25">
                 <p className="text-xs font-semibold text-[#402921] mb-2">Principal Sponsors</p>
-                <p className="text-xs text-[#402921] opacity-80 mb-1">Ladies: {siteConfig.dressCode.sponsors.ladies}</p>
-                <p className="text-xs text-[#402921] opacity-80">Gentlemen: {siteConfig.dressCode.sponsors.gentlemen}</p>
+                <p className="text-xs text-[#402921] opacity-80 mb-1">Dress Code: Any shade of Gold</p>
+
               </div>
             )}
 
@@ -367,8 +367,7 @@ export function Details() {
             {typeof siteConfig.dressCode === 'object' && siteConfig.dressCode.guests && (
               <div className="mb-4 bg-white/60 rounded-lg p-3 border border-[#BB8A3D]/25">
                 <p className="text-xs font-semibold text-[#402921] mb-2">Guests</p>
-                <p className="text-xs text-[#402921] opacity-80 mb-1">Ladies: {siteConfig.dressCode.guests.ladies}</p>
-                <p className="text-xs text-[#402921] opacity-80 mb-2">Gentlemen: {siteConfig.dressCode.guests.gentlemen}</p>
+                <p className="text-xs text-[#402921] opacity-80 mb-1">Dress Code: Semi-formal (avoid casual attire)</p>
                 <p className="text-xs font-medium text-[#402921] opacity-90 bg-[#CDAC77]/25 px-2 py-1 rounded">⚠️ {siteConfig.dressCode.note}</p>
               </div>
             )}

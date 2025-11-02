@@ -17,7 +17,7 @@ const faqItems: FAQItem[] = [
   {
     question: "What is the dress code?",
     answer:
-      "Semi-Formal Attire. Ladies: Long or cocktail dress. Gentlemen: Long sleeve, polo, pants or suit. Please avoid jeans and casual attire.",
+      "Principal Sponsors are requested to wear any shade of Gold, while Guests are encouraged to come in Semi-formal attire and avoid casual clothing.",
   },
   {
     question: "When and where is the ceremony?",

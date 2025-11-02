@@ -83,8 +83,8 @@ export function PrincipalSponsors() {
     { name: "Mr. Salino Dosdos Jr", spouse: "Mrs. Angelica Balajadia" },
     { name: "Mr. Miguel Franco", spouse: "Mrs. Marga Sison" },
     { name: "Mr. Eduardo Dosdos", spouse: "Mrs. Lavenia Inson" },
-    { name: "Mr. Roger Mateo", spouse: "Mrs. Gina Guiang" },
-    { name: "Mrs. Reine Bernadeth Bolanos", spouse: "" },
+    { name: "Mr. Ronald Plumos", spouse: "Mrs. Gina Guiang" },
+    { name: "Mr. Roger Mateo", spouse: "Mrs. Reine Bernadeth Bolano" },
   ]
 
   return (

@@ -186,7 +186,7 @@ export function Entourage() {
               {[
                 "Thea Lynn Dela Cruz",
                 "Keara Zane A Cariño",
-                "Fionah Padallan",
+                "Fiona Padallan",
                 "Lorna Ladisla",
                 "Carmen Pascual",
                 "Ciodie Manota",
@@ -273,14 +273,14 @@ export function Entourage() {
           </div>
 
           {/* Readers */}
-          <div className="mb-8 sm:mb-10 md:mb-12">
+          {/* <div className="mb-8 sm:mb-10 md:mb-12">
             <SectionTitle>Readers (1st Reading, Responsorial, Prayers of the Faithful)</SectionTitle>
             <div className="flex justify-center">
               <div className="w-full max-w-md">
                 <NameItem name="Mrs. Alda Unidad" />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
