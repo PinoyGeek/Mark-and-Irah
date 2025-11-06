@@ -1,3 +1,7 @@
+import bundleAnalyzer from '@next/bundle-analyzer';
+
+const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'true' });
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -13,7 +17,16 @@ const nextConfig = {
         hostname: "**",
       },
     ],
-    unoptimized: true,
+    // Enable Next.js Image Optimization for better performance
+    unoptimized: false,
+  },
+  experimental: {
+    optimizePackageImports: [
+      'date-fns',
+      'lucide-react',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-select',
+    ],
   },
   headers: async () => {
     return [
@@ -42,8 +55,20 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" }
+        ],
+      },
+      {
+        source: "/:all*\.(js|css|svg|png|jpg|jpeg|gif|webp|ico|woff2?)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" }
+        ],
+      },
     ]
   },
-}
+};
 
-export default nextConfig
+export default withBundleAnalyzer(nextConfig);

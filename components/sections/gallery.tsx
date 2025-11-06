@@ -6,9 +6,9 @@ import { Section } from "@/components/section"
 // Removed circular gallery in favor of a responsive masonry layout
 
 const galleryItems = [
-  { image: "/Couple_img/couple (1).jpg", text: " " },   
-  { image: "/Couple_img/couple (2).jpg", text: " " },
-  { image: "/Couple_img/couple (3).jpg", text: " " },
+  { image: "/desktop-background/NLK_4093-min.jpg", text: " " },   
+  { image: "/desktop-background/NLK_3275-min.jpg", text: " " },
+  { image: "/desktop-background/DSCF2499-min.jpg", text: " " },
 
 ]
 
@@ -89,41 +89,41 @@ export function Gallery() {
   return (
     <Section
       id="gallery"
-      className="relative bg-gradient-to-b from-[#402921] via-[#583016] to-[#402921] py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden"
+      className="relative bg-gradient-to-b from-[#666956] via-[#8D8E7C] to-[#666956] py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 2 }}>
         {/* Floating geometric shapes with color palette - hidden on small screens */}
-        <div className="hidden sm:block absolute top-10 left-10 w-20 h-20 bg-[#BB8A3D]/10 rounded-full blur-xl animate-pulse" />
-        <div className="hidden sm:block absolute top-20 right-20 w-16 h-16 bg-[#CDAC77]/15 rounded-full blur-lg animate-pulse delay-1000" />
-        <div className="hidden sm:block absolute bottom-20 left-20 w-24 h-24 bg-[#BB8A3D]/8 rounded-full blur-2xl animate-pulse delay-2000" />
-        <div className="hidden sm:block absolute bottom-10 right-10 w-12 h-12 bg-[#CDAC77]/12 rounded-full blur-lg animate-pulse delay-500" />
+        <div className="hidden sm:block absolute top-10 left-10 w-20 h-20 bg-[#B08981]/12 rounded-full blur-xl animate-pulse" />
+        <div className="hidden sm:block absolute top-20 right-20 w-16 h-16 bg-[#EFBFBB]/18 rounded-full blur-lg animate-pulse delay-1000" />
+        <div className="hidden sm:block absolute bottom-20 left-20 w-24 h-24 bg-[#B08981]/10 rounded-full blur-2xl animate-pulse delay-2000" />
+        <div className="hidden sm:block absolute bottom-10 right-10 w-12 h-12 bg-[#EFBFBB]/16 rounded-full blur-lg animate-pulse delay-500" />
         
         {/* Smaller mobile decorative elements */}
-        <div className="sm:hidden absolute top-8 left-8 w-12 h-12 bg-[#BB8A3D]/8 rounded-full blur-lg animate-pulse" />
-        <div className="sm:hidden absolute bottom-8 right-8 w-10 h-10 bg-[#CDAC77]/10 rounded-full blur-md animate-pulse delay-1000" />
+        <div className="sm:hidden absolute top-8 left-8 w-12 h-12 bg-[#B08981]/10 rounded-full blur-lg animate-pulse" />
+        <div className="sm:hidden absolute bottom-8 right-8 w-10 h-10 bg-[#EFBFBB]/12 rounded-full blur-md animate-pulse delay-1000" />
         
         {/* Decorative lines with gradient */}
-        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#BB8A3D]/30 to-transparent" />
-        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#CDAC77]/25 to-transparent" />
+        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#B08981]/30 to-transparent" />
+        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#EFBFBB]/25 to-transparent" />
         
         {/* Corner decorative elements with color palette - reduced on mobile */}
-        <div className="absolute top-0 left-0 w-16 sm:w-32 h-16 sm:h-32 bg-gradient-to-br from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-br-3xl" />
-        <div className="absolute top-0 right-0 w-16 sm:w-32 h-16 sm:h-32 bg-gradient-to-bl from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-bl-3xl" />
-        <div className="absolute bottom-0 left-0 w-16 sm:w-32 h-16 sm:h-32 bg-gradient-to-tr from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-tr-3xl" />
-        <div className="absolute bottom-0 right-0 w-16 sm:w-32 h-16 sm:h-32 bg-gradient-to-tl from-[#BB8A3D]/15 via-[#CDAC77]/10 to-transparent rounded-tl-3xl" />
+        <div className="absolute top-0 left-0 w-16 sm:w-32 h-16 sm:h-32 bg-gradient-to-br from-[#B08981]/15 via-[#EFBFBB]/10 to-transparent rounded-br-3xl" />
+        <div className="absolute top-0 right-0 w-16 sm:w-32 h-16 sm:h-32 bg-gradient-to-bl from-[#B08981]/15 via-[#EFBFBB]/10 to-transparent rounded-bl-3xl" />
+        <div className="absolute bottom-0 left-0 w-16 sm:w-32 h-16 sm:h-32 bg-gradient-to-tr from-[#B08981]/15 via-[#EFBFBB]/10 to-transparent rounded-tr-3xl" />
+        <div className="absolute bottom-0 right-0 w-16 sm:w-32 h-16 sm:h-32 bg-gradient-to-tl from-[#B08981]/15 via-[#EFBFBB]/10 to-transparent rounded-tl-3xl" />
         {/* Decorative corner images */}
         <img
           src="/decoration/corner_right-top.png"
           alt=""
           aria-hidden="true"
-          className="absolute top-0 right-0 w-36 sm:w-44 md:w-56 lg:w-64 opacity-80 select-none"
+          className="absolute top-0 right-0 w-56 sm:w-72 md:w-96 lg:w-[34rem] xl:w-[40rem] opacity-80 select-none"
         />
         <img
           src="/decoration/corner_right-top.png"
           alt=""
           aria-hidden="true"
-          className="absolute bottom-0 left-0 w-28 sm:w-36 md:w-48 lg:w-56 opacity-70 rotate-180 select-none"
+          className="absolute bottom-0 left-0 w-48 sm:w-64 md:w-80 lg:w-[30rem] xl:w-[36rem] opacity-70 rotate-180 select-none"
         />
       </div>
 
@@ -140,13 +140,13 @@ export function Gallery() {
           <div className="w-8 sm:w-16 h-px bg-gradient-to-l from-transparent via-[#BB8A3D]/60 to-[#CDAC77]/30" />
         </div>
         
-        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold text-[#FFF6E7] mb-4 sm:mb-6 text-balance drop-shadow-lg relative px-2">
-          <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-br from-[#BB8A3D] via-[#CDAC77] to-[#FFF6E7]">Our Moments</span>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold text-[#FFE5E4] mb-4 sm:mb-6 text-balance drop-shadow-lg relative px-2">
+          <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-br from-[#B08981] via-[#EFBFBB] to-[#FFE5E4]">Our Moments</span>
           {/* Text glow effect */}
-          <span className="absolute inset-0 text-[#BB8A3D]/20 blur-2xl -z-10">Our Moments</span>
+          <span className="absolute inset-0 text-[#EFBFBB]/25 blur-2xl -z-10">Our Moments</span>
         </h2>
         
-        <p className="text-base sm:text-lg md:text-xl text-[#FFF6E7] font-sans font-light max-w-2xl mx-auto px-2 sm:px-4 leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl text-[#FFE5E4] font-sans font-light max-w-2xl mx-auto px-2 sm:px-4 leading-relaxed">
           Every moment, a treasured memory made eternal
         </p>
         
@@ -165,23 +165,23 @@ export function Gallery() {
             {/* Enhanced gallery container */}
             <div className="relative">
               {/* Multiple layered glow effects */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-[#BB8A3D]/20 via-[#CDAC77]/15 to-[#BB8A3D]/20 rounded-3xl blur-2xl opacity-40 animate-pulse" />
-              <div className="absolute -inset-3 bg-gradient-to-r from-[#BB8A3D]/30 via-[#CDAC77]/20 to-[#BB8A3D]/30 rounded-3xl blur-md opacity-50 animate-pulse" />
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#B08981]/20 via-[#EFBFBB]/15 to-[#B08981]/20 rounded-3xl blur-2xl opacity-40 animate-pulse" />
+              <div className="absolute -inset-3 bg-gradient-to-r from-[#B08981]/30 via-[#EFBFBB]/20 to-[#B08981]/30 rounded-3xl blur-md opacity-50 animate-pulse" />
 
               {/* Enhanced decorative corner accents */}
-              <div className="absolute -top-2 -left-2 w-5 h-5 bg-gradient-to-br from-[#BB8A3D] via-[#CDAC77] to-[#FFF6E7] rounded-full blur-sm opacity-70 shadow-lg" />
-              <div className="absolute -top-2 -right-2 w-5 h-5 bg-gradient-to-bl from-[#BB8A3D] via-[#CDAC77] to-[#FFF6E7] rounded-full blur-sm opacity-70 shadow-lg" />
-              <div className="absolute -bottom-2 -left-2 w-5 h-5 bg-gradient-to-tr from-[#BB8A3D] via-[#CDAC77] to-[#FFF6E7] rounded-full blur-sm opacity-70 shadow-lg" />
-              <div className="absolute -bottom-2 -right-2 w-5 h-5 bg-gradient-to-tl from-[#BB8A3D] via-[#CDAC77] to-[#FFF6E7] rounded-full blur-sm opacity-70 shadow-lg" />
+              <div className="absolute -top-2 -left-2 w-5 h-5 bg-gradient-to-br from-[#B08981] via-[#EFBFBB] to-[#FFE5E4] rounded-full blur-sm opacity-70 shadow-lg" />
+              <div className="absolute -top-2 -right-2 w-5 h-5 bg-gradient-to-bl from-[#B08981] via-[#EFBFBB] to-[#FFE5E4] rounded-full blur-sm opacity-70 shadow-lg" />
+              <div className="absolute -bottom-2 -left-2 w-5 h-5 bg-gradient-to-tr from-[#B08981] via-[#EFBFBB] to-[#FFE5E4] rounded-full blur-sm opacity-70 shadow-lg" />
+              <div className="absolute -bottom-2 -right-2 w-5 h-5 bg-gradient-to-tl from-[#B08981] via-[#EFBFBB] to-[#FFE5E4] rounded-full blur-sm opacity-70 shadow-lg" />
 
               {/* Main gallery card with enhanced multi-layer styling */}
-              <div className="relative bg-gradient-to-br from-[#FFF6E7] via-[#CDAC77]/30 to-[#FFF6E7] backdrop-blur-md rounded-2xl sm:rounded-3xl p-3 sm:p-5 md:p-7 lg:p-9 border-2 border-[#BB8A3D]/60 shadow-[0_8px_32px_rgba(64,41,33,0.3),0_0_0_1px_rgba(187,138,61,0.2)]">
+              <div className="relative bg-gradient-to-br from-[#FFE5E4] via-[#EFBFBB]/25 to-[#FFE5E4] backdrop-blur-md rounded-2xl sm:rounded-3xl p-3 sm:p-5 md:p-7 lg:p-9 border-2 border-[#B08981]/50 shadow-[0_8px_32px_rgba(102,105,86,0.25),0_0_0_1px_rgba(176,137,129,0.15)]">
                 
                 {/* Inner decorative border with gradient */}
-                <div className="absolute inset-1 sm:inset-2 border border-[#BB8A3D]/40 rounded-xl sm:rounded-2xl" />
+                <div className="absolute inset-1 sm:inset-2 border border-[#B08981]/40 rounded-xl sm:rounded-2xl" />
                 
                 {/* Additional inner glow */}
-                <div className="absolute inset-2 sm:inset-3 bg-gradient-to-br from-[#BB8A3D]/10 to-transparent rounded-xl sm:rounded-2xl" />
+                <div className="absolute inset-2 sm:inset-3 bg-gradient-to-br from-[#EFBFBB]/15 to-transparent rounded-xl sm:rounded-2xl" />
                 
                 {/* Gallery content */}
                 <div className="relative z-10 w-full">
@@ -196,7 +196,7 @@ export function Gallery() {
                       <button
                         key={item.image + index}
                         type="button"
-                        className="group relative w-full overflow-hidden rounded-xl border border-[#BB8A3D]/50 bg-[#FFF6E7]/70 shadow-[0_6px_24px_rgba(64,41,33,0.18)] hover:shadow-[0_10px_32px_rgba(64,41,33,0.28)] transition-all"
+                        className="group relative w-full overflow-hidden rounded-xl border border-[#B08981]/50 bg-[#FFE5E4]/70 shadow-[0_6px_24px_rgba(102,105,86,0.18)] hover:shadow-[0_10px_32px_rgba(102,105,86,0.28)] transition-all"
                         onClick={() => {
                           setSelectedImage(item)
                           setCurrentIndex(index)
@@ -225,9 +225,9 @@ export function Gallery() {
                 </div>
                 
                 {/* Enhanced decorative sparkle effects */}
-                <div className="absolute top-2 right-2 sm:top-3 sm:right-3 w-2 h-2 sm:w-3 sm:h-3 bg-[#CDAC77] rounded-full animate-ping opacity-80 shadow-lg" />
-                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#BB8A3D] rounded-full animate-pulse opacity-70 shadow-md" />
-                <div className="absolute top-1/2 left-1 sm:left-2 w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FFF6E7] rounded-full animate-pulse opacity-50" />
+                <div className="absolute top-2 right-2 sm:top-3 sm:right-3 w-2 h-2 sm:w-3 sm:h-3 bg-[#EFBFBB] rounded-full animate-ping opacity-80 shadow-lg" />
+                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#B08981] rounded-full animate-pulse opacity-70 shadow-md" />
+                <div className="absolute top-1/2 left-1 sm:left-2 w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FFE5E4] rounded-full animate-pulse opacity-50" />
               </div>
             </div>
           </div>
@@ -377,6 +377,32 @@ export function Gallery() {
           </div>
         </div>
       )}
+      {/* View more button */}
+      <div className="relative z-10 mt-10 sm:mt-12 flex justify-center px-4">
+        <a
+          href="/gallery"
+          className="group inline-block px-8 sm:px-10 md:px-12 py-3.5 sm:py-4 md:py-4.5 rounded-xl font-bold transition-all duration-300 uppercase tracking-wider text-sm sm:text-base whitespace-nowrap relative overflow-hidden border-2 border-transparent hover:border-[#EFBFBB]/60"
+          style={{
+            backgroundColor: "rgba(176, 137, 129, 0.9)",
+            color: "#FFE5E4",
+            boxShadow: "0 8px 24px rgba(102, 105, 86, 0.28), 0 4px 8px rgba(0,0,0,0.25)",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = "translateY(-2px)";
+            e.currentTarget.style.boxShadow = "0 12px 32px rgba(102, 105, 86, 0.35), 0 6px 12px rgba(0,0,0,0.35)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = "translateY(0)";
+            e.currentTarget.style.boxShadow = "0 8px 24px rgba(102, 105, 86, 0.28), 0 4px 8px rgba(0,0,0,0.25)";
+          }}
+        >
+          <span className="relative z-10">View more</span>
+          <div 
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#EFBFBB]/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12 group-hover:translate-x-full"
+            style={{ width: "50%", left: "-100%" }}
+          />
+        </a>
+      </div>
     </Section>
   )
 }

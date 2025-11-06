@@ -1,152 +1,277 @@
 "use client"
 
-import { Button } from "@/components/button"
+import { useEffect, useState, useMemo } from "react"
 import { siteConfig } from "@/content/site"
-import BounceCards from "@/components/bounce-cards"
 
- 
+const desktopImages = [
+    "/desktop-background/DSCF2444-min.jpg",
+    "/desktop-background/DSCF2481-min.jpg",
+    "/desktop-background/DSCF2499-min.jpg",
+    "/desktop-background/DSCF2578-min.jpg",
+    "/desktop-background/DSCF2837-min.jpg",
+    "/desktop-background/DSCF3037-min.jpg",
+    "/desktop-background/DSCF3072-min.jpg",
+    "/desktop-background/DSCF3115-min.jpg",
+    "/desktop-background/DSCF3176-min.jpg",
+    "/desktop-background/DSCF3232-min.jpg",
+    "/desktop-background/DSCF3250-min.jpg",
+    "/desktop-background/NLK_3003-min.jpg",
+    "/desktop-background/NLK_3147-min.jpg",
+    "/desktop-background/NLK_3205-min.jpg",
+    "/desktop-background/NLK_3215-min.jpg",
+    "/desktop-background/NLK_3217-min.jpg",
+    "/desktop-background/NLK_3248-min.jpg",
+    "/desktop-background/NLK_3275-min.jpg",
+    "/desktop-background/NLK_3302-min.jpg",
+    "/desktop-background/NLK_3394-min.jpg",
+    "/desktop-background/NLK_3409-min.jpg",
+    "/desktop-background/NLK_3429-min.jpg",
+    "/desktop-background/NLK_3625-min.jpg",
+    "/desktop-background/NLK_3656-min.jpg",
+    "/desktop-background/NLK_3677-min.jpg",
+    "/desktop-background/NLK_3748-min.jpg",
+    "/desktop-background/NLK_3764-min.jpg",
+    "/desktop-background/NLK_3833-min.jpg",
+    "/desktop-background/NLK_3841-min.jpg",
+    "/desktop-background/NLK_3848-min.jpg",
+    "/desktop-background/NLK_3880-min.jpg",
+    "/desktop-background/NLK_3944-min.jpg",
+    "/desktop-background/NLK_4026-min.jpg",
+    "/desktop-background/NLK_4041-min.jpg",
+    "/desktop-background/NLK_4048-min.jpg",
+    "/desktop-background/NLK_4066-min.jpg",
+    "/desktop-background/NLK_4093-min.jpg",
+    "/desktop-background/NLK_4099-min.jpg",
+    "/desktop-background/NLK_4146-min.jpg",
+    "/desktop-background/NLK_4183-min.jpg",
+    "/desktop-background/NLK_4288-min.jpg",
+    "/desktop-background/NLK_4321-min.jpg",
+    "/desktop-background/NLK_4349-min.jpg",
+    "/desktop-background/NLK_4377-min.jpg",
+    "/desktop-background/NLK_4465-min.jpg",
+    "/desktop-background/NLK_4627-min.jpg",
+]
+
+const mobileImages = [
+    "/mobile-background/DSCF2614-min.jpg",
+    "/mobile-background/DSCF2678-min.jpg",
+    "/mobile-background/DSCF2692-min.jpg",
+    "/mobile-background/DSCF2706-min.jpg",
+    "/mobile-background/DSCF2919-min.jpg",
+    "/mobile-background/DSCF3090-min.jpg",
+    "/mobile-background/NLK_3020-min.jpg",
+    "/mobile-background/NLK_3066-min.jpg",
+    "/mobile-background/NLK_3073-min.jpg",
+    "/mobile-background/NLK_3087-min.jpg",
+    "/mobile-background/NLK_3113-min.jpg",
+    "/mobile-background/NLK_3146-min.jpg",
+    "/mobile-background/NLK_3182-min.jpg",
+    "/mobile-background/NLK_3328-min.jpg",
+    "/mobile-background/NLK_3531-min.jpg",
+    "/mobile-background/NLK_3970-min.jpg",
+    "/mobile-background/NLK_3974-min.jpg",
+    "/mobile-background/NLK_3989-min.jpg",
+    "/mobile-background/NLK_4073-min.jpg",
+    "/mobile-background/NLK_4081-min.jpg",
+    "/mobile-background/NLK_4400-min.jpg",
+    "/mobile-background/NLK_4430-min.jpg",
+    "/mobile-background/NLK_4484-min.jpg",
+    "/mobile-background/NLK_4492-min.jpg",
+    "/mobile-background/NLK_4519-min.jpg",
+]
 
 export function Hero() {
-  const weddingImages: string[] = [
-    "/Couple_img/couple (2).jpg",
-    "/Couple_img/couple (3).jpg",
-    "/Couple_img/couple (1).jpg",
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [imagesLoaded, setImagesLoaded] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
-  ]
+  // Detect screen size and update isMobile state
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768) // md breakpoint
+    }
+    
+    // Check on mount
+    checkScreenSize()
+    
+    // Listen for resize events
+    window.addEventListener('resize', checkScreenSize)
+    
+    return () => window.removeEventListener('resize', checkScreenSize)
+  }, [])
 
-  const transformStyles: string[] = [
-    // "rotate(5deg) translate(-120px)",
-    "rotate(5deg) translate(-110px)",
-    "rotate(0deg)",
-    "rotate(-5deg) translate(110px)",
-    // "rotate(-5deg) translate(120px)",
-  ]
+  // Get the appropriate image array based on screen size
+  const backgroundImages = useMemo(() => {
+    return isMobile ? mobileImages : desktopImages
+  }, [isMobile])
+
+  // Preload images progressively - show first image immediately
+  useEffect(() => {
+    setImagesLoaded(false)
+    setCurrentImageIndex(0)
+    
+    // Load first image with priority to show it immediately
+    const firstImg = new Image()
+    firstImg.src = backgroundImages[0]
+    firstImg.onload = () => {
+      setImagesLoaded(true) // Show first image immediately
+    }
+    
+    // Then preload a small lookahead set in background (avoid preloading all)
+    setTimeout(() => {
+      if (typeof navigator !== 'undefined' && (navigator as any).connection?.saveData) return
+      backgroundImages.slice(1, 3).forEach((src) => {
+        const img = new Image()
+        img.decoding = 'async'
+        img.loading = 'lazy' as any
+        img.src = src
+      })
+    }, 200)
+  }, [backgroundImages])
+
+  useEffect(() => {
+    if (!imagesLoaded) return
+    
+    const imageTimer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length)
+    }, 5000)
+    return () => clearInterval(imageTimer)
+  }, [imagesLoaded, backgroundImages])
 
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-0 pb-8 sm:pb-12"
-    >
-      {/* Background Silk removed; using page-level Silk background */}
-
-      {/* Multi-layered Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#525E2C]/20 via-[#909E8D]/15 to-[#D1AB6D]/8"></div>
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm md:bg-black/20"></div>
-
-      {/* Top corner floral decorations */}
-      <img
-        src="/decoration/hero-flower-corner-top-left.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute top-0 left-0 z-10 w-40 sm:w-56 md:w-72 lg:w-80 opacity-90 select-none pointer-events-none"
-      />
-      <img
-        src="/decoration/hero-flower-corner-top-left.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute top-0 right-0 z-10 w-40 sm:w-56 md:w-72 lg:w-80 opacity-90 select-none pointer-events-none transform scale-x-[-1]"
-      />
-
-      {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 md:w-32 md:h-32 opacity-10">
-        <div className="w-full h-full border-2 border-[#D1AB6D] rounded-full rotate-45"></div>
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#666956]">
+      <div className="absolute inset-0 w-full h-full">
+        {imagesLoaded && backgroundImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
+            style={{
+              backgroundImage: `url('${image}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+        ))}
+        {/* Corner decorations - bottom corners */
+        }
+        <img
+          src="/decoration/corner_right-top.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute bottom-0 left-0 w-48 sm:w-64 md:w-80 lg:w-[30rem] xl:w-[36rem] opacity-70 rotate-180 select-none z-10"
+        />
+        <img
+          src="/decoration/corner_right-top.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute bottom-0 right-0 w-56 sm:w-72 md:w-96 lg:w-[34rem] xl:w-[40rem] opacity-75 rotate-180 select-none z-10"
+          style={{ transform: 'scaleX(-1)' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#666956] via-[#666956]/40 to-transparent z-0" />
       </div>
-      <div className="absolute bottom-20 right-10 w-16 h-16 md:w-24 md:h-24 opacity-10">
-        <div className="w-full h-full border-2 border-[#E0CFB5] rounded-full"></div>
-      </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        {/* Center Content Layout */}
-        <div className="flex flex-col items-center space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-10">
-          
-          {/* Main Heading Section */}
-          <div className="text-center space-y-1 sm:space-y-2 md:space-y-3 w-full">
-
-
-            {/* Names */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold text-[#F0F0F0] tracking-wide leading-tight drop-shadow-2xl pb-0 mb-0">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-12 flex flex-col items-center justify-end min-h-screen pb-16 sm:pb-24 md:pb-32 lg:pb-48">
+        <div className="max-w-2xl text-center space-y-6 sm:space-y-8">
+          <div className="space-y-3 sm:space-y-4">
+            <h1
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-wide drop-shadow-2xl whitespace-nowrap"
+              style={{
+                color: '#FFE5E4',
+                textShadow: "0 0 20px rgba(255, 229, 228, 0.7), 0 0 36px rgba(239, 191, 187, 0.35), 0 8px 24px rgba(102, 105, 86, 0.8)",
+                letterSpacing: "0.05em",
+                fontFamily: "var(--font-serif)",
+              }}
+            >
               {siteConfig.couple.brideNickname} & {siteConfig.couple.groomNickname}
             </h1>
-            {/* Full Names (smaller) */}
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#E0CFB5] font-medium -mt-1 sm:-mt-2 md:-mt-3">
-              {siteConfig.couple.bride} & {siteConfig.couple.groom}
+            <div className="h-1 w-16 sm:w-20 md:w-24 mx-auto bg-gradient-to-r from-transparent via-[#EFBFBB] to-transparent" />
+          </div>
+
+          <p
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-light drop-shadow-2xl italic"
+            style={{
+              color: '#FFE5E4',
+              textShadow: "0 4px 12px rgba(102, 105, 86, 0.7), 0 2px 4px rgba(0,0,0,0.6)",
+            }}
+          >
+            {siteConfig.wedding.tagline}
+          </p>
+
+          <div className="space-y-2 sm:space-y-3">
+            <p
+              className="text-base sm:text-lg md:text-xl lg:text-2xl font-light drop-shadow-2xl"
+              style={{
+                color: '#FFE5E4',
+                textShadow: "0 4px 12px rgba(102, 105, 86, 0.7), 0 2px 4px rgba(0,0,0,0.6)",
+              }}
+            >
+              {siteConfig.ceremony.day}, {siteConfig.ceremony.date} - {siteConfig.ceremony.time}
             </p>
-                        {/* Subtitle - Getting Married */}
-          <p className="text-xs sm:text-sm md:text-base tracking-[0.3em] uppercase text-[#D1AB6D] font-light mb-0 sm:mb-1 md:mb-2">
-              are getting married
+            <p
+              className="text-sm sm:text-base md:text-lg lg:text-xl font-light drop-shadow-2xl tracking-wide"
+              style={{
+                color: '#EFBFBB',
+                textShadow: "0 4px 12px rgba(102, 105, 86, 0.7), 0 2px 4px rgba(0,0,0,0.6)",
+              }}
+            >
+              {siteConfig.wedding.venue.toUpperCase()}
             </p>
-
-            {/* Decorative Line */}
-            <div className="flex items-center justify-center gap-3 sm:gap-4 my-2 sm:my-3 md:my-4 lg:my-6">
-              <div className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent to-[#D1AB6D]"></div>
-              <div className="w-2 h-2 rounded-full bg-[#D1AB6D]"></div>
-              <div className="w-8 sm:w-12 h-px bg-gradient-to-l from-transparent to-[#D1AB6D]"></div>
-            </div>
           </div>
 
-          {/* Image Gallery - Centered */}
-          <div className="flex justify-center items-center w-full relative max-w-4xl px-2 sm:px-0">
-            <BounceCards
-              className="custom-bounceCards relative z-10"
-              images={weddingImages}
-              containerWidth={220}
-              containerHeight={165}
-              animationDelay={0.5}
-              animationStagger={0.08}
-              easeType="elastic.out(1, 0.5)"
-              transformStyles={transformStyles}
-              enableHover={true}
-            />
-          </div>
-
-          {/* Love Story Card */}
-          <div className="w-full max-w-2xl px-2 sm:px-0">
-            <div className="relative bg-gradient-to-br from-white/10 via-white/5 to-[#525E2C]/15 backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 border border-[#D1AB6D]/30 shadow-xl">
-              {/* Decorative corner elements */}
-              <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-[#D1AB6D] rounded-tl-xl"></div>
-              <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-[#D1AB6D] rounded-tr-xl"></div>
-              <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-[#D1AB6D] rounded-bl-xl"></div>
-              <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-[#D1AB6D] rounded-br-xl"></div>
-              
-              <div className="text-center space-y-3 sm:space-y-4 relative z-10">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#D1AB6D] tracking-wide drop-shadow-lg">
-                  The Beginning of Forever
-                </h2>
-                <p className="text-xs sm:text-sm md:text-base text-[#F0F0F0]/80 leading-relaxed pt-2">
-                  With hearts full of love and gratitude, we invite you to witness and celebrate the next chapter of our story as we begin our forever together.
-                </p>
-              </div>
-      
-              <div className="text-center space-y-2 mt-4 sm:mt-6">
-                <p className="text-lg sm:text-xl md:text-2xl text-[#F0F0F0] font-semibold drop-shadow-md">
-                  {siteConfig.ceremony.day}, {siteConfig.ceremony.date}
-                </p>
-                <p className="text-sm sm:text-base md:text-lg text-[#D1AB6D] font-medium drop-shadow-md">
-                  {siteConfig.ceremony.time}
-                </p>
-                <p className="text-xs sm:text-sm md:text-base text-[#E0CFB5] leading-relaxed drop-shadow-md">
-                  {siteConfig.wedding.venue}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Buttons */}
-          <div className="flex flex-row gap-3 sm:gap-4 md:gap-5 justify-center w-full max-w-xl flex-wrap">
-            <Button
+          <div className="pt-6 sm:pt-8 flex flex-row gap-3 sm:gap-4 justify-center items-center">
+            <a
               href="#narrative"
-              variant="primary"
-              className="min-w-[140px] sm:min-w-[160px] md:min-w-[180px] px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 text-sm sm:text-base md:text-lg font-semibold tracking-wide rounded-lg transition-all duration-500 ease-in-out bg-gradient-to-r from-[#402921] via-[#583016] to-[#402921] border border-[#BB8A3D] text-[#FFF6E7] shadow-lg hover:shadow-xl hover:scale-[1.02] hover:border-[#CDAC77] hover:text-[#FFF6E7] hover:from-[#583016] hover:via-[#BB8A3D] hover:to-[#583016] active:scale-[0.98]"
+              className="group inline-block px-8 sm:px-10 md:px-12 py-3.5 sm:py-4 md:py-4.5 rounded-xl font-bold transition-all duration-300 uppercase tracking-wider text-sm sm:text-base whitespace-nowrap relative overflow-hidden border-2 border-transparent hover:border-[#EFBFBB]/60"
+              style={{
+                backgroundColor: "rgba(102, 105, 86, 0.95)",
+                color: "#FFE5E4",
+                boxShadow: "0 8px 24px rgba(102, 105, 86, 0.35), 0 4px 8px rgba(0,0,0,0.3)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#8D8E7C";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 12px 32px rgba(141, 142, 124, 0.5), 0 6px 12px rgba(0,0,0,0.35)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(102, 105, 86, 0.95)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 8px 24px rgba(102, 105, 86, 0.35), 0 4px 8px rgba(0,0,0,0.3)";
+              }}
             >
-              Our Love Story
-            </Button>
-            <Button
+              <span className="relative z-10">Our Love Story</span>
+              <div 
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-[#EFBFBB]/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12 group-hover:translate-x-full"
+                style={{ width: "50%", left: "-100%" }}
+              />
+            </a>
+            <a
               href="#guest-list"
-              variant="outline"
-              className="min-w-[140px] sm:min-w-[160px] md:min-w-[180px] px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 text-sm sm:text-base md:text-lg font-semibold tracking-wide rounded-lg transition-all duration-500 ease-in-out bg-[#BB8A3D] border-2 border-[#FFF6E7] text-white text-center shadow-md hover:shadow-lg hover:scale-[1.02] hover:bg-[#CDAC77] hover:border-[#FFF6E7] hover:text-white active:scale-[0.98]"
+              className="group inline-block px-8 sm:px-10 md:px-12 py-3.5 sm:py-4 md:py-4.5 rounded-xl font-bold transition-all duration-300 uppercase tracking-wider text-sm sm:text-base whitespace-nowrap relative overflow-hidden border-2 border-transparent hover:border-[#FFE5E4]/60"
+              style={{
+                backgroundColor: "rgba(176, 137, 129, 0.9)",
+                color: "#FFE5E4",
+                boxShadow: "0 8px 24px rgba(176, 137, 129, 0.35), 0 4px 8px rgba(0,0,0,0.3)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#B08981";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 12px 32px rgba(176, 137, 129, 0.5), 0 6px 12px rgba(0,0,0,0.35)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(176, 137, 129, 0.9)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 8px 24px rgba(176, 137, 129, 0.35), 0 4px 8px rgba(0,0,0,0.3)";
+              }}
             >
-              RSVP
-            </Button>
+              <span className="relative z-10">RSVP</span>
+              <div 
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FFE5E4]/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12 group-hover:translate-x-full"
+                style={{ width: "50%", left: "-100%" }}
+              />
+            </a>
           </div>
         </div>
       </div>

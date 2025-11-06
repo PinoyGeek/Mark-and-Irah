@@ -1,41 +1,41 @@
 export const siteConfig = {
   couple: {
-    bride: "Erda Precious Ricohermoso",
-    brideNickname: "Erda",
-    groom: "Russell Ticbaen",
-    groomNickname: "Russell",
+    bride: "Talitha John P. Dacono",
+    brideNickname: "Talitha",
+    groom: "Karol Josep C. Tiamzon",
+    groomNickname: "Karol",
   },
   wedding: {
-    date: "January 10, 2026",
-    time: "2:00 PM",
-    venue: "San Jose the Husband of Mary Parish, Buyagan, La Trinidad, Benguet",
+    date: "February 14, 2026",
+    time: "4:00 PM",
+    venue: "Tarlac Recreational Park, San Jose, Tarlac",
     tagline: "are getting married!",
-    theme: "Classic",
-    motif: "#402921, #BB8A3D, #CDAC77, #FFF6E7",
+    theme: "Garden Wedding",
+    motif: "Sage Green & Blush Pink",
   },
   details: {
     rsvp: {
-      deadline: "January 8, 2026",
+      deadline: "February 1, 2026",
     },
   },
   ceremony: {
-    location: "San Jose the Husband of Mary Parish, Buyagan, La Trinidad, Benguet",
-    venue: "San Jose the Husband of Mary Parish",
-    date: "January 10, 2026",
+    location: "Tarlac Recreational Park, San Jose, Tarlac",
+    venue: "Tarlac Recreational Park",
+    date: "February 14, 2026",
     day: "Saturday",
-    time: "2:00 PM",
+    time: "4:00 PM",
     entourageTime: "2:00 PM",
     guestsTime: "2:00 PM",
   },
   reception: {
-    location: "D & L Garden Pavilion, Halsema Highway, La Trinidad, Benguet",
-    venue: "D & L Garden Pavilion",
-    date: "January 10, 2026",
+    location: "Tarlac Recreational Park, San Jose, Tarlac",
+    venue: "Tarlac Recreational Park",
+    date: "February 14, 2026",
     time: "Following the ceremony",
   },
   dressCode: {
     theme: "Semi-Formal Attire",
-    colors: ["#402921", "#BB8A3D", "#CDAC77", "#FFF6E7"],
+    colors: ["#666956", "#8D8E7C", "#B08981", "#EFBFBB"],
     sponsors: {
       ladies: "Blue gown / long dress",
       gentlemen: "Black suit and tie"
@@ -46,15 +46,55 @@ export const siteConfig = {
     },
     note: "Please avoid jeans and casual attire."
   },
-  narrative: `It all started right here — where fate decided our paths should cross. \n
-“Yes, beb, dito kami nagkakilala,” Erda says with a smile. \n
-One day, Russell suddenly went down to Manila — without her knowing. Then came that unforgettable call while he was in a taxi: \n
-“Paano pumunta ng Angono?” he asked. \n
-And just like that, her heart (and her hair) grew a little longer that day. 😉 \n
-Twelve years later — after countless memories, laughter, and adventures — their love has only grown deeper. Together, they’ve built a beautiful life and now share it with the greatest blessing of all: their wonderful child, who completed their lovely family. 💖 \n
-From that first “Hi, babe” to this “I do,” their story has always been written with love — and it’s only the beginning. 💍✨ \n `,
-  giftNote: `With all that we have, we are truly blessed. Your presence and prayer are all that we request. \n
-But if you desire to give nonetheless, a monetary gift is the one we suggest.`,
+  narrative: `We were both young when I first saw you
+I close my eyes and the flashback starts
+I'm standin' there
+On a balcony in summer air
+See the lights, see the party, the ball gowns
+See you make your way through the crowd
+And say, "Hello" \n
+Little did I know
+That you were Romeo, you were throwin' pebbles
+And my daddy said, "Stay away from Juliet"
+And I was cryin' on the staircase
+Beggin' you, "Please don't go, " and I said
+Romeo, take me somewhere we can be alone
+I'll be waiting, all there's left to do is run
+You'll be the prince and I'll be the princess
+It's a love story, baby, just say, "Yes"
+So I sneak out to the garden to see you
+We keep quiet, 'cause we're dead if they knew
+So close your eyes \n
+Escape this town for a little while, oh oh
+'Cause you were Romeo, I was a scarlet letter
+And my daddy said, "Stay away from Juliet"
+But you were everything to me   \n
+I was beggin' you, "Please don't go, " and I said
+Romeo, take me somewhere we can be alone
+I'll be waiting, all there's left to do is run
+You'll be the prince and I'll be the princess
+It's a love story, baby, just say, "Yes"
+Romeo, save me, they're tryna tell me how to feel
+This love is difficult, but it's real
+Don't be afraid, we'll make it out of this mess
+It's a love story, baby, just say, "Yes"
+Oh, oh \n
+I got tired of waiting
+Wonderin' if you were ever comin' around
+My faith in you was fading
+When I met you on the outskirts of town, and I said
+Romeo, save me, I've been feeling so alone
+I keep waiting for you, but you never come
+Is this in my head? I don't know what to think
+He knelt to the ground and pulled out a ring
+And said, "Marry me, Juliet
+You'll never have to be alone \n
+I love you and that's all I really know
+I talked to your dad, go pick out a white dress
+It's a love story, baby, just say, "Yes"
+Oh, oh, oh
+Oh, oh, oh, oh
+'Cause we were both young when I first saw you`,
   colors: {
     primary: "#525E2C",
     secondary: "#909E8D",

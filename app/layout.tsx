@@ -9,25 +9,25 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "--font-serif" })
 
 export const metadata: Metadata = {
-  title: "Erda & Russell - Wedding Invitation",
+  title: "Talitha & Karol - Wedding Invitation",
   description:
-    "You're invited to the wedding of Erda & Russell! Join us on January 10, 2026 in La Trinidad, Benguet. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+    "You're invited to the wedding of Talitha & Karol! Join us on February 14, 2026 in Tarlac, Tarlac. RSVP, read our love story, view our gallery, and leave a message for the couple.",
   keywords:
-    "Christian Kate wedding, Filipino wedding, RSVP, wedding gallery, wedding message wall, wedding invitation, 2026 weddings, love story, guestbook, wedding registry, wedding details, wedding venues Cebu, #ChristianAndKateWedding",
+    "Talitha Karol wedding, Filipino wedding, RSVP, wedding gallery, wedding message wall, wedding invitation, 2026 weddings, love story, guestbook, wedding registry, wedding details, wedding venues Tarlac, #TalithaAndKarolWedding",
   authors: [
-    { name: "Erda" },
-    { name: "Russell" },
+    { name: "Talitha" },
+    { name: "Karol" },
   ],
-  creator: "Erda & Russell",
-  publisher: "Erda & Russell",
+  creator: "Talitha & Karol",
+  publisher: "Talitha & Karol",
   formatDetection: {
     email: false,
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://Erda-and-Russell-invitation.vercel.app/"),
+  metadataBase: new URL("https://Talitha-and-Karol-invitation.vercel.app/"),
   alternates: {
-    canonical: "https://Erda-and-Russell-invitation.vercel.app/",
+    canonical: "https://Talitha-and-Karol-invitation.vercel.app/",
   },
   icons: {
     icon: [
@@ -49,29 +49,29 @@ export const metadata: Metadata = {
   },
   manifest: "/favicon_io/site.webmanifest",
   openGraph: {
-    title: "Erda & Russell Wedding | January 10, 2026",
+    title: "Talitha & Karol Wedding | February 14, 2026",
     description:
-      "Celebrate the union of Erda & Russell on January 10, 2026 in La Trinidad, Benguet. Discover our love story, RSVP, view the gallery, and leave your wishes!",
-    url: "https://Erda-and-Russell-invitation.vercel.app/",
-    siteName: "Erda & Russell Wedding",
+      "Celebrate the union of Talitha & Karol on February 14, 2026 in Tarlac, Tarlac. Discover our love story, RSVP, view the gallery, and leave your wishes!",
+    url: "https://Talitha-and-Karol-invitation.vercel.app/",
+    siteName: "Talitha & Karol Wedding ",
     locale: "en_PH",
     type: "website",
     images: [
       {
-        url: "https://Erda-and-Russell-invitation.vercel.app/Couple_img/couple (1).jpg",
+        url: "https://Talitha-and-Karol-invitation.vercel.app/desktop-background/NLK_3656-min.jpg",
         width: 1200,
         height: 630,
-        alt: "Erda & Russell Wedding Invitation - January 10, 2026",
+        alt: "Talitha & Karol Wedding Invitation - February 14, 2026",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Erda & Russell Wedding Invitation",
+    title: "Talitha & Karol Wedding Invitation",
     description:
-      "You're invited to the wedding of Erda & Russell! January 10, 2026. RSVP, view our gallery, and leave a message! #ErdaAndRussellWedding",
-    images: ["https://Erda-and-Russell-invitation.vercel.app/Couple_img/couple (1).jpg"],
-    creator: "@erdaandrussell",
+      "You're invited to the wedding of Talitha & Karol! February 14, 2026. RSVP, view our gallery, and leave a message! #TalithaAndKarolWedding",
+    images: ["https://Talitha-and-Karol-invitation.vercel.app/desktop-background/NLK_3656-min.jpg"],
+    creator: "@talithakarol",
   },
   robots: {
     index: true,
@@ -91,37 +91,37 @@ export const metadata: Metadata = {
     "application/ld+json": JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Event",
-      name: "Erda & Russell Wedding",
-      startDate: "2026-01-10T14:00:00+08:00",
-      endDate: "2026-01-10T22:00:00+08:00",
+      name: "Talitha & Karol Wedding",
+      startDate: "2026-02-14T14:00:00+08:00",
+      endDate: "2026-02-14T22:00:00+08:00",
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       location: [
         {
           "@type": "Place",
-          name: "San Jose the Husband of Mary Parish",
+          name: "Tarlac Recreational Park",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Buyagan, La Trinidad, Benguet",
+            addressLocality: "Tarlac, Tarlac",
             addressCountry: "PH",
           },
         },
       ],
-      image: ["https://Erda-and-Russell-invitation.vercel.app/Couple_img/couple (1).jpg"],
+      image: ["https://Talitha-and-Karol-invitation.vercel.app/desktop-background/NLK_3656-min.jpg"],
       description:
-        "You're invited to the wedding of Erda & Russell! Join us on January 10, 2026 in La Trinidad, Benguet. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+        "You're invited to the wedding of Talitha & Karol! Join us on February 14, 2026 in Tarlac, Tarlac. RSVP, read our love story, view our gallery, and leave a message for the couple.",
       organizer: {
         "@type": "Person",
-        name: "Erda & Russell",
+        name: "Talitha & Karol",
       },
       offers: {
         "@type": "Offer",
-        url: "https://Erda-and-Russell-invitation.vercel.app/",
+        url: "https://Talitha-and-Karol-invitation.vercel.app/",
         availability: "https://schema.org/InStock",
         price: "0",
         priceCurrency: "PHP",
       },
-      eventHashtag: "#ErdaAndRussellWedding",
+      eventHashtag: "#TalithaAndKarolWedding",
     }),
   },
 }
@@ -136,6 +136,9 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#525E2C" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preload" as="image" href="/mobile-background/DSCF2614-min.jpg" media="(max-width: 767px)" />
+        <link rel="preload" as="image" href="/desktop-background/DSCF2444-min.jpg" media="(min-width: 768px)" />
       </head>
       <body className={`${inter.variable} ${greatVibes.variable} font-inter antialiased text-foreground`}>
         <Navbar />
