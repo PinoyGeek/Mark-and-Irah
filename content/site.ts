@@ -37,7 +37,7 @@ export const siteConfig = {
     theme: "Semi-Formal Attire",
     colors: ["#666956", "#8D8E7C", "#B08981", "#EFBFBB"],
     sponsors: {
-      ladies: "Blue gown / long dress",
+      ladies: "White gown / long dress ",
       gentlemen: "Black suit and tie"
     },
     guests: {
@@ -46,55 +46,24 @@ export const siteConfig = {
     },
     note: "Please avoid jeans and casual attire."
   },
-  narrative: `We were both young when I first saw you
-I close my eyes and the flashback starts
-I'm standin' there
-On a balcony in summer air
-See the lights, see the party, the ball gowns
-See you make your way through the crowd
-And say, "Hello" \n
-Little did I know
-That you were Romeo, you were throwin' pebbles
-And my daddy said, "Stay away from Juliet"
-And I was cryin' on the staircase
-Beggin' you, "Please don't go, " and I said
-Romeo, take me somewhere we can be alone
-I'll be waiting, all there's left to do is run
-You'll be the prince and I'll be the princess
-It's a love story, baby, just say, "Yes"
-So I sneak out to the garden to see you
-We keep quiet, 'cause we're dead if they knew
-So close your eyes \n
-Escape this town for a little while, oh oh
-'Cause you were Romeo, I was a scarlet letter
-And my daddy said, "Stay away from Juliet"
-But you were everything to me   \n
-I was beggin' you, "Please don't go, " and I said
-Romeo, take me somewhere we can be alone
-I'll be waiting, all there's left to do is run
-You'll be the prince and I'll be the princess
-It's a love story, baby, just say, "Yes"
-Romeo, save me, they're tryna tell me how to feel
-This love is difficult, but it's real
-Don't be afraid, we'll make it out of this mess
-It's a love story, baby, just say, "Yes"
-Oh, oh \n
-I got tired of waiting
-Wonderin' if you were ever comin' around
-My faith in you was fading
-When I met you on the outskirts of town, and I said
-Romeo, save me, I've been feeling so alone
-I keep waiting for you, but you never come
-Is this in my head? I don't know what to think
-He knelt to the ground and pulled out a ring
-And said, "Marry me, Juliet
-You'll never have to be alone \n
-I love you and that's all I really know
-I talked to your dad, go pick out a white dress
-It's a love story, baby, just say, "Yes"
-Oh, oh, oh
-Oh, oh, oh, oh
-'Cause we were both young when I first saw you`,
+  narrative: `It’s funny how life has its own way of bringing two souls together. \n
+We both lived in Baguio since 2011 — walking the same streets, sharing the same mountain air,
+ even studying just a few kilometers apart. Yet, in all those years, we never once met. \n
+
+For a long time, our paths simply ran parallel — close, but never crossing.
+ Then, in the third quarter of 2023, fate finally decided it was time.
+  A common friend introduced us (you know who you are 😉. Thank you!),
+   and what began as a simple conversation soon grew into something that felt both new and familiar
+    — as if our hearts had known each other all along. \n
+
+By the first month of 2024, we officially began our journey together.
+ Since then, every day has been filled with laughter, warmth, and the
+  quiet certainty that we’ve found home in each other.
+\n
+Looking back, it’s amazing how everything happened just as it should — not too early, not too late, but at the perfect time. Our story reminds us that love doesn’t rush; it waits for the right moment, and when it arrives, everything simply falls into place.
+\n
+
+Now, as we begin this new chapter as one, we carry with us the beautiful truth that what’s meant for you will always find its way — even if it takes a little time. 💕 `,
   colors: {
     primary: "#525E2C",
     secondary: "#909E8D",
