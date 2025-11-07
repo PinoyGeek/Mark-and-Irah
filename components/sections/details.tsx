@@ -367,110 +367,147 @@ export function Details() {
           <div className="h-4"></div>
 
           {/* Contact Information */}
-          <div className="bg-gradient-to-br from-[#FFE5E4] via-white to-[#FFE5E4] backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-7 border-2 border-[#B08981]/50 hover:border-[#B08981] hover:shadow-xl transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 active:scale-[0.99] group relative overflow-hidden">
+          <div className="bg-gradient-to-br from-[#FFE5E4] via-white to-[#FFE5E4] backdrop-blur-md rounded-2xl p-4 sm:p-6 md:p-7 lg:p-8 border-2 border-[#B08981]/50 hover:border-[#B08981] hover:shadow-xl transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 active:scale-[0.99] group relative overflow-hidden">
             <div className="absolute inset-1 sm:inset-2 border border-[#B08981]/40 rounded-xl sm:rounded-2xl pointer-events-none" />
             <div className="absolute inset-2 sm:inset-3 bg-gradient-to-br from-[#EFBFBB]/15 to-transparent rounded-xl sm:rounded-2xl pointer-events-none" />
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#EFBFBB]/20 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-            <div className="flex items-center gap-1.5 sm:gap-2 mb-4">
-              <div className="bg-[#EFBFBB]/30 p-2 rounded-full shadow-md">
-                <Phone className="text-[#666956] w-4 h-4 sm:w-5 sm:h-5" />
+            
+            {/* Header */}
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5 md:mb-6 relative z-10">
+              <div className="bg-[#EFBFBB]/30 p-2.5 sm:p-3 rounded-full shadow-md">
+                <Phone className="text-[#666956] w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <h4 className="font-bold text-sm sm:text-lg text-[#666956]">For more information</h4>
+              <div>
+                <h4 className="font-bold text-base sm:text-lg md:text-xl text-[#666956] leading-tight">For more information</h4>
+                <p className="text-xs sm:text-sm text-[#666956]/80 mt-0.5">Contact us here</p>
+              </div>
             </div>
-            <div className="space-y-3 text-[#666956]">
-              <p className="text-xs sm:text-sm">Contact us here:</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {/* Talitha */}
-                <div className="bg-white/70 hover:bg-white rounded-xl px-3 py-3 border border-[#B08981]/30 transition-colors">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-semibold">Talitha</span>
-                    <span className="text-[11px] sm:text-xs opacity-70">09271600950</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <a
-                      href="tel:09271600950"
-                      className="flex-1 inline-flex items-center justify-center gap-2 px-2.5 py-2 rounded-lg border border-[#B08981]/40 text-[#666956] bg-white hover:bg-[#EFBFBB]/25 transition-colors text-xs font-medium"
-                      aria-label="Call Talitha"
+
+            {/* Contact Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6 relative z-10">
+              {/* Talitha */}
+              <div className="bg-white/80 hover:bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 border-2 border-[#B08981]/30 hover:border-[#B08981]/50 transition-all duration-300 hover:shadow-lg group/contact">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 mb-4">
+                  <div>
+                    <h5 className="text-sm sm:text-base font-bold text-[#666956] mb-1">Talitha</h5>
+                    <a 
+                      href="tel:09271600950" 
+                      className="text-xs sm:text-sm text-[#666956]/70 hover:text-[#666956] transition-colors inline-flex items-center gap-1.5"
                     >
-                      <Phone className="w-3.5 h-3.5 text-[#B08981]" />
-                      Call
+                      <Phone className="w-3.5 h-3.5" />
+                      09271600950
                     </a>
-                    <a
-                      href="sms:09271600950"
-                      className="inline-flex items-center justify-center gap-1.5 px-2.5 py-2 rounded-lg border border-[#B08981]/40 text-[#666956] bg-white hover:bg-[#EFBFBB]/25 transition-colors text-xs font-medium"
-                      aria-label="SMS Talitha"
-                    >
-                      <MessageSquareText className="w-3.5 h-3.5 text-[#B08981]" />
-                      SMS
-                    </a>
-                    <button
-                      onClick={() => openWhatsApp('09271600950')}
-                      className="inline-flex items-center justify-center gap-1.5 px-2.5 py-2 rounded-lg border border-[#B08981]/40 text-[#666956] bg-white hover:bg-[#EFBFBB]/25 transition-colors text-xs font-medium"
-                      aria-label="WhatsApp Talitha"
-                    >
-                      <MessageCircle className="w-3.5 h-3.5 text-[#B08981]" />
-                      WhatsApp
-                    </button>
-                    <button
-                      onClick={() => copyToClipboard('09271600950', 'copy-talitha')}
-                      className="inline-flex items-center justify-center px-2.5 py-2 rounded-lg border border-[#B08981]/40 text-[#666956] bg-white hover:bg-[#EFBFBB]/25 transition-colors text-xs font-medium"
-                      aria-label="Copy Talitha number"
-                      title="Copy number"
-                    >
-                      {copiedItems.has('copy-talitha') ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                    </button>
                   </div>
-                  <div className="h-3">
-                    <span className="text-[11px] text-[#666956] opacity-70" aria-live="polite">
-                      {copiedItems.has('copy-talitha') ? 'Copied!' : ''}
-                    </span>
-                  </div>
+                  <button
+                    onClick={() => copyToClipboard('09271600950', 'copy-talitha')}
+                    className="self-start sm:self-auto inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#B08981]/40 text-[#666956] bg-white hover:bg-[#EFBFBB]/25 transition-all duration-200 hover:scale-105 active:scale-95 text-xs font-medium shadow-sm"
+                    aria-label="Copy Talitha number"
+                    title="Copy number"
+                  >
+                    {copiedItems.has('copy-talitha') ? (
+                      <>
+                        <Check className="w-4 h-4 text-green-600" />
+                        <span>Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5" />
+                        <span className="hidden sm:inline">Copy</span>
+                      </>
+                    )}
+                  </button>
                 </div>
-                {/* Karol */}
-                <div className="bg-white/70 hover:bg-white rounded-xl px-3 py-3 border border-[#B08981]/30 transition-colors">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-semibold">Karol</span>
-                    <span className="text-[11px] sm:text-xs opacity-70">09855540332</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <a
-                      href="tel:09855540332"
-                      className="flex-1 inline-flex items-center justify-center gap-2 px-2.5 py-2 rounded-lg border border-[#B08981]/40 text-[#666956] bg-white hover:bg-[#EFBFBB]/25 transition-colors text-xs font-medium"
-                      aria-label="Call Karol"
+                
+                {/* Action Buttons - Stack on mobile, grid on larger screens */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-2">
+                  <a
+                    href="tel:09271600950"
+                    className="flex items-center justify-center gap-2 px-4 py-3 sm:py-2.5 rounded-lg border-2 border-[#B08981]/50 text-[#666956] bg-gradient-to-br from-white to-[#EFBFBB]/20 hover:from-[#EFBFBB]/30 hover:to-[#EFBFBB]/40 transition-all duration-200 hover:scale-105 active:scale-95 text-sm font-semibold shadow-sm hover:shadow-md"
+                    aria-label="Call Talitha"
+                  >
+                    <Phone className="w-4 h-4 sm:w-4 sm:h-4 text-[#B08981]" />
+                    <span>Call</span>
+                  </a>
+                  <a
+                    href="sms:09271600950"
+                    className="flex items-center justify-center gap-2 px-4 py-3 sm:py-2.5 rounded-lg border-2 border-[#B08981]/50 text-[#666956] bg-gradient-to-br from-white to-[#EFBFBB]/20 hover:from-[#EFBFBB]/30 hover:to-[#EFBFBB]/40 transition-all duration-200 hover:scale-105 active:scale-95 text-sm font-semibold shadow-sm hover:shadow-md"
+                    aria-label="SMS Talitha"
+                  >
+                    <MessageSquareText className="w-4 h-4 sm:w-4 sm:h-4 text-[#B08981]" />
+                    <span>SMS</span>
+                  </a>
+                  <button
+                    onClick={() => openWhatsApp('09271600950')}
+                    className="flex items-center justify-center gap-2 px-4 py-3 sm:py-2.5 rounded-lg border-2 border-[#B08981]/50 text-[#666956] bg-gradient-to-br from-white to-[#EFBFBB]/20 hover:from-[#EFBFBB]/30 hover:to-[#EFBFBB]/40 transition-all duration-200 hover:scale-105 active:scale-95 text-sm font-semibold shadow-sm hover:shadow-md"
+                    aria-label="WhatsApp Talitha"
+                  >
+                    <MessageCircle className="w-4 h-4 sm:w-4 sm:h-4 text-[#B08981]" />
+                    <span className="hidden sm:inline">WhatsApp</span>
+                    <span className="sm:hidden">WA</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Karol */}
+              <div className="bg-white/80 hover:bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 border-2 border-[#B08981]/30 hover:border-[#B08981]/50 transition-all duration-300 hover:shadow-lg group/contact">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 mb-4">
+                  <div>
+                    <h5 className="text-sm sm:text-base font-bold text-[#666956] mb-1">Karol</h5>
+                    <a 
+                      href="tel:09855540332" 
+                      className="text-xs sm:text-sm text-[#666956]/70 hover:text-[#666956] transition-colors inline-flex items-center gap-1.5"
                     >
-                      <Phone className="w-3.5 h-3.5 text-[#B08981]" />
-                      Call
+                      <Phone className="w-3.5 h-3.5" />
+                      09855540332
                     </a>
-                    <a
-                      href="sms:09855540332"
-                      className="inline-flex items-center justify-center gap-1.5 px-2.5 py-2 rounded-lg border border-[#B08981]/40 text-[#666956] bg-white hover:bg-[#EFBFBB]/25 transition-colors text-xs font-medium"
-                      aria-label="SMS Karol"
-                    >
-                      <MessageSquareText className="w-3.5 h-3.5 text-[#B08981]" />
-                      SMS
-                    </a>
-                    <button
-                      onClick={() => openWhatsApp('09855540332')}
-                      className="inline-flex items-center justify-center gap-1.5 px-2.5 py-2 rounded-lg border border-[#B08981]/40 text-[#666956] bg-white hover:bg-[#EFBFBB]/25 transition-colors text-xs font-medium"
-                      aria-label="WhatsApp Karol"
-                    >
-                      <MessageCircle className="w-3.5 h-3.5 text-[#B08981]" />
-                      WhatsApp
-                    </button>
-                    <button
-                      onClick={() => copyToClipboard('09855540332', 'copy-karol')}
-                      className="inline-flex items-center justify-center px-2.5 py-2 rounded-lg border border-[#B08981]/40 text-[#666956] bg-white hover:bg-[#EFBFBB]/25 transition-colors text-xs font-medium"
-                      aria-label="Copy Karol number"
-                      title="Copy number"
-                    >
-                      {copiedItems.has('copy-karol') ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                    </button>
                   </div>
-                  <div className="h-3">
-                    <span className="text-[11px] text-[#666956] opacity-70" aria-live="polite">
-                      {copiedItems.has('copy-karol') ? 'Copied!' : ''}
-                    </span>
-                  </div>
+                  <button
+                    onClick={() => copyToClipboard('09855540332', 'copy-karol')}
+                    className="self-start sm:self-auto inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#B08981]/40 text-[#666956] bg-white hover:bg-[#EFBFBB]/25 transition-all duration-200 hover:scale-105 active:scale-95 text-xs font-medium shadow-sm"
+                    aria-label="Copy Karol number"
+                    title="Copy number"
+                  >
+                    {copiedItems.has('copy-karol') ? (
+                      <>
+                        <Check className="w-4 h-4 text-green-600" />
+                        <span>Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5" />
+                        <span className="hidden sm:inline">Copy</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+                
+                {/* Action Buttons - Stack on mobile, grid on larger screens */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-2">
+                  <a
+                    href="tel:09855540332"
+                    className="flex items-center justify-center gap-2 px-4 py-3 sm:py-2.5 rounded-lg border-2 border-[#B08981]/50 text-[#666956] bg-gradient-to-br from-white to-[#EFBFBB]/20 hover:from-[#EFBFBB]/30 hover:to-[#EFBFBB]/40 transition-all duration-200 hover:scale-105 active:scale-95 text-sm font-semibold shadow-sm hover:shadow-md"
+                    aria-label="Call Karol"
+                  >
+                    <Phone className="w-4 h-4 sm:w-4 sm:h-4 text-[#B08981]" />
+                    <span>Call</span>
+                  </a>
+                  <a
+                    href="sms:09855540332"
+                    className="flex items-center justify-center gap-2 px-4 py-3 sm:py-2.5 rounded-lg border-2 border-[#B08981]/50 text-[#666956] bg-gradient-to-br from-white to-[#EFBFBB]/20 hover:from-[#EFBFBB]/30 hover:to-[#EFBFBB]/40 transition-all duration-200 hover:scale-105 active:scale-95 text-sm font-semibold shadow-sm hover:shadow-md"
+                    aria-label="SMS Karol"
+                  >
+                    <MessageSquareText className="w-4 h-4 sm:w-4 sm:h-4 text-[#B08981]" />
+                    <span>SMS</span>
+                  </a>
+                  <button
+                    onClick={() => openWhatsApp('09855540332')}
+                    className="flex items-center justify-center gap-2 px-4 py-3 sm:py-2.5 rounded-lg border-2 border-[#B08981]/50 text-[#666956] bg-gradient-to-br from-white to-[#EFBFBB]/20 hover:from-[#EFBFBB]/30 hover:to-[#EFBFBB]/40 transition-all duration-200 hover:scale-105 active:scale-95 text-sm font-semibold shadow-sm hover:shadow-md"
+                    aria-label="WhatsApp Karol"
+                  >
+                    <MessageCircle className="w-4 h-4 sm:w-4 sm:h-4 text-[#B08981]" />
+                    <span className="hidden sm:inline">WhatsApp</span>
+                    <span className="sm:hidden">WA</span>
+                  </button>
                 </div>
               </div>
             </div>

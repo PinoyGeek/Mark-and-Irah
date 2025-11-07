@@ -11,59 +11,17 @@ interface PrincipalSponsor {
 export function PrincipalSponsors() {
   // Helper component for elegant section titles
   const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-    <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-semibold text-[#666956] mb-3 sm:mb-4 text-center tracking-wide">
+    <h3 className="text-[18px] sm:text-base md:text-lg lg:text-xl font-serif font-semibold text-[#666956] mb-2 sm:mb-2.5 md:mb-3 text-center tracking-wide">
       {children}
     </h3>
   )
 
   // Helper component for name items
   const NameItem = ({ name }: { name: string }) => (
-    <div className="flex items-center justify-center py-2.5 sm:py-3 px-2">
-      <p className="text-[#666956] text-sm sm:text-base font-light text-center leading-relaxed">{name}</p>
+    <div className="flex items-center justify-center py-1 sm:py-1.5 md:py-2 px-1 sm:px-1.5 w-full min-h-[2.5rem] sm:min-h-[3rem]">
+      <p className="text-[#666956] text-xs sm:text-sm md:text-base font-light text-center leading-tight break-words">{name}</p>
     </div>
   )
-
-  // Helper component for two-column layout wrapper
-  const TwoColumnLayout = ({ 
-    children, 
-    leftTitle, 
-    rightTitle,
-    singleTitle,
-    centerContent = false 
-  }: { 
-    children: React.ReactNode
-    leftTitle?: string
-    rightTitle?: string
-    singleTitle?: string
-    centerContent?: boolean
-  }) => {
-    if (singleTitle) {
-      return (
-        <div className="mb-8 sm:mb-10 md:mb-12">
-          <SectionTitle>{singleTitle}</SectionTitle>
-          <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
-            {children}
-          </div>
-        </div>
-      )
-    }
-
-    return (
-      <div className="mb-8 sm:mb-10 md:mb-12">
-        <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-4 sm:gap-x-6 md:gap-x-8 mb-4 sm:mb-5">
-          {leftTitle && (
-            <SectionTitle>{leftTitle}</SectionTitle>
-          )}
-          {rightTitle && (
-            <SectionTitle>{rightTitle}</SectionTitle>
-          )}
-        </div>
-        <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
-          {children}
-        </div>
-      </div>
-    )
-  }
 
   // Remote data state
   const [sponsors, setSponsors] = useState<PrincipalSponsor[]>([])
@@ -89,9 +47,11 @@ export function PrincipalSponsors() {
     fetchSponsors()
   }, [])
 
-  // Split columns
-  const maleSponsors = useMemo(() => sponsors.map((s) => s.MalePrincipalSponsor).filter(Boolean), [sponsors])
-  const femaleSponsors = useMemo(() => sponsors.map((s) => s.FemalePrincipalSponsor).filter(Boolean), [sponsors])
+  // Keep sponsors as pairs to ensure alignment
+  const sponsorPairs = useMemo(() => 
+    sponsors.filter(s => s.MalePrincipalSponsor || s.FemalePrincipalSponsor),
+    [sponsors]
+  )
 
   return (
     <Section
@@ -182,7 +142,7 @@ export function PrincipalSponsors() {
               <div className="absolute -bottom-2 -right-2 w-5 h-5 bg-gradient-to-tl from-[#B08981] via-[#EFBFBB] to-[#FFE5E4] rounded-full blur-sm opacity-70 shadow-lg" />
 
               {/* Main sponsors card with enhanced multi-layer styling */}
-              <div className="relative bg-gradient-to-br from-[#FFE5E4] via-[#EFBFBB]/25 to-[#FFE5E4] backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 border-2 border-[#B08981]/50 shadow-[0_8px_32px_rgba(102,105,86,0.25),0_0_0_1px_rgba(176,137,129,0.15)]">
+              <div className="relative bg-gradient-to-br from-[#FFE5E4] via-[#EFBFBB]/25 to-[#FFE5E4] backdrop-blur-md rounded-2xl sm:rounded-3xl p-2.5 sm:p-4 md:p-6 lg:p-8 xl:p-9 border-2 border-[#B08981]/50 shadow-[0_8px_32px_rgba(102,105,86,0.25),0_0_0_1px_rgba(176,137,129,0.15)]">
                 
                 {/* Inner decorative border with gradient */}
                 <div className="absolute inset-1 sm:inset-2 border border-[#B08981]/40 rounded-xl sm:rounded-2xl" />
@@ -193,13 +153,13 @@ export function PrincipalSponsors() {
                 {/* Sponsors content */}
                 <div className="relative z-10 w-full">
                   {isLoading ? (
-                    <div className="flex items-center justify-center py-12 sm:py-16">
-                      <div className="w-12 h-12 border-4 border-[#B08981]/30 border-t-[#B08981] rounded-full animate-spin" />
-                      <p className="ml-4 text-[#666956] font-serif text-base sm:text-lg">Loading sponsors...</p>
+                    <div className="flex items-center justify-center py-10 sm:py-12 md:py-16">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 border-4 border-[#B08981]/30 border-t-[#B08981] rounded-full animate-spin" />
+                      <p className="ml-3 sm:ml-4 text-[#666956] font-serif text-sm sm:text-base md:text-lg">Loading sponsors...</p>
                     </div>
                   ) : error ? (
-                    <div className="text-center py-12 sm:py-16">
-                      <p className="text-red-400 font-serif mb-4">{error}</p>
+                    <div className="text-center py-10 sm:py-12 md:py-16">
+                      <p className="text-red-400 font-serif mb-3 sm:mb-4 text-sm sm:text-base">{error}</p>
                       <button 
                         onClick={fetchSponsors} 
                         className="px-6 py-2.5 bg-gradient-to-r from-[#666956] to-[#8D8E7C] hover:from-[#8D8E7C] hover:to-[#666956] text-[#FFE5E4] rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md"
@@ -208,34 +168,48 @@ export function PrincipalSponsors() {
                       </button>
                     </div>
                   ) : (
-                    <TwoColumnLayout leftTitle="Male Principal Sponsors" rightTitle="Female Principal Sponsors">
-                      <div className="space-y-2">
-                        {maleSponsors.length === 0 ? (
-                          <div className="py-3 sm:py-4">
-                            <p className="text-[#666956]/70 text-sm text-center">No entries</p>
+                    <>
+                      {sponsorPairs.length === 0 ? (
+                        <div className="text-center py-8 sm:py-10">
+                          <p className="text-[#666956]/70 text-[10px] sm:text-xs text-center">No entries</p>
+                        </div>
+                      ) : (
+                        <div className="mb-5 sm:mb-6 md:mb-8 lg:mb-10">
+                          <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-3 sm:gap-x-4 md:gap-x-6 lg:gap-x-8 mb-2 sm:mb-3 md:mb-4">
+                            <SectionTitle>Male Principal Sponsors</SectionTitle>
+                            <SectionTitle>Female Principal Sponsors</SectionTitle>
                           </div>
-                        ) : (
-                          maleSponsors.map((name, idx) => (
-                            <div key={idx} className="bg-white/40 hover:bg-white/60 rounded-lg transition-all duration-300 border border-[#B08981]/30 hover:border-[#B08981]/50">
-                              <NameItem name={name} />
-                            </div>
-                          ))
-                        )}
-                      </div>
-                      <div className="space-y-2">
-                        {femaleSponsors.length === 0 ? (
-                          <div className="py-3 sm:py-4">
-                            <p className="text-[#666956]/70 text-sm text-center">No entries</p>
+                          <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-3 sm:gap-x-4 md:gap-x-6 gap-y-1 sm:gap-y-1.5 items-stretch">
+                            {sponsorPairs.flatMap((pair, idx) => [
+                              <div 
+                                key={`male-${idx}-${pair.MalePrincipalSponsor || 'empty'}`}
+                                className="bg-white/40 hover:bg-white/60 rounded-lg transition-all duration-300 border border-[#B08981]/30 hover:border-[#B08981]/50 min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-center w-full"
+                              >
+                                {pair.MalePrincipalSponsor ? (
+                                  <NameItem name={pair.MalePrincipalSponsor} />
+                                ) : (
+                                  <div className="py-1 sm:py-1.5 md:py-2 min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-center w-full">
+                                    <p className="text-[#666956]/30 text-[10px] sm:text-xs">—</p>
+                                  </div>
+                                )}
+                              </div>,
+                              <div 
+                                key={`female-${idx}-${pair.FemalePrincipalSponsor || 'empty'}`}
+                                className="bg-white/40 hover:bg-white/60 rounded-lg transition-all duration-300 border border-[#B08981]/30 hover:border-[#B08981]/50 min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-center w-full"
+                              >
+                                {pair.FemalePrincipalSponsor ? (
+                                  <NameItem name={pair.FemalePrincipalSponsor} />
+                                ) : (
+                                  <div className="py-1 sm:py-1.5 md:py-2 min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-center w-full">
+                                    <p className="text-[#666956]/30 text-[10px] sm:text-xs">—</p>
+                                  </div>
+                                )}
+                              </div>
+                            ])}
                           </div>
-                        ) : (
-                          femaleSponsors.map((name, idx) => (
-                            <div key={idx} className="bg-white/40 hover:bg-white/60 rounded-lg transition-all duration-300 border border-[#B08981]/30 hover:border-[#B08981]/50">
-                              <NameItem name={name} />
-                            </div>
-                          ))
-                        )}
-                      </div>
-                    </TwoColumnLayout>
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
                 

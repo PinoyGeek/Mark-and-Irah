@@ -12,10 +12,10 @@ interface EntourageMember {
 
 const ROLE_CATEGORY_ORDER = [
   "The Couple",
-  "Parents of the Bride",
   "Parents of the Groom",
-  "Maid/Matron of Honor",
+  "Parents of the Bride",
   "Best Man",
+  "Maid/Matron of Honor",
   "Candle Sponsors",
   "Veil Sponsors",
   "Cord Sponsors",
@@ -81,17 +81,17 @@ export function Entourage() {
 
   // Helper component for elegant section titles
   const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-    <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-semibold text-[#8B4A6B] mb-4 sm:mb-6 text-center tracking-wide">
+    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-semibold text-[#8B4A6B] mb-3 sm:mb-4 md:mb-6 text-center tracking-wide">
       {children}
     </h3>
   )
 
   // Helper component for name items with role title
   const NameItem = ({ member }: { member: EntourageMember }) => (
-    <div className="flex flex-col items-center justify-center py-2 sm:py-2.5">
-      <p className="text-[#2D1B1E] text-base sm:text-lg font-medium text-center">{member.Name}</p>
+    <div className="flex flex-col items-center justify-center py-1 sm:py-1.5 md:py-2">
+      <p className="text-[#2D1B1E] text-xs sm:text-sm md:text-base font-medium text-center">{member.Name}</p>
       {member.RoleTitle && (
-        <p className="text-[#5D4A4E] text-xs sm:text-sm font-light text-center mt-1">{member.RoleTitle}</p>
+        <p className="text-[#5D4A4E] text-[9px] sm:text-[10px] md:text-xs font-light text-center mt-0.5">{member.RoleTitle}</p>
       )}
     </div>
   )
@@ -112,9 +112,9 @@ export function Entourage() {
   }) => {
     if (singleTitle) {
       return (
-        <div className="mb-8 sm:mb-10 md:mb-12">
+        <div className="mb-6 sm:mb-8 md:mb-10 lg:mb-12">
           <SectionTitle>{singleTitle}</SectionTitle>
-          <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
+          <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-3 sm:gap-x-4 md:gap-x-6 gap-y-2 sm:gap-y-3 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
             {children}
           </div>
         </div>
@@ -122,8 +122,8 @@ export function Entourage() {
     }
 
     return (
-      <div className="mb-8 sm:mb-10 md:mb-12">
-        <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-4 sm:gap-x-6 md:gap-x-8 mb-4 sm:mb-6">
+      <div className="mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+        <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-3 sm:gap-x-4 md:gap-x-6 lg:gap-x-8 mb-3 sm:mb-4 md:mb-6">
           {leftTitle && (
             <SectionTitle>{leftTitle}</SectionTitle>
           )}
@@ -131,7 +131,7 @@ export function Entourage() {
             <SectionTitle>{rightTitle}</SectionTitle>
           )}
         </div>
-        <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
+        <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-3 sm:gap-x-4 md:gap-x-6 gap-y-2 sm:gap-y-3 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
           {children}
         </div>
       </div>
@@ -211,7 +211,7 @@ export function Entourage() {
         {/* White card with pink border */}
         <div className="relative bg-white border-2 border-[#FF69B4] rounded-lg shadow-2xl overflow-hidden">
           {/* Card content */}
-          <div className="relative p-6 sm:p-8 md:p-10 lg:p-12">
+          <div className="relative p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
             {isLoading ? (
               <div className="flex items-center justify-center py-24">
                 <div className="flex flex-col items-center gap-4">
@@ -245,27 +245,27 @@ export function Entourage() {
 
                 // Special handling for The Couple - display Bride and Groom side by side
                 if (category === "The Couple") {
+                   const groom = members.find(m => m.RoleTitle?.toLowerCase().includes('groom'))
                   const bride = members.find(m => m.RoleTitle?.toLowerCase().includes('bride'))
-                  const groom = members.find(m => m.RoleTitle?.toLowerCase().includes('groom'))
                   
                   return (
                     <div key={category}>
                       {categoryIndex > 0 && (
-                        <div className="flex justify-center py-4 mb-8">
+                        <div className="flex justify-center py-3 sm:py-4 mb-5 sm:mb-6 md:mb-8">
                           <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#FFB6C1]/60 to-transparent"></div>
                         </div>
                       )}
                       <TwoColumnLayout singleTitle="The Couple" centerContent={true}>
-                        <div className="flex flex-col items-center">
-                          <p className="text-[#A66B7A] text-xs sm:text-sm mb-1 font-light">Bride</p>
-                          {bride && (
-                            <p className="text-[#2D1B1E] text-base sm:text-lg font-medium">{bride.Name}</p>
+                        <div className="flex flex-col items-center justify-center">
+                          <p className="text-[#A66B7A] text-[9px] sm:text-[10px] md:text-xs mb-0.5 font-light text-center">Groom</p>
+                          {groom && (
+                            <p className="text-[#2D1B1E] text-xs sm:text-sm md:text-base font-medium text-center">{groom.Name}</p>
                           )}
                         </div>
-                        <div className="flex flex-col items-center">
-                          <p className="text-[#A66B7A] text-xs sm:text-sm mb-1 font-light">Groom</p>
-                          {groom && (
-                            <p className="text-[#2D1B1E] text-base sm:text-lg font-medium">{groom.Name}</p>
+                        <div className="flex flex-col items-center justify-center">
+                          <p className="text-[#A66B7A] text-[9px] sm:text-[10px] md:text-xs mb-0.5 font-light text-center">Bride</p>
+                          {bride && (
+                            <p className="text-[#2D1B1E] text-xs sm:text-sm md:text-base font-medium text-center">{bride.Name}</p>
                           )}
                         </div>
                       </TwoColumnLayout>
@@ -279,31 +279,44 @@ export function Entourage() {
                   const parentsBride = grouped["Parents of the Bride"] || []
                   const parentsGroom = grouped["Parents of the Groom"] || []
                   
-                  // Only render once (when processing "Parents of the Bride")
-                  if (category === "Parents of the Bride") {
+                  // Helper function to sort parents: father first, then mother
+                  const sortParents = (members: EntourageMember[]) => {
+                    return [...members].sort((a, b) => {
+                      const aIsFather = a.RoleTitle?.toLowerCase().includes('father') ?? false
+                      const bIsFather = b.RoleTitle?.toLowerCase().includes('father') ?? false
+                      
+                      // Father comes first
+                      if (aIsFather && !bIsFather) return -1
+                      if (!aIsFather && bIsFather) return 1
+                      return 0
+                    })
+                  }
+                  
+                  // Only render once (when processing "Parents of the Groom")
+                  if (category === "Parents of the Groom") {
                     return (
                       <div key="Parents">
                         {categoryIndex > 0 && (
-                          <div className="flex justify-center py-4 mb-8">
+                          <div className="flex justify-center py-3 sm:py-4 mb-5 sm:mb-6 md:mb-8">
                             <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-transparent"></div>
                           </div>
                         )}
-                        <TwoColumnLayout leftTitle="Parents of the Bride" rightTitle="Parents of the Groom">
-                          <div className="space-y-3">
-                            {parentsBride.map((member, idx) => (
-                              <NameItem key={idx} member={member} />
+                        <TwoColumnLayout leftTitle="Parents of the Groom" rightTitle="Parents of the Bride">
+                          <div className="space-y-2 sm:space-y-3">
+                            {sortParents(parentsGroom).map((member, idx) => (
+                              <NameItem key={`groom-parent-${idx}-${member.Name}`} member={member} />
                             ))}
                           </div>
-                          <div className="space-y-3">
-                            {parentsGroom.map((member, idx) => (
-                              <NameItem key={idx} member={member} />
+                          <div className="space-y-2 sm:space-y-3">
+                            {sortParents(parentsBride).map((member, idx) => (
+                              <NameItem key={`bride-parent-${idx}-${member.Name}`} member={member} />
                             ))}
                           </div>
                         </TwoColumnLayout>
                       </div>
                     )
                   }
-                  // Skip rendering for "Parents of the Groom" since it's already rendered above
+                  // Skip rendering for "Parents of the Bride" since it's already rendered above
                   return null
                 }
 
@@ -313,31 +326,31 @@ export function Entourage() {
                   const maidOfHonor = grouped["Maid/Matron of Honor"] || []
                   const bestMan = grouped["Best Man"] || []
                   
-                  // Only render once (when processing "Maid/Matron of Honor")
-                  if (category === "Maid/Matron of Honor") {
+                  // Only render once (when processing "Best Man")
+                  if (category === "Best Man") {
                     return (
                       <div key="HonorAttendants">
                         {categoryIndex > 0 && (
-                          <div className="flex justify-center py-4 mb-8">
+                          <div className="flex justify-center py-3 sm:py-4 mb-5 sm:mb-6 md:mb-8">
                             <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-transparent"></div>
                           </div>
                         )}
-                        <TwoColumnLayout leftTitle="Maid/Matron of Honor" rightTitle="Best Man">
-                          <div className="space-y-3">
-                            {maidOfHonor.map((member, idx) => (
-                              <NameItem key={idx} member={member} />
+                        <TwoColumnLayout leftTitle="Best Man" rightTitle="Maid/Matron of Honor">
+                          <div className="space-y-2 sm:space-y-3">
+                            {bestMan.map((member, idx) => (
+                              <NameItem key={`bestman-${idx}-${member.Name}`} member={member} />
                             ))}
                           </div>
-                          <div className="space-y-3">
-                            {bestMan.map((member, idx) => (
-                              <NameItem key={idx} member={member} />
+                          <div className="space-y-2 sm:space-y-3">
+                            {maidOfHonor.map((member, idx) => (
+                              <NameItem key={`maid-${idx}-${member.Name}`} member={member} />
                             ))}
                           </div>
                         </TwoColumnLayout>
                       </div>
                     )
                   }
-                  // Skip rendering for "Best Man" since it's already rendered above
+                  // Skip rendering for "Maid/Matron of Honor" since it's already rendered above
                   return null
                 }
 
@@ -352,19 +365,19 @@ export function Entourage() {
                     return (
                       <div key="BridalParty">
                         {categoryIndex > 0 && (
-                          <div className="flex justify-center py-4 mb-8">
+                          <div className="flex justify-center py-3 sm:py-4 mb-5 sm:mb-6 md:mb-8">
                             <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-transparent"></div>
                           </div>
                         )}
                         <TwoColumnLayout leftTitle="Bridesmaids" rightTitle="Groomsmen">
-                          <div className="space-y-3">
+                          <div className="space-y-2 sm:space-y-3">
                             {bridesmaids.map((member, idx) => (
-                              <NameItem key={idx} member={member} />
+                              <NameItem key={`bridesmaid-${idx}-${member.Name}`} member={member} />
                             ))}
                           </div>
-                          <div className="space-y-3">
+                          <div className="space-y-2 sm:space-y-3">
                             {groomsmen.map((member, idx) => (
-                              <NameItem key={idx} member={member} />
+                              <NameItem key={`groomsman-${idx}-${member.Name}`} member={member} />
                             ))}
                           </div>
                         </TwoColumnLayout>
@@ -386,19 +399,19 @@ export function Entourage() {
                     return (
                       <div key="Sponsors">
                         {categoryIndex > 0 && (
-                          <div className="flex justify-center py-4 mb-8">
+                          <div className="flex justify-center py-3 sm:py-4 mb-5 sm:mb-6 md:mb-8">
                             <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-transparent"></div>
                           </div>
                         )}
                         <TwoColumnLayout leftTitle="Candle Sponsors" rightTitle="Veil Sponsors">
-                          <div className="space-y-3">
+                          <div className="space-y-2 sm:space-y-3">
                             {candleSponsors.map((member, idx) => (
-                              <NameItem key={idx} member={member} />
+                              <NameItem key={`candle-${idx}-${member.Name}`} member={member} />
                             ))}
                           </div>
-                          <div className="space-y-3">
+                          <div className="space-y-2 sm:space-y-3">
                             {veilSponsors.map((member, idx) => (
-                              <NameItem key={idx} member={member} />
+                              <NameItem key={`veil-${idx}-${member.Name}`} member={member} />
                             ))}
                           </div>
                         </TwoColumnLayout>
@@ -413,13 +426,13 @@ export function Entourage() {
                 return (
                   <div key={category}>
                     {categoryIndex > 0 && (
-                      <div className="flex justify-center py-4 mb-8">
+                      <div className="flex justify-center py-3 sm:py-4 mb-5 sm:mb-6 md:mb-8">
                         <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-transparent"></div>
                       </div>
                     )}
                     <TwoColumnLayout singleTitle={category} centerContent={true}>
                       {members.map((member, idx) => (
-                        <div key={idx}>
+                        <div key={`${category}-${idx}-${member.Name}`}>
                           <NameItem member={member} />
                         </div>
                       ))}
@@ -433,12 +446,12 @@ export function Entourage() {
                 const members = grouped[category]
                 return (
                   <div key={category}>
-                    <div className="flex justify-center py-4 mb-8">
+                    <div className="flex justify-center py-3 sm:py-4 mb-5 sm:mb-6 md:mb-8">
                       <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#FFB6C1]/60 to-transparent"></div>
                     </div>
                     <TwoColumnLayout singleTitle={category} centerContent={true}>
                       {members.map((member, idx) => (
-                        <div key={idx}>
+                        <div key={`${category}-${idx}-${member.Name}`}>
                           <NameItem member={member} />
                         </div>
                       ))}
