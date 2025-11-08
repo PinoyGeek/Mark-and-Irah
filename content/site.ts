@@ -1,41 +1,41 @@
 export const siteConfig = {
   couple: {
-    bride: "Talitha John P. Dacono",
-    brideNickname: "Talitha",
-    groom: "Karol Josep C. Tiamzon",
-    groomNickname: "Karol",
+    bride: "Airez Joy Caspillo Anggalan",
+    brideNickname: "Airez",
+    groom: "Brendan Joe Grima",
+    groomNickname: "Brendan",
   },
   wedding: {
-    date: "February 14, 2026",
-    time: "4:00 PM",
-    venue: "Tarlac Recreational Park, San Jose, Tarlac",
+    date: "December 28, 2025",
+    time: "11:00 AM",
+    venue: "Alta Guia, Taguig, Metro Manila",
     tagline: "are getting married!",
-    theme: "Garden Wedding",
-    motif: "Sage Green & Blush Pink",
+    theme: "Christmas Wedding 🎄",
+    motif: "Burgundy Red & Emerald Green",
   },
   details: {
     rsvp: {
-      deadline: "February 1, 2026",
+      deadline: "December 15, 2025",
     },
   },
   ceremony: {
-    location: "Tarlac Recreational Park, San Jose, Tarlac",
-    venue: "Tarlac Recreational Park",
-    date: "February 14, 2026",
-    day: "Saturday",
-    time: "4:00 PM",
-    entourageTime: "2:00 PM",
-    guestsTime: "2:00 PM",
+    location: "Alta Guia, Taguig, Metro Manila",
+    venue: "Alta Guia",
+    date: "December 28, 2025",
+    day: "Sunday",
+    time: "11:00 AM",
+    entourageTime: "10:00 AM",
+    guestsTime: "10:30 AM",
   },
   reception: {
-    location: "Tarlac Recreational Park, San Jose, Tarlac",
-    venue: "Tarlac Recreational Park",
-    date: "February 14, 2026",
-    time: "Following the ceremony",
+    location: "Alta Guia, Taguig, Metro Manila",
+    venue: "Alta Guia",
+    date: "December 28, 2025",
+    time: "12:00 NN",
   },
   dressCode: {
-    theme: "Semi-Formal Attire",
-    colors: ["#666956", "#8D8E7C", "#B08981", "#EFBFBB"],
+    theme: "Christmas Wedding 🎄",
+    colors: ["#0A3428", "#106552", "#751A2C", "#C3A161"],
     sponsors: {
       ladies: "White gown / long dress ",
       gentlemen: "Black suit and tie"
@@ -46,27 +46,14 @@ export const siteConfig = {
     },
     note: "Please avoid jeans and casual attire."
   },
-  narrative: `It’s funny how life has its own way of bringing two souls together. \n
-We both lived in Baguio since 2011 — walking the same streets, sharing the same mountain air,
- even studying just a few kilometers apart. Yet, in all those years, we never once met. \n
+  narrative: `It's amazing how a simple online game could change everything.
 
-For a long time, our paths simply ran parallel — close, but never crossing.
- Then, in the third quarter of 2023, fate finally decided it was time.
-  A common friend introduced us (you know who you are 😉. Thank you!),
-   and what began as a simple conversation soon grew into something that felt both new and familiar
-    — as if our hearts had known each other all along. \n
+We're Airez and Brendan, and Codenames was where our story began. What started as playful banter soon blossomed into something real — a connection we couldn't ignore. Despite the distance and different time zones, we found strength in each other. Every message, every call, every small act of love became proof of what we were building together.
 
-By the first month of 2024, we officially began our journey together.
- Since then, every day has been filled with laughter, warmth, and the
-  quiet certainty that we’ve found home in each other.
-\n
-Looking back, it’s amazing how everything happened just as it should — not too early, not too late, but at the perfect time. Our story reminds us that love doesn’t rush; it waits for the right moment, and when it arrives, everything simply falls into place.
-\n
-
-Now, as we begin this new chapter as one, we carry with us the beautiful truth that what’s meant for you will always find its way — even if it takes a little time. 💕 `,
+Now, we're ready to take the next step — hand in hand, heart to heart. A lifetime of love, a partnership built on trust, and a future we're both so excited to create. ❤️`,
   colors: {
-    primary: "#525E2C",
-    secondary: "#909E8D",
+    primary: "#0A3428",
+    secondary: "#106552",
   },
 }
 

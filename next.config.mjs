@@ -29,6 +29,8 @@ const nextConfig = {
     ],
   },
   headers: async () => {
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    
     return [
       {
         source: "/:path*",
@@ -53,18 +55,42 @@ const nextConfig = {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
           },
+          // Add cache-control for HTML pages
+          ...(isDevelopment
+            ? [
+                {
+                  key: "Cache-Control",
+                  value: "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0",
+                },
+              ]
+            : [
+                {
+                  key: "Cache-Control",
+                  value: "public, s-maxage=10, stale-while-revalidate=59",
+                },
+              ]),
         ],
       },
       {
         source: "/_next/static/:path*",
         headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" }
+          { 
+            key: "Cache-Control", 
+            value: isDevelopment 
+              ? "no-store, no-cache, must-revalidate" 
+              : "public, max-age=31536000, immutable" 
+          }
         ],
       },
       {
-        source: "/:all*\.(js|css|svg|png|jpg|jpeg|gif|webp|ico|woff2?)",
+        source: "/:all*\\.(js|css|svg|png|jpg|jpeg|gif|webp|ico|woff2?)",
         headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" }
+          { 
+            key: "Cache-Control", 
+            value: isDevelopment 
+              ? "no-store, no-cache, must-revalidate" 
+              : "public, max-age=31536000, immutable" 
+          }
         ],
       },
     ]

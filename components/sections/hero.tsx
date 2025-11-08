@@ -2,82 +2,39 @@
 
 import { useEffect, useState, useMemo } from "react"
 import { siteConfig } from "@/content/site"
+import { Heart, Sparkles } from "lucide-react"
 
 const desktopImages = [
-    "/desktop-background/DSCF2444-min.jpg",
-    "/desktop-background/DSCF2481-min.jpg",
-    "/desktop-background/DSCF2499-min.jpg",
-    "/desktop-background/DSCF2578-min.jpg",
-    "/desktop-background/DSCF2837-min.jpg",
-    "/desktop-background/DSCF3037-min.jpg",
-    "/desktop-background/DSCF3072-min.jpg",
-    "/desktop-background/DSCF3115-min.jpg",
-    "/desktop-background/DSCF3176-min.jpg",
-    "/desktop-background/DSCF3232-min.jpg",
-    "/desktop-background/DSCF3250-min.jpg",
-    "/desktop-background/NLK_3003-min.jpg",
-    "/desktop-background/NLK_3147-min.jpg",
-    "/desktop-background/NLK_3205-min.jpg",
-    "/desktop-background/NLK_3215-min.jpg",
-    "/desktop-background/NLK_3217-min.jpg",
-    "/desktop-background/NLK_3248-min.jpg",
-    "/desktop-background/NLK_3275-min.jpg",
-    "/desktop-background/NLK_3302-min.jpg",
-    "/desktop-background/NLK_3394-min.jpg",
-    "/desktop-background/NLK_3409-min.jpg",
-    "/desktop-background/NLK_3429-min.jpg",
-    "/desktop-background/NLK_3625-min.jpg",
-    "/desktop-background/NLK_3656-min.jpg",
-    "/desktop-background/NLK_3677-min.jpg",
-    "/desktop-background/NLK_3748-min.jpg",
-    "/desktop-background/NLK_3764-min.jpg",
-    "/desktop-background/NLK_3833-min.jpg",
-    "/desktop-background/NLK_3841-min.jpg",
-    "/desktop-background/NLK_3848-min.jpg",
-    "/desktop-background/NLK_3880-min.jpg",
-    "/desktop-background/NLK_3944-min.jpg",
-    "/desktop-background/NLK_4026-min.jpg",
-    "/desktop-background/NLK_4041-min.jpg",
-    "/desktop-background/NLK_4048-min.jpg",
-    "/desktop-background/NLK_4066-min.jpg",
-    "/desktop-background/NLK_4093-min.jpg",
-    "/desktop-background/NLK_4099-min.jpg",
-    "/desktop-background/NLK_4146-min.jpg",
-    "/desktop-background/NLK_4183-min.jpg",
-    "/desktop-background/NLK_4288-min.jpg",
-    "/desktop-background/NLK_4321-min.jpg",
-    "/desktop-background/NLK_4349-min.jpg",
-    "/desktop-background/NLK_4377-min.jpg",
-    "/desktop-background/NLK_4465-min.jpg",
-    "/desktop-background/NLK_4627-min.jpg",
+    "/desktop-background/couple (1).jpg",
+    "/desktop-background/couple (2).jpg",
+    "/desktop-background/couple (3).jpg",
+    "/desktop-background/couple (4).jpg",
 ]
 
 const mobileImages = [
-    "/mobile-background/DSCF2614-min.jpg",
-    "/mobile-background/DSCF2678-min.jpg",
-    "/mobile-background/DSCF2692-min.jpg",
-    "/mobile-background/DSCF2706-min.jpg",
-    "/mobile-background/DSCF2919-min.jpg",
-    "/mobile-background/DSCF3090-min.jpg",
-    "/mobile-background/NLK_3020-min.jpg",
-    "/mobile-background/NLK_3066-min.jpg",
-    "/mobile-background/NLK_3073-min.jpg",
-    "/mobile-background/NLK_3087-min.jpg",
-    "/mobile-background/NLK_3113-min.jpg",
-    "/mobile-background/NLK_3146-min.jpg",
-    "/mobile-background/NLK_3182-min.jpg",
-    "/mobile-background/NLK_3328-min.jpg",
-    "/mobile-background/NLK_3531-min.jpg",
-    "/mobile-background/NLK_3970-min.jpg",
-    "/mobile-background/NLK_3974-min.jpg",
-    "/mobile-background/NLK_3989-min.jpg",
-    "/mobile-background/NLK_4073-min.jpg",
-    "/mobile-background/NLK_4081-min.jpg",
-    "/mobile-background/NLK_4400-min.jpg",
-    "/mobile-background/NLK_4430-min.jpg",
-    "/mobile-background/NLK_4484-min.jpg",
-    "/mobile-background/NLK_4492-min.jpg",
-    "/mobile-background/NLK_4519-min.jpg",
+    "/mobile-background/couple (1).jpg",
+    "/mobile-background/couple (2).jpg",
+    "/mobile-background/couple (3).jpg",
+    "/mobile-background/couple (4).jpg",
+    "/mobile-background/couple (5).jpg",
+    "/mobile-background/couple (6).jpg",
+    "/mobile-background/couple (7).jpg",
+    "/mobile-background/couple (8).jpg",
+    "/mobile-background/couple (9).jpg",
+    "/mobile-background/couple (10).jpg",
+    "/mobile-background/couple (11).jpg",
+    "/mobile-background/couple (12).jpg",
+    "/mobile-background/couple (13).jpg",
+    "/mobile-background/couple (14).jpg",
+    "/mobile-background/couple (15).jpg",
+    "/mobile-background/couple (16).jpg",
+    "/mobile-background/couple (17).jpg",
+    "/mobile-background/couple (18).jpg",
+    "/mobile-background/couple (19).jpg",
+    "/mobile-background/couple (20).jpg",
+    "/mobile-background/couple (21).jpg",
+    "/mobile-background/couple (22).jpg",
+    "/mobile-background/couple (23).jpg",
 ]
 
 export function Hero() {
@@ -138,13 +95,21 @@ export function Hero() {
     return () => clearInterval(imageTimer)
   }, [imagesLoaded, backgroundImages])
 
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    if (imagesLoaded) {
+      setIsVisible(true)
+    }
+  }, [imagesLoaded])
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#666956]">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A3428]">
       <div className="absolute inset-0 w-full h-full">
         {imagesLoaded && backgroundImages.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
+            className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
               index === currentImageIndex ? "opacity-100" : "opacity-0"
             }`}
             style={{
@@ -152,124 +117,161 @@ export function Hero() {
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
+              willChange: "opacity",
             }}
           />
         ))}
-        {/* Corner decorations - bottom corners */
-        }
-        <img
-          src="/decoration/corner_right-top.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 w-48 sm:w-64 md:w-80 lg:w-[30rem] xl:w-[36rem] opacity-70 rotate-180 select-none z-10"
-        />
-        <img
-          src="/decoration/corner_right-top.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 right-0 w-56 sm:w-72 md:w-96 lg:w-[34rem] xl:w-[40rem] opacity-75 rotate-180 select-none z-10"
-          style={{ transform: 'scaleX(-1)' }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#666956] via-[#666956]/40 to-transparent z-0" />
+        {/* Enhanced gradient overlay with better depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A3428]/95 via-[#0A3428]/50 via-[#0A3428]/30 to-transparent z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0A3428]/20 z-0" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-12 flex flex-col items-center justify-end min-h-screen pb-16 sm:pb-24 md:pb-32 lg:pb-48">
-        <div className="max-w-2xl text-center space-y-6 sm:space-y-8">
-          <div className="space-y-3 sm:space-y-4">
+      <div className="relative z-10 w-full container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex flex-col items-center justify-end min-h-screen pb-12 sm:pb-20 md:pb-28 lg:pb-40 xl:pb-48">
+        <div className={`w-full max-w-4xl text-center space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8 transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          {/* Warm invitation line */}
+          <div className="space-y-2 sm:space-y-3 mb-2 sm:mb-4">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl font-light text-[#FFFFFF]/90 drop-shadow-lg tracking-wide">
+              We are delighted to invite you to celebrate our special day
+            </p>
+            {/* Decorative divider with gold accent */}
+            <div className="flex items-center justify-center gap-3 sm:gap-4 py-1">
+              <div className="h-px w-12 sm:w-16 md:w-20 bg-gradient-to-r from-transparent via-[#C3A161]/60 to-[#C3A161]" />
+              <Heart size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#C3A161] fill-[#C3A161]/40 drop-shadow-md animate-pulse" />
+              <Sparkles size={12} className="sm:w-3 sm:h-3 md:w-4 md:h-4 text-[#C3A161]/80 drop-shadow-md" />
+              <Heart size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#C3A161] fill-[#C3A161]/40 drop-shadow-md animate-pulse" />
+              <div className="h-px w-12 sm:w-16 md:w-20 bg-gradient-to-l from-transparent via-[#C3A161]/60 to-[#C3A161]" />
+            </div>
+          </div>
+
+          {/* Couple names - keeping the arrangement as requested */}
+          <div className="space-y-3 sm:space-y-4 md:space-y-5">
             <h1
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-wide drop-shadow-2xl whitespace-nowrap"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold tracking-[0.02em] sm:tracking-[0.03em] md:tracking-[0.04em] drop-shadow-2xl leading-tight"
               style={{
-                color: '#FFE5E4',
-                textShadow: "0 0 20px rgba(255, 229, 228, 0.7), 0 0 36px rgba(239, 191, 187, 0.35), 0 8px 24px rgba(102, 105, 86, 0.8)",
-                letterSpacing: "0.05em",
+                color: '#FFFFFF',
+                textShadow: "0 2px 20px rgba(195, 161, 97, 0.4), 0 4px 40px rgba(10, 52, 40, 0.6), 0 8px 60px rgba(0, 0, 0, 0.5)",
                 fontFamily: "var(--font-serif)",
+                letterSpacing: "0.05em",
               }}
             >
-              {siteConfig.couple.brideNickname} & {siteConfig.couple.groomNickname}
+              <span className="inline-block transform transition-all duration-700 hover:scale-105">
+                {siteConfig.couple.brideNickname}
+              </span>
+              <span className="mx-2 sm:mx-3 md:mx-4 text-[#C3A161]">&</span>
+              <span className="inline-block transform transition-all duration-700 hover:scale-105">
+                {siteConfig.couple.groomNickname}
+              </span>
             </h1>
-            <div className="h-1 w-16 sm:w-20 md:w-24 mx-auto bg-gradient-to-r from-transparent via-[#EFBFBB] to-transparent" />
+            {/* Elegant divider */}
+            <div className="h-0.5 sm:h-1 w-20 sm:w-24 md:w-32 lg:w-40 mx-auto bg-gradient-to-r from-transparent via-[#C3A161] to-transparent shadow-[0_0_10px_rgba(195,161,97,0.5)]" />
           </div>
 
-          <p
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-light drop-shadow-2xl italic"
-            style={{
-              color: '#FFE5E4',
-              textShadow: "0 4px 12px rgba(102, 105, 86, 0.7), 0 2px 4px rgba(0,0,0,0.6)",
-            }}
-          >
-            {siteConfig.wedding.tagline}
-          </p>
+          {/* Tagline with improved typography */}
+          <div className="space-y-3 sm:space-y-4 md:space-y-5 pt-2 sm:pt-4">
+            <p
+              className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-serif font-light italic text-[#FFFFFF] drop-shadow-lg tracking-wide"
+              style={{
+                textShadow: "0 2px 12px rgba(10, 52, 40, 0.8), 0 1px 4px rgba(0,0,0,0.7)",
+              }}
+            >
+              {siteConfig.wedding.tagline}
+            </p>
 
-          <div className="space-y-2 sm:space-y-3">
-            <p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl font-light drop-shadow-2xl"
-              style={{
-                color: '#FFE5E4',
-                textShadow: "0 4px 12px rgba(102, 105, 86, 0.7), 0 2px 4px rgba(0,0,0,0.6)",
-              }}
-            >
-              {siteConfig.ceremony.day}, {siteConfig.ceremony.date} - {siteConfig.ceremony.time}
-            </p>
-            <p
-              className="text-sm sm:text-base md:text-lg lg:text-xl font-light drop-shadow-2xl tracking-wide"
-              style={{
-                color: '#EFBFBB',
-                textShadow: "0 4px 12px rgba(102, 105, 86, 0.7), 0 2px 4px rgba(0,0,0,0.6)",
-              }}
-            >
-              {siteConfig.wedding.venue.toUpperCase()}
-            </p>
+            {/* Date and time information */}
+            <div className="space-y-2 sm:space-y-2.5 md:space-y-3 pt-2">
+              <p
+                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-light text-[#FFFFFF] drop-shadow-lg"
+                style={{
+                  textShadow: "0 2px 10px rgba(10, 52, 40, 0.8), 0 1px 3px rgba(0,0,0,0.7)",
+                }}
+              >
+                {siteConfig.ceremony.day}, {siteConfig.ceremony.date}
+              </p>
+              <p
+                className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium text-[#C3A161] drop-shadow-lg tracking-wider"
+                style={{
+                  textShadow: "0 2px 10px rgba(10, 52, 40, 0.9), 0 1px 4px rgba(195, 161, 97, 0.4)",
+                }}
+              >
+                {siteConfig.ceremony.time} • {siteConfig.wedding.venue.toUpperCase()}
+              </p>
+            </div>
           </div>
 
-          <div className="pt-6 sm:pt-8 flex flex-row gap-3 sm:gap-4 justify-center items-center">
+          {/* CTA Buttons - Horizontal layout on all devices */}
+          <div className="pt-6 sm:pt-8 md:pt-10 lg:pt-12 flex flex-row gap-2 sm:gap-3 md:gap-4 justify-center items-center max-w-2xl mx-auto w-full px-2">
             <a
               href="#narrative"
-              className="group inline-block px-8 sm:px-10 md:px-12 py-3.5 sm:py-4 md:py-4.5 rounded-xl font-bold transition-all duration-300 uppercase tracking-wider text-sm sm:text-base whitespace-nowrap relative overflow-hidden border-2 border-transparent hover:border-[#EFBFBB]/60"
+              className="group flex-1 max-w-[200px] sm:max-w-none sm:min-w-[160px] md:min-w-[180px] px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl font-semibold sm:font-bold transition-all duration-500 ease-out uppercase tracking-wider text-xs sm:text-sm md:text-base whitespace-nowrap relative overflow-hidden border-2 backdrop-blur-sm"
               style={{
-                backgroundColor: "rgba(102, 105, 86, 0.95)",
-                color: "#FFE5E4",
-                boxShadow: "0 8px 24px rgba(102, 105, 86, 0.35), 0 4px 8px rgba(0,0,0,0.3)",
+                backgroundColor: "rgba(16, 101, 82, 0.95)",
+                borderColor: "rgba(195, 161, 97, 0.4)",
+                color: "#FFFFFF",
+                boxShadow: "0 4px 20px rgba(10, 52, 40, 0.4), 0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#8D8E7C";
-                e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.boxShadow = "0 12px 32px rgba(141, 142, 124, 0.5), 0 6px 12px rgba(0,0,0,0.35)";
+                e.currentTarget.style.backgroundColor = "#106552";
+                e.currentTarget.style.borderColor = "rgba(195, 161, 97, 0.7)";
+                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
+                e.currentTarget.style.boxShadow = "0 8px 30px rgba(16, 101, 82, 0.6), 0 4px 12px rgba(0,0,0,0.4), 0 0 20px rgba(195, 161, 97, 0.3)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(102, 105, 86, 0.95)";
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 8px 24px rgba(102, 105, 86, 0.35), 0 4px 8px rgba(0,0,0,0.3)";
+                e.currentTarget.style.backgroundColor = "rgba(16, 101, 82, 0.95)";
+                e.currentTarget.style.borderColor = "rgba(195, 161, 97, 0.4)";
+                e.currentTarget.style.transform = "translateY(0) scale(1)";
+                e.currentTarget.style.boxShadow = "0 4px 20px rgba(10, 52, 40, 0.4), 0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)";
+              }}
+              onMouseDown={(e) => {
+                e.currentTarget.style.transform = "translateY(-1px) scale(0.98)";
+              }}
+              onMouseUp={(e) => {
+                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
               }}
             >
-              <span className="relative z-10">Our Love Story</span>
+              <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2">
+                Our Love Story
+                <Heart size={12} className="w-3 h-3 sm:w-4 sm:h-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300 flex-shrink-0" />
+              </span>
               <div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-[#EFBFBB]/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12 group-hover:translate-x-full"
-                style={{ width: "50%", left: "-100%" }}
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-[#C3A161]/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
               />
             </a>
             <a
               href="#guest-list"
-              className="group inline-block px-8 sm:px-10 md:px-12 py-3.5 sm:py-4 md:py-4.5 rounded-xl font-bold transition-all duration-300 uppercase tracking-wider text-sm sm:text-base whitespace-nowrap relative overflow-hidden border-2 border-transparent hover:border-[#FFE5E4]/60"
+              className="group flex-1 max-w-[200px] sm:max-w-none sm:min-w-[160px] md:min-w-[180px] px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl font-semibold sm:font-bold transition-all duration-500 ease-out uppercase tracking-wider text-xs sm:text-sm md:text-base whitespace-nowrap relative overflow-hidden border-2 backdrop-blur-sm"
               style={{
-                backgroundColor: "rgba(176, 137, 129, 0.9)",
-                color: "#FFE5E4",
-                boxShadow: "0 8px 24px rgba(176, 137, 129, 0.35), 0 4px 8px rgba(0,0,0,0.3)",
+                backgroundColor: "rgba(117, 26, 44, 0.95)",
+                borderColor: "rgba(195, 161, 97, 0.4)",
+                color: "#FFFFFF",
+                boxShadow: "0 4px 20px rgba(117, 26, 44, 0.4), 0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#B08981";
-                e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.boxShadow = "0 12px 32px rgba(176, 137, 129, 0.5), 0 6px 12px rgba(0,0,0,0.35)";
+                e.currentTarget.style.backgroundColor = "#751A2C";
+                e.currentTarget.style.borderColor = "rgba(195, 161, 97, 0.7)";
+                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
+                e.currentTarget.style.boxShadow = "0 8px 30px rgba(117, 26, 44, 0.6), 0 4px 12px rgba(0,0,0,0.4), 0 0 20px rgba(195, 161, 97, 0.3)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(176, 137, 129, 0.9)";
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 8px 24px rgba(176, 137, 129, 0.35), 0 4px 8px rgba(0,0,0,0.3)";
+                e.currentTarget.style.backgroundColor = "rgba(117, 26, 44, 0.95)";
+                e.currentTarget.style.borderColor = "rgba(195, 161, 97, 0.4)";
+                e.currentTarget.style.transform = "translateY(0) scale(1)";
+                e.currentTarget.style.boxShadow = "0 4px 20px rgba(117, 26, 44, 0.4), 0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)";
+              }}
+              onMouseDown={(e) => {
+                e.currentTarget.style.transform = "translateY(-1px) scale(0.98)";
+              }}
+              onMouseUp={(e) => {
+                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
               }}
             >
-              <span className="relative z-10">RSVP</span>
+              <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2">
+                RSVP
+                <Sparkles size={12} className="w-3 h-3 sm:w-4 sm:h-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300 flex-shrink-0" />
+              </span>
               <div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FFE5E4]/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12 group-hover:translate-x-full"
-                style={{ width: "50%", left: "-100%" }}
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FFFFFF]/25 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
               />
             </a>
           </div>

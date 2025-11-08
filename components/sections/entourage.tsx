@@ -81,7 +81,7 @@ export function Entourage() {
 
   // Helper component for elegant section titles
   const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-semibold text-[#8B4A6B] mb-3 sm:mb-4 md:mb-6 text-center tracking-wide">
+    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-semibold text-[#0A3428] mb-3 sm:mb-4 md:mb-6 text-center tracking-wide">
       {children}
     </h3>
   )
@@ -89,9 +89,9 @@ export function Entourage() {
   // Helper component for name items with role title
   const NameItem = ({ member }: { member: EntourageMember }) => (
     <div className="flex flex-col items-center justify-center py-1 sm:py-1.5 md:py-2">
-      <p className="text-[#2D1B1E] text-xs sm:text-sm md:text-base font-medium text-center">{member.Name}</p>
+      <p className="text-[#0A3428] text-xs sm:text-sm md:text-base font-medium text-center">{member.Name}</p>
       {member.RoleTitle && (
-        <p className="text-[#5D4A4E] text-[9px] sm:text-[10px] md:text-xs font-light text-center mt-0.5">{member.RoleTitle}</p>
+        <p className="text-[#106552] text-[9px] sm:text-[10px] md:text-xs font-light text-center mt-0.5">{member.RoleTitle}</p>
       )}
     </div>
   )
@@ -141,82 +141,50 @@ export function Entourage() {
   return (
     <section
       id="entourage"
-      className="relative min-h-screen py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 overflow-hidden bg-gradient-to-b from-[#FFE5E4]/90 via-[#FFD6D4]/85 to-[#FFE5E4]/90"
+      className="relative min-h-screen py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 overflow-hidden bg-transparent"
     >
-      {/* Floral watercolor background */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {/* Soft floral watercolor effect */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#FFB6C1]/20 via-[#FFC0CB]/15 to-[#FFB6C1]/20" />
-        
-        {/* Floral clusters positioned like the invitation */}
-        {/* Top right cluster */}
-        <div className="absolute top-0 right-0 w-64 sm:w-80 md:w-96 lg:w-[28rem] h-64 sm:h-80 md:h-96 lg:h-[28rem] opacity-60">
-          <div className="absolute top-8 right-8 w-32 h-32 bg-[#FFB6C1]/30 rounded-full blur-2xl" />
-          <div className="absolute top-16 right-16 w-24 h-24 bg-[#FFC0CB]/25 rounded-full blur-xl" />
-          <div className="absolute top-24 right-24 w-20 h-20 bg-[#FF69B4]/20 rounded-full blur-lg" />
-        </div>
-        
-        {/* Bottom left cluster */}
-        <div className="absolute bottom-0 left-0 w-64 sm:w-80 md:w-96 lg:w-[28rem] h-64 sm:h-80 md:h-96 lg:h-[28rem] opacity-60">
-          <div className="absolute bottom-8 left-8 w-32 h-32 bg-[#FFB6C1]/30 rounded-full blur-2xl" />
-          <div className="absolute bottom-16 left-16 w-24 h-24 bg-[#FFC0CB]/25 rounded-full blur-xl" />
-          <div className="absolute bottom-24 left-24 w-20 h-20 bg-[#FF69B4]/20 rounded-full blur-lg" />
-        </div>
-        
-        {/* Scattered smaller flowers */}
-        <div className="absolute top-1/4 left-1/4 w-16 h-16 bg-[#FFC0CB]/20 rounded-full blur-lg" />
-        <div className="absolute top-1/3 right-1/3 w-12 h-12 bg-[#FFB6C1]/25 rounded-full blur-md" />
-        <div className="absolute bottom-1/3 left-1/3 w-14 h-14 bg-[#FF69B4]/15 rounded-full blur-md" />
-        <div className="absolute bottom-1/4 right-1/4 w-18 h-18 bg-[#FFC0CB]/20 rounded-full blur-lg" />
-        
-        {/* Decorative corner images with floral styling */}
+      {/* Bottom corner decorations */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Bottom-left flower decoration */}
         <img
-          src="/decoration/corner_right-top.png"
+          src="/decoration/left-bottom-left-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute top-0 right-0 w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-70 select-none"
+          className="absolute bottom-0 left-0 z-10 w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] opacity-90 select-none pointer-events-none"
         />
+        
+        {/* Bottom-right flower decoration */}
         <img
-          src="/decoration/corner_right-top.png"
+          src="/decoration/left-bottom-left-flower.png"
           alt=""
           aria-hidden="true"
-          className="absolute top-0 left-0 w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-70 select-none transform scale-x-[-1]"
-        />
-        <img
-          src="/decoration/corner_right-top.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-70 rotate-180 select-none"
-        />
-        <img
-          src="/decoration/corner_right-top.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 right-0 w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-70 rotate-180 transform scale-x-[-1] select-none"
+          className="absolute bottom-0 right-0 z-10 w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] opacity-90 select-none pointer-events-none scale-x-[-1]"
         />
       </div>
 
       {/* Section Header */}
-      <div className="relative z-10 text-center mb-8 sm:mb-12">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-[#8B4A6B] mb-4 text-balance drop-shadow-lg">
+      <div className="relative z-10 text-center mb-8 sm:mb-10 md:mb-12 px-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-[#FFFFFF] mb-3 sm:mb-4 text-balance">
           Wedding Entourage
         </h2>
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-semibold text-[#A66B7A] mb-3 sm:mb-4">
+        <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-semibold text-[#C3A161] mb-3 sm:mb-4">
           Organizational Chart
         </h3>
       </div>
 
-      {/* Central Card Container - like the invitation */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
-        {/* White card with pink border */}
-        <div className="relative bg-white border-2 border-[#FF69B4] rounded-lg shadow-2xl overflow-hidden">
+      {/* Central Card Container */}
+      <div className="relative z-10 max-w-5xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        {/* White card with elegant border */}
+        <div className="relative bg-white/95 backdrop-blur-sm border border-[#C3A161]/30 rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden">
+          {/* Inner gold border */}
+          <div className="absolute inset-2 sm:inset-3 md:inset-4 border border-[#C3A161] rounded-lg sm:rounded-xl pointer-events-none" />
           {/* Card content */}
           <div className="relative p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
             {isLoading ? (
               <div className="flex items-center justify-center py-24">
                 <div className="flex flex-col items-center gap-4">
-                  <Loader2 className="h-12 w-12 animate-spin text-[#8B4A6B]" />
-                  <span className="text-[#8B4A6B] font-serif text-lg">Loading entourage...</span>
+                  <Loader2 className="h-12 w-12 animate-spin text-[#C3A161]" />
+                  <span className="text-[#0A3428] font-serif text-lg">Loading entourage...</span>
                 </div>
               </div>
             ) : error ? (
@@ -225,7 +193,7 @@ export function Entourage() {
                   <p className="text-red-500 font-serif text-lg mb-2">{error}</p>
                   <button
                     onClick={fetchEntourage}
-                    className="text-[#8B4A6B] hover:text-[#A66B7A] font-serif underline"
+                    className="text-[#0A3428] hover:text-[#106552] font-serif underline"
                   >
                     Try again
                   </button>
@@ -233,8 +201,8 @@ export function Entourage() {
               </div>
             ) : entourage.length === 0 ? (
               <div className="text-center py-24">
-                <Users className="h-16 w-16 text-[#8B4A6B]/50 mx-auto mb-4" />
-                <p className="text-[#8B4A6B] font-serif text-lg">No entourage members yet</p>
+                <Users className="h-16 w-16 text-[#C3A161]/50 mx-auto mb-4" />
+                <p className="text-[#0A3428] font-serif text-lg">No entourage members yet</p>
               </div>
             ) : (
             <>
@@ -252,20 +220,20 @@ export function Entourage() {
                     <div key={category}>
                       {categoryIndex > 0 && (
                         <div className="flex justify-center py-3 sm:py-4 mb-5 sm:mb-6 md:mb-8">
-                          <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#FFB6C1]/60 to-transparent"></div>
+                          <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#C3A161]/40 to-transparent"></div>
                         </div>
                       )}
                       <TwoColumnLayout singleTitle="The Couple" centerContent={true}>
                         <div className="flex flex-col items-center justify-center">
-                          <p className="text-[#A66B7A] text-[9px] sm:text-[10px] md:text-xs mb-0.5 font-light text-center">Groom</p>
+                          <p className="text-[#751A2C] text-[9px] sm:text-[10px] md:text-xs mb-0.5 font-light text-center">Groom</p>
                           {groom && (
-                            <p className="text-[#2D1B1E] text-xs sm:text-sm md:text-base font-medium text-center">{groom.Name}</p>
+                            <p className="text-[#0A3428] text-xs sm:text-sm md:text-base font-medium text-center">{groom.Name}</p>
                           )}
                         </div>
                         <div className="flex flex-col items-center justify-center">
-                          <p className="text-[#A66B7A] text-[9px] sm:text-[10px] md:text-xs mb-0.5 font-light text-center">Bride</p>
+                          <p className="text-[#751A2C] text-[9px] sm:text-[10px] md:text-xs mb-0.5 font-light text-center">Bride</p>
                           {bride && (
-                            <p className="text-[#2D1B1E] text-xs sm:text-sm md:text-base font-medium text-center">{bride.Name}</p>
+                            <p className="text-[#0A3428] text-xs sm:text-sm md:text-base font-medium text-center">{bride.Name}</p>
                           )}
                         </div>
                       </TwoColumnLayout>
@@ -298,7 +266,7 @@ export function Entourage() {
                       <div key="Parents">
                         {categoryIndex > 0 && (
                           <div className="flex justify-center py-3 sm:py-4 mb-5 sm:mb-6 md:mb-8">
-                            <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-transparent"></div>
+                            <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#C3A161]/40 to-transparent"></div>
                           </div>
                         )}
                         <TwoColumnLayout leftTitle="Parents of the Groom" rightTitle="Parents of the Bride">
@@ -332,7 +300,7 @@ export function Entourage() {
                       <div key="HonorAttendants">
                         {categoryIndex > 0 && (
                           <div className="flex justify-center py-3 sm:py-4 mb-5 sm:mb-6 md:mb-8">
-                            <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-transparent"></div>
+                            <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#C3A161]/40 to-transparent"></div>
                           </div>
                         )}
                         <TwoColumnLayout leftTitle="Best Man" rightTitle="Maid/Matron of Honor">
@@ -366,7 +334,7 @@ export function Entourage() {
                       <div key="BridalParty">
                         {categoryIndex > 0 && (
                           <div className="flex justify-center py-3 sm:py-4 mb-5 sm:mb-6 md:mb-8">
-                            <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-transparent"></div>
+                            <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#C3A161]/40 to-transparent"></div>
                           </div>
                         )}
                         <TwoColumnLayout leftTitle="Bridesmaids" rightTitle="Groomsmen">
@@ -400,7 +368,7 @@ export function Entourage() {
                       <div key="Sponsors">
                         {categoryIndex > 0 && (
                           <div className="flex justify-center py-3 sm:py-4 mb-5 sm:mb-6 md:mb-8">
-                            <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-transparent"></div>
+                            <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#C3A161]/40 to-transparent"></div>
                           </div>
                         )}
                         <TwoColumnLayout leftTitle="Candle Sponsors" rightTitle="Veil Sponsors">
@@ -447,7 +415,7 @@ export function Entourage() {
                 return (
                   <div key={category}>
                     <div className="flex justify-center py-3 sm:py-4 mb-5 sm:mb-6 md:mb-8">
-                      <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#FFB6C1]/60 to-transparent"></div>
+                      <div className="h-px w-32 sm:w-48 bg-gradient-to-r from-transparent via-[#C3A161]/40 to-transparent"></div>
                     </div>
                     <TwoColumnLayout singleTitle={category} centerContent={true}>
                       {members.map((member, idx) => (
