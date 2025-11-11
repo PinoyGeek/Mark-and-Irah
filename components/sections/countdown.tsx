@@ -120,7 +120,7 @@ export function Countdown() {
         
         {/* Bottom-left flower decoration with enhanced styling */}
         <img
-          src="/decoration/rigth-bottom-corner-flower.png"
+          src="/decoration/rigth-bottom-corner-flowers.png"
           alt=""
           aria-hidden="true"
           className="absolute bottom-0 left-0 z-10 w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] opacity-80 select-none pointer-events-none scale-x-[-1] transition-opacity duration-1000"
@@ -128,7 +128,7 @@ export function Countdown() {
         
         {/* Bottom-right flower decoration */}
         <img
-          src="/decoration/rigth-bottom-corner-flower.png"
+          src="/decoration/rigth-bottom-corner-flowers.png"
           alt=""
           aria-hidden="true"
           className="absolute bottom-0 right-0 z-10 w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] opacity-80 select-none pointer-events-none transition-opacity duration-1000"
