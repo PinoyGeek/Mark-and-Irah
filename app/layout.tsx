@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://Nikki-and-Geofrey-invitation.vercel.app/"),
+  metadataBase: new URL("https://nikki-and-geofrey-invitation-bw84.vercel.app/"),
   alternates: {
-    canonical: "https://Nikki-and-Geofrey-invitation.vercel.app/",
+    canonical: "https://nikki-and-geofrey-invitation-bw84.vercel.app/",
   },
   icons: {
     icon: [
@@ -52,13 +52,13 @@ export const metadata: Metadata = {
     title: "Nikki & Geofrey Wedding | December 23, 2025",
     description:
       "Celebrate the union of Nikki & Geofrey on December 23, 2025 at St. Rose of Lima Parish, Bacacay, Albay. Discover our love story, RSVP, view the gallery, and leave your wishes!",
-    url: "https://Nikki-and-Geofrey-invitation.vercel.app/",
+    url: "https://nikki-and-geofrey-invitation-bw84.vercel.app/",
     siteName: "Nikki and Geofrey Wedding ",
     locale: "en_PH",
     type: "website",
     images: [
       {
-        url: "https://Nikki-and-Geofrey-invitation.vercel.app/desktop-background/couple (41).jpg",
+        url: "https://nikki-and-geofrey-invitation-bw84.vercel.app/desktop-background/couple (41).jpg",
         width: 1200,
         height: 630,
         alt: "Nikki & Geofrey Wedding Invitation - December 23, 2025",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     title: "Nikki & Geofrey Wedding Invitation",
     description:
       "You're invited to the wedding of Nikki & Geofrey! December 23, 2025. RSVP, view our gallery, and leave a message! #NikkiAndGeofreyWedding",
-    images: ["https://Nikki-and-Geofrey-invitation.vercel.app/desktop-background/couple (41).jpg"],
+    images: ["https://nikki-and-geofrey-invitation-bw84.vercel.app/desktop-background/couple (41).jpg"],
     creator: "@nikkibalane",
   },
   robots: {
@@ -107,7 +107,7 @@ export const metadata: Metadata = {
           },
         },
       ],
-      image: ["https://Nikki-and-Geofrey-invitation.vercel.app/desktop-background/couple (41).jpg"],
+      image: ["https://nikki-and-geofrey-invitation-bw84.vercel.app/desktop-background/couple (41).jpg"],
       description:
         "You're invited to the wedding of Nikki & Geofrey! Join us on December 23, 2025 at St. Rose of Lima Parish, Bacacay, Albay. RSVP, read our love story, view our gallery, and leave a message for the couple.",
       organizer: {
@@ -116,7 +116,7 @@ export const metadata: Metadata = {
       },
       offers: {
         "@type": "Offer",
-        url: "https://Nikki-and-Geofrey-invitation.vercel.app/",
+        url: "https://nikki-and-geofrey-invitation-bw84.vercel.app/",
         availability: "https://schema.org/InStock",
         price: "0",
         priceCurrency: "PHP",
