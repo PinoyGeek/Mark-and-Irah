@@ -67,10 +67,7 @@ export default async function GalleryPage() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
               <span className="px-4 py-2 bg-[#D8B0B0]/20 border border-[#D8B0B0]/40 rounded-full text-[#1F2A37] font-sans font-medium text-sm sm:text-base">
-                #GeofreyAndNikki
-              </span>
-              <span className="px-4 py-2 bg-[#D8B0B0]/20 border border-[#D8B0B0]/40 rounded-full text-[#1F2A37] font-sans font-medium text-sm sm:text-base">
-                #TheNikkiAndGeofreyWedding
+                #TheBigBANGWedding
               </span>
             </div>
             <Link

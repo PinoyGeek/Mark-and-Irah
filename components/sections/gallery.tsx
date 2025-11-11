@@ -8,7 +8,7 @@ import { Section } from "@/components/section"
 const galleryItems = [
   { image: "/mobile-background/couple (18).jpg", text: " " },   
   { image: "/mobile-background/couple (11).jpg", text: " " },
-  { image: "/mobile-background/couple (10).jpg", text: " " },
+  { image: "/desktop-background/couple (41).jpg", text: " " },
 
 ]
 
