@@ -37,7 +37,7 @@ export const siteConfig = {
     theme: "Dusty Pink and Baby Blue",
     colors: ["#AFC8E6", "#D8B0B0", "#F1EDE2"],
     sponsors: {
-      ladies: "White gown / long dress ",
+      ladies: "Gown / Long dress beige/pink/blue/cream.",
       gentlemen: "Black suit and tie"
     },
     guests: {
