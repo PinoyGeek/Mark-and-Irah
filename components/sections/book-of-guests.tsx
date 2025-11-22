@@ -87,67 +87,72 @@ export function BookOfGuests() {
   return (
     <div 
       id="guests" 
-      className="relative z-10 bg-[#DDD3CC] py-6 sm:py-12 md:py-16 lg:py-20 overflow-hidden isolate"
+      className="relative z-10 bg-[#FFFAEF] py-6 sm:py-12 md:py-16 lg:py-20 overflow-hidden isolate"
     >
       {/* Enhanced background elements - matching countdown section */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#EDD6AC]/20 via-[#EDD6AC]/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#B28383]/20 via-[#B28383]/5 to-transparent" />
+        {/* Soft gradient overlays with new color palette */}
+        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#FFBD87]/25 via-[#FFBD87]/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#FFBD87]/25 via-[#FFBD87]/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FFFAEF]/40 via-transparent to-[#FFFAEF]/40" />
         
-        {/* Floating decorative circles */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-[#C2D3C3]/15 rounded-full blur-2xl animate-pulse" />
-        <div className="absolute top-20 right-16 w-24 h-24 bg-[#A78256]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-16 left-20 w-28 h-28 bg-[#B28383]/18 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-24 right-12 w-20 h-20 bg-[#EDD6AC]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
-        
-        {/* Corner decorations - all four corners */}
-        <div className="absolute top-0 left-0 z-0">
-          <Image
-            src="/decoration/corner_right-top.png"
-            alt=""
-            width={300}
-            height={300}
-            className="w-24 sm:w-40 md:w-52 lg:w-64 xl:w-80 h-auto opacity-60 sm:opacity-75 scale-x-[-1]"
-            priority={false}
-          />
-        </div>
-        
-        <div className="absolute top-0 right-0 z-0">
-          <Image
-            src="/decoration/corner_right-top.png"
-            alt=""
-            width={300}
-            height={300}
-            className="w-24 sm:w-40 md:w-52 lg:w-64 xl:w-80 h-auto opacity-60 sm:opacity-75"
-            priority={false}
-          />
-        </div>
-        
-        <div className="absolute bottom-0 left-0 z-0">
-          <Image
-            src="/decoration/corner_right-top.png"
-            alt=""
-            width={300}
-            height={300}
-            className="w-24 sm:w-40 md:w-52 lg:w-64 xl:w-80 h-auto opacity-60 sm:opacity-75 scale-x-[-1] scale-y-[-1]"
-            priority={false}
-          />
-        </div>
-        
-        <div className="absolute bottom-0 right-0 z-0">
-          <Image
-            src="/decoration/corner_right-top.png"
-            alt=""
-            width={300}
-            height={300}
-            className="w-24 sm:w-40 md:w-52 lg:w-64 xl:w-80 h-auto opacity-60 sm:opacity-75 scale-y-[-1]"
-            priority={false}
-          />
-        </div>
+        {/* Floating decorative circles with new colors */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-[#FFBD87]/20 rounded-full blur-2xl animate-pulse" />
+        <div className="absolute top-20 right-16 w-24 h-24 bg-[#FFBD87]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-16 left-20 w-28 h-28 bg-[#FFBD87]/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-24 right-12 w-20 h-20 bg-[#FFBD87]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-[#FFFAEF]/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
         
         {/* Decorative lines */}
-        <div className="absolute top-1/2 left-0 w-full h-px bg-[#A78256]/20" />
+        <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFBD87]/30 to-transparent" />
+        
+        {/* Bottom left corner decoration */}
+        <div className="absolute bottom-0 left-0 z-0">
+          <Image
+            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
+            alt="Bottom left corner decoration"
+            width={600}
+            height={600}
+            className="w-48 h-auto sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-80"
+            priority={false}
+          />
+        </div>
+        
+        {/* Bottom right corner decoration */}
+        <div className="absolute bottom-0 right-0 z-0 scale-x-[-1]">
+          <Image
+            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
+            alt="Bottom right corner decoration"
+            width={600}
+            height={600}
+            className="w-48 h-auto sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-80"
+            priority={false}
+          />
+        </div>
+        
+        {/* Top left corner decoration */}
+        <div className="absolute top-0 left-0 z-0 scale-y-[-1]">
+          <Image
+            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
+            alt="Top left corner decoration"
+            width={600}
+            height={600}
+            className="w-48 h-auto sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-80"
+            priority={false}
+          />
+        </div>
+        
+        {/* Top right corner decoration */}
+        <div className="absolute top-0 right-0 z-0 scale-x-[-1] scale-y-[-1]">
+          <Image
+            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
+            alt="Top right corner decoration"
+            width={600}
+            height={600}
+            className="w-48 h-auto sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-80"
+            priority={false}
+          />
+        </div>
       </div>
 
       {/* Section Header */}

@@ -4,13 +4,15 @@ import { useState, useEffect, useCallback } from "react"
 import NextImage from "next/image"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { Section } from "@/components/section"
+import { motion } from "motion/react"
 // Removed circular gallery in favor of a responsive masonry layout
 
 const galleryItems = [
-  { image: "/mobile-background/couple (1).JPEG", text: " " },   
-  { image: "/mobile-background/couple (1).JPG", text: " " },
-  { image: "/mobile-background/couple (2).JPEG", text: " " },
-  { image: "/mobile-background/couple (2).JPG", text: " " },
+  { image: "/mobile-background/couple (18).jpeg", text: " " },   
+  { image: "/mobile-background/couple (19).jpeg", text: " " },
+  { image: "/mobile-background/couple (3).jpeg", text: " " },
+  { image: "/mobile-background/couple (6).jpeg", text: " " },
+
 ]
 
 export function Gallery() {
@@ -92,58 +94,47 @@ export function Gallery() {
   return (
     <Section
       id="gallery"
-      className="relative bg-[#DDD3CC] py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
+      className="relative bg-gradient-to-b from-[#FFFAEF] via-[#F7E7CE]/90 to-[#FFFAEF] py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Background elements */}
+      {/* Background elements with motif colors */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#EDD6AC]/25 via-[#DDD3CC]/10 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#B28383]/25 via-[#DDD3CC]/10 to-transparent" />
+        {/* Soft gradient overlays with motif colors */}
+        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#F7E7CE]/30 via-[#FFFAEF]/15 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#B76E79]/20 via-[#FCB8B5]/15 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#A4BB8C]/8 via-transparent to-[#A4BB8C]/8" />
 
-        {/* Floating decorative circles */}
-        <div className="absolute top-6 left-8 w-32 h-32 bg-[#C2D3C3]/15 rounded-full blur-2xl animate-pulse" />
-        <div className="absolute top-16 right-12 w-24 h-24 bg-[#A78256]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: "1s" }} />
-        <div className="absolute bottom-20 left-16 w-28 h-28 bg-[#B28383]/18 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "2s" }} />
-        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#EDD6AC]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: "0.5s" }} />
+        {/* Floating decorative circles with motif colors */}
+        <div className="absolute top-6 left-8 w-32 h-32 bg-[#B76E79]/12 rounded-full blur-2xl animate-pulse" />
+        <div className="absolute top-16 right-12 w-24 h-24 bg-[#FCB8B5]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-20 left-16 w-28 h-28 bg-[#A4BB8C]/12 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "2s" }} />
+        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#F7E7CE]/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: "0.5s" }} />
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-[#B76E79]/10 rounded-full blur-lg animate-pulse" style={{ animationDelay: "1.5s" }} />
+        <div className="absolute bottom-1/3 right-1/4 w-18 h-18 bg-[#FCB8B5]/12 rounded-full blur-lg animate-pulse" style={{ animationDelay: "0.8s" }} />
 
-        {/* Corner decorations */}
-        <div className="absolute top-0 left-0 z-0">
-          <NextImage
-            src="/decoration/corner_right-top.png"
-            alt=""
-            width={300}
-            height={300}
-            className="w-32 sm:w-44 md:w-56 lg:w-72 xl:w-80 h-auto opacity-70 scale-x-[-1]"
-            priority={false}
-          />
+        {/* Corner decorations with available flower images */}
+        <div className="absolute top-0 left-0 z-0 opacity-50">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 bg-gradient-to-br from-[#B76E79]/20 to-transparent rounded-br-full blur-xl"></div>
         </div>
-        <div className="absolute top-0 right-0 z-0">
-          <NextImage
-            src="/decoration/corner_right-top.png"
-            alt=""
-            width={300}
-            height={300}
-            className="w-32 sm:w-44 md:w-56 lg:w-72 xl:w-80 h-auto opacity-70"
-            priority={false}
-          />
+        <div className="absolute top-0 right-0 z-0 opacity-50">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 bg-gradient-to-bl from-[#FCB8B5]/20 to-transparent rounded-bl-full blur-xl"></div>
         </div>
         <div className="absolute bottom-0 left-0 z-0">
           <NextImage
-            src="/decoration/corner_right-top.png"
+            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
             alt=""
-            width={300}
-            height={300}
-            className="w-32 sm:w-44 md:w-56 lg:w-72 xl:w-80 h-auto opacity-70 scale-x-[-1] scale-y-[-1]"
+            width={400}
+            height={400}
+            className="w-32 sm:w-40 md:w-56 lg:w-72 xl:w-80 h-auto opacity-60"
             priority={false}
           />
         </div>
         <div className="absolute bottom-0 right-0 z-0">
           <NextImage
-            src="/decoration/corner_right-top.png"
+            src="/decoration/bottom-corner-left-flower-removebg-preview.png"
             alt=""
-            width={300}
-            height={300}
-            className="w-32 sm:w-44 md:w-56 lg:w-72 xl:w-80 h-auto opacity-70 scale-y-[-1]"
+            width={400}
+            height={400}
+            className="w-32 sm:w-40 md:w-56 lg:w-72 xl:w-80 h-auto opacity-60 scale-x-[-1]"
             priority={false}
           />
         </div>
@@ -151,18 +142,29 @@ export function Gallery() {
 
       {/* Header */}
       <div className="relative z-10 text-center mb-8 sm:mb-10 md:mb-12 px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#A78256] mb-3 sm:mb-4 drop-shadow-md">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#B76E79] mb-3 sm:mb-4 drop-shadow-md">
           Our Moments
         </h2>
         
-        <p className="text-xs sm:text-sm md:text-base text-[#B28383] font-light max-w-xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base text-[#B76E79]/80 font-light max-w-xl mx-auto leading-relaxed">
           Every moment, a treasured memory made eternal
         </p>
 
         <div className="flex items-center justify-center gap-2 mt-4">
-          <div className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent via-[#A78256]/50 to-[#B28383]/30" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#A78256]/60" />
-          <div className="w-8 sm:w-12 h-px bg-gradient-to-l from-transparent via-[#A78256]/50 to-[#B28383]/30" />
+          <div className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent via-[#B76E79]/50 to-[#FCB8B5]/40" />
+          <motion.div
+            className="w-1.5 h-1.5 rounded-full bg-[#B76E79]/70"
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.7, 1, 0.7],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <div className="w-8 sm:w-12 h-px bg-gradient-to-l from-transparent via-[#B76E79]/50 to-[#FCB8B5]/40" />
         </div>
       </div>
 
@@ -172,23 +174,27 @@ export function Gallery() {
           <div className="max-w-5xl w-full">
             {isLoading ? (
               <div className="flex items-center justify-center h-48 sm:h-60 md:h-72">
-                <div className="w-10 h-10 border-[3px] border-[#EDD6AC]/40 border-t-[#A78256] rounded-full animate-spin" />
+                <div className="w-10 h-10 border-[3px] border-[#F7E7CE]/40 border-t-[#B76E79] rounded-full animate-spin" />
               </div>
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3.5 md:gap-4.5">
                 {galleryItems.map((item, index) => (
-                  <button
+                  <motion.button
                     key={item.image + index}
                     type="button"
-                    className="group relative w-full overflow-hidden rounded-lg sm:rounded-xl bg-[#EDD6AC]/40 backdrop-blur-sm border border-[#C2D3C3]/40 shadow-lg hover:shadow-xl hover:border-[#A78256]/60 transition-all duration-300"
+                    className="group relative w-full overflow-hidden rounded-lg sm:rounded-xl bg-[#F7E7CE]/40 backdrop-blur-sm border border-[#A4BB8C]/30 shadow-lg hover:shadow-xl hover:border-[#B76E79]/50 transition-all duration-300"
                     onClick={() => {
                       setSelectedImage(item)
                       setCurrentIndex(index)
                     }}
                     aria-label={`Open image ${index + 1}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    {/* Subtle glow on hover */}
-                    <div className="absolute -inset-0.5 bg-gradient-to-br from-[#A78256]/25 to-[#B28383]/15 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+                    {/* Subtle glow on hover with motif colors */}
+                    <div className="absolute -inset-0.5 bg-gradient-to-br from-[#B76E79]/25 to-[#FCB8B5]/15 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
                     
                     <div className="relative aspect-[3/4] md:aspect-square overflow-hidden">
                       <img
@@ -199,17 +205,17 @@ export function Gallery() {
                         sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
-                      {/* Gradient overlay on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#A78256]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      {/* Gradient overlay on hover with motif colors */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#B76E79]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     
-                    {/* Image counter badge */}
-                    <div className="absolute top-2 right-2 bg-[#B28383]/80 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/30">
+                    {/* Image counter badge with motif colors */}
+                    <div className="absolute top-2 right-2 bg-[#B76E79]/85 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/30">
                       <span className="text-xs font-medium text-white tracking-wide">
                         {index + 1}/{galleryItems.length}
                       </span>
                     </div>
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             )}
@@ -373,36 +379,64 @@ export function Gallery() {
           </div>
         </div>
       )}
-      {/* View more button */}
+      {/* View more button with motif colors */}
       <div className="relative z-10 mt-8 sm:mt-10 md:mt-12 flex justify-center px-4">
-        <a
+        <motion.a
           href="/gallery"
           className="group inline-flex items-center gap-2 px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-3.5 md:py-4 rounded-lg sm:rounded-xl font-semibold sm:font-bold transition-all duration-300 uppercase tracking-wider text-xs sm:text-sm md:text-base whitespace-nowrap relative overflow-hidden border-2 backdrop-blur-sm"
           style={{
-            backgroundColor: "#A78256",
-            borderColor: "rgba(237, 214, 172, 0.8)",
-            color: "#FFF8F2",
-            boxShadow: "0 4px 20px rgba(167, 130, 86, 0.35), 0 2px 6px rgba(0,0,0,0.25)",
+            backgroundColor: "#B76E79",
+            borderColor: "rgba(247, 231, 206, 0.8)",
+            color: "#FFFFFF",
+            boxShadow: "0 4px 20px rgba(183, 110, 121, 0.35), 0 2px 6px rgba(0,0,0,0.25)",
           }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.98 }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "rgba(167, 130, 86, 0.95)";
-            e.currentTarget.style.borderColor = "rgba(237, 214, 172, 1)";
-            e.currentTarget.style.transform = "translateY(-2px)";
-            e.currentTarget.style.boxShadow = "0 8px 30px rgba(167, 130, 86, 0.5), 0 4px 12px rgba(0,0,0,0.3)";
+            e.currentTarget.style.backgroundColor = "rgba(183, 110, 121, 0.95)";
+            e.currentTarget.style.borderColor = "rgba(247, 231, 206, 1)";
+            e.currentTarget.style.boxShadow = "0 8px 30px rgba(183, 110, 121, 0.5), 0 4px 12px rgba(0,0,0,0.3)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "#A78256";
-            e.currentTarget.style.borderColor = "rgba(237, 214, 172, 0.8)";
-            e.currentTarget.style.transform = "translateY(0)";
-            e.currentTarget.style.boxShadow = "0 4px 20px rgba(167, 130, 86, 0.35), 0 2px 6px rgba(0,0,0,0.25)";
+            e.currentTarget.style.backgroundColor = "#B76E79";
+            e.currentTarget.style.borderColor = "rgba(247, 231, 206, 0.8)";
+            e.currentTarget.style.boxShadow = "0 4px 20px rgba(183, 110, 121, 0.35), 0 2px 6px rgba(0,0,0,0.25)";
           }}
         >
           <span className="relative z-10">View Full Gallery</span>
-          <ChevronRight size={16} className="sm:w-5 sm:h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
+          <motion.div
+            animate={{
+              x: [0, 4, 0],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <ChevronRight size={16} className="sm:w-5 sm:h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
+          </motion.div>
           <div 
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#EDD6AC]/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F7E7CE]/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
           />
-        </a>
+          {/* Pulsing glow effect */}
+          <motion.div 
+            className="absolute inset-0 bg-[#B76E79]/20 rounded-lg sm:rounded-xl blur-xl -z-10"
+            animate={{
+              opacity: [0.3, 0.6, 0.3],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </motion.a>
       </div>
     </Section>
   )

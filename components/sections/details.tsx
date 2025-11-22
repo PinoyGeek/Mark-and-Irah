@@ -55,251 +55,156 @@ export function Details() {
   }
 
   return (
-    <Section id="details" className="relative bg-[#DDD3CC] py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
-      {/* Enhanced background elements */}
+    <Section id="details" className="relative bg-gradient-to-b from-[#FFFAEF] via-[#F7E7CE]/90 to-[#FFFAEF] py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
+      {/* Enhanced background elements with motif colors */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#EDD6AC]/20 via-[#EDD6AC]/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#B28383]/20 via-[#B28383]/5 to-transparent" />
+        {/* Soft gradient overlays with motif colors */}
+        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#F7E7CE]/25 via-[#FFFAEF]/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#B76E79]/15 via-[#FCB8B5]/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#A4BB8C]/6 via-transparent to-[#A4BB8C]/6" />
         
-        {/* Floating decorative circles */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-[#C2D3C3]/15 rounded-full blur-2xl animate-pulse" />
-        <div className="absolute top-20 right-16 w-24 h-24 bg-[#A78256]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-16 left-20 w-28 h-28 bg-[#B28383]/18 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-24 right-12 w-20 h-20 bg-[#EDD6AC]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
+        {/* Floating decorative circles with motif colors */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-[#B76E79]/10 rounded-full blur-2xl animate-pulse" />
+        <div className="absolute top-20 right-16 w-24 h-24 bg-[#FFBD87]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-16 left-20 w-28 h-28 bg-[#A4BB8C]/12 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-24 right-12 w-20 h-20 bg-[#FCB8B5]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute top-1/3 left-1/4 w-16 h-16 bg-[#FFBD87]/10 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1.5s' }} />
         
-        {/* Corner decorations - all four corners */}
-        <div className="absolute top-0 left-0 z-0">
-          <Image
-            src="/decoration/corner_right-top.png"
-            alt=""
-            width={300}
-            height={300}
-            className="w-40 sm:w-52 md:w-64 lg:w-80 xl:w-96 h-auto opacity-75 scale-x-[-1]"
-            priority={false}
-          />
+        {/* Corner decorations with available flower images */}
+        <div className="absolute top-0 left-0 z-0 opacity-40">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 bg-gradient-to-br from-[#B76E79]/20 to-transparent rounded-br-full blur-xl"></div>
         </div>
-        
-        <div className="absolute top-0 right-0 z-0">
-          <Image
-            src="/decoration/corner_right-top.png"
-            alt=""
-            width={300}
-            height={300}
-            className="w-40 sm:w-52 md:w-64 lg:w-80 xl:w-96 h-auto opacity-75"
-            priority={false}
-          />
+        <div className="absolute top-0 right-0 z-0 opacity-40">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 bg-gradient-to-bl from-[#FCB8B5]/20 to-transparent rounded-bl-full blur-xl"></div>
         </div>
-        
         <div className="absolute bottom-0 left-0 z-0">
           <Image
-            src="/decoration/corner_right-top.png"
+            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
             alt=""
-            width={300}
-            height={300}
-            className="w-40 sm:w-52 md:w-64 lg:w-80 xl:w-96 h-auto opacity-75 scale-x-[-1] scale-y-[-1]"
+            width={400}
+            height={400}
+            className="w-32 sm:w-40 md:w-56 lg:w-72 xl:w-80 h-auto opacity-50"
             priority={false}
           />
         </div>
-        
         <div className="absolute bottom-0 right-0 z-0">
           <Image
-            src="/decoration/corner_right-top.png"
+            src="/decoration/bottom-corner-left-flower-removebg-preview.png"
             alt=""
-            width={300}
-            height={300}
-            className="w-40 sm:w-52 md:w-64 lg:w-80 xl:w-96 h-auto opacity-75 scale-y-[-1]"
+            width={400}
+            height={400}
+            className="w-32 sm:w-40 md:w-56 lg:w-72 xl:w-80 h-auto opacity-50 scale-x-[-1]"
             priority={false}
           />
         </div>
         
         {/* Decorative lines */}
-        <div className="absolute top-1/2 left-0 w-full h-px bg-[#A78256]/20" />
+        <div className="absolute top-1/2 left-0 w-full h-px bg-[#B76E79]/15" />
       </div>
 
-      {/* Header */}
+      {/* Header with motif colors */}
       <div className="relative z-10 text-center mb-8 sm:mb-10 md:mb-12 px-3 sm:px-4">
         {/* Decorative element above title */}
         <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#A78256]/40" />
-          <div className="w-1.5 h-1.5 bg-[#B28383]/60 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#C2D3C3]/60 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#B28383]/60 rounded-full" />
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#A78256]/40" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#B76E79]/40" />
+          <div className="w-1.5 h-1.5 bg-[#FCB8B5]/70 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#FFBD87]/70 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#A4BB8C]/70 rounded-full" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#B76E79]/40" />
         </div>
         
-        <h2 className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#A78256] mb-2 sm:mb-3 md:mb-4 drop-shadow-lg">
+        <h2 className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#B76E79] mb-2 sm:mb-3 md:mb-4 drop-shadow-lg">
           Event Details
         </h2>
         
-        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#B28383] font-light max-w-xl mx-auto leading-relaxed px-2">
+        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#B76E79]/85 font-light max-w-xl mx-auto leading-relaxed px-2">
           Everything you need to know about our special day
         </p>
         
         {/* Decorative element below subtitle */}
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-          <div className="w-1.5 h-1.5 bg-[#B28383]/60 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#C2D3C3]/60 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#B28383]/60 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#FCB8B5]/70 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#FFBD87]/70 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#A4BB8C]/70 rounded-full" />
         </div>
       </div>
 
-      {/* Ceremony and Reception */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 mb-6 sm:mb-8 max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Ceremony */}
+      {/* Combined Ceremony & Reception */}
+      <div className="relative z-10 mb-6 sm:mb-8 max-w-4xl mx-auto px-4 sm:px-6">
         <div 
-          className="bg-[#EDD6AC]/98 backdrop-blur-md rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 shadow-[0_8px_32px_rgba(167,130,86,0.12)] border-2 border-[#A78256]/40 hover:border-[#A78256]/60 hover:shadow-[0_12px_40px_rgba(167,130,86,0.18)] transition-all duration-300 hover:scale-[1.03] group relative overflow-hidden"
-          onMouseEnter={() => setHoveredCard('ceremony')}
+          className="bg-[#F7E7CE]/95 backdrop-blur-md rounded-xl p-3 sm:p-4 shadow-[0_8px_32px_rgba(183,110,121,0.12)] border-2 border-[#B76E79]/40 hover:border-[#B76E79]/60 hover:shadow-lg transition-all duration-300 group relative overflow-hidden"
+          onMouseEnter={() => setHoveredCard('venue')}
           onMouseLeave={() => setHoveredCard(null)}
         >
           {/* Decorative corner accents */}
-          <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#C2D3C3]/40 rounded-tl-lg" />
-          <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#C2D3C3]/40 rounded-tr-lg" />
-          <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#C2D3C3]/40 rounded-bl-lg" />
-          <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#C2D3C3]/40 rounded-br-lg" />
+          <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#FCB8B5]/40 rounded-tl-lg" />
+          <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#FCB8B5]/40 rounded-tr-lg" />
+          <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#FCB8B5]/40 rounded-bl-lg" />
+          <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#FCB8B5]/40 rounded-br-lg" />
           
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-5 gap-3 relative z-10">
-            <div className="flex items-center gap-3">
-              <div className={`bg-gradient-to-br from-[#A78256]/30 via-[#B28383]/20 to-[#A78256]/30 p-2 sm:p-2.5 rounded-xl transition-all duration-300 shadow-md ${hoveredCard === 'ceremony' ? 'scale-110' : ''}`}>
-                <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-[#A78256]" fill="#B28383" />
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#A78256]">Ceremony</h3>
+          {/* Header with Icons */}
+          <div className="flex items-center justify-center gap-2 mb-3 relative z-10">
+            <div className={`bg-gradient-to-br from-[#B76E79]/30 via-[#FCB8B5]/20 to-[#B76E79]/30 p-1.5 rounded-lg transition-all duration-300 shadow-md ${hoveredCard === 'venue' ? 'scale-110' : ''}`}>
+              <Heart className="w-3.5 h-3.5 text-[#B76E79]" fill="#FCB8B5" />
+            </div>
+            <h3 className="text-base sm:text-lg font-bold text-[#B76E79]">Ceremony & Reception</h3>
+            <div className={`bg-gradient-to-br from-[#A4BB8C]/30 via-[#FFBD87]/20 to-[#A4BB8C]/30 p-1.5 rounded-lg transition-all duration-300 shadow-md ${hoveredCard === 'venue' ? 'scale-110' : ''}`}>
+              <Utensils className="w-3.5 h-3.5 text-[#A4BB8C]" />
             </div>
           </div>
 
-          <div className="space-y-2 mb-4 relative z-10">
-            <p className="text-sm sm:text-base font-semibold text-[#A78256]">{siteConfig.ceremony.venue}</p>
-            <p className="text-xs sm:text-sm text-[#B28383]">{siteConfig.ceremony.location.split(',')[1]?.trim() || siteConfig.ceremony.location.split(',')[0]?.trim()}, {siteConfig.ceremony.location.split(',')[2]?.trim() || ''}</p>
-            <div className="flex items-center gap-2 text-xs sm:text-sm text-[#A78256]">
-              <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-              <span>
-                {siteConfig.ceremony.date} at {siteConfig.ceremony.time}
-              </span>
+          {/* Venue Info */}
+          <div className="space-y-1.5 mb-3 relative z-10 text-center">
+            <p className="text-sm sm:text-base font-semibold text-[#B76E79]">{siteConfig.ceremony.venue}</p>
+            <p className="text-xs text-[#B76E79]/80">{siteConfig.ceremony.location.split(',')[1]?.trim() || siteConfig.ceremony.location.split(',')[0]?.trim()}, {siteConfig.ceremony.location.split(',')[2]?.trim() || ''}</p>
+            <div className="flex items-center justify-center gap-1.5 text-xs text-[#B76E79]">
+              <Clock className="w-3 h-3 flex-shrink-0" />
+              <span>{siteConfig.ceremony.date} at 3:00 PM, PH Time</span>
             </div>
           </div>
           
-          {/* Ceremony Image */}
-          <div className="mb-4">
-            <div className="relative w-full h-32 sm:h-40 md:h-48 rounded-xl overflow-hidden shadow-lg border-2 border-[#A78256]/30">
+          {/* Venue Image */}
+          <div className="mb-3">
+            <div className="relative w-full h-32 sm:h-40 rounded-lg overflow-hidden shadow-lg border-2 border-[#B76E79]/30">
               <Image
-                src="/Details/Church.png"
+                src="/Details/MountCosta.png"
                 alt={siteConfig.ceremony.location}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="100vw"
               />
             </div>
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 relative z-10">
+          <div className="flex gap-2 relative z-10">
             <button
               onClick={() => openInMaps(ceremonyMapsLink)}
-              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md text-white"
-              style={{ backgroundColor: "#A78256" }}
+              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg font-semibold text-xs transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md text-white"
+              style={{ backgroundColor: "#B76E79" }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(167, 130, 86, 0.9)";
+                e.currentTarget.style.backgroundColor = "rgba(183, 110, 121, 0.9)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#A78256";
+                e.currentTarget.style.backgroundColor = "#B76E79";
               }}
             >
-              <Navigation className="w-4 h-4" />
-              <span>Get Direction</span>
+              <Navigation className="w-3.5 h-3.5" />
+              <span>Direction</span>
             </button>
             <button
-              onClick={() => copyToClipboard(siteConfig.ceremony.location, 'ceremony')}
-              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#EDD6AC] border-2 border-[#A78256]/40 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md hover:bg-[#EDD6AC]/90 text-[#A78256]"
+              onClick={() => copyToClipboard(siteConfig.ceremony.location, 'venue')}
+              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-[#F7E7CE] border-2 border-[#B76E79]/40 rounded-lg font-semibold text-xs transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md hover:bg-[#F7E7CE]/90 text-[#B76E79]"
             >
-              {copiedItems.has('ceremony') ? (
+              {copiedItems.has('venue') ? (
                 <>
-                  <Check className="w-4 h-4" />
+                  <Check className="w-3.5 h-3.5" />
                   <span>Copied!</span>
                 </>
               ) : (
                 <>
-                  <Copy className="w-4 h-4" />
-                  <span>Copy Address</span>
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Reception */}
-        <div 
-          className="bg-[#EDD6AC]/98 backdrop-blur-md rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 shadow-[0_8px_32px_rgba(167,130,86,0.12)] border-2 border-[#A78256]/40 hover:border-[#A78256]/60 hover:shadow-[0_12px_40px_rgba(167,130,86,0.18)] transition-all duration-300 hover:scale-[1.03] group relative overflow-hidden"
-          onMouseEnter={() => setHoveredCard('reception')}
-          onMouseLeave={() => setHoveredCard(null)}
-        >
-          {/* Decorative corner accents */}
-          <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#C2D3C3]/40 rounded-tl-lg" />
-          <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#C2D3C3]/40 rounded-tr-lg" />
-          <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#C2D3C3]/40 rounded-bl-lg" />
-          <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#C2D3C3]/40 rounded-br-lg" />
-          
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-5 gap-3 relative z-10">
-            <div className="flex items-center gap-3">
-              <div className={`bg-gradient-to-br from-[#B28383]/30 via-[#A78256]/20 to-[#B28383]/30 p-2 sm:p-2.5 rounded-xl transition-all duration-300 shadow-md ${hoveredCard === 'reception' ? 'scale-110' : ''}`}>
-                <Utensils className="w-4 h-4 sm:w-5 sm:h-5 text-[#B28383]" />
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#A78256]">Reception</h3>
-            </div>
-          </div>
-
-          <div className="space-y-2 mb-4 relative z-10">
-            <p className="text-sm sm:text-base font-semibold text-[#A78256]">{siteConfig.reception.venue}</p>
-            <p className="text-xs sm:text-sm text-[#B28383]">{siteConfig.reception.location.split(',')[1]?.trim() || siteConfig.reception.location.split(',')[0]?.trim()}, {siteConfig.reception.location.split(',')[2]?.trim() || ''}</p>
-            <div className="flex items-center gap-2 text-xs sm:text-sm text-[#A78256]">
-              <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-              <span>
-                {siteConfig.reception.date} - {siteConfig.reception.time}
-              </span>
-            </div>
-          </div>
-
-          {/* Reception Image */}
-          <div className="mb-4">
-            <div className="relative w-full h-32 sm:h-40 md:h-48 rounded-xl overflow-hidden shadow-lg border-2 border-[#A78256]/30">
-              <Image
-                src="/Details/recepcion.png"
-                alt={siteConfig.reception.location}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 relative z-10">
-            <button
-              onClick={() => openInMaps(receptionMapsLink)}
-              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md text-white"
-              style={{ backgroundColor: "#A78256" }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(167, 130, 86, 0.9)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#A78256";
-              }}
-            >
-              <Navigation className="w-4 h-4" />
-              <span>Get Direction</span>
-            </button>
-            <button
-              onClick={() => copyToClipboard(siteConfig.reception.location, 'reception')}
-              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#EDD6AC] border-2 border-[#A78256]/40 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md hover:bg-[#EDD6AC]/90 text-[#A78256]"
-            >
-              {copiedItems.has('reception') ? (
-                <>
-                  <Check className="w-4 h-4" />
-                  <span>Copied!</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-4 h-4" />
-                  <span>Copy Address</span>
+                  <Copy className="w-3.5 h-3.5" />
+                  <span>Copy</span>
                 </>
               )}
             </button>
@@ -307,147 +212,145 @@ export function Details() {
         </div>
       </div>
 
-      {/* Additional Information */}
-      <div className="relative z-10 mb-6 sm:mb-8 max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-6 sm:mb-8">
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-[#A78256]">Important Information</h3>
-          <p className="text-xs sm:text-sm text-[#B28383]">Everything you need to know</p>
+      {/* Additional Information - Compact for mobile */}
+      <div className="relative z-10 mb-6 sm:mb-8 max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-4 sm:mb-6">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2 text-[#B76E79]">Important Information</h3>
+          <p className="text-xs text-[#B76E79]/80">Everything you need to know</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-          {/* Dress Code */}
-          <div className="bg-[#EDD6AC]/98 backdrop-blur-md rounded-xl p-4 sm:p-5 border-2 border-[#A78256]/40 hover:border-[#A78256]/60 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] group relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ backgroundColor: '#D8B0B0', opacity: 0.15 }} />
-            <div className="flex items-center gap-1.5 sm:gap-2 mb-4 relative z-10">
-              <div className="p-2 rounded-full shadow-md" style={{ backgroundColor: '#D8B0B0', opacity: 0.3 }}>
-                <Shirt className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#1a1a1a' }} />
+        <div className="space-y-3 sm:space-y-4">
+          {/* Attire - Compact Design */}
+          <div className="bg-[#F7E7CE]/95 backdrop-blur-md rounded-xl p-3 sm:p-4 border-2 border-[#B76E79]/40 hover:border-[#B76E79]/60 hover:shadow-lg transition-all duration-300 group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ backgroundColor: '#FCB8B5', opacity: 0.15 }} />
+            
+            {/* Header */}
+            <div className="flex items-center justify-center gap-2 mb-3 relative z-10">
+              <div className="p-1.5 rounded-full shadow-md" style={{ backgroundColor: '#B76E79', opacity: 0.3 }}>
+                <Shirt className="w-3.5 h-3.5 text-[#B76E79]" />
               </div>
-              <h4 className="font-bold text-base sm:text-lg" style={{ color: '#1a1a1a' }}>Dress Code</h4>
+              <h4 className="font-bold text-sm sm:text-base text-[#B76E79]">Attire</h4>
             </div>
             
             {/* Theme Badge */}
-            <div className="mb-4 relative z-10">
-              <span className="text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-full text-white shadow-md" style={{ backgroundColor: '#D8B0B0' }}>
-                {siteConfig.dressCode.theme}
+            <div className="mb-3 text-center relative z-10">
+              <span className="text-[10px] sm:text-xs font-semibold px-2.5 py-1 rounded-full text-white shadow-md inline-block" style={{ backgroundColor: '#B76E79' }}>
+                Spring Theme - Garden Wedding
               </span>
             </div>
 
-            {/* Color Palette */}
-            {siteConfig.dressCode.colors && (
-              <div className="mb-4 relative z-10">
-                <p className="text-xs font-semibold mb-2" style={{ color: '#1a1a1a' }}>Color Palette</p>
-                <div className="rounded-lg overflow-hidden border-2 shadow-sm bg-white" style={{ borderColor: '#AFC8E6' }}>
-                  <div className="relative w-full h-20 sm:h-24">
-                    <Image
-                      src="/Details/colorpallete.png"
-                      alt="Wedding Color Palette"
-                      fill
-                      className="object-contain p-1"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
+            {/* Color Palette - Small Circles */}
+            <div className="mb-3 relative z-10">
+              <p className="text-[10px] sm:text-xs text-center mb-2 text-[#B76E79]/90">We encourage our guests to wear this color palette</p>
+              <div className="flex gap-3 justify-center items-center">
+                <div className="flex flex-col items-center gap-1">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg border-2 border-white" style={{ backgroundColor: '#FCB8B5' }}></div>
+                  <span className="text-[9px] sm:text-[10px] font-medium text-[#B76E79]/70">#FCB8B5</span>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg border-2 border-white" style={{ backgroundColor: '#FFBD87' }}></div>
+                  <span className="text-[9px] sm:text-[10px] font-medium text-[#B76E79]/70">#FFBD87</span>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg border-2 border-white" style={{ backgroundColor: '#A4BB8C' }}></div>
+                  <span className="text-[9px] sm:text-[10px] font-medium text-[#B76E79]/70">#A4BB8C</span>
                 </div>
               </div>
-            )}
+            </div>
 
-            {/* Principal Sponsors */}
-            {siteConfig.dressCode.sponsors && (
-              <div className="mb-4 rounded-lg p-3 border-2 relative z-10 bg-white/80" style={{ borderColor: '#AFC8E6' }}>
-                <p className="text-xs font-semibold mb-2" style={{ color: '#1a1a1a' }}>Principal Sponsors</p>
-                <p className="text-xs mb-1" style={{ color: '#1a1a1a', opacity: 0.8 }}>Ladies: {siteConfig.dressCode.sponsors.ladies}</p>
-                <p className="text-xs" style={{ color: '#1a1a1a', opacity: 0.8 }}>Gentlemen: {siteConfig.dressCode.sponsors.gentlemen}</p>
+            {/* Attire Details - Compact */}
+            <div className="space-y-2 relative z-10">
+              {/* Gentlemen */}
+              <div className="rounded-lg p-2 border border-[#FFBD87]/50 bg-white/80">
+                <p className="text-[10px] sm:text-xs font-semibold mb-1 text-[#B76E79]">Gentlemen</p>
+                <p className="text-[10px] text-[#B76E79]/80">Long Sleeves or Suits & Slacks</p>
+                <p className="text-[9px] text-[#B76E79]/70 italic">Ties not required</p>
               </div>
-            )}
 
-            {/* Guests */}
-            {siteConfig.dressCode.guests && (
-              <div className="mb-4 rounded-lg p-3 border-2 relative z-10 bg-white/80" style={{ borderColor: '#AFC8E6' }}>
-                <p className="text-xs font-semibold mb-2" style={{ color: '#1a1a1a' }}>Guests</p>
-                <p className="text-xs mb-1" style={{ color: '#1a1a1a', opacity: 0.8 }}>Ladies: {siteConfig.dressCode.guests.ladies}</p>
-                <p className="text-xs mb-1" style={{ color: '#1a1a1a', opacity: 0.8 }}>Gentlemen: {siteConfig.dressCode.guests.gentlemen}</p>
-                <p className="text-xs font-medium px-2 py-1 rounded text-white shadow-sm mt-2" style={{ backgroundColor: '#D8B0B0' }}>⚠️ {siteConfig.dressCode.note}</p>
+              {/* Ladies */}
+              <div className="rounded-lg p-2 border border-[#FCB8B5]/50 bg-white/80">
+                <p className="text-[10px] sm:text-xs font-semibold mb-1 text-[#B76E79]">Ladies</p>
+                <p className="text-[10px] text-[#B76E79]/80">Long Cocktail Dress (Satin, Floral, Textures)</p>
+                <p className="text-[10px] text-[#B76E79]/80">Heels suitable for outdoor terrain</p>
+                <p className="text-[9px] font-medium px-1.5 py-0.5 rounded text-white shadow-sm mt-1 inline-block" style={{ backgroundColor: '#B76E79' }}>⚠️ No white dress</p>
               </div>
-            )}
 
-            {/* Attire Guide Image */}
-            <div className="rounded-lg overflow-hidden border-2 shadow-md relative z-10 bg-white" style={{ borderColor: '#AFC8E6' }}>
-              <div className="bg-white/95 p-2 border-b-2" style={{ borderColor: '#AFC8E6' }}>
-                <p className="text-xs font-semibold text-center" style={{ color: '#1a1a1a' }}>Attire Guide</p>
+              {/* Adults Only */}
+              <div className="rounded-lg p-2 border border-[#A4BB8C]/50 bg-white/90 text-center">
+                <div className="flex items-center justify-center gap-1.5 mb-0.5">
+                  <Users className="w-3 h-3 text-[#A4BB8C]" />
+                  <p className="text-[10px] sm:text-xs font-semibold text-[#B76E79]">Adults Only Gathering</p>
+                </div>
+                <p className="text-[9px] text-[#B76E79]/70">To celebrate with us</p>
               </div>
-              <div className="relative w-full h-48 sm:h-56 md:h-64">
-                <Image
-                  src="/Details/dresscode.png"
-                  alt="Dress Code Attire Guide"
-                  fill
-                  className="object-contain p-2"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
+            </div>
+
+            {/* Other Details */}
+            <div className="mt-2.5 text-center relative z-10">
+              <p className="text-[9px] sm:text-[10px] italic text-[#B76E79]/60">Other details to follow</p>
             </div>
           </div>
 
-          {/* Travel & Comfort - Combined */}
-          <div className="bg-[#EDD6AC]/98 backdrop-blur-md rounded-xl p-4 sm:p-5 border-2 border-[#A78256]/40 hover:border-[#A78256]/60 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] group relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ backgroundColor: '#AFC8E6', opacity: 0.1 }} />
-            <div className="flex items-center gap-1.5 sm:gap-2 mb-4 relative z-10">
-              <div className="p-2 rounded-full shadow-md" style={{ backgroundColor: '#AFC8E6', opacity: 0.3 }}>
-                <Car className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: '#1a1a1a' }} />
+          {/* Travel & Parking - Compact */}
+          <div className="bg-[#F7E7CE]/95 backdrop-blur-md rounded-xl p-3 sm:p-4 border-2 border-[#FFBD87]/40 hover:border-[#FFBD87]/60 hover:shadow-lg transition-all duration-300 group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ backgroundColor: '#FFBD87', opacity: 0.1 }} />
+            
+            {/* Header */}
+            <div className="flex items-center justify-center gap-2 mb-3 relative z-10">
+              <div className="p-1.5 rounded-full shadow-md" style={{ backgroundColor: '#FFBD87', opacity: 0.3 }}>
+                <Car className="w-3.5 h-3.5 text-[#FFBD87]" />
               </div>
-              <h4 className="font-bold text-base sm:text-lg" style={{ color: '#1a1a1a' }}>Parking & Travel</h4>
+              <h4 className="font-bold text-sm sm:text-base text-[#B76E79]">Parking & Travel</h4>
             </div>
             
-            <div className="space-y-3 relative z-10">
-              {/* Parking Information */}
-              <div className="bg-white/80 rounded-xl p-3 sm:p-4 border-2 shadow-sm hover:shadow-md transition-shadow duration-300" style={{ borderColor: '#AFC8E6' }}>
-                <div className="flex items-start gap-2 mb-2">
-                  <div className="p-1.5 rounded-full mt-0.5" style={{ backgroundColor: '#AFC8E6', opacity: 0.2 }}>
-                    <Car className="w-3 h-3" style={{ color: '#AFC8E6' }} />
+            <div className="space-y-2 relative z-10">
+              {/* Parking */}
+              <div className="bg-white/80 rounded-lg p-2 border border-[#FFBD87]/50 shadow-sm">
+                <div className="flex items-start gap-2">
+                  <div className="p-1 rounded-full mt-0.5" style={{ backgroundColor: '#FFBD87', opacity: 0.2 }}>
+                    <Car className="w-2.5 h-2.5 text-[#FFBD87]" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-xs font-semibold mb-1" style={{ color: '#1a1a1a' }}>Parking Available</p>
-                    <p className="text-xs leading-relaxed" style={{ color: '#1a1a1a', opacity: 0.8 }}>
-                      Ample parking is available at both venues. We recommend arriving 15-20 minutes early.
+                    <p className="text-[10px] sm:text-xs font-semibold mb-0.5 text-[#B76E79]">Parking Available</p>
+                    <p className="text-[10px] leading-relaxed text-[#B76E79]/80">
+                      Ample parking at venue. Arrive 15-20 min early.
                     </p>
                   </div>
                 </div>
               </div>
 
               {/* Transportation */}
-              <div className="bg-white/80 rounded-xl p-3 sm:p-4 border-2 shadow-sm hover:shadow-md transition-shadow duration-300" style={{ borderColor: '#AFC8E6' }}>
-                <div className="flex items-start gap-2 mb-2">
-                  <div className="p-1.5 rounded-full mt-0.5" style={{ backgroundColor: '#AFC8E6', opacity: 0.2 }}>
-                    <Navigation className="w-3 h-3" style={{ color: '#AFC8E6' }} />
+              <div className="bg-white/80 rounded-lg p-2 border border-[#FFBD87]/50 shadow-sm">
+                <div className="flex items-start gap-2">
+                  <div className="p-1 rounded-full mt-0.5" style={{ backgroundColor: '#FFBD87', opacity: 0.2 }}>
+                    <Navigation className="w-2.5 h-2.5 text-[#FFBD87]" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-xs font-semibold mb-1" style={{ color: '#1a1a1a' }}>Transportation</p>
-                    <p className="text-xs leading-relaxed mb-2" style={{ color: '#1a1a1a', opacity: 0.8 }}>
-                      💡 Book transportation in advance for a stress-free day
-                    </p>
-                    <p className="text-xs leading-relaxed" style={{ color: '#1a1a1a', opacity: 0.8 }}>
-                      Taxis, Grab, and private vehicles are welcome. Both venues are easily accessible.
+                    <p className="text-[10px] sm:text-xs font-semibold mb-0.5 text-[#B76E79]">Transportation</p>
+                    <p className="text-[10px] leading-relaxed text-[#B76E79]/80">
+                      Taxis, Grab, and private vehicles welcome.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Travel Tips */}
-              <div className="bg-white/90 rounded-xl p-3 sm:p-4 border-2 shadow-sm" style={{ borderColor: '#AFC8E6', backgroundColor: '#F1EDE2' }}>
-                <p className="text-xs font-semibold mb-2 flex items-center gap-1.5" style={{ color: '#1a1a1a' }}>
-                  <span className="text-sm">📍</span>
-                  Quick Tips
+              {/* Tips */}
+              <div className="bg-white/90 rounded-lg p-2 border border-[#FFBD87]/50">
+                <p className="text-[10px] sm:text-xs font-semibold mb-1 flex items-center gap-1 text-[#B76E79]">
+                  <span>📍</span> Quick Tips
                 </p>
-                <ul className="text-xs space-y-1.5" style={{ color: '#1a1a1a' }}>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-0.5" style={{ color: '#1a1a1a' }}>•</span>
-                    <span>Plan your route ahead of time to avoid delays</span>
+                <ul className="text-[9px] sm:text-[10px] space-y-0.5 text-[#B76E79]/80">
+                  <li className="flex items-start gap-1">
+                    <span className="mt-0.5">•</span>
+                    <span>Plan route ahead to avoid delays</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-0.5" style={{ color: '#1a1a1a' }}>•</span>
-                    <span>Wear comfortable shoes for easy movement</span>
+                  <li className="flex items-start gap-1">
+                    <span className="mt-0.5">•</span>
+                    <span>Wear outdoor-suitable shoes</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-0.5" style={{ color: '#1a1a1a' }}>•</span>
-                    <span>Coordinate with friends for carpooling</span>
+                  <li className="flex items-start gap-1">
+                    <span className="mt-0.5">•</span>
+                    <span>Coordinate carpooling</span>
                   </li>
                 </ul>
               </div>

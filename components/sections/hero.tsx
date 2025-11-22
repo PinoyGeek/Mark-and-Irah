@@ -1,65 +1,44 @@
 "use client"
 
 import { useEffect, useState, useMemo } from "react"
-import { Heart, Sparkles, Download } from "lucide-react"
 
 const desktopImages = [
-    "/desktop-background/couple (1).JPEG",
-    "/desktop-background/couple (1).JPG",
-    "/desktop-background/couple (2).JPEG",
-    "/desktop-background/couple (2).JPG",
-    "/desktop-background/couple (3).JPEG",
-    "/desktop-background/couple (3).JPG",
-    "/desktop-background/couple (4).JPEG",
-    "/desktop-background/couple (4).JPG",
-    "/desktop-background/couple (5).JPEG",
-    "/desktop-background/couple (5).JPG",
-    "/desktop-background/couple (6).JPEG",
-    "/desktop-background/couple (6).JPG",
-    "/desktop-background/couple (7).JPEG",
-    "/desktop-background/couple (7).JPG",
-    "/desktop-background/couple (8).JPEG",
-    "/desktop-background/couple (8).JPG",
-    "/desktop-background/couple (9).JPEG",
-    "/desktop-background/couple (9).JPG",
-    "/desktop-background/couple (10).JPG",
-    "/desktop-background/couple (11).JPG",
-    "/desktop-background/couple (12).JPG",
-
-
+    "/desktop-background/couple (1).jpeg",
+    "/desktop-background/couple (2).jpeg",
+    "/desktop-background/couple (3).jpeg",
+    "/desktop-background/couple (4).jpeg",
+    "/desktop-background/couple (5).jpeg",
+    "/desktop-background/couple (6).jpeg",
+    "/desktop-background/couple (7).jpeg",
+    "/desktop-background/couple (8).jpeg",
+    "/desktop-background/couple (9).jpeg",
+    "/desktop-background/couple (10).jpeg",
+    "/desktop-background/couple (11).jpeg",
+    "/desktop-background/couple (12).jpeg",
+    "/desktop-background/couple (13).jpeg",
+    "/desktop-background/couple (14).jpeg",
 ]
 
 const mobileImages = [
-    "/mobile-background/couple (1).JPEG",
-    "/mobile-background/couple (1).JPG",
-    "/mobile-background/couple (2).JPG",
-    "/mobile-background/couple (2).JPEG",
-    "/mobile-background/couple (3).JPEG",
-    "/mobile-background/couple (3).JPG",
-    "/mobile-background/couple (4).JPEG",
-    "/mobile-background/couple (4).JPG",
-    "/mobile-background/couple (5).JPEG",
-    "/mobile-background/couple (5).JPG",
-    "/mobile-background/couple (6).JPEG",
-    "/mobile-background/couple (6).JPG",
-    "/mobile-background/couple (7).JPEG",
-    "/mobile-background/couple (7).JPG",
-    "/mobile-background/couple (8).JPEG",
-    "/mobile-background/couple (8).JPG",
-    "/mobile-background/couple (9).JPEG",
-    "/mobile-background/couple (9).JPG",
-    "/mobile-background/couple (10).JPEG",
-    "/mobile-background/couple (10).JPG",
-    "/mobile-background/couple (11).JPEG",
-    "/mobile-background/couple (11).JPG",
-    "/mobile-background/couple (12).JPG",
-    "/mobile-background/couple (13).JPG",
-    "/mobile-background/couple (14).JPG",
-    "/mobile-background/couple (15).JPG",
-    "/mobile-background/couple (16).JPG",
-    "/mobile-background/couple (17).JPG",
-    "/mobile-background/couple (18).JPG",
-    "/mobile-background/couple (19).JPG",
+    "/mobile-background/couple (1).jpeg",
+    "/mobile-background/couple (2).jpeg",
+    "/mobile-background/couple (3).jpeg",
+    "/mobile-background/couple (4).jpeg",
+    "/mobile-background/couple (5).jpeg",
+    "/mobile-background/couple (6).jpeg",
+    "/mobile-background/couple (7).jpeg",
+    "/mobile-background/couple (8).jpeg",
+    "/mobile-background/couple (9).jpeg",
+    "/mobile-background/couple (10).jpeg",
+    "/mobile-background/couple (11).jpeg",
+    "/mobile-background/couple (12).jpeg",
+    "/mobile-background/couple (13).jpeg",
+    "/mobile-background/couple (14).jpeg",
+    "/mobile-background/couple (15).jpeg",
+    "/mobile-background/couple (16).jpeg",
+    "/mobile-background/couple (17).jpeg",
+    "/mobile-background/couple (18).jpeg",
+    "/mobile-background/couple (19).jpeg",
 ]
 
 export function Hero() {
@@ -120,21 +99,13 @@ export function Hero() {
     return () => clearInterval(imageTimer)
   }, [imagesLoaded, backgroundImages])
 
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    if (imagesLoaded) {
-      setIsVisible(true)
-    }
-  }, [imagesLoaded])
-
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#AFC8E6]">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#FFFAEF]">
       <div className="absolute inset-0 w-full h-full">
         {imagesLoaded && backgroundImages.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
+            className={`absolute inset-0 transition-opacity duration-1000 ${
               index === currentImageIndex ? "opacity-100" : "opacity-0"
             }`}
             style={{
@@ -142,127 +113,125 @@ export function Hero() {
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              willChange: "opacity",
             }}
           />
         ))}
-        {/* Enhanced gradient overlay with better depth */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#B28383]/65 via-[#DDD3CC]/35 to-transparent z-0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#4a2f24]/55 via-[#35211a]/35 to-transparent z-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#fff1e0] via-[#fff1e0]/40 to-transparent" />
       </div>
-
-      <div className="relative z-10 flex w-full items-end justify-center px-4 sm:px-6 md:px-8 lg:px-10 xl:px-16 pt-24 pb-10 sm:pt-32 sm:pb-16 md:pb-20 lg:pb-24 min-h-screen">
-        <div
-          className={`relative w-full max-w-[420px] sm:max-w-3xl lg:max-w-5xl px-4 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-16 transition-all duration-1000 ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div className="relative z-10 flex flex-col items-center text-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-            {/* Intro copy */}
-            <div className="space-y-0.5 md:space-y-1 text-[#F4E8DD]" style={{ textShadow: "0 6px 18px rgba(0,0,0,0.4)" }}>
-              <p className="text-[9px] sm:text-xs md:text-sm lg:text-base tracking-[0.1em] md:tracking-[0.15em] lg:tracking-[0.18em] uppercase">
-                BY THE GRACE OF GOD
-              </p>
-              <p className="text-[9px] sm:text-xs md:text-sm lg:text-base tracking-[0.1em] md:tracking-[0.15em] lg:tracking-[0.18em] uppercase">
-                AND THE BLESSING OF THEIR PARENTS
-              </p>
-            </div>
-
-            {/* Divider with icons */}
-            <div className="flex items-center justify-center gap-2 md:gap-3 text-[#F7EFDF]" style={{ textShadow: "0 4px 12px rgba(0,0,0,0.45)" }}>
-              <span className="h-px w-10 md:w-14 lg:w-16 bg-gradient-to-r from-transparent via-[#EDD6AC] to-[#EDD6AC]/60" />
-              <Heart size={12} className="text-[#EDD6AC] fill-[#EDD6AC]/30 md:w-4 md:h-4" />
-              <Sparkles size={11} className="text-[#EDD6AC] md:w-3.5 md:h-3.5" />
-              <Heart size={12} className="text-[#EDD6AC] fill-[#EDD6AC]/30 md:w-4 md:h-4" />
-              <span className="h-px w-10 md:w-14 lg:w-16 bg-gradient-to-l from-transparent via-[#EDD6AC] to-[#EDD6AC]/60" />
-            </div>
-
-            {/* Names */}
-            <div className="space-y-1 sm:space-y-1.5 md:space-y-2 lg:space-y-3">
-              <h1
-                className="font-serif text-[2.75rem] sm:text-[3rem] md:text-[3.75rem] lg:text-[4.5rem] xl:text-[5rem] text-[#FFF8E7] leading-tight"
-                style={{
-                  textShadow:
-                    "0 0 10px rgba(255, 248, 231, 0.8), 0 0 20px rgba(255, 248, 231, 0.6), 0 0 30px rgba(255, 248, 231, 0.4), 0 0 40px rgba(255, 223, 153, 0.3), 0 0 50px rgba(255, 223, 153, 0.2), 0 12px 26px rgba(0,0,0,0.45)",
-                }}
-              >
-                Joshua Jose
-              </h1>
-              <span className="text-[11px] sm:text-xs md:text-sm lg:text-base uppercase tracking-[0.22em] md:tracking-[0.28em] lg:tracking-[0.35em] text-[#EDD6AC]" style={{ textShadow: "0 6px 18px rgba(0,0,0,0.4)" }}>
-                and
-              </span>
-              <h2
-                className="font-serif text-[2.75rem] sm:text-[3rem] md:text-[3.75rem] lg:text-[4.5rem] xl:text-[5rem] text-[#FFF8E7] leading-tight"
-                style={{
-                  textShadow:
-                    "0 0 10px rgba(255, 248, 231, 0.8), 0 0 20px rgba(255, 248, 231, 0.6), 0 0 30px rgba(255, 248, 231, 0.4), 0 0 40px rgba(255, 223, 153, 0.3), 0 0 50px rgba(255, 223, 153, 0.2), 0 12px 26px rgba(0,0,0,0.45)",
-                }}
-              >
-                Edlin Mae
-              </h2>
-            </div>
-
-            {/* Invitation message */}
-            <p className="text-[10px] sm:text-sm md:text-base lg:text-lg uppercase tracking-[0.15em] md:tracking-[0.2em] lg:tracking-[0.25em] text-[#F5EDE3] max-w-3xl" style={{ textShadow: "0 6px 18px rgba(0,0,0,0.45)" }}>
-              WARMLY INVITE YOU TO CELEBRATE THEIR LOVE
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-12 flex flex-col items-center justify-end min-h-screen pb-16 sm:pb-24 md:pb-32 lg:pb-48">
+        <div className="max-w-2xl text-center space-y-4 sm:space-y-6">
+          <div className="space-y-2 sm:space-y-3">
+            <h1
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold tracking-wide drop-shadow-2xl whitespace-nowrap"
+              style={{
+                color: '#FFFAEF',
+                textShadow: "0 0 20px rgba(255, 250, 239, 0.8), 0 0 40px rgba(252, 184, 181, 0.3), 0 8px 24px rgba(0,0,0,0.8)",
+                letterSpacing: "0.05em",
+              }}
+            >
+              Julaine
+            </h1>
+            <div className="h-1 w-16 sm:w-20 md:w-24 mx-auto bg-gradient-to-r from-transparent via-[#FFFAEF] to-transparent" />
+            <h1
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold tracking-wide drop-shadow-2xl whitespace-nowrap"
+              style={{
+                color: '#FFFAEF',
+                textShadow: "0 0 20px rgba(255, 250, 239, 0.8), 0 0 40px rgba(252, 184, 181, 0.3), 0 8px 24px rgba(0,0,0,0.8)",
+                letterSpacing: "0.05em",
+              }}
+            >
+              Cristopher
+            </h1>
+          </div>
+          <p
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl lavishly-yours-regular"
+            style={{
+              color: '#FFFAEF',
+              textShadow: "0 4px 12px rgba(0,0,0,0.7), 0 2px 4px rgba(0,0,0,0.6)",
+            }}
+          >
+            are getting married!
+          </p>
+          <div className="space-y-1 sm:space-y-2">
+            <p
+              className="text-base sm:text-lg md:text-xl lg:text-2xl font-light"
+              style={{
+                color: '#FFFAEF',
+                textShadow: "0 4px 12px rgba(0,0,0,0.7), 0 2px 4px rgba(0,0,0,0.6)",
+              }}
+            >
+              December 28, 2025 - 3:00 PM
             </p>
-            <p className="text-[9px] sm:text-xs md:text-sm lg:text-base uppercase tracking-[0.12em] md:tracking-[0.18em] lg:tracking-[0.22em] text-[#F5EDE3]" style={{ textShadow: "0 6px 18px rgba(0,0,0,0.45)" }}>
-              EXCHANGE VOWS OF MARRIAGE
+            <p
+              className="text-sm sm:text-base md:text-lg lg:text-xl font-light tracking-wide"
+              style={{
+                color: '#FFFAEF',
+                textShadow: "0 4px 12px rgba(0,0,0,0.7), 0 2px 4px rgba(0,0,0,0.6)",
+              }}
+            >
+              MOUNT COSTA
             </p>
-
-            {/* Date & venue summary */}
-            <div className="space-y-1 md:space-y-1.5 lg:space-y-2 text-[#F4EDE3] mt-2 md:mt-3 lg:mt-4" style={{ textShadow: "0 6px 18px rgba(0,0,0,0.45)" }}>
-              <p className="text-xs sm:text-base md:text-lg lg:text-xl font-semibold tracking-[0.1em] md:tracking-[0.15em] lg:tracking-[0.18em] uppercase">
-                Monday • December 22, 2025
-              </p>
-              <p className="text-[10px] sm:text-sm md:text-base lg:text-lg tracking-[0.12em] md:tracking-[0.16em] lg:tracking-[0.2em] uppercase text-[#F4EDE3]">
-                Ceremony at 3:00 PM · St. Gregory the Great Cathedral
-              </p>
-              <p className="text-[9px] sm:text-xs md:text-sm lg:text-base tracking-[0.1em] md:tracking-[0.14em] lg:tracking-[0.18em] uppercase text-[#F4EDE3]">
-                Old Albay District · Legazpi City
-              </p>
-            </div>
-
-            {/* Reception */}
-            <div className="space-y-1 md:space-y-1.5 text-[#F4EDE3]" style={{ textShadow: "0 6px 18px rgba(0,0,0,0.45)" }}>
-              <p className="text-xs sm:text-base md:text-lg lg:text-xl font-serif italic">
-                Reception to follow at Pepperland Hotel
-              </p>
-              <p className="text-[9px] sm:text-xs md:text-sm lg:text-base tracking-[0.12em] md:tracking-[0.16em] lg:tracking-[0.2em] uppercase text-[#F4EDE3]">
-                Airport Road, Washington Drive Ext. · Brgy 40 Cruzada, Legazpi City
-              </p>
-            </div>
-
-            {/* CTA Buttons & download */}
-            <div className="mt-4 md:mt-6 lg:mt-8 flex w-full flex-row flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4">
-              <a
-                href="#narrative"
-                className="group flex-1 min-w-[140px] md:min-w-[160px] lg:min-w-[180px] rounded-full border border-[#F5EDE3]/40 bg-[#B28383]/30 px-4 md:px-6 lg:px-8 py-2 md:py-2.5 lg:py-3 text-[10px] md:text-xs lg:text-sm uppercase tracking-[0.12em] md:tracking-[0.16em] lg:tracking-[0.2em] text-[#FDF6EE] backdrop-blur-sm transition-all duration-300 hover:bg-[#B28383]/40"
-              >
-                <span className="flex items-center justify-center">
-                  Our Story
-                </span>
-              </a>
-              <a
-                href="#guest-list"
-                className="group flex-1 min-w-[140px] md:min-w-[160px] lg:min-w-[180px] rounded-full border border-[#F5EDE3]/40 bg-[#A78256]/30 px-4 md:px-6 lg:px-8 py-2 md:py-2.5 lg:py-3 text-[10px] md:text-xs lg:text-sm uppercase tracking-[0.12em] md:tracking-[0.16em] lg:tracking-[0.2em] text-[#FDF6EE] backdrop-blur-sm transition-all duration-300 hover:bg-[#A78256]/40"
-              >
-                <span className="flex items-center justify-center">
-                  RSVP
-                </span>
-              </a>
-              <a
-                href="/invitation/IMG_3200-min.PNG"
-                download="Wedding-Invitation-Joshua-Edlin.png"
-                className="group flex-none rounded-full border border-[#F5EDE3]/40 bg-[#C2D3C3]/25 px-3.5 md:px-5 lg:px-6 py-2 md:py-2.5 lg:py-3 text-[11px] md:text-xs lg:text-sm uppercase tracking-[0.15em] md:tracking-[0.18em] lg:tracking-[0.22em] text-[#FDF6EE] backdrop-blur-sm transition-all duration-300 hover:bg-[#C2D3C3]/35"
-              >
-                <span className="flex items-center justify-center gap-1.5 md:gap-2">
-                  <Download size={16} className="md:w-5 md:h-5 lg:w-6 lg:h-6" />
-                  <span className="sr-only sm:hidden">Download Invitation</span>
-                  <span className="hidden sm:inline">Download Invitation</span>
-                </span>
-              </a>
-            </div>
+            <p
+              className="text-xs sm:text-sm md:text-base lg:text-lg font-light"
+              style={{
+                color: '#FFFAEF',
+                textShadow: "0 4px 12px rgba(0,0,0,0.7), 0 2px 4px rgba(0,0,0,0.6)",
+              }}
+            >
+              Lamtang Road, Pugis, La Trinidad, Benguet
+            </p>
+          </div>
+          <div className="pt-4 sm:pt-6 flex flex-row gap-3 sm:gap-4 justify-center items-center">
+            <a
+              href="#guest-list"
+              className="group inline-block px-8 sm:px-10 md:px-12 py-3.5 sm:py-4 md:py-4.5 rounded-xl font-bold transition-all duration-300 uppercase tracking-wider text-sm sm:text-base whitespace-nowrap relative overflow-hidden border-2 border-transparent hover:border-[#FFFAEF]/60"
+              style={{
+                backgroundColor: "rgba(164, 187, 140, 0.95)",
+                color: '#FFFAEF',
+                boxShadow: "0 8px 24px rgba(164, 187, 140, 0.4), 0 4px 8px rgba(0,0,0,0.3)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#A4BB8C";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 12px 32px rgba(164, 187, 140, 0.6), 0 6px 12px rgba(0,0,0,0.4)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(164, 187, 140, 0.95)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 8px 24px rgba(164, 187, 140, 0.4), 0 4px 8px rgba(0,0,0,0.3)";
+              }}
+            >
+              <span className="relative z-10">RSVP</span>
+              <div 
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12 group-hover:translate-x-full"
+                style={{ width: "50%", left: "-100%" }}
+              />
+            </a>
+            <a
+              href="#narrative"
+              className="group inline-block px-8 sm:px-10 md:px-12 py-3.5 sm:py-4 md:py-4.5 rounded-xl font-bold transition-all duration-300 uppercase tracking-wider text-sm sm:text-base whitespace-nowrap relative overflow-hidden border-2 border-transparent hover:border-[#FFFAEF]/60"
+              style={{
+                backgroundColor: "rgba(252, 184, 181, 0.85)",
+                color: '#FFFAEF',
+                boxShadow: "0 8px 24px rgba(252, 184, 181, 0.4), 0 4px 8px rgba(0,0,0,0.3)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#FCB8B5";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 12px 32px rgba(252, 184, 181, 0.6), 0 6px 12px rgba(0,0,0,0.4)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(252, 184, 181, 0.85)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 8px 24px rgba(252, 184, 181, 0.4), 0 4px 8px rgba(0,0,0,0.3)";
+              }}
+            >
+              <span className="relative z-10">Our Story</span>
+              <div 
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12 group-hover:translate-x-full"
+                style={{ width: "50%", left: "-100%" }}
+              />
+            </a>
           </div>
         </div>
       </div>

@@ -2,8 +2,10 @@
 
 import { Suspense } from "react"
 import dynamic from "next/dynamic"
+import { AudioProvider } from "@/contexts/audio-context"
 import { Hero } from "@/components/sections/hero"
 import { Countdown } from "@/components/sections/countdown"
+import { CoupleVideo } from "@/components/sections/couple-video"
 import { Narrative } from "@/components/sections/narrative"
 import { Gallery } from "@/components/sections/gallery"
 import { Messages } from "@/components/sections/messages"
@@ -24,34 +26,37 @@ export default function Home() {
   const enableDecor = process.env.NEXT_PUBLIC_ENABLE_DECOR !== 'false'
 
   return (
-    <main className="relative">
-      {enableDecor && <BackgroundMusic />}
-      {/* Silk Background Animation */}
-      {enableDecor && (
-        <div className="fixed inset-0 z-0 pointer-events-none">
-          <Suspense fallback={<div className="w-full h-full bg-gradient-to-b from-primary/10 to-secondary/5" />}>
-            <Silk speed={5} scale={1.1} color="#B28383" noiseIntensity={0.8} rotation={0.3} />
-          </Suspense>
-        </div>
-      )}
+    <AudioProvider>
+      <main className="relative">
+        {enableDecor && <BackgroundMusic />}
+        {/* Silk Background Animation */}
+        {enableDecor && (
+          <div className="fixed inset-0 z-0 pointer-events-none">
+            <Suspense fallback={<div className="w-full h-full bg-gradient-to-b from-primary/10 to-secondary/5" />}>
+              <Silk speed={5} scale={1.1} color="#FFBD87" noiseIntensity={0.8} rotation={0.3} />
+            </Suspense>
+          </div>
+        )}
 
-      {/* Content */}
-      <div className="relative z-10">
-        <Hero />
-        <Countdown />
-        <Narrative />
-        <Gallery />
-        <Messages />
-        <Details />
-        <Entourage />
-        <PrincipalSponsors />
-        <GuestList />
-        <BookOfGuests />
-        <Registry />
-        <FAQ />
-        <SnapShare />
-        <Footer />
-      </div>
-    </main>
+        {/* Content */}
+        <div className="relative z-10">
+          <Hero />
+          <CoupleVideo />
+          <Countdown />
+          <Narrative />
+          <Gallery />
+          <Messages />
+          <Details />
+          <Entourage />
+          <PrincipalSponsors />
+          <GuestList />
+          <BookOfGuests />
+          <Registry />
+          <FAQ />
+          <SnapShare />
+          <Footer />
+        </div>
+      </main>
+    </AudioProvider>
   )
 }

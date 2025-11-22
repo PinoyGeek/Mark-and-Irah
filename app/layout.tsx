@@ -10,25 +10,25 @@ const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "-
 const imperialScript = Imperial_Script({ subsets: ["latin"], weight: "400", variable: "--font-imperial-script" })
 
 export const metadata: Metadata = {
-  title: "Edlin Mae & Joshua Jose - Wedding Invitation",
+  title: "Julaine & Cristopher - Wedding Invitation",
   description:
-    "Celebrate the wedding of Edlin Mae B. Cellona and Joshua Jose T. Descalzo on December 22, 2025 at St. Gregory the Great Cathedral, Old Albay District, Legazpi City. RSVP, explore their love story, view the gallery, and send your wishes.",
+    "Celebrate the wedding of Julaine and Cristopher on December 28, 2025 at Mount Costa, Lamtang Road, Pugis, La Trinidad, Benguet. RSVP, explore their love story, view the gallery, and send your wishes.",
   keywords:
-    "Edlin Mae Joshua Jose wedding, Legazpi City wedding, St. Gregory the Great Cathedral, Pepperland Hotel reception, rosegold champagne wedding, RSVP, wedding gallery, message wall, love story, #EdlinAndJoshuaWedding",
+    "Julaine Cristopher wedding, La Trinidad Benguet wedding, Mount Costa, garden wedding, spring theme wedding, RSVP, wedding gallery, message wall, love story, #JulaineAndCristopherWedding",
   authors: [
-    { name: "Edlin Mae" },
-    { name: "Joshua Jose" },
+    { name: "Julaine" },
+    { name: "Cristopher" },
   ],
-  creator: "Edlin Mae & Joshua Jose",
-  publisher: "Edlin Mae & Joshua Jose",
+  creator: "Julaine & Cristopher",
+  publisher: "Julaine & Cristopher",
   formatDetection: {
     email: false,
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://edlin-and-joshua-invitation.vercel.app/"),
+  metadataBase: new URL("https://Julaine-and-Cristopher-invitation.vercel.app/"),
   alternates: {
-    canonical: "https://edlin-and-joshua-invitation.vercel.app/",
+    canonical: "https://Julaine-and-Cristopher-invitation.vercel.app/",
   },
   icons: {
     icon: [
@@ -50,29 +50,29 @@ export const metadata: Metadata = {
   },
   manifest: "/favicon_io/site.webmanifest",
   openGraph: {
-    title: "Edlin Mae & Joshua Jose Wedding | December 22, 2025",
+    title: "Julaine & Cristopher Wedding | December 28, 2025",
     description:
-      "Celebrate the union of Edlin Mae & Joshua Jose on December 22, 2025 at St. Gregory the Great Cathedral, Old Albay District, Legazpi City. Discover their love story, RSVP, view the gallery, and share your wishes!",
-    url: "https://edlin-and-joshua-invitation.vercel.app/",
-    siteName: "Edlin Mae and Joshua Jose Wedding",
+      "Celebrate the union of Julaine & Cristopher on December 28, 2025 at Mount Costa, Lamtang Road, Pugis, La Trinidad, Benguet. Discover their love story, RSVP, view the gallery, and share your wishes!",
+    url: "https://Julaine-and-Cristopher-invitation.vercel.app/",
+    siteName: "Julaine and Cristopher Wedding",
     locale: "en_PH",
     type: "website",
     images: [
       {
-        url: "https://edlin-and-joshua-invitation.vercel.app/invitation/image.png",
+        url: "https://Julaine-and-Cristopher-invitation.vercel.app/desktop-background/couple (1).jpeg",
         width: 1200,
         height: 630,
-        alt: "Edlin Mae & Joshua Jose Wedding Invitation - December 22, 2025",
+        alt: "Julaine & Cristopher Wedding Invitation - December 28, 2025",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Edlin Mae & Joshua Jose Wedding Invitation",
+    title: "Julaine & Cristopher Wedding Invitation",
     description:
-      "You're invited to the wedding of Edlin Mae & Joshua Jose on December 22, 2025. RSVP, explore the gallery, and leave a message! #EdlinAndJoshuaWedding",
-    images: ["https://edlin-and-joshua-invitation.vercel.app/invitation/image.png"],
-    creator: "@edlinmae",
+      "You're invited to the wedding of Julaine & Cristopher on December 28, 2025. RSVP, explore the gallery, and leave a message! #JulaineAndCristopherWedding",
+    images: ["https://Julaine-and-Cristopher-invitation.vercel.app/desktop-background/couple (1).jpeg"],
+    creator: "@julaineandcristopher",
   },
   robots: {
     index: true,
@@ -92,47 +92,38 @@ export const metadata: Metadata = {
     "application/ld+json": JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Event",
-      name: "Edlin Mae & Joshua Jose Wedding",
-      startDate: "2025-12-22T15:00:00+08:00",
-      endDate: "2025-12-22T22:00:00+08:00",
+      name: "Julaine & Cristopher Wedding",
+      startDate: "2025-12-28T15:00:00+08:00",
+      endDate: "2025-12-28T22:00:00+08:00",
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       location: [
         {
           "@type": "Place",
-          name: "St. Gregory the Great Cathedral, Old Albay District, Legazpi City",
+          name: "Mount Costa",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Legazpi City, Albay",
-            addressCountry: "PH",
-          },
-        },
-        {
-          "@type": "Place",
-          name: "Pepperland Hotel",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Airport Road, Washington Drive Ext., Brgy 40 Cruzada",
-            addressLocality: "Legazpi City, Albay",
+            streetAddress: "Lamtang Road, Pugis",
+            addressLocality: "La Trinidad, Benguet",
             addressCountry: "PH",
           },
         },
       ],
-      image: ["https://edlin-and-joshua-invitation.vercel.app/invitation/image.png"],
+      image: ["https://Julaine-and-Cristopher-invitation.vercel.app/desktop-background/couple (1).jpeg"],
       description:
-        "You're invited to the wedding of Edlin Mae & Joshua Jose on December 22, 2025 at St. Gregory the Great Cathedral with a reception at Pepperland Hotel. RSVP, read their love story, view the gallery, and leave a message for the couple.",
+        "You're invited to the wedding of Julaine & Cristopher on December 28, 2025 at Mount Costa, La Trinidad, Benguet. RSVP, read their love story, view the gallery, and leave a message for the couple.",
       organizer: {
         "@type": "Person",
-        name: "Edlin Mae & Joshua Jose",
+        name: "Julaine & Cristopher",
       },
       offers: {
         "@type": "Offer",
-        url: "https://edlin-and-joshua-invitation.vercel.app/",
+        url: "https://Julaine-and-Cristopher-invitation.vercel.app/",
         availability: "https://schema.org/InStock",
         price: "0",
         priceCurrency: "PHP",
       },
-      eventHashtag: "#EdlinAndJoshuaWedding",
+      eventHashtag: "#JulaineAndCristopherWedding",
     }),
   },
 }
@@ -147,7 +138,9 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#B76E79" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet" />
         <link rel="preload" as="image" href="/mobile-background/DSCF2614-min.jpg" media="(max-width: 767px)" />
         <link rel="preload" as="image" href="/desktop-background/DSCF2444-min.jpg" media="(min-width: 768px)" />
       </head>

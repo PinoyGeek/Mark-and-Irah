@@ -1,40 +1,40 @@
 export const siteConfig = {
   couple: {
-    bride: "Edlin Mae B. Cellona",
-    brideNickname: "Edlin Mae",
-    groom: "Joshua Jose T. Descalzo",
-    groomNickname: "Joshua",
+    bride: "Julaine",
+    brideNickname: "Julaine",
+    groom: "Cristopher",
+    groomNickname: "Cristopher",
   },
   wedding: {
-    date: "December 22, 2025",
-    time: "3:00 PM",
-    venue: "St. Gregory the Great Cathedral, Old Albay District, Legazpi City",
+    date: "December 28, 2025",
+    time: "3:00 PM, PH Time",
+    venue: "Mount Costa Lamtang Road, Pugis La Trinidad, Benguet",
     tagline: "are getting married!",
-    theme: "Romantic Elegance",
-    motif: "Old Rose, Rose gold, Blush Pink, Champagne",
+    theme: "Spring Theme, Water Paint flowers (Garden wedding)",
+    motif: "Spring Theme, Water Paint flowers (Garden wedding)",
   },
   details: {
     rsvp: {
-      deadline: "December 15, 2025",
+      deadline: "December 21, 2025",
     },
   },
   ceremony: {
-    location: "St. Gregory the Great Cathedral, Old Albay District, Legazpi City",
-    venue: "St. Gregory the Great Cathedral",
-    date: "December 22, 2025",
-    day: "Monday",
-    time: "3:00 PM",
+    location: "Mount Costa Lamtang Road, Pugis La Trinidad, Benguet",
+    venue: "Mount Costa",
+    date: "December 28, 2025",
+    day: "Sunday",
+    time: "3:00 PM, PH Time",
     entourageTime: "2:00 PM",
     guestsTime: "2:30 PM",
   },
   reception: {
-    location: "Pepperland Hotel, Airport Road, Washington Drive Ext., Brgy 40 Cruzada, Legazpi City",
-    venue: "Pepperland Hotel",
-    date: "December 22, 2025",
+    location: "Mount Costa Lamtang Road, Pugis La Trinidad, Benguet",
+    venue: "Mount Costa",
+    date: "December 28, 2025",
     time: "Reception to follow",
   },
   dressCode: {
-    theme: "Romantic Elegance",
+    theme: "Spring Theme, Water Paint flowers (Garden wedding)",
     colors: ["#B76E79", "#F7E7CE", "#FFFFFF"],
     sponsors: {
       ladies: "Modern Filipiniana",
@@ -46,21 +46,17 @@ export const siteConfig = {
     },
     note: "Please come in your best formal/semi-formal ensemble"
   },
-  narrative: `They first met as nursing students—two batchmates who barely knew each other but somehow found themselves caught in a conversation about Naruto at the grandstand. It’s funny and almost ancient now to think that the two kids talking back then were the very ones no one would have guessed. She thought he was an anime fanatic like her, but it wasn’t until several months into their relationship that he learned Naruto was actually the only anime he knew. She remembered him as the playful guy who took being a ninja a little too seriously, while he remembered her as the girl who enthusiastically gave a full history lesson on the Hidden Leaf Village like it was a college course. It was the kind of meeting that felt both random and like the universe’s little inside joke—two strangers bonding over fictional characters and ninja headbands, as if it was the whole world to them, completely unaware that this odd, unexpected chat was the first page of their story.
+  narrative: `Our story began in 2016, when a quiet admiration led him to reach me through his friend in the Rotaract Club,a simple gesture that laid the first brick of something meaningful.  Over the course of a year of patient and sincere courtship, we chose each other despite our opposite personalities and the challenges of a long-distance relationship, we discovered a love that didn't happen by chance but was built with intention, step by step, layer by layer.
 
-Years later, in medical school, fate brought them together again. On orientation day, she found herself sitting beside a group of friends that included the guy she had always remembered—the one who once had a crush on her classmate, and the same guy who wore sunglasses at night during graduation, with a patch on his cheek from an accident. What began as casual hangouts soon became a rhythm of shared days and late nights: study sessions, beach trips, road trips, hikes, and countless 7-Eleven ice cream runs. Somewhere between his mint tea deliveries and their endless conversations, their friendship deepened into a bond that felt natural, comforting, and rare.
+What began as a simple hello eventually turned into a journey of trust, growth, and steadfast devotion. A relationship tested by load, strengthened by trials, and grounded in faith, proving that the best structures are those built on solid foundations. Along the way, we learned that God wasn't just guiding our hearts. He was overseeing every detail like the ultimate Project Manager. He taught us patience in the waiting, strength in the distance, and grace in every season.
 
-But their story wasn’t without twists. When she learned he had fallen for her, it shook the foundation of the friendship she treasured most. Unsure and overwhelmed, she stepped back, afraid to lose the one person who made her feel at ease. Yet distance only clarified what both hearts already knew: their connection had grown into something more than friendship. Slowly, carefully, they found their way back to each other.
-
-Challenges followed—training, misunderstandings, jealousy, and moments apart that tested their commitment. There were seasons when they drifted, choosing themselves first, wondering if love could survive the changes they were going through. But every trial brought them back together, stronger and more certain, learning to forgive, to communicate, and to love each other not just for who they were, but for who they were becoming.
-
-Now, after nearly a decade of growing, falling, breaking, and choosing each other again, they stand at the beginning of a new chapter. What started as a simple conversation about Naruto has become a love story shaped by friendship, growth, and a love that endured every season. Today, they walk forward—hand in hand—ready for a lifetime of laughter, healing, and choosing each other, always.`,
+In the grand blueprint of our story, this isn't the final chapter. This is the moment when the foundation is complete, the plans are approved, and we finally get to build the life we've only imagined. And if there's one thing we know for sure, it's that with God leading the project, this love is designed not just to stand but to last.`,
   colors: {
     primary: "#B76E79",
     secondary: "#F7E7CE",
   },
   snapShare: {
-    googleDriveLink: "https://drive.google.com/drive/folders/11ox0BQIZRw7TKwMM_tWK8a68lqM801lw?usp=sharing",
+    googleDriveLink: "https://drive.google.com/drive/folders/1aYyXqjY00OPtGemgnPmoWtqd7PFuiQLC?usp=sharing",
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }

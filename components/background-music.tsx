@@ -1,9 +1,10 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
+import { useAudio } from "@/contexts/audio-context"
 
 const BackgroundMusic = () => {
-  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const { audioRef } = useAudio()
 
   useEffect(() => {
     const handleUserInteraction = () => {
@@ -22,11 +23,10 @@ const BackgroundMusic = () => {
 
     return () => {
       audioRef.current?.pause()
-      audioRef.current = null
       document.removeEventListener("click", handleUserInteraction)
       document.removeEventListener("touchstart", handleUserInteraction)
     }
-  }, [])
+  }, [audioRef])
 
   return (
     <audio

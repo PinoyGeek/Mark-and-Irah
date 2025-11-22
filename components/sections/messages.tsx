@@ -45,7 +45,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
 
     try {
       await fetch(
-        "https://docs.google.com/forms/d/e/1FAIpQLSf3Uxx7bySMRdG2OJlzCkGOIaz9eC4TBJu7iJoE_JZo8mPX_w/formResponse",
+        "https://docs.google.com/forms/d/e/1FAIpQLScQUc6y_86FZoxSzi2e_SNgmiqdsI50XxEJ61LZHociroXgRA/formResponse",
         {
           method: "POST",
           mode: "no-cors",
@@ -124,19 +124,19 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
           </div>
         )}
         
-        <CardContent className="relative p-6 sm:p-8 lg:p-10">
+        <CardContent className="relative p-3 sm:p-5 md:p-6 lg:p-8 xl:p-10">
           {/* Header with icon */}
-          <div className="text-center mb-5 sm:mb-6">
-            <div className="relative inline-block mb-3 sm:mb-4">
+          <div className="text-center mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+            <div className="relative inline-block mb-2 sm:mb-3 md:mb-4">
               <div className="absolute inset-0 bg-[#EDD6AC]/40 rounded-full blur-lg scale-150"></div>
-              <div className="relative w-11 h-11 sm:w-14 sm:h-14 bg-[#A78256] rounded-full flex items-center justify-center mx-auto shadow-lg">
-                <MessageCircle className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+              <div className="relative w-9 h-9 sm:w-11 sm:h-11 md:w-14 md:h-14 bg-[#A78256] rounded-full flex items-center justify-center mx-auto shadow-lg">
+                <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white" />
               </div>
             </div>
-            <h3 className="text-lg sm:text-xl font-playfair font-bold text-foreground mb-2">
+            <h3 className="text-base sm:text-lg md:text-xl font-playfair font-bold text-foreground mb-1.5 sm:mb-2">
               Share Your Love
             </h3>
-            <p className="text-xs sm:text-sm text-foreground/70 font-lora">
+            <p className="text-[10px] sm:text-xs md:text-sm text-foreground/70 font-lora">
               Your message will be treasured forever
             </p>
           </div>
@@ -144,17 +144,17 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
           <form 
             ref={formRef} 
             onSubmit={handleSubmit} 
-            className="space-y-5 sm:space-y-6"
+            className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6"
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
           >
             {/* Name Field */}
-            <div className="space-y-2 sm:space-y-3">
-              <label className="block text-sm sm:text-base font-medium text-foreground font-lora flex items-center gap-2">
-                <div className={`w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-[#B28383]/25 to-[#EDD6AC]/15 rounded-full flex items-center justify-center transition-all duration-300 ${
+            <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
+              <label className="block text-xs sm:text-sm md:text-base font-medium text-foreground font-lora flex items-center gap-1.5 sm:gap-2">
+                <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#B28383]/25 to-[#EDD6AC]/15 rounded-full flex items-center justify-center transition-all duration-300 ${
                   focusedField === 'name' ? 'scale-110 bg-[#C2D3C3]/40' : ''
                 }`}>
-                  <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-[#A78256]" />
+                  <Heart className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-[#A78256]" />
                 </div>
                 Your Name
               </label>
@@ -167,7 +167,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                   onFocus={() => setFocusedField('name')}
                   onBlur={() => setFocusedField(null)}
                   placeholder="Full Name"
-                  className={`message-form-input w-full border-2 rounded-xl py-3 sm:py-3.5 px-4 sm:px-5 text-sm sm:text-base font-lora placeholder:italic transition-all duration-300 bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md focus:shadow-lg ${
+                  className={`message-form-input w-full border-2 rounded-xl py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-3 sm:px-4 md:px-5 text-xs sm:text-sm md:text-base font-lora placeholder:italic transition-all duration-300 bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md focus:shadow-lg ${
                     focusedField === 'name' 
                       ? 'border-[#A78256] focus:border-[#A78256] focus:ring-4 focus:ring-[#A78256]/20 shadow-lg' 
                       : 'border-[#C2D3C3]/40 hover:border-[#A78256]/40'
@@ -182,18 +182,18 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             </div>
 
             {/* Message Field */}
-            <div className="space-y-2 sm:space-y-3">
+            <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
               <div className="flex items-center justify-between">
-                <label className="block text-sm sm:text-base font-medium text-foreground font-lora flex items-center gap-2">
-                  <div className={`w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-[#B28383]/25 to-[#EDD6AC]/15 rounded-full flex items-center justify-center transition-all duration-300 ${
+                <label className="block text-xs sm:text-sm md:text-base font-medium text-foreground font-lora flex items-center gap-1.5 sm:gap-2">
+                  <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#B28383]/25 to-[#EDD6AC]/15 rounded-full flex items-center justify-center transition-all duration-300 ${
                     focusedField === 'message' ? 'scale-110 bg-[#C2D3C3]/40' : ''
                   }`}>
-                    <MessageCircle className="h-3 w-3 sm:h-4 sm:w-4 text-[#A78256]" />
+                    <MessageCircle className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-[#A78256]" />
                   </div>
                   Your Message
                 </label>
                 {messageValue && (
-                  <span className={`text-xs font-lora transition-colors ${
+                  <span className={`text-[10px] sm:text-xs font-lora transition-colors ${
                     messageValue.length > 500 ? 'text-red-500' : 'text-foreground/50'
                   }`}>
                     {messageValue.length}/500
@@ -213,7 +213,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                   onFocus={() => setFocusedField('message')}
                   onBlur={() => setFocusedField(null)}
                   placeholder="Write a heartfelt message for Edlin Mae & Joshua Jose... Share your wishes, memories, or words of love that will be treasured forever 💕"
-                  className={`message-form-textarea w-full border-2 rounded-xl min-h-[100px] sm:min-h-[120px] text-sm sm:text-base font-lora placeholder:italic placeholder:leading-relaxed transition-all duration-300 resize-none bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md focus:shadow-lg py-3 sm:py-4 px-4 sm:px-5 ${
+                  className={`message-form-textarea w-full border-2 rounded-xl min-h-[80px] sm:min-h-[100px] md:min-h-[120px] text-xs sm:text-sm md:text-base font-lora placeholder:italic placeholder:leading-relaxed transition-all duration-300 resize-none bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md focus:shadow-lg py-2 sm:py-3 md:py-4 px-3 sm:px-4 md:px-5 ${
                     focusedField === 'message' 
                       ? 'border-[#A78256] focus:border-[#A78256] focus:ring-4 focus:ring-[#A78256]/20 shadow-lg' 
                       : 'border-[#C2D3C3]/40 hover:border-[#A78256]/40'
@@ -231,7 +231,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             <Button
               type="submit"
               disabled={isSubmitting || !nameValue.trim() || !messageValue.trim()}
-              className="w-full text-white py-3 sm:py-3.5 px-6 sm:px-7 rounded-xl text-sm sm:text-base font-lora font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group border border-[#EDD6AC]/60"
+              className="w-full text-white py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-4 sm:px-5 md:px-6 lg:px-7 rounded-xl text-xs sm:text-sm md:text-base font-lora font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group border border-[#EDD6AC]/60"
               style={{ 
                 backgroundColor: "#A78256",
                 boxShadow: "0 4px 18px rgba(167, 130, 86, 0.4)"
@@ -279,7 +279,7 @@ export function Messages() {
   const fetchMessages = useCallback(() => {
     setLoading(true)
     fetch(
-      "https://script.google.com/macros/s/AKfycbwIEYx-Fyv3xSOC5_XEPrgx0dKUsXxsD3PqeOqb-kJcdhy-B7w4JI05EenTOJSljnUQ/exec"
+      "https://script.google.com/macros/s/AKfycbyQ3AghSLwFPbeOF_S0YexxvlEQ-IyQhG7vSMXFuFKhN0Dj95esXupxW0BfaZC3EyO2ew/exec"
     )
       .then((res) => res.json())
       .then((data) => {
@@ -336,20 +336,20 @@ export function Messages() {
       id="messages"
       className="relative overflow-hidden"
     >
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-6xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="text-center mb-8 sm:mb-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-4 text-balance drop-shadow-md">
+        <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-2 sm:mb-3 md:mb-4 text-balance drop-shadow-md">
             Love Messages
           </h2>
 
-          <p className="text-sm sm:text-base text-white font-light max-w-3xl mx-auto leading-relaxed px-4">
-            Leave a short note for Edlin Mae & Joshua Jose. Every wish and memory helps build our keepsake wall.
+          <p className="text-xs sm:text-sm md:text-base text-white font-light max-w-3xl mx-auto leading-relaxed px-2 sm:px-4">
+            Leave a short note for Julaine and Cristopher. Every wish and memory helps build our keepsake wall.
           </p>
         </div>
 
         {/* Form Section */}
-        <div className="flex justify-center mb-8 sm:mb-10">
+        <div className="flex justify-center mb-4 sm:mb-6 md:mb-8 lg:mb-10">
           <div className="relative max-w-xl w-full">
             {/* Card halo */}
             <div className="absolute -inset-3 bg-gradient-to-br from-[#B28383]/25 via-[#EDD6AC]/20 to-transparent rounded-3xl blur-2xl opacity-70" />
@@ -367,19 +367,19 @@ export function Messages() {
 
         {/* Messages Display Section */}
         <div className="relative max-w-4xl mx-auto">
-          <div className="text-center mb-6 sm:mb-8">
-            <div className="relative inline-block mb-4 sm:mb-6">
+          <div className="text-center mb-4 sm:mb-6 md:mb-8">
+            <div className="relative inline-block mb-3 sm:mb-4 md:mb-6">
               <div className="absolute inset-0 bg-gradient-to-r from-[#A78256]/35 to-[#B28383]/25 rounded-full blur-xl scale-150 animate-pulse"></div>
-              <div className="relative w-10 h-10 sm:w-14 sm:h-14 bg-gradient-to-br from-[#A78256] via-[#B28383] to-[#C2D3C3] rounded-full flex items-center justify-center mx-auto shadow-lg hover:scale-110 transition-transform duration-300">
-                <MessageCircle className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+              <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 bg-gradient-to-br from-[#A78256] via-[#B28383] to-[#C2D3C3] rounded-full flex items-center justify-center mx-auto shadow-lg hover:scale-110 transition-transform duration-300">
+                <MessageCircle className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white" />
               </div>
               {/* Outer glow ring */}
               <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-[#A78256]/20 via-[#B28383]/15 to-[#C2D3C3]/10 blur-md opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <h3 className="text-xl sm:text-2xl font-playfair font-bold text-white mb-2 sm:mb-3">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-playfair font-bold text-white mb-1.5 sm:mb-2 md:mb-3">
               Messages from Loved Ones
             </h3>
-            <p className="text-sm sm:text-base text-white font-lora max-w-2xl mx-auto px-4">
+            <p className="text-xs sm:text-sm md:text-base text-white font-lora max-w-2xl mx-auto px-2 sm:px-4">
               Read the beautiful messages shared by family and friends
             </p>
           </div>

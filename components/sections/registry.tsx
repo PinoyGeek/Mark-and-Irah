@@ -1,8 +1,7 @@
 "use client"
 
 import { Section } from "@/components/section"
-import { Gift, Heart } from "lucide-react"
-import Image from "next/image"
+import { Heart } from "lucide-react"
 
 export function Registry() {
   return (
@@ -59,40 +58,6 @@ export function Registry() {
                 Should you wish to bless us further, a monetary gift would be delightful as we begin building our journey as husband and wife.
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* GCash QR Code */}
-        <div className="relative bg-[#EDD6AC]/98 backdrop-blur-md border-2 border-[#A78256]/40 rounded-lg sm:rounded-xl md:rounded-2xl shadow-lg mb-4 sm:mb-6 overflow-visible">
-          {/* Decorative corner accents */}
-          <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#C2D3C3]/40 rounded-tl-lg" />
-          <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#C2D3C3]/40 rounded-tr-lg" />
-          <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#C2D3C3]/40 rounded-bl-lg" />
-          <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#C2D3C3]/40 rounded-br-lg" />
-          
-          <div className="relative p-4 sm:p-5 md:p-6 text-center">
-            <div className="inline-flex items-center justify-center mb-3 sm:mb-4">
-              <Gift className="w-5 h-5 sm:w-6 sm:h-6 text-[#A78256] mr-2" />
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#A78256]">GCash</h3>
-              <Gift className="w-5 h-5 sm:w-6 sm:h-6 text-[#A78256] ml-2" />
-            </div>
-            
-            {/* QR Code Display */}
-            <div className="flex justify-center items-center">
-              <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 bg-white p-3 rounded-lg shadow-md">
-                <Image
-                  src="/QR/Gcash1.png"
-                  alt="GCash QR Code"
-                  fill
-                  className="object-contain rounded"
-                  priority
-                />
-              </div>
-            </div>
-            
-            <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-[#B28383] font-medium">
-              Scan the QR code to send your gift via GCash
-            </p>
           </div>
         </div>
 
