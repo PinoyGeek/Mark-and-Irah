@@ -3,112 +3,66 @@ import { Section } from "@/components/section"
 import { siteConfig } from "@/content/site"
 import Stack from "@/components/stack"
 import { motion } from "motion/react"
+import Image from "next/image"
 
 
 export function Narrative() {
-  // Generate particle positions
-  const particles = Array.from({ length: 50 }, (_, i) => ({
-    id: i,
-    top: `${Math.random() * 100}%`,
-    left: `${Math.random() * 100}%`,
-    delay: Math.random() * 20,
-    duration: 15 + Math.random() * 10,
-    size: 2 + Math.random() * 3,
-    xMove: Math.random() * 20 - 10,
-  }))
-
   return (
-    <Section id="narrative" className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-b from-[#FFFFFF] via-[#F1EDE2]/60 to-[#FFFFFF]">
+    <Section id="narrative" className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-gradient-to-b from-[#DDD3CC] via-[#EDD6AC]/60 to-[#DDD3CC]">
 
-      {/* Particle Background Effect */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {particles.map((particle) => (
-          <motion.div
-            key={particle.id}
-            className="absolute rounded-full"
-            style={{ background: `radial-gradient(circle at 30% 30%, #D8B0B033 0%, #F1EDE222 90%, #FFFFFF11 99%)` }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, particle.xMove, 0],
-              opacity: [0.1, 0.3, 0.1],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: particle.duration,
-              repeat: Infinity,
-              delay: particle.delay,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-        
-        {/* Floating hearts */}
-        {Array.from({ length: 8 }).map((_, i) => (
-          <motion.div
-            key={`heart-${i}`}
-            className="absolute text-[#F1EDE2]/30"
-            style={{
-              top: `${10 + i * 12}%`,
-              left: `${5 + (i % 3) * 30}%`,
-            }}
-            animate={{
-              y: [0, -20, 0],
-              rotate: [0, 5, 0],
-              opacity: [0.05, 0.15, 0.05],
-            }}
-            transition={{
-              duration: 8 + i * 0.5,
-              repeat: Infinity,
-              delay: i * 0.5,
-              ease: "easeInOut",
-            }}
-          >
-            <svg className="w-4 h-4 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
-          </motion.div>
-        ))}
+      {/* Background overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#DDD3CC]/85 via-[#EDD6AC]/70 to-[#DDD3CC]/85 backdrop-blur-md z-10"></div>
+      <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-[#C2D3C3]/20 to-transparent mix-blend-multiply"></div>
 
+      {/* Corner decorations - bottom corners */}
+      <div className="absolute bottom-0 left-0 z-20">
+        <Image
+          src="/decoration/corner_right-top.png"
+          alt=""
+          width={300}
+          height={300}
+          className="w-40 sm:w-52 md:w-64 lg:w-80 xl:w-96 h-auto opacity-75 scale-x-[-1] scale-y-[-1]"
+          priority={false}
+        />
+      </div>
+      
+      <div className="absolute bottom-0 right-0 z-20">
+        <Image
+          src="/decoration/corner_right-top.png"
+          alt=""
+          width={300}
+          height={300}
+          className="w-40 sm:w-52 md:w-64 lg:w-80 xl:w-96 h-auto opacity-75 scale-y-[-1]"
+          priority={false}
+        />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#FFFFFF]/85 via-[#FFFFFF]/70 to-[#FFFFFF]/85 backdrop-blur-md z-10"></div>
-
-      {/* Bottom-right flower decoration (above layered background) */}
-      <img
-        src="/decoration/flower-bg-left-down.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute bottom-0 right-0 z-20 w-32 sm:w-40 md:w-52 lg:w-60 opacity-90 select-none pointer-events-none"
-      />
-      {/* Overlay for a slight warmth effect for theme harmony */}
-      <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-[#F1EDE2]/60 to-transparent mix-blend-multiply"></div>
-
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div 
-          className="text-center mb-12 md:mb-24"
+          className="text-center mb-8 md:mb-12"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold text-primary mb-6 md:mb-8 text-balance drop-shadow-lg tracking-tight">
-            <span className="text-[#AFC8E6]">Our Love Story:</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-4 md:mb-6 text-balance drop-shadow-lg tracking-tight">
+            <span className="text-[#A78256]">Our Love Story</span>
           </h2>
           
           {/* Decorative flourish */}
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-[#F1EDE2]/80 to-[#D8B0B0]/40"></div>
-            <svg className="w-6 h-6 md:w-8 md:h-8 text-[#F1EDE2]/80" fill="currentColor" viewBox="0 0 24 24">
+          <div className="flex items-center justify-center gap-3">
+            <div className="w-8 md:w-12 h-px bg-gradient-to-r from-transparent via-[#B28383]/80 to-[#A78256]/40"></div>
+            <svg className="w-5 h-5 md:w-6 md:h-6 text-[#B28383]/80" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
-            <div className="w-12 md:w-16 h-px bg-gradient-to-l from-transparent via-[#F1EDE2]/80 to-[#D8B0B0]/40"></div>
+            <div className="w-8 md:w-12 h-px bg-gradient-to-l from-transparent via-[#B28383]/80 to-[#A78256]/40"></div>
           </div>
         </motion.div>
 
         {/* Main Content - Centered Layout */}
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16 items-center lg:items-start"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10 items-center lg:items-start"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -121,24 +75,24 @@ export function Narrative() {
           <div className="flex justify-center">
             <div className="relative">
               {/* Enhanced glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D8B0B0]/30 via-[#D8B0B0]/20 to-[#FFFFFF]/25 rounded-full blur-3xl -z-10 w-full h-full max-w-sm animate-pulse"></div>
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#F1EDE2]/25 via-transparent to-[#FFFFFF]/10 rounded-full blur-2xl -z-10 w-full h-full max-w-sm"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#B28383]/30 via-[#A78256]/20 to-[#EDD6AC]/25 rounded-full blur-3xl -z-10 w-full h-full max-w-sm animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#C2D3C3]/25 via-transparent to-[#DDD3CC]/10 rounded-full blur-2xl -z-10 w-full h-full max-w-sm"></div>
 
               <Stack
                 randomRotation={true}
                 sensitivity={180}
                 sendToBackOnClick={false}
-                cardDimensions={{ width: 280, height: 320 }}
+                cardDimensions={{ width: 240, height: 280 }}
                 cardsData={[
-                  { id: 1, img: "/mobile-background/couple (1).jpg" },
-                  { id: 2, img: "/mobile-background/couple (18).jpg" },
-                  { id: 3, img: "/desktop-background/couple (48).jpg" },
+                  { id: 1, img: "/desktop-background/couple (2).JPEG" },
+                  { id: 2, img: "/desktop-background/couple (1).JPG" },
+                  { id: 3, img: "/desktop-background/couple (4).JPEG" },
                 ]}
                 animationConfig={{ stiffness: 260, damping: 20 }}
               />
 
               <motion.p 
-                className="text-center text-sm md:text-base text-[#AFC8E6] mt-8 font-sans font-medium tracking-wide"
+                className="text-center text-xs md:text-sm text-[#A78256] mt-4 font-sans font-medium tracking-wide"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -155,13 +109,13 @@ export function Narrative() {
 
         {/* Story Text - Full Width Below */}
         <motion.div 
-          className="mt-16 md:mt-28 max-w-4xl mx-auto"
+          className="mt-10 md:mt-16 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <div className="space-y-6 md:space-y-10">
+          <div className="space-y-4 md:space-y-6">
             {siteConfig.narrative.split("\n\n").map((paragraph, index) => (
               <motion.div 
                 key={index} 
@@ -173,14 +127,14 @@ export function Narrative() {
               >
                 {/* First paragraph with drop cap */}
                 {index === 0 ? (
-                  <p className="text-sm md:text-lg leading-relaxed text-[#AFC8E6] text-pretty font-sans font-light pl-3 md:pl-6">
-                    <span className="float-left text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-[#D8B0B0] leading-none mr-2 mt-1 drop-shadow-md">
+                  <p className="text-sm md:text-base leading-relaxed text-[#A78256] text-pretty font-sans font-light pl-3 md:pl-6">
+                    <span className="float-left text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-[#B28383] leading-none mr-2 mt-1 drop-shadow-md">
                       {paragraph.charAt(0)}
                     </span>
                     {paragraph.slice(1)}
                   </p>
                 ) : (
-                  <p className="text-sm md:text-lg leading-relaxed text-[#D8B0B0] text-pretty font-sans font-light pl-3 md:pl-6">
+                  <p className="text-sm md:text-base leading-relaxed text-[#B28383] text-pretty font-sans font-light pl-3 md:pl-6">
                     {paragraph}
                   </p>
                 )}
@@ -190,7 +144,7 @@ export function Narrative() {
 
           {/* Divider and CTA */}
           <motion.div 
-            className="mt-16 md:mt-24 lg:mt-28 space-y-8 md:space-y-12"
+            className="mt-10 md:mt-14 space-y-6 md:space-y-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -198,21 +152,21 @@ export function Narrative() {
           >
             {/* Decorative divider */}
             <div className="flex items-center justify-center gap-4">
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[#F1EDE2]/60 to-[#D8B0B0]/30"></div>
-              <svg className="w-5 h-5 text-[#F1EDE2]/80" fill="currentColor" viewBox="0 0 24 24">
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[#B28383]/60 to-[#A78256]/30"></div>
+              <svg className="w-5 h-5 text-[#A78256]/80" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-5c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
               </svg>
-              <div className="flex-1 h-px bg-gradient-to-l from-transparent via-[#F1EDE2]/60 to-[#D8B0B0]/30"></div>
+              <div className="flex-1 h-px bg-gradient-to-l from-transparent via-[#B28383]/60 to-[#A78256]/30"></div>
             </div>
 
             {/* Enhanced CTA Button */}
             <div className="flex justify-center">
               <motion.a
                 href="#guest-list"
-                className="group relative w-full sm:w-auto px-8 sm:px-12 md:px-16 py-5 sm:py-6 md:py-7 text-[#FFFFFF] font-sans font-bold text-base sm:text-lg md:text-xl lg:text-2xl rounded-[2rem] transition-all duration-500 text-center overflow-hidden shadow-xl hover:shadow-2xl border-2 border-[#FFFFFF] hover:border-[#F1EDE2] hover:text-white"
+                className="group relative w-full sm:w-auto px-6 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 text-[#FFFFFF] font-sans font-bold text-sm sm:text-base md:text-lg rounded-[2rem] transition-all duration-500 text-center overflow-hidden shadow-xl hover:shadow-2xl border-2 border-[#EDD6AC] hover:border-[#A78256] hover:text-white"
                 style={{ 
-                  backgroundColor: "#AFC8E6",
-                  boxShadow: "0 10px 40px rgba(175, 200, 230, 0.4), 0 4px 12px rgba(0,0,0,0.3)"
+                  backgroundColor: "#B28383",
+                  boxShadow: "0 10px 40px rgba(178, 131, 131, 0.4), 0 4px 12px rgba(0,0,0,0.3)"
                 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -220,17 +174,17 @@ export function Narrative() {
                 whileHover={{ scale: 1.05, y: -4 }}
                 whileTap={{ scale: 0.98 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "rgba(175, 200, 230, 0.9)";
-                  e.currentTarget.style.boxShadow = "0 15px 50px rgba(175, 200, 230, 0.6), 0 6px 16px rgba(0,0,0,0.4)";
+                  e.currentTarget.style.backgroundColor = "rgba(178, 131, 131, 0.9)";
+                  e.currentTarget.style.boxShadow = "0 15px 50px rgba(178, 131, 131, 0.6), 0 6px 16px rgba(0,0,0,0.4)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#AFC8E6";
-                  e.currentTarget.style.boxShadow = "0 10px 40px rgba(175, 200, 230, 0.4), 0 4px 12px rgba(0,0,0,0.3)";
+                  e.currentTarget.style.backgroundColor = "#B28383";
+                  e.currentTarget.style.boxShadow = "0 10px 40px rgba(178, 131, 131, 0.4), 0 4px 12px rgba(0,0,0,0.3)";
                 }}
               >
                 {/* Pulsing glow effect */}
                 <motion.div 
-                  className="absolute inset-0 bg-[#AFC8E6]/35 rounded-[2rem] blur-2xl"
+                  className="absolute inset-0 bg-[#B28383]/35 rounded-[2rem] blur-2xl"
                   animate={{
                     opacity: [0.4, 0.7, 0.4],
                     scale: [1, 1.1, 1],

@@ -1,17 +1,17 @@
 export const siteConfig = {
   couple: {
-    bride: "Ma. Nikki Pauline Q. Balane",
-    brideNickname: "Nikki",
-    groom: "Geofrey B. Ascutia",
-    groomNickname: "Geofrey",
+    bride: "Edlin Mae B. Cellona",
+    brideNickname: "Edlin Mae",
+    groom: "Joshua Jose T. Descalzo",
+    groomNickname: "Joshua",
   },
   wedding: {
-    date: "December 23, 2025",
-    time: "1:30 PM",
-    venue: "St. Rose of Lima Parish, Bacacay, Albay",
+    date: "December 22, 2025",
+    time: "3:00 PM",
+    venue: "St. Gregory the Great Cathedral, Old Albay District, Legazpi City",
     tagline: "are getting married!",
-    theme: "Dusty Pink and Baby Blue",
-    motif: "Dusty Pink and Baby Blue (floral pastel colors)",
+    theme: "Rosegold & Champagne",
+    motif: "Rosegold-champagne elegance",
   },
   details: {
     rsvp: {
@@ -19,37 +19,49 @@ export const siteConfig = {
     },
   },
   ceremony: {
-    location: "St. Rose of Lima Parish, Bacacay, Albay",
-    venue: "St. Rose of Lima Parish",
-    date: "December 23, 2025",
-    day: "Tuesday",
-    time: "1:30 PM",
-    entourageTime: "12:30 PM",
-    guestsTime: "1:00 PM",
+    location: "St. Gregory the Great Cathedral, Old Albay District, Legazpi City",
+    venue: "St. Gregory the Great Cathedral",
+    date: "December 22, 2025",
+    day: "Monday",
+    time: "3:00 PM",
+    entourageTime: "2:00 PM",
+    guestsTime: "2:30 PM",
   },
   reception: {
-    location: "Tres Hijos Hotel and Resort, Sto. Domingo, Albay",
-    venue: "Tres Hijos Hotel and Resort",
-    date: "December 23, 2025",
-    time: "4:30 PM",
+    location: "Pepperland Hotel, Airport Road, Washington Drive Ext., Brgy 40 Cruzada, Legazpi City",
+    venue: "Pepperland Hotel",
+    date: "December 22, 2025",
+    time: "Reception to follow",
   },
   dressCode: {
-    theme: "Dusty Pink and Baby Blue",
-    colors: ["#AFC8E6", "#D8B0B0", "#F1EDE2"],
+    theme: "Rosegold & Champagne",
+    colors: ["#B76E79", "#F7E7CE", "#FFFFFF"],
     sponsors: {
-      ladies: "Gown / Long dress beige/pink/blue/cream.",
-      gentlemen: "Black suit and tie"
+      ladies: "Elegant gowns in rosegold, champagne, or soft neutrals.",
+      gentlemen: "Classic black or midnight suits with champagne accents."
     },
     guests: {
-      ladies: "Long or cocktail dress",
-      gentlemen: "Long sleeve, polo, pants or suit"
+      ladies: "Long or cocktail dresses in rosegold, champagne, or muted metallics.",
+      gentlemen: "Barong, long-sleeve polos, or suits in complementary neutrals."
     },
     note: "Please avoid jeans and casual attire."
   },
-  narrative: `We're two architects who met in Manila—both chasing dreams far from home. What began as a search for a great career led us to something even greater: finding each other. In this city of concrete and lights, we built the most beautiful design of all—our love.`,
+  narrative: `They first met as nursing students—two batchmates who barely knew each other but somehow found themselves caught in a conversation about Naruto at the grandstand. It’s funny and almost ancient now to think that the two kids talking back then were the very ones no one would have guessed. She thought he was an anime fanatic like her, but it wasn’t until several months into their relationship that he learned Naruto was actually the only anime he knew. She remembered him as the playful guy who took being a ninja a little too seriously, while he remembered her as the girl who enthusiastically gave a full history lesson on the Hidden Leaf Village like it was a college course. It was the kind of meeting that felt both random and like the universe’s little inside joke—two strangers bonding over fictional characters and ninja headbands, as if it was the whole world to them, completely unaware that this odd, unexpected chat was the first page of their story.
+
+Years later, in medical school, fate brought them together again. On orientation day, she found herself sitting beside a group of friends that included the guy she had always remembered—the one who once had a crush on her classmate, and the same guy who wore sunglasses at night during graduation, with a patch on his cheek from an accident. What began as casual hangouts soon became a rhythm of shared days and late nights: study sessions, beach trips, road trips, hikes, and countless 7-Eleven ice cream runs. Somewhere between his mint tea deliveries and their endless conversations, their friendship deepened into a bond that felt natural, comforting, and rare.
+
+But their story wasn’t without twists. When she learned he had fallen for her, it shook the foundation of the friendship she treasured most. Unsure and overwhelmed, she stepped back, afraid to lose the one person who made her feel at ease. Yet distance only clarified what both hearts already knew: their connection had grown into something more than friendship. Slowly, carefully, they found their way back to each other.
+
+Challenges followed—training, misunderstandings, jealousy, and moments apart that tested their commitment. There were seasons when they drifted, choosing themselves first, wondering if love could survive the changes they were going through. But every trial brought them back together, stronger and more certain, learning to forgive, to communicate, and to love each other not just for who they were, but for who they were becoming.
+
+Now, after nearly a decade of growing, falling, breaking, and choosing each other again, they stand at the beginning of a new chapter. What started as a simple conversation about Naruto has become a love story shaped by friendship, growth, and a love that endured every season. Today, they walk forward—hand in hand—ready for a lifetime of laughter, healing, and choosing each other, always.`,
   colors: {
-    primary: "#AFC8E6",
-    secondary: "#D8B0B0",
+    primary: "#B76E79",
+    secondary: "#F7E7CE",
+  },
+  snapShare: {
+    googleDriveLink: "https://drive.google.com/drive/folders/11ox0BQIZRw7TKwMM_tWK8a68lqM801lw?usp=sharing",
+    instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }
 

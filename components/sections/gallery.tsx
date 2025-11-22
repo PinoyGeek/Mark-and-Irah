@@ -1,15 +1,16 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
+import NextImage from "next/image"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { Section } from "@/components/section"
 // Removed circular gallery in favor of a responsive masonry layout
 
 const galleryItems = [
-  { image: "/mobile-background/couple (18).jpg", text: " " },   
-  { image: "/mobile-background/couple (11).jpg", text: " " },
-  { image: "/desktop-background/couple (41).jpg", text: " " },
-
+  { image: "/mobile-background/couple (1).JPEG", text: " " },   
+  { image: "/mobile-background/couple (1).JPG", text: " " },
+  { image: "/mobile-background/couple (2).JPEG", text: " " },
+  { image: "/mobile-background/couple (2).JPG", text: " " },
 ]
 
 export function Gallery() {
@@ -72,10 +73,12 @@ export function Gallery() {
   // Preload adjacent images for smoother nav
   useEffect(() => {
     if (selectedImage) {
-      const next = new Image()
-      next.src = galleryItems[(currentIndex + 1) % galleryItems.length].image
-      const prev = new Image()
-      prev.src = galleryItems[(currentIndex - 1 + galleryItems.length) % galleryItems.length].image
+      if (typeof window !== "undefined") {
+        const nextImg = new window.Image()
+        nextImg.src = galleryItems[(currentIndex + 1) % galleryItems.length].image
+        const prevImg = new window.Image()
+        prevImg.src = galleryItems[(currentIndex - 1 + galleryItems.length) % galleryItems.length].image
+      }
     }
   }, [selectedImage, currentIndex])
 
@@ -89,41 +92,95 @@ export function Gallery() {
   return (
     <Section
       id="gallery"
-      className="relative bg-[#D8B0B0] py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative bg-[#DDD3CC] py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Subtle background elements */}
+      {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#F1EDE2]/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#F1EDE2]/5 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#EDD6AC]/25 via-[#DDD3CC]/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#B28383]/25 via-[#DDD3CC]/10 to-transparent" />
+
+        {/* Floating decorative circles */}
+        <div className="absolute top-6 left-8 w-32 h-32 bg-[#C2D3C3]/15 rounded-full blur-2xl animate-pulse" />
+        <div className="absolute top-16 right-12 w-24 h-24 bg-[#A78256]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-20 left-16 w-28 h-28 bg-[#B28383]/18 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "2s" }} />
+        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#EDD6AC]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: "0.5s" }} />
+
+        {/* Corner decorations */}
+        <div className="absolute top-0 left-0 z-0">
+          <NextImage
+            src="/decoration/corner_right-top.png"
+            alt=""
+            width={300}
+            height={300}
+            className="w-32 sm:w-44 md:w-56 lg:w-72 xl:w-80 h-auto opacity-70 scale-x-[-1]"
+            priority={false}
+          />
+        </div>
+        <div className="absolute top-0 right-0 z-0">
+          <NextImage
+            src="/decoration/corner_right-top.png"
+            alt=""
+            width={300}
+            height={300}
+            className="w-32 sm:w-44 md:w-56 lg:w-72 xl:w-80 h-auto opacity-70"
+            priority={false}
+          />
+        </div>
+        <div className="absolute bottom-0 left-0 z-0">
+          <NextImage
+            src="/decoration/corner_right-top.png"
+            alt=""
+            width={300}
+            height={300}
+            className="w-32 sm:w-44 md:w-56 lg:w-72 xl:w-80 h-auto opacity-70 scale-x-[-1] scale-y-[-1]"
+            priority={false}
+          />
+        </div>
+        <div className="absolute bottom-0 right-0 z-0">
+          <NextImage
+            src="/decoration/corner_right-top.png"
+            alt=""
+            width={300}
+            height={300}
+            className="w-32 sm:w-44 md:w-56 lg:w-72 xl:w-80 h-auto opacity-70 scale-y-[-1]"
+            priority={false}
+          />
+        </div>
       </div>
 
       {/* Header */}
-      <div className="relative z-10 text-center mb-10 sm:mb-12 md:mb-16 px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#FFFFFF] mb-4 sm:mb-6 drop-shadow-md">
+      <div className="relative z-10 text-center mb-8 sm:mb-10 md:mb-12 px-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#A78256] mb-3 sm:mb-4 drop-shadow-md">
           Our Moments
         </h2>
         
-        <p className="text-sm sm:text-base md:text-lg text-[#FFFFFF]/90 font-light max-w-xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base text-[#B28383] font-light max-w-xl mx-auto leading-relaxed">
           Every moment, a treasured memory made eternal
         </p>
+
+        <div className="flex items-center justify-center gap-2 mt-4">
+          <div className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent via-[#A78256]/50 to-[#B28383]/30" />
+          <div className="w-1.5 h-1.5 rounded-full bg-[#A78256]/60" />
+          <div className="w-8 sm:w-12 h-px bg-gradient-to-l from-transparent via-[#A78256]/50 to-[#B28383]/30" />
+        </div>
       </div>
 
       {/* Gallery content */}
       <div className="relative z-10 w-full">
-        <div className="flex justify-center px-4 sm:px-6 md:px-8">
-          <div className="max-w-6xl w-full">
+        <div className="flex justify-center px-4 sm:px-5 md:px-6">
+          <div className="max-w-5xl w-full">
             {isLoading ? (
-              <div className="flex items-center justify-center h-64 sm:h-80 md:h-96">
-                <div className="w-12 h-12 border-[3px] border-[#F1EDE2]/30 border-t-[#F1EDE2] rounded-full animate-spin" />
+              <div className="flex items-center justify-center h-48 sm:h-60 md:h-72">
+                <div className="w-10 h-10 border-[3px] border-[#EDD6AC]/40 border-t-[#A78256] rounded-full animate-spin" />
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3.5 md:gap-4.5">
                 {galleryItems.map((item, index) => (
                   <button
                     key={item.image + index}
                     type="button"
-                    className="group relative w-full overflow-hidden rounded-lg sm:rounded-xl bg-white/5 backdrop-blur-sm border border-[#F1EDE2]/20 shadow-lg hover:shadow-xl hover:border-[#F1EDE2]/40 transition-all duration-300"
+                    className="group relative w-full overflow-hidden rounded-lg sm:rounded-xl bg-[#EDD6AC]/40 backdrop-blur-sm border border-[#C2D3C3]/40 shadow-lg hover:shadow-xl hover:border-[#A78256]/60 transition-all duration-300"
                     onClick={() => {
                       setSelectedImage(item)
                       setCurrentIndex(index)
@@ -131,7 +188,7 @@ export function Gallery() {
                     aria-label={`Open image ${index + 1}`}
                   >
                     {/* Subtle glow on hover */}
-                    <div className="absolute -inset-0.5 bg-gradient-to-br from-[#F1EDE2]/20 to-[#D8B0B0]/10 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+                    <div className="absolute -inset-0.5 bg-gradient-to-br from-[#A78256]/25 to-[#B28383]/15 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
                     
                     <div className="relative aspect-[3/4] md:aspect-square overflow-hidden">
                       <img
@@ -143,12 +200,12 @@ export function Gallery() {
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       {/* Gradient overlay on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#A78256]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     
                     {/* Image counter badge */}
-                    <div className="absolute top-2 right-2 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="text-xs font-medium text-white">
+                    <div className="absolute top-2 right-2 bg-[#B28383]/80 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-white/30">
+                      <span className="text-xs font-medium text-white tracking-wide">
                         {index + 1}/{galleryItems.length}
                       </span>
                     </div>
@@ -317,33 +374,33 @@ export function Gallery() {
         </div>
       )}
       {/* View more button */}
-      <div className="relative z-10 mt-10 sm:mt-12 md:mt-16 flex justify-center px-4">
+      <div className="relative z-10 mt-8 sm:mt-10 md:mt-12 flex justify-center px-4">
         <a
           href="/gallery"
           className="group inline-flex items-center gap-2 px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-3.5 md:py-4 rounded-lg sm:rounded-xl font-semibold sm:font-bold transition-all duration-300 uppercase tracking-wider text-xs sm:text-sm md:text-base whitespace-nowrap relative overflow-hidden border-2 backdrop-blur-sm"
           style={{
-            backgroundColor: "#AFC8E6",
-            borderColor: "rgba(241, 237, 226, 0.4)",
-            color: "#FFFFFF",
-            boxShadow: "0 4px 20px rgba(175, 200, 230, 0.4), 0 2px 6px rgba(0,0,0,0.3)",
+            backgroundColor: "#A78256",
+            borderColor: "rgba(237, 214, 172, 0.8)",
+            color: "#FFF8F2",
+            boxShadow: "0 4px 20px rgba(167, 130, 86, 0.35), 0 2px 6px rgba(0,0,0,0.25)",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "rgba(175, 200, 230, 0.9)";
-            e.currentTarget.style.borderColor = "rgba(241, 237, 226, 0.7)";
+            e.currentTarget.style.backgroundColor = "rgba(167, 130, 86, 0.95)";
+            e.currentTarget.style.borderColor = "rgba(237, 214, 172, 1)";
             e.currentTarget.style.transform = "translateY(-2px)";
-            e.currentTarget.style.boxShadow = "0 8px 30px rgba(175, 200, 230, 0.6), 0 4px 12px rgba(0,0,0,0.4)";
+            e.currentTarget.style.boxShadow = "0 8px 30px rgba(167, 130, 86, 0.5), 0 4px 12px rgba(0,0,0,0.3)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "#AFC8E6";
-            e.currentTarget.style.borderColor = "rgba(241, 237, 226, 0.4)";
+            e.currentTarget.style.backgroundColor = "#A78256";
+            e.currentTarget.style.borderColor = "rgba(237, 214, 172, 0.8)";
             e.currentTarget.style.transform = "translateY(0)";
-            e.currentTarget.style.boxShadow = "0 4px 20px rgba(175, 200, 230, 0.4), 0 2px 6px rgba(0,0,0,0.3)";
+            e.currentTarget.style.boxShadow = "0 4px 20px rgba(167, 130, 86, 0.35), 0 2px 6px rgba(0,0,0,0.25)";
           }}
         >
           <span className="relative z-10">View Full Gallery</span>
           <ChevronRight size={16} className="sm:w-5 sm:h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
           <div 
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F1EDE2]/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#EDD6AC]/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
           />
         </a>
       </div>

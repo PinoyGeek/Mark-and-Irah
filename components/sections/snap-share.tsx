@@ -6,26 +6,25 @@ import { motion } from "motion/react"
 import { Instagram, Facebook, Twitter, Share2, Copy, Check, Download } from "lucide-react"
 import { Section } from "@/components/section"
 import { QRCodeCanvas } from "qrcode.react"
+import { siteConfig } from "@/content/site"
 
 export function SnapShare() {
   const [copiedHashtag, setCopiedHashtag] = useState(false)
-  const [scrollY, setScrollY] = useState(0)
+  const [copiedDriveQR, setCopiedDriveQR] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
   const websiteUrl = typeof window !== "undefined" ? window.location.href : "https://example.com"
+  const googleDriveUrl = siteConfig.snapShare?.googleDriveLink || ""
   const hashtags = ["#TheBigBANGWedding"]
   const shareText = `Join us in celebrating our special day! Check out our wedding website: ${websiteUrl} ${hashtags.join(" ")} 💕`
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
     const checkMobile = () => setIsMobile(window.innerWidth < 640)
 
     checkMobile()
-    window.addEventListener("scroll", handleScroll)
     window.addEventListener("resize", checkMobile)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
       window.removeEventListener("resize", checkMobile)
     }
   }, [])
@@ -66,6 +65,27 @@ export function SnapShare() {
     link.click()
   }
 
+  const downloadDriveQRCode = () => {
+    const canvas = document.getElementById("drive-qr") as HTMLCanvasElement | null
+    if (!canvas) return
+    const link = document.createElement("a")
+    link.download = "drive-qr.png"
+    link.href = canvas.toDataURL("image/png")
+    link.click()
+  }
+
+  const copyDriveLink = async () => {
+    if (googleDriveUrl) {
+      try {
+        await navigator.clipboard.writeText(googleDriveUrl)
+        setCopiedDriveQR(true)
+        setTimeout(() => setCopiedDriveQR(false), 2000)
+      } catch (err) {
+        console.error("Failed to copy: ", err)
+      }
+    }
+  }
+
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -81,151 +101,280 @@ export function SnapShare() {
   }
 
   return (
-    <Section id="snap-share" className="relative py-16 md:py-24 overflow-hidden">
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <motion.div
-          className="absolute top-10 right-5 w-48 h-48 bg-[#D8B0B0] rounded-full mix-blend-soft-light blur-3xl"
-          style={{ y: scrollY * 0.2 }}
-          animate={{ scale: [1, 1.1, 1], opacity: [0.08, 0.12, 0.08] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-10 left-5 w-48 h-48 bg-[#F1EDE2] rounded-full mix-blend-soft-light blur-3xl"
-          style={{ y: -scrollY * 0.1 }}
-          animate={{ scale: [1.1, 1, 1.1], opacity: [0.12, 0.08, 0.12] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
+    <Section id="snap-share" className="relative bg-transparent py-8 sm:py-10 md:py-14 lg:py-16 xl:py-20 overflow-hidden">
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+      <div className="relative max-w-6xl mx-auto px-3 sm:px-4 md:px-6 z-10">
         <motion.div
-          className="text-center mb-8"
+          className="text-center mb-6 sm:mb-7 md:mb-9"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h2 className="text-5xl sm:text-5xl md:text-6xl font-serif font-bold text-[#FFFFFF] mb-3 sm:mb-4 text-balance">
+          {/* Decorative element above title */}
+          <div className="flex items-center justify-center gap-2 mb-2.5 sm:mb-3">
+            <div className="w-8 sm:w-12 md:w-16 h-px bg-white/40" />
+            <div className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+            <div className="w-1.5 h-1.5 bg-white/40 rounded-full" />
+            <div className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+            <div className="w-8 sm:w-12 md:w-16 h-px bg-white/40" />
+          </div>
+          
+          <h2 className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-white mb-2 sm:mb-3 drop-shadow-lg leading-tight">
             Snap & Share
           </h2>
-          <p className="font-lora text-[#FFFFFF]/90 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base px-4">
+          
+          <p className="text-xs sm:text-sm md:text-base text-white/90 font-light max-w-xl mx-auto leading-relaxed px-2">
             Help us document our special day by sharing moments using our official hashtags.
           </p>
-          <div className="mx-auto mt-4 h-px w-24 bg-gradient-to-r from-transparent via-[#D8B0B0]/60 to-transparent" />
+          
+          {/* Decorative element below subtitle */}
+          <div className="flex items-center justify-center gap-2 mt-2.5 sm:mt-3">
+            <div className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+            <div className="w-1.5 h-1.5 bg-white/40 rounded-full" />
+            <div className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+          </div>
         </motion.div>
 
-        <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6" variants={staggerChildren} initial="initial" animate="animate">
+        <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4" variants={staggerChildren} initial="initial" animate="animate">
           <motion.div
-            className="p-[1.5px] rounded-2xl bg-gradient-to-br from-[#D8B0B0]/50 via-[#F1EDE2]/35 to-[#D8B0B0]/50"
+            className="bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-[#83927D]/40 hover:shadow-[0_10px_50px_rgba(131,146,125,0.3)] transition-all duration-300"
             variants={fadeInUp}
             whileHover={{ y: -2 }}
-            transition={{ duration: 0.3 }}
           >
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg border border-[#D8B0B0]/25">
-            <div className="text-center">
-              <div className="space-y-3 mb-4">
-                {hashtags.map((hashtag) => (
-                    <div key={hashtag} className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#D8B0B0]/10 to-[#F1EDE2]/15 px-4 py-3 rounded-xl shadow-md border border-[#D8B0B0]/25 w-full sm:w-auto mx-auto">
-                      <span className="font-lora text-base sm:text-lg md:text-xl font-bold text-black break-all sm:break-normal tracking-wide">{hashtag}</span>
-                    <button
-                      onClick={() => copyToClipboard(hashtag)}
-                        className="p-1.5 rounded-full bg-white/90 hover:bg-white transition-colors duration-200 shadow-sm flex-shrink-0 ring-1 ring-[#F1EDE2]/40"
-                      title="Copy hashtag"
-                    >
-                        {copiedHashtag ? <Check className="w-4 h-4 text-[#D8B0B0]" /> : <Copy className="w-4 h-4 text-[#AFC8E6]/60" />}
-                    </button>
-                  </div>
-                ))}
+            <div className="relative p-3 sm:p-4 md:p-5">
+              {/* Corner accents */}
+              <div className="absolute top-0.5 left-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-l-2 border-[#83927D]/50 rounded-tl-lg" />
+              <div className="absolute top-0.5 right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-r-2 border-[#83927D]/50 rounded-tr-lg" />
+              <div className="absolute bottom-0.5 left-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-l-2 border-[#83927D]/50 rounded-bl-lg" />
+              <div className="absolute bottom-0.5 right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-r-2 border-[#83927D]/50 rounded-br-lg" />
+              <div className="text-center">
+                <div className="space-y-2 mb-3">
+                  {hashtags.map((hashtag) => (
+                    <div key={hashtag} className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-[#869EB6]/10 to-[#83927D]/15 px-3 py-2 sm:py-2.5 rounded-lg shadow-md border border-[#869EB6]/25 w-full sm:w-auto mx-auto">
+                      <span className="font-lora text-sm sm:text-base md:text-lg font-bold text-[#0A3428] break-all sm:break-normal tracking-wide">{hashtag}</span>
+                      <button
+                        onClick={() => copyToClipboard(hashtag)}
+                        className="p-1 sm:p-1.5 rounded-full bg-white/90 hover:bg-white transition-colors duration-200 shadow-sm flex-shrink-0 ring-1 ring-[#83927D]/40"
+                        title="Copy hashtag"
+                      >
+                        {copiedHashtag ? <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#869EB6]" /> : <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#0A3428]/60" />}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                <p className="font-lora text-[#0A3428] text-[10px] sm:text-xs md:text-sm mb-2.5">Use these hashtags on your posts to be featured in our gallery.</p>
               </div>
-                <p className="font-lora text-black text-sm mb-3">Use these hashtags on your posts to be featured in our gallery.</p>
-            </div>
 
-            <div className="mt-6">
-                <h4 className="font-playfair text-base sm:text-lg font-bold text-black mb-4 text-center">Our Favorite Moments</h4>
+              <div className="mt-4 sm:mt-5">
+                <h4 className="font-playfair text-sm sm:text-base md:text-lg font-bold text-[#0A3428] mb-2.5 sm:mb-3 text-center">Our Favorite Moments</h4>
                 {/* Two squares on top, one landscape below */}
-                <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                  <motion.div className="relative aspect-square rounded-xl overflow-hidden shadow-md ring-1 ring-[#F1EDE2]/40" whileHover={{ scale: 1.03 }} transition={{ duration: 0.25 }}>
-                    <Image src="/mobile-background/couple (19).jpg" alt="Favorite moment 1" fill className="object-cover" />
+                <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
+                  <motion.div className="relative aspect-square rounded-lg overflow-hidden shadow-md ring-1 ring-[#83927D]/40" whileHover={{ scale: 1.03 }} transition={{ duration: 0.25 }}>
+                    <Image src="/mobile-background/couple (1).JPEG" alt="Favorite moment 1" fill className="object-cover" />
                   </motion.div>
-                  <motion.div className="relative aspect-square rounded-xl overflow-hidden shadow-md ring-1 ring-[#F1EDE2]/40" whileHover={{ scale: 1.03 }} transition={{ duration: 0.25 }}>
-                    <Image src="/mobile-background/couple (15).jpg" alt="Favorite moment 2" fill className="object-cover" />
+                  <motion.div className="relative aspect-square rounded-lg overflow-hidden shadow-md ring-1 ring-[#83927D]/40" whileHover={{ scale: 1.03 }} transition={{ duration: 0.25 }}>
+                    <Image src="/mobile-background/couple (2).JPEG" alt="Favorite moment 2" fill className="object-cover" />
                   </motion.div>
-                  <motion.div className="relative col-span-2 aspect-[3/2] rounded-xl overflow-hidden shadow-md ring-1 ring-[#F1EDE2]/40" whileHover={{ scale: 1.02 }} transition={{ duration: 0.25 }}>
-                    <Image src="/desktop-background/couple (4).jpg" alt="Favorite moment 3" fill className="object-cover" />
+                  <motion.div className="relative col-span-2 aspect-[3/2] rounded-lg overflow-hidden shadow-md ring-1 ring-[#83927D]/40" whileHover={{ scale: 1.02 }} transition={{ duration: 0.25 }}>
+                    <Image src="/desktop-background/couple (4).JPEG" alt="Favorite moment 3" fill className="object-cover" />
                   </motion.div>
                 </div>
-                <p className="font-lora text-black text-xs text-center mt-3 px-2">Share your photos using our hashtag to be featured here!</p>
-            </div>
+                <p className="font-lora text-[#0A3428] text-[9px] sm:text-[10px] md:text-xs text-center mt-2 sm:mt-2.5 px-2">Share your photos using our hashtag to be featured here!</p>
+              </div>
             </div>
           </motion.div>
 
-          <motion.div className="space-y-4" variants={fadeInUp}>
-            <div className="p-[1.5px] rounded-2xl bg-gradient-to-br from-[#D8B0B0]/50 via-[#F1EDE2]/35 to-[#D8B0B0]/50">
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg border border-[#D8B0B0]/25 text-center">
-              <h4 className="font-playfair text-base sm:text-lg font-bold text-black mb-4">Share Our Website</h4>
-              <div className="mx-auto inline-flex flex-col items-center bg-white p-4 sm:p-5 rounded-2xl shadow-md border border-ink/10 mb-4">
-                <div className="mb-3 p-2 rounded-xl bg-gradient-to-br from-[#F1EDE2]/40 via-[#FFFFFF]/40 to-white ring-1 ring-[#F1EDE2]/40">
-                  <div className="bg-white p-2 rounded-lg shadow-sm">
-                    <QRCodeCanvas id="snapshare-qr" value={websiteUrl} size={isMobile ? 128 : 160} includeMargin className="bg-white" />
+          <motion.div className="space-y-3 sm:space-y-4" variants={fadeInUp}>
+            <div className="bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-[#83927D]/40 hover:shadow-[0_10px_50px_rgba(131,146,125,0.3)] transition-all duration-300">
+              <div className="relative p-3 sm:p-4 md:p-5 text-center">
+                {/* Corner accents */}
+                <div className="absolute top-0.5 left-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-l-2 border-[#83927D]/50 rounded-tl-lg" />
+                <div className="absolute top-0.5 right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-r-2 border-[#83927D]/50 rounded-tr-lg" />
+                <div className="absolute bottom-0.5 left-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-l-2 border-[#83927D]/50 rounded-bl-lg" />
+                <div className="absolute bottom-0.5 right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-r-2 border-[#83927D]/50 rounded-br-lg" />
+                
+                <h4 className="font-playfair text-sm sm:text-base md:text-lg font-bold text-[#0A3428] mb-3">Share Our Website</h4>
+                <div className="mx-auto inline-flex flex-col items-center bg-white p-3 sm:p-4 rounded-xl shadow-md border border-ink/10 mb-3">
+                  <div className="mb-2 sm:mb-2.5 p-1.5 sm:p-2 rounded-lg bg-gradient-to-br from-[#83927D]/40 via-[#FFFFFF]/40 to-white ring-1 ring-[#83927D]/40">
+                    <div className="bg-white p-1.5 sm:p-2 rounded-md shadow-sm">
+                      <QRCodeCanvas id="snapshare-qr" value={websiteUrl} size={isMobile ? 100 : 140} includeMargin className="bg-white" />
+                    </div>
                   </div>
+                  <button
+                    onClick={downloadQRCode}
+                    className="flex items-center gap-1.5 sm:gap-2 mx-auto px-3 py-1.5 sm:py-2 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md text-[10px] sm:text-xs md:text-sm bg-[#869EB6] text-white"
+                  >
+                    <Download className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                    <span className="font-lora">Download QR</span>
+                  </button>
                 </div>
-                <button
-                  onClick={downloadQRCode}
-                  className="flex items-center gap-2 mx-auto px-3.5 py-2 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md text-xs sm:text-sm"
-                  style={{ backgroundColor: '#AFC8E6', color: 'white' }}
-                >
-                  <Download className="w-3.5 h-3.5" style={{ color: 'white' }} />
-                  <span className="font-lora">Download QR</span>
-                </button>
-              </div>
-              <p className="font-lora text-black text-xs">Scan with any camera app</p>
+                <p className="font-lora text-[#0A3428] text-[9px] sm:text-[10px] md:text-xs">Scan with any camera app</p>
               </div>
             </div>
 
+            {/* Google Drive QR Code Section */}
+            {googleDriveUrl && (
+              <div className="bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-[#83927D]/40 hover:shadow-[0_10px_50px_rgba(131,146,125,0.3)] transition-all duration-300 overflow-hidden">
+                <div className="relative p-3 sm:p-4 md:p-5">
+                  {/* Corner accents */}
+                  <div className="absolute top-0.5 left-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-l-2 border-[#83927D]/50 rounded-tl-lg" />
+                  <div className="absolute top-0.5 right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-r-2 border-[#83927D]/50 rounded-tr-lg" />
+                  <div className="absolute bottom-0.5 left-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-l-2 border-[#83927D]/50 rounded-bl-lg" />
+                  <div className="absolute bottom-0.5 right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-r-2 border-[#83927D]/50 rounded-br-lg" />
+                  
+                  {/* Header with icon */}
+                  <div className="flex items-center justify-center gap-2 sm:gap-2.5 mb-2 sm:mb-2.5">
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-[#869EB6] to-[#83927D] flex items-center justify-center flex-shrink-0 shadow-md">
+                      <Download className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-white" />
+                    </div>
+                    <h4 className="font-playfair text-sm sm:text-base md:text-lg lg:text-xl font-bold text-[#0A3428]">Upload Your Photos & Videos</h4>
+                  </div>
+                  
+                  {/* Instructions */}
+                  <p className="font-lora text-[#0A3428]/70 text-[10px] sm:text-xs md:text-sm mb-3 sm:mb-4 px-2 leading-relaxed text-center">
+                    {siteConfig.snapShare?.instructions || "Scan the QR code below, create a folder with your name, and upload your photos/videos from our special day!"}
+                  </p>
+                  
+                  {/* Enhanced QR container with larger QR */}
+                  <div className="mx-auto max-w-xs">
+                    <div className="bg-gradient-to-br from-[#869EB6]/10 via-white to-[#83927D]/10 p-3 sm:p-4 rounded-2xl shadow-lg border border-[#83927D]/30 mb-3 sm:mb-4">
+                      <div className="bg-white p-2.5 sm:p-3 rounded-xl shadow-inner">
+                        <div className="relative mx-auto w-fit">
+                          <QRCodeCanvas 
+                            id="drive-qr" 
+                            value={googleDriveUrl} 
+                            size={isMobile ? 140 : 200} 
+                            includeMargin={true}
+                            level="H"
+                            className="bg-white rounded-lg"
+                          />
+                          {/* Decorative corners on QR */}
+                          <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-[#869EB6] rounded-tl" />
+                          <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-[#869EB6] rounded-tr" />
+                          <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-[#869EB6] rounded-bl" />
+                          <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-[#869EB6] rounded-br" />
+                        </div>
+                      </div>
+                      
+                      {/* Scan instruction */}
+                      <p className="text-center mt-2 sm:mt-2.5 text-[9px] sm:text-[10px] md:text-xs text-[#0A3428]/60 font-lora">
+                        📱 Scan with your camera app
+                      </p>
+                    </div>
+                    
+                    {/* Action buttons - improved layout */}
+                    <div className="space-y-2">
+                      <div className="grid grid-cols-2 gap-2">
+                        <button
+                          onClick={downloadDriveQRCode}
+                          className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-2 sm:py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg text-[10px] sm:text-xs md:text-sm bg-gradient-to-r from-[#869EB6] to-[#869EB6]/90 text-white hover:from-[#869EB6]/90 hover:to-[#869EB6]/80 font-medium"
+                        >
+                          <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                          <span className="font-lora">Download</span>
+                        </button>
+                        
+                        <button
+                          onClick={copyDriveLink}
+                          className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 py-2 sm:py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg text-[10px] sm:text-xs md:text-sm border-2 border-[#83927D]/40 hover:border-[#83927D]/60 bg-white hover:bg-[#83927D]/5 font-medium"
+                          title="Copy link"
+                        >
+                          {copiedDriveQR ? (
+                            <>
+                              <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#869EB6]" />
+                              <span className="font-lora text-[#869EB6]">Copied!</span>
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#0A3428]/60" />
+                              <span className="font-lora text-[#0A3428]/80">Copy Link</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
+                      
+                      {/* Divider */}
+                      <div className="flex items-center gap-2 py-1">
+                        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[#83927D]/30 to-transparent" />
+                        <span className="text-[9px] sm:text-[10px] text-[#0A3428]/50 font-lora italic">or</span>
+                        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[#83927D]/30 to-transparent" />
+                      </div>
+                      
+                      {/* Direct link button - full width */}
+                      <a
+                        href={googleDriveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 w-full py-2 sm:py-2.5 px-3 rounded-lg bg-gradient-to-r from-[#83927D]/10 to-[#869EB6]/10 border border-[#83927D]/30 hover:border-[#83927D]/50 transition-all duration-200 shadow-sm hover:shadow-md group"
+                      >
+                        <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#869EB6] group-hover:scale-110 transition-transform" />
+                        <span className="font-lora text-[10px] sm:text-xs md:text-sm text-[#0A3428]/80 group-hover:text-[#869EB6] font-medium transition-colors">Open Google Drive</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
 
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 shadow-lg border border-[#D8B0B0]/25">
-              <h5 className="font-playfair text-lg font-bold text-black mb-4 text-center">Share on Social Media</h5>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
-                <button
-                  onClick={() => shareOnSocial("instagram")}
-                  className="group flex items-center justify-center gap-2 bg-gradient-to-br from-pink-500 via-purple-500 to-pink-600 text-white px-3 py-2.5 sm:py-3 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg ring-1 ring-white/20"
-                >
-                  <Instagram className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  <span className="font-lora font-medium text-xs sm:text-sm">Instagram</span>
-                </button>
-                <button
-                  onClick={() => shareOnSocial("facebook")}
-                  className="group flex items-center justify-center gap-2 bg-gradient-to-br from-blue-500 to-blue-700 text-white px-3 py-2.5 sm:py-3 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg ring-1 ring-white/20"
-                >
-                  <Facebook className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  <span className="font-lora font-medium text-xs sm:text-sm">Facebook</span>
-                </button>
-                <button
-                  onClick={() => shareOnSocial("tiktok")}
-                  className="group flex items-center justify-center gap-2 bg-gradient-to-br from-black via-gray-800 to-black text-white px-3 py-2.5 sm:py-3 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg ring-1 ring-white/10"
-                >
-                  <Share2 className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  <span className="font-lora font-medium text-xs sm:text-sm">TikTok</span>
-                </button>
-                <button
-                  onClick={() => shareOnSocial("twitter")}
-                  className="group flex items-center justify-center gap-2 bg-gradient-to-br from-sky-400 to-blue-500 text-white px-3 py-2.5 sm:py-3 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg ring-1 ring-white/20"
-                >
-                  <Twitter className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  <span className="font-lora font-medium text-xs sm:text-sm">Twitter</span>
-                </button>
+            <div className="bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-[#83927D]/40 hover:shadow-[0_10px_50px_rgba(131,146,125,0.3)] transition-all duration-300">
+              <div className="relative p-3 sm:p-4 md:p-5">
+                {/* Corner accents */}
+                <div className="absolute top-0.5 left-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-l-2 border-[#83927D]/50 rounded-tl-lg" />
+                <div className="absolute top-0.5 right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-r-2 border-[#83927D]/50 rounded-tr-lg" />
+                <div className="absolute bottom-0.5 left-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-l-2 border-[#83927D]/50 rounded-bl-lg" />
+                <div className="absolute bottom-0.5 right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-r-2 border-[#83927D]/50 rounded-br-lg" />
+                
+                <h5 className="font-playfair text-sm sm:text-base md:text-lg font-bold text-[#0A3428] mb-2.5 sm:mb-3 text-center">Share on Social Media</h5>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
+                  <button
+                    onClick={() => shareOnSocial("instagram")}
+                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-pink-500 via-purple-500 to-pink-600 text-white px-3 py-2 sm:py-2.5 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg ring-1 ring-white/20"
+                  >
+                    <Instagram className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:scale-110 transition-transform" />
+                    <span className="font-lora font-medium text-[10px] sm:text-xs md:text-sm">Instagram</span>
+                  </button>
+                  <button
+                    onClick={() => shareOnSocial("facebook")}
+                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-blue-500 to-blue-700 text-white px-3 py-2 sm:py-2.5 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg ring-1 ring-white/20"
+                  >
+                    <Facebook className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:scale-110 transition-transform" />
+                    <span className="font-lora font-medium text-[10px] sm:text-xs md:text-sm">Facebook</span>
+                  </button>
+                  <button
+                    onClick={() => shareOnSocial("tiktok")}
+                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-black via-gray-800 to-black text-white px-3 py-2 sm:py-2.5 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg ring-1 ring-white/10"
+                  >
+                    <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:scale-110 transition-transform" />
+                    <span className="font-lora font-medium text-[10px] sm:text-xs md:text-sm">TikTok</span>
+                  </button>
+                  <button
+                    onClick={() => shareOnSocial("twitter")}
+                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-sky-400 to-blue-500 text-white px-3 py-2 sm:py-2.5 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg ring-1 ring-white/20"
+                  >
+                    <Twitter className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:scale-110 transition-transform" />
+                    <span className="font-lora font-medium text-[10px] sm:text-xs md:text-sm">Twitter</span>
+                  </button>
+                </div>
               </div>
             </div>
           </motion.div>
         </motion.div>
 
-        <motion.div className="text-center mt-8" variants={fadeInUp}>
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg border border-[#D8B0B0]/25 max-w-3xl mx-auto">
-            <p className="font-lora text-black text-base sm:text-lg leading-relaxed mb-4">
-              We are so excited to celebrate our love with you! See you on our special day!
-            </p>
-            <div className="flex items-center justify-center gap-2">
-              <div className="text-center">
-                <span className="block font-playfair text-black font-bold text-lg sm:text-xl">– Nikki & Geofrey –</span>
+        <motion.div className="text-center mt-5 sm:mt-6 md:mt-7" variants={fadeInUp}>
+          <div className="bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-[#83927D]/40 hover:shadow-[0_10px_50px_rgba(131,146,125,0.3)] transition-all duration-300 max-w-3xl mx-auto">
+            <div className="relative p-4 sm:p-5 md:p-6">
+              {/* Corner accents */}
+              <div className="absolute top-0.5 left-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-l-2 border-[#83927D]/50 rounded-tl-lg" />
+              <div className="absolute top-0.5 right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-r-2 border-[#83927D]/50 rounded-tr-lg" />
+              <div className="absolute bottom-0.5 left-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-l-2 border-[#83927D]/50 rounded-bl-lg" />
+              <div className="absolute bottom-0.5 right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-r-2 border-[#83927D]/50 rounded-br-lg" />
+              
+              <p className="font-lora text-[#0A3428] text-xs sm:text-sm md:text-base leading-relaxed mb-3">
+                We are delighted to share this wonderful and blessed moment with you!
+              </p>
+              <div className="flex items-center justify-center gap-2">
+                <div className="text-center">
+                  <span className="block font-playfair text-[#0A3428] font-bold text-base sm:text-lg md:text-xl">– Edlin Mae & Joshua Jose –</span>
+                </div>
               </div>
             </div>
           </div>

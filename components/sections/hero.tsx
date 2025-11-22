@@ -4,103 +4,62 @@ import { useEffect, useState, useMemo } from "react"
 import { Heart, Sparkles, Download } from "lucide-react"
 
 const desktopImages = [
-    "/desktop-background/couple (1).jpg",
-    "/desktop-background/couple (2).jpg",
-    "/desktop-background/couple (3).jpg",
-    "/desktop-background/couple (4).jpg",
-    "/desktop-background/couple (5).jpg",
-    "/desktop-background/couple (6).jpg",
-    "/desktop-background/couple (7).jpg",
-    "/desktop-background/couple (8).jpg",
-    "/desktop-background/couple (9).jpg",
-    "/desktop-background/couple (10).jpg",
-    "/desktop-background/couple (11).jpg",
-    "/desktop-background/couple (12).jpg",
-    "/desktop-background/couple (13).jpg",
-    "/desktop-background/couple (14).jpg",
-    "/desktop-background/couple (15).jpg",
-    "/desktop-background/couple (16).jpg",
-    "/desktop-background/couple (17).jpg",
-    "/desktop-background/couple (18).jpg",
-    "/desktop-background/couple (19).jpg",
-    "/desktop-background/couple (20).jpg",
-    "/desktop-background/couple (21).jpg",
-    "/desktop-background/couple (22).jpg",
-    "/desktop-background/couple (23).jpg", 
-    "/desktop-background/couple (24).jpg",
-    "/desktop-background/couple (25).jpg",
-    "/desktop-background/couple (26).jpg",
-    "/desktop-background/couple (27).jpg",
-    "/desktop-background/couple (28).jpg",
-    "/desktop-background/couple (29).jpg",
-    "/desktop-background/couple (30).jpg",
-    "/desktop-background/couple (31).jpg",
-    "/desktop-background/couple (32).jpg",
-    "/desktop-background/couple (33).jpg",
-    "/desktop-background/couple (34).jpg",
-    "/desktop-background/couple (35).jpg",
-    "/desktop-background/couple (36).jpg",
-    "/desktop-background/couple (37).jpg",
-    "/desktop-background/couple (38).jpg",
-    "/desktop-background/couple (39).jpg",
-    "/desktop-background/couple (40).jpg",
-    "/desktop-background/couple (41).jpg",
-    "/desktop-background/couple (42).jpg",
-    "/desktop-background/couple (43).jpg",
-    "/desktop-background/couple (44).jpg",
-    "/desktop-background/couple (45).jpg",
-    "/desktop-background/couple (46).jpg",
-    "/desktop-background/couple (47).jpg",
-    "/desktop-background/couple (48).jpg",
-    "/desktop-background/couple (49).jpg",
-    "/desktop-background/couple (50).jpg",
-    "/desktop-background/couple (51).jpg",
-    "/desktop-background/couple (52).jpg",
-    "/desktop-background/couple (53).jpg",
-    "/desktop-background/couple (54).jpg",
-    "/desktop-background/couple (55).jpg",
-    "/desktop-background/couple (56).jpg",
-    "/desktop-background/couple (57).jpg",
-    "/desktop-background/couple (58).jpg",
-    "/desktop-background/couple (59).jpg",
-    "/desktop-background/couple (60).jpg",
-    "/desktop-background/couple (61).jpg",
-    "/desktop-background/couple (62).jpg",
-    "/desktop-background/couple (63).jpg",
-    "/desktop-background/couple (64).jpg",
-    "/desktop-background/couple (65).jpg",
-    "/desktop-background/couple (66).jpg",
-    "/desktop-background/couple (67).jpg",
-    "/desktop-background/couple (68).jpg",
-    "/desktop-background/couple (69).jpg",
-    "/desktop-background/couple (70).jpg",
-    "/desktop-background/couple (71).jpg",
-    "/desktop-background/couple (72).jpg",
+    "/desktop-background/couple (1).JPEG",
+    "/desktop-background/couple (1).JPG",
+    "/desktop-background/couple (2).JPEG",
+    "/desktop-background/couple (2).JPG",
+    "/desktop-background/couple (3).JPEG",
+    "/desktop-background/couple (3).JPG",
+    "/desktop-background/couple (4).JPEG",
+    "/desktop-background/couple (4).JPG",
+    "/desktop-background/couple (5).JPEG",
+    "/desktop-background/couple (5).JPG",
+    "/desktop-background/couple (6).JPEG",
+    "/desktop-background/couple (6).JPG",
+    "/desktop-background/couple (7).JPEG",
+    "/desktop-background/couple (7).JPG",
+    "/desktop-background/couple (8).JPEG",
+    "/desktop-background/couple (8).JPG",
+    "/desktop-background/couple (9).JPEG",
+    "/desktop-background/couple (9).JPG",
+    "/desktop-background/couple (10).JPG",
+    "/desktop-background/couple (11).JPG",
+    "/desktop-background/couple (12).JPG",
+
 
 ]
 
 const mobileImages = [
-    "/mobile-background/couple (1).jpg",
-    "/mobile-background/couple (2).jpg",
-    "/mobile-background/couple (3).jpg",
-    "/mobile-background/couple (4).jpg",
-    "/mobile-background/couple (5).jpg",
-    "/mobile-background/couple (6).jpg",
-    "/mobile-background/couple (7).jpg",
-    "/mobile-background/couple (8).jpg",
-    "/mobile-background/couple (9).jpg",
-    "/mobile-background/couple (10).jpg",
-    "/mobile-background/couple (11).jpg",
-    "/mobile-background/couple (12).jpg",
-    "/mobile-background/couple (13).jpg",
-    "/mobile-background/couple (14).jpg",
-    "/mobile-background/couple (15).jpg",
-    "/mobile-background/couple (16).jpg",
-    "/mobile-background/couple (17).jpg",
-    "/mobile-background/couple (18).jpg",
-    "/mobile-background/couple (19).jpg",
-    "/mobile-background/couple (20).jpg",
-
+    "/mobile-background/couple (1).JPEG",
+    "/mobile-background/couple (1).JPG",
+    "/mobile-background/couple (2).JPG",
+    "/mobile-background/couple (2).JPEG",
+    "/mobile-background/couple (3).JPEG",
+    "/mobile-background/couple (3).JPG",
+    "/mobile-background/couple (4).JPEG",
+    "/mobile-background/couple (4).JPG",
+    "/mobile-background/couple (5).JPEG",
+    "/mobile-background/couple (5).JPG",
+    "/mobile-background/couple (6).JPEG",
+    "/mobile-background/couple (6).JPG",
+    "/mobile-background/couple (7).JPEG",
+    "/mobile-background/couple (7).JPG",
+    "/mobile-background/couple (8).JPEG",
+    "/mobile-background/couple (8).JPG",
+    "/mobile-background/couple (9).JPEG",
+    "/mobile-background/couple (9).JPG",
+    "/mobile-background/couple (10).JPEG",
+    "/mobile-background/couple (10).JPG",
+    "/mobile-background/couple (11).JPEG",
+    "/mobile-background/couple (11).JPG",
+    "/mobile-background/couple (12).JPG",
+    "/mobile-background/couple (13).JPG",
+    "/mobile-background/couple (14).JPG",
+    "/mobile-background/couple (15).JPG",
+    "/mobile-background/couple (16).JPG",
+    "/mobile-background/couple (17).JPG",
+    "/mobile-background/couple (18).JPG",
+    "/mobile-background/couple (19).JPG",
 ]
 
 export function Hero() {
@@ -188,203 +147,122 @@ export function Hero() {
           />
         ))}
         {/* Enhanced gradient overlay with better depth */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#AFC8E6]/95 via-[#AFC8E6]/50 via-[#AFC8E6]/30 to-transparent z-0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#AFC8E6]/20 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#B28383]/65 via-[#DDD3CC]/35 to-transparent z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#4a2f24]/55 via-[#35211a]/35 to-transparent z-0" />
       </div>
 
-      <div className="relative z-10 w-full container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex flex-col items-center justify-end min-h-screen pb-12 sm:pb-20 md:pb-28 lg:pb-40 xl:pb-48">
-        <div className={`w-full max-w-4xl text-center space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8 transition-all duration-1000 ease-out ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
-                    {/* Decorative divider */}
-                    <div className="flex items-center justify-center gap-3 sm:gap-4 py-2">
-              <div className="h-px w-12 sm:w-16 md:w-20 bg-gradient-to-r from-transparent via-[#F1EDE2]/60 to-[#F1EDE2]" />
-              <Heart size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#F1EDE2] fill-[#F1EDE2]/40 drop-shadow-md animate-pulse" />
-              <Sparkles size={12} className="sm:w-3 sm:h-3 md:w-4 md:h-4 text-[#F1EDE2]/80 drop-shadow-md" />
-              <Heart size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#F1EDE2] fill-[#F1EDE2]/40 drop-shadow-md animate-pulse" />
-              <div className="h-px w-12 sm:w-16 md:w-20 bg-gradient-to-l from-transparent via-[#F1EDE2]/60 to-[#F1EDE2]" />
+      <div className="relative z-10 flex w-full items-end justify-center px-4 sm:px-6 md:px-8 lg:px-10 xl:px-16 pt-24 pb-10 sm:pt-32 sm:pb-16 md:pb-20 lg:pb-24 min-h-screen">
+        <div
+          className={`relative w-full max-w-[420px] sm:max-w-3xl lg:max-w-5xl px-4 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:px-16 lg:py-16 transition-all duration-1000 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <div className="relative z-10 flex flex-col items-center text-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
+            {/* Intro copy */}
+            <div className="space-y-0.5 md:space-y-1 text-[#F4E8DD]" style={{ textShadow: "0 6px 18px rgba(0,0,0,0.4)" }}>
+              <p className="text-[9px] sm:text-xs md:text-sm lg:text-base tracking-[0.1em] md:tracking-[0.15em] lg:tracking-[0.18em] uppercase">
+                BY THE GRACE OF GOD
+              </p>
+              <p className="text-[9px] sm:text-xs md:text-sm lg:text-base tracking-[0.1em] md:tracking-[0.15em] lg:tracking-[0.18em] uppercase">
+                AND THE BLESSING OF THEIR PARENTS
+              </p>
             </div>
-          {/* Invitation header */}
-          <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl font-light text-[#FFFFFF]/95 drop-shadow-lg tracking-wider uppercase">
-              PLEASE JOIN US FOR
+
+            {/* Divider with icons */}
+            <div className="flex items-center justify-center gap-2 md:gap-3 text-[#F7EFDF]" style={{ textShadow: "0 4px 12px rgba(0,0,0,0.45)" }}>
+              <span className="h-px w-10 md:w-14 lg:w-16 bg-gradient-to-r from-transparent via-[#EDD6AC] to-[#EDD6AC]/60" />
+              <Heart size={12} className="text-[#EDD6AC] fill-[#EDD6AC]/30 md:w-4 md:h-4" />
+              <Sparkles size={11} className="text-[#EDD6AC] md:w-3.5 md:h-3.5" />
+              <Heart size={12} className="text-[#EDD6AC] fill-[#EDD6AC]/30 md:w-4 md:h-4" />
+              <span className="h-px w-10 md:w-14 lg:w-16 bg-gradient-to-l from-transparent via-[#EDD6AC] to-[#EDD6AC]/60" />
+            </div>
+
+            {/* Names */}
+            <div className="space-y-1 sm:space-y-1.5 md:space-y-2 lg:space-y-3">
+              <h1
+                className="font-serif text-[2.75rem] sm:text-[3rem] md:text-[3.75rem] lg:text-[4.5rem] xl:text-[5rem] text-[#F7EDE0] leading-tight"
+                style={{
+                  textShadow:
+                    "0 12px 26px rgba(0,0,0,0.45)",
+                }}
+              >
+                Joshua Jose
+              </h1>
+              <span className="text-[11px] sm:text-xs md:text-sm lg:text-base uppercase tracking-[0.22em] md:tracking-[0.28em] lg:tracking-[0.35em] text-[#EDD6AC]" style={{ textShadow: "0 6px 18px rgba(0,0,0,0.4)" }}>
+                and
+              </span>
+              <h2
+                className="font-serif text-[2.75rem] sm:text-[3rem] md:text-[3.75rem] lg:text-[4.5rem] xl:text-[5rem] text-[#F7EDE0] leading-tight"
+                style={{
+                  textShadow:
+                    "0 12px 26px rgba(0,0,0,0.45)",
+                }}
+              >
+                Edlin Mae
+              </h2>
+            </div>
+
+            {/* Invitation message */}
+            <p className="text-[10px] sm:text-sm md:text-base lg:text-lg uppercase tracking-[0.15em] md:tracking-[0.2em] lg:tracking-[0.25em] text-[#F5EDE3] max-w-3xl" style={{ textShadow: "0 6px 18px rgba(0,0,0,0.45)" }}>
+              WARMLY INVITE YOU TO CELEBRATE THEIR LOVE
             </p>
-  
-          </div>
-
-          {/* The Big Bang Wedding */}
-          <div className="space-y-2 sm:space-y-3">
-            <h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-[#F1EDE2] drop-shadow-2xl tracking-wide"
-              style={{
-                textShadow: "0 2px 20px rgba(241, 237, 226, 0.6), 0 4px 40px rgba(175, 200, 230, 0.5), 0 8px 60px rgba(0, 0, 0, 0.4)",
-              }}
-            >
-              The Big Bang Wedding
-            </h2>
-            {/* <p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-[#FFFFFF]/90 drop-shadow-lg"
-              style={{
-                textShadow: "0 2px 10px rgba(175, 200, 230, 0.8), 0 1px 3px rgba(0,0,0,0.7)",
-              }}
-            >
-              of
-            </p> */}
-          </div>
-
-          {/* Couple names */}
-          <div className="space-y-3 sm:space-y-4 md:space-y-5">
-            <h1
-              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] font-bold tracking-[0.02em] sm:tracking-[0.03em] md:tracking-[0.04em] drop-shadow-2xl leading-tight whitespace-nowrap flex items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8"
-              style={{
-                color: '#FFFFFF',
-                textShadow: "0 2px 20px rgba(216, 176, 176, 0.4), 0 4px 40px rgba(175, 200, 230, 0.6), 0 8px 60px rgba(0, 0, 0, 0.5)",
-                fontFamily: "var(--font-serif)",
-                letterSpacing: "0.05em",
-              }}
-            >
-              <span className="inline-block transform transition-all duration-700 hover:scale-105">
-                Nikki
-              </span>
-              <span className="text-[#D8B0B0] text-[1.2em]">&</span>
-              <span className="inline-block transform transition-all duration-700 hover:scale-105">
-                Geofrey
-              </span>
-            </h1>
-            {/* Elegant divider */}
-            <div className="h-0.5 sm:h-1 w-20 sm:w-24 md:w-32 lg:w-40 mx-auto bg-gradient-to-r from-transparent via-[#D8B0B0] to-transparent shadow-[0_0_10px_rgba(216,176,176,0.5)]" />
-          </div>
-
-          {/* Date and time information */}
-          <div className="space-y-3 sm:space-y-4 md:space-y-5 pt-2 sm:pt-4">
-            <p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-light text-[#FFFFFF] drop-shadow-lg"
-              style={{
-                textShadow: "0 2px 12px rgba(175, 200, 230, 0.8), 0 1px 4px rgba(0,0,0,0.7)",
-              }}
-            >
-              at 1:30 PM, 23rd December 2025
+            <p className="text-[9px] sm:text-xs md:text-sm lg:text-base uppercase tracking-[0.12em] md:tracking-[0.18em] lg:tracking-[0.22em] text-[#F5EDE3]" style={{ textShadow: "0 6px 18px rgba(0,0,0,0.45)" }}>
+              EXCHANGE VOWS OF MARRIAGE
             </p>
 
-            {/* Venue information */}
-            <p
-              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-[#F1EDE2] drop-shadow-lg tracking-wide"
-              style={{
-                textShadow: "0 2px 10px rgba(175, 200, 230, 0.9), 0 1px 4px rgba(241, 237, 226, 0.5)",
-              }}
-            >
-              St. Rose of Lima Parish Bacacay, Albay
-            </p>
-          </div>
+            {/* Date & venue summary */}
+            <div className="space-y-1 md:space-y-1.5 lg:space-y-2 text-[#F4EDE3] mt-2 md:mt-3 lg:mt-4" style={{ textShadow: "0 6px 18px rgba(0,0,0,0.45)" }}>
+              <p className="text-xs sm:text-base md:text-lg lg:text-xl font-semibold tracking-[0.1em] md:tracking-[0.15em] lg:tracking-[0.18em] uppercase">
+                Monday • December 22, 2025
+              </p>
+              <p className="text-[10px] sm:text-sm md:text-base lg:text-lg tracking-[0.12em] md:tracking-[0.16em] lg:tracking-[0.2em] uppercase text-[#F4EDE3]">
+                Ceremony at 3:00 PM · St. Gregory the Great Cathedral
+              </p>
+              <p className="text-[9px] sm:text-xs md:text-sm lg:text-base tracking-[0.1em] md:tracking-[0.14em] lg:tracking-[0.18em] uppercase text-[#F4EDE3]">
+                Old Albay District · Legazpi City
+              </p>
+            </div>
 
-          {/* CTA Buttons - Horizontal layout on all devices */}
-          <div className="pt-6 sm:pt-8 md:pt-10 lg:pt-12 flex flex-row flex-wrap gap-2 sm:gap-3 md:gap-4 justify-center items-center max-w-2xl mx-auto w-full px-2">
-            <a
-              href="#narrative"
-              className="group flex-1 max-w-[200px] sm:max-w-none sm:min-w-[140px] md:min-w-[160px] px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl font-semibold sm:font-bold transition-all duration-500 ease-out uppercase tracking-wider text-[10px] sm:text-xs md:text-sm whitespace-nowrap relative overflow-hidden border-2 backdrop-blur-sm"
-              style={{
-                backgroundColor: "#AFC8E6",
-                borderColor: "rgba(241, 237, 226, 0.5)",
-                color: "#FFFFFF",
-                boxShadow: "0 4px 20px rgba(175, 200, 230, 0.5), 0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(175, 200, 230, 0.9)";
-                e.currentTarget.style.borderColor = "rgba(241, 237, 226, 0.8)";
-                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
-                e.currentTarget.style.boxShadow = "0 8px 30px rgba(175, 200, 230, 0.7), 0 4px 12px rgba(0,0,0,0.4), 0 0 20px rgba(241, 237, 226, 0.4)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#AFC8E6";
-                e.currentTarget.style.borderColor = "rgba(241, 237, 226, 0.5)";
-                e.currentTarget.style.transform = "translateY(0) scale(1)";
-                e.currentTarget.style.boxShadow = "0 4px 20px rgba(175, 200, 230, 0.5), 0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2)";
-              }}
-              onMouseDown={(e) => {
-                e.currentTarget.style.transform = "translateY(-1px) scale(0.98)";
-              }}
-              onMouseUp={(e) => {
-                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
-              }}
-            >
-              <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2">
-                Our Love Story
-                <Heart size={12} className="w-3 h-3 sm:w-4 sm:h-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300 flex-shrink-0" />
-              </span>
-              <div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F1EDE2]/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
-              />
-            </a>
-            <a
-              href="#guest-list"
-              className="group flex-1 max-w-[200px] sm:max-w-none sm:min-w-[140px] md:min-w-[160px] px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl font-semibold sm:font-bold transition-all duration-500 ease-out uppercase tracking-wider text-[10px] sm:text-xs md:text-sm whitespace-nowrap relative overflow-hidden border-2 backdrop-blur-sm"
-              style={{
-                backgroundColor: "#D8B0B0",
-                borderColor: "rgba(241, 237, 226, 0.5)",
-                color: "#FFFFFF",
-                boxShadow: "0 4px 20px rgba(216, 176, 176, 0.5), 0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(216, 176, 176, 0.9)";
-                e.currentTarget.style.borderColor = "rgba(241, 237, 226, 0.8)";
-                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
-                e.currentTarget.style.boxShadow = "0 8px 30px rgba(216, 176, 176, 0.7), 0 4px 12px rgba(0,0,0,0.4), 0 0 20px rgba(241, 237, 226, 0.4)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#D8B0B0";
-                e.currentTarget.style.borderColor = "rgba(241, 237, 226, 0.5)";
-                e.currentTarget.style.transform = "translateY(0) scale(1)";
-                e.currentTarget.style.boxShadow = "0 4px 20px rgba(216, 176, 176, 0.5), 0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2)";
-              }}
-              onMouseDown={(e) => {
-                e.currentTarget.style.transform = "translateY(-1px) scale(0.98)";
-              }}
-              onMouseUp={(e) => {
-                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
-              }}
-            >
-              <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2">
-                RSVP
-                <Sparkles size={12} className="w-3 h-3 sm:w-4 sm:h-4 opacity-70 group-hover:opacity-100 transition-opacity duration-300 flex-shrink-0" />
-              </span>
-              <div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FFFFFF]/25 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
-              />
-            </a>
-            <a
-              href="/Details/Wedding-Invitation%20(8).pdf"
-              download="Wedding-Invitation.pdf"
-              className="group flex items-center justify-center gap-2 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl font-semibold sm:font-bold transition-all duration-500 ease-out uppercase tracking-wider text-[10px] sm:text-xs md:text-sm whitespace-nowrap relative overflow-hidden border-2 backdrop-blur-sm"
-              style={{
-                backgroundColor: "transparent",
-                borderColor: "#F1EDE2",
-                color: "#F1EDE2",
-                boxShadow: "0 4px 20px rgba(241, 237, 226, 0.3), 0 2px 6px rgba(0,0,0,0.2)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(241, 237, 226, 0.1)";
-                e.currentTarget.style.borderColor = "#F1EDE2";
-                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
-                e.currentTarget.style.boxShadow = "0 8px 30px rgba(241, 237, 226, 0.5), 0 4px 12px rgba(0,0,0,0.3)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "transparent";
-                e.currentTarget.style.borderColor = "#F1EDE2";
-                e.currentTarget.style.transform = "translateY(0) scale(1)";
-                e.currentTarget.style.boxShadow = "0 4px 20px rgba(241, 237, 226, 0.3), 0 2px 6px rgba(0,0,0,0.2)";
-              }}
-              onMouseDown={(e) => {
-                e.currentTarget.style.transform = "translateY(-1px) scale(0.98)";
-              }}
-              onMouseUp={(e) => {
-                e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";
-              }}
-            >
-              <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2">
-                <Download size={16} className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: "#F1EDE2" }} />
-                <span className="hidden sm:inline">Invitation</span>
-              </span>
-            </a>
+            {/* Reception */}
+            <div className="space-y-1 md:space-y-1.5 text-[#F4EDE3]" style={{ textShadow: "0 6px 18px rgba(0,0,0,0.45)" }}>
+              <p className="text-xs sm:text-base md:text-lg lg:text-xl font-serif italic">
+                Reception to follow at Pepperland Hotel
+              </p>
+              <p className="text-[9px] sm:text-xs md:text-sm lg:text-base tracking-[0.12em] md:tracking-[0.16em] lg:tracking-[0.2em] uppercase text-[#F4EDE3]">
+                Airport Road, Washington Drive Ext. · Brgy 40 Cruzada, Legazpi City
+              </p>
+            </div>
+
+            {/* CTA Buttons & download */}
+            <div className="mt-4 md:mt-6 lg:mt-8 flex w-full flex-row flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4">
+              <a
+                href="#narrative"
+                className="group flex-1 min-w-[140px] md:min-w-[160px] lg:min-w-[180px] rounded-full border border-[#F5EDE3]/40 bg-[#B28383]/30 px-4 md:px-6 lg:px-8 py-2 md:py-2.5 lg:py-3 text-[10px] md:text-xs lg:text-sm uppercase tracking-[0.12em] md:tracking-[0.16em] lg:tracking-[0.2em] text-[#FDF6EE] backdrop-blur-sm transition-all duration-300 hover:bg-[#B28383]/40"
+              >
+                <span className="flex items-center justify-center">
+                  Our Story
+                </span>
+              </a>
+              <a
+                href="#guest-list"
+                className="group flex-1 min-w-[140px] md:min-w-[160px] lg:min-w-[180px] rounded-full border border-[#F5EDE3]/40 bg-[#A78256]/30 px-4 md:px-6 lg:px-8 py-2 md:py-2.5 lg:py-3 text-[10px] md:text-xs lg:text-sm uppercase tracking-[0.12em] md:tracking-[0.16em] lg:tracking-[0.2em] text-[#FDF6EE] backdrop-blur-sm transition-all duration-300 hover:bg-[#A78256]/40"
+              >
+                <span className="flex items-center justify-center">
+                  RSVP
+                </span>
+              </a>
+              <a
+                href="/Details/Wedding-Invitation%20(8).pdf"
+                download="Wedding-Invitation.pdf"
+                className="group flex-none rounded-full border border-[#F5EDE3]/40 bg-[#C2D3C3]/25 px-3.5 md:px-5 lg:px-6 py-2 md:py-2.5 lg:py-3 text-[11px] md:text-xs lg:text-sm uppercase tracking-[0.15em] md:tracking-[0.18em] lg:tracking-[0.22em] text-[#FDF6EE] backdrop-blur-sm transition-all duration-300 hover:bg-[#C2D3C3]/35"
+              >
+                <span className="flex items-center justify-center gap-1.5 md:gap-2">
+                  <Download size={16} className="md:w-5 md:h-5 lg:w-6 lg:h-6" />
+                  <span className="sr-only sm:hidden">Download Invitation</span>
+                  <span className="hidden sm:inline">Download Invitation</span>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -86,6 +86,7 @@
   --font-sans: "Inter", "Inter Fallback";
   /* Updated serif font to Great Vibes */
   --font-serif: "Great Vibes", "Great Vibes Fallback";
+  --font-imperial-script: "Imperial Script", cursive;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -137,6 +138,13 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Imperial Script font utility class */
+.imperial-script-regular {
+  font-family: var(--font-imperial-script), cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Scrollbar styling */

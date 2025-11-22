@@ -55,103 +55,123 @@ export function Details() {
   }
 
   return (
-    <Section id="details" className="relative bg-gradient-to-b from-[#F1EDE2] via-[#F1EDE2]/95 to-[#F1EDE2] py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Floating geometric shapes with color palette */}
-        <div className="absolute top-10 left-10 w-20 h-20 bg-[#AFC8E6]/10 rounded-full blur-xl animate-pulse" />
-        <div className="absolute top-20 right-20 w-16 h-16 bg-[#D8B0B0]/15 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-20 left-20 w-24 h-24 bg-[#AFC8E6]/8 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-10 right-10 w-12 h-12 bg-[#D8B0B0]/12 rounded-full blur-lg animate-pulse" style={{ animationDelay: '0.5s' }} />
+    <Section id="details" className="relative bg-[#DDD3CC] py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
+      {/* Enhanced background elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Soft gradient overlays */}
+        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#EDD6AC]/20 via-[#EDD6AC]/5 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#B28383]/20 via-[#B28383]/5 to-transparent" />
         
-        {/* Decorative lines with gradient */}
-        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#AFC8E6]/30 to-transparent" />
-        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D8B0B0]/25 to-transparent" />
+        {/* Floating decorative circles */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-[#C2D3C3]/15 rounded-full blur-2xl animate-pulse" />
+        <div className="absolute top-20 right-16 w-24 h-24 bg-[#A78256]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-16 left-20 w-28 h-28 bg-[#B28383]/18 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-24 right-12 w-20 h-20 bg-[#EDD6AC]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
         
-        {/* Corner decorative elements with color palette */}
-        <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#AFC8E6]/15 via-[#D8B0B0]/10 to-transparent rounded-br-3xl" />
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#AFC8E6]/15 via-[#D8B0B0]/10 to-transparent rounded-bl-3xl" />
-        <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#AFC8E6]/15 via-[#D8B0B0]/10 to-transparent rounded-tr-3xl" />
-        <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#AFC8E6]/15 via-[#D8B0B0]/10 to-transparent rounded-tl-3xl" />
+        {/* Corner decorations - all four corners */}
+        <div className="absolute top-0 left-0 z-0">
+          <Image
+            src="/decoration/corner_right-top.png"
+            alt=""
+            width={300}
+            height={300}
+            className="w-40 sm:w-52 md:w-64 lg:w-80 xl:w-96 h-auto opacity-75 scale-x-[-1]"
+            priority={false}
+          />
+        </div>
+        
+        <div className="absolute top-0 right-0 z-0">
+          <Image
+            src="/decoration/corner_right-top.png"
+            alt=""
+            width={300}
+            height={300}
+            className="w-40 sm:w-52 md:w-64 lg:w-80 xl:w-96 h-auto opacity-75"
+            priority={false}
+          />
+        </div>
+        
+        <div className="absolute bottom-0 left-0 z-0">
+          <Image
+            src="/decoration/corner_right-top.png"
+            alt=""
+            width={300}
+            height={300}
+            className="w-40 sm:w-52 md:w-64 lg:w-80 xl:w-96 h-auto opacity-75 scale-x-[-1] scale-y-[-1]"
+            priority={false}
+          />
+        </div>
+        
+        <div className="absolute bottom-0 right-0 z-0">
+          <Image
+            src="/decoration/corner_right-top.png"
+            alt=""
+            width={300}
+            height={300}
+            className="w-40 sm:w-52 md:w-64 lg:w-80 xl:w-96 h-auto opacity-75 scale-y-[-1]"
+            priority={false}
+          />
+        </div>
+        
+        {/* Decorative lines */}
+        <div className="absolute top-1/2 left-0 w-full h-px bg-[#A78256]/20" />
       </div>
 
-      <div className="relative z-10 text-center mb-12 sm:mb-16 lg:mb-20 px-4">
-        {/* Decorative ornaments */}
-        <div className="flex items-center justify-center gap-6 mb-6">
-          <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#AFC8E6]/60 to-[#D8B0B0]/30" />
-          <div className="flex gap-2">
-            <div className="w-2 h-2 bg-[#AFC8E6] rounded-full" />
-            <div className="w-1 h-1 bg-[#D8B0B0] rounded-full self-center" />
-            <div className="w-2 h-2 bg-[#AFC8E6] rounded-full" />
-          </div>
-          <div className="w-16 h-px bg-gradient-to-l from-transparent via-[#AFC8E6]/60 to-[#D8B0B0]/30" />
+      {/* Header */}
+      <div className="relative z-10 text-center mb-8 sm:mb-10 md:mb-12 px-3 sm:px-4">
+        {/* Decorative element above title */}
+        <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#A78256]/40" />
+          <div className="w-1.5 h-1.5 bg-[#B28383]/60 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#C2D3C3]/60 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#B28383]/60 rounded-full" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#A78256]/40" />
         </div>
-        <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 text-balance drop-shadow-lg relative">
-          <span className="relative z-10" style={{ color: '#1a1a1a' }}>
-            Event Details
-          </span>
+        
+        <h2 className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#A78256] mb-2 sm:mb-3 md:mb-4 drop-shadow-lg">
+          Event Details
         </h2>
-        <p className="text-lg md:text-xl font-sans font-light max-w-2xl mx-auto px-4 leading-relaxed mb-8" style={{ color: '#1a1a1a' }}>
+        
+        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#B28383] font-light max-w-xl mx-auto leading-relaxed px-2">
           Everything you need to know about our special day
         </p>
-        {/* Bottom decorative ornaments */}
-        <div className="flex items-center justify-center gap-6 mt-8">
-          <div className="w-12 h-px bg-gradient-to-r from-transparent via-[#D8B0B0]/40 to-[#D8B0B0]/20" />
-          <div className="w-1 h-1 bg-[#D8B0B0] rounded-full" />
-          <div className="w-12 h-px bg-gradient-to-l from-transparent via-[#D8B0B0]/40 to-[#D8B0B0]/20" />
+        
+        {/* Decorative element below subtitle */}
+        <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
+          <div className="w-1.5 h-1.5 bg-[#B28383]/60 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#C2D3C3]/60 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#B28383]/60 rounded-full" />
         </div>
       </div>
 
       {/* Ceremony and Reception */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16 max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 mb-6 sm:mb-8 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Ceremony */}
         <div 
-          className="bg-gradient-to-br from-[#F1EDE2] via-[#D8B0B0]/25 to-[#F1EDE2] backdrop-blur-md rounded-3xl p-5 sm:p-6 md:p-8 shadow-[0_8px_32px_rgba(216,176,176,0.15)] border-2 border-[#AFC8E6]/60 hover:border-[#AFC8E6] hover:shadow-[0_12px_48px_rgba(175,200,230,0.25)] transition-all duration-700 hover:scale-[1.02] group relative overflow-hidden"
+          className="bg-[#EDD6AC]/98 backdrop-blur-md rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 shadow-[0_8px_32px_rgba(167,130,86,0.12)] border-2 border-[#A78256]/40 hover:border-[#A78256]/60 hover:shadow-[0_12px_40px_rgba(167,130,86,0.18)] transition-all duration-300 hover:scale-[1.03] group relative overflow-hidden"
           onMouseEnter={() => setHoveredCard('ceremony')}
           onMouseLeave={() => setHoveredCard(null)}
         >
-          {/* Enhanced Decorative Background Elements */}
-          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#AFC8E6]/20 via-[#D8B0B0]/15 to-[#AFC8E6]/20 rounded-full blur-2xl opacity-40 animate-pulse" />
-          <div className="absolute top-4 right-4 w-20 h-20 bg-[#D8B0B0]/10 rounded-full opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-700" />
+          {/* Decorative corner accents */}
+          <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#C2D3C3]/40 rounded-tl-lg" />
+          <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#C2D3C3]/40 rounded-tr-lg" />
+          <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#C2D3C3]/40 rounded-bl-lg" />
+          <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#C2D3C3]/40 rounded-br-lg" />
           
-          {/* Inner decorative border with gradient */}
-          <div className="absolute inset-2 border border-[#AFC8E6]/40 rounded-2xl" />
-          
-          {/* Shimmer effect layer */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shimmer rounded-3xl" />
-          
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-5 sm:mb-6 gap-3 sm:gap-4 relative z-10">
-            <div className="flex items-center gap-3 sm:gap-4">
-              <div className={`bg-gradient-to-br from-[#AFC8E6]/30 via-[#D8B0B0]/20 to-[#AFC8E6]/30 p-2.5 sm:p-3 md:p-4 rounded-2xl transition-all duration-300 shadow-md group-hover:shadow-lg ${hoveredCard === 'ceremony' ? 'scale-110 rotate-[3deg]' : ''}`}>
-                <Heart className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" fill="#D8B0B0" style={{ color: '#AFC8E6' }} />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-5 gap-3 relative z-10">
+            <div className="flex items-center gap-3">
+              <div className={`bg-gradient-to-br from-[#A78256]/30 via-[#B28383]/20 to-[#A78256]/30 p-2 sm:p-2.5 rounded-xl transition-all duration-300 shadow-md ${hoveredCard === 'ceremony' ? 'scale-110' : ''}`}>
+                <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-[#A78256]" fill="#B28383" />
               </div>
-              <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold tracking-tight" style={{ color: '#1a1a1a' }}>Ceremony</h3>
-            </div>
-            <div className="flex items-center gap-1.5 sm:gap-2 self-end sm:self-auto">
-              <button
-                onClick={() => openInMaps(ceremonyMapsLink)}
-                className="p-2 sm:p-2.5 hover:bg-gradient-to-br hover:from-[#AFC8E6]/10 hover:to-[#AFC8E6]/5 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-md active:scale-95"
-                title="Open in Google Maps"
-                style={{ color: '#1a1a1a' }}
-              >
-                <Navigation className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />
-              </button>
-              <button
-                onClick={() => copyToClipboard(siteConfig.ceremony.location, 'ceremony')}
-                className="p-2 sm:p-2.5 hover:bg-gradient-to-br hover:from-[#AFC8E6]/10 hover:to-[#AFC8E6]/5 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-md active:scale-95"
-                title="Copy ceremony details"
-                style={{ color: '#1a1a1a' }}
-              >
-                {copiedItems.has('ceremony') ? <Check className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" /> : <Copy className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />}
-              </button>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#A78256]">Ceremony</h3>
             </div>
           </div>
 
-          <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-4 md:mb-6 relative z-10">
-            <p className="text-sm sm:text-base md:text-lg font-semibold" style={{ color: '#1a1a1a' }}>{siteConfig.ceremony.venue}</p>
-            <p className="text-xs sm:text-sm opacity-70" style={{ color: '#1a1a1a' }}>{siteConfig.ceremony.location.split(',')[1]?.trim() || siteConfig.ceremony.location.split(',')[0]?.trim()}, {siteConfig.ceremony.location.split(',')[2]?.trim() || ''}</p>
-            <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base" style={{ color: '#1a1a1a' }}>
-              <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: '#AFC8E6' }} />
+          <div className="space-y-2 mb-4 relative z-10">
+            <p className="text-sm sm:text-base font-semibold text-[#A78256]">{siteConfig.ceremony.venue}</p>
+            <p className="text-xs sm:text-sm text-[#B28383]">{siteConfig.ceremony.location.split(',')[1]?.trim() || siteConfig.ceremony.location.split(',')[0]?.trim()}, {siteConfig.ceremony.location.split(',')[2]?.trim() || ''}</p>
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-[#A78256]">
+              <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
               <span>
                 {siteConfig.ceremony.date} at {siteConfig.ceremony.time}
               </span>
@@ -159,104 +179,79 @@ export function Details() {
           </div>
           
           {/* Ceremony Image */}
-          <div className="mb-4 sm:mb-5 md:mb-6">
-            <div 
-              className="relative w-full h-36 sm:h-44 md:h-52 rounded-2xl overflow-hidden shadow-lg cursor-pointer group/image transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] sm:hover:scale-[1.02] active:scale-[0.98] border-2 border-[#AFC8E6]/30 group-hover:border-[#AFC8E6]/50"
-              onClick={() => setShowImageModal('ceremony')}
-            >
+          <div className="mb-4">
+            <div className="relative w-full h-32 sm:h-40 md:h-48 rounded-xl overflow-hidden shadow-lg border-2 border-[#A78256]/30">
               <Image
-                src="/Details/RoseofLimaParish.jpg"
+                src="/Details/Church.png"
                 alt={siteConfig.ceremony.location}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#D8B0B0]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-              <div className="absolute inset-0 bg-[#AFC8E6]/0 group-hover:bg-[#AFC8E6]/20 transition-all duration-500 flex items-center justify-center">
-                <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
-                  <div className="bg-[#F1EDE2]/90 backdrop-blur-sm rounded-full p-3 shadow-xl border-2 border-[#AFC8E6]/40">
-                    <Camera className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" style={{ color: '#AFC8E6' }} />
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center relative z-10">
-            <button
-              onClick={() => setShowImageModal('ceremony')}
-              className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 shadow-lg text-white"
-              style={{ background: 'linear-gradient(to right, #AFC8E6, #AFC8E6)' }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(to right, #9BB5D8, #AFC8E6)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(to right, #AFC8E6, #AFC8E6)'
-              }}
-            >
-              <Camera className="w-4 h-4" />
-              <span>View Venue</span>
-            </button>
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 relative z-10">
             <button
               onClick={() => openInMaps(ceremonyMapsLink)}
-              className="flex items-center justify-center gap-2 px-5 py-3 bg-white border-2 rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md hover:bg-[#D8B0B0]/15"
-              style={{ borderColor: '#AFC8E6', color: '#1a1a1a' }}
+              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md text-white"
+              style={{ backgroundColor: "#A78256" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(167, 130, 86, 0.9)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "#A78256";
+              }}
             >
               <Navigation className="w-4 h-4" />
-              <span>Get Directions</span>
+              <span>Get Direction</span>
+            </button>
+            <button
+              onClick={() => copyToClipboard(siteConfig.ceremony.location, 'ceremony')}
+              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#EDD6AC] border-2 border-[#A78256]/40 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md hover:bg-[#EDD6AC]/90 text-[#A78256]"
+            >
+              {copiedItems.has('ceremony') ? (
+                <>
+                  <Check className="w-4 h-4" />
+                  <span>Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-4 h-4" />
+                  <span>Copy Address</span>
+                </>
+              )}
             </button>
           </div>
         </div>
 
         {/* Reception */}
         <div 
-          className="bg-gradient-to-br from-[#F1EDE2] via-[#D8B0B0]/25 to-[#F1EDE2] backdrop-blur-md rounded-3xl p-5 sm:p-6 md:p-8 shadow-[0_8px_32px_rgba(216,176,176,0.15)] border-2 border-[#D8B0B0]/60 hover:border-[#D8B0B0] hover:shadow-[0_12px_48px_rgba(216,176,176,0.25)] transition-all duration-700 hover:scale-[1.02] group relative overflow-hidden"
+          className="bg-[#EDD6AC]/98 backdrop-blur-md rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 shadow-[0_8px_32px_rgba(167,130,86,0.12)] border-2 border-[#A78256]/40 hover:border-[#A78256]/60 hover:shadow-[0_12px_40px_rgba(167,130,86,0.18)] transition-all duration-300 hover:scale-[1.03] group relative overflow-hidden"
           onMouseEnter={() => setHoveredCard('reception')}
           onMouseLeave={() => setHoveredCard(null)}
         >
-          {/* Enhanced Decorative Background Elements */}
-          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#D8B0B0]/20 via-[#AFC8E6]/15 to-[#D8B0B0]/20 rounded-full blur-2xl opacity-40 animate-pulse" />
-          <div className="absolute top-4 right-4 w-20 h-20 bg-[#AFC8E6]/10 rounded-full opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-700" />
+          {/* Decorative corner accents */}
+          <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#C2D3C3]/40 rounded-tl-lg" />
+          <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#C2D3C3]/40 rounded-tr-lg" />
+          <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#C2D3C3]/40 rounded-bl-lg" />
+          <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#C2D3C3]/40 rounded-br-lg" />
           
-          {/* Inner decorative border with gradient */}
-          <div className="absolute inset-2 border border-[#D8B0B0]/40 rounded-2xl" />
-          
-          {/* Shimmer effect layer */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shimmer rounded-3xl" />
-          
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-5 sm:mb-6 gap-3 sm:gap-4 relative z-10">
-            <div className="flex items-center gap-3 sm:gap-4">
-              <div className={`bg-gradient-to-br from-[#D8B0B0]/30 via-[#AFC8E6]/20 to-[#D8B0B0]/30 p-2.5 sm:p-3 md:p-4 rounded-2xl transition-all duration-300 shadow-md group-hover:shadow-lg ${hoveredCard === 'reception' ? 'scale-110 rotate-[3deg]' : ''}`}>
-                <Utensils className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" style={{ color: '#D8B0B0' }} />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-5 gap-3 relative z-10">
+            <div className="flex items-center gap-3">
+              <div className={`bg-gradient-to-br from-[#B28383]/30 via-[#A78256]/20 to-[#B28383]/30 p-2 sm:p-2.5 rounded-xl transition-all duration-300 shadow-md ${hoveredCard === 'reception' ? 'scale-110' : ''}`}>
+                <Utensils className="w-4 h-4 sm:w-5 sm:h-5 text-[#B28383]" />
               </div>
-              <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold tracking-tight" style={{ color: '#1a1a1a' }}>Reception</h3>
-            </div>
-            <div className="flex items-center gap-1.5 sm:gap-2 self-end sm:self-auto">
-              <button
-                onClick={() => openInMaps(receptionMapsLink)}
-                className="p-2 sm:p-2.5 hover:bg-gradient-to-br hover:from-[#D8B0B0]/10 hover:to-[#D8B0B0]/5 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-md active:scale-95"
-                title="Open in Google Maps"
-                style={{ color: '#1a1a1a' }}
-              >
-                <Navigation className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />
-              </button>
-              <button
-                onClick={() => copyToClipboard(siteConfig.reception.location, 'reception')}
-                className="p-2 sm:p-2.5 hover:bg-gradient-to-br hover:from-[#D8B0B0]/10 hover:to-[#D8B0B0]/5 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-md active:scale-95"
-                title="Copy reception details"
-                style={{ color: '#1a1a1a' }}
-              >
-                {copiedItems.has('reception') ? <Check className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" /> : <Copy className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />}
-              </button>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#A78256]">Reception</h3>
             </div>
           </div>
 
-          <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-4 md:mb-6 relative z-10">
-            <p className="text-sm sm:text-base md:text-lg font-semibold" style={{ color: '#1a1a1a' }}>{siteConfig.reception.venue}</p>
-            <p className="text-xs sm:text-sm opacity-70" style={{ color: '#1a1a1a' }}>{siteConfig.reception.location.split(',')[1]?.trim() || siteConfig.reception.location.split(',')[0]?.trim()}, {siteConfig.reception.location.split(',')[2]?.trim() || ''}</p>
-            <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base" style={{ color: '#1a1a1a' }}>
-              <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: '#D8B0B0' }} />
+          <div className="space-y-2 mb-4 relative z-10">
+            <p className="text-sm sm:text-base font-semibold text-[#A78256]">{siteConfig.reception.venue}</p>
+            <p className="text-xs sm:text-sm text-[#B28383]">{siteConfig.reception.location.split(',')[1]?.trim() || siteConfig.reception.location.split(',')[0]?.trim()}, {siteConfig.reception.location.split(',')[2]?.trim() || ''}</p>
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-[#A78256]">
+              <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
               <span>
                 {siteConfig.reception.date} - {siteConfig.reception.time}
               </span>
@@ -264,74 +259,64 @@ export function Details() {
           </div>
 
           {/* Reception Image */}
-          <div className="mb-4 sm:mb-5 md:mb-6">
-            <div 
-              className="relative w-full h-36 sm:h-44 md:h-52 rounded-2xl overflow-hidden shadow-lg cursor-pointer group/image transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] sm:hover:scale-[1.02] active:scale-[0.98] border-2 border-[#D8B0B0]/30 group-hover:border-[#D8B0B0]/50"
-              onClick={() => setShowImageModal('reception')}
-            >
+          <div className="mb-4">
+            <div className="relative w-full h-32 sm:h-40 md:h-48 rounded-xl overflow-hidden shadow-lg border-2 border-[#A78256]/30">
               <Image
-                src="/Details/treshijoshotelresort.png"
+                src="/Details/recepcion.png"
                 alt={siteConfig.reception.location}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#AFC8E6]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-              <div className="absolute inset-0 bg-[#D8B0B0]/0 group-hover:bg-[#D8B0B0]/20 transition-all duration-500 flex items-center justify-center">
-                <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
-                  <div className="bg-[#F1EDE2]/90 backdrop-blur-sm rounded-full p-3 shadow-xl border-2 border-[#D8B0B0]/40">
-                    <Camera className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" style={{ color: '#D8B0B0' }} />
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center relative z-10">
-            <button
-              onClick={() => setShowImageModal('reception')}
-              className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 shadow-lg text-white"
-              style={{ background: 'linear-gradient(to right, #D8B0B0, #D8B0B0)' }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(to right, #C89A9A, #D8B0B0)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(to right, #D8B0B0, #D8B0B0)'
-              }}
-            >
-              <Camera className="w-4 h-4" />
-              <span>View Venue</span>
-            </button>
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 relative z-10">
             <button
               onClick={() => openInMaps(receptionMapsLink)}
-              className="flex items-center justify-center gap-2 px-5 py-3 bg-white border-2 rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md hover:bg-[#AFC8E6]/15"
-              style={{ borderColor: '#D8B0B0', color: '#1a1a1a' }}
+              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md text-white"
+              style={{ backgroundColor: "#A78256" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(167, 130, 86, 0.9)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "#A78256";
+              }}
             >
               <Navigation className="w-4 h-4" />
-              <span>Get Directions</span>
+              <span>Get Direction</span>
+            </button>
+            <button
+              onClick={() => copyToClipboard(siteConfig.reception.location, 'reception')}
+              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#EDD6AC] border-2 border-[#A78256]/40 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md hover:bg-[#EDD6AC]/90 text-[#A78256]"
+            >
+              {copiedItems.has('reception') ? (
+                <>
+                  <Check className="w-4 h-4" />
+                  <span>Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-4 h-4" />
+                  <span>Copy Address</span>
+                </>
+              )}
             </button>
           </div>
         </div>
       </div>
 
       {/* Additional Information */}
-      <div className="relative z-10 mb-8 sm:mb-12 lg:mb-16 max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <div className="hidden sm:block h-px w-8 bg-gradient-to-r from-transparent to-[#AFC8E6]/50" />
-            <div className="p-3 rounded-full shadow-lg" style={{ backgroundColor: '#D8B0B0', opacity: 0.25 }}>
-              <Users className="w-6 h-6 sm:w-8 sm:h-8" style={{ color: '#1a1a1a' }} />
-            </div>
-            <div className="hidden sm:block h-px w-8 bg-gradient-to-l from-transparent to-[#AFC8E6]/50" />
-          </div>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2" style={{ color: '#1a1a1a' }}>Important Information</h3>
-          <p className="text-sm sm:text-base opacity-80" style={{ color: '#1a1a1a' }}>Everything you need to know</p>
+      <div className="relative z-10 mb-6 sm:mb-8 max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-6 sm:mb-8">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-[#A78256]">Important Information</h3>
+          <p className="text-xs sm:text-sm text-[#B28383]">Everything you need to know</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           {/* Dress Code */}
-          <div className="bg-gradient-to-br from-[#F1EDE2] via-[#D8B0B0]/20 to-[#F1EDE2] backdrop-blur-md rounded-2xl p-5 sm:p-6 md:p-7 border-2 border-[#AFC8E6]/60 hover:border-[#AFC8E6] hover:shadow-xl transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 active:scale-[0.99] group relative overflow-hidden">
+          <div className="bg-[#EDD6AC]/98 backdrop-blur-md rounded-xl p-4 sm:p-5 border-2 border-[#A78256]/40 hover:border-[#A78256]/60 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] group relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ backgroundColor: '#D8B0B0', opacity: 0.15 }} />
             <div className="flex items-center gap-1.5 sm:gap-2 mb-4 relative z-10">
               <div className="p-2 rounded-full shadow-md" style={{ backgroundColor: '#D8B0B0', opacity: 0.3 }}>
@@ -384,7 +369,7 @@ export function Details() {
           </div>
 
           {/* Travel & Comfort - Combined */}
-          <div className="bg-gradient-to-br from-[#F1EDE2] via-[#AFC8E6]/20 to-[#F1EDE2] backdrop-blur-md rounded-2xl p-5 sm:p-6 md:p-7 border-2 border-[#D8B0B0]/60 hover:border-[#D8B0B0] hover:shadow-xl transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 active:scale-[0.99] group relative overflow-hidden">
+          <div className="bg-[#EDD6AC]/98 backdrop-blur-md rounded-xl p-4 sm:p-5 border-2 border-[#A78256]/40 hover:border-[#A78256]/60 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] group relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ backgroundColor: '#AFC8E6', opacity: 0.1 }} />
             <div className="flex items-center gap-1.5 sm:gap-2 mb-4 relative z-10">
               <div className="p-2 rounded-full shadow-md" style={{ backgroundColor: '#AFC8E6', opacity: 0.3 }}>
@@ -507,7 +492,7 @@ export function Details() {
               
               {showImageModal === 'ceremony' ? (
                 <Image
-                  src="/Details/RoseofLimaParish.jpg"
+                  src="/Details/Church.png"
                   alt={siteConfig.ceremony.location}
                   fill
                   className="object-contain p-6 sm:p-8 md:p-10 transition-transform duration-700 group-hover:scale-105 z-10"
@@ -516,7 +501,7 @@ export function Details() {
                 />
               ) : (
                 <Image
-                  src="/Details/treshijoshotelresort.png"
+                  src="/Details/recepcion.png"
                   alt={siteConfig.reception.location}
                   fill
                   className="object-contain p-6 sm:p-8 md:p-10 transition-transform duration-700 group-hover:scale-105 z-10"

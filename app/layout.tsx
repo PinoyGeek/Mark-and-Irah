@@ -1,33 +1,34 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Great_Vibes, Inter } from "next/font/google"
+import { Great_Vibes, Inter, Imperial_Script } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "--font-serif" })
+const imperialScript = Imperial_Script({ subsets: ["latin"], weight: "400", variable: "--font-imperial-script" })
 
 export const metadata: Metadata = {
-  title: "Nikki & Geofrey - Wedding Invitation",
+  title: "Edlin Mae & Joshua Jose - Wedding Invitation",
   description:
-    "You're invited to the wedding of Nikki & Geofrey! Join us on December 23, 2025 at St. Rose of Lima Parish, Bacacay, Albay. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+    "Celebrate the wedding of Edlin Mae B. Cellona and Joshua Jose T. Descalzo on December 22, 2025 at St. Gregory the Great Cathedral, Old Albay District, Legazpi City. RSVP, explore their love story, view the gallery, and send your wishes.",
   keywords:
-    "Nikki Geofrey wedding, Filipino wedding, RSVP, wedding gallery, wedding message wall, wedding invitation, 2025 weddings, love story, guestbook, wedding registry, wedding details, wedding venues St. Rose of Lima Parish, Bacacay, Albay, #NikkiAndGeofreyWedding",
+    "Edlin Mae Joshua Jose wedding, Legazpi City wedding, St. Gregory the Great Cathedral, Pepperland Hotel reception, rosegold champagne wedding, RSVP, wedding gallery, message wall, love story, #EdlinAndJoshuaWedding",
   authors: [
-    { name: "Nikki" },
-    { name: "Geofrey" },
+    { name: "Edlin Mae" },
+    { name: "Joshua Jose" },
   ],
-  creator: "Nikki & Geofrey",
-  publisher: "Nikki & Geofrey",
+  creator: "Edlin Mae & Joshua Jose",
+  publisher: "Edlin Mae & Joshua Jose",
   formatDetection: {
     email: false,
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://nikki-and-geofrey-invitation-bw84.vercel.app/"),
+  metadataBase: new URL("https://edlin-and-joshua-invitation.vercel.app/"),
   alternates: {
-    canonical: "https://nikki-and-geofrey-invitation-bw84.vercel.app/",
+    canonical: "https://edlin-and-joshua-invitation.vercel.app/",
   },
   icons: {
     icon: [
@@ -49,29 +50,29 @@ export const metadata: Metadata = {
   },
   manifest: "/favicon_io/site.webmanifest",
   openGraph: {
-    title: "Nikki & Geofrey Wedding | December 23, 2025",
+    title: "Edlin Mae & Joshua Jose Wedding | December 22, 2025",
     description:
-      "Celebrate the union of Nikki & Geofrey on December 23, 2025 at St. Rose of Lima Parish, Bacacay, Albay. Discover our love story, RSVP, view the gallery, and leave your wishes!",
-    url: "https://nikki-and-geofrey-invitation-bw84.vercel.app/",
-    siteName: "Nikki and Geofrey Wedding ",
+      "Celebrate the union of Edlin Mae & Joshua Jose on December 22, 2025 at St. Gregory the Great Cathedral, Old Albay District, Legazpi City. Discover their love story, RSVP, view the gallery, and share your wishes!",
+    url: "https://edlin-and-joshua-invitation.vercel.app/",
+    siteName: "Edlin Mae and Joshua Jose Wedding",
     locale: "en_PH",
     type: "website",
     images: [
       {
-        url: "https://nikki-and-geofrey-invitation-bw84.vercel.app/desktop-background/couple (41).jpg",
+        url: "https://edlin-and-joshua-invitation.vercel.app/desktop-background/couple (41).jpg",
         width: 1200,
         height: 630,
-        alt: "Nikki & Geofrey Wedding Invitation - December 23, 2025",
+        alt: "Edlin Mae & Joshua Jose Wedding Invitation - December 22, 2025",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nikki & Geofrey Wedding Invitation",
+    title: "Edlin Mae & Joshua Jose Wedding Invitation",
     description:
-      "You're invited to the wedding of Nikki & Geofrey! December 23, 2025. RSVP, view our gallery, and leave a message! #NikkiAndGeofreyWedding",
-    images: ["https://nikki-and-geofrey-invitation-bw84.vercel.app/desktop-background/couple (41).jpg"],
-    creator: "@nikkibalane",
+      "You're invited to the wedding of Edlin Mae & Joshua Jose on December 22, 2025. RSVP, explore the gallery, and leave a message! #EdlinAndJoshuaWedding",
+    images: ["https://edlin-and-joshua-invitation.vercel.app/desktop-background/couple (41).jpg"],
+    creator: "@edlinmae",
   },
   robots: {
     index: true,
@@ -91,37 +92,47 @@ export const metadata: Metadata = {
     "application/ld+json": JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Event",
-      name: "Nikki & Geofrey Wedding",
-      startDate: "2025-12-23T13:30:00+08:00",
-      endDate: "2025-12-23T22:00:00+08:00",
+      name: "Edlin Mae & Joshua Jose Wedding",
+      startDate: "2025-12-22T15:00:00+08:00",
+      endDate: "2025-12-22T22:00:00+08:00",
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       location: [
         {
           "@type": "Place",
-          name: "St. Rose of Lima Parish, Bacacay, Albay",
+          name: "St. Gregory the Great Cathedral, Old Albay District, Legazpi City",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Bacacay, Albay",
+            addressLocality: "Legazpi City, Albay",
+            addressCountry: "PH",
+          },
+        },
+        {
+          "@type": "Place",
+          name: "Pepperland Hotel",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Airport Road, Washington Drive Ext., Brgy 40 Cruzada",
+            addressLocality: "Legazpi City, Albay",
             addressCountry: "PH",
           },
         },
       ],
-      image: ["https://nikki-and-geofrey-invitation-bw84.vercel.app/desktop-background/couple (41).jpg"],
+      image: ["https://edlin-and-joshua-invitation.vercel.app/desktop-background/couple (41).jpg"],
       description:
-        "You're invited to the wedding of Nikki & Geofrey! Join us on December 23, 2025 at St. Rose of Lima Parish, Bacacay, Albay. RSVP, read our love story, view our gallery, and leave a message for the couple.",
+        "You're invited to the wedding of Edlin Mae & Joshua Jose on December 22, 2025 at St. Gregory the Great Cathedral with a reception at Pepperland Hotel. RSVP, read their love story, view the gallery, and leave a message for the couple.",
       organizer: {
         "@type": "Person",
-        name: "Nikki & Geofrey",
+        name: "Edlin Mae & Joshua Jose",
       },
       offers: {
         "@type": "Offer",
-        url: "https://nikki-and-geofrey-invitation-bw84.vercel.app/",
+        url: "https://edlin-and-joshua-invitation.vercel.app/",
         availability: "https://schema.org/InStock",
         price: "0",
         priceCurrency: "PHP",
       },
-      eventHashtag: "#NikkiAndGeofreyWedding",
+      eventHashtag: "#EdlinAndJoshuaWedding",
     }),
   },
 }
@@ -134,13 +145,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#AFC8E6" />
+        <meta name="theme-color" content="#B76E79" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preload" as="image" href="/mobile-background/DSCF2614-min.jpg" media="(max-width: 767px)" />
         <link rel="preload" as="image" href="/desktop-background/DSCF2444-min.jpg" media="(min-width: 768px)" />
       </head>
-      <body className={`${inter.variable} ${greatVibes.variable} font-inter antialiased text-foreground`}>
+      <body className={`${inter.variable} ${greatVibes.variable} ${imperialScript.variable} font-inter antialiased text-foreground`}>
         <Navbar />
         {children}
         <Analytics />
