@@ -180,10 +180,10 @@ export function Hero() {
             {/* Names */}
             <div className="space-y-1 sm:space-y-1.5 md:space-y-2 lg:space-y-3">
               <h1
-                className="font-serif text-[2.75rem] sm:text-[3rem] md:text-[3.75rem] lg:text-[4.5rem] xl:text-[5rem] text-[#F7EDE0] leading-tight"
+                className="font-serif text-[2.75rem] sm:text-[3rem] md:text-[3.75rem] lg:text-[4.5rem] xl:text-[5rem] text-[#FFF8E7] leading-tight"
                 style={{
                   textShadow:
-                    "0 12px 26px rgba(0,0,0,0.45)",
+                    "0 0 10px rgba(255, 248, 231, 0.8), 0 0 20px rgba(255, 248, 231, 0.6), 0 0 30px rgba(255, 248, 231, 0.4), 0 0 40px rgba(255, 223, 153, 0.3), 0 0 50px rgba(255, 223, 153, 0.2), 0 12px 26px rgba(0,0,0,0.45)",
                 }}
               >
                 Joshua Jose
@@ -192,10 +192,10 @@ export function Hero() {
                 and
               </span>
               <h2
-                className="font-serif text-[2.75rem] sm:text-[3rem] md:text-[3.75rem] lg:text-[4.5rem] xl:text-[5rem] text-[#F7EDE0] leading-tight"
+                className="font-serif text-[2.75rem] sm:text-[3rem] md:text-[3.75rem] lg:text-[4.5rem] xl:text-[5rem] text-[#FFF8E7] leading-tight"
                 style={{
                   textShadow:
-                    "0 12px 26px rgba(0,0,0,0.45)",
+                    "0 0 10px rgba(255, 248, 231, 0.8), 0 0 20px rgba(255, 248, 231, 0.6), 0 0 30px rgba(255, 248, 231, 0.4), 0 0 40px rgba(255, 223, 153, 0.3), 0 0 50px rgba(255, 223, 153, 0.2), 0 12px 26px rgba(0,0,0,0.45)",
                 }}
               >
                 Edlin Mae
