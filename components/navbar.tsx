@@ -89,16 +89,16 @@ export function Navbar() {
       {/* Subtle texture overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#B28383]/5 via-transparent to-[#B28383]/5 pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 relative">
-        <div className="flex justify-between items-center h-12 sm:h-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 relative">
+        <div className="flex justify-between items-center h-14 sm:h-16 md:h-20">
           <Link href="#home" className="flex-shrink-0 group relative z-10">
             <div className="relative">
               <Image
                 src="/Couple_img/monogram.png"
                 alt="Monogram"
-                width={40}
-                height={40}
-                className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 group-hover:scale-110 group-active:scale-105 transition-all duration-500 drop-shadow-[0_2px_10px_rgba(167,130,86,0.3)] group-hover:drop-shadow-[0_2px_15px_rgba(167,130,86,0.5)]"
+                width={36}
+                height={36}
+                className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 group-hover:scale-110 group-active:scale-105 transition-all duration-500 drop-shadow-[0_2px_10px_rgba(167,130,86,0.3)] group-hover:drop-shadow-[0_2px_15px_rgba(167,130,86,0.5)]"
                 style={{
                   filter: 'invert(54%) sepia(18%) saturate(945%) hue-rotate(357deg) brightness(92%) contrast(87%)'
                 }}
@@ -137,25 +137,26 @@ export function Navbar() {
             })}
           </div>
 
-          <div className="md:hidden absolute right-2 top-0 z-20">
+          <div className="md:hidden flex items-center h-full">
             {/* Decorative halo to improve tap target and visual affordance */}
-            <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-[#EDD6AC]/25 via-[#B28383]/20 to-transparent blur-lg pointer-events-none" />
-            <div className="absolute inset-0 rounded-full ring-1 ring-[#EDD6AC]/40 pointer-events-none" />
-            <StaggeredMenu
-              position="left"
-              items={menuItems}
-              socialItems={[]}
-              displaySocials={false}
-              displayItemNumbering={true}
-              menuButtonColor="#A78256"
-              openMenuButtonColor="#B28383"
-              changeMenuColorOnOpen={true}
-              colors={["#DDD3CC", "#B28383", "#EDD6AC", "#A78256", "#C2D3C3"]}
-              accentColor="#EDD6AC"
-              isFixed={true}
-              onMenuOpen={() => {}}
-              onMenuClose={() => {}}
-            />
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-[#EDD6AC]/20 via-[#B28383]/15 to-transparent blur-md pointer-events-none" />
+              <StaggeredMenu
+                position="left"
+                items={menuItems}
+                socialItems={[]}
+                displaySocials={false}
+                displayItemNumbering={true}
+                menuButtonColor="#A78256"
+                openMenuButtonColor="#B28383"
+                changeMenuColorOnOpen={true}
+                colors={["#DDD3CC", "#B28383", "#EDD6AC", "#A78256", "#C2D3C3"]}
+                accentColor="#EDD6AC"
+                isFixed={true}
+                onMenuOpen={() => {}}
+                onMenuClose={() => {}}
+              />
+            </div>
           </div>
         </div>
 

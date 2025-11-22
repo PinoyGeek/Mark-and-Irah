@@ -336,14 +336,16 @@ export function Details() {
             {siteConfig.dressCode.colors && (
               <div className="mb-4 relative z-10">
                 <p className="text-xs font-semibold mb-2" style={{ color: '#1a1a1a' }}>Color Palette</p>
-                <div className="flex gap-2 flex-wrap">
-                  {siteConfig.dressCode.colors.map((color, index) => (
-                    <div
-                      key={index}
-                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-md border-2 border-white ring-2 ring-[#AFC8E6]/25"
-                      style={{ backgroundColor: color }}
+                <div className="rounded-lg overflow-hidden border-2 shadow-sm bg-white" style={{ borderColor: '#AFC8E6' }}>
+                  <div className="relative w-full h-20 sm:h-24">
+                    <Image
+                      src="/Details/colorpallete.png"
+                      alt="Wedding Color Palette"
+                      fill
+                      className="object-contain p-1"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                  ))}
+                  </div>
                 </div>
               </div>
             )}
@@ -366,6 +368,22 @@ export function Details() {
                 <p className="text-xs font-medium px-2 py-1 rounded text-white shadow-sm mt-2" style={{ backgroundColor: '#D8B0B0' }}>⚠️ {siteConfig.dressCode.note}</p>
               </div>
             )}
+
+            {/* Attire Guide Image */}
+            <div className="rounded-lg overflow-hidden border-2 shadow-md relative z-10 bg-white" style={{ borderColor: '#AFC8E6' }}>
+              <div className="bg-white/95 p-2 border-b-2" style={{ borderColor: '#AFC8E6' }}>
+                <p className="text-xs font-semibold text-center" style={{ color: '#1a1a1a' }}>Attire Guide</p>
+              </div>
+              <div className="relative w-full h-48 sm:h-56 md:h-64">
+                <Image
+                  src="/Details/dresscode.png"
+                  alt="Dress Code Attire Guide"
+                  fill
+                  className="object-contain p-2"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
           </div>
 
           {/* Travel & Comfort - Combined */}

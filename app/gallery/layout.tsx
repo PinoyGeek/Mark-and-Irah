@@ -16,15 +16,17 @@ export default function GalleryLayout({ children }: { children: React.ReactNode 
   return (
     <div className="min-h-screen">
       {/* Simple top bar with only Back link */}
-      <div className="sticky top-0 z-50 backdrop-blur-md bg-[#AFC8E6]/80 border-b border-[#D8B0B0]/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+      <div className="sticky top-0 z-50 backdrop-blur-md bg-[#DDD3CC]/90 border-b border-[#EDD6AC]/30 shadow-sm">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-12 sm:h-14 flex items-center justify-between">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-[#F1EDE2] font-semibold px-4 py-2 rounded-full border border-[#D8B0B0]/50 hover:bg-[#D8B0B0]/20 hover:border-[#D8B0B0] transition-all duration-200 font-sans"
+            className="inline-flex items-center gap-1.5 sm:gap-2 text-[#A78256] font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#B28383]/50 hover:bg-[#B28383]/20 hover:border-[#B28383] transition-all duration-200 font-sans text-sm sm:text-base"
           >
-            ← Back to main page
+            <span className="text-base sm:text-lg">←</span>
+            <span className="hidden xs:inline">Back to main page</span>
+            <span className="xs:hidden">Back</span>
           </Link>
-          <div className="text-xs text-[#F1EDE2]/70 font-sans">Gallery</div>
+          <div className="text-xs sm:text-sm text-[#A78256]/70 font-sans font-medium">Gallery</div>
         </div>
       </div>
       {children}

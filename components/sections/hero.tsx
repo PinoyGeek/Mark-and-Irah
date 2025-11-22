@@ -252,8 +252,8 @@ export function Hero() {
                 </span>
               </a>
               <a
-                href="/Details/Wedding-Invitation%20(8).pdf"
-                download="Wedding-Invitation.pdf"
+                href="/invitation/IMG_3200-min.PNG"
+                download="Wedding-Invitation-Joshua-Edlin.png"
                 className="group flex-none rounded-full border border-[#F5EDE3]/40 bg-[#C2D3C3]/25 px-3.5 md:px-5 lg:px-6 py-2 md:py-2.5 lg:py-3 text-[11px] md:text-xs lg:text-sm uppercase tracking-[0.15em] md:tracking-[0.18em] lg:tracking-[0.22em] text-[#FDF6EE] backdrop-blur-sm transition-all duration-300 hover:bg-[#C2D3C3]/35"
               >
                 <span className="flex items-center justify-center gap-1.5 md:gap-2">

@@ -177,7 +177,9 @@ export function Footer() {
             height={350}
             className="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96"
             priority={false}
-            style={{ filter: "drop-shadow(0 4px 20px rgba(167, 130, 86, 0.4))" }}
+            style={{ 
+              filter: "brightness(0) saturate(100%) invert(55%) sepia(23%) saturate(633%) hue-rotate(356deg) brightness(92%) contrast(86%) drop-shadow(0 4px 20px rgba(167, 130, 86, 0.4))" 
+            }}
           />
           {/* Glow effect behind monogram */}
           <div className="absolute inset-0 blur-3xl bg-[#A78256]/25 -z-10 scale-125" />

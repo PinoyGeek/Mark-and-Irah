@@ -25,7 +25,7 @@ const faqItems: FAQItem[] = [
   {
     question: "What is the dress code?",
     answer:
-      `We kindly request our guests to dress in formal attire to celebrate our special day.\n\nTheme: Rosegold & Champagne\n\nPrincipal Sponsors:\n• Ladies: Elegant gowns in rosegold, champagne, or soft neutrals.\n• Gentlemen: Classic black or midnight suits with champagne accents.\n\nGuests:\n• Ladies: Long or cocktail dresses in rosegold, champagne, or muted metallics.\n• Gentlemen: Barong, long-sleeve polos, or suits in complementary neutrals.\n\nNote: Please avoid jeans and casual attire.`,
+      `Please come in your best formal/semi-formal ensemble\n\nTheme: Romantic Elegance\n\nColor Motif: Old Rose, Rose gold, Blush Pink, Champagne\n\nPrincipal Sponsors:\n• Ninong: Barong\n• Ninang: Modern Filipiniana\n\nGuests:\n• Ladies: Long Gown/ cocktail dresses\n• Gentlemen: Long Sleeves /Polo and Black slacks.`,
   },
   {
     question: "When is the RSVP deadline?",

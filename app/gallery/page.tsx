@@ -91,14 +91,17 @@ export default async function GalleryPage() {
               <div className="hidden sm:block absolute -bottom-7 -right-7 w-4 h-4 border-b-2 border-r-2 border-[#A78256] rounded-br-lg" />
               
               <h2 className="font-playfair text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#A78256] mb-2 sm:mb-4">
-                Share Your Moments
+                Help us capture every smile!
               </h2>
               <p className="text-[#B28383] font-lora font-light text-xs sm:text-sm md:text-base lg:text-lg mb-4 sm:mb-6 leading-relaxed px-2">
-                Use our wedding hashtags to share your photos and be featured in our gallery!
+                Upload your snapshots and be part of our wedding album and be featured in this gallery.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-[#C2D3C3]/30 border-2 border-[#C2D3C3]/40 rounded-full text-[#A78256] font-lora font-semibold text-xs sm:text-sm md:text-base shadow-md">
-                  #TheBigBANGWedding
+                  #JOSHtheoneforMAE
+                </span>
+                <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-[#C2D3C3]/30 border-2 border-[#C2D3C3]/40 rounded-full text-[#A78256] font-lora font-semibold text-xs sm:text-sm md:text-base shadow-md">
+                  #MAEforeversiJOSH
                 </span>
               </div>
               <Link

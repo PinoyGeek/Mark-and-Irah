@@ -10,8 +10,8 @@ export const siteConfig = {
     time: "3:00 PM",
     venue: "St. Gregory the Great Cathedral, Old Albay District, Legazpi City",
     tagline: "are getting married!",
-    theme: "Rosegold & Champagne",
-    motif: "Rosegold-champagne elegance",
+    theme: "Romantic Elegance",
+    motif: "Old Rose, Rose gold, Blush Pink, Champagne",
   },
   details: {
     rsvp: {
@@ -34,17 +34,17 @@ export const siteConfig = {
     time: "Reception to follow",
   },
   dressCode: {
-    theme: "Rosegold & Champagne",
+    theme: "Romantic Elegance",
     colors: ["#B76E79", "#F7E7CE", "#FFFFFF"],
     sponsors: {
-      ladies: "Elegant gowns in rosegold, champagne, or soft neutrals.",
-      gentlemen: "Classic black or midnight suits with champagne accents."
+      ladies: "Modern Filipiniana",
+      gentlemen: "Barong"
     },
     guests: {
-      ladies: "Long or cocktail dresses in rosegold, champagne, or muted metallics.",
-      gentlemen: "Barong, long-sleeve polos, or suits in complementary neutrals."
+      ladies: "Long Gown/ cocktail dresses",
+      gentlemen: "Long Sleeves /Polo and Black slacks."
     },
-    note: "Please avoid jeans and casual attire."
+    note: "Please come in your best formal/semi-formal ensemble"
   },
   narrative: `They first met as nursing students—two batchmates who barely knew each other but somehow found themselves caught in a conversation about Naruto at the grandstand. It’s funny and almost ancient now to think that the two kids talking back then were the very ones no one would have guessed. She thought he was an anime fanatic like her, but it wasn’t until several months into their relationship that he learned Naruto was actually the only anime he knew. She remembered him as the playful guy who took being a ninja a little too seriously, while he remembered her as the girl who enthusiastically gave a full history lesson on the Hidden Leaf Village like it was a college course. It was the kind of meeting that felt both random and like the universe’s little inside joke—two strangers bonding over fictional characters and ninja headbands, as if it was the whole world to them, completely unaware that this odd, unexpected chat was the first page of their story.
 

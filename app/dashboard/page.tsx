@@ -871,11 +871,11 @@ export default function DashboardPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#DDD3CC] via-[#EDD6AC] to-[#C2D3C3] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-[#F5F0ED] flex items-center justify-center p-4">
         <div className="w-full max-w-md">
-          <div className="bg-[#EDD6AC]/95 backdrop-blur-md rounded-3xl p-8 shadow-2xl border-2 border-[#B28383]/30">
+          <div className="bg-white rounded-3xl p-8 shadow-2xl border-2 border-[#C2D3C3]/30">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#C2D3C3] to-[#B28383] rounded-full mb-3">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-[#C2D3C3] rounded-full mb-3">
                 <Lock className="h-10 w-10 text-white" />
               </div>
               <div className="text-xs tracking-[0.2em] uppercase font-semibold text-[#B28383] mb-2">welcome Edlin Mae & Joshua Jose</div>
@@ -911,7 +911,7 @@ export default function DashboardPage() {
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#C2D3C3] to-[#B28383] hover:from-[#B28383] hover:to-[#A78256] text-white py-3 rounded-xl font-semibold"
+                className="w-full bg-[#C2D3C3] hover:bg-[#B28383] text-white py-3 rounded-xl font-semibold transition-colors"
               >
                 Access Dashboard
               </Button>
@@ -923,9 +923,9 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#DDD3CC] to-[#EDD6AC]/30">
+    <div className="min-h-screen bg-[#F5F0ED]">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#C2D3C3] via-[#B28383] to-[#A78256] shadow-lg">
+      <div className="bg-[#C2D3C3] shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div>
@@ -943,7 +943,7 @@ export default function DashboardPage() {
                 disabled={isLoading}
                 variant="outline"
                 size="sm"
-                className="bg-[#EDD6AC]/20 border-white/30 text-white hover:bg-[#EDD6AC]/30"
+                className="bg-white/20 border-white/50 text-white hover:bg-white/30"
               >
                 <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
                 Refresh
@@ -952,7 +952,7 @@ export default function DashboardPage() {
                 onClick={handleLogout}
                 variant="outline"
                 size="sm"
-                className="bg-[#EDD6AC]/20 border-white/30 text-white hover:bg-[#EDD6AC]/30"
+                className="bg-white/20 border-white/50 text-white hover:bg-white/30"
               >
                 <Lock className="h-4 w-4" />
                 Logout
@@ -965,7 +965,7 @@ export default function DashboardPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
-          <div className="bg-[#EDD6AC] rounded-2xl p-6 shadow-md border border-[#C2D3C3]/30">
+          <div className="bg-white rounded-2xl p-6 shadow-md border border-[#C2D3C3]/30">
             <div className="flex items-center justify-between mb-2">
               <Users className="h-6 w-6 sm:h-8 sm:w-8 text-[#C2D3C3]" />
               <span className="text-2xl sm:text-3xl font-bold text-[#A78256]">{stats.totalGuests}</span>
@@ -974,7 +974,7 @@ export default function DashboardPage() {
             <p className="text-xs text-[#A78256]/50 font-sans mt-1">{stats.total} entries</p>
           </div>
 
-          <div className="bg-[#C2D3C3]/20 rounded-2xl p-6 shadow-md border border-[#C2D3C3]/30">
+          <div className="bg-white rounded-2xl p-6 shadow-md border border-[#C2D3C3]/30">
             <div className="flex items-center justify-between mb-2">
               <CheckCircle className="h-6 w-6 sm:h-8 sm:w-8 text-[#C2D3C3]" />
               <span className="text-2xl sm:text-3xl font-bold text-[#C2D3C3]">{stats.attending}</span>
@@ -982,7 +982,7 @@ export default function DashboardPage() {
             <p className="text-xs sm:text-sm text-[#A78256]/70 font-sans">Attending</p>
           </div>
 
-          <div className="bg-[#B28383]/20 rounded-2xl p-6 shadow-md border border-[#B28383]/30">
+          <div className="bg-white rounded-2xl p-6 shadow-md border border-[#B28383]/30">
             <div className="flex items-center justify-between mb-2">
               <XCircle className="h-6 w-6 sm:h-8 sm:w-8 text-[#B28383]" />
               <span className="text-2xl sm:text-3xl font-bold text-[#B28383]">{stats.notAttending}</span>
@@ -990,7 +990,7 @@ export default function DashboardPage() {
             <p className="text-xs sm:text-sm text-[#A78256]/70 font-sans">Not Attending</p>
           </div>
 
-          <div className="bg-[#B28383]/20 rounded-2xl p-6 shadow-md border border-[#B28383]/30">
+          <div className="bg-white rounded-2xl p-6 shadow-md border border-[#B28383]/30">
             <div className="flex items-center justify-between mb-2">
               <AlertCircle className="h-6 w-6 sm:h-8 sm:w-8 text-[#B28383]" />
               <span className="text-2xl sm:text-3xl font-bold text-[#B28383]">{stats.pending}</span>
@@ -998,7 +998,7 @@ export default function DashboardPage() {
             <p className="text-xs sm:text-sm text-[#A78256]/70 font-sans">Pending</p>
           </div>
 
-          <div className="bg-[#B28383]/20 rounded-2xl p-6 shadow-md border border-[#B28383]/30">
+          <div className="bg-white rounded-2xl p-6 shadow-md border border-[#B28383]/30">
             <div className="flex items-center justify-between mb-2">
               <Bell className="h-6 w-6 sm:h-8 sm:w-8 text-[#B28383]" />
               <span className="text-2xl sm:text-3xl font-bold text-[#B28383]">{guestRequests.length}</span>
@@ -1006,7 +1006,7 @@ export default function DashboardPage() {
             <p className="text-xs sm:text-sm text-[#A78256]/70 font-sans">Requests</p>
           </div>
 
-          <div className="bg-[#EDD6AC]/60 rounded-2xl p-6 shadow-md border border-[#EDD6AC]/50">
+          <div className="bg-white rounded-2xl p-6 shadow-md border border-[#A78256]/30">
             <div className="flex items-center justify-between mb-2">
               <Crown className="h-6 w-6 sm:h-8 sm:w-8 text-[#A78256]" />
               <span className="text-2xl sm:text-3xl font-bold text-[#A78256]">{entourage.length}</span>
@@ -1014,7 +1014,7 @@ export default function DashboardPage() {
             <p className="text-xs sm:text-sm text-[#A78256]/70 font-sans">Entourage</p>
           </div>
 
-          <div className="bg-[#A78256]/20 rounded-2xl p-6 shadow-md border border-[#A78256]/30">
+          <div className="bg-white rounded-2xl p-6 shadow-md border border-[#A78256]/30">
             <div className="flex items-center justify-between mb-2">
               <UserPlus className="h-6 w-6 sm:h-8 sm:w-8 text-[#A78256]" />
               <span className="text-2xl sm:text-3xl font-bold text-[#A78256]">{principalSponsors.length}</span>
@@ -1024,13 +1024,13 @@ export default function DashboardPage() {
         </div>
 
         {/* Tabs */}
-        <div className="bg-[#EDD6AC] rounded-2xl p-1 sm:p-2 shadow-md border border-[#C2D3C3]/30 mb-6">
+        <div className="bg-white rounded-2xl p-1 sm:p-2 shadow-md border border-[#C2D3C3]/30 mb-6">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 sm:gap-2">
             <button
               onClick={() => setActiveTab("guests")}
               className={`w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 ${
                 activeTab === "guests"
-                  ? "bg-gradient-to-r from-[#C2D3C3] to-[#B28383] text-white shadow-lg"
+                  ? "bg-[#C2D3C3] text-white shadow-lg"
                   : "text-[#A78256] hover:bg-[#C2D3C3]/20"
               }`}
             >
@@ -1041,7 +1041,7 @@ export default function DashboardPage() {
               onClick={() => setActiveTab("requests")}
               className={`w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 relative ${
                 activeTab === "requests"
-                  ? "bg-gradient-to-r from-[#C2D3C3] to-[#B28383] text-white shadow-lg"
+                  ? "bg-[#C2D3C3] text-white shadow-lg"
                   : "text-[#A78256] hover:bg-[#C2D3C3]/20"
               }`}
             >
@@ -1057,7 +1057,7 @@ export default function DashboardPage() {
               onClick={() => setActiveTab("entourage")}
               className={`w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 ${
                 activeTab === "entourage"
-                  ? "bg-gradient-to-r from-[#C2D3C3] to-[#B28383] text-white shadow-lg"
+                  ? "bg-[#C2D3C3] text-white shadow-lg"
                   : "text-[#A78256] hover:bg-[#C2D3C3]/20"
               }`}
             >
@@ -1068,7 +1068,7 @@ export default function DashboardPage() {
               onClick={() => setActiveTab("principalsponsor")}
               className={`w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 ${
                 activeTab === "principalsponsor"
-                  ? "bg-gradient-to-r from-[#C2D3C3] to-[#B28383] text-white shadow-lg"
+                  ? "bg-[#C2D3C3] text-white shadow-lg"
                   : "text-[#A78256] hover:bg-[#C2D3C3]/20"
               }`}
             >
@@ -1082,7 +1082,7 @@ export default function DashboardPage() {
         {activeTab === "guests" && (
           <>
         {/* Search and Add Guest */}
-        <div className="bg-[#EDD6AC] rounded-2xl p-6 shadow-md border border-[#C2D3C3]/30 mb-6">
+        <div className="bg-white rounded-2xl p-6 shadow-md border border-[#C2D3C3]/30 mb-6">
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-4">
             <div className="flex-1 w-full">
               <div className="relative">
@@ -1092,7 +1092,7 @@ export default function DashboardPage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search guests by name or email..."
-                  className="w-full pl-10 pr-4 py-2 border-2 border-[#C2D3C3]/30 focus:border-[#C2D3C3] rounded-xl font-sans placeholder:text-[#A78256]/40 transition-all duration-300 focus:ring-4 focus:ring-[#C2D3C3]/10 bg-[#EDD6AC]"
+                  className="w-full pl-10 pr-4 py-2 border-2 border-[#C2D3C3]/30 focus:border-[#C2D3C3] rounded-xl font-sans placeholder:text-[#A78256]/40 transition-all duration-300 focus:ring-4 focus:ring-[#C2D3C3]/10 bg-white"
                 />
               </div>
             </div>
@@ -1103,7 +1103,7 @@ export default function DashboardPage() {
                 setEditModalOpen(false)
                 setFormData({ Name: "", Email: "", RSVP: "", Guest: "", Message: "" })
               }}
-              className="bg-gradient-to-r from-[#C2D3C3] to-[#B28383] hover:from-[#B28383] hover:to-[#A78256] text-white"
+              className="bg-[#C2D3C3] hover:bg-[#B28383] text-white transition-colors"
             >
               <Plus className="h-4 w-4 mr-2" />
               Add Guest
@@ -1128,10 +1128,10 @@ export default function DashboardPage() {
         </div>
 
         {/* Guest List */}
-        <div className="bg-[#EDD6AC] rounded-2xl shadow-md border border-[#C2D3C3]/30 overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-md border border-[#C2D3C3]/30 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gradient-to-r from-[#C2D3C3]/20 to-[#B28383]/20">
+              <thead className="bg-[#F5F0ED]">
                 <tr>
                   <th className="text-left px-6 py-4 text-sm font-bold text-[#A78256] font-sans">Name</th>
                   <th className="text-left px-6 py-4 text-sm font-bold text-[#A78256] font-sans">Email</th>
@@ -1239,7 +1239,7 @@ export default function DashboardPage() {
         {activeTab === "requests" && (
           <>
             {/* Search Section */}
-            <div className="bg-[#EDD6AC] rounded-2xl p-6 shadow-md border border-[#C2D3C3]/30 mb-6">
+            <div className="bg-white rounded-2xl p-6 shadow-md border border-[#C2D3C3]/30 mb-6">
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-4">
                 <div className="flex-1 w-full">
                   <div className="relative">
@@ -1273,10 +1273,10 @@ export default function DashboardPage() {
             </div>
 
             {/* Requests List */}
-            <div className="bg-[#EDD6AC] rounded-2xl shadow-md border border-[#C2D3C3]/30 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-md border border-[#C2D3C3]/30 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gradient-to-r from-[#C2D3C3]/20 to-[#B28383]/20">
+                  <thead className="bg-[#F5F0ED]">
                     <tr>
                       <th className="text-left px-6 py-4 text-sm font-bold text-[#A78256] font-sans">Name</th>
                       <th className="text-left px-6 py-4 text-sm font-bold text-[#A78256] font-sans">Email</th>
@@ -1329,7 +1329,7 @@ export default function DashboardPage() {
                             <div className="flex items-center justify-center gap-2">
                               <button
                                 onClick={() => handleAddRequestToGuestListClick(request)}
-                                className="px-4 py-2 bg-gradient-to-r from-[#C2D3C3] to-[#B28383] hover:from-[#B28383] hover:to-[#A78256] text-white rounded-lg transition-colors font-semibold text-sm flex items-center gap-2 shadow-md hover:shadow-lg"
+                                className="px-4 py-2 bg-[#C2D3C3] hover:bg-[#B28383] text-white rounded-lg transition-colors font-semibold text-sm flex items-center gap-2 shadow-md hover:shadow-lg"
                                 title="Add to guest list"
                               >
                                 <UserCheck className="h-4 w-4" />
@@ -1363,7 +1363,7 @@ export default function DashboardPage() {
         {activeTab === "entourage" && (
           <>
             {/* Search Section */}
-            <div className="bg-[#EDD6AC] rounded-2xl p-6 shadow-md border border-[#C2D3C3]/30 mb-6">
+            <div className="bg-white rounded-2xl p-6 shadow-md border border-[#C2D3C3]/30 mb-6">
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-4">
                 <div className="flex-1 w-full">
                   <div className="relative">
@@ -1384,7 +1384,7 @@ export default function DashboardPage() {
                     setEntourageFormData({ Name: "", RoleCategory: "", RoleTitle: "", Email: "" })
                     setShowEntourageModal(true)
                   }}
-                className="bg-gradient-to-r from-[#C2D3C3] to-[#B28383] hover:from-[#B28383] hover:to-[#A78256] text-white"
+                className="bg-[#C2D3C3] hover:bg-[#B28383] text-white transition-colors"
                 >
                   <Plus className="h-4 w-4 mr-2" />
                   Add Member
@@ -1410,10 +1410,10 @@ export default function DashboardPage() {
             </div>
 
             {/* Entourage List */}
-            <div className="bg-[#EDD6AC] rounded-2xl shadow-md border border-[#C2D3C3]/30 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-md border border-[#C2D3C3]/30 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gradient-to-r from-[#C2D3C3]/20 to-[#B28383]/20">
+                  <thead className="bg-[#F5F0ED]">
                     <tr>
                       <th className="text-left px-6 py-4 text-sm font-bold text-[#A78256] font-sans">Name</th>
                       <th className="text-left px-6 py-4 text-sm font-bold text-[#A78256] font-sans">Role Category</th>
@@ -1486,7 +1486,7 @@ export default function DashboardPage() {
         {activeTab === "principalsponsor" && (
           <>
             {/* Search Section */}
-            <div className="bg-[#EDD6AC] rounded-2xl p-6 shadow-md border border-[#C2D3C3]/30 mb-6">
+            <div className="bg-white rounded-2xl p-6 shadow-md border border-[#C2D3C3]/30 mb-6">
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-4">
                 <div className="flex-1 w-full">
                   <div className="relative">
@@ -1506,7 +1506,7 @@ export default function DashboardPage() {
                     setPrincipalSponsorFormData({ MalePrincipalSponsor: "", FemalePrincipalSponsor: "" })
                     setShowPrincipalSponsorModal(true)
                   }}
-                className="bg-gradient-to-r from-[#C2D3C3] to-[#B28383] hover:from-[#B28383] hover:to-[#A78256] text-white"
+                className="bg-[#C2D3C3] hover:bg-[#B28383] text-white transition-colors"
                 >
                   <Plus className="h-4 w-4 mr-2" />
                   Add Sponsors
@@ -1531,10 +1531,10 @@ export default function DashboardPage() {
             </div>
 
             {/* PrincipalSponsor List */}
-            <div className="bg-[#EDD6AC] rounded-2xl shadow-md border border-[#C2D3C3]/30 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-md border border-[#C2D3C3]/30 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gradient-to-r from-[#C2D3C3]/20 to-[#B28383]/20">
+                  <thead className="bg-[#F5F0ED]">
                     <tr>
                       <th className="text-left px-6 py-4 text-sm font-bold text-[#A78256] font-sans">Male Principal Sponsor</th>
                       <th className="text-left px-6 py-4 text-sm font-bold text-[#A78256] font-sans">Female Principal Sponsor</th>
@@ -1692,13 +1692,13 @@ function AddToGuestListModal({
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="w-full max-w-md bg-[#EDD6AC] rounded-2xl shadow-2xl border border-[#C2D3C3]/30">
-        <div className="sticky top-0 bg-gradient-to-r from-[#C2D3C3]/20 to-[#B28383]/20 px-6 py-4 border-b border-[#C2D3C3]/20 rounded-t-2xl">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-[#C2D3C3]/30">
+        <div className="sticky top-0 bg-[#F5F0ED] px-6 py-4 border-b border-[#C2D3C3]/20 rounded-t-2xl">
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-bold text-[#A78256] font-sans">Add to Guest List</h3>
             <button
               onClick={onCancel}
-              className="p-2 hover:bg-[#EDD6AC]/50 rounded-lg transition-colors text-[#A78256]/70 hover:text-[#A78256]"
+              className="p-2 hover:bg-[#C2D3C3]/20 rounded-lg transition-colors text-[#A78256]/70 hover:text-[#A78256]"
             >
               <XCircle className="h-5 w-5" />
             </button>
@@ -1713,7 +1713,7 @@ function AddToGuestListModal({
             </p>
           </div>
           
-          <div className="bg-[#C2D3C3]/5 rounded-xl p-4 mb-6 border border-[#C2D3C3]/30">
+          <div className="bg-[#F5F0ED] rounded-xl p-4 mb-6 border border-[#C2D3C3]/30">
             <p className="text-sm font-semibold text-[#A78256] mb-2 font-sans">Request Details:</p>
             <div className="space-y-2 text-sm text-[#A78256]/80 font-sans">
               <div><span className="font-medium">Email:</span> {request.Email || "-"}</div>
@@ -1736,7 +1736,7 @@ function AddToGuestListModal({
             <Button
               onClick={onConfirm}
               disabled={isLoading}
-              className="flex-1 bg-gradient-to-r from-[#C2D3C3] to-[#B28383] hover:from-[#B28383] hover:to-[#A78256] text-white disabled:opacity-50"
+              className="flex-1 bg-[#C2D3C3] hover:bg-[#B28383] text-white disabled:opacity-50 transition-colors"
             >
               {isLoading ? (
                 <>
@@ -1829,13 +1829,13 @@ function EntourageModal({
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="w-full max-w-xl bg-[#EDD6AC] rounded-2xl shadow-2xl border border-[#C2D3C3]/30 max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 bg-gradient-to-r from-[#C2D3C3]/20 to-[#B28383]/20 px-6 py-4 border-b border-[#C2D3C3]/30 rounded-t-2xl">
+      <div className="w-full max-w-xl bg-white rounded-2xl shadow-2xl border border-[#C2D3C3]/30 max-h-[90vh] overflow-y-auto">
+        <div className="sticky top-0 bg-[#F5F0ED] px-6 py-4 border-b border-[#C2D3C3]/30 rounded-t-2xl">
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-bold text-[#A78256] font-sans">{editing ? 'Edit Entourage Member' : 'Add New Entourage Member'}</h3>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-[#EDD6AC]/50 rounded-lg transition-colors text-[#A78256]/70 hover:text-[#A78256]"
+              className="p-2 hover:bg-[#C2D3C3]/20 rounded-lg transition-colors text-[#A78256]/70 hover:text-[#A78256]"
             >
               <XCircle className="h-5 w-5" />
             </button>
@@ -1916,7 +1916,7 @@ function EntourageModal({
             <Button
               onClick={onSave}
               disabled={isLoading}
-              className="flex-1 bg-gradient-to-r from-[#C2D3C3] to-[#B28383] hover:from-[#B28383] hover:to-[#A78256] text-white"
+              className="flex-1 bg-[#C2D3C3] hover:bg-[#B28383] text-white transition-colors"
             >
               {isLoading ? (
                 <>
@@ -1959,15 +1959,15 @@ function PrincipalSponsorModal({
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="w-full max-w-xl bg-[#EDD6AC] rounded-2xl shadow-2xl border border-[#C2D3C3]/30 max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 bg-gradient-to-r from-[#C2D3C3]/20 to-[#B28383]/20 px-6 py-4 border-b border-[#C2D3C3]/30 rounded-t-2xl">
+      <div className="w-full max-w-xl bg-white rounded-2xl shadow-2xl border border-[#C2D3C3]/30 max-h-[90vh] overflow-y-auto">
+        <div className="sticky top-0 bg-[#F5F0ED] px-6 py-4 border-b border-[#C2D3C3]/30 rounded-t-2xl">
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-bold text-[#A78256] font-sans">
               {editing ? "Edit Principal Sponsors" : "Add New Principal Sponsors"}
             </h3>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-[#EDD6AC]/50 rounded-lg transition-colors text-[#A78256]/70 hover:text-[#A78256]"
+              className="p-2 hover:bg-[#C2D3C3]/20 rounded-lg transition-colors text-[#A78256]/70 hover:text-[#A78256]"
             >
               <XCircle className="h-5 w-5" />
             </button>
@@ -2006,7 +2006,7 @@ function PrincipalSponsorModal({
             <Button
               onClick={onSave}
               disabled={isLoading || !formData.MalePrincipalSponsor.trim()}
-              className="flex-1 bg-gradient-to-r from-[#C2D3C3] to-[#B28383] hover:from-[#B28383] hover:to-[#A78256] text-white disabled:opacity-50"
+              className="flex-1 bg-[#C2D3C3] hover:bg-[#B28383] text-white disabled:opacity-50 transition-colors"
             >
               {isLoading ? (
                 <>
@@ -2047,13 +2047,13 @@ function AddGuestModal({
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="w-full max-w-md bg-[#EDD6AC] rounded-2xl shadow-2xl border border-[#C2D3C3]/30">
-        <div className="sticky top-0 bg-gradient-to-r from-[#C2D3C3]/20 to-[#B28383]/20 px-6 py-4 border-b border-[#C2D3C3]/30 rounded-t-2xl">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-[#C2D3C3]/30">
+        <div className="sticky top-0 bg-[#F5F0ED] px-6 py-4 border-b border-[#C2D3C3]/30 rounded-t-2xl">
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-bold text-[#A78256] font-sans">Add New Guest</h3>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-[#EDD6AC]/50 rounded-lg transition-colors text-[#A78256]/70 hover:text-[#A78256]"
+              className="p-2 hover:bg-[#C2D3C3]/20 rounded-lg transition-colors text-[#A78256]/70 hover:text-[#A78256]"
             >
               <XCircle className="h-5 w-5" />
             </button>
@@ -2086,7 +2086,7 @@ function AddGuestModal({
             <Button
               onClick={onSave}
               disabled={isLoading || !formData.Name.trim()}
-              className="flex-1 bg-gradient-to-r from-[#C2D3C3] to-[#B28383] hover:from-[#B28383] hover:to-[#A78256] text-white disabled:opacity-50"
+              className="flex-1 bg-[#C2D3C3] hover:bg-[#B28383] text-white disabled:opacity-50 transition-colors"
             >
               {isLoading ? (
                 <>
@@ -2129,13 +2129,13 @@ function EditGuestModal({
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="w-full max-w-2xl bg-[#EDD6AC] rounded-2xl shadow-2xl border border-[#C2D3C3]/30 max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 bg-gradient-to-r from-[#C2D3C3]/20 to-[#B28383]/20 px-6 py-4 border-b border-[#C2D3C3]/30 rounded-t-2xl">
+      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-[#C2D3C3]/30 max-h-[90vh] overflow-y-auto">
+        <div className="sticky top-0 bg-[#F5F0ED] px-6 py-4 border-b border-[#C2D3C3]/30 rounded-t-2xl">
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-bold text-[#A78256] font-sans">Edit Guest</h3>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-[#EDD6AC]/50 rounded-lg transition-colors text-[#A78256]/70 hover:text-[#A78256]"
+              className="p-2 hover:bg-[#C2D3C3]/20 rounded-lg transition-colors text-[#A78256]/70 hover:text-[#A78256]"
             >
               <XCircle className="h-5 w-5" />
             </button>
@@ -2173,7 +2173,7 @@ function EditGuestModal({
               <select
                 value={formData.RSVP}
                 onChange={(e) => setFormData({ ...formData, RSVP: e.target.value })}
-                className="w-full px-4 py-2 border-2 border-[#C2D3C3]/20 focus:border-[#C2D3C3] rounded-xl text-sm font-sans bg-[#EDD6AC] transition-all duration-300 focus:ring-4 focus:ring-[#C2D3C3]/10"
+                className="w-full px-4 py-2 border-2 border-[#C2D3C3]/20 focus:border-[#C2D3C3] rounded-xl text-sm font-sans bg-white transition-all duration-300 focus:ring-4 focus:ring-[#C2D3C3]/10"
                 required
               >
                 <option value="">Select status</option>
@@ -2212,7 +2212,7 @@ function EditGuestModal({
             <Button
               onClick={onSave}
               disabled={isLoading}
-              className="flex-1 bg-gradient-to-r from-[#C2D3C3] to-[#B28383] hover:from-[#B28383] hover:to-[#A78256] text-white"
+              className="flex-1 bg-[#C2D3C3] hover:bg-[#B28383] text-white transition-colors"
             >
               {isLoading ? (
                 <>
@@ -2238,7 +2238,7 @@ function ConfirmModal({ open, title, message, onCancel, onConfirm }: { open: boo
   if (!open) return null
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="w-full max-w-sm bg-[#EDD6AC] rounded-2xl shadow-2xl border border-[#C2D3C3]/30">
+      <div className="w-full max-w-sm bg-white rounded-2xl shadow-2xl border border-[#C2D3C3]/30">
         <div className="px-5 py-4 border-b border-[#C2D3C3]/20">
           <h3 className="text-base sm:text-lg font-bold text-[#A78256]">{title}</h3>
         </div>
