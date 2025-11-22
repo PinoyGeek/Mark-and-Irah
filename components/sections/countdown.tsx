@@ -17,12 +17,49 @@ interface TimeLeft {
 export function Countdown() {
   const ceremonyDate = siteConfig.ceremony.date
   const ceremonyTimeDisplay = siteConfig.ceremony.time
-  const [ceremonyMonth = "January", ceremonyDayRaw = "23", ceremonyYear = "2026"] = ceremonyDate.split(" ")
-  const ceremonyDayNumber = ceremonyDayRaw.replace(/[^0-9]/g, "") || "23"
+  const [ceremonyMonth = "December", ceremonyDayRaw = "28", ceremonyYear = "2025"] = ceremonyDate.split(" ")
+  const ceremonyDayNumber = ceremonyDayRaw.replace(/[^0-9]/g, "") || "28"
   
-  const parsedTargetDate = new Date(`${ceremonyDate} ${ceremonyTimeDisplay} GMT+0800`)
+  // Parse the date: December 28, 2025 at 3:00 PM PH Time (GMT+0800)
+  // Extract time from "3:00 PM, PH Time" -> "3:00 PM"
+  const timeStr = ceremonyTimeDisplay.split(",")[0].trim() // "3:00 PM"
+  
+  // Create date string in ISO-like format for better parsing
+  // December 28, 2025 -> 2025-12-28
+  const monthMap: { [key: string]: string } = {
+    "January": "01", "February": "02", "March": "03", "April": "04",
+    "May": "05", "June": "06", "July": "07", "August": "08",
+    "September": "09", "October": "10", "November": "11", "December": "12"
+  }
+  const monthNum = monthMap[ceremonyMonth] || "12"
+  const dayNum = ceremonyDayNumber.padStart(2, "0")
+  
+  // Parse time: "3:00 PM" -> 15:00
+  const timeMatch = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i)
+  let hour = 15 // default 3 PM
+  let minutes = 0
+  
+  if (timeMatch) {
+    hour = parseInt(timeMatch[1])
+    minutes = parseInt(timeMatch[2])
+    const ampm = timeMatch[3].toUpperCase()
+    if (ampm === "PM" && hour !== 12) hour += 12
+    if (ampm === "AM" && hour === 12) hour = 0
+  }
+  
+  // Create date in GMT+8 (PH Time)
+  // Using Date.UTC and adjusting for GMT+8 offset (subtract 8 hours to convert GMT+8 to UTC)
+  const parsedTargetDate = new Date(Date.UTC(
+    parseInt(ceremonyYear),
+    parseInt(monthNum) - 1,
+    parseInt(dayNum),
+    hour - 8, // Convert GMT+8 to UTC
+    minutes,
+    0
+  ))
+  
   const targetTimestamp = Number.isNaN(parsedTargetDate.getTime())
-    ? Date.UTC(2026, 0, 23, 8, 0, 0)
+    ? new Date(Date.UTC(2025, 11, 28, 7, 0, 0)).getTime() // Fallback: December 28, 2025, 3:00 PM GMT+8 = 7 AM UTC
     : parsedTargetDate.getTime()
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
