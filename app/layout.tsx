@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://edlin-and-joshua-invitation.vercel.app/desktop-background/couple (41).jpg",
+        url: "https://edlin-and-joshua-invitation.vercel.app/invitation/image.png",
         width: 1200,
         height: 630,
         alt: "Edlin Mae & Joshua Jose Wedding Invitation - December 22, 2025",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     title: "Edlin Mae & Joshua Jose Wedding Invitation",
     description:
       "You're invited to the wedding of Edlin Mae & Joshua Jose on December 22, 2025. RSVP, explore the gallery, and leave a message! #EdlinAndJoshuaWedding",
-    images: ["https://edlin-and-joshua-invitation.vercel.app/desktop-background/couple (41).jpg"],
+    images: ["https://edlin-and-joshua-invitation.vercel.app/invitation/image.png"],
     creator: "@edlinmae",
   },
   robots: {
@@ -118,7 +118,7 @@ export const metadata: Metadata = {
           },
         },
       ],
-      image: ["https://edlin-and-joshua-invitation.vercel.app/desktop-background/couple (41).jpg"],
+      image: ["https://edlin-and-joshua-invitation.vercel.app/invitation/image.png"],
       description:
         "You're invited to the wedding of Edlin Mae & Joshua Jose on December 22, 2025 at St. Gregory the Great Cathedral with a reception at Pepperland Hotel. RSVP, read their love story, view the gallery, and leave a message for the couple.",
       organizer: {
