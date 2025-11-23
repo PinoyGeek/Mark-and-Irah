@@ -223,10 +223,10 @@ export function Gallery() {
         </div>
       </div>
 
-      {/* Lightbox Modal */}
+      {/* Lightbox Modal - Compact for iPhone SE */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
+          className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex items-center justify-center p-1 sm:p-2 md:p-4"
           onClick={() => {
             setSelectedImage(null)
             resetZoom()
@@ -285,30 +285,30 @@ export function Gallery() {
                 setTouchDeltaX(0)
               }}
             >
-            {/* Top bar with counter and close */}
-            <div className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between p-4 sm:p-6">
-              {/* Image counter */}
-              <div className="bg-black/40 backdrop-blur-md rounded-full px-4 py-2 border border-[#F1EDE2]/40">
-                <span className="text-sm sm:text-base font-medium text-[#F1EDE2]">
+            {/* Top bar with counter and close - Compact for iPhone SE */}
+            <div className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between p-2 sm:p-3 md:p-4 lg:p-6">
+              {/* Image counter - Smaller on mobile */}
+              <div className="bg-black/50 backdrop-blur-md rounded-full px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 border border-white/20">
+                <span className="text-xs sm:text-sm md:text-base font-medium text-white">
                   {currentIndex + 1} / {galleryItems.length}
                 </span>
               </div>
               
-              {/* Close button */}
+              {/* Close button - Compact but touch-friendly */}
               <button
                 onClick={(e) => {
                   e.stopPropagation()
                   setSelectedImage(null)
                   resetZoom()
                 }}
-                className="bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full p-2 sm:p-3 transition-all duration-200 border border-white/20 hover:border-white/40"
+                className="bg-black/50 hover:bg-black/70 active:bg-black/80 backdrop-blur-md rounded-full p-1.5 sm:p-2 md:p-2.5 lg:p-3 transition-all duration-200 border border-white/20 hover:border-white/40 touch-manipulation"
                 aria-label="Close lightbox"
               >
-                <X size={20} className="sm:w-6 sm:h-6 text-white" />
+                <X size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
               </button>
             </div>
 
-            {/* Navigation buttons */}
+            {/* Navigation buttons - Compact for iPhone SE */}
             {galleryItems.length > 1 && (
               <>
                 <button
@@ -317,10 +317,10 @@ export function Gallery() {
                     navigateImage('prev')
                     resetZoom()
                   }}
-                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full p-3 sm:p-4 transition-all duration-200 border border-white/20 hover:border-white/40"
+                  className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 active:bg-black/80 backdrop-blur-md rounded-full p-2 sm:p-2.5 md:p-3 lg:p-4 transition-all duration-200 border border-white/20 hover:border-white/40 touch-manipulation"
                   aria-label="Previous image"
                 >
-                  <ChevronLeft size={24} className="sm:w-7 sm:h-7 text-white" />
+                  <ChevronLeft size={18} className="sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
                 </button>
 
                 <button
@@ -329,16 +329,16 @@ export function Gallery() {
                     navigateImage('next')
                     resetZoom()
                   }}
-                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full p-3 sm:p-4 transition-all duration-200 border border-white/20 hover:border-white/40"
+                  className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 active:bg-black/80 backdrop-blur-md rounded-full p-2 sm:p-2.5 md:p-3 lg:p-4 transition-all duration-200 border border-white/20 hover:border-white/40 touch-manipulation"
                   aria-label="Next image"
                 >
-                  <ChevronRight size={24} className="sm:w-7 sm:h-7 text-white" />
+                  <ChevronRight size={18} className="sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
                 </button>
               </>
             )}
 
-            {/* Image container */}
-            <div className="relative w-full h-full flex items-center justify-center pt-16 sm:pt-20 pb-4 sm:pb-6 overflow-hidden">
+            {/* Image container - Optimized for iPhone SE */}
+            <div className="relative w-full h-full flex items-center justify-center pt-12 sm:pt-14 md:pt-16 lg:pt-20 pb-2 sm:pb-3 md:pb-4 lg:pb-6 overflow-hidden">
               <div
                 className="relative inline-block max-w-full max-h-full"
                 onClick={(e) => e.stopPropagation()}
@@ -350,29 +350,42 @@ export function Gallery() {
                     transform: `translate3d(${pan.x}px, ${pan.y}px, 0) scale(${zoomScale})`, 
                     transition: pinchStartDist ? 'none' : 'transform 200ms ease-out' 
                   }}
-                  className="max-w-full max-h-[75vh] sm:max-h-[85vh] object-contain rounded-lg shadow-2xl will-change-transform"
+                  className="max-w-full max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] md:max-h-[85vh] object-contain rounded sm:rounded-lg shadow-2xl will-change-transform"
                 />
                 
-                {/* Zoom reset button */}
+                {/* Close button on image - Top right */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setSelectedImage(null)
+                    resetZoom()
+                  }}
+                  className="absolute top-1 right-1 sm:top-2 sm:right-2 bg-black/70 hover:bg-black/90 active:bg-black backdrop-blur-md rounded-full p-1.5 sm:p-2 md:p-2.5 transition-all duration-200 border border-white/30 hover:border-white/50 touch-manipulation z-30"
+                  aria-label="Close lightbox"
+                >
+                  <X size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
+                </button>
+                
+                {/* Zoom reset button - Compact */}
                 {zoomScale > 1 && (
                   <button
                     onClick={(e) => {
                       e.stopPropagation()
                       resetZoom()
                     }}
-                    className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 backdrop-blur-md text-white rounded-full px-3 py-1.5 text-xs font-medium border border-white/20 transition-all duration-200"
+                    className="absolute bottom-1 right-1 sm:bottom-2 sm:right-2 bg-black/70 hover:bg-black/90 active:bg-black backdrop-blur-md text-white rounded-full px-2 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-medium border border-white/20 transition-all duration-200 touch-manipulation z-20"
                   >
-                    Reset Zoom
+                    Reset
                   </button>
                 )}
               </div>
             </div>
 
-            {/* Bottom hint for mobile */}
+            {/* Bottom hint for mobile - Compact */}
             {galleryItems.length > 1 && (
-              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 sm:hidden z-20">
-                <p className="text-xs text-white/60 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1.5 border border-white/10">
-                  Swipe to navigate
+              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 sm:hidden z-20">
+                <p className="text-[10px] text-white/70 bg-black/50 backdrop-blur-sm rounded-full px-2 py-1 border border-white/15">
+                  Swipe
                 </p>
               </div>
             )}
