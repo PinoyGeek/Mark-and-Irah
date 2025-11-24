@@ -95,8 +95,9 @@ export function SnapShare() {
             Snap & Share
           </h2>
           
-          <p className="text-xs sm:text-sm md:text-base text-white/90 font-light max-w-xl mx-auto leading-relaxed px-2">
-            Help us document our special day by sharing moments using our official hashtags.
+          <p className="text-xs sm:text-sm md:text-base text-white/90 font-light max-w-2xl mx-auto leading-relaxed px-2">
+            Upload your photos and videos from the reception by scanning the QR code below,
+            creating a folder with your name, and sharing every joyful snap with us.
           </p>
           
           {/* Decorative element below subtitle */}
@@ -177,11 +178,17 @@ export function SnapShare() {
                   
                   {/* Instructions */}
                   <p className="font-lora text-[#0A3428]/70 text-[10px] sm:text-xs md:text-sm mb-3 sm:mb-4 px-2 leading-relaxed text-center">
-                    {siteConfig.snapShare?.instructions || "Scan the QR code below, create a folder with your name, and upload your photos/videos from our special day!"}
+                    {siteConfig.snapShare?.instructions ||
+                      "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!"}
                   </p>
                   
                   {/* Enhanced QR container with larger QR */}
                   <div className="mx-auto max-w-xs">
+                    <div className="text-center mb-1">
+                      <span className="inline-flex items-center justify-center rounded-full border border-[#83927D]/40 px-3 py-1 text-[10px] sm:text-xs font-lora text-[#0A3428]/80 uppercase tracking-[0.3em]">
+                        QR
+                      </span>
+                    </div>
                     <div className="bg-gradient-to-br from-[#869EB6]/10 via-white to-[#83927D]/10 p-3 sm:p-4 rounded-2xl shadow-lg border border-[#83927D]/30 mb-3 sm:mb-4">
                       <div className="bg-white p-2.5 sm:p-3 rounded-xl shadow-inner">
                         <div className="relative mx-auto w-fit">

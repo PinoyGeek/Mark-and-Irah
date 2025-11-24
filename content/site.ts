@@ -56,7 +56,7 @@ In the grand blueprint of our story, this isn't the final chapter. This is the m
     secondary: "#F7E7CE",
   },
   snapShare: {
-    googleDriveLink: "https://drive.google.com/drive/folders/1aYyXqjY00OPtGemgnPmoWtqd7PFuiQLC?usp=sharing",
+    googleDriveLink: "https://drive.google.com/drive/folders/1NXkwt_JCCXVdHgVZpB9n2uKRWVen9hZL?usp=sharing",
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }

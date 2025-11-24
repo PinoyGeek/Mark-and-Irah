@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Section } from "@/components/section"
 import { Heart, CreditCard, Smartphone, Banknote } from "lucide-react"
 
@@ -29,6 +30,12 @@ const paymentMethods = [
 ] as const
 
 type PaymentId = typeof paymentMethods[number]["id"]
+
+const qrImageByMethod: Record<PaymentId, string | null> = {
+  paymaya: "/QR/Maya.png",
+  gcash: null,
+  unionbank: null,
+}
 
 export function Registry() {
   const [activeMethod, setActiveMethod] = useState<PaymentId>("paymaya")
@@ -96,10 +103,20 @@ export function Registry() {
                 {activeDetails.label}
               </div>
               <div className="flex flex-col items-center gap-4">
-                <div className="w-56 h-56 sm:w-64 sm:h-64 border border-dashed border-[#CFAE9C]/70 rounded-2xl flex items-center justify-center bg-[#FFF7EF]">
-                  <span className="text-[#B28383] text-sm sm:text-base font-medium">
-                    {activeDetails.label} QR Placeholder
-                  </span>
+                <div className="w-56 h-56 sm:w-64 sm:h-64 border border-dashed border-[#CFAE9C]/70 rounded-2xl flex items-center justify-center bg-[#FFF7EF] relative overflow-hidden">
+                  {qrImageByMethod[activeMethod] ? (
+                    <Image
+                      src={qrImageByMethod[activeMethod]!}
+                      alt={`${activeDetails.label} QR code`}
+                      fill
+                      sizes="256px"
+                      className="object-contain p-4"
+                    />
+                  ) : (
+                    <span className="text-[#B28383] text-sm sm:text-base font-medium">
+                      {activeDetails.label} QR Placeholder
+                    </span>
+                  )}
                 </div>
                 <p className="text-sm sm:text-base text-[#7A4B42]/80 max-w-md">
                   Tap the buttons above to switch between QR codes. Only one payment option is shown at a time for clarity.
