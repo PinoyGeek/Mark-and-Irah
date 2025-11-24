@@ -7,9 +7,11 @@ import { Section } from "@/components/section"
 import { motion } from "motion/react"
 // Removed circular gallery in favor of a responsive masonry layout
 
+const galleryHashtag = "#Jules&CrisNuptial"
+
 const galleryItems = [
-  { image: "/mobile-background/couple (18).jpeg", text: " " },   
-  { image: "/mobile-background/couple (19).jpeg", text: " " },
+  { image: "/mobile-background/couple (1).jpg", text: " " },   
+  { image: "/mobile-background/couple (35).jpeg", text: " " },
   { image: "/mobile-background/couple (3).jpeg", text: " " },
   { image: "/mobile-background/couple (6).jpeg", text: " " },
 
@@ -149,6 +151,15 @@ export function Gallery() {
         <p className="text-xs sm:text-sm md:text-base text-[#B76E79]/80 font-light max-w-xl mx-auto leading-relaxed">
           Every moment, a treasured memory made eternal
         </p>
+
+        <div className="mt-4 flex flex-col items-center gap-2">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 text-[#B76E79] text-sm sm:text-base font-semibold shadow-md border border-[#B76E79]/20">
+            {galleryHashtag}
+          </span>
+          <p className="text-[10px] sm:text-xs md:text-sm text-[#B76E79]/70 font-light">
+            Share your snaps with this hashtag to appear in our gallery.
+          </p>
+        </div>
 
         <div className="flex items-center justify-center gap-2 mt-4">
           <div className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent via-[#B76E79]/50 to-[#FCB8B5]/40" />

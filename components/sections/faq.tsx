@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 import { Section } from "@/components/section"
-import Image from "next/image"
 
 interface FAQItem {
   question: string
@@ -37,14 +37,9 @@ const faqItems: FAQItem[] = [
       `Please search for your name in the RSVP section above and follow the instructions to confirm your attendance. If you cannot find your name, fill up request to join in the guest list section.`,
     },
     {
-    question: "Do you have a gift registry?",
+    question: "Can I bring my child?",
     answer:
-      `Your love, laughter and presence on our wedding day are the most precious gifts we could ask for.\n\nShould you wish to bless us further, a monetary gift would be delightful as we begin building our journey as husband and wife.\n\nPlease see the Monetary Gifts section for more information.`,
-  },
-  {
-    question: "Can I bring a plus one?",
-    answer:
-      "We kindly ask that any additional guests be included or declared in your RSVP so we can make the proper arrangements. Thank you so much for your understanding — we can't wait to celebrate together on our special day!",
+      "As much as we cherish having children around, our wedding will be adults-only so our guests may enjoy the celebration comfortably. Thank you for your kindness and understanding.",
   },
   {
     question: "What if I have dietary restrictions or allergies?",
@@ -59,17 +54,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Can I take photos during the ceremony?",
     answer:
-      "We have a professional photographer, but you're welcome to take photos! We'll have a dedicated time for group photos after the ceremony.",
-  },
-  {
-    question: "What should I do if I need to cancel my RSVP?",
-    answer:
-      "Please contact Edlin Mae Cellona at 09399038910 or email: emaecellona@gmail.com as soon as possible if your plans change. You can also update your RSVP by searching for your name in the RSVP section.",
-  },
-  {
-    question: "Who should I contact if I have questions?",
-    answer:
-      "For any questions or concerns, please contact:\n\nEdlin Mae Cellona\nPhone: 09399038910\nEmail: emaecellona@gmail.com",
+      "This is an unplugged ceremony. We kindly ask guests to refrain from using phones or cameras during the ceremony so everyone can be fully present. Our professional photographers will capture every moment and we'll share the photos afterward.",
   },
 ]
 
@@ -83,110 +68,100 @@ export function FAQ() {
   return (
     <Section
       id="faq"
-      className="relative bg-[#FFFAEF] py-6 sm:py-10 md:py-12 lg:py-16 overflow-hidden"
+      className="relative bg-[#FFFAEF] py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Enhanced background elements */}
+      {/* Background elements matching countdown section */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays with new color palette */}
+        {/* Soft gradient overlays */}
         <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#FFBD87]/25 via-[#FFBD87]/10 to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#FFBD87]/25 via-[#FFBD87]/10 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFFAEF]/40 via-transparent to-[#FFFAEF]/40" />
-        
-        {/* Floating decorative circles with new colors */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-[#FFBD87]/20 rounded-full blur-2xl animate-pulse" />
-        <div className="absolute top-20 right-16 w-24 h-24 bg-[#FFBD87]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-16 left-20 w-28 h-28 bg-[#FFBD87]/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-24 right-12 w-20 h-20 bg-[#FFBD87]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-[#FFFAEF]/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
-        
-        {/* Decorative lines */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FFFAEF]/35 via-transparent to-[#FFFAEF]/35" />
+
+        {/* Floating decorative circles */}
+        <div className="absolute top-10 left-8 w-32 h-32 bg-[#FFBD87]/20 rounded-full blur-2xl animate-pulse" />
+        <div className="absolute top-20 right-12 w-24 h-24 bg-[#FFBD87]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-16 left-16 w-28 h-28 bg-[#FFBD87]/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "2s" }} />
+        <div className="absolute bottom-24 right-10 w-20 h-20 bg-[#FFBD87]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: "0.5s" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-[#FFFAEF]/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
+
+        {/* Decorative line */}
         <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFBD87]/30 to-transparent" />
-        
-        {/* Bottom left corner decoration */}
+
+        {/* Corner florals */}
         <div className="absolute bottom-0 left-0 z-0">
           <Image
             src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Bottom left corner decoration"
+            alt=""
             width={600}
             height={600}
-            className="w-32 h-auto sm:w-48 md:w-64 lg:w-80 xl:w-96 opacity-80"
-            priority={false}
+            className="w-48 h-auto sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-70"
           />
         </div>
-        
-        {/* Bottom right corner decoration */}
         <div className="absolute bottom-0 right-0 z-0 scale-x-[-1]">
           <Image
             src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Bottom right corner decoration"
+            alt=""
             width={600}
             height={600}
-            className="w-32 h-auto sm:w-48 md:w-64 lg:w-80 xl:w-96 opacity-80"
-            priority={false}
+            className="w-48 h-auto sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-70"
           />
         </div>
-        
-        {/* Top left corner decoration */}
         <div className="absolute top-0 left-0 z-0 scale-y-[-1]">
           <Image
             src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Top left corner decoration"
+            alt=""
             width={600}
             height={600}
-            className="w-32 h-auto sm:w-48 md:w-64 lg:w-80 xl:w-96 opacity-80"
-            priority={false}
+            className="w-40 h-auto sm:w-56 md:w-72 lg:w-80 xl:w-[24rem] opacity-60"
           />
         </div>
-        
-        {/* Top right corner decoration */}
         <div className="absolute top-0 right-0 z-0 scale-x-[-1] scale-y-[-1]">
           <Image
             src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Top right corner decoration"
+            alt=""
             width={600}
             height={600}
-            className="w-32 h-auto sm:w-48 md:w-64 lg:w-80 xl:w-96 opacity-80"
-            priority={false}
+            className="w-40 h-auto sm:w-56 md:w-72 lg:w-80 xl:w-[24rem] opacity-60"
           />
         </div>
       </div>
 
       {/* Section Header */}
-      <div className="relative z-10 text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10 px-3 sm:px-4">
+      <div className="relative z-10 text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
         {/* Decorative element above title */}
         <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 md:mb-4">
-          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-[#9B7C6A]/50" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FFBD87]/70 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FCB8B5]/70 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FFBD87]/70 rounded-full" />
-          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-[#9B7C6A]/50" />
+          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-white/40" />
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/70 rounded-full" />
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/50 rounded-full" />
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/70 rounded-full" />
+          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-white/40" />
         </div>
         
         <h2 className="imperial-script-regular text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal text-[#9B7C6A] mb-2 sm:mb-3 md:mb-4 drop-shadow-lg leading-tight">
           Frequently Asked Questions
         </h2>
         
-        <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-[#9B7C6A]/90 font-light max-w-xl mx-auto leading-relaxed px-2">
+        <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-[#7C564A] font-light max-w-xl mx-auto leading-relaxed px-2">
           Everything you need to know
         </p>
         
         {/* Decorative element below subtitle */}
         <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-2 sm:mt-3 md:mt-4">
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FFBD87]/70 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FCB8B5]/70 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FFBD87]/70 rounded-full" />
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/70 rounded-full" />
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/50 rounded-full" />
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/70 rounded-full" />
         </div>
       </div>
 
       {/* FAQ content */}
       <div className="relative z-10 max-w-4xl mx-auto px-2 sm:px-4 md:px-6">
         {/* Main card */}
-        <div className="relative bg-[#FFFAEF]/98 backdrop-blur-md border-2 border-[#FFBD87]/50 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_8px_32px_rgba(255,189,135,0.15)] hover:shadow-[0_12px_40px_rgba(255,189,135,0.25)] overflow-hidden">
+        <div className="relative bg-white/85 backdrop-blur-md border-2 border-white/60 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_12px_45px_rgba(0,0,0,0.15)] hover:shadow-[0_16px_55px_rgba(0,0,0,0.2)] overflow-hidden">
           {/* Decorative corner accents */}
-          <div className="absolute top-0 left-0 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-l-2 border-[#FFBD87]/50 rounded-tl-lg" />
-          <div className="absolute top-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-r-2 border-[#FFBD87]/50 rounded-tr-lg" />
-          <div className="absolute bottom-0 left-0 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-l-2 border-[#FFBD87]/50 rounded-bl-lg" />
-          <div className="absolute bottom-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-r-2 border-[#FFBD87]/50 rounded-br-lg" />
+          <div className="absolute top-0 left-0 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-l-2 border-white/40 rounded-tl-lg" />
+          <div className="absolute top-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-r-2 border-white/40 rounded-tr-lg" />
+          <div className="absolute bottom-0 left-0 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-l-2 border-white/40 rounded-bl-lg" />
+          <div className="absolute bottom-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-r-2 border-white/40 rounded-br-lg" />
           
           {/* FAQ items */}
           <div className="relative p-2.5 sm:p-4 md:p-5 lg:p-6">

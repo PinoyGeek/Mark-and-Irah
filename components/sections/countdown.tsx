@@ -227,7 +227,7 @@ export function Countdown() {
           className="relative"
         >
           <Image
-            src="/Couple_img/monogram.png"
+            src="/monogram/monogram.png"
             alt="Jay & Cha Monogram"
             width={350}
             height={350}

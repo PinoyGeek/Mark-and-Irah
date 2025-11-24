@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import { motion } from "motion/react"
-import { Instagram, Facebook, Twitter, Share2, Copy, Check, Download } from "lucide-react"
+import { Share2, Copy, Check, Download } from "lucide-react"
 import { Section } from "@/components/section"
 import { QRCodeCanvas } from "qrcode.react"
 import { siteConfig } from "@/content/site"
@@ -13,10 +13,8 @@ export function SnapShare() {
   const [copiedDriveQR, setCopiedDriveQR] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
-  const websiteUrl = typeof window !== "undefined" ? window.location.href : "https://example.com"
   const googleDriveUrl = siteConfig.snapShare?.googleDriveLink || ""
-  const hashtags = ["#JulaineAndCristopher"]
-  const shareText = `Join us in celebrating our special day! Check out our wedding website: ${websiteUrl} ${hashtags.join(" ")} 💕`
+  const hashtags = ["#Jules&CrisNuptial"]
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640)
@@ -37,32 +35,6 @@ export function SnapShare() {
     } catch (err) {
       console.error("Failed to copy: ", err)
     }
-  }
-
-  const shareOnSocial = (platform: "instagram" | "facebook" | "twitter" | "tiktok") => {
-    const encodedUrl = encodeURIComponent(websiteUrl)
-    const encodedText = encodeURIComponent(shareText)
-
-    const urls: Record<string, string> = {
-      instagram: `https://www.instagram.com/`,
-      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-      twitter: `https://twitter.com/intent/tweet?text=${encodedText}`,
-      tiktok: `https://www.tiktok.com/`,
-    }
-
-    const target = urls[platform]
-    if (target) {
-      window.open(target, "_blank", "width=600,height=400")
-    }
-  }
-
-  const downloadQRCode = () => {
-    const canvas = document.getElementById("snapshare-qr") as HTMLCanvasElement | null
-    if (!canvas) return
-    const link = document.createElement("a")
-    link.download = "wedding-qr.png"
-    link.href = canvas.toDataURL("image/png")
-    link.click()
   }
 
   const downloadDriveQRCode = () => {
@@ -185,33 +157,6 @@ export function SnapShare() {
           </motion.div>
 
           <motion.div className="space-y-3 sm:space-y-4" variants={fadeInUp}>
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-[#83927D]/40 hover:shadow-[0_10px_50px_rgba(131,146,125,0.3)] transition-all duration-300">
-              <div className="relative p-3 sm:p-4 md:p-5 text-center">
-                {/* Corner accents */}
-                <div className="absolute top-0.5 left-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-l-2 border-[#83927D]/50 rounded-tl-lg" />
-                <div className="absolute top-0.5 right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-r-2 border-[#83927D]/50 rounded-tr-lg" />
-                <div className="absolute bottom-0.5 left-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-l-2 border-[#83927D]/50 rounded-bl-lg" />
-                <div className="absolute bottom-0.5 right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-r-2 border-[#83927D]/50 rounded-br-lg" />
-                
-                <h4 className="font-playfair text-sm sm:text-base md:text-lg font-bold text-[#0A3428] mb-3">Share Our Website</h4>
-                <div className="mx-auto inline-flex flex-col items-center bg-white p-3 sm:p-4 rounded-xl shadow-md border border-ink/10 mb-3">
-                  <div className="mb-2 sm:mb-2.5 p-1.5 sm:p-2 rounded-lg bg-gradient-to-br from-[#83927D]/40 via-[#FFFFFF]/40 to-white ring-1 ring-[#83927D]/40">
-                    <div className="bg-white p-1.5 sm:p-2 rounded-md shadow-sm">
-                      <QRCodeCanvas id="snapshare-qr" value={websiteUrl} size={isMobile ? 100 : 140} includeMargin className="bg-white" />
-                    </div>
-                  </div>
-                  <button
-                    onClick={downloadQRCode}
-                    className="flex items-center gap-1.5 sm:gap-2 mx-auto px-3 py-1.5 sm:py-2 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md text-[10px] sm:text-xs md:text-sm bg-[#869EB6] text-white"
-                  >
-                    <Download className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                    <span className="font-lora">Download QR</span>
-                  </button>
-                </div>
-                <p className="font-lora text-[#0A3428] text-[9px] sm:text-[10px] md:text-xs">Scan with any camera app</p>
-              </div>
-            </div>
-
             {/* Google Drive QR Code Section */}
             {googleDriveUrl && (
               <div className="bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-[#83927D]/40 hover:shadow-[0_10px_50px_rgba(131,146,125,0.3)] transition-all duration-300 overflow-hidden">
@@ -315,47 +260,6 @@ export function SnapShare() {
               </div>
             )}
 
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-[#83927D]/40 hover:shadow-[0_10px_50px_rgba(131,146,125,0.3)] transition-all duration-300">
-              <div className="relative p-3 sm:p-4 md:p-5">
-                {/* Corner accents */}
-                <div className="absolute top-0.5 left-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-l-2 border-[#83927D]/50 rounded-tl-lg" />
-                <div className="absolute top-0.5 right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-r-2 border-[#83927D]/50 rounded-tr-lg" />
-                <div className="absolute bottom-0.5 left-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-l-2 border-[#83927D]/50 rounded-bl-lg" />
-                <div className="absolute bottom-0.5 right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-r-2 border-[#83927D]/50 rounded-br-lg" />
-                
-                <h5 className="font-playfair text-sm sm:text-base md:text-lg font-bold text-[#0A3428] mb-2.5 sm:mb-3 text-center">Share on Social Media</h5>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
-                  <button
-                    onClick={() => shareOnSocial("instagram")}
-                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-pink-500 via-purple-500 to-pink-600 text-white px-3 py-2 sm:py-2.5 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg ring-1 ring-white/20"
-                  >
-                    <Instagram className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:scale-110 transition-transform" />
-                    <span className="font-lora font-medium text-[10px] sm:text-xs md:text-sm">Instagram</span>
-                  </button>
-                  <button
-                    onClick={() => shareOnSocial("facebook")}
-                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-blue-500 to-blue-700 text-white px-3 py-2 sm:py-2.5 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg ring-1 ring-white/20"
-                  >
-                    <Facebook className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:scale-110 transition-transform" />
-                    <span className="font-lora font-medium text-[10px] sm:text-xs md:text-sm">Facebook</span>
-                  </button>
-                  <button
-                    onClick={() => shareOnSocial("tiktok")}
-                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-black via-gray-800 to-black text-white px-3 py-2 sm:py-2.5 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg ring-1 ring-white/10"
-                  >
-                    <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:scale-110 transition-transform" />
-                    <span className="font-lora font-medium text-[10px] sm:text-xs md:text-sm">TikTok</span>
-                  </button>
-                  <button
-                    onClick={() => shareOnSocial("twitter")}
-                    className="group flex items-center justify-center gap-1.5 sm:gap-2 bg-gradient-to-br from-sky-400 to-blue-500 text-white px-3 py-2 sm:py-2.5 rounded-lg hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg ring-1 ring-white/20"
-                  >
-                    <Twitter className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:scale-110 transition-transform" />
-                    <span className="font-lora font-medium text-[10px] sm:text-xs md:text-sm">Twitter</span>
-                  </button>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </motion.div>
 

@@ -6,6 +6,7 @@ import { AudioProvider } from "@/contexts/audio-context"
 import { Hero } from "@/components/sections/hero"
 import { Countdown } from "@/components/sections/countdown"
 import { CoupleVideo } from "@/components/sections/couple-video"
+import { WeddingTimeline } from "@/components/sections/wedding-timeline"
 import { Narrative } from "@/components/sections/narrative"
 import { Gallery } from "@/components/sections/gallery"
 import { Messages } from "@/components/sections/messages"
@@ -43,6 +44,7 @@ export default function Home() {
           <Hero />
           <CoupleVideo />
           <Countdown />
+          <WeddingTimeline />
           <Narrative />
           <Gallery />
           <Messages />

@@ -180,7 +180,7 @@ export function Footer() {
           className="relative"
         >
           <Image
-            src="/Couple_img/monogram.png"
+            src="/monogram/monogram.png"
             alt={`${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} Monogram`}
             width={350}
             height={350}

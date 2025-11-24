@@ -6,6 +6,18 @@ import { Clock, Utensils, Car, Shirt, Copy, Check, Navigation, Heart, Users, Cam
 import { useState, useEffect } from "react"
 import Image from "next/image"
 
+const sponsorPalette = [
+  { label: "#CDB592", color: "#CDB592" },
+  { label: "#C79C6F", color: "#C79C6F" },
+  { label: "#F5E5CD", color: "#F5E5CD" },
+]
+
+const guestPalette = [
+  { label: "Dusty Rose", color: "#FCB8B3" },
+  { label: "Light Green", color: "#CDE4C5" },
+  { label: "Light Orange", color: "#FFD9B5" },
+]
+
 export function Details() {
   const [copiedItems, setCopiedItems] = useState<Set<string>>(new Set())
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
@@ -243,18 +255,37 @@ export function Details() {
             <div className="mb-3 relative z-10">
               <p className="text-[10px] sm:text-xs text-center mb-2 text-[#B76E79]/90">We encourage our guests to wear this color palette</p>
               <div className="flex gap-3 justify-center items-center">
-                <div className="flex flex-col items-center gap-1">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg border-2 border-white" style={{ backgroundColor: '#FCB8B5' }}></div>
-                  <span className="text-[9px] sm:text-[10px] font-medium text-[#B76E79]/70">#FCB8B5</span>
-                </div>
-                <div className="flex flex-col items-center gap-1">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg border-2 border-white" style={{ backgroundColor: '#FFBD87' }}></div>
-                  <span className="text-[9px] sm:text-[10px] font-medium text-[#B76E79]/70">#FFBD87</span>
-                </div>
-                <div className="flex flex-col items-center gap-1">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg border-2 border-white" style={{ backgroundColor: '#A4BB8C' }}></div>
-                  <span className="text-[9px] sm:text-[10px] font-medium text-[#B76E79]/70">#A4BB8C</span>
-                </div>
+              </div>
+            </div>
+
+            {/* Principal Sponsors Palette */}
+            <div className="relative z-10 mb-3 rounded-xl border border-[#CDB592]/40 bg-white/85 p-3 shadow-sm">
+              <p className="text-[10px] sm:text-xs font-semibold text-[#7A5A3C] mb-1 uppercase tracking-wide">Palette for Principal Sponsors</p>
+              <p className="text-[10px] text-[#7A5A3C]/80 mb-2">Long gown at tuxedo or Americana, tapos black slacks.</p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                {sponsorPalette.map((swatch) => (
+                  <div key={swatch.label} className="flex flex-col items-center gap-1">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white shadow-md" style={{ backgroundColor: swatch.color }} />
+                    <span className="text-[9px] sm:text-[10px] text-[#7A5A3C]/80 font-medium">{swatch.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Guest Palette */}
+            <div className="relative z-10 mb-3 rounded-xl border border-[#FCB8B3]/40 bg-white/85 p-3 shadow-sm">
+              <div className="flex items-center justify-between mb-2 flex-wrap gap-1">
+                <p className="text-[10px] sm:text-xs font-semibold text-[#B76E79] uppercase tracking-wide">Palette for Guests</p>
+                <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full bg-[#FCB8B3]/30 text-[#B76E79] font-medium">Theme: Spring</span>
+              </div>
+              <p className="text-[10px] text-[#B76E79]/80 mb-2">Dusty rose, light green, light orange tones.</p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                {guestPalette.map((swatch) => (
+                  <div key={swatch.label} className="flex flex-col items-center gap-1">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white shadow-md" style={{ backgroundColor: swatch.color }} />
+                    <span className="text-[9px] sm:text-[10px] text-[#B76E79]/80 font-medium">{swatch.label}</span>
+                  </div>
+                ))}
               </div>
             </div>
 

@@ -94,7 +94,7 @@ export function Navbar() {
           <Link href="#home" className="flex-shrink-0 group relative z-10">
             <div className="relative">
               <Image
-                src="/Couple_img/monogram.png"
+                src="/monogram/monogram.png"
                 alt="Monogram"
                 width={36}
                 height={36}
