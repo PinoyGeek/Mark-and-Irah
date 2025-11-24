@@ -44,11 +44,11 @@ export default function Home() {
           <Hero />
           <CoupleVideo />
           <Countdown />
-          <WeddingTimeline />
           <Narrative />
           <Gallery />
           <Messages />
           <Details />
+          <WeddingTimeline />
           <Entourage />
           <PrincipalSponsors />
           <GuestList />

@@ -4,20 +4,14 @@ import { useEffect, useState, useMemo } from "react"
 import { motion } from "motion/react"
 
 const desktopImages = [
-    "/desktop-background/couple (1).jpeg",
-    "/desktop-background/couple (2).jpeg",
-    "/desktop-background/couple (3).jpeg",
-    "/desktop-background/couple (4).jpeg",
-    "/desktop-background/couple (5).jpeg",
-    "/desktop-background/couple (6).jpeg",
-    "/desktop-background/couple (7).jpeg",
-    "/desktop-background/couple (8).jpeg",
-    "/desktop-background/couple (9).jpeg",
-    "/desktop-background/couple (10).jpeg",
-    "/desktop-background/couple (11).jpeg",
-    "/desktop-background/couple (12).jpeg",
-    "/desktop-background/couple (13).jpeg",
-    "/desktop-background/couple (14).jpeg",
+    "/mobile/couple (1).jpeg",
+    "/mobile/couple (2).jpeg",
+    "/mobile/couple (3).jpeg",
+    "/mobile/couple (4).jpeg",
+    "/mobile/couple (5).jpeg",
+    "/mobile/couple (6).jpeg",
+    "/mobile/couple (7).jpeg",
+
 ]
 
 const mobileImages = [
@@ -465,6 +459,16 @@ export function Hero() {
               Julaine
             </h1>
             <div className="h-1 w-16 sm:w-20 md:w-24 mx-auto bg-gradient-to-r from-transparent via-[#FFFAEF] to-transparent" />
+            <p
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl lavishly-yours-regular tracking-wide drop-shadow-2xl"
+              style={{
+                color: '#FFFAEF',
+                textShadow: "0 0 20px rgba(255, 250, 239, 0.5), 0 6px 12px rgba(0,0,0,0.6)",
+                letterSpacing: "0.08em",
+              }}
+            >
+              and
+            </p>
             <h1
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold tracking-wide drop-shadow-2xl whitespace-nowrap"
               style={{

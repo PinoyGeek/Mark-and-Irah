@@ -12,21 +12,6 @@ interface FAQItem {
 
 const faqItems: FAQItem[] = [
   {
-    question: "When and where is the ceremony?",
-    answer:
-      `The ceremony will be held on Sunday, December 28, 2025 at 3:00 PM, PH Time.\n\nVenue: Mount Costa\nLocation: Mount Costa Lamtang Road, Pugis La Trinidad, Benguet\n\nGuests are requested to arrive by 2:30 PM.`,
-  },
-  {
-    question: "Where is the reception?",
-    answer:
-      `The reception follows immediately after the ceremony on December 28, 2025.\n\nVenue: Mount Costa\nLocation: Mount Costa Lamtang Road, Pugis La Trinidad, Benguet`,
-  },
-  {
-    question: "What is the dress code?",
-    answer:
-      `Please come in your best formal/semi-formal ensemble\n\nTheme: Spring Theme, Water Paint flowers (Garden wedding)\n\nColor Motif: Old Rose, Rose gold, Blush Pink, Champagne\n\nPrincipal Sponsors:\n• Ninong: Barong\n• Ninang: Modern Filipiniana\n\nGuests:\n• Ladies: Long Gown/ cocktail dresses\n• Gentlemen: Long Sleeves /Polo and Black slacks.`,
-  },
-  {
     question: "When is the RSVP deadline?",
     answer:
       `Kindly respond on or before December 21, 2025. Your response helps us finalize our guest list. Thank you!\n\n[RSVP_LINK]Click here to RSVP[/RSVP_LINK]`,

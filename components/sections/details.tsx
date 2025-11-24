@@ -261,7 +261,6 @@ export function Details() {
             {/* Principal Sponsors Palette */}
             <div className="relative z-10 mb-3 rounded-xl border border-[#CDB592]/40 bg-white/85 p-3 shadow-sm">
               <p className="text-[10px] sm:text-xs font-semibold text-[#7A5A3C] mb-1 uppercase tracking-wide">Palette for Principal Sponsors</p>
-              <p className="text-[10px] text-[#7A5A3C]/80 mb-2">Long gown at tuxedo or Americana, tapos black slacks.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 {sponsorPalette.map((swatch) => (
                   <div key={swatch.label} className="flex flex-col items-center gap-1">
