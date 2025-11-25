@@ -7,9 +7,9 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 
 const sponsorPalette = [
-  { label: "beige", color: "#CDB592" },
-  { label: "caramel brown", color: "#C79C6F" },
-  { label: "champagne beige", color: "#F5E5CD" },
+  { label: "Beige", color: "#CDB592" },
+  { label: "Caramel Brown", color: "#C79C6F" },
+  { label: "Champagne Beige", color: "#F5E5CD" },
 ]
 
 const guestPalette = [
@@ -265,7 +265,7 @@ export function Details() {
                 {sponsorPalette.map((swatch) => (
                   <div key={swatch.label} className="flex flex-col items-center gap-1">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white shadow-md" style={{ backgroundColor: swatch.color }} />
-                    <span className="text-[9px] sm:text-[10px] text-[#7A5A3C]/80 font-medium">{swatch.label}</span>
+                    <span className="text-[9px] sm:text-[10px] text-[#7A5A3C]/80 font-medium capitalize">{swatch.label}</span>
                   </div>
                 ))}
               </div>
@@ -281,7 +281,7 @@ export function Details() {
                 {guestPalette.map((swatch) => (
                   <div key={swatch.label} className="flex flex-col items-center gap-1">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white shadow-md" style={{ backgroundColor: swatch.color }} />
-                    <span className="text-[9px] sm:text-[10px] text-[#B76E79]/80 font-medium">{swatch.label}</span>
+                    <span className="text-[9px] sm:text-[10px] text-[#B76E79]/80 font-medium capitalize">{swatch.label}</span>
                   </div>
                 ))}
               </div>
