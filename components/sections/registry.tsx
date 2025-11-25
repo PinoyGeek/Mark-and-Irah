@@ -21,8 +21,8 @@ const paymentMethods = [
     Icon: Smartphone,
   },
   {
-    id: "unionbank",
-    label: "UnionBank",
+    id: "metroBank",
+    label: "MetroBank",
     description: "Direct bank transfer",
     accent: "from-[#F8E1C1] to-[#E3B98A]",
     Icon: Banknote,
@@ -33,8 +33,8 @@ type PaymentId = typeof paymentMethods[number]["id"]
 
 const qrImageByMethod: Record<PaymentId, string | null> = {
   paymaya: "/QR/Maya.png",
-  gcash: "/QR/GcashQR.png",
-  unionbank: "/QR/MetroBank.png",
+  gcash: null,
+  metroBank: null,
 }
 
 export function Registry() {
@@ -61,7 +61,7 @@ export function Registry() {
         <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 font-light max-w-2xl mx-auto leading-relaxed px-2">
           We are deeply appreciative of the prayers, love, time, and effort you’ll dedicate to joining us on our special day. 
           Should you wish to bestow us a gift, monetary gifts toward our new journey together would be greatly valued as we begin building our future.
-          For your convenience, we’ve made options available through PayMaya, GCash, and UnionBank.
+          For your convenience, we’ve made options available through PayMaya, GCash, and MetroBank                    .
         </p>
         
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
