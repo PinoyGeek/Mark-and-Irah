@@ -14,6 +14,14 @@ const galleryItems = [
   { image: "/mobile-background/couple (35).jpeg", text: " " },
   { image: "/mobile-background/couple (3).jpeg", text: " " },
   { image: "/mobile-background/couple (6).jpeg", text: " " },
+  { image: "/FrontGallery/couple (1).jpg", text: " " },
+  { image: "/FrontGallery/couple (2).jpg", text: " " },
+  { image: "/FrontGallery/couple (4).jpg", text: " " },
+  { image: "/FrontGallery/couple (8).jpg", text: " " },
+  { image: "/FrontGallery/couple (15).jpg", text: " " },
+  { image: "/FrontGallery/couple (16).jpg", text: " " },
+  { image: "/FrontGallery/couple (18).jpg", text: " " }, 
+  { image: "/FrontGallery/couple (21).jpg", text: " " },
 
 ]
 

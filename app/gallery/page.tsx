@@ -22,13 +22,15 @@ async function getImagesFrom(dir: string) {
 }
 
 export default async function GalleryPage() {
-  const [desktop, mobile] = await Promise.all([
+  const [desktop, mobile, frontGallery] = await Promise.all([
     getImagesFrom("desktop-background"),
     getImagesFrom("mobile-background"),
+    getImagesFrom("FrontGallery"),
   ])
   const images = [
     ...desktop.map((src) => ({ src, category: "desktop" as const })),
     ...mobile.map((src) => ({ src, category: "mobile" as const })),
+    ...frontGallery.map((src) => ({ src, category: "front" as const })),
   ]
 
   return (
@@ -79,7 +81,21 @@ export default async function GalleryPage() {
 
         {images.length === 0 ? (
           <div className="text-center text-[#9B7C6A]/90">
-            <p className="font-light">No images found. Add files to <code className="px-2 py-1 bg-[#FFFAEF]/80 rounded border border-[#9B7C6A]/30 text-[#9B7C6A]">public/desktop-background</code> or <code className="px-2 py-1 bg-[#FFFAEF]/80 rounded border border-[#9B7C6A]/30 text-[#9B7C6A]">public/mobile-background</code>.</p>
+            <p className="font-light">
+              No images found. Add files to{" "}
+              <code className="px-2 py-1 bg-[#FFFAEF]/80 rounded border border-[#9B7C6A]/30 text-[#9B7C6A]">
+                public/desktop-background
+              </code>{" "}
+              ,{" "}
+              <code className="px-2 py-1 bg-[#FFFAEF]/80 rounded border border-[#9B7C6A]/30 text-[#9B7C6A]">
+                public/mobile-background
+              </code>{" "}
+              or{" "}
+              <code className="px-2 py-1 bg-[#FFFAEF]/80 rounded border border-[#9B7C6A]/30 text-[#9B7C6A]">
+                public/FrontGallery
+              </code>
+              .
+            </p>
           </div>
         ) : (
           <MasonryGallery images={images} />

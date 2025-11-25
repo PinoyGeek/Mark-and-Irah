@@ -7,9 +7,9 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 
 const sponsorPalette = [
-  { label: "#CDB592", color: "#CDB592" },
-  { label: "#C79C6F", color: "#C79C6F" },
-  { label: "#F5E5CD", color: "#F5E5CD" },
+  { label: "beige", color: "#CDB592" },
+  { label: "caramel brown", color: "#C79C6F" },
+  { label: "champagne beige", color: "#F5E5CD" },
 ]
 
 const guestPalette = [
@@ -277,7 +277,6 @@ export function Details() {
                 <p className="text-[10px] sm:text-xs font-semibold text-[#B76E79] uppercase tracking-wide">Palette for Guests</p>
                 <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full bg-[#FCB8B3]/30 text-[#B76E79] font-medium">Theme: Spring</span>
               </div>
-              <p className="text-[10px] text-[#B76E79]/80 mb-2">Dusty rose, light green, light orange tones.</p>
               <div className="flex flex-wrap gap-4 justify-center">
                 {guestPalette.map((swatch) => (
                   <div key={swatch.label} className="flex flex-col items-center gap-1">

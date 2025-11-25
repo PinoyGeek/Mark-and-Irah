@@ -33,8 +33,8 @@ type PaymentId = typeof paymentMethods[number]["id"]
 
 const qrImageByMethod: Record<PaymentId, string | null> = {
   paymaya: "/QR/Maya.png",
-  gcash: null,
-  unionbank: null,
+  gcash: "/QR/GcashQR.png",
+  unionbank: "/QR/MetroBank.png",
 }
 
 export function Registry() {
