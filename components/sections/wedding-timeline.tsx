@@ -1,5 +1,6 @@
 "use client"
 
+import type { JSX } from "react"
 import Image from "next/image"
 import { Section } from "@/components/section"
 
@@ -119,38 +120,20 @@ export function WeddingTimeline() {
         </div>
 
         <div className="space-y-10 sm:space-y-12 md:space-y-14">
-          {timelineEvents.map((event, index) => {
-            const isLeft = index % 2 === 0
-            const alignmentClasses = isLeft
-              ? "lg:items-center lg:justify-end lg:text-right lg:pr-16"
-              : "lg:items-center lg:justify-start lg:text-left lg:pl-16"
-
-            return (
-              <div key={event.title} className="relative">
-                <div
-                  className={`flex flex-col items-center gap-3 text-center lg:text-left lg:flex-row ${alignmentClasses}`}
-                >
-                  <div className="lg:w-1/2">
-                    <div className="lg:hidden flex items-center justify-center mb-2">
-                      <IconBadge Icon={event.Icon} />
-                    </div>
-                    <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-[#CFAE9C] uppercase">
-                      {event.time}
-                    </p>
-                    <p className="text-base sm:text-lg md:text-xl font-playfair text-[#7A4B42] uppercase tracking-[0.1em]">
-                      {event.title}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="hidden lg:flex items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                  {isLeft && <span className="w-10 h-px bg-[#D7BCAA]/80" />}
-                  <IconBadge Icon={event.Icon} />
-                  {!isLeft && <span className="w-10 h-px bg-[#D7BCAA]/80" />}
-                </div>
-              </div>
-            )
-          })}
+          {timelineEvents.map((event) => (
+            <div
+              key={event.title}
+              className="relative flex flex-col items-center text-center gap-3 px-6 sm:px-10 w-full max-w-sm mx-auto"
+            >
+              <IconBadge Icon={event.Icon} />
+              <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-[#CFAE9C] uppercase">
+                {event.time}
+              </p>
+              <p className="text-base sm:text-lg md:text-xl font-playfair text-[#7A4B42] uppercase tracking-[0.1em]">
+                {event.title}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </Section>
