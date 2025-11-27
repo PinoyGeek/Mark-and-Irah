@@ -14,7 +14,7 @@ export function SnapShare() {
   const [isMobile, setIsMobile] = useState(false)
 
   const googleDriveUrl = siteConfig.snapShare?.googleDriveLink || ""
-  const hashtags = ["#Jules&CrisNuptial"]
+  const hashtags = ["#Jules&CrisNuptial","#Julaine&CristopherWedding"]
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640)

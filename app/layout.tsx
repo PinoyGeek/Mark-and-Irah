@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://Julaine-and-Cristopher-invitation.vercel.app/desktop-background/couple (1).jpeg",
+        url: "https://Julaine-and-Cristopher-invitation.vercel.app/Couple_img/image.png",
         width: 1200,
         height: 630,
         alt: "Julaine & Cristopher Wedding Invitation - December 28, 2025",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     title: "Julaine & Cristopher Wedding Invitation",
     description:
       "You're invited to the wedding of Julaine & Cristopher on December 28, 2025. RSVP, explore the gallery, and leave a message! #JulaineAndCristopherWedding",
-    images: ["https://Julaine-and-Cristopher-invitation.vercel.app/desktop-background/couple (1).jpeg"],
+    images: ["https://Julaine-and-Cristopher-invitation.vercel.app/Couple_img/image.png"],
     creator: "@julaineandcristopher",
   },
   robots: {
@@ -109,7 +109,7 @@ export const metadata: Metadata = {
           },
         },
       ],
-      image: ["https://Julaine-and-Cristopher-invitation.vercel.app/desktop-background/couple (1).jpeg"],
+      image: ["https://Julaine-and-Cristopher-invitation.vercel.app/Couple_img/image.png"],
       description:
         "You're invited to the wedding of Julaine & Cristopher on December 28, 2025 at Mount Costa, La Trinidad, Benguet. RSVP, read their love story, view the gallery, and leave a message for the couple.",
       organizer: {
