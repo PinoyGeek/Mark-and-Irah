@@ -1,138 +1,137 @@
 "use client"
 
-import type { JSX } from "react"
-import Image from "next/image"
 import { Section } from "@/components/section"
+import { siteConfig } from "@/content/site"
+import {
+  Clock,
+  Heart,
+  Users,
+  Camera,
+  Car,
+  Utensils,
+  Mic,
+  Music,
+  Sparkles,
+  MapPin,
+} from "lucide-react"
+import { motion } from "motion/react"
+import { Cormorant_Garamond } from "next/font/google"
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400"],
+})
 
 interface TimelineEvent {
   time: string
   title: string
-  Icon: () => JSX.Element
+  description?: string
+  location?: string
+  icon: typeof Clock
 }
 
 const timelineEvents: TimelineEvent[] = [
   {
+    time: "12:00 PM",
+    title: "Entourage Arrival",
+    description: "Wedding entourage arrives at the church for final preparations and photos",
+    location: siteConfig.ceremony.venue,
+    icon: Users,
+  },
+  {
+    time: "12:30 PM",
+    title: "Ceremony Begins",
+    description: "Guests are seated. The wedding ceremony starts at exactly 12:30 PM",
+    location: siteConfig.ceremony.venue,
+    icon: Heart,
+  },
+  {
+    time: "1:30 PM",
+    title: "Post-Ceremony Photos",
+    description: "Family and entourage photos with the newlyweds",
+    location: siteConfig.ceremony.venue,
+    icon: Camera,
+  },
+  {
+    time: "2:00 PM",
+    title: "Travel to Reception",
+    description: "Guests proceed to the reception venue",
+    location: "En route to " + siteConfig.reception.venue,
+    icon: Car,
+  },
+  {
+    time: "2:30 PM",
+    title: "Reception Arrival",
+    description: "Welcome drinks and light refreshments as guests arrive",
+    location: siteConfig.reception.venue,
+    icon: Sparkles,
+  },
+  {
     time: "3:00 PM",
-    title: "Ceremony",
-    Icon: RingsIcon,
+    title: "Reception Program",
+    description: "Wedding program begins with introductions and special presentations",
+    location: siteConfig.reception.venue,
+    icon: Mic,
   },
   {
-    time: "4:30 PM",
-    title: "Postnup Shoot & Cocktail Hour",
-    Icon: ClocheIcon,
+    time: "4:00 PM",
+    title: "Dinner Service",
+    description: "Buffet dinner is served. Please enjoy the meal!",
+    location: siteConfig.reception.venue,
+    icon: Utensils,
   },
   {
-    time: "5:30 PM",
-    title: "Wedding Program",
-    Icon: MicrophoneIcon,
-  },
-  {
-    time: "6:00 PM",
-    title: "Buffet Dinner",
-    Icon: DinnerIcon,
-  },
-  {
-    time: "7:00 PM",
-    title: "First Dance",
-    Icon: DanceIcon,
-  },
-  {
-    time: "8:00 PM",
-    title: "Send Off",
-    Icon: FireworksIcon,
+    time: "5:00 PM",
+    title: "Program Continues",
+    description: "Special numbers, games, and celebrations continue",
+    location: siteConfig.reception.venue,
+    icon: Music,
   },
 ]
 
 export function WeddingTimeline() {
   return (
-    <Section id="wedding-timeline" className="relative overflow-hidden bg-[#FFFAEF]">
-      {/* Background decorations similar to countdown */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#FFBD87]/20 via-[#FFBD87]/8 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#FFBD87]/20 via-[#FFBD87]/8 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFFAEF]/40 via-transparent to-[#FFFAEF]/40" />
-        <div className="absolute top-12 left-12 w-32 h-32 bg-[#FFBD87]/20 rounded-full blur-2xl opacity-80 animate-pulse" />
-        <div className="absolute top-20 right-20 w-24 h-24 bg-[#FFBD87]/15 rounded-full blur-xl opacity-70 animate-pulse" style={{ animationDelay: "1s" }} />
-        <div className="absolute bottom-20 left-24 w-28 h-28 bg-[#FFBD87]/20 rounded-full blur-2xl opacity-70 animate-pulse" style={{ animationDelay: "2s" }} />
-        <div className="absolute bottom-24 right-16 w-24 h-24 bg-[#FFBD87]/15 rounded-full blur-xl opacity-60 animate-pulse" style={{ animationDelay: "0.5s" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#FFFAEF]/30 rounded-full blur-3xl opacity-70 animate-pulse" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute bottom-0 left-0 z-0">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Bottom left decoration"
-            width={600}
-            height={600}
-            className="w-40 h-auto sm:w-56 md:w-72 lg:w-80 opacity-80"
-            priority={false}
-          />
-        </div>
-        <div className="absolute bottom-0 right-0 z-0 scale-x-[-1]">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Bottom right decoration"
-            width={600}
-            height={600}
-            className="w-40 h-auto sm:w-56 md:w-72 lg:w-80 opacity-80"
-            priority={false}
-          />
-        </div>
-        <div className="absolute top-0 left-0 z-0 scale-y-[-1]">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Top left decoration"
-            width={600}
-            height={600}
-            className="w-36 h-auto sm:w-48 md:w-64 opacity-70"
-            priority={false}
-          />
-        </div>
-        <div className="absolute top-0 right-0 z-0 scale-x-[-1] scale-y-[-1]">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Top right decoration"
-            width={600}
-            height={600}
-            className="w-36 h-auto sm:w-48 md:w-64 opacity-70"
-            priority={false}
-          />
-        </div>
-      </div>
+    <Section
+      id="wedding-timeline"
+      className="relative py-8 sm:py-10 md:py-14 lg:py-18 overflow-hidden"
+    >
+      {/* Header - matching details section style */}
+      <div className="relative z-10 text-center mb-6 sm:mb-9 md:mb-12 px-3 sm:px-4">
+        {/* Small label */}
+        <p className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm tracking-[0.3em] uppercase text-[#F5E5D9]/80 mb-2`}>
+          Day Schedule
+        </p>
 
-      <div className="relative z-10 text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-        <div className="flex items-center justify-center gap-2 mb-2 sm:mb-3">
-          <div className="w-12 sm:w-16 h-px bg-[#CFAE9C]/50" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#CFAE9C]" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#E7C9B1]" />
-          <div className="w-12 sm:w-16 h-px bg-[#CFAE9C]/50" />
-        </div>
-        <h2 className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl text-[#9C6B63]">
+        <h2 className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#FDECEF] mb-1.5 sm:mb-3 md:mb-4 drop-shadow-[0_6px_24px_rgba(0,0,0,0.65)]">
           Wedding Timeline
         </h2>
-        <p className="text-xs sm:text-sm md:text-base text-[#9C6B63]/80 font-light mt-2 max-w-md mx-auto">
-          A glimpse of the moments we'll share
+
+        <p className="text-[11px] sm:text-sm md:text-base lg:text-lg text-[#FCEFF7]/90 max-w-xl mx-auto leading-relaxed px-2">
+          A glimpse of the moments we'll share throughout the day.
         </p>
+
+        {/* Simple divider */}
+        <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#F5E5D9]/35" />
+          <div className="w-1.5 h-1.5 bg-[#FDECEF] rounded-full shadow-[0_0_12px_rgba(255,255,255,0.7)]" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#F5E5D9]/35" />
+        </div>
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto py-6 sm:py-8 md:py-10">
-        <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#E7C9B1] via-[#CFAE9C] to-[#E7C9B1] -translate-x-1/2 pointer-events-none">
-          <div className="absolute top-0 w-1 h-1 rounded-full bg-[#CFAE9C]" />
-          <div className="absolute bottom-0 w-1 h-1 rounded-full bg-[#CFAE9C]" />
+      {/* Timeline - improved desktop layout */}
+      <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-5 lg:px-8">
+        {/* Vertical timeline line - desktop */}
+        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#660033]/40 via-[#B76E79]/50 via-[#F5E5D9]/40 to-[#660033]/40 -translate-x-1/2 pointer-events-none">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#FDECEF]" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#FDECEF]" />
         </div>
 
-        <div className="space-y-10 sm:space-y-12 md:space-y-14">
-          {timelineEvents.map((event) => (
-            <div
-              key={event.title}
-              className="relative flex flex-col items-center text-center gap-3 px-6 sm:px-10 w-full max-w-sm mx-auto"
-            >
-              <IconBadge Icon={event.Icon} />
-              <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-[#CFAE9C] uppercase">
-                {event.time}
-              </p>
-              <p className="text-base sm:text-lg md:text-xl font-playfair text-[#7A4B42] uppercase tracking-[0.1em]">
-                {event.title}
-              </p>
-            </div>
+        {/* Mobile timeline line */}
+        <div className="md:hidden absolute left-6 sm:left-7 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#660033]/40 via-[#B76E79]/50 to-[#660033]/40 pointer-events-none" />
+
+        <div className="space-y-4 sm:space-y-5 md:space-y-8 lg:space-y-10">
+          {timelineEvents.map((event, index) => (
+            <TimelineItem key={event.title} event={event} index={index} />
           ))}
         </div>
       </div>
@@ -140,77 +139,92 @@ export function WeddingTimeline() {
   )
 }
 
-function IconBadge({ Icon }: { Icon: () => JSX.Element }) {
+function TimelineItem({ event, index }: { event: TimelineEvent; index: number }) {
+  const Icon = event.icon
+  const isEven = index % 2 === 0
+
   return (
-    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#CFAE9C] bg-white flex items-center justify-center shadow-[0_6px_18px_rgba(207,174,156,0.3)]">
-      <Icon />
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+      className="relative"
+    >
+      {/* Desktop layout: alternating sides - improved */}
+      <div className="hidden md:flex items-center">
+        {/* Left side container (for even indices: 0, 2, 4...) */}
+        <div className={`flex-1 flex ${isEven ? "justify-end pr-8 lg:pr-12" : ""}`}>
+          {isEven && <TimelineCard event={event} Icon={Icon} />}
+        </div>
+
+        {/* Center icon - always in the middle */}
+        <div className="relative z-10 flex-shrink-0 mx-2 lg:mx-4">
+          <IconBadge Icon={Icon} />
+        </div>
+
+        {/* Right side container (for odd indices: 1, 3, 5...) */}
+        <div className={`flex-1 flex ${!isEven ? "justify-start pl-8 lg:pl-12" : ""}`}>
+          {!isEven && <TimelineCard event={event} Icon={Icon} />}
+        </div>
+      </div>
+
+      {/* Mobile layout: compact stacked */}
+      <div className="md:hidden flex items-start gap-3">
+        <div className="relative z-10 flex-shrink-0 mt-0.5">
+          <IconBadge Icon={Icon} mobile />
+        </div>
+        <div className="flex-1 min-w-0">
+          <TimelineCard event={event} Icon={Icon} mobile />
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
+function TimelineCard({ event, Icon, mobile }: { event: TimelineEvent; Icon: typeof Clock; mobile?: boolean }) {
+  return (
+    <div className={`rounded-lg sm:rounded-xl border border-[#FDECEF]/25 bg-white/85 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-300 ${mobile ? "p-3" : "p-4 sm:p-5 md:p-6 lg:p-7"} max-w-md`}>
+      <div className={`${mobile ? "space-y-2" : "space-y-3 md:space-y-4"}`}>
+        {/* Time */}
+        <div className="flex items-center gap-1.5">
+          <Clock className={`${mobile ? "w-3.5 h-3.5" : "w-4 h-4 md:w-5 md:h-5"} text-[#660033] flex-shrink-0`} />
+          <p className={`${mobile ? "text-[10px]" : "text-xs sm:text-sm md:text-base"} font-bold tracking-[0.15em] text-[#660033] uppercase`}>
+            {event.time}
+          </p>
+        </div>
+
+        {/* Title */}
+        <h3 className={`${mobile ? "text-sm sm:text-base" : "text-base sm:text-lg md:text-xl lg:text-2xl"} font-semibold text-[#3B2222] leading-tight`}>
+          {event.title}
+        </h3>
+
+        {/* Description */}
+        {event.description && (
+          <p className={`${mobile ? "text-[10px] sm:text-xs" : "text-xs sm:text-sm md:text-base"} text-[#4A2B2B]/75 leading-relaxed`}>
+            {event.description}
+          </p>
+        )}
+
+        {/* Location */}
+        {event.location && (
+          <div className={`flex items-start gap-1.5 ${mobile ? "pt-1.5" : "pt-2 md:pt-3"} border-t border-[#F5E5D9]/50`}>
+            <MapPin className={`${mobile ? "w-3 h-3" : "w-3.5 h-3.5 md:w-4 md:h-4"} text-[#B76E79] mt-0.5 flex-shrink-0`} />
+            <p className={`${mobile ? "text-[10px]" : "text-xs md:text-sm"} text-[#4A2B2B]/70 leading-relaxed`}>
+              {event.location}
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
 
-function RingsIcon() {
+function IconBadge({ Icon, mobile }: { Icon: typeof Clock; mobile?: boolean }) {
   return (
-    <svg viewBox="0 0 32 32" className="w-6 h-6 text-[#CFAE9C]" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <circle cx="13" cy="19" r="7" />
-      <circle cx="21" cy="13" r="7" />
-    </svg>
-  )
-}
-
-function ClocheIcon() {
-  return (
-    <svg viewBox="0 0 32 32" className="w-6 h-6 text-[#D8908F]" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M5 23h22" />
-      <path d="M8 23a8 8 0 1 1 16 0" />
-      <path d="M16 11v-2" />
-      <circle cx="16" cy="8" r="1" fill="currentColor" />
-    </svg>
-  )
-}
-
-function MicrophoneIcon() {
-  return (
-    <svg viewBox="0 0 32 32" className="w-6 h-6 text-[#B28FA6]" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <rect x="12" y="3" width="8" height="14" rx="4" />
-      <path d="M10 12v3a6 6 0 0 0 12 0v-3" />
-      <path d="M16 19v6" />
-      <path d="M12 25h8" />
-    </svg>
-  )
-}
-
-function DinnerIcon() {
-  return (
-    <svg viewBox="0 0 32 32" className="w-6 h-6 text-[#A4B5A6]" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M5 23h22" />
-      <path d="M8 23a8 8 0 0 1 16 0" />
-      <path d="M12 12V5" />
-      <path d="M20 12V5" />
-      <path d="M16 10V5" />
-    </svg>
-  )
-}
-
-function DanceIcon() {
-  return (
-    <svg viewBox="0 0 32 32" className="w-6 h-6 text-[#D6A4A4]" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M16 9c3-4 9-4 9 2 0 4-5 8-9 10-4-2-9-6-9-10 0-6 6-6 9-2z" />
-    </svg>
-  )
-}
-
-function FireworksIcon() {
-  return (
-    <svg viewBox="0 0 32 32" className="w-6 h-6 text-[#D89F7A]" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M16 5v6" />
-      <path d="M9 7l3 5" />
-      <path d="M23 7l-3 5" />
-      <path d="M8 19l4-3" />
-      <path d="M24 19l-4-3" />
-      <path d="M6 13h6" />
-      <path d="M20 13h6" />
-      <path d="M12 27l4-8 4 8" />
-    </svg>
+    <div className={`${mobile ? "w-10 h-10" : "w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20"} rounded-full border-2 border-[#FDECEF]/40 bg-gradient-to-br from-white to-[#FDECEF] flex items-center justify-center shadow-md hover:scale-105 transition-transform duration-300`}>
+      <Icon className={`${mobile ? "w-5 h-5" : "w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"} text-[#660033]`} />
+    </div>
   )
 }
 

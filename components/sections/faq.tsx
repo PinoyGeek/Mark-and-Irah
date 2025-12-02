@@ -1,9 +1,14 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 import { Section } from "@/components/section"
+import { Cormorant_Garamond } from "next/font/google"
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400"],
+})
 
 interface FAQItem {
   question: string
@@ -12,34 +17,79 @@ interface FAQItem {
 
 const faqItems: FAQItem[] = [
   {
+    question: "When is the wedding?",
+    answer:
+      "Our wedding will be held on December 21, 2025. The ceremony begins at 3:00 PM, PH Time. We kindly ask guests to arrive by 12:30 PM to help us begin promptly.",
+  },
+  {
+    question: "Where will the ceremony and reception take place?",
+    answer:
+      "The ceremony will be held at Gutapol SDA Church, located at Gutapol, Kibawe, Bukidnon. The reception will follow at Kibawe Function Hall. You can find directions and copy addresses in the Details section above.",
+  },
+  {
     question: "When is the RSVP deadline?",
     answer:
-      `Kindly respond on or before December 21, 2025. Your response helps us finalize our guest list. Thank you!\n\n[RSVP_LINK]Click here to RSVP[/RSVP_LINK]`,
+      `Kindly respond on or before December 21, 2025. Your response helps us finalize our guest list and seating arrangements. Thank you!\n\n[RSVP_LINK]Click here to RSVP[/RSVP_LINK]`,
   },
   {
     question: "How do I RSVP?",
     answer:
       `Please search for your name in the RSVP section above and follow the instructions to confirm your attendance. If you cannot find your name, fill up request to join in the guest list section.`,
-    },
-    {
-    question: "Can I bring my child?",
-    answer:
-      "As much as we cherish having children around, our wedding will be adults-only so our guests may enjoy the celebration comfortably. Thank you for your kindness and understanding.",
   },
   {
-    question: "What if I have dietary restrictions or allergies?",
+    question: "What time should I arrive?",
     answer:
-      "Please mention any dietary restrictions, allergies, or special meal requirements in the message field when you submit your RSVP.",
+      "Kindly arrive by 12:30 PM to help us begin the ceremony promptly. Your punctuality means so much to us — and don't forget to grab lunch beforehand so you can enjoy the celebration comfortably!",
+  },
+  {
+    question: "What should I wear?",
+    answer:
+      "Formal attire is lovingly encouraged. Please dress according to our burgundy wedding motif with soft blush and ivory accents. For guests, semi-formal or formal attire in burgundy, blush, and soft neutral tones is warmly encouraged. We kindly request no white dresses, jeans, or shorts.",
+  },
+  {
+    question: "Can I bring a plus one?",
+    answer:
+      "The seating will be formal, RSVP-style. That's why we're asking you to fill out this invitation form to secure your spot. Kindly do not bring plus ones unless explicitly stated in your invitation.",
   },
   {
     question: "Is there parking available?",
     answer:
-      "Yes! Ample parking is available at both the ceremony and reception venues. We recommend arriving 15-20 minutes early to secure a spot.",
+      "Yes! Parking is available at both the church and the reception venue. Please arrive early to find a comfortable spot. Private vehicles and local transport are welcome.",
+  },
+  {
+    question: "How do I get directions to the venues?",
+    answer:
+      "You can find directions in the Details section above. Simply click the 'Get Directions' button on either the ceremony or reception card, and it will open Google Maps with the location. You can also copy the address to use in your preferred navigation app.",
   },
   {
     question: "Can I take photos during the ceremony?",
     answer:
       "This is an unplugged ceremony. We kindly ask guests to refrain from using phones or cameras during the ceremony so everyone can be fully present. Our professional photographers will capture every moment and we'll share the photos afterward.",
+  },
+  {
+    question: "What if I have dietary restrictions or allergies?",
+    answer:
+      "Please mention any dietary restrictions, allergies, or special meal requirements in the message field when you submit your RSVP. We want to ensure everyone can enjoy the celebration comfortably!",
+  },
+  {
+    question: "Will there be transportation provided?",
+    answer:
+      "Private vehicles and local transport are welcome. We recommend coordinating with friends or family and planning your route ahead of time. Please plan your route ahead to avoid unexpected delays.",
+  },
+  {
+    question: "What happens after the ceremony?",
+    answer:
+      "The reception will follow immediately after the ceremony at Kibawe Function Hall. The seating will be formal, RSVP-style, so please make sure you've confirmed your attendance through the RSVP form.",
+  },
+  {
+    question: "Are children welcome?",
+    answer:
+      "We love children, but due to the formal nature of our celebration and limited seating, we kindly ask that only children explicitly included in your invitation attend. If you have questions about this, please reach out to us.",
+  },
+  {
+    question: "What if I can't attend?",
+    answer:
+      "We completely understand if you cannot attend. Please still RSVP to let us know, and feel free to leave a message for Jonarelh and Hazel. Your presence will be missed, but your well wishes mean the world to us!",
   },
 ]
 
@@ -53,101 +103,45 @@ export function FAQ() {
   return (
     <Section
       id="faq"
-      className="relative bg-[#FFFAEF] py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
+      className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#660033]"
     >
-      {/* Background elements matching countdown section */}
+      {/* Background elements with burgundy motif (same as principal sponsors) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#FFBD87]/25 via-[#FFBD87]/10 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#FFBD87]/25 via-[#FFBD87]/10 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFFAEF]/35 via-transparent to-[#FFFAEF]/35" />
-
-        {/* Floating decorative circles */}
-        <div className="absolute top-10 left-8 w-32 h-32 bg-[#FFBD87]/20 rounded-full blur-2xl animate-pulse" />
-        <div className="absolute top-20 right-12 w-24 h-24 bg-[#FFBD87]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: "1s" }} />
-        <div className="absolute bottom-16 left-16 w-28 h-28 bg-[#FFBD87]/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "2s" }} />
-        <div className="absolute bottom-24 right-10 w-20 h-20 bg-[#FFBD87]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: "0.5s" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-[#FFFAEF]/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
-
-        {/* Decorative line */}
-        <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFBD87]/30 to-transparent" />
-
-        {/* Corner florals */}
-        <div className="absolute bottom-0 left-0 z-0">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt=""
-            width={600}
-            height={600}
-            className="w-48 h-auto sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-70"
-          />
-        </div>
-        <div className="absolute bottom-0 right-0 z-0 scale-x-[-1]">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt=""
-            width={600}
-            height={600}
-            className="w-48 h-auto sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-70"
-          />
-        </div>
-        <div className="absolute top-0 left-0 z-0 scale-y-[-1]">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt=""
-            width={600}
-            height={600}
-            className="w-40 h-auto sm:w-56 md:w-72 lg:w-80 xl:w-[24rem] opacity-60"
-          />
-        </div>
-        <div className="absolute top-0 right-0 z-0 scale-x-[-1] scale-y-[-1]">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt=""
-            width={600}
-            height={600}
-            className="w-40 h-auto sm:w-56 md:w-72 lg:w-80 xl:w-[24rem] opacity-60"
-          />
-        </div>
+        {/* Subtle gradient overlays */}
+        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#1A0010]/80 via-[#660033]/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#1A0010]/85 via-[#660033]/55 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(253,236,239,0.16),transparent_55%)] opacity-80" />
       </div>
 
       {/* Section Header */}
-      <div className="relative z-10 text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-        {/* Decorative element above title */}
-        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 md:mb-4">
-          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-white/40" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/70 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/50 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/70 rounded-full" />
-          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-white/40" />
-        </div>
-        
-        <h2 className="imperial-script-regular text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal text-[#9B7C6A] mb-2 sm:mb-3 md:mb-4 drop-shadow-lg leading-tight">
+      <div className="relative z-30 text-center mb-6 sm:mb-9 md:mb-12 px-3 sm:px-4">
+        {/* Small label */}
+        <p
+          className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-[#FDECEF]/85 mb-2`}
+          style={{ textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}
+        >
+          Common Questions
+        </p>
+
+        <h2
+          className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-1.5 sm:mb-3 md:mb-4"
+          style={{ textShadow: "0 4px 18px rgba(0,0,0,0.85)" }}
+        >
           Frequently Asked Questions
         </h2>
-        
-        <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-[#7C564A] font-light max-w-xl mx-auto leading-relaxed px-2">
-          Everything you need to know
-        </p>
-        
-        {/* Decorative element below subtitle */}
-        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-2 sm:mt-3 md:mt-4">
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/70 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/50 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/70 rounded-full" />
+
+        {/* Simple divider */}
+        <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+          <div className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_12px_rgba(255,255,255,0.7)]" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-l from-transparent via-white/60 to-transparent" />
         </div>
       </div>
 
       {/* FAQ content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-2 sm:px-4 md:px-6">
+      <div className="relative z-30 max-w-4xl mx-auto px-3 sm:px-5">
         {/* Main card */}
-        <div className="relative bg-white/85 backdrop-blur-md border-2 border-white/60 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_12px_45px_rgba(0,0,0,0.15)] hover:shadow-[0_16px_55px_rgba(0,0,0,0.2)] overflow-hidden">
-          {/* Decorative corner accents */}
-          <div className="absolute top-0 left-0 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-l-2 border-white/40 rounded-tl-lg" />
-          <div className="absolute top-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 border-t-2 border-r-2 border-white/40 rounded-tr-lg" />
-          <div className="absolute bottom-0 left-0 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-l-2 border-white/40 rounded-bl-lg" />
-          <div className="absolute bottom-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 border-b-2 border-r-2 border-white/40 rounded-br-lg" />
-          
+        <div className="relative bg-white/10 backdrop-blur-md border border-[#FDECEF]/25 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] overflow-hidden">
           {/* FAQ items */}
           <div className="relative p-2.5 sm:p-4 md:p-5 lg:p-6">
             <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
@@ -157,20 +151,20 @@ export function FAQ() {
                 return (
                   <div
                     key={index}
-                    className="rounded-lg sm:rounded-xl border-2 border-[#FFBD87]/30 bg-white/95 backdrop-blur-sm hover:border-[#9B7C6A]/50 transition-all duration-300 hover:shadow-md overflow-hidden"
+                    className="rounded-lg sm:rounded-xl border border-[#FDECEF]/30 bg-white/5 backdrop-blur-sm hover:border-[#FDECEF]/50 hover:bg-white/10 transition-all duration-300 hover:shadow-md overflow-hidden"
                   >
                     <button
                       onClick={() => toggleItem(index)}
-                      className="group w-full px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 flex items-center justify-between text-left outline-none focus-visible:ring-2 focus-visible:ring-[#9B7C6A]/50 focus-visible:ring-offset-2 transition-colors"
+                      className="group w-full px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 flex items-center justify-between text-left outline-none focus-visible:ring-2 focus-visible:ring-[#FDECEF]/50 focus-visible:ring-offset-2 transition-colors"
                       aria-expanded={isOpen}
                       aria-controls={contentId}
                     >
-                      <span className="font-semibold text-[#9B7C6A] pr-2 sm:pr-3 md:pr-4 text-xs sm:text-sm md:text-base lg:text-lg font-sans leading-snug sm:leading-relaxed transition-colors duration-200 group-hover:text-[#FFBD87]">
+                      <span className={`${cormorant.className} font-semibold text-white pr-2 sm:pr-3 md:pr-4 text-xs sm:text-sm md:text-base lg:text-lg leading-snug sm:leading-relaxed transition-colors duration-200 group-hover:text-[#FDECEF]`}>
                         {item.question}
                       </span>
                       <ChevronDown
                         size={18}
-                        className={`text-[#9B7C6A]/60 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""} w-4 h-4 sm:w-5 sm:h-5`}
+                        className={`text-white/60 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""} w-4 h-4 sm:w-5 sm:h-5`}
                         aria-hidden
                       />
                     </button>
@@ -183,13 +177,13 @@ export function FAQ() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <div className="px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 bg-[#FFFAEF]/40 border-t border-[#FFBD87]/30">
+                        <div className="px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 bg-white/5 border-t border-[#FDECEF]/20">
                           {item.answer.includes("[RSVP_LINK]") ? (
-                            <p className="text-[#9B7C6A]/90 leading-snug sm:leading-relaxed text-xs sm:text-sm md:text-base font-sans whitespace-pre-line">
+                            <p className={`${cormorant.className} text-white/90 leading-snug sm:leading-relaxed text-xs sm:text-sm md:text-base whitespace-pre-line`}>
                               {item.answer.split("[RSVP_LINK]")[0]}
                               <a 
                                 href="#guest-list" 
-                                className="text-[#9B7C6A] underline font-semibold hover:text-[#FFBD87] transition-colors"
+                                className="text-[#FDECEF] underline font-semibold hover:text-white transition-colors"
                                 onClick={(e) => {
                                   e.preventDefault()
                                   document.getElementById('guest-list')?.scrollIntoView({ behavior: 'smooth' })
@@ -200,7 +194,7 @@ export function FAQ() {
                               {item.answer.split("[/RSVP_LINK]")[1]}
                             </p>
                           ) : (
-                            <p className="text-[#9B7C6A]/90 leading-snug sm:leading-relaxed text-xs sm:text-sm md:text-base font-sans whitespace-pre-line">
+                            <p className={`${cormorant.className} text-white/90 leading-snug sm:leading-relaxed text-xs sm:text-sm md:text-base whitespace-pre-line`}>
                               {item.answer}
                             </p>
                           )}

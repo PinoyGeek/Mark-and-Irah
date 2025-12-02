@@ -2,16 +2,17 @@
 
 import { useEffect, useState, useMemo } from "react"
 import { motion } from "motion/react"
+import { Cormorant_Garamond, WindSong } from "next/font/google"
+import { siteConfig } from "@/content/site"
 
 const desktopImages = [
-    "/mobile/couple (1).jpeg",
-    "/mobile/couple (2).jpeg",
-    "/mobile/couple (3).jpeg",
-    "/mobile/couple (4).jpeg",
-    "/mobile/couple (5).jpeg",
-    "/mobile/couple (6).jpeg",
-    "/mobile/couple (7).jpeg",
-
+  "/mobile/couple (1).jpeg",
+  "/mobile/couple (2).jpeg",
+  "/mobile/couple (3).jpeg",
+  "/mobile/couple (4).jpeg",
+  "/mobile/couple (5).jpeg",
+  "/mobile/couple (6).jpeg",
+  "/mobile/couple (7).jpeg",
 ]
 
 const mobileImages = [
@@ -19,31 +20,42 @@ const mobileImages = [
   "/mobile-background/couple (4).jpg",
   "/mobile-background/couple (3).jpg",
   "/mobile-background/couple (2).jpg",
-    "/mobile-background/couple (3).jpeg",
-    "/mobile-background/couple (4).jpeg",
-    "/mobile-background/couple (5).jpeg",
-    "/mobile-background/couple (6).jpeg",
-    "/mobile-background/couple (7).jpeg",
-    "/mobile-background/couple (8).jpeg",
-    "/mobile-background/couple (9).jpeg",
-    "/mobile-background/couple (10).jpeg",
-    "/mobile-background/couple (11).jpeg",
-    "/mobile-background/couple (12).jpeg",
-    "/mobile-background/couple (13).jpeg",
-    "/mobile-background/couple (14).jpeg",
-    "/mobile-background/couple (15).jpeg",
-    "/mobile-background/couple (16).jpeg",
-    "/mobile-background/couple (17).jpeg",
-    "/mobile-background/couple (18).jpeg",
-    "/mobile-background/couple (19).jpeg",
+  "/mobile-background/couple (3).jpeg",
+  "/mobile-background/couple (4).jpeg",
+  "/mobile-background/couple (5).jpeg",
+  "/mobile-background/couple (6).jpeg",
+  "/mobile-background/couple (7).jpeg",
+  "/mobile-background/couple (8).jpeg",
+  "/mobile-background/couple (9).jpeg",
+  "/mobile-background/couple (10).jpeg",
+  "/mobile-background/couple (11).jpeg",
+  "/mobile-background/couple (12).jpeg",
+  "/mobile-background/couple (13).jpeg",
+  "/mobile-background/couple (14).jpeg",
+  "/mobile-background/couple (15).jpeg",
+  "/mobile-background/couple (16).jpeg",
+  "/mobile-background/couple (17).jpeg",
+  "/mobile-background/couple (18).jpeg",
+  "/mobile-background/couple (19).jpeg",
 ]
 
 const SHOW_BUTTERFLIES = false
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+})
+
+const windSong = WindSong({
+  subsets: ["latin"],
+  weight: "400",
+})
 
 export function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [imagesLoaded, setImagesLoaded] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
 
   // Detect screen size and update isMobile state
   useEffect(() => {
@@ -98,13 +110,24 @@ export function Hero() {
     return () => clearInterval(imageTimer)
   }, [imagesLoaded, backgroundImages])
 
+  useEffect(() => {
+    if (imagesLoaded) {
+      setIsVisible(true)
+    }
+  }, [imagesLoaded])
+
+  const [weddingMonth = "December", weddingDayRaw = "21", weddingYear = "2025"] =
+    siteConfig.wedding.date.split(" ")
+  const weddingDayNumber = weddingDayRaw.replace(/[^0-9]/g, "") || "21"
+  const ceremonyTime = siteConfig.wedding.time
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#FFFAEF]">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1A0010]">
       <div className="absolute inset-0 w-full h-full">
         {imagesLoaded && backgroundImages.map((image, index) => (
           <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
+            key={image}
+            className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
               index === currentImageIndex ? "opacity-100" : "opacity-0"
             }`}
             style={{
@@ -112,10 +135,14 @@ export function Hero() {
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
+              willChange: "opacity",
             }}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#fff1e0] via-[#fff1e0]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A0010]/95 via-[#660033]/75 to-transparent z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#1A0010]/85 z-0" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(102,0,51,0.25),transparent_55%)] mix-blend-screen" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(253,236,239,0.18),transparent_35%)] opacity-70 animate-[pulse_9s_ease-in-out_infinite]" />
       </div>
 
       {SHOW_BUTTERFLIES && (
@@ -435,110 +462,154 @@ export function Hero() {
         </>
       )}
 
-      {/* Flower decoration - Mobile only */}
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center md:hidden z-10 pointer-events-none">
-        <img 
-          src="/decoration/flower-decoration-buttom.png" 
-          alt="Flower decoration" 
-          className="w-full max-w-md object-contain"
-          style={{ marginBottom: '-2px' }}
-        />
-      </div>
+      <div className="relative z-10 w-full container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex flex-col items-center justify-center min-h-screen pt-20 sm:pt-24 md:pt-28 pb-10 sm:pb-12 md:pb-16">
+        <div
+          className={`w-full max-w-3xl text-center space-y-3 sm:space-y-4 md:space-y-5 transition-all duration-1000 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          {/* Main Invitation Text */}
+          <div className="space-y-2 sm:space-y-3 md:space-y-4">
+            <p
+              className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm lg:text-base uppercase tracking-[0.24em] sm:tracking-[0.28em] text-[#FDECEF]/95 font-normal leading-relaxed px-4`}
+              style={{
+                textShadow: "0 2px 14px rgba(0,0,0,0.7)",
+              }}
+            >
+              You are cordially invited to celebrate the wedding of
+            </p>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-12 flex flex-col items-center justify-end min-h-screen pb-16 sm:pb-24 md:pb-32 lg:pb-48">
-        <div className="max-w-2xl text-center space-y-4 sm:space-y-6">
-          <div className="space-y-2 sm:space-y-3">
+            {/* Names & Tagline */}
             <h1
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold tracking-wide drop-shadow-2xl whitespace-nowrap"
+              className={`${cormorant.className} text-xs sm:text-sm md:text-base tracking-[0.4em] uppercase font-light text-center`}
               style={{
-                color: '#FFFAEF',
-                textShadow: "0 0 20px rgba(255, 250, 239, 0.8), 0 0 40px rgba(252, 184, 181, 0.3), 0 8px 24px rgba(0,0,0,0.8)",
-                letterSpacing: "0.05em",
+                color: '#FDECEF',
+                textShadow: "0 2px 8px rgba(0,0,0,0.7)",
               }}
             >
-              Julaine
+              WE DO
             </h1>
-            <div className="h-1 w-16 sm:w-20 md:w-24 mx-auto bg-gradient-to-r from-transparent via-[#FFFAEF] to-transparent" />
             <p
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl lavishly-yours-regular tracking-wide drop-shadow-2xl"
+              className={`${windSong.className} text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide drop-shadow-2xl`}
               style={{
-                color: '#FFFAEF',
-                textShadow: "0 0 20px rgba(255, 250, 239, 0.5), 0 6px 12px rgba(0,0,0,0.6)",
-                letterSpacing: "0.08em",
+                color: '#FDF8F5',
+                textShadow: "0 0 18px rgba(0,0,0,0.8)",
               }}
             >
-              and
+              always and forever
             </p>
             <h1
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold tracking-wide drop-shadow-2xl whitespace-nowrap"
+              className="style-script-regular text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-2xl"
               style={{
-                color: '#FFFAEF',
-                textShadow: "0 0 20px rgba(255, 250, 239, 0.8), 0 0 40px rgba(252, 184, 181, 0.3), 0 8px 24px rgba(0,0,0,0.8)",
-                letterSpacing: "0.05em",
+                color: '#FFFFFF',
+                textShadow: "0 0 24px rgba(0,0,0,0.9)",
               }}
             >
-              Cristopher
+              Jonarelh &amp; Hazel
             </h1>
           </div>
-          <p
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl lavishly-yours-regular"
-            style={{
-              color: '#FFFAEF',
-              textShadow: "0 4px 12px rgba(0,0,0,0.7), 0 2px 4px rgba(0,0,0,0.6)",
-            }}
-          >
-            are getting married!
-          </p>
-          <div className="space-y-1 sm:space-y-2">
+
+          {/* Date & Time block */}
+          <div className="w-full max-w-2xl mx-auto">
+            <div
+              className={`${cormorant.className} flex flex-col items-center gap-1.5 sm:gap-2.5 md:gap-3 text-[#FDF8F5]/95`}
+              style={{ textShadow: "0 4px 16px rgba(0,0,0,0.6)" }}
+            >
+              <span className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] font-light">
+                {weddingMonth}
+              </span>
+
+              <div className="flex w-full items-center gap-2 sm:gap-4 md:gap-5">
+                {/* Day of week & divider */}
+                <div className="flex flex-1 items-center justify-end gap-1.5 sm:gap-2.5">
+                  <span className="h-[0.5px] flex-1 bg-[#FDF8F5]/45" />
+                  <span className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light">
+                    Sun
+                  </span>
+                  <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-[#FDF8F5]/45" />
+                </div>
+
+                {/* Day number */}
+                <div className="relative flex items-center justify-center px-3 sm:px-4 md:px-5">
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 mx-auto h-[70%] max-h-[180px] w-[100px] sm:w-[140px] md:w-[170px] rounded-full bg-gradient-to-b from-[#660033]/40 via-[#2A0018]/40 to-transparent blur-[28px] opacity-70"
+                  />
+                  <span
+                    className={`${cormorant.className} relative text-[3rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6rem] font-light leading-none tracking-wider text-white`}
+                    style={{
+                      textShadow:
+                        "0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(255,255,255,0.7), 0 0 60px rgba(102,0,51,0.8), 0 0 80px rgba(102,0,51,0.6), 0 0 100px rgba(102,0,51,0.4), 0 4px 20px rgba(0,0,0,0.5)",
+                      filter:
+                        "drop-shadow(0 0 30px rgba(255,255,255,0.8)) drop-shadow(0 0 50px rgba(102,0,51,0.6))",
+                    }}
+                  >
+                    {weddingDayNumber}
+                  </span>
+                </div>
+
+                {/* Time */}
+                <div className="flex flex-1 items-center gap-1.5 sm:gap-2.5">
+                  <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-[#FDF8F5]/45" />
+                  <span className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light">
+                    {ceremonyTime.split(",")[0]}
+                  </span>
+                  <span className="h-[0.5px] flex-1 bg-[#FDF8F5]/45" />
+                </div>
+              </div>
+
+              <span className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] font-light">
+                {weddingYear}
+              </span>
+            </div>
+          </div>
+
+          {/* Venue */}
+          <div className="space-y-1 sm:space-y-1.5 pt-1 sm:pt-2">
             <p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl font-light"
+              className={`${cormorant.className} text-xs sm:text-sm md:text-base lg:text-lg uppercase tracking-[0.22em] sm:tracking-[0.26em] md:tracking-[0.3em] text-[#F5E5D9] font-medium`}
               style={{
-                color: '#FFFAEF',
-                textShadow: "0 4px 12px rgba(0,0,0,0.7), 0 2px 4px rgba(0,0,0,0.6)",
+                textShadow: "0 2px 18px rgba(0,0,0,0.8)",
               }}
             >
-              December 28, 2025 - 3:00 PM
+              {siteConfig.ceremony.venue}
             </p>
             <p
-              className="text-sm sm:text-base md:text-lg lg:text-xl font-light tracking-wide"
+              className={`${cormorant.className} text-[0.6rem] sm:text-[0.7rem] md:text-xs lg:text-sm tracking-[0.15em] sm:tracking-[0.18em] text-[#FDF8F5]/90 font-light px-4 sm:px-8 md:px-12`}
               style={{
-                color: '#FFFAEF',
-                textShadow: "0 4px 12px rgba(0,0,0,0.7), 0 2px 4px rgba(0,0,0,0.6)",
+                textShadow: "0 2px 12px rgba(0,0,0,0.7)",
               }}
             >
-              MOUNT COSTA
-            </p>
-            <p
-              className="text-xs sm:text-sm md:text-base lg:text-lg font-light"
-              style={{
-                color: '#FFFAEF',
-                textShadow: "0 4px 12px rgba(0,0,0,0.7), 0 2px 4px rgba(0,0,0,0.6)",
-              }}
-            >
-              Lamtang Road, Pugis, La Trinidad, Benguet
+              Ceremony followed by reception at {siteConfig.reception.venue}
             </p>
           </div>
-          <div className="pt-4 sm:pt-6 flex flex-row gap-3 sm:gap-4 justify-center items-center">
+
+          {/* Call-to-action buttons */}
+          <div className="pt-3 sm:pt-4 md:pt-5 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch max-w-2xl mx-auto w-full px-4">
             <a
               href="#guest-list"
-              className="group inline-block px-8 sm:px-10 md:px-12 py-3.5 sm:py-4 md:py-4.5 rounded-xl font-bold transition-all duration-300 uppercase tracking-wider text-sm sm:text-base whitespace-nowrap relative overflow-hidden border-2 border-transparent hover:border-[#FFFAEF]/60"
+              className={`${cormorant.className} group relative flex-1 sm:min-w-[200px] md:min-w-[220px] rounded-lg overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.45)] focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FDECEF]/50`}
               style={{
-                backgroundColor: "rgba(164, 187, 140, 0.95)",
-                color: '#FFFAEF',
-                boxShadow: "0 8px 24px rgba(164, 187, 140, 0.4), 0 4px 8px rgba(0,0,0,0.3)",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.55)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#A4BB8C";
+                e.currentTarget.style.backgroundColor = "#800040";
                 e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.boxShadow = "0 12px 32px rgba(164, 187, 140, 0.6), 0 6px 12px rgba(0,0,0,0.4)";
+                e.currentTarget.style.boxShadow = "0 14px 40px rgba(0,0,0,0.7)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(164, 187, 140, 0.95)";
+                e.currentTarget.style.backgroundColor = "rgba(102, 0, 51, 0.9)";
                 e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 8px 24px rgba(164, 187, 140, 0.4), 0 4px 8px rgba(0,0,0,0.3)";
+                e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.55)";
               }}
             >
-              <span className="relative z-10">RSVP</span>
+              <span
+                aria-hidden
+                className="absolute inset-0 rounded-lg bg-gradient-to-r from-[#660033] to-[#A8376D] transition-all duration-500 group-hover:from-[#A8376D] group-hover:to-[#660033]"
+              />
+              <span className="relative z-10 inline-flex h-full min-h-[3rem] sm:min-h-[3.25rem] w-full items-center justify-center px-6 sm:px-8 text-[0.65rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.32em] sm:tracking-[0.36em] text-[#FDF8F5] font-semibold transition-all duration-300">
+                RSVP
+              </span>
               <div 
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12 group-hover:translate-x-full"
                 style={{ width: "50%", left: "-100%" }}
@@ -546,24 +617,15 @@ export function Hero() {
             </a>
             <a
               href="#narrative"
-              className="group inline-block px-8 sm:px-10 md:px-12 py-3.5 sm:py-4 md:py-4.5 rounded-xl font-bold transition-all duration-300 uppercase tracking-wider text-sm sm:text-base whitespace-nowrap relative overflow-hidden border-2 border-transparent hover:border-[#FFFAEF]/60"
-              style={{
-                backgroundColor: "rgba(252, 184, 181, 0.85)",
-                color: '#FFFAEF',
-                boxShadow: "0 8px 24px rgba(252, 184, 181, 0.4), 0 4px 8px rgba(0,0,0,0.3)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#FCB8B5";
-                e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.boxShadow = "0 12px 32px rgba(252, 184, 181, 0.6), 0 6px 12px rgba(0,0,0,0.4)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(252, 184, 181, 0.85)";
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 8px 24px rgba(252, 184, 181, 0.4), 0 4px 8px rgba(0,0,0,0.3)";
-              }}
+              className={`${cormorant.className} group relative flex-1 sm:min-w-[200px] md:min-w-[220px] rounded-lg overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)] focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FDECEF]/50`}
             >
-              <span className="relative z-10">Our Story</span>
+              <span
+                aria-hidden
+                className="absolute inset-0 rounded-lg bg-transparent border-2 border-[#F5E5D9] transition-all duration-500 group-hover:bg-[#F5E5D9]/10"
+              />
+              <span className="relative z-10 inline-flex h-full min-h-[3rem] sm:min-h-[3.25rem] w-full items-center justify-center px-6 sm:px-8 text-[0.65rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.32em] sm:tracking-[0.36em] text-[#F5E5D9] font-semibold transition-all duration-300">
+                Our Story
+              </span>
               <div 
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12 group-hover:translate-x-full"
                 style={{ width: "50%", left: "-100%" }}

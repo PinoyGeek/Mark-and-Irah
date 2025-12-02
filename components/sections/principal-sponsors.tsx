@@ -4,7 +4,12 @@ import React from "react"
 import { useEffect, useMemo, useState, useRef } from "react"
 import { Section } from "@/components/section"
 import { Loader2, Users } from "lucide-react"
-import Image from "next/image"
+import { Cormorant_Garamond } from "next/font/google"
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400"],
+})
 
 interface PrincipalSponsor {
   MalePrincipalSponsor: string
@@ -28,11 +33,8 @@ export function PrincipalSponsors() {
     const textAlign =
       align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
     return (
-      <h3 className={`relative text-[10px] sm:text-xs md:text-sm lg:text-base font-semibold uppercase text-[#9B7C6A] mb-1.5 sm:mb-2 md:mb-3 tracking-[0.1em] sm:tracking-[0.15em] ${textAlign} ${className} drop-shadow-sm transition-all duration-300`}>
-        <span className="relative inline-block">
-          {children}
-          <span className="absolute bottom-0 left-0 w-full h-[1.5px] sm:h-[2px] bg-gradient-to-r from-transparent via-[#FFBD87]/40 to-transparent" />
-        </span>
+      <h3 className={`relative ${cormorant.className} text-[10px] sm:text-xs md:text-sm lg:text-base font-semibold uppercase text-[#F5E5D9]/90 mb-1.5 sm:mb-2 md:mb-3 tracking-[0.1em] sm:tracking-[0.15em] ${textAlign} ${className} transition-all duration-300`}>
+        {children}
       </h3>
     )
   }
@@ -46,9 +48,9 @@ export function PrincipalSponsors() {
     return (
       <div className={`relative flex flex-col ${containerAlign} justify-center py-1 sm:py-1.5 md:py-2.5 w-full group/item transition-all duration-300 hover:scale-[1.02] sm:hover:scale-[1.03]`}>
         {/* Hover highlight effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFBD87]/0 via-[#FFBD87]/10 to-[#FFBD87]/0 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 rounded-md" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FDECEF]/0 via-[#FDECEF]/10 to-[#FDECEF]/0 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 rounded-md" />
         
-        <p className={`relative text-[#9B7C6A] text-[11px] sm:text-[13px] md:text-sm lg:text-base font-semibold leading-snug break-words ${textAlign} group-hover/item:text-[#8A6B59] transition-all duration-300 drop-shadow-sm`}>{name}</p>
+        <p className={`relative text-white text-[11px] sm:text-[13px] md:text-sm lg:text-base font-semibold leading-snug break-words ${textAlign} group-hover/item:text-[#FDECEF] transition-all duration-300`}>{name}</p>
       </div>
     )
   }
@@ -109,130 +111,62 @@ export function PrincipalSponsors() {
     <div ref={sectionRef}>
       <Section
         id="sponsors"
-        className="relative bg-[#FFFAEF] py-6 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
+        className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#660033]"
       >
-      {/* Enhanced background elements */}
+      {/* Background elements with burgundy motif (same as details section) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays with peachy tones */}
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#FFBD87]/20 via-[#FFBD87]/10 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#FFBD87]/20 via-[#FFBD87]/10 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFFAEF]/40 via-transparent to-[#FFFAEF]/40" />
-        
-        {/* Floating decorative circles */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-[#FFBD87]/15 rounded-full blur-2xl animate-pulse" />
-        <div className="absolute top-40 right-20 w-48 h-48 bg-[#FCB8B5]/15 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-[#FFBD87]/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-[#FFFAEF]/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
-        
-        {/* Decorative lines */}
-        <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFBD87]/30 to-transparent" />
-        
-        {/* Bottom left corner decoration */}
-        <div className="absolute bottom-0 left-0 z-0">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Bottom left corner decoration"
-            width={600}
-            height={600}
-            className="w-32 h-auto sm:w-48 md:w-64 lg:w-80 xl:w-96 opacity-80"
-            priority={false}
-          />
-        </div>
-        
-        {/* Bottom right corner decoration */}
-        <div className="absolute bottom-0 right-0 z-0 scale-x-[-1]">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Bottom right corner decoration"
-            width={600}
-            height={600}
-            className="w-32 h-auto sm:w-48 md:w-64 lg:w-80 xl:w-96 opacity-80"
-            priority={false}
-          />
-        </div>
-        
-        {/* Top left corner decoration */}
-        <div className="absolute top-0 left-0 z-0 scale-y-[-1]">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Top left corner decoration"
-            width={600}
-            height={600}
-            className="w-32 h-auto sm:w-48 md:w-64 lg:w-80 xl:w-96 opacity-80"
-            priority={false}
-          />
-        </div>
-        
-        {/* Top right corner decoration */}
-        <div className="absolute top-0 right-0 z-0 scale-x-[-1] scale-y-[-1]">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Top right corner decoration"
-            width={600}
-            height={600}
-            className="w-32 h-auto sm:w-48 md:w-64 lg:w-80 xl:w-96 opacity-80"
-            priority={false}
-          />
-        </div>
+        {/* Subtle gradient overlays */}
+        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#1A0010]/80 via-[#660033]/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#1A0010]/85 via-[#660033]/55 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(253,236,239,0.16),transparent_55%)] opacity-80" />
       </div>
 
       {/* Section Header */}
-      <div className={`relative z-10 text-center mb-4 sm:mb-6 md:mb-8 lg:mb-12 px-3 sm:px-4 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
-        {/* Decorative element above title */}
-        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 md:mb-4">
-          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-[#9B7C6A]/50" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FFBD87]/70 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FCB8B5]/70 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FFBD87]/70 rounded-full" />
-          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-[#9B7C6A]/50" />
-        </div>
-        
-        <h2 className="imperial-script-regular text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal text-[#9B7C6A] mb-2 sm:mb-3 md:mb-4 drop-shadow-lg leading-tight">
-          Principal Sponsors
-        </h2>
-        
-        <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-[#9B7C6A]/90 font-light max-w-xl mx-auto leading-relaxed px-2">
+      <div className={`relative z-30 text-center mb-6 sm:mb-9 md:mb-12 px-3 sm:px-4 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+        {/* Small label */}
+        <p
+          className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-[#FDECEF]/85 mb-2`}
+          style={{ textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}
+        >
           Our Beloved Godparents
         </p>
-        
-        {/* Decorative element below subtitle */}
-        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-2 sm:mt-3 md:mt-4">
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FFBD87]/70 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FCB8B5]/70 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FFBD87]/70 rounded-full" />
+
+        <h2
+          className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-1.5 sm:mb-3 md:mb-4"
+          style={{ textShadow: "0 4px 18px rgba(0,0,0,0.85)" }}
+        >
+          Principal Sponsors
+        </h2>
+
+        {/* Simple divider */}
+        <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+          <div className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_12px_rgba(255,255,255,0.7)]" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-l from-transparent via-white/60 to-transparent" />
         </div>
       </div>
 
       {/* Sponsors content */}
-      <div className={`relative z-10 max-w-5xl mx-auto px-2 sm:px-3 md:px-6 lg:px-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        {/* Enhanced card with gradient glow */}
-        <div className="relative bg-[#FFFAEF]/98 backdrop-blur-md rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden border-2 border-[#FFBD87]/50 shadow-[0_8px_32px_rgba(255,189,135,0.15)] hover:shadow-[0_12px_40px_rgba(255,189,135,0.25)] transition-all duration-500 group">
-          {/* Animated glow on hover */}
-          <div className="absolute -inset-1 bg-[#9B7C6A]/30 rounded-lg sm:rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
-          
-          {/* Decorative corner accents with animation */}
-          <div className="absolute top-0 left-0 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 border-t-2 border-l-2 border-[#FFBD87]/50 rounded-tl-lg transition-all duration-500 group-hover:border-[#FFBD87]/80" />
-          <div className="absolute top-0 right-0 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 border-t-2 border-r-2 border-[#FFBD87]/50 rounded-tr-lg transition-all duration-500 group-hover:border-[#FFBD87]/80" />
-          <div className="absolute bottom-0 left-0 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 border-b-2 border-l-2 border-[#FFBD87]/50 rounded-bl-lg transition-all duration-500 group-hover:border-[#FFBD87]/80" />
-          <div className="absolute bottom-0 right-0 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 border-b-2 border-r-2 border-[#FFBD87]/50 rounded-br-lg transition-all duration-500 group-hover:border-[#FFBD87]/80" />
-          
+      <div className={`relative z-30 max-w-4xl mx-auto px-3 sm:px-5 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        {/* Card with burgundy theme - matching details section */}
+        <div className="relative bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border border-[#FDECEF]/25 shadow-[0_20px_60px_rgba(0,0,0,0.45)] transition-all duration-500 group">
           {/* Card content */}
-          <div className="relative p-2.5 sm:p-4 md:p-6 lg:p-8 xl:p-10 z-10">
+          <div className="relative p-3 sm:p-6 md:p-8 z-10">
             <div className="relative z-10 w-full">
               {isLoading ? (
                 <div className="flex items-center justify-center py-24 sm:py-28 md:py-32">
                   <div className="flex flex-col items-center gap-4">
-                    <Loader2 className="h-10 w-10 sm:h-12 sm:w-12 animate-spin text-[#FFBD87]" />
-                    <span className="text-[#9B7C6A]/70 font-serif text-base sm:text-lg">Loading sponsors...</span>
+                    <Loader2 className="h-10 w-10 sm:h-12 sm:w-12 animate-spin text-white/70" />
+                    <span className="text-white/80 font-serif text-base sm:text-lg">Loading sponsors...</span>
                   </div>
                 </div>
               ) : error ? (
                 <div className="flex items-center justify-center py-24 sm:py-28 md:py-32">
                   <div className="text-center">
-                    <p className="text-red-600 font-serif text-base sm:text-lg mb-3">{error}</p>
+                    <p className="text-red-300 font-serif text-base sm:text-lg mb-3">{error}</p>
                     <button
                       onClick={fetchSponsors}
-                      className="text-[#FFBD87] hover:text-[#9B7C6A] font-serif underline transition-colors duration-200"
+                      className="text-white/90 hover:text-white font-serif underline transition-colors duration-200"
                     >
                       Try again
                     </button>
@@ -240,8 +174,8 @@ export function PrincipalSponsors() {
                 </div>
               ) : sponsorPairs.length === 0 ? (
                 <div className="text-center py-24 sm:py-28 md:py-32">
-                  <Users className="h-14 w-14 sm:h-16 sm:w-16 text-[#FFBD87]/30 mx-auto mb-4" />
-                  <p className="text-[#9B7C6A]/60 font-serif text-base sm:text-lg">No sponsors yet</p>
+                  <Users className="h-14 w-14 sm:h-16 sm:w-16 text-white/30 mx-auto mb-4" />
+                  <p className="text-white/60 font-serif text-base sm:text-lg">No sponsors yet</p>
                 </div>
               ) : (
                 <div className="mb-3 sm:mb-4 md:mb-6 lg:mb-8">

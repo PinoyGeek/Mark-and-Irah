@@ -9,6 +9,12 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/hooks/use-toast"
 import MessageWallDisplay from "./message-wall-display"
+import { Cormorant_Garamond } from "next/font/google"
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+})
 
 interface Message {
   timestamp: string
@@ -96,14 +102,14 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
       `}</style>
       
       {/* Decorative background elements */}
-      <div className="absolute -top-3 -left-3 w-8 h-8 bg-[#C2D3C3]/30 rounded-full blur-sm animate-pulse"></div>
-      <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#EDD6AC]/25 rounded-full blur-md animate-pulse"></div>
+      <div className="absolute -top-3 -left-3 w-8 h-8 bg-[#660033]/20 rounded-full blur-sm animate-pulse-slow"></div>
+      <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#F5E5D9]/25 rounded-full blur-md animate-pulse-slow"></div>
       
-      <Card className={`relative w-full border-2 border-[#A78256]/30 shadow-[0_12px_30px_rgba(167,130,86,0.15)] bg-white/60 backdrop-blur-md transition-all duration-500 group overflow-hidden rounded-2xl ${
-        isFocused ? 'scale-[1.01] border-[#A78256]/50 bg-white/65' : 'hover:bg-white/65'
+      <Card className={`relative w-full border-2 border-[#660033]/25 shadow-[0_12px_30px_rgba(0,0,0,0.35)] bg-white/60 backdrop-blur-md transition-all duration-500 group overflow-hidden rounded-2xl ${
+        isFocused ? 'scale-[1.01] border-[#660033]/60 bg-white/70' : 'hover:bg-white/65'
       } ${isSubmitted ? 'animate-bounce' : ''}`}>
         {/* Glass effect gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#EDD6AC]/20 via-white/10 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F5E5D9]/22 via-white/10 to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent"></div>
         
         {/* Frosted glass effect */}
@@ -114,12 +120,12 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
         
         {/* Success animation overlay */}
         {isSubmitted && (
-          <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 to-green-300/10 flex items-center justify-center z-20 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#660033]/25 via-[#B76E79]/20 to-transparent flex items-center justify-center z-20 pointer-events-none">
             <div className="flex flex-col items-center gap-2 animate-pulse">
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
+              <div className="w-16 h-16 bg-[#660033] rounded-full flex items-center justify-center shadow-lg">
                 <Sparkles className="h-8 w-8 text-white" />
               </div>
-              <p className="text-green-600 font-semibold text-lg">Sent!</p>
+              <p className="text-white font-semibold text-lg">Sent!</p>
             </div>
           </div>
         )}
@@ -128,8 +134,8 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
           {/* Header with icon */}
           <div className="text-center mb-3 sm:mb-4 md:mb-5 lg:mb-6">
             <div className="relative inline-block mb-2 sm:mb-3 md:mb-4">
-              <div className="absolute inset-0 bg-[#EDD6AC]/40 rounded-full blur-lg scale-150"></div>
-              <div className="relative w-9 h-9 sm:w-11 sm:h-11 md:w-14 md:h-14 bg-[#A78256] rounded-full flex items-center justify-center mx-auto shadow-lg">
+              <div className="absolute inset-0 bg-[#660033]/35 rounded-full blur-lg scale-150"></div>
+              <div className="relative w-9 h-9 sm:w-11 sm:h-11 md:w-14 md:h-14 bg-[#660033] rounded-full flex items-center justify-center mx-auto shadow-lg">
                 <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white" />
               </div>
             </div>
@@ -151,10 +157,10 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             {/* Name Field */}
             <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
               <label className="block text-xs sm:text-sm md:text-base font-medium text-foreground font-lora flex items-center gap-1.5 sm:gap-2">
-                <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#B28383]/25 to-[#EDD6AC]/15 rounded-full flex items-center justify-center transition-all duration-300 ${
-                  focusedField === 'name' ? 'scale-110 bg-[#C2D3C3]/40' : ''
+                <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#660033]/25 to-[#F5E5D9]/25 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  focusedField === 'name' ? 'scale-110 bg-[#660033]/40' : ''
                 }`}>
-                  <Heart className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-[#A78256]" />
+                  <Heart className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-[#660033]" />
                 </div>
                 Your Name
               </label>
@@ -169,8 +175,8 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                   placeholder="Full Name"
                   className={`message-form-input w-full border-2 rounded-xl py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-3 sm:px-4 md:px-5 text-xs sm:text-sm md:text-base font-lora placeholder:italic transition-all duration-300 bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md focus:shadow-lg ${
                     focusedField === 'name' 
-                      ? 'border-[#A78256] focus:border-[#A78256] focus:ring-4 focus:ring-[#A78256]/20 shadow-lg' 
-                      : 'border-[#C2D3C3]/40 hover:border-[#A78256]/40'
+                      ? 'border-[#660033] focus:border-[#660033] focus:ring-4 focus:ring-[#660033]/20 shadow-lg' 
+                      : 'border-[#C2D3C3]/40 hover:border-[#660033]/40'
                   }`}
                 />
                 {nameValue && (
@@ -185,10 +191,10 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
               <div className="flex items-center justify-between">
                 <label className="block text-xs sm:text-sm md:text-base font-medium text-foreground font-lora flex items-center gap-1.5 sm:gap-2">
-                  <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#B28383]/25 to-[#EDD6AC]/15 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    focusedField === 'message' ? 'scale-110 bg-[#C2D3C3]/40' : ''
+                  <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#660033]/25 to-[#F5E5D9]/25 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    focusedField === 'message' ? 'scale-110 bg-[#660033]/40' : ''
                   }`}>
-                    <MessageCircle className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-[#A78256]" />
+                    <MessageCircle className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-[#660033]" />
                   </div>
                   Your Message
                 </label>
@@ -212,11 +218,11 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                   }}
                   onFocus={() => setFocusedField('message')}
                   onBlur={() => setFocusedField(null)}
-                  placeholder="Write a heartfelt message for Edlin Mae & Joshua Jose... Share your wishes, memories, or words of love that will be treasured forever 💕"
+                  placeholder="Write a heartfelt message for Jonarelh & Hazel... Share your wishes, memories, or words of love that will be treasured forever 💕"
                   className={`message-form-textarea w-full border-2 rounded-xl min-h-[80px] sm:min-h-[100px] md:min-h-[120px] text-xs sm:text-sm md:text-base font-lora placeholder:italic placeholder:leading-relaxed transition-all duration-300 resize-none bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md focus:shadow-lg py-2 sm:py-3 md:py-4 px-3 sm:px-4 md:px-5 ${
                     focusedField === 'message' 
-                      ? 'border-[#A78256] focus:border-[#A78256] focus:ring-4 focus:ring-[#A78256]/20 shadow-lg' 
-                      : 'border-[#C2D3C3]/40 hover:border-[#A78256]/40'
+                      ? 'border-[#660033] focus:border-[#660033] focus:ring-4 focus:ring-[#660033]/20 shadow-lg' 
+                      : 'border-[#C2D3C3]/40 hover:border-[#660033]/40'
                   }`}
                 />
                 {messageValue && (
@@ -231,20 +237,20 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             <Button
               type="submit"
               disabled={isSubmitting || !nameValue.trim() || !messageValue.trim()}
-              className="w-full text-white py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-4 sm:px-5 md:px-6 lg:px-7 rounded-xl text-xs sm:text-sm md:text-base font-lora font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group border border-[#EDD6AC]/60"
+              className="w-full text-white py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-4 sm:px-5 md:px-6 lg:px-7 rounded-xl text-xs sm:text-sm md:text-base font-lora font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group border border-[#F5E5D9]/70"
               style={{ 
-                backgroundColor: "#A78256",
-                boxShadow: "0 4px 18px rgba(167, 130, 86, 0.4)"
+                backgroundColor: "#660033",
+                boxShadow: "0 6px 24px rgba(0,0,0,0.45), 0 2px 10px rgba(102,0,51,0.65)",
               }}
               onMouseEnter={(e) => {
                 if (!e.currentTarget.disabled) {
-                  e.currentTarget.style.backgroundColor = "rgba(167, 130, 86, 0.9)";
-                  e.currentTarget.style.boxShadow = "0 8px 28px rgba(167, 130, 86, 0.55)";
+                  e.currentTarget.style.backgroundColor = "#800040";
+                  e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.6), 0 4px 14px rgba(102,0,51,0.75)";
                 }
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#A78256";
-                e.currentTarget.style.boxShadow = "0 4px 18px rgba(167, 130, 86, 0.4)";
+                e.currentTarget.style.backgroundColor = "#660033";
+                e.currentTarget.style.boxShadow = "0 6px 24px rgba(0,0,0,0.45), 0 2px 10px rgba(102,0,51,0.65)";
               }}
             >
               {/* Button background animation */}
@@ -260,7 +266,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                 </span>
               ) : (
                 <span className="flex items-center justify-center gap-2 relative z-10">
-                  <Send className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <Send className="h-4 w-4 sm:h-5 sm:w-5 text-[#FCE1B6]" />
                   Send Message
                 </span>
               )}
@@ -339,12 +345,22 @@ export function Messages() {
       <div className="relative max-w-6xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-2 sm:mb-3 md:mb-4 text-balance drop-shadow-md">
-            Love Messages
-          </h2>
-
-          <p className="text-xs sm:text-sm md:text-base text-white font-light max-w-3xl mx-auto leading-relaxed px-2 sm:px-4">
-            Leave a short note for Julaine and Cristopher. Every wish and memory helps build our keepsake wall.
+          <div className="space-y-2 sm:space-y-2.5">
+            <p
+              className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-[#FDECEF]/85`}
+              style={{ textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}
+            >
+              Wishes &amp; prayers
+            </p>
+            <h2 className="style-script-regular text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white drop-shadow-md">
+              Love messages
+            </h2>
+          </div>
+          
+          <p
+            className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white/90 font-light max-w-3xl mx-auto leading-relaxed px-2 sm:px-4 mt-2`}
+          >
+            Leave a short note for Jonarelh and Hazel. Every wish and prayer becomes part of our keepsake wall.
           </p>
         </div>
 
@@ -352,8 +368,8 @@ export function Messages() {
         <div className="flex justify-center mb-4 sm:mb-6 md:mb-8 lg:mb-10">
           <div className="relative max-w-xl w-full">
             {/* Card halo */}
-            <div className="absolute -inset-3 bg-gradient-to-br from-[#B28383]/25 via-[#EDD6AC]/20 to-transparent rounded-3xl blur-2xl opacity-70" />
-            <div className="absolute -inset-1 bg-gradient-to-br from-[#A78256]/15 via-transparent to-transparent rounded-3xl blur-md opacity-80" />
+            {/* <div className="absolute -inset-3 bg-gradient-to-br from-[#B28383]/25 via-[#EDD6AC]/20 to-transparent rounded-3xl blur-2xl opacity-70" />
+            <div className="absolute -inset-1 bg-gradient-to-br from-[#A78256]/15 via-transparent to-transparent rounded-3xl blur-md opacity-80" /> */}
             <MessageForm onMessageSent={fetchMessages} />
             {/* Corner sparkles */}
             {/* <div className="pointer-events-none">
@@ -369,12 +385,12 @@ export function Messages() {
         <div className="relative max-w-4xl mx-auto">
           <div className="text-center mb-4 sm:mb-6 md:mb-8">
             <div className="relative inline-block mb-3 sm:mb-4 md:mb-6">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#A78256]/35 to-[#B28383]/25 rounded-full blur-xl scale-150 animate-pulse"></div>
-              <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 bg-gradient-to-br from-[#A78256] via-[#B28383] to-[#C2D3C3] rounded-full flex items-center justify-center mx-auto shadow-lg hover:scale-110 transition-transform duration-300">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#660033]/40 to-[#B76E79]/25 rounded-full blur-xl scale-150 animate-pulse-slow"></div>
+              <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 bg-gradient-to-br from-[#660033] via-[#B76E79] to-[#F5E5D9] rounded-full flex items-center justify-center mx-auto shadow-lg hover:scale-110 transition-transform duration-300">
                 <MessageCircle className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white" />
               </div>
               {/* Outer glow ring */}
-              <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-[#A78256]/20 via-[#B28383]/15 to-[#C2D3C3]/10 blur-md opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-[#660033]/25 via-[#B76E79]/20 to-[#F5E5D9]/15 blur-md opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <h3 className="text-lg sm:text-xl md:text-2xl font-playfair font-bold text-white mb-1.5 sm:mb-2 md:mb-3">
               Messages from Loved Ones

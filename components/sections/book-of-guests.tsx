@@ -2,7 +2,12 @@
 
 import { useState, useEffect } from "react"
 import { Loader2, Mail, MessageSquare, Heart, Sparkles, User } from "lucide-react"
-import Image from "next/image"
+import { Cormorant_Garamond } from "next/font/google"
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400"],
+})
 
 interface Guest {
   Name: string
@@ -87,98 +92,44 @@ export function BookOfGuests() {
   return (
     <div 
       id="guests" 
-      className="relative z-10 bg-[#FFFAEF] py-6 sm:py-12 md:py-16 lg:py-20 overflow-hidden isolate"
+      className="relative z-10 bg-[#660033] py-6 sm:py-12 md:py-16 lg:py-20 overflow-hidden isolate"
     >
-      {/* Enhanced background elements - matching countdown section */}
+      {/* Background elements with burgundy motif (similar to other sections) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays with new color palette */}
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#FFBD87]/25 via-[#FFBD87]/10 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#FFBD87]/25 via-[#FFBD87]/10 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFFAEF]/40 via-transparent to-[#FFFAEF]/40" />
-        
-        {/* Floating decorative circles with new colors */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-[#FFBD87]/20 rounded-full blur-2xl animate-pulse" />
-        <div className="absolute top-20 right-16 w-24 h-24 bg-[#FFBD87]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-16 left-20 w-28 h-28 bg-[#FFBD87]/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-24 right-12 w-20 h-20 bg-[#FFBD87]/15 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-[#FFFAEF]/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
-        
-        {/* Decorative lines */}
-        <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFBD87]/30 to-transparent" />
-        
-        {/* Bottom left corner decoration */}
-        <div className="absolute bottom-0 left-0 z-0">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Bottom left corner decoration"
-            width={600}
-            height={600}
-            className="w-48 h-auto sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-80"
-            priority={false}
-          />
-        </div>
-        
-        {/* Bottom right corner decoration */}
-        <div className="absolute bottom-0 right-0 z-0 scale-x-[-1]">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Bottom right corner decoration"
-            width={600}
-            height={600}
-            className="w-48 h-auto sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-80"
-            priority={false}
-          />
-        </div>
-        
-        {/* Top left corner decoration */}
-        <div className="absolute top-0 left-0 z-0 scale-y-[-1]">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Top left corner decoration"
-            width={600}
-            height={600}
-            className="w-48 h-auto sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-80"
-            priority={false}
-          />
-        </div>
-        
-        {/* Top right corner decoration */}
-        <div className="absolute top-0 right-0 z-0 scale-x-[-1] scale-y-[-1]">
-          <Image
-            src="/decoration/corner-bottom-left-flower-removebg-preview.png"
-            alt="Top right corner decoration"
-            width={600}
-            height={600}
-            className="w-48 h-auto sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] opacity-80"
-            priority={false}
-          />
-        </div>
+        {/* Subtle gradient overlays */}
+        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#1A0010]/80 via-[#660033]/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#1A0010]/85 via-[#660033]/55 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(253,236,239,0.16),transparent_55%)] opacity-80" />
       </div>
 
       {/* Section Header */}
-      <div className="relative text-center mb-4 sm:mb-6 md:mb-8 px-3 sm:px-4">
-        {/* Decorative element above title */}
-        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
-          <div className="w-6 sm:w-8 md:w-12 h-px bg-[#A78256]/40" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#B28383]/60 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#C2D3C3]/60 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#B28383]/60 rounded-full" />
-          <div className="w-6 sm:w-8 md:w-12 h-px bg-[#A78256]/40" />
-        </div>
+      <div className="relative z-10 text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10 px-2 sm:px-3 md:px-4">
+        {/* Small label */}
+        <p
+          className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-[#FDECEF]/85 mb-2`}
+          style={{ textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}
+        >
+          Our Cherished Guests
+        </p>
         
-        <h2 className="imperial-script-regular text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-[#A78256] mb-1 sm:mb-2 drop-shadow-lg">
+        <h2
+          className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-1.5 sm:mb-3 md:mb-4"
+          style={{ textShadow: "0 4px 18px rgba(0,0,0,0.85)" }}
+        >
           Book of Guests
         </h2>
         
-        <p className="text-[10px] sm:text-xs md:text-sm text-[#B28383] font-light max-w-xl mx-auto leading-snug px-2">
+        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white/90 font-light max-w-xl mx-auto leading-relaxed px-2 mb-3 sm:mb-4 md:mb-5`}>
           See who's celebrating with us on our special day
         </p>
         
         {/* Decorative element below subtitle */}
-        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-2 sm:mt-3">
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#B28383]/60 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#C2D3C3]/60 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#B28383]/60 rounded-full" />
+        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-2 sm:mt-3 md:mt-4 lg:mt-5">
+          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-white/60" />
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FDECEF]/80 rounded-full" />
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/80 rounded-full" />
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#FDECEF]/80 rounded-full" />
+          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-white/60" />
         </div>
       </div>
 
@@ -187,29 +138,23 @@ export function BookOfGuests() {
         {/* Stats card */}
         <div className="text-center mb-4 sm:mb-6 md:mb-8 px-3 sm:px-4 md:px-6">
           <div className="relative max-w-3xl mx-auto">
-            <div className="relative bg-[#EDD6AC]/98 backdrop-blur-md border-2 border-[#A78256]/40 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 shadow-[0_8px_32px_rgba(167,130,86,0.12)] overflow-hidden">
-              {/* Decorative corner accents */}
-              <div className="absolute top-0 left-0 w-2 h-2 sm:w-3 sm:h-3 border-t-2 border-l-2 border-[#C2D3C3]/40 rounded-tl-lg" />
-              <div className="absolute top-0 right-0 w-2 h-2 sm:w-3 sm:h-3 border-t-2 border-r-2 border-[#C2D3C3]/40 rounded-tr-lg" />
-              <div className="absolute bottom-0 left-0 w-2 h-2 sm:w-3 sm:h-3 border-b-2 border-l-2 border-[#C2D3C3]/40 rounded-bl-lg" />
-              <div className="absolute bottom-0 right-0 w-2 h-2 sm:w-3 sm:h-3 border-b-2 border-r-2 border-[#C2D3C3]/40 rounded-br-lg" />
-              
+            <div className="relative bg-white/10 backdrop-blur-md border border-[#FDECEF]/25 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)] overflow-hidden">
               {/* Content */}
               <div className="relative">
                 <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                  <div className="bg-[#A78256] p-1.5 sm:p-2 rounded-full shadow-lg">
+                  <div className="bg-[#660033] p-1.5 sm:p-2 rounded-full shadow-lg">
                     <Heart className="text-white h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
                   </div>
                   <div className="flex flex-col items-center">
-                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-sans font-bold text-[#A78256]">
+                    <h3 className={`${cormorant.className} text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-white`}>
                       {totalGuests} {totalGuests === 1 ? "Guest" : "Guests"} Celebrating With Us
                     </h3>
-                    <p className="text-[10px] sm:text-xs md:text-sm text-[#B28383]/80 font-sans mt-0.5">
+                    <p className={`${cormorant.className} text-[10px] sm:text-xs md:text-sm text-white/80 mt-0.5`}>
                       {guests.length} {guests.length === 1 ? "RSVP entry" : "RSVP entries"}
                     </p>
                   </div>
                 </div>
-                <p className="text-[10px] sm:text-xs md:text-sm text-[#B28383] font-sans leading-snug">
+                <p className={`${cormorant.className} text-[10px] sm:text-xs md:text-sm text-white/90 leading-relaxed`}>
                   Thank you for confirming your RSVP! Your presence means the world to us.
                 </p>
               </div>
@@ -219,37 +164,32 @@ export function BookOfGuests() {
 
         {/* Guest list container */}
         <div className="max-w-5xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-          <div className="relative bg-[#EDD6AC]/98 backdrop-blur-md border-2 border-[#A78256]/40 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-[0_8px_32px_rgba(167,130,86,0.12)] overflow-hidden">
-            {/* Decorative corner accents */}
-            <div className="absolute top-0 left-0 w-2 h-2 sm:w-3 sm:h-3 border-t-2 border-l-2 border-[#C2D3C3]/40 rounded-tl-lg" />
-            <div className="absolute top-0 right-0 w-2 h-2 sm:w-3 sm:h-3 border-t-2 border-r-2 border-[#C2D3C3]/40 rounded-tr-lg" />
-            <div className="absolute bottom-0 left-0 w-2 h-2 sm:w-3 sm:h-3 border-b-2 border-l-2 border-[#C2D3C3]/40 rounded-bl-lg" />
-            <div className="absolute bottom-0 right-0 w-2 h-2 sm:w-3 sm:h-3 border-b-2 border-r-2 border-[#C2D3C3]/40 rounded-br-lg" />
+          <div className="relative bg-white/10 backdrop-blur-md border border-[#FDECEF]/25 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)] overflow-hidden">
             
             {isLoading ? (
               <div className="flex items-center justify-center py-12 sm:py-16">
                 <div className="flex flex-col items-center gap-3">
-                  <Loader2 className="h-8 w-8 sm:h-10 sm:w-10 animate-spin text-[#A78256]" />
-                  <span className="text-[#B28383] font-sans text-sm sm:text-base">Loading guests...</span>
+                  <Loader2 className="h-8 w-8 sm:h-10 sm:w-10 animate-spin text-white" />
+                  <span className={`${cormorant.className} text-white/90 text-sm sm:text-base`}>Loading guests...</span>
                 </div>
               </div>
             ) : error ? (
               <div className="flex items-center justify-center py-12 sm:py-16">
                 <div className="text-center">
-                  <MessageSquare className="h-8 w-8 sm:h-10 sm:w-10 text-red-500 mx-auto mb-3" />
-                  <p className="text-red-500 font-sans text-sm sm:text-base mb-2">{error}</p>
+                  <MessageSquare className="h-8 w-8 sm:h-10 sm:w-10 text-red-300 mx-auto mb-3" />
+                  <p className={`${cormorant.className} text-red-300 text-sm sm:text-base mb-2`}>{error}</p>
                 </div>
               </div>
             ) : guests.length === 0 ? (
               <div className="flex items-center justify-center py-12 sm:py-16">
                 <div className="text-center">
-                  <div className="bg-[#A78256] w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
-                    <Heart className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
+                  <div className="bg-white/20 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
+                    <Heart className="h-6 w-6 sm:h-7 sm:h-7 text-white" />
                   </div>
-                  <h3 className="text-base sm:text-lg md:text-xl font-sans font-bold text-[#A78256] mb-2">
+                  <h3 className={`${cormorant.className} text-base sm:text-lg md:text-xl font-semibold text-white mb-2`}>
                     No guests have RSVP'd yet
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#B28383] font-sans max-w-md mx-auto leading-snug">
+                  <p className={`${cormorant.className} text-xs sm:text-sm text-white/80 max-w-md mx-auto leading-relaxed`}>
                     Be the first to RSVP and kick off the celebration!
                   </p>
                 </div>
@@ -259,12 +199,12 @@ export function BookOfGuests() {
                 {guests.map((guest, index) => (
                   <div
                     key={index}
-                    className="group relative bg-white/95 backdrop-blur-sm rounded-md sm:rounded-lg p-2.5 sm:p-3 md:p-4 border-2 border-[#C2D3C3]/30 hover:border-[#A78256]/50 transition-all duration-300 hover:shadow-[0_4px_20px_rgba(167,130,86,0.15)]"
+                    className="group relative bg-white/10 backdrop-blur-sm rounded-md sm:rounded-lg p-2.5 sm:p-3 md:p-4 border border-[#FDECEF]/30 hover:border-[#FDECEF]/50 transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:bg-white/15"
                   >
                     <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                       {/* Avatar */}
                       <div className="relative h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 flex-shrink-0">
-                        <div className="h-full w-full rounded-full bg-[#A78256] text-white flex items-center justify-center font-semibold shadow-md ring-2 ring-[#EDD6AC]/50 text-[10px] sm:text-xs md:text-sm">
+                        <div className="h-full w-full rounded-full bg-[#660033] text-white flex items-center justify-center font-semibold shadow-md ring-2 ring-white/20 text-[10px] sm:text-xs md:text-sm">
                           {getInitials(guest.Name)}
                         </div>
                       </div>
@@ -273,20 +213,20 @@ export function BookOfGuests() {
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1.5 sm:gap-2">
                           <div className="flex-1 min-w-0">
-                            <h4 className="font-sans text-sm sm:text-base md:text-lg font-semibold text-[#A78256] mb-0.5 group-hover:text-[#B28383] transition-colors duration-200 truncate">
+                            <h4 className={`${cormorant.className} text-sm sm:text-base md:text-lg font-semibold text-white mb-0.5 group-hover:text-[#FDECEF] transition-colors duration-200 truncate`}>
                               {guest.Name}
                             </h4>
                             {guest.Email && guest.Email !== "Pending" && (
-                              <div className="flex items-center text-[10px] sm:text-xs text-[#B28383]/80">
-                                <Mail className="h-2.5 w-2.5 sm:h-3 sm:w-3 mr-1 text-[#A78256] flex-shrink-0" />
-                                <span className="font-sans break-all truncate">{guest.Email}</span>
+                              <div className="flex items-center text-[10px] sm:text-xs text-white/70">
+                                <Mail className="h-2.5 w-2.5 sm:h-3 sm:w-3 mr-1 text-white/60 flex-shrink-0" />
+                                <span className={`${cormorant.className} break-all truncate`}>{guest.Email}</span>
                               </div>
                             )}
                           </div>
                           {/* Guest count badge */}
                           <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
-                            <User className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#A78256] flex-shrink-0" />
-                            <span className="inline-flex items-center justify-center px-2 sm:px-2.5 py-0.5 sm:py-1 bg-[#A78256]/10 text-[#A78256] rounded-full text-[10px] sm:text-xs font-semibold border border-[#A78256]/30 whitespace-nowrap">
+                            <User className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-white/70 flex-shrink-0" />
+                            <span className={`${cormorant.className} inline-flex items-center justify-center px-2 sm:px-2.5 py-0.5 sm:py-1 bg-white/10 text-white rounded-full text-[10px] sm:text-xs font-semibold border border-white/30 whitespace-nowrap`}>
                               {guest.Guest ? (parseInt(String(guest.Guest)) || 1) : 1} {parseInt(String(guest.Guest || '1')) === 1 ? 'guest' : 'guests'}
                             </span>
                           </div>
@@ -294,10 +234,10 @@ export function BookOfGuests() {
                         
                         {/* Message */}
                         {guest.Message && (
-                          <div className="mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-[#C2D3C3]/30">
+                          <div className="mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-white/20">
                             <div className="flex items-start gap-1.5 sm:gap-2">
-                              <MessageSquare className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#A78256] flex-shrink-0 mt-0.5" />
-                              <p className="text-[10px] sm:text-xs md:text-sm text-[#B28383] font-sans leading-snug italic flex-1">
+                              <MessageSquare className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-white/60 flex-shrink-0 mt-0.5" />
+                              <p className={`${cormorant.className} text-[10px] sm:text-xs md:text-sm text-white/80 leading-relaxed italic flex-1`}>
                                 "{guest.Message}"
                               </p>
                             </div>

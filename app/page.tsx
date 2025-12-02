@@ -4,6 +4,7 @@ import { Suspense } from "react"
 import dynamic from "next/dynamic"
 import { AudioProvider } from "@/contexts/audio-context"
 import { Hero } from "@/components/sections/hero"
+import { Welcome } from "@/components/sections/welcome"
 import { Countdown } from "@/components/sections/countdown"
 import { CoupleVideo } from "@/components/sections/couple-video"
 import { WeddingTimeline } from "@/components/sections/wedding-timeline"
@@ -34,7 +35,7 @@ export default function Home() {
         {enableDecor && (
           <div className="fixed inset-0 z-0 pointer-events-none">
             <Suspense fallback={<div className="w-full h-full bg-gradient-to-b from-primary/10 to-secondary/5" />}>
-              <Silk speed={5} scale={1.1} color="#FFBD87" noiseIntensity={0.8} rotation={0.3} />
+              <Silk speed={5} scale={1.1} color="#660033" noiseIntensity={0.8} rotation={0.3} />
             </Suspense>
           </div>
         )}
@@ -42,6 +43,7 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10">
           <Hero />
+          <Welcome />
           <CoupleVideo />
           <Countdown />
           <Narrative />
@@ -52,7 +54,7 @@ export default function Home() {
           <Entourage />
           <PrincipalSponsors />
           <GuestList />
-          {/* <BookOfGuests /> */}
+          <BookOfGuests />
           <Registry />
           <FAQ />
           <SnapShare />

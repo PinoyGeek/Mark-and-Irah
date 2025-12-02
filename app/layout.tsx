@@ -10,25 +10,25 @@ const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "-
 const imperialScript = Imperial_Script({ subsets: ["latin"], weight: "400", variable: "--font-imperial-script" })
 
 export const metadata: Metadata = {
-  title: "Julaine & Cristopher - Wedding Invitation",
+  title: "Jonarelh & Hazel - Wedding Invitation",
   description:
-    "Celebrate the wedding of Julaine and Cristopher on December 28, 2025 at Mount Costa, Lamtang Road, Pugis, La Trinidad, Benguet. RSVP, explore their love story, view the gallery, and send your wishes.",
+    "Celebrate the wedding of Jonarelh and Hazel on December 21, 2025 in Kibawe, Bukidnon. RSVP, explore their love story, view the gallery, and find everything you need to join the celebration.",
   keywords:
-    "Julaine Cristopher wedding, La Trinidad Benguet wedding, Mount Costa, garden wedding, spring theme wedding, RSVP, wedding gallery, message wall, love story, #JulaineAndCristopherWedding",
+    "Jonarelh Hazel wedding, Kibawe Bukidnon wedding, Gutapol SDA Church, Kibawe Function Hall, wedding invitation, RSVP, wedding gallery, message wall, love story, #WalaPaMeyHashtagManHAHAHAHAHAHHAA",
   authors: [
-    { name: "Julaine" },
-    { name: "Cristopher" },
+    { name: "Jonarelh" },
+    { name: "Hazel" },
   ],
-  creator: "Julaine & Cristopher",
-  publisher: "Julaine & Cristopher",
+  creator: "Jonarelh & Hazel",
+  publisher: "Jonarelh & Hazel",
   formatDetection: {
     email: false,
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://Julaine-and-Cristopher-invitation.vercel.app/"),
+  metadataBase: new URL("https://example.com/"),
   alternates: {
-    canonical: "https://Julaine-and-Cristopher-invitation.vercel.app/",
+    canonical: "https://example.com/",
   },
   icons: {
     icon: [
@@ -50,29 +50,30 @@ export const metadata: Metadata = {
   },
   manifest: "/favicon_io/site.webmanifest",
   openGraph: {
-    title: "Julaine & Cristopher Wedding | December 28, 2025",
+    title: "Jonarelh & Hazel Wedding | December 21, 2025",
     description:
-      "Celebrate the union of Julaine & Cristopher on December 28, 2025 at Mount Costa, Lamtang Road, Pugis, La Trinidad, Benguet. Discover their love story, RSVP, view the gallery, and share your wishes!",
-    url: "https://Julaine-and-Cristopher-invitation.vercel.app/",
-    siteName: "Julaine and Cristopher Wedding",
+      "Celebrate the union of Jonarelh & Hazel on December 21, 2025 in Kibawe, Bukidnon. Discover their love story, RSVP, and find important details for the ceremony and reception.",
+    url: "https://example.com/",
+    siteName: "Jonarelh and Hazel Wedding",
     locale: "en_PH",
     type: "website",
     images: [
+      // TODO: Replace with a real hosted image URL when available
       {
-        url: "https://Julaine-and-Cristopher-invitation.vercel.app/Couple_img/image.png",
+        url: "https://example.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Julaine & Cristopher Wedding Invitation - December 28, 2025",
+        alt: "Jonarelh & Hazel Wedding Invitation - December 21, 2025",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Julaine & Cristopher Wedding Invitation",
+    title: "Jonarelh & Hazel Wedding Invitation",
     description:
-      "You're invited to the wedding of Julaine & Cristopher on December 28, 2025. RSVP, explore the gallery, and leave a message! #JulaineAndCristopherWedding",
-    images: ["https://Julaine-and-Cristopher-invitation.vercel.app/Couple_img/image.png"],
-    creator: "@julaineandcristopher",
+      "You're invited to the wedding of Jonarelh & Hazel on December 21, 2025. RSVP, explore their story, and get all the details for the big day! #WalaPaMeyHashtagManHAHAHAHAHAHHAA",
+    images: ["https://example.com/og-image.jpg"],
+    creator: "@jonarelhandhazel",
   },
   robots: {
     index: true,
@@ -92,38 +93,43 @@ export const metadata: Metadata = {
     "application/ld+json": JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Event",
-      name: "Julaine & Cristopher Wedding",
-      startDate: "2025-12-28T15:00:00+08:00",
-      endDate: "2025-12-28T22:00:00+08:00",
+      name: "Jonarelh & Hazel Wedding",
+      startDate: "2025-12-21T12:30:00+08:00",
+      endDate: "2025-12-21T21:00:00+08:00",
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       location: [
         {
           "@type": "Place",
-          name: "Mount Costa",
+          name: "Gutapol SDA Church",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Lamtang Road, Pugis",
-            addressLocality: "La Trinidad, Benguet",
+            streetAddress: "Gutapol, Kibawe",
+            addressLocality: "Bukidnon",
+            addressCountry: "PH",
+          },
+        },
+        {
+          "@type": "Place",
+          name: "Kibawe Function Hall",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Kibawe",
+            addressLocality: "Bukidnon",
             addressCountry: "PH",
           },
         },
       ],
-      image: ["https://Julaine-and-Cristopher-invitation.vercel.app/Couple_img/image.png"],
+      image: ["https://example.com/og-image.jpg"],
       description:
-        "You're invited to the wedding of Julaine & Cristopher on December 28, 2025 at Mount Costa, La Trinidad, Benguet. RSVP, read their love story, view the gallery, and leave a message for the couple.",
+        "You're invited to the wedding of Jonarelh & Hazel on December 21, 2025 in Kibawe, Bukidnon. Find ceremony and reception details, RSVP information, and their full love story.",
       organizer: {
         "@type": "Person",
-        name: "Julaine & Cristopher",
+        name: "Jonarelh & Hazel",
       },
-      offers: {
-        "@type": "Offer",
-        url: "https://Julaine-and-Cristopher-invitation.vercel.app/",
-        availability: "https://schema.org/InStock",
-        price: "0",
-        priceCurrency: "PHP",
-      },
-      eventHashtag: "#JulaineAndCristopherWedding",
+      eventStatus: "https://schema.org/EventScheduled",
+      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      eventHashtag: "#WalaPaMeyHashtagManHAHAHAHAHAHHAA",
     }),
   },
 }
@@ -136,11 +142,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#B76E79" />
+        <meta name="theme-color" content="#660033" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet" />
         <link rel="preload" as="image" href="/mobile-background/DSCF2614-min.jpg" media="(max-width: 767px)" />
         <link rel="preload" as="image" href="/desktop-background/DSCF2444-min.jpg" media="(min-width: 768px)" />
       </head>

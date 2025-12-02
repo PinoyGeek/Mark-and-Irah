@@ -1,14 +1,14 @@
 export const siteConfig = {
   couple: {
-    bride: "Julaine",
-    brideNickname: "Julaine",
-    groom: "Cristopher",
-    groomNickname: "Cristopher",
+    bride: "Hazel",
+    brideNickname: "Hazel",
+    groom: "Jonarelh",
+    groomNickname: "Jonarelh",
   },
   wedding: {
-    date: "December 28, 2025",
+    date: "December 21, 2025",
     time: "3:00 PM, PH Time",
-    venue: "Mount Costa Lamtang Road, Pugis La Trinidad, Benguet",
+    venue: "Gutapol SDA Church, located at Gutapol, Kibawe, Bukidnon",
     tagline: "are getting married!",
     theme: "Spring Theme, Water Paint flowers (Garden wedding)",
     motif: "Spring Theme, Water Paint flowers (Garden wedding)",
@@ -19,18 +19,18 @@ export const siteConfig = {
     },
   },
   ceremony: {
-    location: "Mount Costa Lamtang Road, Pugis La Trinidad, Benguet",
-    venue: "Mount Costa",
-    date: "December 28, 2025",
+    location: "Gutapol SDA Church, located at Gutapol, Kibawe, Bukidnon",
+    venue: "Gutapol SDA Church",
+    date: "December 21, 2025",
     day: "Sunday",
     time: "3:00 PM, PH Time",
     entourageTime: "2:00 PM",
     guestsTime: "2:30 PM",
   },
   reception: {
-    location: "Mount Costa Lamtang Road, Pugis La Trinidad, Benguet",
-    venue: "Mount Costa",
-    date: "December 28, 2025",
+    location: "Kibawe Function Hall",
+    venue: "Kibawe Function Hall",
+    date: "December 21, 2025",
     time: "Reception to follow",
   },
   dressCode: {
@@ -46,11 +46,41 @@ export const siteConfig = {
     },
     note: "Please come in your best formal/semi-formal ensemble"
   },
-  narrative: `Our story began in 2016, when a quiet admiration led him to reach me through his friend in the Rotaract Club,a simple gesture that laid the first brick of something meaningful.  Over the course of a year of patient and sincere courtship, we chose each other despite our opposite personalities and the challenges of a long-distance relationship, we discovered a love that didn't happen by chance but was built with intention, step by step, layer by layer.
+  narrative: `Our paths crossed during the Climb for a Cause at Lake Holon on January 2, 2025. I honestly shouldn't have joined that climb—I had already been there once, and I didn't even have the money to go. But God truly works in ways we can't explain, because somehow He opened a way for me to be there.
 
-What began as a simple hello eventually turned into a journey of trust, growth, and steadfast devotion. A relationship tested by load, strengthened by trials, and grounded in faith, proving that the best structures are those built on solid foundations. Along the way, we learned that God wasn't just guiding our hearts. He was overseeing every detail like the ultimate Project Manager. He taught us patience in the waiting, strength in the distance, and grace in every season.
+And now I know why.
 
-In the grand blueprint of our story, this isn't the final chapter. This is the moment when the foundation is complete, the plans are approved, and we finally get to build the life we've only imagined. And if there's one thing we know for sure, it's that with God leading the project, this love is designed not just to stand but to last.`,
+When we stopped at Kibawe, I saw her—fresh, radiant, beautiful. I told myself, 'May potential.' In that moment, everything around me shifted into slow motion. She was effortless, stunning, unforgettable—so beautiful with her long, curly hair catching the light as if God Himself wanted me to notice her. I didn't know it then, but God was already weaving our story.
+
+She became part of our group, and that small twist of fate gave me the chance to talk to her, to listen to her, to discover the strength and independence she carried so gracefully. And with every word, every smile, I found myself admiring her more.
+
+Along the trail, I couldn't keep up with her because I was looking after my best friend who was catching her breath. And in my mind I thought, "Paano ako magkakagirlfriend kung ganito ako?"
+
+When we reached the camp, she opened up about her seven-year relationship that ended in heartbreak—how she was left, how she was hurt. I listened to her story after helping her set up her tent, and after our conversation, I volunteered to cook for her since she didn't want to cook and just wanted to rest.
+
+From that moment on, we found ourselves naturally spending time together. We ate together, swam in the lake together, and I took pictures of her—little moments that felt simple but strangely meaningful. We stayed close throughout the whole camp, and without realizing it, those shared moments were already stitching something deeper between us.
+
+On our way back to the jump-off point, there were parts where we had to ride motorcycles in pairs. Fate really played its part when my best friend suggested that Hazel and I ride together since we were both a bit chubby and might cause the motorcycle to overbalance. The road was rough and challenging, but the feeling of being that close to her made everything feel unexpectedly right.
+
+The path was difficult… but being with her made it feel like the best ride of my life.
+
+On our way home, we stopped at 7/11 to buy some food. I even bought bread for her and offered it to her, but she didn't accept it. I didn't know why and for a moment, I wondered if maybe she found me awkward, or maybe she wasn't comfortable with me yet… or baka napapangitan siya sa akin. Whatever the reason, I just laughed it off quietly and told myself, 'Okay lang… maybe next time.'
+
+After we parted ways, I added her on Facebook and replied to her story—that's where our unending conversation began.
+
+On January 10, 2025, I made a surprise visit to her school where she teaches. I felt too timid to go near her, so I simply watched from afar while she took pictures with her co-teachers. I waited outside until she was ready to go home. That day became my first visit to their house, and afterward, we went to Kibawe together because she needed to buy something for Sabbath.
+
+January 18, 2025, I finally gained the courage to spend Sabbath with their church and that became the beginning of many Sabbaths we would share together. By January 19, we had our first adventure after the climb—just the start of countless journeys we would experience together.
+
+Honestly, I didn't have the confidence to express my feelings to her, so I showed it through my actions. If no one had teased us—sungog-sungog—I wouldn't have gathered enough courage to confess. But the hardest part wasn't admitting my feelings… it was asking her father for his blessing to pursue her. I had to summon every ounce of strength I had, saving up courage day after day, just to stand in front of him and tell him my intentions for his daughter were sincere and good.
+
+And even after I finally asked for her father's permission, I still couldn't bring myself to confess to her. The only thing we managed to talk about was… dicots and monocots. HAHAHA!
+
+To cut the long story short, I can't explain in detail how I confessed to her, but on May 10, 2025, during our Sabbath visit to our place, she finally said, "Yes."
+
+That moment didn't merely start our relationship—it opened the door to a love formed by faith, nurtured by patience, and revealed through the quiet, ordinary moments that suddenly meant everything.
+
+Now, with hearts aligned and God at the center, we move forward together—thankful for a love we never saw coming, yet one that arrived exactly when it was meant to.`,
   colors: {
     primary: "#B76E79",
     secondary: "#F7E7CE",
