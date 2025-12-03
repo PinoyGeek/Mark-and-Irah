@@ -363,7 +363,7 @@ export function Details() {
                   </h4>
                   <div className="space-y-2 sm:space-y-2.5">
                     <p className="text-xs sm:text-sm text-[#4A2B2B] leading-relaxed">
-                      Kindly arrive by <span className="font-semibold text-[#660033]">12:30 PM</span> to help us begin the ceremony promptly.
+                      Kindly arrive by <span className="font-semibold text-[#660033]">12:30 PM</span> so we can begin the wedding ceremony promptly at exactly <span className="font-semibold text-[#660033]">1:00 PM</span>.
                     </p>
                     <p className="text-xs sm:text-sm text-[#4A2B2B] leading-relaxed">
                       Your punctuality means so much to us — and don't forget to grab lunch beforehand so you can enjoy the celebration comfortably!

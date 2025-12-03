@@ -39,9 +39,9 @@ const timelineEvents: TimelineEvent[] = [
     icon: Users,
   },
   {
-    time: "12:30 PM",
-    title: "Ceremony Begins",
-    description: "Guests are seated. The wedding ceremony starts at exactly 12:30 PM",
+    time: "1:00 PM",
+    title: "Wedding Ceremony",
+    description: "Guests are seated. The wedding ceremony will start at exactly 1:00 PM",
     location: siteConfig.ceremony.venue,
     icon: Heart,
   },

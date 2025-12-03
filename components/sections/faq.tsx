@@ -19,7 +19,7 @@ const faqItems: FAQItem[] = [
   {
     question: "When is the wedding?",
     answer:
-      "Our wedding will be held on December 21, 2025. The ceremony begins at 3:00 PM, PH Time. We kindly ask guests to arrive by 12:30 PM to help us begin promptly.",
+      "Our wedding will be held on December 21, 2025. The wedding ceremony will start at exactly 1:00 PM, PH Time. We kindly ask guests to arrive by 12:30 PM to help us begin promptly.",
   },
   {
     question: "Where will the ceremony and reception take place?",
@@ -39,7 +39,7 @@ const faqItems: FAQItem[] = [
   {
     question: "What time should I arrive?",
     answer:
-      "Kindly arrive by 12:30 PM to help us begin the ceremony promptly. Your punctuality means so much to us — and don't forget to grab lunch beforehand so you can enjoy the celebration comfortably!",
+      "Kindly arrive by 12:30 PM so we can begin the ceremony promptly at exactly 1:00 PM. Your punctuality means so much to us — and don't forget to grab lunch beforehand so you can enjoy the celebration comfortably!",
   },
   {
     question: "What should I wear?",
