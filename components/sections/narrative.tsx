@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { Section } from "@/components/section"
 import { siteConfig } from "@/content/site"
 import Stack from "@/components/stack"
@@ -17,7 +18,21 @@ const windSong = WindSong({
   weight: "400",
 })
 
+const storyTabs = [
+  { id: "groom", label: "Groom's Story", subtitle: "Jojo's chapter" },
+  { id: "bride", label: "Bride's Story", subtitle: "Hazel's chapter" },
+] as const
+
+type StoryTabId = (typeof storyTabs)[number]["id"]
+
 export function Narrative() {
+  const [activeStory, setActiveStory] = useState<StoryTabId>("groom")
+  const storyParagraphs =
+    siteConfig.narratives?.[activeStory]
+      ?.trim()
+      .split(/\n\s*\n/)
+      .filter(Boolean) ?? []
+
   return (
     <Section
       id="narrative"
@@ -118,7 +133,7 @@ export function Narrative() {
           <div className="hidden lg:block"></div>
         </motion.div>
 
-        {/* Story Text - Full Width Below */}
+        {/* Story Text + Tabs */}
         <motion.div 
           className="mt-10 md:mt-16 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
@@ -126,8 +141,39 @@ export function Narrative() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <div className="space-y-4 md:space-y-6">
-            {siteConfig.narrative.split("\n\n").map((paragraph, index) => (
+          <div className="flex flex-col items-center text-center gap-4 md:gap-5 mb-8 md:mb-12">
+            <p className={`${cormorant.className} text-xs md:text-sm text-white/80 tracking-[0.18em] uppercase`}>
+              Two hearts, one testimony
+            </p>
+            <div className="relative inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 p-1">
+              {storyTabs.map((tab) => {
+                const isActive = tab.id === activeStory
+                return (
+                  <motion.button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setActiveStory(tab.id)}
+                    className={`relative px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white focus-visible:ring-offset-[#660033] ${
+                      isActive
+                        ? "bg-white/20 text-white shadow-xl shadow-black/30 border border-white/30"
+                        : "text-white/70 hover:text-white/90 border border-transparent"
+                    }`}
+                    aria-pressed={isActive}
+                    aria-controls="story-panel"
+                    whileTap={{ scale: 0.96 }}
+                  >
+                    <span className="block">{tab.label}</span>
+                    <span className="text-[0.6rem] uppercase tracking-[0.2em] font-normal text-white/60">
+                      {tab.subtitle}
+                    </span>
+                  </motion.button>
+                )
+              })}
+            </div>
+          </div>
+
+          <div id="story-panel" className="space-y-4 md:space-y-6" aria-live="polite">
+            {storyParagraphs.map((paragraph, index) => (
               <motion.div 
                 key={index} 
                 className="relative"

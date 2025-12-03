@@ -46,7 +46,8 @@ export const siteConfig = {
     },
     note: "Please come in your best formal/semi-formal ensemble"
   },
-  narrative: `Our paths crossed during the Climb for a Cause at Lake Holon on January 2, 2025. I honestly shouldn't have joined that climb—I had already been there once, and I didn't even have the money to go. But God truly works in ways we can't explain, because somehow He opened a way for me to be there.
+  narratives: {
+    groom: `Our paths crossed during the Climb for a Cause at Lake Holon on January 2, 2025. I honestly shouldn't have joined that climb—I had already been there once, and I didn't even have the money to go. But God truly works in ways we can't explain, because somehow He opened a way for me to be there.
 
 And now I know why.
 
@@ -81,6 +82,28 @@ To cut the long story short, I can't explain in detail how I confessed to her, b
 That moment didn't merely start our relationship—it opened the door to a love formed by faith, nurtured by patience, and revealed through the quiet, ordinary moments that suddenly meant everything.
 
 Now, with hearts aligned and God at the center, we move forward together—thankful for a love we never saw coming, yet one that arrived exactly when it was meant to.`,
+    bride: `It all began in 2025 during the Climb for a Cause at Lake Holon, T'boli, South Cotabato on January 2. I joined the event solo after being ghosted by my supposed companion, thinking the whole adventure would be spent on my own. What I didn't know was that someone already had his eyes—and maybe even his heart—on me from the very beginning.
+
+Love at first sight? Or crush at first sight? Yes—Jojo had a crush on me from the start, quietly hoping that fate would give him a chance.
+
+And fate truly stepped in.
+
+Since I joined the climb alone, I didn't have a group of my own. That morning, during breakfast, I gathered the courage to ask two beautiful souls if I could join their table. They welcomed me with warmth and kindness, and I later learned that they were close friends of Jojo. They adopted me into their team without hesitation, and I became the fifth member—the one needed to complete the required group of five with a guide. They treated me as if I had always been part of them.
+
+It was then that a simple friendship began—warm, effortless, and completely unexpected. I never imagined that anything more than friendship would grow from that climb. I wasn't looking for love, and I certainly wasn't expecting it. But sometimes the things we don't plan for become the most beautiful parts of our story.
+
+He added me on Facebook right after our departure, and when he replied to my story, that's when our conversation began. What was supposed to be "just casual" slowly turned into long exchanges that made me laugh more than I expected. He had this gentle way of slipping past my walls—slowly, patiently, and with sincerity and consistency.
+
+Our time together in the mountains deepened our connection. I honestly thought I wouldn't be able to join the trek to Tibugawan Mission School because I was on duty, and everyone had already left. But knowing how much I love being part of outreach, Jojo waited for me, and we followed so that I could still experience the journey. Crossing thirteen rivers felt overwhelming, yet he stayed by my side the entire time, making sure we faced every challenge together. At the mission school, when I arrived late for breakfast, he had already set aside food for me. That simple gesture made me feel so seen, so valued, and so cared for.
+
+And then came the thirteen-hour hike to Langilan Mission School. He showed such incredible care—from checking on me throughout the trail and making sure I was okay, to massaging my head when I had a headache, preparing all our meals, and even letting go of chances to capture the stunning scenery just so he could make sure we had food for the trail going back.
+
+As time passed, something unexpected blossomed. That night in Malaybalay, after Sabbath, when he gently massaged my head before we slept, I whispered a prayer to God: "Lord, I want a husband like this." That was also when our call sign, "Yam," began. I never expected to fall in love—not in the mountains, and not with someone I initially thought was just a friendly face. But his kindness, understanding, the shared peace we found in that magnificent setting, and his genuine support and care during our adventures, slowly, surely, stole my heart.
+
+With every climb we've had since then, I see more of who he truly is—and with each journey, I fall even deeper. On May 10, 2025, during our Sabbath visit to their place, I finally said "Yes." That day didn't just mark the beginning of our relationship—it became the gentle unfolding of a love shaped by faith, patience, and countless unexpected moments.
+
+Now, we continue this journey together—guided by faith, covered in prayer, and holding onto a love that arrived unexpectedly, yet exactly in the moment God knew it was meant to unfold.`,
+  },
   colors: {
     primary: "#B76E79",
     secondary: "#F7E7CE",
