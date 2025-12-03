@@ -95,9 +95,9 @@ export function Narrative() {
                 sendToBackOnClick={false}
                 cardDimensions={{ width: 240, height: 280 }}
                 cardsData={[
-                  { id: 1, img: "/Couple_img/lovestory2.png" },
-                  { id: 2, img: "/Couple_img/lovestory.png" },
-                  { id: 3, img: "/invitation/IMG_1028.JPG" },
+                  { id: 1, img: "/mobile-background/couple (1).jpg" },
+                  { id: 2, img: "/mobile-background/couple (5).jpg" },
+                  { id: 3, img: "/mobile-background/couple (6).jpg" },
                 ]}
                 animationConfig={{ stiffness: 260, damping: 20 }}
               />

@@ -51,7 +51,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
 
     try {
       await fetch(
-        "https://docs.google.com/forms/d/e/1FAIpQLScQUc6y_86FZoxSzi2e_SNgmiqdsI50XxEJ61LZHociroXgRA/formResponse",
+        "https://docs.google.com/forms/d/e/1FAIpQLSeXbX1dponJJJRGPjwHCKoIC6otb2gRoZneSkSlb-ziaCbdDw/formResponse",
         {
           method: "POST",
           mode: "no-cors",
@@ -285,7 +285,7 @@ export function Messages() {
   const fetchMessages = useCallback(() => {
     setLoading(true)
     fetch(
-      "https://script.google.com/macros/s/AKfycbyQ3AghSLwFPbeOF_S0YexxvlEQ-IyQhG7vSMXFuFKhN0Dj95esXupxW0BfaZC3EyO2ew/exec"
+      "https://script.google.com/macros/s/AKfycby81qyX3GbfyKaSSUphtOJ5jRQL_ClItF7ykyT022IEc4LnddmND5STvB_AqVIeJX2_RA/exec"
     )
       .then((res) => res.json())
       .then((data) => {

@@ -23,7 +23,7 @@ export function CoupleVideo() {
   const { pauseMusic, resumeMusic } = useAudio()
 
   // YouTube video ID
-  const videoId = "_9aaCGLmGCA"
+  const videoId = "o83mlCUU6VI"
 
   // Load YouTube IFrame API
   useEffect(() => {
@@ -227,7 +227,7 @@ export function CoupleVideo() {
                   >
                     {/* Custom poster image */}
                     <Image
-                      src="https://img.youtube.com/vi/_9aaCGLmGCA/maxresdefault.jpg"
+                      src="/desktop-background/couple (12).jpg"
                       alt="Video thumbnail"
                       fill
                       className="object-cover transform group-hover:scale-105 transition-transform duration-500"

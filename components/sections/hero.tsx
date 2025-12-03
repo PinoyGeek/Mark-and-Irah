@@ -6,37 +6,18 @@ import { Cormorant_Garamond, WindSong } from "next/font/google"
 import { siteConfig } from "@/content/site"
 
 const desktopImages = [
-  "/mobile/couple (1).jpeg",
-  "/mobile/couple (2).jpeg",
-  "/mobile/couple (3).jpeg",
-  "/mobile/couple (4).jpeg",
-  "/mobile/couple (5).jpeg",
-  "/mobile/couple (6).jpeg",
-  "/mobile/couple (7).jpeg",
+  "/desktop-background/couple (1).jpg",
+  "/desktop-background/couple (4).jpg",
+  "/desktop-background/couple (5).jpg",
+  "/desktop-background/couple (6).jpg",
 ]
 
 const mobileImages = [
-  "/mobile-background/couple (1).jpg",
-  "/mobile-background/couple (4).jpg",
-  "/mobile-background/couple (3).jpg",
-  "/mobile-background/couple (2).jpg",
-  "/mobile-background/couple (3).jpeg",
-  "/mobile-background/couple (4).jpeg",
-  "/mobile-background/couple (5).jpeg",
-  "/mobile-background/couple (6).jpeg",
-  "/mobile-background/couple (7).jpeg",
-  "/mobile-background/couple (8).jpeg",
-  "/mobile-background/couple (9).jpeg",
-  "/mobile-background/couple (10).jpeg",
-  "/mobile-background/couple (11).jpeg",
-  "/mobile-background/couple (12).jpeg",
-  "/mobile-background/couple (13).jpeg",
-  "/mobile-background/couple (14).jpeg",
-  "/mobile-background/couple (15).jpeg",
-  "/mobile-background/couple (16).jpeg",
-  "/mobile-background/couple (17).jpeg",
-  "/mobile-background/couple (18).jpeg",
-  "/mobile-background/couple (19).jpeg",
+  "/mobile-background/couple (16).jpg",
+  "/mobile-background/couple (19).jpg",
+  "/mobile-background/couple (20).jpg",
+  "/mobile-background/couple (9).jpg",
+  "/mobile-background/couple (17).jpg",
 ]
 
 const SHOW_BUTTERFLIES = false

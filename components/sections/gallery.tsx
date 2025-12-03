@@ -21,18 +21,18 @@ const windSong = WindSong({
 const galleryHashtag = "#WalaPaMeyHashtagManHAHAHAHAHAHHAA"
 
 const galleryItems = [
-  { image: "/mobile-background/couple (1).jpg", text: " " },   
-  { image: "/mobile-background/couple (35).jpeg", text: " " },
-  { image: "/mobile-background/couple (3).jpeg", text: " " },
-  { image: "/mobile-background/couple (6).jpeg", text: " " },
-  { image: "/FrontGallery/couple (1).jpg", text: " " },
-  { image: "/FrontGallery/couple (2).jpg", text: " " },
-  { image: "/FrontGallery/couple (4).jpg", text: " " },
-  { image: "/FrontGallery/couple (8).jpg", text: " " },
-  { image: "/FrontGallery/couple (15).jpg", text: " " },
-  { image: "/FrontGallery/couple (16).jpg", text: " " },
-  { image: "/FrontGallery/couple (18).jpg", text: " " }, 
-  { image: "/FrontGallery/couple (21).jpg", text: " " },
+  { image: "/mobile-background/couple (1).jpg", text: " " },  
+  { image: "/mobile-background/couple (2).jpg", text: " " },
+  { image: "/mobile-background/couple (3).jpg", text: " " },
+  { image: "/mobile-background/couple (4).jpg", text: " " },
+  { image: "/mobile-background/couple (5).jpg", text: " " },
+  { image: "/mobile-background/couple (6).jpg", text: " " },
+  { image: "/mobile-background/couple (7).jpg", text: " " },
+  { image: "/mobile-background/couple (8).jpg", text: " " },
+  { image: "/mobile-background/couple (9).jpg", text: " " },
+
+
+
 
 ]
 

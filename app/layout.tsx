@@ -5,14 +5,61 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com/"
+const canonicalUrl = siteUrl.replace(/\/$/, "")
+const eventImagePath = "/og-image.jpg"
+const eventImageUrl = `${canonicalUrl}${eventImagePath}`
+const eventTitle = "Jonarelh & Hazel - Wedding Invitation"
+const eventDescription =
+  "Celebrate the wedding of Jonarelh and Hazel on December 21, 2025 in Kibawe, Bukidnon. RSVP, explore their love story, view the gallery, and find everything you need to join the celebration."
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "Jonarelh & Hazel Wedding",
+  startDate: "2025-12-21T12:30:00+08:00",
+  endDate: "2025-12-21T21:00:00+08:00",
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  location: [
+    {
+      "@type": "Place",
+      name: "Gutapol SDA Church",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Gutapol, Kibawe",
+        addressLocality: "Bukidnon",
+        addressCountry: "PH",
+      },
+    },
+    {
+      "@type": "Place",
+      name: "Kibawe Function Hall",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Kibawe",
+        addressLocality: "Bukidnon",
+        addressCountry: "PH",
+      },
+    },
+  ],
+  image: [eventImageUrl],
+  description:
+    "You're invited to the wedding of Jonarelh & Hazel on December 21, 2025 in Kibawe, Bukidnon. Find ceremony and reception details, RSVP information, and their full love story.",
+  organizer: {
+    "@type": "Person",
+    name: "Jonarelh & Hazel",
+  },
+  eventHashtag: "#WalaPaMeyHashtagManHAHAHAHAHAHHAA",
+}
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "--font-serif" })
 const imperialScript = Imperial_Script({ subsets: ["latin"], weight: "400", variable: "--font-imperial-script" })
 
 export const metadata: Metadata = {
-  title: "Jonarelh & Hazel - Wedding Invitation",
-  description:
-    "Celebrate the wedding of Jonarelh and Hazel on December 21, 2025 in Kibawe, Bukidnon. RSVP, explore their love story, view the gallery, and find everything you need to join the celebration.",
+  title: eventTitle,
+  description: eventDescription,
   keywords:
     "Jonarelh Hazel wedding, Kibawe Bukidnon wedding, Gutapol SDA Church, Kibawe Function Hall, wedding invitation, RSVP, wedding gallery, message wall, love story, #WalaPaMeyHashtagManHAHAHAHAHAHHAA",
   authors: [
@@ -26,9 +73,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: true,
   },
-  metadataBase: new URL("https://example.com/"),
+  metadataBase: new URL(canonicalUrl),
   alternates: {
-    canonical: "https://example.com/",
+    canonical: canonicalUrl,
   },
   icons: {
     icon: [
@@ -53,14 +100,14 @@ export const metadata: Metadata = {
     title: "Jonarelh & Hazel Wedding | December 21, 2025",
     description:
       "Celebrate the union of Jonarelh & Hazel on December 21, 2025 in Kibawe, Bukidnon. Discover their love story, RSVP, and find important details for the ceremony and reception.",
-    url: "https://example.com/",
+    url: canonicalUrl,
     siteName: "Jonarelh and Hazel Wedding",
     locale: "en_PH",
     type: "website",
     images: [
       // TODO: Replace with a real hosted image URL when available
       {
-        url: "https://example.com/og-image.jpg",
+        url: eventImageUrl,
         width: 1200,
         height: 630,
         alt: "Jonarelh & Hazel Wedding Invitation - December 21, 2025",
@@ -72,7 +119,7 @@ export const metadata: Metadata = {
     title: "Jonarelh & Hazel Wedding Invitation",
     description:
       "You're invited to the wedding of Jonarelh & Hazel on December 21, 2025. RSVP, explore their story, and get all the details for the big day! #WalaPaMeyHashtagManHAHAHAHAHAHHAA",
-    images: ["https://example.com/og-image.jpg"],
+    images: [eventImageUrl],
     creator: "@jonarelhandhazel",
   },
   robots: {
@@ -90,47 +137,7 @@ export const metadata: Metadata = {
     google: "your-google-site-verification",
   },
   other: {
-    "application/ld+json": JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Event",
-      name: "Jonarelh & Hazel Wedding",
-      startDate: "2025-12-21T12:30:00+08:00",
-      endDate: "2025-12-21T21:00:00+08:00",
-      eventStatus: "https://schema.org/EventScheduled",
-      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-      location: [
-        {
-          "@type": "Place",
-          name: "Gutapol SDA Church",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Gutapol, Kibawe",
-            addressLocality: "Bukidnon",
-            addressCountry: "PH",
-          },
-        },
-        {
-          "@type": "Place",
-          name: "Kibawe Function Hall",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Kibawe",
-            addressLocality: "Bukidnon",
-            addressCountry: "PH",
-          },
-        },
-      ],
-      image: ["https://example.com/og-image.jpg"],
-      description:
-        "You're invited to the wedding of Jonarelh & Hazel on December 21, 2025 in Kibawe, Bukidnon. Find ceremony and reception details, RSVP information, and their full love story.",
-      organizer: {
-        "@type": "Person",
-        name: "Jonarelh & Hazel",
-      },
-      eventStatus: "https://schema.org/EventScheduled",
-      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-      eventHashtag: "#WalaPaMeyHashtagManHAHAHAHAHAHHAA",
-    }),
+    "application/ld+json": JSON.stringify(jsonLd),
   },
 }
 
