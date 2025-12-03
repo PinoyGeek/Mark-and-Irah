@@ -23,7 +23,7 @@ export const siteConfig = {
     venue: "Gutapol SDA Church",
     date: "December 21, 2025",
     day: "Sunday",
-    time: "3:00 PM, PH Time",
+    time: "1:00 PM, PH Time",
     entourageTime: "2:00 PM",
     guestsTime: "2:30 PM",
   },
@@ -109,7 +109,7 @@ Now, we continue this journey together—guided by faith, covered in prayer, and
     secondary: "#F7E7CE",
   },
   snapShare: {
-    googleDriveLink: "https://drive.google.com/drive/folders/1NXkwt_JCCXVdHgVZpB9n2uKRWVen9hZL?usp=sharing",
+    googleDriveLink: "https://drive.google.com/drive/folders/1ILL_Xax2ATG7G9CNReQo2oEy2IqdHe6l?usp=sharing",
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }

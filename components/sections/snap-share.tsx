@@ -27,6 +27,7 @@ export function SnapShare() {
   const sanitizedBrideName = brideNickname.replace(/\s+/g, "")
 
   const hashtags = [
+    "#HazelFoundHerLegenJONAryLove",
     `#${sanitizedGroomName}And${sanitizedBrideName}Wedding`,
     `#${sanitizedGroomName}${sanitizedBrideName}2025`,
     "#ForeverAndAlways",
@@ -164,7 +165,7 @@ export function SnapShare() {
                       key={hashtag}
                       className="inline-flex items-center justify-center gap-2.5 bg-[#FDECEF] px-3 py-2 rounded-xl shadow-md border border-[#660033]/25 w-full sm:w-auto mx-auto hover:shadow-lg hover:border-[#660033]/40 transition-all"
                     >
-                      <span className={`${cormorant.className} text-[11px] sm:text-sm md:text-base font-semibold text-[#660033] tracking-[0.14em] uppercase break-all sm:break-normal`}>
+                      <span className={`${cormorant.className} text-[11px] sm:text-sm md:text-base font-semibold text-[#660033] tracking-[0.14em] break-all sm:break-normal`}>
                         {hashtag}
                       </span>
                       <button

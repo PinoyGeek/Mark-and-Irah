@@ -453,7 +453,7 @@ export function Hero() {
           <div className="space-y-2 sm:space-y-3 md:space-y-4">
             {/* Names & Tagline */}
             <h1
-              className={`${cormorant.className} text-xs sm:text-sm md:text-base tracking-[0.4em] uppercase font-light text-center`}
+              className={`${windSong.className} text-xl sm:text-2xl md:text-3xl font-normal text-center`}
               style={{
                 color: '#FDECEF',
                 textShadow: "0 2px 8px rgba(0,0,0,0.7)",
