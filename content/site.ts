@@ -129,8 +129,6 @@ export const entourage = [
   // Secondary Sponsors
   // Candle Sponsors
   { role: "Bridesmaid", name: "Romela Tolentino", group: "candle" },
-  // Veil Sponsors
-  { role: "Bridesmaid", name: "Carla Vanessa Tabilin", group: "veil" },
   // Cord Sponsors
   { role: "Bridesmaid", name: "Emmalyn Lipio", group: "cord" },
 
