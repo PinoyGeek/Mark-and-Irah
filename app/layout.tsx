@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kim-angel-and-cedric-john-wedding.com/"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kim-angel-and-cedric-john-wedding.netlify.app/"
 const canonicalUrl = siteUrl.replace(/\/$/, "")
 const eventImagePath = "/desktop-background/couple 1.JPG"
 const eventImageUrl = `${canonicalUrl}${eventImagePath}`
