@@ -19,8 +19,8 @@ const windSong = WindSong({
 })
 
 const storyTabs = [
-  { id: "groom", label: "Ced's Story", subtitle: "His side of forever" },
-  { id: "bride", label: "Kim's Story", subtitle: "Her side of forever" },
+  { id: "groom", label: "Marzan's Story", subtitle: "His side of forever" },
+  { id: "bride", label: "Nica's Story", subtitle: "Her side of forever" },
 ] as const
 
 type StoryTabId = (typeof storyTabs)[number]["id"]
@@ -36,17 +36,17 @@ export function Narrative() {
   return (
     <Section
       id="narrative"
-      className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#909E8D]"
+      className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#525E2C]"
     >
       {/* Background elements with elegant sage green motif */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Vertical sage gradients to frame the story */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#3D4636]/92 via-[#909E8D]/75 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#3D4636]/95 via-[#909E8D]/70 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#3D4636]/92 via-[#525E2C]/78 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#3D4636]/95 via-[#525E2C]/72 to-transparent" />
         {/* Soft radial light in warm neutrals */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(224,207,181,0.28),transparent_55%)] opacity-90" />
         {/* Subtle diagonal wash of muted sage */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#909E8D]/25 via-transparent to-[#F0F0EE]/10 mix-blend-soft-light" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#6E7A61]/24 via-transparent to-[#E0CFB5]/12 mix-blend-soft-light" />
       </div>
 
       <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,7 +63,7 @@ export function Narrative() {
               className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-white`}
               style={{ textShadow: "0 2px 10px rgba(0,0,0,0.75)" }}
             >
-              Kim &amp; Ced&apos;s Love Story
+              Marzan &amp; Nica&apos;s Love Story
             </p>
             <h2
               className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white"
@@ -113,10 +113,13 @@ export function Narrative() {
                 sendToBackOnClick={false}
                 cardDimensions={{ width: 240, height: 280 }}
                 cardsData={[
-                  { id: 1, img: "/mobile-background/couple 1.JPG" },
-                  { id: 2, img: "/mobile-background/couple 2.JPG" },
-                  { id: 3, img: "/mobile-background/couple 1.JPG" },
-                  { id: 4, img: "/mobile-background/couple 2.JPG" },
+                  { id: 1, img: "/mobile-background/couple (7).jpg" },
+                  { id: 2, img: "/mobile-background/couple (11).jpg" },
+                  { id: 3, img: "/mobile-background/couple (10).jpg" },
+                  { id: 4, img: "/mobile-background/couple (9).jpg" },
+                  { id: 5, img: "/mobile-background/couple (5).jpg" },
+                  { id: 6, img: "/mobile-background/couple (4).jpg" },
+
                 ]}
                 animationConfig={{ stiffness: 260, damping: 20 }}
               />

@@ -80,7 +80,7 @@ export default async function GalleryPage() {
             Gallery
           </h1>
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 font-light max-w-xl mx-auto leading-relaxed px-2">
-            A collection from our favorite moments
+            Treasured memories from our journey together
           </p>
           
           {/* Decorative element below subtitle */}
@@ -120,14 +120,14 @@ export default async function GalleryPage() {
               <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#E0CFB5]/70 rounded-br-lg" />
               
               <h2 className="font-playfair text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-4 drop-shadow-md">
-                Help us capture every smile!
+                Share Your Moments With Us
               </h2>
               <p className="text-white/90 font-light text-xs sm:text-sm md:text-base lg:text-lg mb-4 sm:mb-6 leading-relaxed px-2">
-                Upload your snapshots and be part of our wedding album and be featured in this gallery.
+                We&apos;d love to see your photos from our special day! Upload your favorite snapshots to be featured in our gallery and help us preserve every beautiful moment.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-[#F7E7CE]/30 border-2 border-[#E0CFB5]/60 rounded-full text-white font-semibold text-xs sm:text-sm md:text-base shadow-md">
-                  #KimAndCedSayIDo
+                  #MarzanAndNicaWedding
                 </span>
               </div>
               <Link

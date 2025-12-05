@@ -18,11 +18,17 @@ const windSong = WindSong({
   weight: "400",
 })
 
-const galleryHashtag = "#CedAndKimWedding"
+const galleryHashtag = "#MarzanAndNicaWedding"
 
 const galleryItems = [
-  { image: "/mobile-background/couple 1.JPG", text: " " },  
-  { image: "/mobile-background/couple 2.JPG", text: " " },
+  { image: "/mobile-background/couple (1).jpg", text: " " },  
+  { image: "/mobile-background/couple (12).jpg", text: " " },
+  { image: "/mobile-background/couple (2).jpg", text: " " },
+  { image: "/mobile-background/couple (7).jpg", text: " " },
+  { image: "/mobile-background/couple (5).jpg", text: " " },
+  { image: "/mobile-background/couple (4).jpg", text: " " },
+  { image: "/mobile-background/couple (6).jpg", text: " " },
+  { image: "/mobile-background/couple (9).jpg", text: " " },
 
 ]
 
@@ -137,7 +143,7 @@ export function Gallery() {
             className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-white`}
             style={{ textShadow: "0 2px 10px rgba(0,0,0,0.75)" }}
           >
-            Moments with Kim &amp; Ced
+            Moments with Marzan &amp; Nica
           </p>
           <h2
             className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white"
@@ -148,7 +154,7 @@ export function Gallery() {
         </div>
 
         <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white/95 font-light max-w-xl mx-auto leading-relaxed mt-3`}>
-          Soft, quiet frames from the days leading to June 7, 2026 at Patio Luisa — tiny echoes of the love and laughter we&apos;ll remember forever.
+          Soft, quiet frames from the days leading to December 20, 2025 at Daraga Church and Hotel St. Ellis — tiny echoes of the love and laughter we&apos;ll remember forever.
         </p>
 
         <div className="flex items-center justify-center gap-2 mt-6">

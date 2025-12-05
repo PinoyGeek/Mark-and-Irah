@@ -37,14 +37,14 @@ function CountdownUnit({ value, label }: CountdownUnitProps) {
 
         {/* Main card */}
         <div className="relative rounded-xl sm:rounded-2xl border border-white/40/80 bg-white/95/90 px-2.5 py-2.5 sm:px-3.5 sm:py-3.5 md:px-4 md:py-4 shadow-[0_12px_32px_rgba(0,0,0,0.45)]">
-          <div className="relative z-10 flex items-center justify-center">
+          <div className="relative z-10 flex items-center justify-center countdown-gradient-text">
             <Counter
               value={value}
               places={places}
               fontSize={26}
               padding={4}
               gap={2}
-              textColor="#FFFFFF"
+              textColor="transparent"
               fontWeight={800}
               borderRadius={6}
               horizontalPadding={3}
@@ -77,12 +77,12 @@ export function Countdown() {
   const [ceremonyMonth = "June", ceremonyDayRaw = "7", ceremonyYear = "2026"] = ceremonyDate.split(" ")
   const ceremonyDayNumber = ceremonyDayRaw.replace(/[^0-9]/g, "") || "7"
   
-  // Parse the date: June 7, 2026 at 4:15 PM PH Time (GMT+0800)
-  // Extract time from "3:00 PM, PH Time" -> "3:00 PM"
-  const timeStr = ceremonyTimeDisplay.split(",")[0].trim() // "3:00 PM"
+  // Parse the date: December 20, 2025 at 10:30 AM PH Time (GMT+0800)
+  // Extract time from "10:30 A.M., PH Time" -> "10:30 A.M."
+  const timeStr = ceremonyTimeDisplay.split(",")[0].trim() // "10:30 A.M."
   
   // Create date string in ISO-like format for better parsing
-  // June 7, 2026 -> 2026-06-07
+  // December 20, 2025 -> 2025-12-20
   const monthMap: { [key: string]: string } = {
     "January": "01", "February": "02", "March": "03", "April": "04",
     "May": "05", "June": "06", "July": "07", "August": "08",
@@ -116,7 +116,7 @@ export function Countdown() {
   ))
   
   const targetTimestamp = Number.isNaN(parsedTargetDate.getTime())
-    ? new Date(Date.UTC(2026, 5, 7, 8, 15, 0)).getTime() // Fallback: June 7, 2026, 4:15 PM GMT+8 = 8:15 AM UTC
+    ? new Date(Date.UTC(2025, 11, 20, 2, 30, 0)).getTime() // Fallback: December 20, 2025, 10:30 AM GMT+8 = 2:30 AM UTC
     : parsedTargetDate.getTime()
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
@@ -169,15 +169,14 @@ export function Countdown() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="relative"
         >
-          <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 opacity-90">
+          <div className="relative w-72 h-72 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[36rem] lg:h-[36rem] xl:w-[40rem] xl:h-[40rem] opacity-90">
             <Image
-              src="/monogram/newMonogram.png"
-              alt="Ced & Kim Monogram"
+              src="/monogram/monogram counter.png"
+              alt="Marzan & Nica Monogram"
               fill
               className="object-contain"
               style={{
-                filter:
-                  "invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(105%) contrast(100%) drop-shadow(0 8px 24px rgba(0,0,0,0.6))",
+                filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.6))",
               }}
               priority={false}
             />
@@ -192,7 +191,7 @@ export function Countdown() {
         {/* Decorative element above title */}
         <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
           <div className="w-8 sm:w-12 md:w-16 h-px bg-white/25" />
-          <div className="w-1.5 h-1.5 bg-[#D1AB6D] rounded-full shadow-[0_0_12px_rgba(209,171,109,0.9)]" />
+          <div className="w-1.5 h-1.5 bg-gradient-to-br from-[#F7DC63] to-[#DEB73E] rounded-full shadow-[0_0_12px_rgba(247,220,99,0.9)]" />
           <div className="w-8 sm:w-12 md:w-16 h-px bg-white/25" />
         </div>
         
@@ -201,7 +200,7 @@ export function Countdown() {
         </h2>
         
         <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/95 font-light max-w-xl mx-auto leading-relaxed px-2">
-          Every sunrise, every heartbeat, every second brings Ced &amp; Kim closer to saying “I do.”
+          Every moment, every breath, every heartbeat brings us closer to the day when two hearts become one. Join Marzan and Nica as they count down to forever.
         </p>
         
         {/* Decorative element below subtitle */}
@@ -251,7 +250,7 @@ export function Countdown() {
                     <div className="flex flex-1 items-center justify-end gap-1.5 sm:gap-2.5">
                       <span className="h-[0.5px] flex-1 bg-white/45" />
                       <span className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light">
-                        Sun
+                        Sat
                       </span>
                       <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-white/45" />
                     </div>
@@ -260,15 +259,19 @@ export function Countdown() {
                     <div className="relative flex items-center justify-center px-3 sm:px-4 md:px-5">
                       <span
                         aria-hidden="true"
-                        className="absolute inset-0 mx-auto h-[70%] max-h-[180px] w-[100px] sm:w-[140px] md:w-[170px] rounded-full bg-gradient-to-b from-white/25 via-white/10 to-transparent blur-[28px] opacity-80"
+                        className="absolute inset-0 mx-auto h-[70%] max-h-[180px] w-[100px] sm:w-[140px] md:w-[170px] rounded-full bg-gradient-to-b from-[#F7DC63]/30 via-[#DEB73E]/20 to-transparent blur-[28px] opacity-80"
                       />
                       <span
-                        className="relative text-[3rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6rem] font-light leading-none tracking-wider text-white"
+                        className="relative text-[3rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6rem] font-light leading-none tracking-wider"
                         style={{
+                          background: "linear-gradient(180deg, #F7DC63 0%, #DEB73E 100%)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                          backgroundClip: "text",
                           textShadow:
-                            "0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(255,255,255,0.7), 0 0 60px rgba(0,0,0,0.5), 0 4px 20px rgba(0,0,0,0.6)",
+                            "0 0 20px rgba(247,220,99,0.5), 0 0 40px rgba(222,183,62,0.4), 0 4px 20px rgba(0,0,0,0.6)",
                           filter:
-                            "drop-shadow(0 0 30px rgba(255,255,255,0.8)) drop-shadow(0 0 50px rgba(0,0,0,0.5))",
+                            "drop-shadow(0 0 30px rgba(247,220,99,0.6)) drop-shadow(0 0 50px rgba(222,183,62,0.5))",
                         }}
                       >
                         {ceremonyDayNumber.padStart(2, "0")}

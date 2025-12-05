@@ -4,6 +4,7 @@ import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { Section } from "@/components/section"
 import { Cormorant_Garamond } from "next/font/google"
+import { siteConfig } from "@/content/site"
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -19,32 +20,27 @@ const faqItems: FAQItem[] = [
   {
     question: "When is the wedding?",
     answer:
-      "Our wedding will be held on June 7, 2026. The wedding ceremony will start at exactly 4:15 PM, PH Time. We kindly ask guests to arrive by 3:45 PM to help us begin promptly.",
+      `Our wedding will be held on ${siteConfig.ceremony.date}. The wedding ceremony will start at exactly ${siteConfig.ceremony.time}. We kindly ask guests to arrive by ${siteConfig.ceremony.guestsTime} to help us begin promptly.`,
   },
   {
     question: "Where will the ceremony and reception take place?",
     answer:
-      "Both the ceremony and reception will be held at Patio Luisa. You can find directions and copy the address in the Details section above.",
-  },
-  {
-    question: "When is the RSVP deadline?",
-    answer:
-      `Kindly respond on or before June 7, 2026. Your response helps us finalize our guest list and seating arrangements. Thank you!\n\n[RSVP_LINK]Click here to RSVP[/RSVP_LINK]`,
+      `The ceremony will be held at ${siteConfig.ceremony.venue}, ${siteConfig.ceremony.location}. The reception will be held at ${siteConfig.reception.venue}, ${siteConfig.reception.location}. You can find directions and copy the addresses in the Details section above.`,
   },
   {
     question: "How do I RSVP?",
     answer:
-      `Please search for your name in the RSVP section above and follow the instructions to confirm your attendance. If you cannot find your name, fill up request to join in the guest list section.`,
+      `Please search for your name in the RSVP section above and follow the instructions to confirm your attendance. If you cannot find your name, you can request to join the guest list in the RSVP section.`,
   },
   {
     question: "What time should I arrive?",
     answer:
-      "Kindly arrive by 3:45 PM so we can begin the ceremony promptly at exactly 4:15 PM. Your punctuality means so much to us — and don't forget to have a light snack beforehand so you can enjoy the celebration comfortably!",
+      `Kindly arrive by ${siteConfig.ceremony.guestsTime} so we can begin the ceremony promptly at exactly ${siteConfig.ceremony.time}. Your punctuality means so much to us — and don't forget to have a light snack beforehand so you can enjoy the celebration comfortably!`,
   },
   {
     question: "What should I wear?",
     answer:
-      "Formal attire is lovingly encouraged. Our motif is Sage Green, White, and Gold. For guests, semi-formal or formal attire in sage greens, soft neutrals, and light gold accents is warmly encouraged. We kindly request no all-white dresses, jeans, or shorts.",
+      `Formal attire is lovingly encouraged. Our motif is ${siteConfig.dressCode.motif}. For guests, semi-formal or formal attire in shades of green is warmly encouraged. We kindly request no all-white dresses, jeans, or shorts.`,
   },
   {
     question: "Can I bring a plus one?",
@@ -79,7 +75,7 @@ const faqItems: FAQItem[] = [
   {
     question: "What happens after the ceremony?",
     answer:
-      "The reception will follow after the ceremony at Patio Luisa. The seating will be formal, RSVP-style, so please make sure you've confirmed your attendance through the RSVP form.",
+      `The reception will follow after the ceremony at ${siteConfig.reception.venue}, ${siteConfig.reception.location}. The seating will be formal, RSVP-style, so please make sure you've confirmed your attendance through the RSVP form.`,
   },
   {
     question: "Are children welcome?",
@@ -89,7 +85,7 @@ const faqItems: FAQItem[] = [
   {
     question: "What if I can't attend?",
     answer:
-      "We completely understand if you cannot attend. Please still RSVP to let us know, and feel free to leave a message for Kim and Ced. Your presence will be missed, but your well wishes mean the world to us!",
+      "We completely understand if you cannot attend. Please still RSVP to let us know, and feel free to leave a message for Marzan and Nica. Your presence will be missed, but your well wishes mean the world to us!",
   },
 ]
 
@@ -103,17 +99,17 @@ export function FAQ() {
   return (
     <Section
       id="faq"
-      className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#909E8D]"
+      className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#525E2C]"
     >
-      {/* Background elements with sage & champagne motif (using #909E8D as primary) */}
+      {/* Background elements with elegant sage green motif (aligned with narrative section) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Vertical sage gradients to frame the FAQ */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#3D4636]/92 via-[#909E8D]/75 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#3D4636]/95 via-[#909E8D]/70 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#3D4636]/92 via-[#525E2C]/78 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#3D4636]/95 via-[#525E2C]/72 to-transparent" />
         {/* Soft radial light in warm neutrals */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(224,207,181,0.28),transparent_55%)] opacity-90" />
         {/* Subtle diagonal wash of muted sage */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#909E8D]/25 via-transparent to-[#F0F0EE]/10 mix-blend-soft-light" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#6E7A61]/24 via-transparent to-[#E0CFB5]/12 mix-blend-soft-light" />
       </div>
 
       {/* Section Header */}
@@ -121,9 +117,9 @@ export function FAQ() {
         {/* Small label */}
         <p
           className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-white mb-2`}
-          style={{ textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}
+          style={{ textShadow: "0 2px 10px rgba(0,0,0,0.75)" }}
         >
-          Common Questions
+          Questions & Answers
         </p>
 
         <h2
@@ -135,9 +131,9 @@ export function FAQ() {
 
         {/* Simple divider */}
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-[#D1AB6D] to-transparent" />
-          <div className="w-1.5 h-1.5 bg-[#D1AB6D] rounded-full shadow-[0_0_12px_rgba(209,171,109,0.9)]" />
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-l from-transparent via-[#D1AB6D] to-transparent" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+          <div className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_12px_rgba(255,255,255,0.7)]" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-l from-transparent via-white/60 to-transparent" />
         </div>
       </div>
 

@@ -6,12 +6,21 @@ import { Cormorant_Garamond, WindSong } from "next/font/google"
 import { siteConfig } from "@/content/site"
 
 const desktopImages = [
-  "/desktop-background/couple 1.JPG"
+  "/desktop-background/couple (1).jpg",
+  "/desktop-background/couple (2).jpg",
+  "/desktop-background/couple (3).jpg",
+  "/desktop-background/couple (4).jpg",
+  "/desktop-background/couple (5).jpg",
+
 ]
 
 const mobileImages = [
-  "/mobile-background/couple 1.JPG",
-  "/mobile-background/couple 2.JPG",
+  "/mobile-background/couple (4).jpg",
+  "/mobile-background/couple (7).jpg",
+  "/mobile-background/couple (11).jpg",
+  "/mobile-background/couple (5).jpg",
+  "/mobile-background/couple (1).jpg",
+  "/mobile-background/couple (13).jpg",
 ]
 
 const SHOW_BUTTERFLIES = false
@@ -457,13 +466,13 @@ export function Hero() {
               we joyfully invite you to witness our union.
             </h1>
             <h1
-              className="style-script-regular text-6xl sm:text-7xl md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-2xl"
+              className="style-script-regular text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-2xl"
               style={{
                 color: '#FFFFFF',
                 textShadow: "0 0 24px rgba(0,0,0,0.9)",
               }}
             >
-              Ced &amp; Kim
+              Marzan and Nica
             </h1>
           </div>
 
@@ -482,7 +491,7 @@ export function Hero() {
               <div className="flex flex-1 items-center justify-end gap-1.5 sm:gap-2.5">
                   <span className="h-[0.5px] flex-1 bg-[#F0F0EE]/45" />
                   <span className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light">
-                    Sun
+                    Sat
                   </span>
                   <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-[#F0F0EE]/45" />
                 </div>
@@ -491,15 +500,19 @@ export function Hero() {
                 <div className="relative flex items-center justify-center px-3 sm:px-4 md:px-5">
                   <span
                     aria-hidden="true"
-                    className="absolute inset-0 mx-auto h-[70%] max-h-[180px] w-[100px] sm:w-[140px] md:w-[170px] rounded-full bg-gradient-to-b from-[#D1AB6D]/55 via-[#909E8D]/40 to-transparent blur-[28px] opacity-75"
+                    className="absolute inset-0 mx-auto h-[70%] max-h-[180px] w-[100px] sm:w-[140px] md:w-[170px] rounded-full bg-gradient-to-b from-[#F7DC63]/30 via-[#DEB73E]/20 to-transparent blur-[28px] opacity-80"
                   />
                   <span
-                    className={`${cormorant.className} relative text-[4rem] sm:text-[5.5rem] md:text-[6.5rem] lg:text-[7rem] font-light leading-none tracking-wider text-white`}
+                    className={`${cormorant.className} relative text-[4rem] sm:text-[5.5rem] md:text-[6.5rem] lg:text-[7rem] font-light leading-none tracking-wider`}
                     style={{
+                      background: "linear-gradient(180deg, #F7DC63 0%, #DEB73E 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
                       textShadow:
-                        "0 0 24px rgba(255,255,255,0.95), 0 0 40px rgba(209,171,109,0.85), 0 0 70px rgba(82,94,44,0.8), 0 4px 22px rgba(0,0,0,0.6)",
+                        "0 0 20px rgba(247,220,99,0.5), 0 0 40px rgba(222,183,62,0.4), 0 4px 22px rgba(0,0,0,0.6)",
                       filter:
-                        "drop-shadow(0 0 34px rgba(240,240,238,0.9)) drop-shadow(0 0 52px rgba(209,171,109,0.85))",
+                        "drop-shadow(0 0 30px rgba(247,220,99,0.6)) drop-shadow(0 0 50px rgba(222,183,62,0.5))",
                     }}
                   >
                     {weddingDayNumber}
@@ -538,7 +551,7 @@ export function Hero() {
                 textShadow: "0 2px 12px rgba(0,0,0,0.7)",
               }}
             >
-              Ceremony and celebration to follow at {siteConfig.reception.venue}
+              Reception to follow at {siteConfig.reception.venue}
             </p>
           </div>
 

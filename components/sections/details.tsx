@@ -65,10 +65,10 @@ export function Details() {
   const ceremonyMapsLink = `https://maps.google.com/?q=${encodeURIComponent(siteConfig.ceremony.location)}`
   const receptionMapsLink = `https://maps.google.com/?q=${encodeURIComponent(siteConfig.reception.location)}`
 
-  // Palettes (used only for color chips in attire card)
-  const sponsorPalette = ["#CC7A5F", "#E29671", "#BDA79A"]
-  const guestPalette = ["#94A090", "#5C6843", "#3D5033", "#9CAE9C", "#95A37A"]
-  const secondaryPalette = ["#F2D1C8", "#DBA490", "#D38988", "#BB6C5B", "#A2534C"]
+  // Palettes (used only for color chips in attire card) - Green motif
+  const sponsorPalette = ["#2D5016", "#4A7C59", "#6B9B7A"]
+  const guestPalette = ["#8FB99A", "#B8D5C3", "#D4E8D9", "#6B9B7A", "#4A7C59"]
+  const secondaryPalette = ["#E8F5EB", "#D4E8D9", "#B8D5C3", "#8FB99A", "#6B9B7A"]
 
   const openInMaps = (link: string) => {
     window.open(link, "_blank", "noopener,noreferrer")
@@ -117,92 +117,124 @@ export function Details() {
         </div>
       </div>
 
-      {/* Ceremony & Reception Location (combined) */}
-      <div className="relative z-10 mb-4 sm:mb-8 max-w-4xl mx-auto px-3 sm:px-5">
-        <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-[#F0F0EE]/25 bg-gradient-to-b from-[#3D5033] via-[#525E2C] to-[#E0CFB5] shadow-[0_20px_60px_rgba(0,0,0,0.45)] transition-transform duration-500 group hover:scale-[1.01]">
-          {/* Top image */}
-          <div className="relative h-52 sm:h-72 md:h-96 w-full">
-            <Image
-              src="/Details/Patio Luisa.jpg"
-              alt={siteConfig.ceremony.location}
-              fill
-              className="object-cover"
-              sizes="100vw"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#3D5033]/95 via-[#525E2C]/65 to-transparent" />
-            <div className="absolute inset-0 flex flex-col justify-end px-3 sm:px-6 pb-3 sm:pb-6 text-white">
-              <p className="text-[10px] sm:text-xs tracking-[0.35em] uppercase opacity-85">
-                Ceremony &amp; Reception
-              </p>
-              <h3 className="text-xl sm:text-3xl font-serif font-semibold tracking-wide drop-shadow-lg">
-                {siteConfig.ceremony.venue}
-              </h3>
-            </div>
-          </div>
+      {/* Ceremony & Reception Locations (separate cards) */}
+      <div className="relative z-10 mb-4 sm:mb-8 max-w-6xl mx-auto px-3 sm:px-5 space-y-3 sm:space-y-4">
+        <div className="text-center text-white/90">
+          <p className="text-[10px] sm:text-xs tracking-[0.3em] uppercase">
+            Ceremony &amp; Reception Location
+          </p>
+          <p className="text-sm sm:text-base md:text-lg font-semibold">
+            Daraga Church &amp; Hotel St. Ellis in Legazpi
+          </p>
+        </div>
 
-          {/* Details panel */}
-          <div className="bg-[#F0F0EE]/95 text-[#2E3A24] px-3 sm:px-6 py-4 sm:py-6 space-y-4 backdrop-blur-sm">
-            <div className="space-y-2.5">
-              <div className="space-y-1">
-                <p className="text-xs sm:text-sm text-[#243127]/90 leading-relaxed">
-                  {siteConfig.ceremony.location}
-                </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
+          {[
+            {
+              key: "ceremony",
+              label: "Ceremony",
+              venue: siteConfig.ceremony.venue,
+              location: siteConfig.ceremony.location,
+              date: siteConfig.ceremony.date,
+              time: siteConfig.ceremony.time,
+              mapLink: ceremonyMapsLink,
+              gradient: "from-[#3D5033] via-[#525E2C] to-[#E0CFB5]",
+              image: "/Details/RELIGIOUS-Daraga_Church,_Albay.jpg",
+            },
+            {
+              key: "reception",
+              label: "Reception",
+              venue: siteConfig.reception.venue,
+              location: siteConfig.reception.location,
+              date: siteConfig.reception.date,
+              time: siteConfig.reception.time,
+              mapLink: receptionMapsLink,
+              gradient: "from-[#525E2C] via-[#6B9B7A] to-[#F0F0EE]",
+              image: "/Details/caption.jpg",
+            },
+          ].map((info) => (
+            <div
+              key={info.key}
+              className="overflow-hidden rounded-xl sm:rounded-2xl border border-[#F0F0EE]/25 bg-gradient-to-b shadow-[0_20px_60px_rgba(0,0,0,0.45)] transition-transform duration-500 group hover:scale-[1.01]"
+              style={{ backgroundImage: undefined }}
+            >
+              {/* Top image */}
+              <div className="relative h-52 sm:h-64 md:h-72 w-full">
+                <Image
+                  src={info.image}
+                  alt={info.location}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                  priority
+                />
+                <div className={`absolute inset-0 bg-gradient-to-t from-[#3D5033]/95 via-[#525E2C]/65 to-transparent`} />
+                <div className="absolute inset-0 flex flex-col justify-end px-3 sm:px-6 pb-3 sm:pb-6 text-white">
+                  <p className="text-[10px] sm:text-xs tracking-[0.35em] uppercase opacity-85">
+                    {info.label}
+                  </p>
+                  <h3 className="text-xl sm:text-3xl font-serif font-semibold tracking-wide drop-shadow-lg">
+                    {info.venue}
+                  </h3>
+                </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5 sm:gap-2 text-left">
-                <div className="rounded-md border border-[#E0CFB5] bg-white/80 px-2.5 py-2 shadow-sm">
-                  <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#525E2C] uppercase mb-0.5">
-                    Date
-                  </p>
-                  <p className="text-sm sm:text-base font-bold text-[#3D5033]">
-                    {siteConfig.ceremony.date}
-                  </p>
-                </div>
-                <div className="rounded-md border border-[#E0CFB5] bg-white/80 px-2.5 py-2 shadow-sm">
-                  <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#525E2C] uppercase mb-0.5">
-                    Ceremony
-                  </p>
-                  <p className="text-sm sm:text-base font-bold text-[#3D5033]">
-                    {siteConfig.ceremony.time}
-                  </p>
-                </div>
-                <div className="rounded-md border border-[#E0CFB5] bg-white/80 px-2.5 py-2 shadow-sm">
-                  <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#525E2C] uppercase mb-0.5">
-                    Reception
-                  </p>
-                  <p className="text-sm sm:text-base font-bold text-[#3D5033]">
-                    {siteConfig.reception.time}
-                  </p>
-                </div>
-              </div>
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-3">
-              <button
-                onClick={() => openInMaps(ceremonyMapsLink)}
-                className="flex items-center justify-center gap-1.5 rounded-lg bg-[#525E2C] text-white py-2.5 sm:py-3 shadow-lg hover:translate-y-[-2px] transition-all text-xs sm:text-sm font-semibold"
-              >
-                <Navigation className="w-4 h-4" />
-                Get Directions
-              </button>
-              <button
-                onClick={() => copyToClipboard(siteConfig.ceremony.location, "ceremony")}
-                className="flex items-center justify-center gap-1.5 rounded-lg border border-[#525E2C]/35 text-[#3D5033] py-2.5 sm:py-3 hover:bg-[#525E2C]/5 transition-all text-xs sm:text-sm font-semibold"
-              >
-                {copiedItems.has("ceremony") ? (
-                  <>
-                    <Check className="w-4 h-4" />
-                    Copied
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4" />
-                    Copy Address
-                  </>
-                )}
-              </button>
+              {/* Details panel */}
+              <div className="bg-[#F0F0EE]/95 text-[#2E3A24] px-3 sm:px-6 py-4 sm:py-6 space-y-4 backdrop-blur-sm">
+                <div className="space-y-2.5">
+                  <div className="space-y-1">
+                    <p className="text-xs sm:text-sm text-[#243127]/90 leading-relaxed">{info.location}</p>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5 sm:gap-2 text-left">
+                    <div className="rounded-md border border-[#E0CFB5] bg-white/80 px-2.5 py-2 shadow-sm">
+                      <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#525E2C] uppercase mb-0.5">
+                        Date
+                      </p>
+                      <p className="text-sm sm:text-base font-bold text-[#3D5033]">{info.date}</p>
+                    </div>
+                    <div className="rounded-md border border-[#E0CFB5] bg-white/80 px-2.5 py-2 shadow-sm">
+                      <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#525E2C] uppercase mb-0.5">
+                        {info.label}
+                      </p>
+                      <p className="text-sm sm:text-base font-bold text-[#3D5033]">{info.time}</p>
+                    </div>
+                    <div className="rounded-md border border-[#E0CFB5] bg-white/80 px-2.5 py-2 shadow-sm">
+                      <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#525E2C] uppercase mb-0.5">
+                        Venue
+                      </p>
+                      <p className="text-sm sm:text-base font-bold text-[#3D5033]">{info.venue}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-3">
+                  <button
+                    onClick={() => openInMaps(info.mapLink)}
+                    className="flex items-center justify-center gap-1.5 rounded-lg bg-[#525E2C] text-white py-2.5 sm:py-3 shadow-lg hover:translate-y-[-2px] transition-all text-xs sm:text-sm font-semibold"
+                  >
+                    <Navigation className="w-4 h-4" />
+                    Get Directions
+                  </button>
+                  <button
+                    onClick={() => copyToClipboard(info.location, info.key)}
+                    className="flex items-center justify-center gap-1.5 rounded-lg border border-[#525E2C]/35 text-[#3D5033] py-2.5 sm:py-3 hover:bg-[#525E2C]/5 transition-all text-xs sm:text-sm font-semibold"
+                  >
+                    {copiedItems.has(info.key) ? (
+                      <>
+                        <Check className="w-4 h-4" />
+                        Copied
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-4 h-4" />
+                        Copy Address
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -229,10 +261,10 @@ export function Details() {
             <div className="relative w-full rounded-2xl overflow-hidden border border-white/60 shadow-xl bg-white p-4 sm:p-6 space-y-3 sm:space-y-4">
               <div className="text-center space-y-2 sm:space-y-3">
                 <p className="text-xs sm:text-sm font-semibold text-[#3D5033]">
-                  Formal attire in our sage green, white, and gold motif is lovingly encouraged.
+                  Formal attire in shades of green (from light to dark) is lovingly encouraged.
                 </p>
                 <p className="text-xs sm:text-sm text-[#2E3A24]/90">
-                  Please dress within our wedding colors to help create a soft, elegant sage green celebration.
+                  Please dress within our wedding colors to help create a soft, elegant green celebration.
                 </p>
               </div>
 
@@ -265,7 +297,7 @@ export function Details() {
                   <h5 className="font-semibold text-xs sm:text-sm text-[#3D5033] mb-2">Wedding Guests</h5>
                   <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                     <p className="text-[#2E3A24]">
-                      Semi-formal or formal attire in sage greens, soft neutrals, and light gold accents is warmly encouraged.
+                      Semi-formal or formal attire in shades of green (from light to dark) is warmly encouraged.
                     </p>
                     <div className="pt-1">
                       <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] text-[#3D5033] mb-1">
@@ -289,7 +321,7 @@ export function Details() {
                   <h5 className="font-semibold text-xs sm:text-sm text-[#3D5033] mb-2">Secondary Sponsors &amp; Bridesmaids</h5>
                   <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                     <p className="text-[#2E3A24]">
-                      Coordinated gowns and attire using the warm, romantic tones from the palette below.
+                      Coordinated gowns and attire using elegant green tones from the palette below.
                     </p>
                     <div className="pt-1">
                       <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] text-[#3D5033] mb-1">
@@ -327,7 +359,7 @@ export function Details() {
                   </h4>
                   <div className="space-y-2 sm:space-y-2.5">
                     <p className="text-xs sm:text-sm text-[#2E3A24] leading-relaxed">
-                      Kindly arrive by <span className="font-semibold text-[#3D5033]">3:45 PM</span> so we can begin the wedding ceremony promptly at exactly <span className="font-semibold text-[#3D5033]">4:15 PM</span>.
+                      Kindly arrive by <span className="font-semibold text-[#3D5033]">10:00 A.M.</span> so we can begin the wedding ceremony promptly at exactly <span className="font-semibold text-[#3D5033]">10:30 A.M.</span>.
                     </p>
                     <p className="text-xs sm:text-sm text-[#2E3A24] leading-relaxed">
                       Your punctuality means so much to us — and don&apos;t forget to have a light snack beforehand so you can enjoy the celebration comfortably!
@@ -495,7 +527,7 @@ export function Details() {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-0" />
 
               <Image
-                src="/Details/Patio Luisa.jpg"
+                src={showImageModal === "ceremony" ? "/Details/RELIGIOUS-Daraga_Church,_Albay.jpg" : "/Details/caption.jpg"}
                 alt={showImageModal === "ceremony" ? siteConfig.ceremony.location : siteConfig.reception.location}
                 fill
                 className="object-contain p-6 sm:p-8 md:p-10 transition-transform duration-700 group-hover:scale-105 z-10"

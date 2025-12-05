@@ -92,17 +92,17 @@ export function BookOfGuests() {
   return (
     <div
       id="guests"
-      className="relative z-10 bg-[#909E8D] py-6 sm:py-12 md:py-16 lg:py-20 overflow-hidden isolate"
+      className="relative z-10 bg-[#525E2C] py-6 sm:py-12 md:py-16 lg:py-20 overflow-hidden isolate"
     >
-      {/* Background elements with elegant sage motif (aligned with entourage section) */}
+      {/* Background elements with elegant sage green motif (aligned with narrative section) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Vertical sage gradients to frame the guest book */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#3D4636]/90 via-[#909E8D]/75 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#3D4636]/95 via-[#909E8D]/70 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#3D4636]/92 via-[#525E2C]/78 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#3D4636]/95 via-[#525E2C]/72 to-transparent" />
         {/* Soft radial light in warm neutrals */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(224,207,181,0.28),transparent_55%)] opacity-90" />
         {/* Subtle diagonal wash of muted sage */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#909E8D]/25 via-transparent to-[#F0F0EE]/10 mix-blend-soft-light" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#6E7A61]/24 via-transparent to-[#E0CFB5]/12 mix-blend-soft-light" />
       </div>
 
       {/* Section Header */}

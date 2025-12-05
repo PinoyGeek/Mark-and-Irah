@@ -1,41 +1,41 @@
 export const siteConfig = {
   couple: {
-    bride: "Kim Angel Manlolo",
-    brideNickname: "Kim",
-    groom: "Cedric John Sta. Lucia",
-    groomNickname: "Ced",
+    bride: "Nica",
+    brideNickname: "Nica",
+    groom: "Marzan",
+    groomNickname: "Marzan",
   },
   wedding: {
-    date: "June 7, 2026",
-    time: "4:15 PM, PH Time",
-    venue: "Patio Luisa",
+    date: "December 20, 2025",
+    time: "10:30 A.M., PH Time",
+    venue: "Daraga Church",
     tagline: "are getting married!",
-    theme: "Spring Theme, Water Paint flowers (Garden wedding)",
-    motif: "Spring Theme, Water Paint flowers (Garden wedding)",
+    theme: "Elegant Green Motif",
+    motif: "Any shade of green (from light to dark)",
   },
   details: {
     rsvp: {
-      deadline: "June 7, 2026",
+      deadline: "December 20, 2025",
     },
   },
   ceremony: {
-    location: "PATIO LUISA, Toclong II Street, Imus, Cavite, Philippines",
-    venue: "Patio Luisa",
-    date: "June 7, 2026",
-    day: "Sunday",
-    time: "4:15 PM, PH Time",
-    entourageTime: "3:45 PM",
-    guestsTime: "3:45 PM",
+    location: "Daraga Church, Legazpi, Albay, Philippines",
+    venue: "Daraga Church",
+    date: "December 20, 2025",
+    day: "Saturday",
+    time: "10:30 A.M.",
+    entourageTime: "10:00 A.M.",
+    guestsTime: "10:00 A.M.",
   },
   reception: {
-    location: "PATIO LUISA, Toclong II Street, Imus, Cavite, Philippines",
-    venue: "Patio Luisa",
-    date: "June 7, 2026",
+    location: "Hotel St. Ellis, Legazpi, Albay, Philippines",
+    venue: "Hotel St. Ellis",
+    date: "December 20, 2025",
     time: "Reception to follow",
   },
   dressCode: {
-    theme: "Spring Theme, Water Paint flowers (Garden wedding)",
-    colors: ["#B76E79", "#F7E7CE", "#FFFFFF"],
+    theme: "Elegant Green Motif",
+    colors: ["#2D5016", "#4A7C59", "#6B9B7A", "#8FB99A", "#B8D5C3", "#D4E8D9", "#E8F5EB"],
     sponsors: {
       ladies: "Modern Filipiniana",
       gentlemen: "Barong"
@@ -44,30 +44,26 @@ export const siteConfig = {
       ladies: "Long Gown/ cocktail dresses",
       gentlemen: "Long Sleeves /Polo and Black slacks."
     },
-    note: "Please come in your best formal/semi-formal ensemble"
+    note: "Please come in your best formal/semi-formal ensemble in shades of green"
   },
   narratives: {
-    groom: `Ced is currently putting his heart into writing the story of how he first met Ms. Kim—a memory that continues to make him smile every time he thinks about it. He wants to capture every detail just right: the moment their paths crossed, the first sparks of connection, and the unexpected feeling that something special had just begun.
+    groom: `On an ordinary weekend with friends, Marzan noticed Nica across the room—calm, kind, and quietly radiant. A quick hello turned into easy laughter, and he felt an unexpected sense of peace, as if he had found someone who saw the world the way he did.
 
-He believes that their love story deserves to be told in the most genuine and meaningful way. That’s why he’s taking his time to compose it—choosing each word carefully, reliving the beautiful beginnings, and making sure the story reflects the depth of their relationship. Ced wants this narrative to feel as warm and timeless as the journey they’ve shared.
+Their conversations spilled into late-night messages, coffee runs, and unhurried walks. The more they talked, the more Marzan realized how naturally Nica fit into every part of his life. Her warmth softened his edges; her faith and steadiness made him braver.
 
-While the full story is still in the making, we invite you to revisit this page from time to time. Updates will be posted as soon as Ced finishes crafting the full narrative. Trust us—this is a story worth waiting for, and he can’t wait to share it with all of you.
+One evening, under a sky dotted with city lights, he knew he was no longer looking for “the right moment.” She was the moment. Choosing forever with Nica felt less like a decision and more like coming home.`,
+    bride: `Nica still smiles thinking about that first hello. Marzan’s quiet sincerity caught her attention immediately, and with every conversation she discovered a heart that was gentle, steady, and true. What began as friendly banter quickly felt like the start of something she could trust.
 
-Coming soon.`,
-    bride: `Kim is lovingly preparing her own version of the story—how she first met Ced, how their connection began, and how everything slowly fell into place. She wants to share those first impressions, the moments that made her heart take notice, and the quiet certainty she felt as their relationship grew.
+They collected little rituals together—shared playlists on long drives, whispered prayers before big days, and unplanned detours that always led to laughter. In Marzan, Nica found a partner who listened deeply, honored her dreams, and made ordinary days feel extraordinary.
 
-She believes their love story deserves to be told with sincerity and warmth. That’s why she’s taking her time, choosing words that genuinely capture her emotions, the memories she cherishes, and the journey that brought them to where they are today. For Kim, this story isn’t just about how they met—it’s about how love found its way naturally and beautifully into their lives.
-
-While her full story is still being written, we encourage you to keep checking this page for updates. She’s excited to share her perspective soon, and she hopes it brings smiles, kilig, and a deeper look into the beginning of their forever.
-
-Coming soon.`,
+As they planned their future, she realized her favorite place was simply beside him—whether celebrating wins or weathering storms. Marzan has been her answered prayer, and today she joyfully chooses him, again and again, for all the days to come.`,
   },
   colors: {
-    primary: "#B76E79",
-    secondary: "#F7E7CE",
+    primary: "#4A7C59",
+    secondary: "#8FB99A",
   },
   snapShare: {
-    googleDriveLink: "https://drive.google.com/drive/folders/1HRa5wnv73s_1p_m8YnlxmKtlYjyYRqtk?usp=sharing",
+    googleDriveLink: "https://drive.google.com/drive/folders/1ijmtWwZEOUUZaip6kj8Pr6B61cBxF_PZ?usp=sharing",
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }

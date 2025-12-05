@@ -128,9 +128,9 @@ export function Footer() {
         {/* Names & Date below illustration */}
         <div className="mt-4 sm:mt-5 md:mt-6 text-center">
           <p
-            className={`${cormorant.className} tracking-[0.3em] text-[10px] sm:text-xs md:text-sm uppercase text-[#F0F0EE]/95`}
+            className={`${cormorant.className} tracking-[0.3em] text-[10px] sm:text-xs md:text-sm text-[#F0F0EE]/95`}
           >
-            CED &amp; KIM
+            Marzan and Nica
           </p>
           <p
             className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#F0F0EE]/90 mt-1`}
@@ -149,7 +149,7 @@ export function Footer() {
                 <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-[#F0F0EE]/15 rounded-full flex items-center justify-center border border-[#E0CFB5]/70 flex-shrink-0 shadow-[0_0_22px_rgba(224,207,181,0.55)]">
                   <Heart className="w-5 h-5 sm:w-5.5 sm:h-5.5 md:w-6 md:h-6 text-[#F0F0EE]" fill="#D1AB6D" />
                 </div>
-                <h3 className="style-script-regular text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-white drop-shadow-lg">{siteConfig.couple.groomNickname} & {siteConfig.couple.brideNickname}</h3>
+                <h3 className="style-script-regular text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-white drop-shadow-lg">{siteConfig.couple.groomNickname} and {siteConfig.couple.brideNickname}</h3>
               </div>
               <div className="space-y-3 sm:space-y-3.5 md:space-y-4">
                 <div className={`flex items-center gap-2 sm:gap-2.5 md:gap-3 ${cormorant.className} text-white/90`}>
@@ -284,7 +284,7 @@ export function Footer() {
         <motion.div className="border-t border-[#E0CFB5]/60 pt-6 sm:pt-7 md:pt-8" variants={fadeInUp}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-5 md:gap-6">
             <div className="text-center md:text-left">
-              <p className={`text-[#F0F0EE]/95 ${cormorant.className} text-xs sm:text-sm`}>© {year} {siteConfig.couple.groomNickname} & {siteConfig.couple.brideNickname}. All rights reserved.</p>
+              <p className={`text-[#F0F0EE]/95 ${cormorant.className} text-xs sm:text-sm`}>© {year} {siteConfig.couple.groomNickname} and {siteConfig.couple.brideNickname}. All rights reserved.</p>
               <p className={`text-[#F0F0EE]/90 ${cormorant.className} text-xs sm:text-sm mt-0.5 sm:mt-1`}>
                 Made with 💕 for our special day
               </p>

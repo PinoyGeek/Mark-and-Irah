@@ -51,7 +51,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
 
     try {
       await fetch(
-        "https://docs.google.com/forms/d/e/1FAIpQLScN4tC49YoIFAKWgPD5OblgWtfA8VseZZsWS9_9DVtLrbfG5w/formResponse",
+        "https://docs.google.com/forms/d/e/1FAIpQLSc1MFMfND4N0Xap0s0DLY7cXxoXeDpA1DtGQ1_fP2jSmcdxPQ/formResponse",
         {
           method: "POST",
           mode: "no-cors",
@@ -143,7 +143,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
               Share Your Love
             </h3>
             <p className="text-[10px] sm:text-xs md:text-sm text-foreground/70 font-lora">
-              Your words will be part of Kim &amp; Ced&apos;s keepsake for years to come.
+              Your words will be part of Marzan &amp; Nica&apos;s keepsake for years to come.
             </p>
           </div>
 
@@ -218,7 +218,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                   }}
                   onFocus={() => setFocusedField('message')}
                   onBlur={() => setFocusedField(null)}
-                  placeholder="Write a heartfelt message for Ced & Kim... Share your wishes, memories, or words of love that will be treasured forever 💕"
+                  placeholder="Write a heartfelt message for Marzan & Nica... Share your wishes, memories, or words of love that will be treasured forever 💕"
                   className={`message-form-textarea w-full border-2 rounded-xl min-h-[80px] sm:min-h-[100px] md:min-h-[120px] text-xs sm:text-sm md:text-base font-lora placeholder:italic placeholder:leading-relaxed transition-all duration-300 resize-none bg-white/85 backdrop-blur-sm shadow-sm hover:shadow-md focus:shadow-lg py-2 sm:py-3 md:py-4 px-3 sm:px-4 md:px-5 ${
                     focusedField === 'message' 
                       ? 'border-[#D1AB6D] focus:border-[#D1AB6D] focus:ring-4 focus:ring-[#D1AB6D]/25 shadow-lg' 
@@ -285,7 +285,7 @@ export function Messages() {
   const fetchMessages = useCallback(() => {
     setLoading(true)
     fetch(
-      "https://script.google.com/macros/s/AKfycbyeRWSaX13hGFnpDfT-Pv1fey13CaG_kZTII7A7YtIQ1TTii8GkWB7E9zGYRlYtVDda/exec"
+      "https://script.google.com/macros/s/AKfycbz5Dv_dIoHxa86k0uM8JFyE8Zt3yCtpNAir2JX2HpHuQTuPR0M_P981OizMTB-gGo3j7A/exec"
     )
       .then((res) => res.json())
       .then((data) => {
@@ -350,7 +350,7 @@ export function Messages() {
               className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-white`}
               style={{ textShadow: "0 2px 10px rgba(0,0,0,0.75)" }}
             >
-              Messages for Kim &amp; Ced
+              Messages for Marzan &amp; Nica
             </p>
             <h2 className="style-script-regular text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white drop-shadow-md">
               Love notes &amp; prayers
@@ -360,7 +360,7 @@ export function Messages() {
           <p
             className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white/95 font-light max-w-3xl mx-auto leading-relaxed px-2 sm:px-4 mt-2`}
           >
-            Leave a short note for Kim &amp; Ced. Every wish and prayer becomes part of their forever story.
+            Leave a short note for Marzan &amp; Nica. Every wish and prayer becomes part of their forever story.
           </p>
         </div>
 

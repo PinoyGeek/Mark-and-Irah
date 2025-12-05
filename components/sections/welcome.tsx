@@ -44,7 +44,7 @@ export function Welcome() {
               className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-[#FDECEF]/85`}
               style={{ textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}
             >
-              Cedric John &amp; Kim Angel
+              Marzan &amp; Nica
             </p>
             <h2
               className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-[2.9rem] text-white"

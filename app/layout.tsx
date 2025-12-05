@@ -5,42 +5,43 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kim-angel-and-cedric-john-wedding.netlify.app/"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://marzan-and-nica-wedding.netlify.app/"
 const canonicalUrl = siteUrl.replace(/\/$/, "")
-const eventImagePath = "/desktop-background/couple 1.JPG"
+const eventImagePath = "/desktop-background/couple (13).jpg"
 const eventImageUrl = `${canonicalUrl}${eventImagePath}`
-const eventTitle = "Cedric John & Kim Angel - Wedding Invitation"
+const eventTitle = "Marzan & Nica - Wedding Invitation"
 const eventDescription =
-  "Celebrate the wedding of Kim Angel Manlolo and Cedric John Sta. Lucia on June 7, 2026 at Patio Luisa. RSVP, explore their story, and find everything you need to join the celebration."
+  "Celebrate the wedding of Marzan and Nica on December 20, 2025 at Daraga Church, Legazpi. RSVP, explore their story, and find everything you need to join the celebration."
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Event",
-  name: "Cedric John & Kim Angel Wedding",
-  startDate: "2026-06-07T15:45:00+08:00",
-  endDate: "2026-06-07T21:30:00+08:00",
+  name: "Marzan & Nica Wedding",
+  startDate: "2025-12-20T10:30:00+08:00",
+  endDate: "2025-12-20T18:00:00+08:00",
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   location: [
     {
       "@type": "Place",
-      name: "Patio Luisa",
+      name: "Daraga Church",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Patio Luisa",
-        addressLocality: "",
+        streetAddress: "Daraga Church",
+        addressLocality: "Legazpi",
+        addressRegion: "Albay",
         addressCountry: "PH",
       },
     },
   ],
   image: [eventImageUrl],
   description:
-    "You're invited to the wedding of Cedric John & Kim Angel on June 7, 2026 at Patio Luisa. Find ceremony and reception details, RSVP information, and their full love story.",
+    "You're invited to the wedding of Marzan & Nica on December 20, 2025 at Daraga Church, Legazpi. Find ceremony and reception details, RSVP information, and their full love story.",
   organizer: {
     "@type": "Person",
-    name: "Cedric John & Kim Angel",
+    name: "Marzan & Nica",
   },
-  eventHashtag: "#KimAndCedSayIDo",
+  eventHashtag: "#MarzanAndNicaSayIDo",
 }
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
@@ -51,13 +52,13 @@ export const metadata: Metadata = {
   title: eventTitle,
   description: eventDescription,
   keywords:
-    "Kim Angel Cedric John wedding, Patio Luisa wedding, wedding invitation, RSVP, wedding gallery, message wall, love story, #KimAndCedSayIDo",
+    "Marzan Nica wedding, Daraga Church wedding, Hotel St. Ellis wedding, Legazpi wedding, wedding invitation, RSVP, wedding gallery, message wall, love story, #MarzanAndNicaSayIDo",
   authors: [
-    { name: "Kim Angel Manlolo" },
-    { name: "Cedric John Sta. Lucia" },
+    { name: "Marzan" },
+    { name: "Nica" },
   ],
-  creator: "Cedric John & Kim Angel",
-  publisher: "Cedric John & Kim Angel",
+  creator: "Marzan & Nica",
+  publisher: "Marzan & Nica",
   formatDetection: {
     email: false,
     address: false,
@@ -87,11 +88,11 @@ export const metadata: Metadata = {
   },
   manifest: "/favicon_io/site.webmanifest",
   openGraph: {
-    title: "Cedric John & Kim Angel Wedding | June 7, 2026",
+    title: "Marzan & Nica Wedding | December 20, 2025",
     description:
-      "Celebrate the union of Cedric John & Kim Angel on June 7, 2026 at Patio Luisa. Discover their story, RSVP, and find important details for the ceremony and reception.",
+      "Celebrate the union of Marzan & Nica on December 20, 2025 at Daraga Church, Legazpi. Discover their story, RSVP, and find important details for the ceremony and reception.",
     url: canonicalUrl,
-    siteName: "Kim Angel and Cedric John Wedding",
+    siteName: "Marzan and Nica Wedding",
     locale: "en_PH",
     type: "website",
     images: [
@@ -100,17 +101,17 @@ export const metadata: Metadata = {
         url: eventImageUrl,
         width: 1200,
         height: 630,
-        alt: "Cedric John & Kim Angel Wedding Invitation - June 7, 2026",
+        alt: "Marzan & Nica Wedding Invitation - December 20, 2025",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cedric John & Kim Angel Wedding Invitation",
+    title: "Marzan & Nica Wedding Invitation",
     description:
-      "You're invited to the wedding of Cedric John & Kim Angel on June 7, 2026. RSVP, explore their story, and get all the details for the big day! #KimAndCedSayIDo",
+      "You're invited to the wedding of Marzan & Nica on December 20, 2025. RSVP, explore their story, and get all the details for the big day! #MarzanAndNicaSayIDo",
     images: [eventImageUrl],
-    creator: "@kimandced",
+    creator: "@marzanandnica",
   },
   robots: {
     index: true,

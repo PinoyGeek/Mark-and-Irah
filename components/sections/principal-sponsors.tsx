@@ -16,16 +16,6 @@ interface PrincipalSponsor {
   FemalePrincipalSponsor: string
 }
 
-const PEER_SPONSORS: string[] = [
-  "Diokno, Janzel",
-  "Diokno, Owen",
-  "Borromeo, Meg Angeli",
-  "Borromeo, Elbert June",
-  "Hernandez, Warnet",
-  "Yparagguire, Faye",
-  "Café, Nathalie",
-]
-
 export function PrincipalSponsors() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -44,7 +34,7 @@ export function PrincipalSponsors() {
       align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
     return (
       <h3
-        className={`relative ${cormorant.className} text-[10px] sm:text-xs md:text-sm lg:text-base font-semibold uppercase text-[#F0F0EE] mb-1.5 sm:mb-2 md:mb-3 tracking-[0.1em] sm:tracking-[0.15em] ${textAlign} ${className} transition-all duration-300`}
+        className={`relative ${cormorant.className} text-xs sm:text-sm md:text-base lg:text-lg font-semibold uppercase text-[#F0F0EE] mb-1.5 sm:mb-2 md:mb-3 tracking-[0.1em] sm:tracking-[0.15em] ${textAlign} ${className} transition-all duration-300`}
       >
         {children}
       </h3>
@@ -65,7 +55,7 @@ export function PrincipalSponsors() {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#E0CFB5]/18 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 rounded-md" />
 
         <p
-          className={`relative text-[#F0F0EE] text-[11px] sm:text-[13px] md:text-sm lg:text-base font-semibold leading-snug break-words ${textAlign} group-hover/item:text-white transition-all duration-300`}
+          className={`relative text-[#F0F0EE] text-[9px] sm:text-[10px] md:text-xs lg:text-sm font-semibold leading-snug break-words ${textAlign} group-hover/item:text-white transition-all duration-300`}
         >
           {name}
         </p>
@@ -157,7 +147,7 @@ export function PrincipalSponsors() {
             className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-1.5 sm:mb-3 md:mb-4"
             style={{ textShadow: "0 4px 18px rgba(0,0,0,0.9)" }}
           >
-            Standing with Kim &amp; Ced
+            Standing with Marzan &amp; Nica
           </h2>
 
           {/* Simple divider */}
@@ -170,14 +160,14 @@ export function PrincipalSponsors() {
 
         {/* Sponsors content */}
         <div
-          className={`relative z-30 max-w-4xl mx-auto px-3 sm:px-5 transition-all duration-1000 delay-300 ${
+          className={`relative z-30 max-w-4xl mx-auto transition-all duration-1000 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
           {/* Card with sage & champagne theme */}
           <div className="relative bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border border-[#E0CFB5]/60 shadow-[0_20px_60px_rgba(0,0,0,0.45)] transition-all duration-500 group">
             {/* Card content */}
-            <div className="relative p-3 sm:p-6 md:p-8 z-10">
+            <div className="relative py-3 sm:py-6 md:py-8 z-10">
               <div className="relative z-10 w-full">
               {isLoading ? (
                 <div className="flex items-center justify-center py-24 sm:py-28 md:py-32">
@@ -236,22 +226,6 @@ export function PrincipalSponsors() {
                       ))}
                     </div>
                   </div>
-
-                  {/* Peer Sponsors (centered list) */}
-                  {PEER_SPONSORS.length > 0 && (
-                    <div className="pt-2 sm:pt-3 md:pt-4 border-t border-white/10">
-                      <SectionTitle align="center" className="mb-1 sm:mb-2">
-                        Peer Sponsors
-                      </SectionTitle>
-                      <div className="flex flex-col items-center justify-center max-w-md mx-auto mt-1 sm:mt-2 space-y-0.5 sm:space-y-1">
-                        {PEER_SPONSORS.map((name) => (
-                          <div key={name} className="w-full flex justify-center">
-                            <NameItem name={name} align="center" />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </div>
               )}
             </div>

@@ -294,16 +294,6 @@ export function GuestList() {
           Please search for your name below to confirm your presence at our special day
         </p>
         
-        {/* RSVP Deadline */}
-        <div className={`${cormorant.className} text-[11px] sm:text-xs md:text-sm text-white/95 font-normal max-w-xl mx-auto leading-relaxed px-2 mb-3 sm:mb-4 md:mb-5`}>
-          <p className="mb-1 sm:mb-1.5">
-            A courtesy of reply is appreciated. Please RSVP on or before:
-          </p>
-          <p className="font-semibold text-[#E0CFB5]">
-            May 20, 2026
-          </p>
-        </div>
-        
         {/* Decorative element below subtitle */}
         <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-2 sm:mt-3 md:mt-4 lg:mt-5">
           <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-gradient-to-r from-transparent via-[#D1AB6D] to-transparent" />
