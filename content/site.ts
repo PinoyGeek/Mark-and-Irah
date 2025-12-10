@@ -52,11 +52,13 @@ export const siteConfig = {
 Their conversations spilled into late-night messages, coffee runs, and unhurried walks. The more they talked, the more Marzan realized how naturally Nica fit into every part of his life. Her warmth softened his edges; her faith and steadiness made him braver.
 
 One evening, under a sky dotted with city lights, he knew he was no longer looking for “the right moment.” She was the moment. Choosing forever with Nica felt less like a decision and more like coming home.`,
-    bride: `Nica still smiles thinking about that first hello. Marzan’s quiet sincerity caught her attention immediately, and with every conversation she discovered a heart that was gentle, steady, and true. What began as friendly banter quickly felt like the start of something she could trust.
+    bride: `It's a moment Nica will forever return to: the sound of Marzan's voice calling her name.
 
-They collected little rituals together—shared playlists on long drives, whispered prayers before big days, and unplanned detours that always led to laughter. In Marzan, Nica found a partner who listened deeply, honored her dreams, and made ordinary days feel extraordinary.
+She didn't know him then. They were strangers sharing space. But in that singular instant, Nica realized Marzan didn't just see her; he saw the truest, most unguarded version of her soul. In that recognition, their story began.
 
-As they planned their future, she realized her favorite place was simply beside him—whether celebrating wins or weathering storms. Marzan has been her answered prayer, and today she joyfully chooses him, again and again, for all the days to come.`,
+That instant blossomed into nearly ten incredible years. Ten years of unwavering love, genuine care, and shared history. Every season they have navigated together has proven one enduring truth: Marzan is Nica's calm in every storm.
+
+His patience is not just a comfort Nica relies on; it is his quiet, powerful promise. A promise that he is staying, waiting, and never giving up. Marzan is, and always will be, her safe harbor.`,
   },
   colors: {
     primary: "#4A7C59",

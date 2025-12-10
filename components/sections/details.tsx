@@ -150,7 +150,7 @@ export function Details() {
               time: siteConfig.reception.time,
               mapLink: receptionMapsLink,
               gradient: "from-[#525E2C] via-[#6B9B7A] to-[#F0F0EE]",
-              image: "/Details/caption.jpg",
+              image: "/Details/Hotel St. ellis.jpg",
             },
           ].map((info) => (
             <div
@@ -273,7 +273,7 @@ export function Details() {
                   <h5 className="font-semibold text-xs sm:text-sm text-[#3D5033] mb-2">Principal &amp; Peer Sponsors</h5>
                   <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                     <p className="text-[#2E3A24]">
-                      Barong Tagalog and long gowns in curated shades from the palette below.
+                      Black coat for ninong; light-green shade of dress for ninang.
                     </p>
                     <div className="pt-1">
                       <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] text-[#3D5033] mb-1">
@@ -527,7 +527,7 @@ export function Details() {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-0" />
 
               <Image
-                src={showImageModal === "ceremony" ? "/Details/RELIGIOUS-Daraga_Church,_Albay.jpg" : "/Details/caption.jpg"}
+                src={showImageModal === "ceremony" ? "/Details/RELIGIOUS-Daraga_Church,_Albay.jpg" : "/Details/Hotel St. ellis.jpg"}
                 alt={showImageModal === "ceremony" ? siteConfig.ceremony.location : siteConfig.reception.location}
                 fill
                 className="object-contain p-6 sm:p-8 md:p-10 transition-transform duration-700 group-hover:scale-105 z-10"

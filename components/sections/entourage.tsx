@@ -29,6 +29,7 @@ const ROLE_CATEGORY_ORDER = [
   "Matron of Honor",
   "Candle Sponsors",
   "Cord Sponsors",
+  "Veil Sponsors",
   "Groomsmen",
   "Bridesmaids",
   "Flower Girls",
@@ -105,8 +106,8 @@ export function Entourage() {
     entourage.forEach((member) => {
       const category = member.RoleCategory
 
-      // Skip members without a category, "Other", or "Veil Sponsors"
-      if (!category || category === "Other" || category === "Veil Sponsors") {
+      // Skip members without a category or in "Other"
+      if (!category || category === "Other") {
         return
       }
       if (!grouped[category]) {
@@ -573,8 +574,9 @@ export function Entourage() {
                           "Bible Bearer",
                           "Presider",
                         ])
-                        // Special rule: Cord Sponsors with exactly 2 names should be displayed as two columns meeting at center
-                        if (category === "Cord Sponsors" && members.length === 2) {
+                        // Special rule: paired sponsor roles with exactly 2 names should meet at center
+                        const PAIRED_SECTIONS = new Set(["Cord Sponsors", "Veil Sponsors"])
+                        if (PAIRED_SECTIONS.has(category) && members.length === 2) {
                           const left = members[0]
                           const right = members[1]
                           return (
