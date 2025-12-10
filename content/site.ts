@@ -47,11 +47,21 @@ export const siteConfig = {
     note: "Please come in your best formal/semi-formal ensemble in shades of green"
   },
   narratives: {
-    groom: `On an ordinary weekend with friends, Marzan noticed Nica across the room—calm, kind, and quietly radiant. A quick hello turned into easy laughter, and he felt an unexpected sense of peace, as if he had found someone who saw the world the way he did.
+    groom: `In a quiet corner of the world, September 2015 became the beginning of a beautiful love story. Inside a small eatery near the railway, their eyes met for the first time. In that single moment, Marzan’s heart knew what words could not explain — he had found someone special. He gently looked at her ID and whispered her name, carrying it with him like a secret he never wanted to forget.
 
-Their conversations spilled into late-night messages, coffee runs, and unhurried walks. The more they talked, the more Marzan realized how naturally Nica fit into every part of his life. Her warmth softened his edges; her faith and steadiness made him braver.
+That night, in his apartment, he searched for her name on social media: Danica De Los Angeles. He sent her message after message, not caring if there was no reply, because hope was already growing quietly in his heart.
 
-One evening, under a sky dotted with city lights, he knew he was no longer looking for “the right moment.” She was the moment. Choosing forever with Nica felt less like a decision and more like coming home.`,
+Simple messages turned into long talks, and long talks turned into love. By January 29, 2016, their hearts chose each other, and they began their journey hand in hand.
+
+From that day forward, Marzan wanted only one thing — to be near her always. Whenever the world felt heavy and school became difficult, Nica became his light. She stood beside him, guided him, and helped him believe in himself, until they both became civil engineers, chasing dreams together.
+
+Life tested them when Marzan couldn’t find work in Legazpi. With a heavy heart but a strong promise, he went to work in Masbate, promising Nica that distance would never change his love. And he proved it — every month, he came back to her, carrying pasalubong and a heart full of longing, just to see her smile.
+
+In December 2023, under a sky full of dreams, Marzan went down on one knee and asked Nica to be his forever. Because in his heart, there was no doubt — she was, and always would be, “the one.”
+
+By September 2024, Marzan was finally working in Legazpi again, and together, they began planning not just dreams, but a lifetime.
+
+Their love was never perfect, but it was real — built on patience, distance, promises, and a love that never let go.`,
     bride: `It's a moment Nica will forever return to: the sound of Marzan's voice calling her name.
 
 She didn't know him then. They were strangers sharing space. But in that singular instant, Nica realized Marzan didn't just see her; he saw the truest, most unguarded version of her soul. In that recognition, their story began.
