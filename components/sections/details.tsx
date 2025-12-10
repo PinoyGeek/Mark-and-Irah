@@ -273,7 +273,7 @@ export function Details() {
                   <h5 className="font-semibold text-xs sm:text-sm text-[#3D5033] mb-2">Principal &amp; Peer Sponsors</h5>
                   <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                     <p className="text-[#2E3A24]">
-                      Black coat for ninong; light-green shade of dress for ninang.
+                      Ninong: classic black coat. Ninang: graceful dress in a light-green hue.
                     </p>
                     <div className="pt-1">
                       <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] text-[#3D5033] mb-1">
