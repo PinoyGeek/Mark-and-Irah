@@ -8,7 +8,7 @@ import { siteConfig } from "@/content/site"
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "600", "700"],
 })
 
 interface FAQItem {
@@ -153,11 +153,11 @@ export function FAQ() {
                       <div className="overflow-hidden">
                         <div className="px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 bg-white/5 border-t border-[#F7E6CA]/30">
                           {item.answer.includes("[RSVP_LINK]") ? (
-                            <p className={`${cormorant.className} text-white/95 leading-snug sm:leading-relaxed text-xs sm:text-sm md:text-base whitespace-pre-line`}>
+                            <p className={`${cormorant.className} text-white font-semibold leading-relaxed sm:leading-loose text-sm sm:text-base md:text-lg lg:text-xl whitespace-pre-line tracking-wide`}>
                               {item.answer.split("[RSVP_LINK]")[0]}
                               <a 
                                 href="#guest-list" 
-                                className="text-white underline font-semibold hover:text-[#F0F0EE] transition-colors"
+                                className="text-white underline font-bold hover:text-[#F0F0EE] transition-colors"
                                 onClick={(e) => {
                                   e.preventDefault()
                                   document.getElementById('guest-list')?.scrollIntoView({ behavior: 'smooth' })
@@ -168,7 +168,7 @@ export function FAQ() {
                               {item.answer.split("[/RSVP_LINK]")[1]}
                             </p>
                           ) : (
-                            <p className={`${cormorant.className} text-white/95 leading-snug sm:leading-relaxed text-xs sm:text-sm md:text-base whitespace-pre-line`}>
+                            <p className={`${cormorant.className} text-white font-semibold leading-relaxed sm:leading-loose text-sm sm:text-base md:text-lg lg:text-xl whitespace-pre-line tracking-wide`}>
                               {item.answer}
                             </p>
                           )}

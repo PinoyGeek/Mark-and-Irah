@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import { motion } from "motion/react"
-import { Instagram, Facebook, Twitter, Share2, Copy, Check, Download } from "lucide-react"
+import { Instagram, Facebook, Twitter, Share2, Copy, Download } from "lucide-react"
 import { Section } from "@/components/section"
 import { QRCodeCanvas } from "qrcode.react"
 import { siteConfig } from "@/content/site"
@@ -25,15 +25,7 @@ export function SnapShare() {
   const sanitizedGroomName = groomNickname.replace(/\s+/g, "")
   const sanitizedBrideName = brideNickname.replace(/\s+/g, "")
 
-  const hashtags = [
-    `#${sanitizedGroomName}And${sanitizedBrideName}SayIDo`,
-    `#${sanitizedGroomName}And${sanitizedBrideName}Wedding`,
-    `#${sanitizedGroomName}${sanitizedBrideName}2026`,
-    "#TanAndEugenioWedding",
-    `#${sanitizedGroomName}${sanitizedBrideName}LoveStory`,
-  ]
-
-  const shareText = `Celebrate ${groomNickname} & ${brideNickname}'s wedding! Explore the details and share your special memories: ${websiteUrl} ${hashtags.join(" ")} ✨`
+  const shareText = `Celebrate ${groomNickname} & ${brideNickname}'s wedding! Explore the details and share your special memories: ${websiteUrl} ✨`
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640)
@@ -46,15 +38,6 @@ export function SnapShare() {
     }
   }, [])
 
-  const copyToClipboard = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text)
-      setCopiedHashtag(true)
-      setTimeout(() => setCopiedHashtag(false), 2000)
-    } catch (err) {
-      console.error("Failed to copy: ", err)
-    }
-  }
 
   const shareOnSocial = (platform: "instagram" | "facebook" | "twitter" | "tiktok") => {
     const encodedUrl = encodeURIComponent(websiteUrl)
@@ -145,45 +128,14 @@ export function SnapShare() {
 
         <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-7 lg:gap-10" variants={staggerChildren} initial="initial" animate="animate">
           <motion.div
-            className="p-[1.5px] rounded-[22px] bg-gradient-to-br from-[#D2A4A4]/50 via-[#E0B4B1]/30 to-[#D2A4A4]/50 h-full"
+            className="p-[1.5px] rounded-[22px] bg-gradient-to-br from-[#D2A4A4]/50 via-[#E0B4B1]/30 to-[#D2A4A4]/50 h-full lg:order-1"
             variants={fadeInUp}
             whileHover={{ y: -2 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="bg-gradient-to-br from-[#E0B4B1] to-[#D2A4A4] rounded-[20px] p-3 sm:p-6 md:p-8 shadow-xl border border-[#E0B4B1]/40 h-full flex flex-col">
-              <div className="text-center mb-4 sm:mb-6">
-                <h3 className={`${cormorant.className} text-[15px] sm:text-xl md:text-2xl font-semibold text-white mb-3`}>
-                  Share Your Moments
-                </h3>
-                <p className={`${cormorant.className} text-white text-[11px] sm:text-sm mb-4 sm:mb-5 leading-relaxed px-1`}>
-                  Every snapshot keeps {groomNickname} & {brideNickname}'s story glowing. Use these hashtags to weave your memories into our keepsake.
-                </p>
-                <div className="space-y-2 mb-4">
-                  {hashtags.map((hashtag) => (
-                    <div
-                      key={hashtag}
-                      className="inline-flex items-center justify-center gap-2.5 bg-white/80 backdrop-blur-sm px-3 py-2 rounded-xl shadow-md border border-[#D2A4A4]/30 w-full sm:w-auto mx-auto hover:shadow-lg hover:border-[#D2A4A4]/50 transition-all"
-                    >
-                      <span className={`${cormorant.className} text-[11px] sm:text-sm md:text-base font-semibold text-[#D3B9A2] tracking-[0.14em] break-all sm:break-normal`}>
-                        {hashtag}
-                      </span>
-                      <button
-                        onClick={() => copyToClipboard(hashtag)}
-                        className="p-1 rounded-full bg-white hover:bg-[#D2A4A4]/10 transition-colors duration-200 shadow-sm flex-shrink-0 border border-[#D2A4A4]/30 hover:border-[#D2A4A4]/60"
-                        title="Copy hashtag"
-                      >
-                        {copiedHashtag ? <Check className="w-4 h-4 text-[#D2A4A4]" /> : <Copy className="w-4 h-4 text-[#D2A4A4]/70" />}
-                      </button>
-                    </div>
-                  ))}
-                </div>
-                <p className={`${cormorant.className} text-white text-[10px] sm:text-xs italic`}>
-                  Click to copy and paste into your posts, stories, and reels.
-                </p>
-              </div>
-
-              <div className="mt-auto">
-                <h4 className={`${cormorant.className} text-[13px] sm:text-lg md:text-xl font-semibold text-white mb-3 text-center`}>
+            <div className="bg-gradient-to-br from-[#E0B4B1] to-[#D2A4A4] rounded-[20px] p-3 sm:p-6 md:p-8 lg:p-8 shadow-xl border border-[#E0B4B1]/40 h-full flex flex-col justify-start">
+              <div className="flex flex-col w-full">
+                <h4 className={`${cormorant.className} text-[13px] sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-white mb-3 sm:mb-4 md:mb-5 text-center`}>
                   Our Favorite Moments
                 </h4>
                 <div className="grid grid-cols-2 gap-1.5 sm:gap-3 md:gap-4">
@@ -209,14 +161,14 @@ export function SnapShare() {
                     <Image src="/desktop-background/couple (45).jpg" alt="Wedding moment 3" fill className="object-cover" />
                   </motion.div>
                 </div>
-                <p className={`${cormorant.className} text-white text-[10px] sm:text-xs text-center mt-4 px-1.5`}>
-                  Tag your snapshots with our hashtags to be featured in our keepsake gallery.
+                <p className={`${cormorant.className} text-white text-[10px] sm:text-xs text-center mt-4 sm:mt-5 md:mt-6 px-1.5`}>
+                  Share your snapshots to be featured in our keepsake gallery.
                 </p>
               </div>
             </div>
           </motion.div>
 
-          <motion.div className="space-y-4 lg:space-y-6 h-full flex flex-col" variants={fadeInUp}>
+          <motion.div className="space-y-4 lg:space-y-6 h-full flex flex-col lg:order-2" variants={fadeInUp}>
             <div className="p-[1.5px] rounded-[22px] bg-gradient-to-br from-[#D2A4A4]/50 via-[#E0B4B1]/30 to-[#D2A4A4]/50 flex-1">
               <div className="bg-gradient-to-br from-[#E0B4B1] to-[#D2A4A4] rounded-[20px] p-3 sm:p-6 md:p-8 shadow-xl border border-[#E0B4B1]/40 text-center h-full flex flex-col">
                 <h4 className={`${cormorant.className} text-[15px] sm:text-xl md:text-2xl font-semibold text-white mb-3`}>
