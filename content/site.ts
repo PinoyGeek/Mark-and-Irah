@@ -22,7 +22,7 @@ export const siteConfig = {
     location: "St. Augustine Parish Church - Poblacion II, Mendez, Cavite",
     venue: "St. Augustine Parish Church",
     date: "March 06, 2026",
-    day: "Thursday",
+    day: "Friday",
     time: "2:00 PM",
     entourageTime: "1:30 PM",
     guestsTime: "1:30 PM",
