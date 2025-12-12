@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState, useRef } from "react"
 import { Section } from "@/components/section"
 import { Loader2, Users } from "lucide-react"
 import { Cormorant_Garamond } from "next/font/google"
+import { siteConfig } from "@/content/site"
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -52,7 +53,7 @@ export function PrincipalSponsors() {
         className={`relative flex flex-col ${containerAlign} justify-center py-1 sm:py-1.5 md:py-2.5 w-full group/item transition-all duration-300 hover:scale-[1.02] sm:hover:scale-[1.03]`}
       >
         {/* Hover highlight effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#E0CFB5]/18 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 rounded-md" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F7E6CA]/18 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 rounded-md" />
 
         <p
           className={`relative text-[#F0F0EE] text-[9px] sm:text-[10px] md:text-xs lg:text-sm font-semibold leading-snug break-words ${textAlign} group-hover/item:text-white transition-all duration-300`}
@@ -115,19 +116,38 @@ export function PrincipalSponsors() {
     [sponsors]
   )
 
+  const { groomNickname, brideNickname } = siteConfig.couple
+
   return (
     <div ref={sectionRef}>
       <Section
         id="sponsors"
-        className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#525E2C]"
+        className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#D2A4A4]"
       >
-        {/* Background elements with sage motif */}
+        {/* Background image and decorative overlays (match gallery section) */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Subtle gradient overlays */}
-          <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#3D4636]/90 via-[#525E2C]/70 to-transparent" />
-          <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#3D4636]/95 via-[#525E2C]/70 to-transparent" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(224,207,181,0.28),transparent_55%)] opacity-90" />
+          {/* Grunge texture background */}
+          <img
+            src="/decoration/background%20gallery.jpg"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
+          {/* Soft vertical gradients in warm blush tones */}
+          <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#E0B4B1]/90 via-[#D2A4A4]/70 to-transparent" />
+          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#E0B4B1]/95 via-[#D2A4A4]/70 to-transparent" />
+          {/* Warm radial spotlight in champagne */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(224,207,181,0.3),transparent_55%)] opacity-90" />
+
+          {/* Floating decorative circles with motif colors */}
+          <div className="absolute top-6 left-8 w-32 h-32 bg-[#E0B4B1]/26 rounded-full blur-3xl animate-pulse-slow" />
+          <div className="absolute top-16 right-12 w-24 h-24 bg-[#F7E6CA]/26 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: "1s" }} />
+          <div className="absolute bottom-20 left-16 w-28 h-28 bg-[#F0F0EE]/22 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "2s" }} />
+          <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#E9D5C3]/26 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: "0.5s" }} />
         </div>
+        {/* Readability overlay */}
+        <div className="absolute inset-0 bg-black/35 backdrop-blur-[1px]" />
 
         {/* Section Header */}
         <div
@@ -147,14 +167,14 @@ export function PrincipalSponsors() {
             className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-1.5 sm:mb-3 md:mb-4"
             style={{ textShadow: "0 4px 18px rgba(0,0,0,0.9)" }}
           >
-            Standing with Marzan &amp; Nica
+            Standing with {groomNickname} &amp; {brideNickname}
           </h2>
 
           {/* Simple divider */}
           <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-            <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-[#D1AB6D] to-transparent" />
-            <div className="w-1.5 h-1.5 bg-[#D1AB6D] rounded-full shadow-[0_0_12px_rgba(209,171,109,0.9)]" />
-            <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-l from-transparent via-[#D1AB6D] to-transparent" />
+            <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-[#E9D5C3] to-transparent" />
+            <div className="w-1.5 h-1.5 bg-[#E9D5C3] rounded-full shadow-[0_0_12px_rgba(209,171,109,0.9)]" />
+            <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-l from-transparent via-[#E9D5C3] to-transparent" />
           </div>
         </div>
 
@@ -165,7 +185,7 @@ export function PrincipalSponsors() {
           }`}
         >
           {/* Card with sage & champagne theme */}
-          <div className="relative bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border border-[#E0CFB5]/60 shadow-[0_20px_60px_rgba(0,0,0,0.45)] transition-all duration-500 group">
+          <div className="relative bg-[#1f0f15]/75 backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border border-[#F7E6CA]/70 shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-500 group">
             {/* Card content */}
             <div className="relative py-3 sm:py-6 md:py-8 z-10">
               <div className="relative z-10 w-full">

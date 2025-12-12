@@ -245,6 +245,14 @@ html {
   font-style: normal;
 }
 
+/* Cinzel font utility class */
+.cinzel {
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
 /* Countdown gradient text */
 .countdown-gradient-text * {
   background: linear-gradient(180deg, #F7DC63 0%, #DEB73E 100%);

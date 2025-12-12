@@ -1,81 +1,69 @@
 export const siteConfig = {
   couple: {
-    bride: "Nica",
-    brideNickname: "Nica",
-    groom: "Marzan",
-    groomNickname: "Marzan",
+    bride: "Jhessa May N. Eugenio",
+    brideNickname: "Jhessa May",
+    groom: "Al Josef Rai A. Tan",
+    groomNickname: "Al Josef",
   },
   wedding: {
-    date: "December 20, 2025",
-    time: "10:30 A.M., PH Time",
-    venue: "Daraga Church",
+    date: "March 06, 2026",
+    time: "2:00 PM",
+    venue: "St. Augustine Parish Church - Poblacion II, Mendez, Cavite",
     tagline: "are getting married!",
-    theme: "Elegant Green Motif",
-    motif: "Any shade of green (from light to dark)",
+    theme: "Blush & Sand Motif",
+    motif: "#FADDE0, #E0B4B1, #D2A4A4, #F7E6CA, #E9D5C3, #D3B9A2",
   },
   details: {
     rsvp: {
-      deadline: "December 20, 2025",
+      deadline: "December 31, 2025",
     },
   },
   ceremony: {
-    location: "Daraga Church, Legazpi, Albay, Philippines",
-    venue: "Daraga Church",
-    date: "December 20, 2025",
-    day: "Saturday",
-    time: "10:30 A.M.",
-    entourageTime: "10:00 A.M.",
-    guestsTime: "10:00 A.M.",
+    location: "St. Augustine Parish Church - Poblacion II, Mendez, Cavite",
+    venue: "St. Augustine Parish Church",
+    date: "March 06, 2026",
+    day: "Thursday",
+    time: "2:00 PM",
+    entourageTime: "1:30 PM",
+    guestsTime: "1:30 PM",
   },
   reception: {
-    location: "Hotel St. Ellis, Legazpi, Albay, Philippines",
-    venue: "Hotel St. Ellis",
-    date: "December 20, 2025",
+    location: "La Mariposa Tagaytay Events Place",
+    venue: "La Mariposa Tagaytay Events Place",
+    date: "March 06, 2026",
     time: "Reception to follow",
   },
   dressCode: {
-    theme: "Elegant Green Motif",
-    colors: ["#2D5016", "#4A7C59", "#6B9B7A", "#8FB99A", "#B8D5C3", "#D4E8D9", "#E8F5EB"],
+    theme: "Blush & Sand Motif",
+    colors: ["#FADDE0", "#E0B4B1", "#D2A4A4", "#F7E6CA", "#E9D5C3", "#D3B9A2"],
     sponsors: {
-      ladies: "Modern Filipiniana",
-      gentlemen: "Barong"
+      male: "Beige Barong, Black Pants and Leather Shoes",
+      female: "Beige/Gold Long Gown"
     },
     guests: {
-      ladies: "Long Gown/ cocktail dresses",
-      gentlemen: "Long Sleeves /Polo and Black slacks."
+      gents: "Polo & Pants (Strictly no Tshirt)",
+      ladies: "Formal Dress/Gown/Suit"
     },
-    note: "Please come in your best formal/semi-formal ensemble in shades of green"
+    note: "We kindly request our guests to dress in formal attire with a color of our motif."
   },
   narratives: {
-    groom: `In a quiet corner of the world, September 2015 became the beginning of a beautiful love story. Inside a small eatery near the railway, their eyes met for the first time. In that single moment, Marzan’s heart knew what words could not explain — he had found someone special. He gently looked at her ID and whispered her name, carrying it with him like a secret he never wanted to forget.
+    groom: `The first time Al saw Jhessa, time seemed to slow down. It was an ordinary day that instantly became unforgettable: one smile, one hello, and suddenly his world had a new center. He didn’t have the perfect words ready, but he knew he had met someone who felt like home.
 
-That night, in his apartment, he searched for her name on social media: Danica De Los Angeles. He sent her message after message, not caring if there was no reply, because hope was already growing quietly in his heart.
+Early conversations turned into late-night talks, sharing dreams, favorite meals, and whispered prayers for a future together. With every small adventure—coffee runs, long drives, quiet walks—Al found himself choosing her over and over again. He loved how she laughed freely, how she listened with her whole heart, and how her faith steadied him.
 
-Simple messages turned into long talks, and long talks turned into love. By January 29, 2016, their hearts chose each other, and they began their journey hand in hand.
+There were seasons of distance and long workdays, but every reunion reminded him why he stayed patient: because Jhessa was worth every mile and every minute apart. When he finally knelt to ask for her hand, it wasn’t a question of “if,” only “when can we start forever?”`,
+    bride: `Jhessa remembers the first time Al said her name. It was gentle but sure, a kindness that made her feel both seen and safe. In that softness, she found a partner who met her with the same grace she prayed to give.
 
-From that day forward, Marzan wanted only one thing — to be near her always. Whenever the world felt heavy and school became difficult, Nica became his light. She stood beside him, guided him, and helped him believe in himself, until they both became civil engineers, chasing dreams together.
+Al’s steadiness won her heart: the way he showed up, even when schedules were tight, and how he always found lightness in the small things. He celebrated her wins, held space for her worries, and never hesitated to choose “us” in every decision.
 
-Life tested them when Marzan couldn’t find work in Legazpi. With a heavy heart but a strong promise, he went to work in Masbate, promising Nica that distance would never change his love. And he proved it — every month, he came back to her, carrying pasalubong and a heart full of longing, just to see her smile.
-
-In December 2023, under a sky full of dreams, Marzan went down on one knee and asked Nica to be his forever. Because in his heart, there was no doubt — she was, and always would be, “the one.”
-
-By September 2024, Marzan was finally working in Legazpi again, and together, they began planning not just dreams, but a lifetime.
-
-Their love was never perfect, but it was real — built on patience, distance, promises, and a love that never let go.`,
-    bride: `It's a moment Nica will forever return to: the sound of Marzan's voice calling her name.
-
-She didn't know him then. They were strangers sharing space. But in that singular instant, Nica realized Marzan didn't just see her; he saw the truest, most unguarded version of her soul. In that recognition, their story began.
-
-That instant blossomed into nearly ten incredible years. Ten years of unwavering love, genuine care, and shared history. Every season they have navigated together has proven one enduring truth: Marzan is Nica's calm in every storm.
-
-His patience is not just a comfort Nica relies on; it is his quiet, powerful promise. A promise that he is staying, waiting, and never giving up. Marzan is, and always will be, her safe harbor.`,
+Now, as they prepare to say yes before God and the people they love most, Jhessa is grateful for the patience, humor, and hope Al brings to every day. She knows this next chapter is just the start of the love story they get to write together.`,
   },
   colors: {
     primary: "#4A7C59",
     secondary: "#8FB99A",
   },
   snapShare: {
-    googleDriveLink: "https://drive.google.com/drive/folders/1ijmtWwZEOUUZaip6kj8Pr6B61cBxF_PZ?usp=sharing",
+    googleDriveLink: "https://drive.google.com/drive/folders/1N-h4NW1Kov8GY2_lOiidPIwoDCz0CZNm?usp=sharing",
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }

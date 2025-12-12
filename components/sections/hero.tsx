@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react"
 import { motion } from "motion/react"
-import { Cormorant_Garamond, WindSong } from "next/font/google"
+import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import { siteConfig } from "@/content/site"
 
 const desktopImages = [
@@ -15,12 +15,12 @@ const desktopImages = [
 ]
 
 const mobileImages = [
-  "/mobile-background/couple (4).jpg",
-  "/mobile-background/couple (7).jpg",
-  "/mobile-background/couple (11).jpg",
-  "/mobile-background/couple (5).jpg",
   "/mobile-background/couple (1).jpg",
-  "/mobile-background/couple (13).jpg",
+  "/mobile-background/couple (2).jpg",
+  "/mobile-background/couple (3).jpg",
+  "/mobile-background/couple (4).jpg",
+  "/mobile-background/couple (5).jpg",
+  "/mobile-background/couple (6).jpg",
 ]
 
 const SHOW_BUTTERFLIES = false
@@ -30,9 +30,9 @@ const cormorant = Cormorant_Garamond({
   weight: ["400", "500", "600"],
 })
 
-const windSong = WindSong({
+const cinzel = Cinzel({
   subsets: ["latin"],
-  weight: "400",
+  weight: "700",
 })
 
 export function Hero() {
@@ -104,9 +104,14 @@ export function Hero() {
     siteConfig.wedding.date.split(" ")
   const weddingDayNumber = weddingDayRaw.replace(/[^0-9]/g, "") || "7"
   const ceremonyTime = siteConfig.wedding.time
+  const groomName = siteConfig.couple.groomNickname || siteConfig.couple.groom
+  const brideName = siteConfig.couple.brideNickname || siteConfig.couple.bride
+  const ceremonyDayShort = siteConfig.ceremony.day
+    ? siteConfig.ceremony.day.slice(0, 3).toUpperCase()
+    : "THU"
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#525E2C]">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#FADDE0]">
       <div className="absolute inset-0 w-full h-full">
         {imagesLoaded && backgroundImages.map((image, index) => (
           <div
@@ -123,8 +128,8 @@ export function Hero() {
             }}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#3D4636]/95 via-[#525E2C]/80 to-transparent z-0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#3D4636]/85 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#D3B9A2]/90 via-[#D3B9A2]/70 to-transparent z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#D3B9A2]/75 z-0" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(224,207,181,0.3),transparent_55%)] mix-blend-screen" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(240,240,238,0.28),transparent_35%)] opacity-70 animate-[pulse_9s_ease-in-out_infinite]" />
       </div>
@@ -472,7 +477,9 @@ export function Hero() {
                 textShadow: "0 0 24px rgba(0,0,0,0.9)",
               }}
             >
-              Marzan and Nica
+              <span className="block">{groomName}</span>
+              <span className="block">&</span>
+              <span className="block">{brideName}</span>
             </h1>
           </div>
 
@@ -482,7 +489,10 @@ export function Hero() {
               className={`${cormorant.className} flex flex-col items-center gap-1.5 sm:gap-2.5 md:gap-3 text-[#FDF8F5]/95`}
               style={{ textShadow: "0 4px 16px rgba(0,0,0,0.6)" }}
             >
-              <span className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] font-light">
+              <span
+                className={`${cinzel.className} text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] font-light text-white`}
+                style={{ textShadow: "0 2px 14px rgba(255,255,255,0.65)" }}
+              >
                 {weddingMonth}
               </span>
 
@@ -490,8 +500,11 @@ export function Hero() {
                 {/* Day of week & divider */}
               <div className="flex flex-1 items-center justify-end gap-1.5 sm:gap-2.5">
                   <span className="h-[0.5px] flex-1 bg-[#F0F0EE]/45" />
-                  <span className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light">
-                    Sat
+                  <span
+                    className={`${cinzel.className} text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light text-white`}
+                    style={{ textShadow: "0 2px 14px rgba(255,255,255,0.65)" }}
+                  >
+                    {ceremonyDayShort}
                   </span>
                   <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-[#F0F0EE]/45" />
                 </div>
@@ -503,16 +516,10 @@ export function Hero() {
                     className="absolute inset-0 mx-auto h-[70%] max-h-[180px] w-[100px] sm:w-[140px] md:w-[170px] rounded-full bg-gradient-to-b from-[#F7DC63]/30 via-[#DEB73E]/20 to-transparent blur-[28px] opacity-80"
                   />
                   <span
-                    className={`${cormorant.className} relative text-[4rem] sm:text-[5.5rem] md:text-[6.5rem] lg:text-[7rem] font-light leading-none tracking-wider`}
+                    className={`${cinzel.className} relative text-[4rem] sm:text-[5.5rem] md:text-[6.5rem] lg:text-[7rem] font-light leading-none tracking-wider text-white`}
                     style={{
-                      background: "linear-gradient(180deg, #F7DC63 0%, #DEB73E 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                      textShadow:
-                        "0 0 20px rgba(247,220,99,0.5), 0 0 40px rgba(222,183,62,0.4), 0 4px 22px rgba(0,0,0,0.6)",
-                      filter:
-                        "drop-shadow(0 0 30px rgba(247,220,99,0.6)) drop-shadow(0 0 50px rgba(222,183,62,0.5))",
+                      textShadow: "0 0 22px rgba(255,255,255,0.9), 0 0 40px rgba(255,255,255,0.7)",
+                      filter: "drop-shadow(0 0 26px rgba(255,255,255,0.65))",
                     }}
                   >
                     {weddingDayNumber}
@@ -522,14 +529,20 @@ export function Hero() {
                 {/* Time */}
                 <div className="flex flex-1 items-center gap-1.5 sm:gap-2.5">
                   <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-[#F0F0EE]/45" />
-                  <span className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light">
+                  <span
+                    className={`${cinzel.className} text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light text-white`}
+                    style={{ textShadow: "0 2px 14px rgba(255,255,255,0.65)" }}
+                  >
                     {ceremonyTime.split(",")[0]}
                   </span>
                   <span className="h-[0.5px] flex-1 bg-[#FDF8F5]/45" />
                 </div>
               </div>
 
-              <span className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] font-light">
+              <span
+                className={`${cinzel.className} text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] font-light text-white`}
+                style={{ textShadow: "0 2px 14px rgba(255,255,255,0.65)" }}
+              >
                 {weddingYear}
               </span>
             </div>
@@ -538,7 +551,7 @@ export function Hero() {
           {/* Venue */}
           <div className="space-y-1 sm:space-y-1.5 pt-1 sm:pt-2">
             <p
-              className={`${cormorant.className} text-xs sm:text-sm md:text-base lg:text-lg uppercase tracking-[0.22em] sm:tracking-[0.26em] md:tracking-[0.3em] text-[#F0F0EE] font-medium`}
+              className={`${cinzel.className} text-xs sm:text-sm md:text-base lg:text-lg uppercase tracking-[0.22em] sm:tracking-[0.26em] md:tracking-[0.3em] text-[#F0F0EE] font-medium`}
               style={{
                 textShadow: "0 2px 18px rgba(0,0,0,0.9)",
               }}
@@ -546,7 +559,7 @@ export function Hero() {
               {siteConfig.ceremony.venue}
             </p>
             <p
-              className={`${cormorant.className} text-[0.6rem] sm:text-[0.7rem] md:text-xs lg:text-sm tracking-[0.15em] sm:tracking-[0.18em] text-[#F0F0EE]/90 font-light px-4 sm:px-8 md:px-12`}
+              className={`${cinzel.className} text-[0.6rem] sm:text-[0.7rem] md:text-xs lg:text-sm tracking-[0.15em] sm:tracking-[0.18em] text-[#F0F0EE]/90 font-light px-4 sm:px-8 md:px-12`}
               style={{
                 textShadow: "0 2px 12px rgba(0,0,0,0.7)",
               }}
@@ -558,7 +571,7 @@ export function Hero() {
           {/* Call-to-action section */}
           <div className="pt-3 sm:pt-4 md:pt-5 flex flex-col gap-3 sm:gap-4 items-center max-w-2xl mx-auto w-full px-4">
             <p
-              className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm lg:text-base uppercase tracking-[0.24em] sm:tracking-[0.28em] text-[#F0F0EE]/95 font-normal leading-relaxed text-center px-4`}
+              className={`${cinzel.className} text-[0.7rem] sm:text-xs md:text-sm lg:text-base uppercase tracking-[0.24em] sm:tracking-[0.28em] text-[#F0F0EE]/95 font-normal leading-relaxed text-center px-4`}
               style={{
                 textShadow: "0 2px 14px rgba(0,0,0,0.7)",
               }}
@@ -570,48 +583,43 @@ export function Hero() {
             <div className="w-full flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch">
             <a
               href="#guest-list"
-              className={`${cormorant.className} group relative flex-1 sm:min-w-[200px] md:min-w-[220px] rounded-lg overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.45)] focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FDECEF]/50`}
+              className={`${cormorant.className} group relative flex-1 sm:min-w-[200px] md:min-w-[220px] rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D2A4A4]/70`}
               style={{
-                boxShadow: "0 10px 30px rgba(0,0,0,0.55)",
+                backgroundColor: "#D2A4A4",
+                boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#3D4636";
-                e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.boxShadow = "0 14px 40px rgba(0,0,0,0.7)";
+                e.currentTarget.style.backgroundColor = "#C79090";
+                e.currentTarget.style.boxShadow = "0 12px 28px rgba(0,0,0,0.4)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(82, 94, 44, 0.95)";
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.55)";
+                e.currentTarget.style.backgroundColor = "#D2A4A4";
+                e.currentTarget.style.boxShadow = "0 10px 24px rgba(0,0,0,0.35)";
               }}
             >
-              <span
-                aria-hidden
-                className="absolute inset-0 rounded-lg bg-gradient-to-r from-[#525E2C] to-[#909E8D] transition-all duration-500 group-hover:from-[#909E8D] group-hover:to-[#525E2C]"
-              />
-              <span className="relative z-10 inline-flex h-full min-h-[3rem] sm:min-h-[3.25rem] w-full items-center justify-center px-6 sm:px-8 text-[0.65rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.32em] sm:tracking-[0.36em] text-[#FDF8F5] font-semibold transition-all duration-300">
+              <span className="relative z-10 inline-flex h-full min-h-[3rem] sm:min-h-[3.25rem] w-full items-center justify-center px-6 sm:px-8 text-[0.65rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.32em] sm:tracking-[0.36em] text-[#2F1C1C] font-semibold transition-all duration-300" style={{ textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}>
                 Confirm Attendance
               </span>
-              <div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12 group-hover:translate-x-full"
-                style={{ width: "50%", left: "-100%" }}
-              />
             </a>
             <a
-              href="#narrative"
-              className={`${cormorant.className} group relative flex-1 sm:min-w-[200px] md:min-w-[220px] rounded-lg overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)] focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FDECEF]/50`}
+              href="#messages"
+              className={`${cormorant.className} group relative flex-1 sm:min-w-[200px] md:min-w-[220px] rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FADDE0]/60`}
+              style={{
+                backgroundColor: "#FADDE0",
+                boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#F3C5CA";
+                e.currentTarget.style.boxShadow = "0 12px 28px rgba(0,0,0,0.4)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "#FADDE0";
+                e.currentTarget.style.boxShadow = "0 10px 24px rgba(0,0,0,0.35)";
+              }}
             >
-              <span
-                aria-hidden
-                className="absolute inset-0 rounded-lg bg-transparent border-2 border-[#E0CFB5] transition-all duration-500 group-hover:bg-[#E0CFB5]/10"
-              />
-              <span className="relative z-10 inline-flex h-full min-h-[3rem] sm:min-h-[3.25rem] w-full items-center justify-center px-6 sm:px-8 text-[0.65rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.32em] sm:tracking-[0.36em] text-[#F0F0EE] font-semibold transition-all duration-300">
+              <span className="relative z-10 inline-flex h-full min-h-[3rem] sm:min-h-[3.25rem] w-full items-center justify-center px-6 sm:px-8 text-[0.65rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.32em] sm:tracking-[0.36em] text-[#2F1C1C] font-semibold transition-all duration-300" style={{ textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}>
                 Read Our Story
               </span>
-              <div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12 group-hover:translate-x-full"
-                style={{ width: "50%", left: "-100%" }}
-              />
             </a>
             </div>
           </div>

@@ -18,74 +18,49 @@ interface FAQItem {
 
 const faqItems: FAQItem[] = [
   {
-    question: "When is the wedding?",
+    question: "Is there a dress code?",
     answer:
-      `Our wedding will be held on ${siteConfig.ceremony.date}. The wedding ceremony will start at exactly ${siteConfig.ceremony.time}. We kindly ask guests to arrive by ${siteConfig.ceremony.guestsTime} to help us begin promptly.`,
-  },
-  {
-    question: "Where will the ceremony and reception take place?",
-    answer:
-      `The ceremony will be held at ${siteConfig.ceremony.venue}, ${siteConfig.ceremony.location}. The reception will be held at ${siteConfig.reception.venue}, ${siteConfig.reception.location}. You can find directions and copy the addresses in the Details section above.`,
-  },
-  {
-    question: "How do I RSVP?",
-    answer:
-      `Please search for your name in the RSVP section above and follow the instructions to confirm your attendance. If you cannot find your name, you can request to join the guest list in the RSVP section.`,
-  },
-  {
-    question: "What time should I arrive?",
-    answer:
-      `Kindly arrive by ${siteConfig.ceremony.guestsTime} so we can begin the ceremony promptly at exactly ${siteConfig.ceremony.time}. Your punctuality means so much to us — and don't forget to have a light snack beforehand so you can enjoy the celebration comfortably!`,
-  },
-  {
-    question: "What should I wear?",
-    answer:
-      `Formal attire is lovingly encouraged. Our motif is ${siteConfig.dressCode.motif}. For guests, semi-formal or formal attire in shades of green is warmly encouraged. We kindly request no all-white dresses, jeans, or shorts.`,
+      `We kindly request our guests to dress in formal attire with a color of our motif. Please see the Attire section for details.\n\nMale Sponsor: ${siteConfig.dressCode.sponsors.male}\nFemale Sponsor: ${siteConfig.dressCode.sponsors.female}\nGents: ${siteConfig.dressCode.guests.gents}\nLadies: ${siteConfig.dressCode.guests.ladies}`,
   },
   {
     question: "Can I bring a plus one?",
     answer:
-      "The seating will be formal, RSVP-style. That's why we're asking you to fill out this invitation form to secure your spot. Kindly do not bring plus ones unless explicitly stated in your invitation.",
+      "We'd love to include everyone, but due to limited space and resources, we kindly ask that only those we've personally invited join us for the celebration.",
   },
   {
     question: "Is there parking available?",
     answer:
-      "Yes! Parking is available at the venue. Please arrive early to find a comfortable spot. Private vehicles and local transport are welcome.",
+      "Yes, parking is available at the venue.",
   },
   {
-    question: "How do I get directions to the venues?",
+    question: "How do I RSVP?",
     answer:
-      "You can find directions in the Details section above. Simply click the 'Get Directions' button on either the ceremony or reception card, and it will open Google Maps with the location. You can also copy the address to use in your preferred navigation app.",
+      `Please RSVP on or before December 31, 2025 through the RSVP section on this invitation. We kindly ask for your response to help us prepare for the big day.`,
   },
   {
-    question: "Can I take photos during the ceremony?",
+    question: "Will there be assigned seating?",
     answer:
-      "This is an unplugged ceremony. We kindly ask guests to refrain from using phones or cameras during the ceremony so everyone can be fully present. Our professional photographers will capture every moment and we'll share the photos afterward.",
+      "Yes, there will be assigned seating, and our reception team will gladly guide you to your table so you can relax and enjoy the celebration.",
   },
   {
-    question: "What if I have dietary restrictions or allergies?",
+    question: "What should I give as a gift?",
     answer:
-      "Please mention any dietary restrictions, allergies, or special meal requirements in the message field when you submit your RSVP. We want to ensure everyone can enjoy the celebration comfortably!",
+      "With all that we have, we are truly blessed, your presence and prayers are what we request. But if you desire to give nonetheless, monetary gift is the one we humbly suggest.",
   },
   {
-    question: "Will there be transportation provided?",
+    question: "When is the wedding?",
     answer:
-      "Private vehicles and local transport are welcome. We recommend coordinating with friends or family and planning your route ahead of time. Please plan your route ahead to avoid unexpected delays.",
+      `Our wedding will be held on ${siteConfig.ceremony.date} at ${siteConfig.ceremony.time}. We kindly ask guests to arrive by ${siteConfig.ceremony.guestsTime} to help us begin promptly.`,
   },
   {
-    question: "What happens after the ceremony?",
+    question: "Where will the ceremony and reception take place?",
     answer:
-      `The reception will follow after the ceremony at ${siteConfig.reception.venue}, ${siteConfig.reception.location}. The seating will be formal, RSVP-style, so please make sure you've confirmed your attendance through the RSVP form.`,
+      `The ceremony will be held at ${siteConfig.ceremony.location}. The reception will be held at ${siteConfig.reception.location}. You can find directions and copy the addresses in the Details section above.`,
   },
   {
-    question: "Are children welcome?",
+    question: "What time should I arrive?",
     answer:
-      "We love children, but due to the formal nature of our celebration and limited seating, we kindly ask that only children explicitly included in your invitation attend. If you have questions about this, please reach out to us.",
-  },
-  {
-    question: "What if I can't attend?",
-    answer:
-      "We completely understand if you cannot attend. Please still RSVP to let us know, and feel free to leave a message for Marzan and Nica. Your presence will be missed, but your well wishes mean the world to us!",
+      `Kindly arrive by ${siteConfig.ceremony.guestsTime} so we can begin the ceremony promptly at exactly ${siteConfig.ceremony.time}. Your punctuality means so much to us!`,
   },
 ]
 
@@ -99,17 +74,17 @@ export function FAQ() {
   return (
     <Section
       id="faq"
-      className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#525E2C]"
+      className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#D2A4A4]"
     >
       {/* Background elements with elegant sage green motif (aligned with narrative section) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Vertical sage gradients to frame the FAQ */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#3D4636]/92 via-[#525E2C]/78 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#3D4636]/95 via-[#525E2C]/72 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#D3B9A2]/92 via-[#D2A4A4]/78 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#D3B9A2]/95 via-[#D2A4A4]/72 to-transparent" />
         {/* Soft radial light in warm neutrals */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(224,207,181,0.28),transparent_55%)] opacity-90" />
         {/* Subtle diagonal wash of muted sage */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#6E7A61]/24 via-transparent to-[#E0CFB5]/12 mix-blend-soft-light" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#6E7A61]/24 via-transparent to-[#F7E6CA]/12 mix-blend-soft-light" />
       </div>
 
       {/* Section Header */}
@@ -140,7 +115,7 @@ export function FAQ() {
       {/* FAQ content */}
       <div className="relative z-30 max-w-4xl mx-auto px-3 sm:px-5">
         {/* Main card */}
-        <div className="relative bg-white/10 backdrop-blur-md border border-[#E0CFB5]/60 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] overflow-hidden">
+        <div className="relative bg-white/10 backdrop-blur-md border border-[#F7E6CA]/60 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] overflow-hidden">
           {/* FAQ items */}
           <div className="relative p-2.5 sm:p-4 md:p-5 lg:p-6">
             <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
@@ -150,7 +125,7 @@ export function FAQ() {
                 return (
                   <div
                     key={index}
-                    className="rounded-lg sm:rounded-xl border border-[#E0CFB5]/40 bg-white/5 backdrop-blur-sm hover:border-[#E0CFB5]/70 hover:bg-white/10 transition-all duration-300 hover:shadow-md overflow-hidden"
+                    className="rounded-lg sm:rounded-xl border border-[#F7E6CA]/40 bg-white/5 backdrop-blur-sm hover:border-[#F7E6CA]/70 hover:bg-white/10 transition-all duration-300 hover:shadow-md overflow-hidden"
                   >
                     <button
                       onClick={() => toggleItem(index)}
@@ -176,7 +151,7 @@ export function FAQ() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <div className="px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 bg-white/5 border-t border-[#E0CFB5]/30">
+                        <div className="px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 bg-white/5 border-t border-[#F7E6CA]/30">
                           {item.answer.includes("[RSVP_LINK]") ? (
                             <p className={`${cormorant.className} text-white/95 leading-snug sm:leading-relaxed text-xs sm:text-sm md:text-base whitespace-pre-line`}>
                               {item.answer.split("[RSVP_LINK]")[0]}

@@ -1,70 +1,96 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Great_Vibes, Inter, Imperial_Script } from "next/font/google"
+import { Great_Vibes, Inter, Imperial_Script, Cinzel } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
-import { Navbar } from "@/components/navbar"
+import { siteConfig } from "@/content/site"
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://marzan-and-nica-wedding.vercel.app/"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://AlJosef-and-JhessaMay-wedding-invitation.vercel.app/"
 const canonicalUrl = siteUrl.replace(/\/$/, "")
-const eventImagePath = "/desktop-background/couple (13).jpg"
-const eventImageUrl = `${canonicalUrl}${eventImagePath}`
-const eventTitle = "Marzan & Nica - Wedding Invitation"
-const eventDescription =
-  "Celebrate the wedding of Marzan and Nica on December 20, 2025 at Daraga Church, Legazpi. RSVP, explore their story, and find everything you need to join the celebration."
+const desktopHero = "/Details/linkPreview.jpg"
+const mobileHero = "/Details/linkPreview.jpg"
+const eventImageUrl = `${canonicalUrl}${desktopHero}`
+
+const coupleNames = `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}`
+const eventTitle = `${coupleNames} - Wedding Invitation`
+const eventDescription = `Celebrate the wedding of ${siteConfig.couple.groomNickname} and ${siteConfig.couple.brideNickname} on ${siteConfig.wedding.date} at ${siteConfig.ceremony.venue}. RSVP, explore their story, and find everything you need to join the celebration.`
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Event",
-  name: "Marzan & Nica Wedding",
-  startDate: "2025-12-20T10:30:00+08:00",
-  endDate: "2025-12-20T18:00:00+08:00",
+  name: `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} Wedding`,
+  startDate: "2026-03-06T14:00:00+08:00",
+  endDate: "2026-03-06T22:00:00+08:00",
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   location: [
     {
       "@type": "Place",
-      name: "Daraga Church",
+      name: siteConfig.ceremony.venue,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Daraga Church",
-        addressLocality: "Legazpi",
-        addressRegion: "Albay",
+        streetAddress: siteConfig.ceremony.venue,
+        addressLocality: siteConfig.ceremony.location,
+        addressRegion: siteConfig.ceremony.location,
+        addressCountry: "PH",
+      },
+    },
+    {
+      "@type": "Place",
+      name: siteConfig.reception.venue,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: siteConfig.reception.location,
+        addressLocality: siteConfig.reception.location,
+        addressRegion: siteConfig.reception.location,
         addressCountry: "PH",
       },
     },
   ],
   image: [eventImageUrl],
   description:
-    "You're invited to the wedding of Marzan & Nica on December 20, 2025 at Daraga Church, Legazpi. Find ceremony and reception details, RSVP information, and their full love story.",
+    `You're invited to celebrate the wedding of ${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}. Discover ceremony and reception details, RSVP, and explore their story.`,
   organizer: {
     "@type": "Person",
-    name: "Marzan & Nica",
+    name: coupleNames,
   },
-  eventHashtag: "#MarzanAndNicaSayIDo",
+  eventHashtag: `#${siteConfig.couple.groomNickname}And${siteConfig.couple.brideNickname}SayIDo`,
 }
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "--font-serif" })
 const imperialScript = Imperial_Script({ subsets: ["latin"], weight: "400", variable: "--font-imperial-script" })
+const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-cinzel" })
 
 export const metadata: Metadata = {
-  title: eventTitle,
+  metadataBase: new URL(canonicalUrl),
+  title: {
+    default: eventTitle,
+    template: `%s | ${coupleNames}`,
+  },
   description: eventDescription,
   keywords:
-    "Marzan Nica wedding, Daraga Church wedding, Hotel St. Ellis wedding, Legazpi wedding, wedding invitation, RSVP, wedding gallery, message wall, love story, #MarzanAndNicaSayIDo",
+    `${siteConfig.couple.groomNickname} ${siteConfig.couple.brideNickname} wedding, ${siteConfig.ceremony.venue} wedding, ${siteConfig.reception.venue} wedding, wedding invitation, RSVP, wedding gallery, message wall, love story, #${siteConfig.couple.groomNickname}And${siteConfig.couple.brideNickname}SayIDo`,
+  applicationName: `${coupleNames} Wedding Invitation`,
   authors: [
-    { name: "Marzan" },
-    { name: "Nica" },
+    { name: siteConfig.couple.groomNickname },
+    { name: siteConfig.couple.brideNickname },
   ],
-  creator: "Marzan & Nica",
-  publisher: "Marzan & Nica",
+  creator: coupleNames,
+  publisher: coupleNames,
+  category: "Event",
   formatDetection: {
     email: false,
     address: false,
     telephone: true,
   },
-  metadataBase: new URL(canonicalUrl),
+  colorScheme: "light",
+  themeColor: "#D2A4A4",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    viewportFit: "cover",
+  },
   alternates: {
     canonical: canonicalUrl,
   },
@@ -76,42 +102,38 @@ export const metadata: Metadata = {
     shortcut: "/favicon_io/favicon.ico",
     apple: "/favicon_io/apple-touch-icon.png",
     other: [
-      {
-        rel: "android-chrome-192x192",
-        url: "/favicon_io/android-chrome-192x192.png",
-      },
-      {
-        rel: "android-chrome-512x512",
-        url: "/favicon_io/android-chrome-512x512.png",
-      },
+      { rel: "android-chrome-192x192", url: "/favicon_io/android-chrome-192x192.png" },
+      { rel: "android-chrome-512x512", url: "/favicon_io/android-chrome-512x512.png" },
     ],
   },
   manifest: "/favicon_io/site.webmanifest",
   openGraph: {
-    title: "Marzan & Nica Wedding | December 20, 2025",
+    title: `${coupleNames} | ${siteConfig.wedding.date}`,
     description:
-      "Celebrate the union of Marzan & Nica on December 20, 2025 at Daraga Church, Legazpi. Discover their story, RSVP, and find important details for the ceremony and reception.",
+      `Celebrate the union of ${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} on ${siteConfig.wedding.date}. Discover their story, RSVP, and find important details for the ceremony and reception.`,
     url: canonicalUrl,
-    siteName: "Marzan and Nica Wedding",
+    siteName: `${coupleNames} Wedding`,
     locale: "en_PH",
     type: "website",
     images: [
-      // TODO: Replace with a real hosted image URL when available
       {
         url: eventImageUrl,
+        secureUrl: eventImageUrl,
         width: 1200,
         height: 630,
-        alt: "Marzan & Nica Wedding Invitation - December 20, 2025",
+        type: "image/jpeg",
+        alt: `${coupleNames} Wedding Invitation - ${siteConfig.wedding.date}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marzan & Nica Wedding Invitation",
+    title: `${coupleNames} Wedding Invitation`,
     description:
-      "You're invited to the wedding of Marzan & Nica on December 20, 2025. RSVP, explore their story, and get all the details for the big day! #MarzanAndNicaSayIDo",
+      `You're invited to the wedding of ${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} on ${siteConfig.wedding.date}. RSVP, explore their story, and get all the details for the big day! #${siteConfig.couple.groomNickname}And${siteConfig.couple.brideNickname}SayIDo`,
     images: [eventImageUrl],
-    creator: "@marzanandnica",
+    creator: `@${siteConfig.couple.groomNickname}And${siteConfig.couple.brideNickname}`,
+    site: `@${siteConfig.couple.groomNickname}And${siteConfig.couple.brideNickname}`,
   },
   robots: {
     index: true,
@@ -124,11 +146,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-site-verification",
-  },
-  other: {
-    "application/ld+json": JSON.stringify(jsonLd),
+  appleWebApp: {
+    title: coupleNames,
+    statusBarStyle: "default",
+    capable: true,
   },
 }
 
@@ -140,17 +161,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#525E2C" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="color-scheme" content="light" />
+        <meta name="theme-color" content="#D2A4A4" />
+        <meta name="format-detection" content="telephone=yes,email=no,address=no" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet" />
-        <link rel="preload" as="image" href="/mobile-background/DSCF2614-min.jpg" media="(max-width: 767px)" />
-        <link rel="preload" as="image" href="/desktop-background/DSCF2444-min.jpg" media="(min-width: 768px)" />
+        <link rel="preload" as="image" href={mobileHero} media="(max-width: 767px)" />
+        <link rel="preload" as="image" href={desktopHero} media="(min-width: 768px)" />
+        <link rel="preload" as="image" href="/Details/St. Augustine Parish Church.jpg" />
+        <link rel="preload" as="image" href="/Details/La Mariposa Tagaytay Events Place.jpg" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
-      <body className={`${inter.variable} ${greatVibes.variable} ${imperialScript.variable} font-inter antialiased text-foreground`}>
-        <Navbar />
+      <body
+        className={`${inter.variable} ${greatVibes.variable} ${imperialScript.variable} ${cinzel.variable} font-inter antialiased text-foreground`}
+      >
         {children}
         <Analytics />
       </body>

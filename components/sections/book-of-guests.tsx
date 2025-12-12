@@ -92,17 +92,17 @@ export function BookOfGuests() {
   return (
     <div
       id="guests"
-      className="relative z-10 bg-[#525E2C] py-6 sm:py-12 md:py-16 lg:py-20 overflow-hidden isolate"
+      className="relative z-10 bg-[#D2A4A4] py-6 sm:py-12 md:py-16 lg:py-20 overflow-hidden isolate"
     >
       {/* Background elements with elegant sage green motif (aligned with narrative section) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Vertical sage gradients to frame the guest book */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#3D4636]/92 via-[#525E2C]/78 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#3D4636]/95 via-[#525E2C]/72 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#D3B9A2]/92 via-[#D2A4A4]/78 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#D3B9A2]/95 via-[#D2A4A4]/72 to-transparent" />
         {/* Soft radial light in warm neutrals */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(224,207,181,0.28),transparent_55%)] opacity-90" />
         {/* Subtle diagonal wash of muted sage */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#6E7A61]/24 via-transparent to-[#E0CFB5]/12 mix-blend-soft-light" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#6E7A61]/24 via-transparent to-[#F7E6CA]/12 mix-blend-soft-light" />
       </div>
 
       {/* Section Header */}
@@ -128,11 +128,11 @@ export function BookOfGuests() {
 
         {/* Decorative element below subtitle */}
         <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-2 sm:mt-3 md:mt-4 lg:mt-5">
-          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-gradient-to-r from-transparent via-[#D1AB6D] to-transparent" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#E0CFB5]/90 rounded-full" />
+          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-gradient-to-r from-transparent via-[#E9D5C3] to-transparent" />
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#F7E6CA]/90 rounded-full" />
           <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white/85 rounded-full" />
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#E0CFB5]/90 rounded-full" />
-          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-gradient-to-l from-transparent via-[#D1AB6D] to-transparent" />
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#F7E6CA]/90 rounded-full" />
+          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-gradient-to-l from-transparent via-[#E9D5C3] to-transparent" />
         </div>
       </div>
 
@@ -141,11 +141,11 @@ export function BookOfGuests() {
         {/* Stats card */}
         <div className="text-center mb-4 sm:mb-6 md:mb-8 px-3 sm:px-4 md:px-6">
           <div className="relative max-w-3xl mx-auto">
-            <div className="relative bg-[#F7F5F1]/95 backdrop-blur-md border border-[#E0CFB5]/80 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)] overflow-hidden">
+            <div className="relative bg-[#F7F5F1]/95 backdrop-blur-md border border-[#F7E6CA]/80 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)] overflow-hidden">
               {/* Content */}
               <div className="relative">
                 <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                  <div className="bg-[#525E2C] p-1.5 sm:p-2 rounded-full shadow-lg border border-[#E0CFB5]/80">
+                  <div className="bg-[#D2A4A4] p-1.5 sm:p-2 rounded-full shadow-lg border border-[#F7E6CA]/80">
                     <Heart className="text-[#F0F0EE] h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
                   </div>
                   <div className="flex flex-col items-center">
@@ -167,12 +167,12 @@ export function BookOfGuests() {
 
         {/* Guest list container */}
         <div className="max-w-5xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-          <div className="relative bg-[#F7F5F1]/95 backdrop-blur-md border border-[#E0CFB5]/80 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)] overflow-hidden">
+          <div className="relative bg-[#F7F5F1]/95 backdrop-blur-md border border-[#F7E6CA]/80 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)] overflow-hidden">
             
             {isLoading ? (
               <div className="flex items-center justify-center py-12 sm:py-16">
                 <div className="flex flex-col items-center gap-3">
-                  <Loader2 className="h-8 w-8 sm:h-10 sm:w-10 animate-spin text-[#525E2C]" />
+                  <Loader2 className="h-8 w-8 sm:h-10 sm:w-10 animate-spin text-[#D2A4A4]" />
                   <span className={`${cormorant.className} text-[#37413A] text-sm sm:text-base`}>Loading guests...</span>
                 </div>
               </div>
@@ -186,8 +186,8 @@ export function BookOfGuests() {
             ) : guests.length === 0 ? (
               <div className="flex items-center justify-center py-12 sm:py-16">
                 <div className="text-center">
-                  <div className="bg-[#F0F0EE] w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md border border-[#E0CFB5]">
-                    <Heart className="h-6 w-6 sm:h-7 sm:h-7 text-[#525E2C]" />
+                  <div className="bg-[#F0F0EE] w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md border border-[#F7E6CA]">
+                    <Heart className="h-6 w-6 sm:h-7 sm:h-7 text-[#D2A4A4]" />
                   </div>
                   <h3 className={`${cormorant.className} text-base sm:text-lg md:text-xl font-semibold text-[#243127] mb-2`}>
                     No guests have RSVP&apos;d yet
@@ -202,12 +202,12 @@ export function BookOfGuests() {
                 {guests.map((guest, index) => (
                   <div
                     key={index}
-                    className="group relative bg-white/70 backdrop-blur-sm rounded-md sm:rounded-lg p-2.5 sm:p-3 md:p-4 border border-[#E0CFB5]/80 hover:border-[#D1AB6D] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:bg-white"
+                    className="group relative bg-white/70 backdrop-blur-sm rounded-md sm:rounded-lg p-2.5 sm:p-3 md:p-4 border border-[#F7E6CA]/80 hover:border-[#E9D5C3] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:bg-white"
                   >
                     <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                       {/* Avatar */}
                       <div className="relative h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 flex-shrink-0">
-                        <div className="h-full w-full rounded-full bg-[#525E2C] text-[#F0F0EE] flex items-center justify-center font-semibold shadow-md ring-2 ring-[#E0CFB5]/70 text-[10px] sm:text-xs md:text-sm">
+                        <div className="h-full w-full rounded-full bg-[#D2A4A4] text-[#F0F0EE] flex items-center justify-center font-semibold shadow-md ring-2 ring-[#F7E6CA]/70 text-[10px] sm:text-xs md:text-sm">
                           {getInitials(guest.Name)}
                         </div>
                       </div>
@@ -221,15 +221,15 @@ export function BookOfGuests() {
                             </h4>
                             {guest.Email && guest.Email !== "Pending" && (
                               <div className="flex items-center text-[10px] sm:text-xs text-[#556457]">
-                                <Mail className="h-2.5 w-2.5 sm:h-3 sm:w-3 mr-1 text-[#909E8D] flex-shrink-0" />
+                                <Mail className="h-2.5 w-2.5 sm:h-3 sm:w-3 mr-1 text-[#E0B4B1] flex-shrink-0" />
                                 <span className={`${cormorant.className} break-all truncate`}>{guest.Email}</span>
                               </div>
                             )}
                           </div>
                           {/* Guest count badge */}
                           <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
-                            <User className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#525E2C] flex-shrink-0" />
-                            <span className={`${cormorant.className} inline-flex items-center justify-center px-2 sm:px-2.5 py-0.5 sm:py-1 bg-[#F0F0EE] text-[#243127] rounded-full text-[10px] sm:text-xs font-semibold border border-[#E0CFB5] whitespace-nowrap`}>
+                            <User className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#D2A4A4] flex-shrink-0" />
+                            <span className={`${cormorant.className} inline-flex items-center justify-center px-2 sm:px-2.5 py-0.5 sm:py-1 bg-[#F0F0EE] text-[#243127] rounded-full text-[10px] sm:text-xs font-semibold border border-[#F7E6CA] whitespace-nowrap`}>
                               {guest.Guest ? (parseInt(String(guest.Guest)) || 1) : 1} {parseInt(String(guest.Guest || '1')) === 1 ? 'guest' : 'guests'}
                             </span>
                           </div>
@@ -237,9 +237,9 @@ export function BookOfGuests() {
                         
                         {/* Message */}
                         {guest.Message && (
-                          <div className="mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-[#E0CFB5]/60">
+                          <div className="mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-[#F7E6CA]/60">
                             <div className="flex items-start gap-1.5 sm:gap-2">
-                              <MessageSquare className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#909E8D] flex-shrink-0 mt-0.5" />
+                              <MessageSquare className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#E0B4B1] flex-shrink-0 mt-0.5" />
                               <p className={`${cormorant.className} text-[10px] sm:text-xs md:text-sm text-[#37413A] leading-relaxed italic flex-1`}>
                                 "{guest.Message}"
                               </p>

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Section } from "@/components/section"
 import Image from "next/image"
 import { motion } from "motion/react"
-import { Cormorant_Garamond } from "next/font/google"
+import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import { siteConfig } from "@/content/site"
 import Counter from "@/components/Counter"
 
@@ -25,6 +25,11 @@ const cormorant = Cormorant_Garamond({
   weight: ["400", "500", "600"],
 })
 
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["700"],
+})
+
 function CountdownUnit({ value, label }: CountdownUnitProps) {
   const places = value >= 100 ? [100, 10, 1] : [10, 1]
 
@@ -33,18 +38,19 @@ function CountdownUnit({ value, label }: CountdownUnitProps) {
       {/* Elegant card with subtle hover glow */}
       <div className="relative w-full max-w-[88px] sm:max-w-[96px] md:max-w-[110px] lg:max-w-[120px] group">
         {/* Glow on hover */}
-        <div className="pointer-events-none absolute -inset-[3px] rounded-2xl bg-gradient-to-br from-[#D1AB6D]/28 via-[#9B7C6A]/18 to-transparent opacity-0 blur-md transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="pointer-events-none absolute -inset-[3px] rounded-2xl bg-gradient-to-br from-[#E9D5C3]/28 via-[#9B7C6A]/18 to-transparent opacity-0 blur-md transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="pointer-events-none absolute inset-0 rounded-2xl bg-white/5 blur-xl opacity-70" />
 
         {/* Main card */}
         <div className="relative rounded-xl sm:rounded-2xl border border-white/40/80 bg-white/95/90 px-2.5 py-2.5 sm:px-3.5 sm:py-3.5 md:px-4 md:py-4 shadow-[0_12px_32px_rgba(0,0,0,0.45)]">
-          <div className="relative z-10 flex items-center justify-center countdown-gradient-text">
+          <div className="relative z-10 flex items-center justify-center text-white">
             <Counter
               value={value}
               places={places}
               fontSize={26}
               padding={4}
               gap={2}
-              textColor="transparent"
+              textColor="#fff"
               fontWeight={800}
               borderRadius={6}
               horizontalPadding={3}
@@ -53,10 +59,16 @@ function CountdownUnit({ value, label }: CountdownUnitProps) {
               gradientTo="transparent"
               counterStyle={{
                 backgroundColor: "transparent",
+                textShadow:
+                  "0 0 12px rgba(255,255,255,0.55), 0 0 24px rgba(255,255,255,0.35), 0 4px 12px rgba(0,0,0,0.35)",
+                filter: "drop-shadow(0 0 10px rgba(255,255,255,0.3))",
               }}
               digitStyle={{
                 minWidth: "1.15ch",
                 fontFamily: "Arial, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                color: "#fff",
+                textShadow:
+                  "0 0 10px rgba(255,255,255,0.6), 0 0 20px rgba(255,255,255,0.35), 0 2px 8px rgba(0,0,0,0.35)",
               }}
             />
           </div>
@@ -76,6 +88,9 @@ export function Countdown() {
   const ceremonyTimeDisplay = siteConfig.ceremony.time
   const [ceremonyMonth = "June", ceremonyDayRaw = "7", ceremonyYear = "2026"] = ceremonyDate.split(" ")
   const ceremonyDayNumber = ceremonyDayRaw.replace(/[^0-9]/g, "") || "7"
+  const { brideNickname, groomNickname } = siteConfig.couple
+  const ceremonyDay = siteConfig.ceremony.day || "Thursday"
+  const ceremonyDayShort = ceremonyDay.slice(0, 3).toUpperCase()
   
   // Parse the date: December 20, 2025 at 10:30 AM PH Time (GMT+0800)
   // Extract time from "10:30 A.M., PH Time" -> "10:30 A.M."
@@ -159,6 +174,9 @@ export function Countdown() {
       id="countdown"
       className="relative bg-transparent py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
+      {/* Soft overlay for readability */}
+      <div className="pointer-events-none absolute inset-0 bg-[#D2A4A4]/45 sm:bg-[#D2A4A4]/40 backdrop-blur-[1px]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#D2A4A4]/55 via-transparent to-[#D2A4A4]/65" />
       {/* Clean background with solid burgundy tone (no extra overlays) */}
 
       {/* Monogram - centered at top */}
@@ -171,17 +189,18 @@ export function Countdown() {
         >
           <div className="relative w-72 h-72 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[36rem] lg:h-[36rem] xl:w-[40rem] xl:h-[40rem] opacity-90">
             <Image
-              src="/monogram/monogram counter.png"
-              alt="Marzan & Nica Monogram"
+              src="/monogram/newmonogram.png"
+              alt={`${groomNickname} & ${brideNickname} Monogram`}
               fill
               className="object-contain"
               style={{
-                filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.6))",
+                filter:
+                  "brightness(0) invert(1) drop-shadow(0 0 22px rgba(255,255,255,0.7)) drop-shadow(0 0 38px rgba(255,255,255,0.45)) drop-shadow(0 10px 20px rgba(0,0,0,0.45))",
               }}
               priority={false}
             />
             {/* Glow effect behind monogram */}
-            <div className="absolute inset-0 blur-3xl bg-[#9B7C6A]/25 -z-10 scale-125" />
+            <div className="absolute inset-0 blur-3xl bg-white/25 -z-10 scale-125" />
           </div>
         </motion.div>
       </div>
@@ -196,11 +215,11 @@ export function Countdown() {
         </div>
         
         <h2 className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-white mb-2 sm:mb-3 md:mb-4 drop-shadow-lg">
-          Counting down to forever
+          Counting down to our forever
         </h2>
         
         <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/95 font-light max-w-xl mx-auto leading-relaxed px-2">
-          Every moment, every breath, every heartbeat brings us closer to the day when two hearts become one. Join Marzan and Nica as they count down to forever.
+          Every heartbeat brings us closer to the moment when two hearts become one. Join {groomNickname} and {brideNickname} as they count down to forever.
         </p>
         
         {/* Decorative element below subtitle */}
@@ -236,11 +255,14 @@ export function Countdown() {
             <div className="relative sm:rounded-3xl p-6 sm:p-8 md:p-10 mb-6 sm:mb-8">
               <div className="w-full max-w-2xl mx-auto">
                 <div
-                  className={`${cormorant.className} flex flex-col items-center gap-1.5 sm:gap-2.5 md:gap-3 text-white`}
+                  className={`${cinzel.className} flex flex-col items-center gap-1.5 sm:gap-2.5 md:gap-3 text-white font-bold`}
                   style={{ textShadow: "0 4px 16px rgba(0,0,0,0.6)" }}
                 >
                   {/* Month */}
-                  <span className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] font-light">
+                  <span
+                    className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] text-white"
+                    style={{ textShadow: "0 2px 14px rgba(255,255,255,0.65)" }}
+                  >
                     {ceremonyMonth}
                   </span>
 
@@ -249,8 +271,11 @@ export function Countdown() {
                     {/* Day of week & divider */}
                     <div className="flex flex-1 items-center justify-end gap-1.5 sm:gap-2.5">
                       <span className="h-[0.5px] flex-1 bg-white/45" />
-                      <span className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light">
-                        Sat
+                      <span
+                        className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-white"
+                        style={{ textShadow: "0 2px 14px rgba(255,255,255,0.65)" }}
+                      >
+                        {ceremonyDayShort}
                       </span>
                       <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-white/45" />
                     </div>
@@ -259,19 +284,14 @@ export function Countdown() {
                     <div className="relative flex items-center justify-center px-3 sm:px-4 md:px-5">
                       <span
                         aria-hidden="true"
-                        className="absolute inset-0 mx-auto h-[70%] max-h-[180px] w-[100px] sm:w-[140px] md:w-[170px] rounded-full bg-gradient-to-b from-[#F7DC63]/30 via-[#DEB73E]/20 to-transparent blur-[28px] opacity-80"
+                        className="absolute inset-0 mx-auto h-[70%] max-h-[180px] w-[100px] sm:w-[140px] md:w-[170px] rounded-full bg-gradient-to-b from-white/40 via-white/25 to-transparent blur-[30px] opacity-85"
                       />
                       <span
-                        className="relative text-[3rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6rem] font-light leading-none tracking-wider"
+                        className={`${cinzel.className} relative text-[3rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6rem] font-bold leading-none tracking-wider text-white`}
                         style={{
-                          background: "linear-gradient(180deg, #F7DC63 0%, #DEB73E 100%)",
-                          WebkitBackgroundClip: "text",
-                          WebkitTextFillColor: "transparent",
-                          backgroundClip: "text",
                           textShadow:
-                            "0 0 20px rgba(247,220,99,0.5), 0 0 40px rgba(222,183,62,0.4), 0 4px 20px rgba(0,0,0,0.6)",
-                          filter:
-                            "drop-shadow(0 0 30px rgba(247,220,99,0.6)) drop-shadow(0 0 50px rgba(222,183,62,0.5))",
+                            "0 0 22px rgba(255,255,255,0.9), 0 0 40px rgba(255,255,255,0.7), 0 6px 20px rgba(0,0,0,0.55)",
+                          filter: "drop-shadow(0 0 26px rgba(255,255,255,0.65))",
                         }}
                       >
                         {ceremonyDayNumber.padStart(2, "0")}
@@ -281,7 +301,10 @@ export function Countdown() {
                     {/* Time */}
                     <div className="flex flex-1 items-center gap-1.5 sm:gap-2.5">
                       <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-white/45" />
-                      <span className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light">
+                      <span
+                        className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-white"
+                        style={{ textShadow: "0 2px 14px rgba(255,255,255,0.65)" }}
+                      >
                         {ceremonyTimeDisplay.split(",")[0]}
                       </span>
                       <span className="h-[0.5px] flex-1 bg-white/45" />
@@ -289,7 +312,10 @@ export function Countdown() {
                   </div>
 
                   {/* Year */}
-                  <span className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] font-light">
+                  <span
+                    className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] text-white"
+                    style={{ textShadow: "0 2px 14px rgba(255,255,255,0.65)" }}
+                  >
                     {ceremonyYear}
                   </span>
                 </div>

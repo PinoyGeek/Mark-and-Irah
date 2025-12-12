@@ -2,6 +2,7 @@ import fs from "fs/promises"
 import path from "path"
 import Link from "next/link"
 import MasonryGallery from "@/components/masonry-gallery"
+import { siteConfig } from "@/content/site"
 
 // Generate on each request so newly added images in public/ appear without a rebuild
 export const dynamic = "force-dynamic"
@@ -21,6 +22,9 @@ async function getImagesFrom(dir: string) {
 }
 
 export default async function GalleryPage() {
+  const { groomNickname, brideNickname } = siteConfig.couple
+  const galleryHashtag = `#${groomNickname.replace(/\s+/g, "")}And${brideNickname.replace(/\s+/g, "")}Wedding`
+
   const [desktop, mobile] = await Promise.all([
     getImagesFrom("desktop-background"),
     getImagesFrom("mobile-background"),
@@ -31,18 +35,18 @@ export default async function GalleryPage() {
   ]
 
   return (
-    <main className="min-h-screen bg-[#525E2C] relative overflow-hidden">
-      {/* Enhanced background elements with sage green spring motif */}
+    <main className="min-h-screen bg-[#D2A4A4] relative overflow-hidden">
+      {/* Enhanced background elements with warm blush spring motif */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays with sage + champagne palette */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#2F3724]/90 via-[#525E2C]/70 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#2F3724]/95 via-[#525E2C]/70 to-transparent" />
+        {/* Soft gradient overlays with blush + champagne palette */}
+        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#D3B9A2]/90 via-[#D2A4A4]/70 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#D3B9A2]/95 via-[#D2A4A4]/70 to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(224,207,181,0.3),transparent_55%)] opacity-90" />
         
         {/* Floating decorative circles with motif colors */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-[#909E8D]/26 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute top-10 left-10 w-32 h-32 bg-[#E0B4B1]/26 rounded-full blur-3xl animate-pulse-slow" />
         <div
-          className="absolute top-20 right-16 w-24 h-24 bg-[#E0CFB5]/26 rounded-full blur-2xl animate-pulse-slow"
+          className="absolute top-20 right-16 w-24 h-24 bg-[#F7E6CA]/26 rounded-full blur-2xl animate-pulse-slow"
           style={{ animationDelay: "1s" }}
         />
         <div
@@ -50,27 +54,27 @@ export default async function GalleryPage() {
           style={{ animationDelay: "2s" }}
         />
         <div
-          className="absolute bottom-24 right-12 w-20 h-20 bg-[#D1AB6D]/26 rounded-full blur-2xl animate-pulse-slow"
+          className="absolute bottom-24 right-12 w-20 h-20 bg-[#E9D5C3]/26 rounded-full blur-2xl animate-pulse-slow"
           style={{ animationDelay: "0.5s" }}
         />
         <div
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-[#525E2C]/24 rounded-full blur-3xl animate-pulse-slow"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-[#D2A4A4]/24 rounded-full blur-3xl animate-pulse-slow"
           style={{ animationDelay: "1.5s" }}
         />
         
         {/* Decorative lines */}
-        <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D1AB6D]/40 to-transparent" />
+        <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E9D5C3]/40 to-transparent" />
       </div>
 
       <section className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-16">
         <div className="text-center mb-6 sm:mb-8 md:mb-10 px-3 sm:px-4">
           {/* Decorative element above title */}
           <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <div className="w-8 sm:w-12 md:w-16 h-px bg-[#E0CFB5]/60" />
-            <div className="w-1.5 h-1.5 bg-[#D1AB6D]/80 rounded-full" />
+            <div className="w-8 sm:w-12 md:w-16 h-px bg-[#F7E6CA]/60" />
+            <div className="w-1.5 h-1.5 bg-[#E9D5C3]/80 rounded-full" />
             <div className="w-1.5 h-1.5 bg-[#F0F0EE]/80 rounded-full" />
-            <div className="w-1.5 h-1.5 bg-[#909E8D]/80 rounded-full" />
-            <div className="w-8 sm:w-12 md:w-16 h-px bg-[#E0CFB5]/60" />
+            <div className="w-1.5 h-1.5 bg-[#E0B4B1]/80 rounded-full" />
+            <div className="w-8 sm:w-12 md:w-16 h-px bg-[#F7E6CA]/60" />
           </div>
           
           <h1
@@ -85,9 +89,9 @@ export default async function GalleryPage() {
           
           {/* Decorative element below subtitle */}
           <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-            <div className="w-1.5 h-1.5 bg-[#D1AB6D]/80 rounded-full" />
+            <div className="w-1.5 h-1.5 bg-[#E9D5C3]/80 rounded-full" />
             <div className="w-1.5 h-1.5 bg-[#F0F0EE]/80 rounded-full" />
-            <div className="w-1.5 h-1.5 bg-[#909E8D]/80 rounded-full" />
+            <div className="w-1.5 h-1.5 bg-[#E0B4B1]/80 rounded-full" />
           </div>
         </div>
 
@@ -111,28 +115,28 @@ export default async function GalleryPage() {
 
         {/* CTA Section */}
         <div className="mt-8 sm:mt-12 md:mt-16 text-center">
-          <div className="bg-[#525E2C]/98 backdrop-blur-md rounded-xl sm:rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 border-2 border-[#E0CFB5]/60 max-w-2xl mx-auto shadow-[0_8px_32px_rgba(0,0,0,0.45)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.6)] transition-all duration-300">
+          <div className="bg-[#D2A4A4]/98 backdrop-blur-md rounded-xl sm:rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 border-2 border-[#F7E6CA]/60 max-w-2xl mx-auto shadow-[0_8px_32px_rgba(0,0,0,0.45)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.6)] transition-all duration-300">
             {/* Corner accents */}
             <div className="relative">
-              <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#E0CFB5]/70 rounded-tl-lg" />
-              <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#E0CFB5]/70 rounded-tr-lg" />
-              <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#E0CFB5]/70 rounded-bl-lg" />
-              <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#E0CFB5]/70 rounded-br-lg" />
+              <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#F7E6CA]/70 rounded-tl-lg" />
+              <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#F7E6CA]/70 rounded-tr-lg" />
+              <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#F7E6CA]/70 rounded-bl-lg" />
+              <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#F7E6CA]/70 rounded-br-lg" />
               
               <h2 className="font-playfair text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-4 drop-shadow-md">
-                Share Your Moments With Us
+                Share Your Favorite Moments
               </h2>
               <p className="text-white/90 font-light text-xs sm:text-sm md:text-base lg:text-lg mb-4 sm:mb-6 leading-relaxed px-2">
-                We&apos;d love to see your photos from our special day! Upload your favorite snapshots to be featured in our gallery and help us preserve every beautiful moment.
+                Help {groomNickname} &amp; {brideNickname} relive the day through your lens. Upload your standout shots so we can feature them in the gallery for family and friends to enjoy.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-[#F7E7CE]/30 border-2 border-[#E0CFB5]/60 rounded-full text-white font-semibold text-xs sm:text-sm md:text-base shadow-md">
-                  #MarzanAndNicaWedding
+                <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-[#F7E7CE]/30 border-2 border-[#F7E6CA]/60 rounded-full text-white font-semibold text-xs sm:text-sm md:text-base shadow-md">
+                  {galleryHashtag}
                 </span>
               </div>
               <Link
                 href="/#snap-share"
-                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-[#D1AB6D] to-[#F7E7CE] text-[#2F3724] font-semibold text-xs sm:text-sm md:text-base rounded-full hover:from-[#D1AB6D]/90 hover:to-[#F7E7CE]/90 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-[#E9D5C3] to-[#F7E7CE] text-[#D3B9A2] font-semibold text-xs sm:text-sm md:text-base rounded-full hover:from-[#E9D5C3]/90 hover:to-[#F7E7CE]/90 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
               >
                 Learn More About Sharing
               </Link>
