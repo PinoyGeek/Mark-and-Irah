@@ -559,7 +559,7 @@ export function Hero() {
               {siteConfig.ceremony.venue}
             </p>
             <p
-              className={`${cinzel.className} text-[0.6rem] sm:text-[0.7rem] md:text-xs lg:text-sm tracking-[0.15em] sm:tracking-[0.18em] text-[#F0F0EE]/90 font-light px-4 sm:px-8 md:px-12`}
+              className={`${cinzel.className} text-[0.5rem] sm:text-[0.6rem] md:text-xs lg:text-sm tracking-[0.1em] sm:tracking-[0.12em] md:tracking-[0.15em] text-[#F0F0EE]/90 font-light px-2 sm:px-4 md:px-8 whitespace-nowrap`}
               style={{
                 textShadow: "0 2px 12px rgba(0,0,0,0.7)",
               }}

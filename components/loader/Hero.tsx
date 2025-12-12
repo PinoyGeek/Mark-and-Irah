@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { FadeIn } from './FadeIn';
+import { useAudio } from '@/contexts/audio-context';
 
 interface HeroProps {
   onOpen: () => void;
@@ -26,6 +27,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const { audioRef, pauseMusic } = useAudio();
 
   useEffect(() => {
     setMounted(true);
@@ -45,6 +47,44 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
     }, 5500);
     return () => clearInterval(timer);
   }, [mounted]);
+
+  // Control music playback based on Hero visibility
+  useEffect(() => {
+    if (!mounted || !audioRef.current) return;
+
+    if (visible) {
+      // Try to play music when Hero is visible
+      const tryAutoplay = () => {
+        audioRef.current?.play().catch((error) => {
+          console.log("Autoplay blocked, waiting for user interaction:", error);
+          // If autoplay fails, set up user interaction listeners
+          setupUserInteraction();
+        });
+      };
+
+      const handleUserInteraction = () => {
+        audioRef.current?.play().then(() => {
+          document.removeEventListener("click", handleUserInteraction);
+          document.removeEventListener("touchstart", handleUserInteraction);
+        }).catch((error) => {
+          console.log("Playback blocked:", error);
+        });
+      };
+
+      const setupUserInteraction = () => {
+        document.addEventListener("click", handleUserInteraction);
+        document.addEventListener("touchstart", handleUserInteraction);
+      };
+
+      // Attempt autoplay
+      tryAutoplay();
+
+      return () => {
+        document.removeEventListener("click", handleUserInteraction);
+        document.removeEventListener("touchstart", handleUserInteraction);
+      };
+    }
+  }, [visible, mounted, audioRef]);
 
   const images = useMemo(() => (isMobile ? mobileImages : desktopImages), [isMobile]);
 
@@ -112,7 +152,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
 
           <FadeIn show={visible} delay={1500}>
           <button 
-            onClick={onOpen}
+            onClick={() => {
+              pauseMusic();
+              onOpen();
+            }}
             className="group relative px-10 py-4 bg-[#D2A4A4] text-[#fffaf3] font-serif text-sm tracking-[0.2em] uppercase transition-all duration-500 hover:bg-[#E0B4B1] shadow-lg hover:shadow-xl hover:-translate-y-1 active:translate-y-0 rounded-sm overflow-hidden"
           >
             <span
