@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Heart } from "lucide-react"
+import { Heart, RefreshCw, TrendingUp } from "lucide-react"
 import { Cormorant_Garamond } from "next/font/google"
 
 const cormorant = Cormorant_Garamond({
@@ -10,18 +10,33 @@ const cormorant = Cormorant_Garamond({
 })
 
 interface Guest {
-  Name: string
-  Email: string
-  RSVP: string
-  Guest: string
-  Message: string
+  id: string | number
+  name: string
+  role: string
+  email?: string
+  contact?: string
+  message?: string
+  allowedGuests: number
+  companions: { name: string; relationship: string }[]
+  tableNumber: string
+  isVip: boolean
+  status: 'pending' | 'confirmed' | 'declined' | 'request'
+  addedBy?: string
+  createdAt?: string
+  updatedAt?: string
 }
 
 export function BookOfGuests() {
-  const [guests, setGuests] = useState<Guest[]>([])
   const [totalGuests, setTotalGuests] = useState(0)
+  const [rsvpCount, setRsvpCount] = useState(0)
+  const [isRefreshing, setIsRefreshing] = useState(false)
+  const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
+  const [previousTotal, setPreviousTotal] = useState(0)
+  const [showIncrease, setShowIncrease] = useState(false)
 
-  const fetchGuests = async () => {
+  const fetchGuests = async (showLoading = false) => {
+    if (showLoading) setIsRefreshing(true)
+    
     try {
       const response = await fetch("/api/guests", { cache: "no-store" })
 
@@ -31,24 +46,30 @@ export function BookOfGuests() {
 
       const data: Guest[] = await response.json()
 
-      // Filter only attending guests and normalize Guest field
-      const attendingGuests = data
-        .filter((guest) => guest.RSVP === "Yes")
-        .map((guest) => ({
-          ...guest,
-          Guest: guest.Guest || '1', // Ensure Guest field exists
-        }))
+      // Filter only confirmed/attending guests
+      const attendingGuests = data.filter((guest) => guest.status === "confirmed")
       
-      // Calculate total guests by summing the Guest column values
+      // Calculate total guests by summing allowedGuests for each confirmed guest
       const totalGuestCount = attendingGuests.reduce((sum, guest) => {
-        const guestCount = parseInt(String(guest.Guest)) || 1
-        return sum + guestCount
+        return sum + (guest.allowedGuests || 1)
       }, 0)
       
-      setGuests(attendingGuests)
+      // Show increase animation if count went up
+      if (totalGuestCount > totalGuests && totalGuests > 0) {
+        setPreviousTotal(totalGuests)
+        setShowIncrease(true)
+        setTimeout(() => setShowIncrease(false), 2000)
+      }
+      
       setTotalGuests(totalGuestCount)
+      setRsvpCount(attendingGuests.length)
+      setLastUpdate(new Date())
     } catch (error: any) {
       console.error("Failed to load guests:", error)
+    } finally {
+      if (showLoading) {
+        setTimeout(() => setIsRefreshing(false), 500)
+      }
     }
   }
 
@@ -56,20 +77,26 @@ export function BookOfGuests() {
     // Initial fetch
     fetchGuests()
 
+    // Set up automatic polling every 30 seconds for real-time updates
+    const pollInterval = setInterval(() => {
+      fetchGuests()
+    }, 30000) // 30 seconds
+
     // Set up event listener for RSVP updates
     const handleRsvpUpdate = () => {
       // Add a small delay to allow Google Sheets to update
       setTimeout(() => {
-        fetchGuests()
+        fetchGuests(true)
       }, 2000)
     }
 
     window.addEventListener("rsvpUpdated", handleRsvpUpdate)
 
     return () => {
+      clearInterval(pollInterval)
       window.removeEventListener("rsvpUpdated", handleRsvpUpdate)
     }
-  }, [])
+  }, [totalGuests])
 
   return (
     <div
@@ -123,24 +150,68 @@ export function BookOfGuests() {
         {/* Stats card */}
         <div className="text-center mb-4 sm:mb-6 md:mb-8 px-3 sm:px-4 md:px-6">
           <div className="relative max-w-3xl mx-auto">
-            <div className="relative bg-[#F7F5F1]/95 backdrop-blur-md border border-[#F7E6CA]/80 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)] overflow-hidden">
+            <div className="relative bg-[#F7F5F1]/95 backdrop-blur-md border border-[#F7E6CA]/80 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-7 shadow-[0_20px_60px_rgba(0,0,0,0.45)] overflow-hidden">
+              
+              {/* Refresh button */}
+              <button
+                onClick={() => fetchGuests(true)}
+                disabled={isRefreshing}
+                className="absolute top-3 right-3 p-2 rounded-full bg-[#D2A4A4]/20 hover:bg-[#D2A4A4]/40 transition-all duration-300 disabled:opacity-50 group"
+                title="Refresh counts"
+              >
+                <RefreshCw className={`h-4 w-4 text-[#6B5335] transition-transform ${isRefreshing ? 'animate-spin' : 'group-hover:rotate-180'} duration-500`} />
+              </button>
+
               {/* Content */}
               <div className="relative">
-                <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                  <div className="bg-[#D2A4A4] p-1.5 sm:p-2 rounded-full shadow-lg border border-[#F7E6CA]/80">
-                    <Heart className="text-[#F0F0EE] h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
+                <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4">
+                  <div className="bg-gradient-to-br from-[#D2A4A4] to-[#B88A8A] p-2 sm:p-2.5 rounded-full shadow-lg border-2 border-[#F7E6CA]/80">
+                    <Heart className="text-white h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 fill-white" />
                   </div>
+                  
                   <div className="flex flex-col items-center">
-                    <h3 className={`${cormorant.className} text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-[#243127]`}>
-                      {totalGuests} {totalGuests === 1 ? "Guest" : "Guests"} Celebrating With Us
-                    </h3>
-                    <p className={`${cormorant.className} text-[10px] sm:text-xs md:text-sm text-[#556457] mt-0.5`}>
-                      {guests.length} {guests.length === 1 ? "RSVP entry" : "RSVP entries"}
+                    {/* Total Guests Count - Large and prominent */}
+                    <div className="flex items-center gap-2">
+                      <h3 className={`${cormorant.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#243127] transition-all duration-500 ${showIncrease ? 'scale-110 text-green-600' : ''}`}>
+                        {totalGuests}
+                      </h3>
+                      {showIncrease && (
+                        <div className="flex items-center gap-1 text-green-600 animate-bounce">
+                          <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5" />
+                          <span className="text-sm sm:text-base font-bold">+{totalGuests - previousTotal}</span>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <p className={`${cormorant.className} text-sm sm:text-base md:text-lg font-medium text-[#556457] mt-1`}>
+                      {totalGuests === 1 ? "Guest" : "Guests"} Celebrating With Us
                     </p>
+                    
+                    {/* RSVP Entries Count */}
+                    <div className="mt-2 px-3 sm:px-4 py-1 sm:py-1.5 bg-[#D2A4A4]/20 rounded-full">
+                      <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#6B5335] font-semibold`}>
+                        {rsvpCount} {rsvpCount === 1 ? "RSVP Entry" : "RSVP Entries"}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <p className={`${cormorant.className} text-[10px] sm:text-xs md:text-sm text-[#37413A] leading-relaxed`}>
+                
+                {/* Divider */}
+                <div className="flex items-center justify-center gap-2 my-3 sm:my-4">
+                  <div className="w-12 sm:w-16 h-px bg-gradient-to-r from-transparent via-[#D2A4A4] to-transparent" />
+                  <Heart className="h-2 w-2 sm:h-3 sm:w-3 text-[#D2A4A4] fill-[#D2A4A4]" />
+                  <div className="w-12 sm:w-16 h-px bg-gradient-to-l from-transparent via-[#D2A4A4] to-transparent" />
+                </div>
+                
+                {/* Message */}
+                <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#37413A] leading-relaxed max-w-lg mx-auto`}>
                   Thank you for confirming your RSVP! Your presence means the world to us.
+                </p>
+                
+                {/* Last updated timestamp */}
+                <p className={`${cormorant.className} text-[10px] sm:text-xs text-[#6B7280] mt-3 flex items-center justify-center gap-1.5`}>
+                  <span className="inline-block w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                  Live • Updated {new Date(lastUpdate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </p>
               </div>
             </div>

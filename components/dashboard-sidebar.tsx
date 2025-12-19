@@ -76,9 +76,9 @@ export function DashboardSidebar({
           <div className="w-8 h-8 bg-[#A67C52] rounded-lg flex items-center justify-center">
             <span className="text-white font-serif text-lg">♥</span>
           </div>
-          <span className="font-serif text-lg font-bold text-[#6B4423]">H & K</span>
+          <span className="font-serif text-lg font-bold text-[#6B4423]">Wedding Invitation</span>
         </div>
-        <p className="text-xs text-[#6B7280] uppercase tracking-wide">Admin Panel</p>
+        <p className="text-xs text-[#6B7280] uppercase tracking-wide">Dashboard Panel</p>
       </div>
 
       {/* Navigation Items */}

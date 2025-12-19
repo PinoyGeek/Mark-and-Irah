@@ -18,8 +18,8 @@ const paymentMethods = [
 type PaymentId = typeof paymentMethods[number]["id"]
 
 const gcashOptions = [
-  { id: "gcash1", label: "GCash 1", src: "/QR/Gcash1.png" },
-  { id: "gcash2", label: "GCash 2", src: "/QR/Gcash2.png" },
+  { id: "gcash1", label: "Jhe", src: "/QR/Gcash1.png" },
+  { id: "gcash2", label: "AI", src: "/QR/Gcash2.png" },
 ] as const
 
 export function Registry() {

@@ -63,7 +63,7 @@ export default function DashboardPage() {
   const [filteredPrincipalSponsors, setFilteredPrincipalSponsors] = useState<PrincipalSponsor[]>([])
 
   // Password - you can change this!
-  const DASHBOARD_PASSWORD = "2025" // Change this to your preferred password
+  const DASHBOARD_PASSWORD = "2026" // Change this to your preferred password
 
   // Check if already authenticated
   useEffect(() => {
@@ -378,7 +378,7 @@ export default function DashboardPage() {
               </div>
               <div className="mb-2">
                 <span className="font-serif text-sm text-[#A67C52]">♥</span>
-                <span className="font-serif text-2xl font-bold text-[#6B4423] mx-2">H & K</span>
+                <span className="font-serif text-2xl font-bold text-[#6B4423] mx-2">Wedding Invitation</span>
                 <span className="font-serif text-sm text-[#A67C52]">♥</span>
               </div>
               <h1 className="text-2xl font-bold text-[#111827] mb-2">

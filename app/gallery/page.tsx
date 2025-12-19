@@ -113,36 +113,7 @@ export default async function GalleryPage() {
           <MasonryGallery images={images} />
         )}
 
-        {/* CTA Section */}
-        <div className="mt-8 sm:mt-12 md:mt-16 text-center">
-          <div className="bg-[#D2A4A4]/98 backdrop-blur-md rounded-xl sm:rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 border-2 border-[#F7E6CA]/60 max-w-2xl mx-auto shadow-[0_8px_32px_rgba(0,0,0,0.45)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.6)] transition-all duration-300">
-            {/* Corner accents */}
-            <div className="relative">
-              <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#F7E6CA]/70 rounded-tl-lg" />
-              <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#F7E6CA]/70 rounded-tr-lg" />
-              <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#F7E6CA]/70 rounded-bl-lg" />
-              <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#F7E6CA]/70 rounded-br-lg" />
-              
-              <h2 className="font-playfair text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-4 drop-shadow-md">
-                Share Your Favorite Moments
-              </h2>
-              <p className="text-white/90 font-light text-xs sm:text-sm md:text-base lg:text-lg mb-4 sm:mb-6 leading-relaxed px-2">
-                Help {groomNickname} &amp; {brideNickname} relive the day through your lens. Upload your standout shots so we can feature them in the gallery for family and friends to enjoy.
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-[#F7E7CE]/30 border-2 border-[#F7E6CA]/60 rounded-full text-white font-semibold text-xs sm:text-sm md:text-base shadow-md">
-                  {galleryHashtag}
-                </span>
-              </div>
-              <Link
-                href="/#snap-share"
-                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-[#E9D5C3] to-[#F7E7CE] text-[#D3B9A2] font-semibold text-xs sm:text-sm md:text-base rounded-full hover:from-[#E9D5C3]/90 hover:to-[#F7E7CE]/90 hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
-              >
-                Learn More About Sharing
-              </Link>
-            </div>
-          </div>
-        </div>
+
       </section>
     </main>
   )
