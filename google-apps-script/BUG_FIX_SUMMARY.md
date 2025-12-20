@@ -161,3 +161,4 @@ Without deploying the Google Apps Scripts, the edit functionality will still not
 
 The edit functionality for Principal Sponsors will now properly update existing entries instead of creating duplicates, once the Google Apps Scripts are deployed following the setup guide.
 
+

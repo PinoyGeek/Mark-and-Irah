@@ -128,3 +128,4 @@ See the full setup guide: `google-apps-script/ENTOURAGE_SPONSORS_SETUP.md`
 
 See technical details: `google-apps-script/BUG_FIX_SUMMARY.md`
 
+

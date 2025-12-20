@@ -292,7 +292,7 @@ export function Details() {
                       <span className="font-semibold">Female Sponsor:</span> {siteConfig.dressCode.sponsors.female}
                     </p>
                     <div className="pt-1">
-                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] text-[#D3B9A2] mb-1">
+                      {/* <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] text-[#D3B9A2] mb-1">
                         Palette
                       </p>
                       <div className="flex flex-wrap gap-1.5">
@@ -304,7 +304,7 @@ export function Details() {
                             title={color}
                           />
                         ))}
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
