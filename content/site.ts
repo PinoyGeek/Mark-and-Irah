@@ -22,7 +22,7 @@ export const siteConfig = {
     location: "Lorenzo Farm and Resort and Events Place, Brgy Dampulan Jaen Nueva Ecija",
     venue: "Lorenzo Farm and Resort and Events Place",
     date: "January 11, 2026",
-    day: "Saturday",
+    day: "Sunday",
     time: "3:00 PM",
     entourageTime: "2:30 PM",
     guestsTime: "2:30 PM",
