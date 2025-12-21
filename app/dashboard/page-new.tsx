@@ -396,7 +396,6 @@ export default function DashboardPage() {
         onTabChange={setActiveTab}
         guestRequestCount={guestRequests.length}
         messageCount={messageCount}
-        onSyncSpreadsheet={handleSyncSpreadsheet}
       />
 
       {/* Main Content */}

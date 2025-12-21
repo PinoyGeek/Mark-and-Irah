@@ -1,17 +1,17 @@
 export const siteConfig = {
   couple: {
-    bride: "Jhessa May N. Eugenio",
-    brideNickname: "Jhe",
-    groom: "Al Josef Rai A. Tan",
-    groomNickname: "Al",
+    bride: "Catherine Rivera",
+    brideNickname: "Catherine",
+    groom: "Mark Niño Cabral",
+    groomNickname: "Mark",
   },
   wedding: {
-    date: "March 06, 2026",
-    time: "2:00 PM",
-    venue: "St. Augustine Parish Church - Poblacion II, Mendez, Cavite",
+    date: "January 11, 2026",
+    time: "3:00 PM",
+    venue: "Lorenzo Farm and Resort and Events Place / Balai Alexandria Events Place",
     tagline: "are getting married!",
-    theme: "Blush & Sand Motif",
-    motif: "#FADDE0, #E0B4B1, #D2A4A4, #F7E6CA, #E9D5C3, #D3B9A2",
+    theme: "Purple & Sage Motif",
+    motif: "#6A4F82, #B9AACB, #A8AF8D, #F4F4F4, #5B6B3C",
   },
   details: {
     rsvp: {
@@ -19,26 +19,26 @@ export const siteConfig = {
     },
   },
   ceremony: {
-    location: "St. Augustine Parish Church - Poblacion II, Mendez, Cavite",
-    venue: "St. Augustine Parish Church",
-    date: "March 06, 2026",
-    day: "Friday",
-    time: "2:00 PM",
-    entourageTime: "1:30 PM",
-    guestsTime: "1:30 PM",
+    location: "Lorenzo Farm and Resort and Events Place, Brgy Dampulan Jaen Nueva Ecija",
+    venue: "Lorenzo Farm and Resort and Events Place",
+    date: "January 11, 2026",
+    day: "Saturday",
+    time: "3:00 PM",
+    entourageTime: "2:30 PM",
+    guestsTime: "2:30 PM",
   },
   reception: {
-    location: "La Mariposa Tagaytay Events Place",
-    venue: "La Mariposa Tagaytay Events Place",
-    date: "March 06, 2026",
+    location: "Balai Alexandria Events Place, Brgy Dampulan Jaen Nueva Ecija",
+    venue: "Balai Alexandria Events Place",
+    date: "January 11, 2026",
     time: "Reception to follow",
   },
   dressCode: {
-    theme: "Blush & Sand Motif",
-    colors: ["#FADDE0", "#E0B4B1", "#D2A4A4", "#F7E6CA", "#E9D5C3", "#D3B9A2"],
+    theme: "Purple & Sage Motif",
+    colors: ["#6A4F82", "#B9AACB", "#A8AF8D", "#F4F4F4", "#5B6B3C"],
     sponsors: {
-      male: "Beige Barong, Black Pants and Leather Shoes",
-      female: "Beige/Gold Long Gown"
+      male: "Barong, Black Pants and Leather Shoes",
+      female: "Purple/Lavender/Sage Long Gown"
     },
     guests: {
       gents: "Polo & Pants (Strictly no Tshirt)",
@@ -47,23 +47,24 @@ export const siteConfig = {
     note: "We kindly request our guests to dress in formal attire with a color of our motif."
   },
   narratives: {
-    groom: `The first time Al saw Jhessa, time seemed to slow down. It was an ordinary day that instantly became unforgettable: one smile, one hello, and suddenly his world had a new center. He didn’t have the perfect words ready, but he knew he had met someone who felt like home.
+    groom: `The first time Mark saw Catherine, time seemed to slow down. It was an ordinary day that instantly became unforgettable: one smile, one hello, and suddenly his world had a new center. He didn't have the perfect words ready, but he knew he had met someone who felt like home.
 
-Early conversations turned into late-night talks, sharing dreams, favorite meals, and whispered prayers for a future together. With every small adventure—coffee runs, long drives, quiet walks—Al found himself choosing her over and over again. He loved how she laughed freely, how she listened with her whole heart, and how her faith steadied him.
+Early conversations turned into late-night talks, sharing dreams, favorite meals, and whispered prayers for a future together. With every small adventure—coffee runs, long drives, quiet walks—Mark found himself choosing her over and over again. He loved how she laughed freely, how she listened with her whole heart, and how her faith steadied him.
 
-There were seasons of distance and long workdays, but every reunion reminded him why he stayed patient: because Jhessa was worth every mile and every minute apart. When he finally knelt to ask for her hand, it wasn’t a question of “if,” only “when can we start forever?”`,
-    bride: `Jhessa remembers the first time Al said her name. It was gentle but sure, a kindness that made her feel both seen and safe. In that softness, she found a partner who met her with the same grace she prayed to give.
+There were seasons of distance and long workdays, but every reunion reminded him why he stayed patient: because Catherine was worth every mile and every minute apart. When he finally knelt to ask for her hand, it wasn't a question of "if," only "when can we start forever?"`,
+    bride: `Catherine remembers the first time Mark said her name. It was gentle but sure, a kindness that made her feel both seen and safe. In that softness, she found a partner who met her with the same grace she prayed to give.
 
-Al’s steadiness won her heart: the way he showed up, even when schedules were tight, and how he always found lightness in the small things. He celebrated her wins, held space for her worries, and never hesitated to choose “us” in every decision.
+Mark's steadiness won her heart: the way he showed up, even when schedules were tight, and how he always found lightness in the small things. He celebrated her wins, held space for her worries, and never hesitated to choose "us" in every decision.
 
-Now, as they prepare to say yes before God and the people they love most, Jhessa is grateful for the patience, humor, and hope Al brings to every day. She knows this next chapter is just the start of the love story they get to write together.`,
+Now, as they prepare to say yes before God and the people they love most, Catherine is grateful for the patience, humor, and hope Mark brings to every day. She knows this next chapter is just the start of the love story they get to write together.`,
   },
   colors: {
-    primary: "#4A7C59",
-    secondary: "#8FB99A",
+    primary: "#6A4F82",
+    secondary: "#B9AACB",
   },
   snapShare: {
-    googleDriveLink: "https://drive.google.com/drive/folders/1N-h4NW1Kov8GY2_lOiidPIwoDCz0CZNm?usp=sharing",
+    googleDriveLink: "https://drive.google.com/drive/folders/1gFI7Q-1J85w2gwOQ-Ugkakeei2poqBM8?usp=sharing",
+    hashtag: "#CatherineAndMark2026",
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }

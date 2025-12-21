@@ -102,16 +102,33 @@ export default function DashboardPage() {
   }
 
   const fetchGuestRequests = async () => {
+    setIsLoading(true)
     try {
-      const response = await fetch("/api/guest-requests")
+      // Fetch from guest-requests API with cache busting
+      const response = await fetch("/api/guest-requests", {
+        cache: "no-store",
+        headers: {
+          "Cache-Control": "no-cache",
+        },
+      })
+      
       if (!response.ok) {
+        const errorText = await response.text()
+        console.error("Failed to fetch guest requests:", errorText)
         throw new Error("Failed to fetch guest requests")
       }
+      
       const data = await response.json()
-      setGuestRequests(data)
-      setFilteredRequests(data)
+      console.log("Guest requests fetched:", data)
+      
+      setGuestRequests(Array.isArray(data) ? data : [])
+      setFilteredRequests(Array.isArray(data) ? data : [])
     } catch (error) {
       console.error("Error fetching guest requests:", error)
+      setError("Failed to load guest requests. Please check your connection.")
+      setTimeout(() => setError(null), 3000)
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -184,7 +201,7 @@ export default function DashboardPage() {
     setSuccessMessage(null)
 
     try {
-      // Add to guest list with new format
+      // Add to main guest list
       const addResponse = await fetch("/api/guests", {
         method: "POST",
         headers: {
@@ -192,16 +209,16 @@ export default function DashboardPage() {
         },
         body: JSON.stringify({
           name: request.Name,
-          role: "Guest", // Default role for requests
-          email: request.Email,
+          role: "Guest",
+          email: request.Email || "",
           contact: request.Phone || "",
-          message: request.Message,
+          message: request.Message || "",
           allowedGuests: parseInt(request.Guest) || 1,
           companions: [],
           tableNumber: "",
           isVip: false,
           status: request.RSVP === "Yes" ? "confirmed" : "pending",
-          addedBy: "Request",
+          addedBy: "Request Approved",
         }),
       })
 
@@ -209,7 +226,7 @@ export default function DashboardPage() {
         throw new Error("Failed to add to guest list")
       }
 
-      // Delete from requests
+      // Delete from guest requests
       const deleteResponse = await fetch("/api/guest-requests", {
         method: "DELETE",
         headers: {
@@ -433,7 +450,6 @@ export default function DashboardPage() {
         onTabChange={setActiveTab}
         guestRequestCount={guestRequests.length}
         messageCount={messageCount}
-        onSyncSpreadsheet={handleSyncSpreadsheet}
       />
 
       {/* Main Content */}
@@ -534,7 +550,7 @@ export default function DashboardPage() {
           )}
 
           {activeTab === "messages" && (
-            <GuestMessages guests={guests} />
+            <GuestMessages />
           )}
 
           {activeTab === "entourage" && (

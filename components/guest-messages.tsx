@@ -1,51 +1,111 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import {
   MessageSquare,
   Search,
-  Mail,
-  User,
-  Calendar,
   Heart,
+  RefreshCw,
+  Clock,
 } from "lucide-react"
 
-interface Guest {
-  Name: string
-  Email: string
-  RSVP: string
-  Guest: string
-  Message: string
+interface Message {
+  timestamp: string
+  name: string
+  message: string
 }
 
 interface GuestMessagesProps {
-  guests: Guest[]
+  guests?: any[]
 }
 
-export function GuestMessages({ guests }: GuestMessagesProps) {
+export function GuestMessages({ guests = [] }: GuestMessagesProps) {
   const [searchQuery, setSearchQuery] = useState("")
+  const [messages, setMessages] = useState<Message[]>([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  // Filter guests who have messages
-  const guestsWithMessages = guests.filter((guest) => guest.Message && guest.Message.trim())
+  const fetchMessages = async () => {
+    setIsLoading(true)
+    setError(null)
+    try {
+      const response = await fetch("/api/messages", {
+        cache: "no-store",
+        headers: {
+          "Cache-Control": "no-cache",
+        },
+      })
+      
+      if (!response.ok) {
+        throw new Error("Failed to fetch messages")
+      }
+      
+      const data = await response.json()
+      console.log("Messages fetched:", data)
+      setMessages(Array.isArray(data) ? data : [])
+    } catch (error) {
+      console.error("Error fetching messages:", error)
+      setError("Failed to load messages")
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
-  const filteredMessages = guestsWithMessages.filter((guest) => {
+  useEffect(() => {
+    fetchMessages()
+  }, [])
+
+  const filteredMessages = messages.filter((msg) => {
     if (!searchQuery.trim()) return true
     const query = searchQuery.toLowerCase()
     return (
-      guest.Name.toLowerCase().includes(query) ||
-      guest.Message.toLowerCase().includes(query) ||
-      (guest.Email && guest.Email.toLowerCase().includes(query))
+      msg.name.toLowerCase().includes(query) ||
+      msg.message.toLowerCase().includes(query)
     )
   })
+
+  // Format timestamp
+  const formatTimestamp = (timestamp: string) => {
+    if (!timestamp) return "Recently"
+    try {
+      const date = new Date(timestamp)
+      return date.toLocaleDateString('en-US', { 
+        month: 'short', 
+        day: 'numeric', 
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      })
+    } catch {
+      return timestamp
+    }
+  }
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-[#111827]">Guest Messages</h2>
-        <div className="text-sm text-[#6B7280]">
-          {filteredMessages.length} of {guestsWithMessages.length} messages
+        <div className="flex items-center gap-3">
+          <div className="text-sm text-[#6B7280]">
+            {filteredMessages.length} of {messages.length} messages
+          </div>
+          <button
+            onClick={fetchMessages}
+            disabled={isLoading}
+            className="p-2 rounded-lg bg-white hover:bg-gray-50 border border-[#E5E7EB] transition-colors disabled:opacity-50"
+            title="Refresh messages"
+          >
+            <RefreshCw className={`h-4 w-4 text-[#6B7280] ${isLoading ? 'animate-spin' : ''}`} />
+          </button>
         </div>
       </div>
+
+      {/* Error Message */}
+      {error && (
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-700">
+          {error}
+        </div>
+      )}
 
       {/* Info Card */}
       <div className="bg-gradient-to-br from-[#FFF8F0] to-[#F5F5F0] border border-[#E5E7EB] rounded-xl p-6">
@@ -56,7 +116,7 @@ export function GuestMessages({ guests }: GuestMessagesProps) {
           <div className="flex-1">
             <h3 className="font-semibold text-[#6B4423] text-lg mb-2">Messages from Your Guests</h3>
             <p className="text-sm text-[#6B7280]">
-              Read heartfelt messages and well wishes from your guests. These messages were submitted along with their RSVP responses.
+              Read heartfelt messages and well wishes from your guests. These messages were submitted through your wedding website.
             </p>
           </div>
         </div>
@@ -77,7 +137,15 @@ export function GuestMessages({ guests }: GuestMessagesProps) {
       </div>
 
       {/* Messages */}
-      {filteredMessages.length === 0 ? (
+      {isLoading ? (
+        <div className="bg-white rounded-xl shadow-sm border border-[#E5E7EB] p-12 text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-[#F9FAFB] rounded-full mb-4">
+            <RefreshCw className="h-8 w-8 text-[#6B7280] animate-spin" />
+          </div>
+          <h3 className="text-lg font-semibold text-[#111827] mb-2">Loading Messages...</h3>
+          <p className="text-[#6B7280]">Please wait while we fetch your messages.</p>
+        </div>
+      ) : filteredMessages.length === 0 ? (
         <div className="bg-white rounded-xl shadow-sm border border-[#E5E7EB] p-12 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-[#F9FAFB] rounded-full mb-4">
             <MessageSquare className="h-8 w-8 text-[#6B7280]" />
@@ -91,7 +159,7 @@ export function GuestMessages({ guests }: GuestMessagesProps) {
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4">
-          {filteredMessages.map((guest, index) => (
+          {filteredMessages.map((msg, index) => (
             <div
               key={index}
               className="bg-white rounded-xl shadow-sm border border-[#E5E7EB] p-6 hover:shadow-md transition-all duration-200"
@@ -100,39 +168,18 @@ export function GuestMessages({ guests }: GuestMessagesProps) {
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-[#D4B5A0] to-[#8B6F47] rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="text-white font-semibold text-lg">
-                    {guest.Name.charAt(0).toUpperCase()}
+                    {msg.name.charAt(0).toUpperCase()}
                   </span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-lg font-semibold text-[#111827] mb-1">{guest.Name}</h3>
-                  <div className="flex flex-wrap gap-3 text-sm text-[#6B7280]">
-                    {guest.Email && guest.Email !== "Pending" && (
-                      <div className="flex items-center gap-1.5">
-                        <Mail className="h-4 w-4 flex-shrink-0" />
-                        <span className="truncate">{guest.Email}</span>
-                      </div>
-                    )}
-                    {guest.Guest && (
-                      <div className="flex items-center gap-1.5">
-                        <User className="h-4 w-4 flex-shrink-0" />
-                        <span>{parseInt(guest.Guest) || 1} guest(s)</span>
-                      </div>
-                    )}
-                    {guest.RSVP && (
-                      <div className="flex items-center gap-1.5">
-                        <Calendar className="h-4 w-4 flex-shrink-0" />
-                        <span className="capitalize">{guest.RSVP}</span>
-                      </div>
-                    )}
-                  </div>
+                  <h3 className="text-lg font-semibold text-[#111827] mb-1">{msg.name}</h3>
+                  {msg.timestamp && (
+                    <div className="flex items-center gap-1.5 text-sm text-[#6B7280]">
+                      <Clock className="h-4 w-4 flex-shrink-0" />
+                      <span>{formatTimestamp(msg.timestamp)}</span>
+                    </div>
+                  )}
                 </div>
-                {guest.RSVP === "Yes" && (
-                  <div className="flex-shrink-0">
-                    <span className="inline-flex items-center px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-medium border border-green-200">
-                      Attending
-                    </span>
-                  </div>
-                )}
               </div>
 
               {/* Message Content */}
@@ -142,7 +189,7 @@ export function GuestMessages({ guests }: GuestMessagesProps) {
                     <MessageSquare className="h-5 w-5 text-[#A67C52]" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-[#6B4423] leading-relaxed">{guest.Message}</p>
+                    <p className="text-[#6B4423] leading-relaxed whitespace-pre-wrap">{msg.message}</p>
                   </div>
                 </div>
               </div>
@@ -152,26 +199,20 @@ export function GuestMessages({ guests }: GuestMessagesProps) {
       )}
 
       {/* Statistics Footer */}
-      {guestsWithMessages.length > 0 && (
+      {messages.length > 0 && (
         <div className="bg-white rounded-xl shadow-sm border border-[#E5E7EB] p-6">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
             <div>
               <div className="text-3xl font-bold text-[#8B6F47] mb-1">
-                {guestsWithMessages.length}
+                {messages.length}
               </div>
               <div className="text-sm text-[#6B7280]">Total Messages</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-600 mb-1">
-                {guestsWithMessages.filter((g) => g.RSVP === "Yes").length}
+              <div className="text-3xl font-bold text-purple-600 mb-1">
+                {messages.filter(m => m.message && m.message.length > 100).length}
               </div>
-              <div className="text-sm text-[#6B7280]">From Attending Guests</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-[#6B7280] mb-1">
-                {guestsWithMessages.filter((g) => !g.RSVP || g.RSVP.trim() === "").length}
-              </div>
-              <div className="text-sm text-[#6B7280]">From Pending RSVPs</div>
+              <div className="text-sm text-[#6B7280]">Long Messages (100+ chars)</div>
             </div>
           </div>
         </div>
@@ -179,5 +220,4 @@ export function GuestMessages({ guests }: GuestMessagesProps) {
     </div>
   )
 }
-
 

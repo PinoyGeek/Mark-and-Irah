@@ -19,21 +19,21 @@ const windSong = WindSong({
   weight: "400",
 })
 
-const galleryHashtag = "#MarzanAndNicaWedding"
+const galleryHashtag = "#CatherineAndMarkWedding"
 
 const galleryItems = [
   { image: "/mobile-background/couple (1).jpg", text: " " },  
   { image: "/mobile-background/couple (2).jpg", text: " " },
   { image: "/mobile-background/couple (3).jpg", text: " " },
-  { image: "/mobile-background/couple (4).jpg", text: " " },
   { image: "/mobile-background/couple (5).jpg", text: " " },
   { image: "/mobile-background/couple (6).jpg", text: " " },
+  { image: "/mobile-background/couple (7).jpg", text: " " },
 
 ]
 
 export function Gallery() {
-  const { groomNickname, brideNickname } = siteConfig.couple
-  const coupleDisplayName = `${groomNickname} & ${brideNickname}`
+  const { brideNickname, groomNickname } = siteConfig.couple
+  const coupleDisplayName = `${brideNickname} & ${groomNickname}`
   const [selectedImage, setSelectedImage] = useState<(typeof galleryItems)[0] | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
@@ -112,29 +112,29 @@ export function Gallery() {
   return (
     <Section
       id="gallery"
-      className="relative bg-[#D2A4A4] py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
+      className="relative bg-[#6A4F82] py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
       {/* Background image and decorative overlays */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Grunge texture background */}
+        {/* Background image */}
         <img
-          src="/decoration/background%20gallery.jpg"
+          src="/decoration/background.jpg"
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
         />
 
-        {/* Soft vertical gradients in warm blush tones */}
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#E0B4B1]/90 via-[#D2A4A4]/70 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#E0B4B1]/95 via-[#D2A4A4]/70 to-transparent" />
-        {/* Warm radial spotlight in champagne */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(224,207,181,0.3),transparent_55%)] opacity-90" />
+        {/* Purple and sage gradients */}
+        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-[#6A4F82]/90 via-[#B9AACB]/70 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#5B6B3C]/95 via-[#A8AF8D]/70 to-transparent" />
+        {/* Lavender radial spotlight */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(185,170,203,0.3),transparent_55%)] opacity-90" />
 
-        {/* Floating decorative circles with motif colors */}
-        <div className="absolute top-6 left-8 w-32 h-32 bg-[#E0B4B1]/26 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute top-16 right-12 w-24 h-24 bg-[#F7E6CA]/26 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: "1s" }} />
-        <div className="absolute bottom-20 left-16 w-28 h-28 bg-[#F0F0EE]/22 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "2s" }} />
-        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#E9D5C3]/26 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: "0.5s" }} />
+        {/* Floating decorative circles with purple and sage colors */}
+        <div className="absolute top-6 left-8 w-32 h-32 bg-[#B9AACB]/26 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute top-16 right-12 w-24 h-24 bg-[#A8AF8D]/26 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-20 left-16 w-28 h-28 bg-[#F4F4F4]/22 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "2s" }} />
+        <div className="absolute bottom-10 right-10 w-20 h-20 bg-[#6A4F82]/26 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: "0.5s" }} />
       </div>
 
       {/* Header */}
@@ -144,22 +144,22 @@ export function Gallery() {
             className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-white`}
             style={{ textShadow: "0 2px 10px rgba(0,0,0,0.75)" }}
           >
-            Moments with {coupleDisplayName}
+            Cherished Moments with {coupleDisplayName}
           </p>
           <h2
             className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white"
             style={{ textShadow: "0 4px 18px rgba(0,0,0,0.9)" }}
           >
-            Prenup Photos
+            Our Love Story in Pictures
           </h2>
         </div>
 
         <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white/95 font-light max-w-xl mx-auto leading-relaxed mt-3`}>
-          Soft, quiet frames from the days leading to December 20, 2025 at Daraga Church and Hotel St. Ellis — tiny echoes of the love and laughter we&apos;ll remember forever.
+          Beautiful frames capturing the journey of Catherine and Mark — each photograph a precious memory of laughter, love, and the moments that led us to forever.
         </p>
 
         <div className="flex items-center justify-center gap-2 mt-6">
-          <div className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent via-[#E9D5C3]/80 to-transparent" />
+          <div className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent via-[#B9AACB]/80 to-transparent" />
           <motion.div
             className="w-1.5 h-1.5 rounded-full bg-white/80"
             animate={{
@@ -172,7 +172,7 @@ export function Gallery() {
               ease: "easeInOut",
             }}
           />
-          <div className="w-8 sm:w-12 h-px bg-gradient-to-l from-transparent via-[#E9D5C3]/80 to-transparent" />
+          <div className="w-8 sm:w-12 h-px bg-gradient-to-l from-transparent via-[#B9AACB]/80 to-transparent" />
         </div>
       </div>
 
@@ -201,8 +201,8 @@ export function Gallery() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    {/* Subtle glow on hover with warm blush motif */}
-                    <div className="absolute -inset-0.5 bg-gradient-to-br from-[#E9D5C3]/45 via-[#E0B4B1]/28 to-[#F0F0EE]/20 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+                    {/* Subtle glow on hover with purple and sage motif */}
+                    <div className="absolute -inset-0.5 bg-gradient-to-br from-[#B9AACB]/45 via-[#A8AF8D]/28 to-[#F4F4F4]/20 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
                     
                     <div className="relative aspect-[3/4] md:aspect-square overflow-hidden">
                       <img
@@ -217,8 +217,8 @@ export function Gallery() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     
-                    {/* Image counter badge with motif colors */}
-                    <div className="absolute top-2 right-2 bg-[#D2A4A4]/90 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-[#F7E6CA]/70">
+                    {/* Image counter badge with purple motif colors */}
+                    <div className="absolute top-2 right-2 bg-[#6A4F82]/90 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-[#B9AACB]/70">
                       <span className="text-xs font-medium text-white tracking-wide">
                         {index + 1}/{galleryItems.length}
                       </span>
@@ -400,16 +400,16 @@ export function Gallery() {
           </div>
         </div>
       )}
-      {/* View more button with warm blush motif */}
+      {/* View more button with purple and sage motif */}
       <div className="relative z-10 mt-8 sm:mt-10 md:mt-12 flex justify-center px-4">
         <motion.a
           href="/gallery"
           className="group inline-flex items-center gap-2 px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-3.5 md:py-4 rounded-lg sm:rounded-xl font-semibold sm:font-bold transition-all duration-300 uppercase tracking-wider text-xs sm:text-sm md:text-base whitespace-nowrap relative overflow-hidden border-2 backdrop-blur-sm"
           style={{
-            backgroundImage: "linear-gradient(135deg, #D2A4A4, #E0B4B1)",
-            borderColor: "#F7E6CA",
+            backgroundImage: "linear-gradient(135deg, #6A4F82, #B9AACB)",
+            borderColor: "#F4F4F4",
             color: "#FFFFFF",
-            boxShadow: "0 6px 26px rgba(0,0,0,0.45), 0 2px 10px rgba(210,164,164,0.6)",
+            boxShadow: "0 6px 26px rgba(106,79,130,0.45), 0 2px 10px rgba(185,170,203,0.6)",
           }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -418,14 +418,14 @@ export function Gallery() {
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.98 }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundImage = "linear-gradient(135deg, #D3B9A2, #E9D5C3)";
-            e.currentTarget.style.borderColor = "#FADDE0";
-            e.currentTarget.style.boxShadow = "0 10px 34px rgba(0,0,0,0.55), 0 4px 14px rgba(210,164,164,0.8)";
+            e.currentTarget.style.backgroundImage = "linear-gradient(135deg, #A8AF8D, #5B6B3C)";
+            e.currentTarget.style.borderColor = "#B9AACB";
+            e.currentTarget.style.boxShadow = "0 10px 34px rgba(106,79,130,0.55), 0 4px 14px rgba(168,175,141,0.8)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundImage = "linear-gradient(135deg, #D2A4A4, #E0B4B1)";
-            e.currentTarget.style.borderColor = "#F7E6CA";
-            e.currentTarget.style.boxShadow = "0 6px 26px rgba(0,0,0,0.45), 0 2px 10px rgba(210,164,164,0.6)";
+            e.currentTarget.style.backgroundImage = "linear-gradient(135deg, #6A4F82, #B9AACB)";
+            e.currentTarget.style.borderColor = "#F4F4F4";
+            e.currentTarget.style.boxShadow = "0 6px 26px rgba(106,79,130,0.45), 0 2px 10px rgba(185,170,203,0.6)";
           }}
         >
           <span className="relative z-10">View Full Gallery</span>
@@ -442,11 +442,11 @@ export function Gallery() {
             <ChevronRight size={16} className="sm:w-5 sm:h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
           </motion.div>
           <div 
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F7E7CE]/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#B9AACB]/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
           />
           {/* Pulsing glow effect */}
           <motion.div 
-            className="absolute inset-0 bg-[#E9D5C3]/25 rounded-lg sm:rounded-xl blur-xl -z-10"
+            className="absolute inset-0 bg-[#A8AF8D]/25 rounded-lg sm:rounded-xl blur-xl -z-10"
             animate={{
               opacity: [0.3, 0.6, 0.3],
               scale: [1, 1.1, 1],

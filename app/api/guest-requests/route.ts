@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server"
 
 // You'll need to replace this with your GuestWish Google Apps Script URL
-const GUEST_WISH_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyEcPjQQ5aoLGqwlUaxTDvHIJCS4GgryL3GqnQjXHzC5KFZ9ZVGiGgAQsqQEqrGr_9g/exec'
+const GUEST_WISH_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwY6NyaYwL57jYtFrYFN4dR6AU9FDsU6ukx5B09b-eJ0ssFyRAlbcsfsHi7Eug3tQt3/exec'
 
 // Guest Request interface for WishGuest sheet
 export interface GuestRequest {
@@ -16,6 +16,8 @@ export interface GuestRequest {
 // GET: Fetch all guest requests
 export async function GET() {
   try {
+    console.log('Fetching guest requests from:', GUEST_WISH_SCRIPT_URL)
+    
     const response = await fetch(GUEST_WISH_SCRIPT_URL, {
       method: 'GET',
       headers: {
@@ -24,10 +26,12 @@ export async function GET() {
     })
 
     if (!response.ok) {
+      console.error('Failed to fetch from Google Script:', response.status, response.statusText)
       throw new Error('Failed to fetch guest requests')
     }
 
     const data = await response.json()
+    console.log('Raw data from Google Script:', data)
 
     // Helper to safely coerce any value to a trimmed string
     const safeString = (value: any): string => {
@@ -52,11 +56,12 @@ export async function GET() {
         })
       : []
     
+    console.log('Normalized guest requests:', normalizedData)
     return NextResponse.json(normalizedData, { status: 200 })
   } catch (error) {
     console.error('Error fetching guest requests:', error)
     return NextResponse.json(
-      { error: 'Failed to fetch guest requests' },
+      { error: 'Failed to fetch guest requests', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     )
   }

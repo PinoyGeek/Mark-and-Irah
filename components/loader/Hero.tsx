@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import Image from 'next/image';
 import { FadeIn } from './FadeIn';
-import { useAudio } from '@/contexts/audio-context';
 
 interface HeroProps {
   onOpen: () => void;
@@ -16,18 +16,17 @@ const desktopImages: string[] = [
 ];
 
 const mobileImages: string[] = [
-  '/mobile-background/couple (4).jpg',
+  '/mobile-background/couple (1).jpg',
   '/mobile-background/couple (2).jpg',
   '/mobile-background/couple (3).jpg',
-  '/mobile-background/couple (5).jpg',
-  '/mobile-background/couple (1).jpg',
+  '/mobile-background/couple (6).jpg',
+  '/mobile-background/couple (7).jpg',
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const { audioRef, pauseMusic } = useAudio();
 
   useEffect(() => {
     setMounted(true);
@@ -48,43 +47,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
     return () => clearInterval(timer);
   }, [mounted]);
 
-  // Control music playback based on Hero visibility
-  useEffect(() => {
-    if (!mounted || !audioRef.current) return;
-
-    if (visible) {
-      // Try to play music when Hero is visible
-      const tryAutoplay = () => {
-        audioRef.current?.play().catch((error) => {
-          console.log("Autoplay blocked, waiting for user interaction:", error);
-          // If autoplay fails, set up user interaction listeners
-          setupUserInteraction();
-        });
-      };
-
-      const handleUserInteraction = () => {
-        audioRef.current?.play().then(() => {
-          document.removeEventListener("click", handleUserInteraction);
-          document.removeEventListener("touchstart", handleUserInteraction);
-        }).catch((error) => {
-          console.log("Playback blocked:", error);
-        });
-      };
-
-      const setupUserInteraction = () => {
-        document.addEventListener("click", handleUserInteraction);
-        document.addEventListener("touchstart", handleUserInteraction);
-      };
-
-      // Attempt autoplay
-      tryAutoplay();
-
-      return () => {
-        document.removeEventListener("click", handleUserInteraction);
-        document.removeEventListener("touchstart", handleUserInteraction);
-      };
-    }
-  }, [visible, mounted, audioRef]);
 
   const images = useMemo(() => (isMobile ? mobileImages : desktopImages), [isMobile]);
 
@@ -101,8 +63,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
           />
         ))}
 
-        {/* Soft overlay tint */}
-        <div className="absolute inset-0 bg-[#FADDE0]/45 pointer-events-none" />
+        {/* Soft overlay tint with purple and sage gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#6A4F82]/40 via-[#B9AACB]/35 to-[#A8AF8D]/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-[#6A4F82]/25 pointer-events-none" />
 
       </div>
 
@@ -111,13 +74,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
         
         {/* Top Logo/Monogram */}
         <FadeIn show={visible} delay={300} className="mb-auto mt-8">
-          <div className="w-16 h-24 border border-[#E0B4B1]/45 rounded-[2rem] flex items-center justify-center backdrop-blur-sm bg-[#F7E6CA]/55">
-            <span
-              className="text-2xl font-bold text-white"
-              style={{ fontFamily: '"Cinzel", serif', fontWeight: 700 }}
-            >
-              A & J
-            </span>
+          <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-[#B9AACB]/50 flex items-center justify-center backdrop-blur-md bg-[#6A4F82]/30 shadow-lg">
+            {/* Monogram Image - White version */}
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 brightness-0 invert">
+              <Image
+                src="/monogram/monogram.png"
+                alt="Catherine & Mark Monogram"
+                fill
+                className="object-contain drop-shadow-lg"
+                priority
+              />
+            </div>
           </div>
         </FadeIn>
 
@@ -153,19 +120,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
           <FadeIn show={visible} delay={1500}>
           <button 
             onClick={() => {
-              pauseMusic();
               onOpen();
             }}
-            className="group relative px-10 py-4 bg-[#D2A4A4] text-[#fffaf3] font-serif text-sm tracking-[0.2em] uppercase transition-all duration-500 hover:bg-[#E0B4B1] shadow-lg hover:shadow-xl hover:-translate-y-1 active:translate-y-0 rounded-sm overflow-hidden"
+            className="group relative px-10 py-4 bg-[#6A4F82] text-[#F4F4F4] font-serif text-sm tracking-[0.2em] uppercase transition-all duration-500 hover:bg-[#B9AACB] shadow-lg hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 rounded-sm overflow-hidden border border-[#B9AACB]/30"
           >
             <span
-              className="relative z-10 text-white"
-              style={{ fontFamily: '"Cinzel", serif', fontWeight: 400 }}
+              className="relative z-10 text-white drop-shadow-md"
+              style={{ fontFamily: '"Cinzel", serif', fontWeight: 500 }}
             >
               Open Invitation
             </span>
             {/* Button sheen effect */}
-            <div className="absolute top-0 left-[-100%] w-full h-full bg-white/10 skew-x-12 group-hover:animate-[shimmer_1s_infinite]" />
+            <div className="absolute top-0 left-[-100%] w-full h-full bg-white/20 skew-x-12 group-hover:animate-[shimmer_1s_infinite]" />
           </button>
           </FadeIn>
         </div>

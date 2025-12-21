@@ -7,8 +7,8 @@ import { siteConfig } from "@/content/site"
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://al-and-jhe-invitation.netlify.app/"
 const canonicalUrl = siteUrl.replace(/\/$/, "")
-const desktopHero = "/Details/linkPreview.jpg"
-const mobileHero = "/Details/linkPreview.jpg"
+const desktopHero = "/Details/LinkPreviewNew.jpg"
+const mobileHero = "/Details/LinkPreviewNew.jpg"
 const eventImageUrl = `${canonicalUrl}${desktopHero}`
 
 const coupleNames = `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}`

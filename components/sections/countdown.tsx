@@ -91,7 +91,6 @@ export function Countdown() {
   const { brideNickname, groomNickname } = siteConfig.couple
   const ceremonyDay = siteConfig.ceremony.day || "Thursday"
   const ceremonyDayShort = ceremonyDay.slice(0, 3).toUpperCase()
-  
   // Parse the date: December 20, 2025 at 10:30 AM PH Time (GMT+0800)
   // Extract time from "10:30 A.M., PH Time" -> "10:30 A.M."
   const timeStr = ceremonyTimeDisplay.split(",")[0].trim() // "10:30 A.M."
@@ -174,10 +173,9 @@ export function Countdown() {
       id="countdown"
       className="relative bg-transparent py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Soft overlay for readability */}
-      <div className="pointer-events-none absolute inset-0 bg-[#D2A4A4]/45 sm:bg-[#D2A4A4]/40 backdrop-blur-[1px]" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#D2A4A4]/55 via-transparent to-[#D2A4A4]/65" />
-      {/* Clean background with solid burgundy tone (no extra overlays) */}
+      {/* Soft lavender overlay for readability */}
+      <div className="pointer-events-none absolute inset-0 bg-[#B9AACB]/45 sm:bg-[#B9AACB]/40 backdrop-blur-[1px]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#B9AACB]/55 via-transparent to-[#B9AACB]/65" />
 
       {/* Monogram - centered at top */}
       <div className="relative flex justify-center pt-8 sm:pt-10 md:pt-12 mb-6 sm:mb-8 md:mb-10 z-10">
@@ -189,8 +187,8 @@ export function Countdown() {
         >
           <div className="relative w-72 h-72 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[36rem] lg:h-[36rem] xl:w-[40rem] xl:h-[40rem] opacity-90">
             <Image
-              src="/monogram/newmonogram.png"
-              alt={`${groomNickname} & ${brideNickname} Monogram`}
+              src="/monogram/monogram.png"
+              alt={`${brideNickname} & ${groomNickname} Monogram`}
               fill
               className="object-contain"
               style={{
@@ -210,7 +208,7 @@ export function Countdown() {
         {/* Decorative element above title */}
         <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
           <div className="w-8 sm:w-12 md:w-16 h-px bg-white/25" />
-          <div className="w-1.5 h-1.5 bg-gradient-to-br from-[#F7DC63] to-[#DEB73E] rounded-full shadow-[0_0_12px_rgba(247,220,99,0.9)]" />
+          <div className="w-1.5 h-1.5 bg-gradient-to-br from-[#A8AF8D] to-[#5B6B3C] rounded-full shadow-[0_0_12px_rgba(168,175,141,0.9)]" />
           <div className="w-8 sm:w-12 md:w-16 h-px bg-white/25" />
         </div>
         
@@ -219,7 +217,7 @@ export function Countdown() {
         </h2>
         
         <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/95 font-light max-w-xl mx-auto leading-relaxed px-2">
-          Every heartbeat brings us closer to the moment when two hearts become one. Join {groomNickname} and {brideNickname} as they count down to forever.
+          Every heartbeat brings us closer to the moment when two hearts become one. Join {brideNickname} and {groomNickname} as they count down to forever.
         </p>
         
         {/* Decorative element below subtitle */}

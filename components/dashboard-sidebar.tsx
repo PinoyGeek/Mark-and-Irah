@@ -1,9 +1,7 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import {
   Users,
-  Bell,
   MessageSquare,
   Crown,
   FileText,
@@ -19,7 +17,6 @@ interface DashboardSidebarProps {
   onTabChange: (tab: "dashboard" | "guests" | "requests" | "messages" | "entourage" | "details") => void
   guestRequestCount: number
   messageCount: number
-  onSyncSpreadsheet?: () => void
 }
 
 export function DashboardSidebar({
@@ -27,7 +24,6 @@ export function DashboardSidebar({
   onTabChange,
   guestRequestCount,
   messageCount,
-  onSyncSpreadsheet,
 }: DashboardSidebarProps) {
   const navItems = [
     {
@@ -115,16 +111,16 @@ export function DashboardSidebar({
 
       {/* Sync Button */}
       <div className="p-4 border-t border-[#E5E7EB]">
-        <Button
-          onClick={onSyncSpreadsheet}
-          variant="outline"
-          size="sm"
-          className="w-full justify-start gap-2 text-[#6B7280] hover:text-[#6B4423] hover:bg-[#F9FAFB] border-[#E5E7EB]"
+        <a
+          href="https://docs.google.com/spreadsheets/d/1FFZyjST4JiyX1T5YxHkJPa-dYPNsSKKhE0S0xfVk6e4/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium text-[#6B7280] hover:text-[#6B4423] hover:bg-[#F9FAFB] border border-[#E5E7EB] transition-all duration-200 justify-start"
         >
           <RefreshCw className="h-4 w-4" />
           <span>Sync Spreadsheet</span>
           <ExternalLink className="h-3 w-3 ml-auto" />
-        </Button>
+        </a>
       </div>
     </div>
   )

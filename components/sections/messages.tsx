@@ -29,8 +29,8 @@ interface MessageFormProps {
 }
 
 function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
-  const { groomNickname, brideNickname } = siteConfig.couple
-  const coupleDisplayName = `${groomNickname} & ${brideNickname}`
+  const { brideNickname, groomNickname } = siteConfig.couple
+  const coupleDisplayName = `${brideNickname} & ${groomNickname}`
 
   const formRef = useRef<HTMLFormElement>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -55,7 +55,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
 
     try {
       await fetch(
-        "https://docs.google.com/forms/d/e/1FAIpQLSf6abdk1miegkT12vBvSb-_pzGrCPlmAxS-ICPxLaeIPji93A/formResponse",
+        "https://docs.google.com/forms/d/e/1FAIpQLScqYzi2AyhWp0HdgFCYtMEzolvx-AWY9Fr0KMl4OqwMfmaEiQ/formResponse",
         {
           method: "POST",
           mode: "no-cors",
@@ -105,28 +105,28 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
         }
       `}</style>
       
-      {/* Decorative background elements (sage & champagne) */}
-      <div className="absolute -top-3 -left-3 w-8 h-8 bg-[#E0B4B1]/25 rounded-full blur-sm animate-pulse-slow" />
-      <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#F7E6CA]/30 rounded-full blur-md animate-pulse-slow" />
+      {/* Decorative background elements (purple & lavender) */}
+      <div className="absolute -top-3 -left-3 w-8 h-8 bg-[#B9AACB]/25 rounded-full blur-sm animate-pulse-slow" />
+      <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#6A4F82]/30 rounded-full blur-md animate-pulse-slow" />
       
-      <Card className={`relative w-full border-2 border-[#F7E6CA]/70 shadow-[0_12px_30px_rgba(0,0,0,0.35)] bg-white/60 backdrop-blur-md transition-all duration-500 group overflow-hidden rounded-2xl ${
-        isFocused ? 'scale-[1.01] border-[#E9D5C3] bg-white/75' : 'hover:bg-white/70'
+      <Card className={`relative w-full border-2 border-[#B9AACB]/70 shadow-[0_12px_30px_rgba(106,79,130,0.35)] bg-white/60 backdrop-blur-md transition-all duration-500 group overflow-hidden rounded-2xl ${
+        isFocused ? 'scale-[1.01] border-[#6A4F82] bg-white/75' : 'hover:bg-white/70'
       } ${isSubmitted ? 'animate-bounce' : ''}`}>
         {/* Glass effect gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#F7E6CA]/22 via-white/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#B9AACB]/22 via-white/10 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent"></div>
         
         {/* Frosted glass effect */}
         <div className="absolute inset-0 backdrop-blur-xl bg-gradient-to-br from-white/18 to-white/6" />
         
         {/* Animated shine effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#E9D5C3]/28 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#B9AACB]/28 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
         
         {/* Success animation overlay */}
         {isSubmitted && (
-          <div className="absolute inset-0 bg-gradient-to-br from-[#660033]/25 via-[#B76E79]/20 to-transparent flex items-center justify-center z-20 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#6A4F82]/25 via-[#B9AACB]/20 to-transparent flex items-center justify-center z-20 pointer-events-none">
             <div className="flex flex-col items-center gap-2 animate-pulse">
-              <div className="w-16 h-16 bg-[#660033] rounded-full flex items-center justify-center shadow-lg">
+              <div className="w-16 h-16 bg-[#6A4F82] rounded-full flex items-center justify-center shadow-lg">
                 <Sparkles className="h-8 w-8 text-white" />
               </div>
               <p className="text-white font-semibold text-lg">Sent!</p>
@@ -138,8 +138,8 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
           {/* Header with icon */}
           <div className="text-center mb-3 sm:mb-4 md:mb-5 lg:mb-6">
             <div className="relative inline-block mb-2 sm:mb-3 md:mb-4">
-              <div className="absolute inset-0 bg-[#D2A4A4]/40 rounded-full blur-lg scale-150" />
-              <div className="relative w-9 h-9 sm:w-11 sm:h-11 md:w-14 md:h-14 bg-[#D2A4A4] rounded-full flex items-center justify-center mx-auto shadow-lg">
+              <div className="absolute inset-0 bg-[#B9AACB]/40 rounded-full blur-lg scale-150" />
+              <div className="relative w-9 h-9 sm:w-11 sm:h-11 md:w-14 md:h-14 bg-[#6A4F82] rounded-full flex items-center justify-center mx-auto shadow-lg">
                 <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white" />
               </div>
             </div>
@@ -161,10 +161,10 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             {/* Name Field */}
             <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
               <label className="block text-xs sm:text-sm md:text-base font-medium text-foreground font-lora flex items-center gap-1.5 sm:gap-2">
-                <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#D2A4A4]/25 to-[#F7E6CA]/25 rounded-full flex items-center justify-center transition-all duration-300 ${
-                  focusedField === 'name' ? 'scale-110 bg-[#D2A4A4]/40' : ''
+                <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#B9AACB]/25 to-[#6A4F82]/25 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  focusedField === 'name' ? 'scale-110 bg-[#B9AACB]/40' : ''
                 }`}>
-                  <Heart className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-[#E9D5C3]" />
+                  <Heart className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-[#6A4F82]" />
                 </div>
                 Your Name
               </label>
@@ -179,8 +179,8 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                   placeholder="Full Name"
                   className={`message-form-input w-full border-2 rounded-xl py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-3 sm:px-4 md:px-5 text-xs sm:text-sm md:text-base font-lora placeholder:italic transition-all duration-300 bg-white/85 backdrop-blur-sm shadow-sm hover:shadow-md focus:shadow-lg ${
                     focusedField === 'name' 
-                      ? 'border-[#E9D5C3] focus:border-[#E9D5C3] focus:ring-4 focus:ring-[#E9D5C3]/25 shadow-lg' 
-                      : 'border-[#E9D5C3]/40 hover:border-[#E9D5C3]/40'
+                      ? 'border-[#6A4F82] focus:border-[#6A4F82] focus:ring-4 focus:ring-[#B9AACB]/25 shadow-lg' 
+                      : 'border-[#B9AACB]/40 hover:border-[#B9AACB]/40'
                   }`}
                 />
                 {nameValue && (
@@ -195,10 +195,10 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
               <div className="flex items-center justify-between">
                 <label className="block text-xs sm:text-sm md:text-base font-medium text-foreground font-lora flex items-center gap-1.5 sm:gap-2">
-                  <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#D2A4A4]/25 to-[#F7E6CA]/25 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    focusedField === 'message' ? 'scale-110 bg-[#D2A4A4]/40' : ''
+                  <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#B9AACB]/25 to-[#6A4F82]/25 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    focusedField === 'message' ? 'scale-110 bg-[#B9AACB]/40' : ''
                   }`}>
-                    <MessageCircle className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-[#E9D5C3]" />
+                    <MessageCircle className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-[#6A4F82]" />
                   </div>
                   Your Message
                 </label>
@@ -225,8 +225,8 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                   placeholder={`Write a heartfelt message for ${coupleDisplayName}... share your wishes, memories, or words of love that will be treasured forever 💕`}
                   className={`message-form-textarea w-full border-2 rounded-xl min-h-[80px] sm:min-h-[100px] md:min-h-[120px] text-xs sm:text-sm md:text-base font-lora placeholder:italic placeholder:leading-relaxed transition-all duration-300 resize-none bg-white/85 backdrop-blur-sm shadow-sm hover:shadow-md focus:shadow-lg py-2 sm:py-3 md:py-4 px-3 sm:px-4 md:px-5 ${
                     focusedField === 'message' 
-                      ? 'border-[#E9D5C3] focus:border-[#E9D5C3] focus:ring-4 focus:ring-[#E9D5C3]/25 shadow-lg' 
-                      : 'border-[#E9D5C3]/40 hover:border-[#E9D5C3]/40'
+                      ? 'border-[#6A4F82] focus:border-[#6A4F82] focus:ring-4 focus:ring-[#B9AACB]/25 shadow-lg' 
+                      : 'border-[#B9AACB]/40 hover:border-[#B9AACB]/40'
                   }`}
                 />
                 {messageValue && (
@@ -241,20 +241,20 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             <Button
               type="submit"
               disabled={isSubmitting || !nameValue.trim() || !messageValue.trim()}
-              className="w-full text-[#D3B9A2] py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-4 sm:px-5 md:px-6 lg:px-7 rounded-xl text-xs sm:text-sm md:text-base font-lora font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group border border-[#D3B9A2]"
+              className="w-full text-white py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-4 sm:px-5 md:px-6 lg:px-7 rounded-xl text-xs sm:text-sm md:text-base font-lora font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group border border-[#B9AACB]"
               style={{ 
-                backgroundColor: "#E9D5C3",
-                boxShadow: "0 6px 20px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.16)",
+                backgroundColor: "#6A4F82",
+                boxShadow: "0 6px 20px rgba(106,79,130,0.35), 0 2px 8px rgba(106,79,130,0.2)",
               }}
               onMouseEnter={(e) => {
                 if (!e.currentTarget.disabled) {
-                  e.currentTarget.style.backgroundColor = "#D3B9A2";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.32), 0 3px 10px rgba(0,0,0,0.18)";
+                  e.currentTarget.style.backgroundColor = "#B9AACB";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(106,79,130,0.4), 0 3px 10px rgba(185,170,203,0.25)";
                 }
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#E9D5C3";
-                e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.16)";
+                e.currentTarget.style.backgroundColor = "#6A4F82";
+                e.currentTarget.style.boxShadow = "0 6px 20px rgba(106,79,130,0.35), 0 2px 8px rgba(106,79,130,0.2)";
               }}
             >
               {isSubmitting ? (
@@ -267,7 +267,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                 </span>
               ) : (
                 <span className="flex items-center justify-center gap-2 relative z-10">
-                  <Send className="h-4 w-4 sm:h-5 sm:w-5 text-[#D3B9A2]" />
+                  <Send className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                   Send Message
                 </span>
               )}
@@ -280,52 +280,30 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
 }
 
 export function Messages() {
-  const { groomNickname, brideNickname } = siteConfig.couple
-  const coupleDisplayName = `${groomNickname} & ${brideNickname}`
+  const { brideNickname, groomNickname } = siteConfig.couple
+  const coupleDisplayName = `${brideNickname} & ${groomNickname}`
 
   const [messages, setMessages] = useState<Message[]>([])
   const [loading, setLoading] = useState(false)
 
   const fetchMessages = useCallback(() => {
     setLoading(true)
-    fetch(
-      "https://script.google.com/macros/s/AKfycby2twwfopaKzz-wUAedDb6SHuKsvtcPuGcLuR9kY_WwdI5AfvUAUR3u5QVTV1ZuScI/exec"
-    )
+    fetch("/api/messages", {
+      cache: "no-store",
+      headers: {
+        "Cache-Control": "no-cache",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
-        const possibleRows = (data && (data.GoogleSheetData ?? data.rows ?? data.values ?? data)) as unknown
-        if (!Array.isArray(possibleRows)) {
-          console.warn("Unexpected messages payload shape; expected an array", data)
+        if (!Array.isArray(data)) {
+          console.warn("Unexpected messages response; expected an array", data)
           setMessages([])
           setLoading(false)
           return
         }
-        const rows = possibleRows as string[][]
-        if (rows.length === 0) {
-          setMessages([])
-          setLoading(false)
-          return
-        }
-        const [header, ...entries] = rows
-        if (!Array.isArray(header)) {
-          console.warn("Unexpected header row format", header)
-          setMessages([])
-          setLoading(false)
-          return
-        }
-        const idxName = header.findIndex((h: string) => typeof h === "string" && h.toLowerCase().includes("name"))
-        const idxMsg = header.findIndex((h: string) => typeof h === "string" && h.toLowerCase().includes("message"))
-        const idxTime = header.findIndex((h: string) => typeof h === "string" && h.toLowerCase().includes("timestamp"))
-        const safeIdxName = idxName >= 0 ? idxName : 0
-        const safeIdxMsg = idxMsg >= 0 ? idxMsg : 1
-        const safeIdxTime = idxTime >= 0 ? idxTime : 2
-        const parsed = entries
-          .filter((row: unknown) => Array.isArray(row))
-          .map((row: string[]) => ({
-            timestamp: row[safeIdxTime] ?? "",
-            name: row[safeIdxName] ?? "",
-            message: row[safeIdxMsg] ?? "",
-          }))
+        
+        const parsed = data
           .filter((m) => m.name || m.message || m.timestamp)
           .reverse()
         setMessages(parsed)
@@ -389,12 +367,12 @@ export function Messages() {
         <div className="relative max-w-4xl mx-auto">
           <div className="text-center mb-4 sm:mb-6 md:mb-8">
             <div className="relative inline-block mb-3 sm:mb-4 md:mb-6">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#D2A4A4]/50 via-[#E0B4B1]/35 to-[#E9D5C3]/30 rounded-full blur-xl scale-150 animate-pulse-slow" />
-              <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 bg-gradient-to-br from-[#D2A4A4] via-[#E0B4B1] to-[#F7E6CA] rounded-full flex items-center justify-center mx-auto shadow-lg hover:scale-110 transition-transform duration-300">
-                <MessageCircle className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8 text-[#FDFDFD]" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#6A4F82]/50 via-[#B9AACB]/35 to-[#6A4F82]/30 rounded-full blur-xl scale-150 animate-pulse-slow" />
+              <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 bg-gradient-to-br from-[#6A4F82] via-[#B9AACB] to-[#6A4F82] rounded-full flex items-center justify-center mx-auto shadow-lg hover:scale-110 transition-transform duration-300">
+                <MessageCircle className="h-4 w-4 sm:h-6 sm:h-6 md:h-8 md:w-8 text-[#FDFDFD]" />
               </div>
               {/* Outer glow ring */}
-              <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-[#D2A4A4]/35 via-[#E0B4B1]/25 to-[#E9D5C3]/25 blur-md opacity-0 hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-[#6A4F82]/35 via-[#B9AACB]/25 to-[#6A4F82]/25 blur-md opacity-0 hover:opacity-100 transition-opacity duration-300" />
             </div>
             <h3 className="text-lg sm:text-xl md:text-2xl font-playfair font-bold text-white mb-1.5 sm:mb-2 md:mb-3">
               Messages from Loved Ones
