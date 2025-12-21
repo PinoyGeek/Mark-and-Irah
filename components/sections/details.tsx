@@ -69,7 +69,7 @@ export function Details() {
 
   // Palettes (used only for color chips in attire card) - Purple & Lilac motif
   const sponsorPalette = ["#6A4F82", "#B9AACB", "#A8AF8D"]
-  const guestPalette = ["#6A4F82", "#B9AACB", "#A8AF8D", "#F4F4F4", "#5B6B3C"]
+  const guestPalette = ["#AB7CB0", "#D4A6D4", "#CBE0FF", "#FFC4C3", "#FFE2E6"]
   const secondaryPalette = ["#B9AACB", "#F4F4F4", "#A8AF8D", "#6A4F82", "#5B6B3C"]
 
   const openInMaps = (link: string) => {
@@ -302,10 +302,9 @@ export function Details() {
 
                 <div className="border-t border-[#B9AACB] pt-4">
                   <h5 className="font-semibold text-xs sm:text-sm text-[#6A4F82] mb-2">Wedding Guests</h5>
-                  <p className="text-[10px] sm:text-xs text-[#6A4F82]/80 mb-2">Kindly align attire below.</p>
                   <div className="relative w-full aspect-[4/3] sm:aspect-[5/3] rounded-xl overflow-hidden border border-[#B9AACB] bg-[#F4F4F4] mb-3">
                     <Image
-                      src="/Details/guestAttire.png"
+                      src="/Details/Guest Attire 3.png"
                       alt="Guest attire guideline"
                       fill
                       className="object-contain"
@@ -314,11 +313,11 @@ export function Details() {
                     />
                   </div>
                   <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
-                    <p className="text-[#6A4F82]">
-                      <span className="font-semibold">Gents:</span> {siteConfig.dressCode.guests.gents}
+                    <p className="text-[#6A4F82] font-semibold">
+                      Formal or Semi Formal
                     </p>
                     <p className="text-[#6A4F82]">
-                      <span className="font-semibold">Ladies:</span> {siteConfig.dressCode.guests.ladies}
+                      We Encourage you to dress according to our wedding color.
                     </p>
                     <div className="pt-1">
                       <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] text-[#6A4F82] mb-1">
