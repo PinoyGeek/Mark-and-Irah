@@ -2,17 +2,26 @@
 
 import Image from "next/image"
 import { Section } from "@/components/section"
-import { Building2 } from "lucide-react"
+import { Building2, Smartphone } from "lucide-react"
 
-const paymentMethod = {
-  id: "landbank",
-  label: "Land Bank",
-  description: "Bank transfer via Land Bank",
-  accent: "from-[#A8AF8D] to-[#5B6B3C]",
-  Icon: Building2,
-} as const
-
-const qrSrc = "/QR/LandBank.png"
+const paymentMethods = [
+  {
+    id: "gcash",
+    label: "GCASH",
+    description: "Mobile payment via GCASH",
+    accent: "from-[#007BFF] to-[#0056B3]",
+    Icon: Smartphone,
+    qrSrc: "/QR/GCASH.png",
+  },
+  {
+    id: "landbank",
+    label: "Land Bank",
+    description: "Bank transfer via Land Bank",
+    accent: "from-[#A8AF8D] to-[#5B6B3C]",
+    Icon: Building2,
+    qrSrc: "/QR/LANDBANK QR.png",
+  },
+] as const
 
 export function Registry() {
   return (
@@ -44,30 +53,35 @@ export function Registry() {
         </div>
       </div>
 
-      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
         <div className="relative bg-[#F4F4F4]/95 backdrop-blur-md border border-[#B9AACB]/60 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(106,79,130,0.3)] p-4 sm:p-6 md:p-8 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#B9AACB]/20 via-transparent to-[#6A4F82]/10 pointer-events-none" />
 
-          <div className="relative z-10">
-            <div className="relative bg-white/95 rounded-xl sm:rounded-2xl border-2 border-dashed border-[#B9AACB]/40 p-5 sm:p-6 md:p-8 text-center shadow-[0_6px_24px_rgba(106,79,130,0.15)]">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F4F4F4] px-3 py-1 rounded-full shadow-sm border-2 border-[#B9AACB]/50 text-xs font-semibold tracking-[0.2em] text-[#6A4F82] uppercase">
-                {paymentMethod.label}
-              </div>
-              <div className="flex flex-col items-center gap-4 w-full">
-                <div className="w-56 h-56 sm:w-64 sm:h-64 border-2 border-dashed border-[#B9AACB]/40 rounded-xl sm:rounded-2xl flex items-center justify-center bg-white relative overflow-hidden">
-                  <Image
-                    src={qrSrc}
-                    alt={`${paymentMethod.label} QR code`}
-                    fill
-                    sizes="256px"
-                    className="object-contain p-4"
-                  />
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            {paymentMethods.map((paymentMethod) => (
+              <div
+                key={paymentMethod.id}
+                className="relative bg-white/95 rounded-xl sm:rounded-2xl border-2 border-dashed border-[#B9AACB]/40 p-5 sm:p-6 md:p-8 text-center shadow-[0_6px_24px_rgba(106,79,130,0.15)]"
+              >
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F4F4F4] px-3 py-1 rounded-full shadow-sm border-2 border-[#B9AACB]/50 text-xs font-semibold tracking-[0.2em] text-[#6A4F82] uppercase">
+                  {paymentMethod.label}
                 </div>
-                <p className="text-sm sm:text-base text-[#6A4F82] max-w-md">
-                  Scan the QR code to make a bank transfer.
-                </p>
+                <div className="flex flex-col items-center gap-4 w-full">
+                  <div className="w-56 h-56 sm:w-64 sm:h-64 border-2 border-dashed border-[#B9AACB]/40 rounded-xl sm:rounded-2xl flex items-center justify-center bg-white relative overflow-hidden">
+                    <Image
+                      src={paymentMethod.qrSrc}
+                      alt={`${paymentMethod.label} QR code`}
+                      fill
+                      sizes="256px"
+                      className="object-contain p-4"
+                    />
+                  </div>
+                  <p className="text-sm sm:text-base text-[#6A4F82] max-w-md">
+                    Scan the QR code to make a {paymentMethod.id === "gcash" ? "mobile payment" : "bank transfer"}.
+                  </p>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
 
