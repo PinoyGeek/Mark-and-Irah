@@ -35,10 +35,11 @@ interface TimelineEvent {
 const timelineEvents: TimelineEvent[] = [
   {
     time: guestsTime,
-    title: "Guest Arrival",
-    description: "Settle in, find your seats, and get ready to celebrate.",
+    title: "Arrival",
+    description: "The wedding party and guests arrive. Settle in, find your seats, and get ready to celebrate.",
     location: ceremonyVenue,
     icon: GuestsIcon,
+    imageSrc: "/weddingtimeline/arrival.png",
   },
   {
     time: ceremonyTime,
@@ -46,21 +47,63 @@ const timelineEvents: TimelineEvent[] = [
     description: `Celebrate ${brideNickname} & ${groomNickname} as they say "I do."`,
     location: ceremonyVenue,
     icon: RingsIcon,
+    imageSrc: "/weddingtimeline/WeddingCeremony.png",
   },
   {
-    time: receptionTime,
-    title: "Reception",
-    description: "Dinner, program, and celebrations with family and friends.",
+    time: "3:30 PM",
+    title: "Photo Session",
+    description: "Capture beautiful moments with the newlyweds and wedding party.",
+    location: ceremonyVenue,
+    icon: CameraIcon,
+    imageSrc: "/weddingtimeline/PhotoSession.png",
+  },
+  {
+    time: "4:00 PM",
+    title: "Cocktail Hour",
+    description: "Enjoy refreshments and light snacks as we transition to the reception.",
+    location: receptionVenue,
+    icon: CocktailIcon,
+    imageSrc: "/weddingtimeline/CockTailHour.png",
+  },
+  {
+    time: "4:30 PM",
+    title: "Reception Welcome",
+    description: "Grand entrance and welcome to the reception celebration.",
+    location: receptionVenue,
+    icon: FireworksIcon,
+    imageSrc: "/weddingtimeline/reception welcom.png",
+  },
+  {
+    time: "5:00 PM",
+    title: "Dinner Service",
+    description: "A delicious meal prepared with love for our cherished guests.",
     location: receptionVenue,
     icon: DinnerIcon,
+    imageSrc: "/weddingtimeline/DinnerService.png",
   },
   {
-    time: "Send-off",
+    time: "6:30 PM",
+    title: "Cake Cutting",
+    description: "Join us for the traditional cake cutting ceremony.",
+    location: receptionVenue,
+    icon: CakeIcon,
+    imageSrc: "/weddingtimeline/cakecutting.png",
+  },
+  {
+    time: "7:00 PM",
+    title: "Dancing & Celebration",
+    description: `Watch ${brideNickname} & ${groomNickname} share their first dance as husband and wife, then join us as we celebrate and dance the night away together!`,
+    location: receptionVenue,
+    icon: DanceIcon,
+    imageSrc: "/weddingtimeline/dance.png",
+  },
+  {
+    time: "8:30 PM",
     title: "Send-off",
     description: `A warm send-off for ${brideNickname} & ${groomNickname} as they begin their new chapter together.`,
     location: receptionVenue,
     icon: CarIcon,
-    imageSrc: "/weddingTimeline/Send-off.png",
+    imageSrc: "/weddingtimeline/SendOff.png",
   },
 ]
 
@@ -85,7 +128,7 @@ export function WeddingTimeline() {
         </h2>
 
         <p className="text-[11px] sm:text-sm md:text-base lg:text-lg text-white/95 max-w-xl mx-auto leading-relaxed px-2">
-          A glimpse of the moments we'll share throughout the day.
+          Join us for a beautiful day filled with love, celebration, and unforgettable moments.
         </p>
 
         {/* Simple divider */}
@@ -98,14 +141,14 @@ export function WeddingTimeline() {
 
       {/* Timeline - improved desktop layout */}
       <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-5 lg:px-8">
-        {/* Vertical timeline line - desktop */}
-        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#B9AACB]/40 via-[#6A4F82]/55 to-[#B9AACB]/40 -translate-x-1/2 pointer-events-none">
+        {/* Vertical timeline line - desktop (aligned with left icons) */}
+        <div className="hidden md:block absolute left-[4rem] md:left-[5rem] lg:left-[6rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#B9AACB]/40 via-[#6A4F82]/55 to-[#B9AACB]/40 pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#F4F4F4]" />
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#F4F4F4]" />
         </div>
 
         {/* Mobile timeline line */}
-        <div className="md:hidden absolute left-6 sm:left-7 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#B9AACB]/45 via-[#6A4F82]/60 to-[#B9AACB]/45 pointer-events-none" />
+        <div className="md:hidden absolute left-10 sm:left-11 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#B9AACB]/45 via-[#6A4F82]/60 to-[#B9AACB]/45 pointer-events-none" />
 
         <div className="space-y-4 sm:space-y-5 md:space-y-8 lg:space-y-10">
           {timelineEvents.map((event, index) => (
@@ -129,27 +172,22 @@ function TimelineItem({ event, index }: { event: TimelineEvent; index: number })
       transition={{ duration: 0.4, delay: index * 0.05 }}
       className="relative"
     >
-      {/* Desktop layout: alternating sides - improved */}
-      <div className="hidden md:flex items-center">
-        {/* Left side container (for even indices: 0, 2, 4...) */}
-        <div className={`flex-1 flex ${isEven ? "justify-end pr-8 lg:pr-12" : ""}`}>
-          {isEven && <TimelineCard event={event} Icon={Icon} />}
-        </div>
-
-        {/* Center icon - always in the middle */}
-        <div className="relative z-10 flex-shrink-0 mx-2 lg:mx-4">
+      {/* Desktop layout: left-aligned with icon on left */}
+      <div className="hidden md:flex items-center gap-6 lg:gap-8">
+        {/* Icon on the left - centered vertically */}
+        <div className="relative z-10 flex-shrink-0 flex items-center">
           <IconBadge Icon={Icon} imageSrc={event.imageSrc} />
         </div>
 
-        {/* Right side container (for odd indices: 1, 3, 5...) */}
-        <div className={`flex-1 flex ${!isEven ? "justify-start pl-8 lg:pl-12" : ""}`}>
-          {!isEven && <TimelineCard event={event} Icon={Icon} />}
+        {/* Card on the right */}
+        <div className="flex-1">
+          <TimelineCard event={event} Icon={Icon} />
         </div>
       </div>
 
       {/* Mobile layout: compact stacked */}
-      <div className="md:hidden flex items-start gap-3">
-        <div className="relative z-10 flex-shrink-0 mt-0.5">
+      <div className="md:hidden flex items-center gap-4">
+        <div className="relative z-10 flex-shrink-0 flex items-center">
           <IconBadge Icon={Icon} mobile imageSrc={event.imageSrc} />
         </div>
         <div className="flex-1 min-w-0">
@@ -225,29 +263,31 @@ function IconBadge({
   mobile?: boolean
   imageSrc?: string
 }) {
+  if (imageSrc) {
+    return (
+      <Image
+        src={imageSrc}
+        alt=""
+        width={200}
+        height={200}
+        className={`${
+          mobile ? "w-20 h-20" : "w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48"
+        } object-contain brightness-0 invert`}
+      />
+    )
+  }
+  
   return (
     <div
       className={`${
         mobile ? "w-10 h-10" : "w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20"
       } rounded-full border-2 border-[#B9AACB]/70 bg-gradient-to-br from-white to-[#F4F4F4] flex items-center justify-center shadow-md hover:scale-105 transition-transform duration-300`}
     >
-      {imageSrc ? (
-        <Image
-          src={imageSrc}
-          alt=""
-          width={64}
-          height={64}
-          className={`${
-            mobile ? "w-7 h-7" : "w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12"
-          } object-contain`}
-        />
-      ) : (
-        <Icon
-          className={`${
-            mobile ? "w-5 h-5" : "w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
-          }`}
-        />
-      )}
+      <Icon
+        className={`${
+          mobile ? "w-5 h-5" : "w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
+        }`}
+      />
     </div>
   )
 }
@@ -348,6 +388,48 @@ function CarIcon(props: React.SVGProps<SVGSVGElement>) {
       <circle cx="11" cy="22.5" r="1.8" />
       <circle cx="21" cy="22.5" r="1.8" />
       <path d="M14 11.5 16 9l2 2.5" />
+    </svg>
+  )
+}
+
+function CocktailIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" stroke={iconStroke} strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M8 28h16" />
+      <path d="M16 28V12" />
+      <path d="M10 12h12l-1-4H11l-1 4Z" />
+      <circle cx="16" cy="8" r="2" />
+      <path d="M12 16h8" />
+    </svg>
+  )
+}
+
+function CakeIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" stroke={iconStroke} strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <rect x="8" y="18" width="16" height="8" rx="1" />
+      <rect x="10" y="12" width="12" height="6" rx="1" />
+      <rect x="12" y="8" width="8" height="4" rx="1" />
+      <circle cx="14" cy="10" r="0.8" />
+      <circle cx="18" cy="10" r="0.8" />
+      <circle cx="13" cy="15" r="0.8" />
+      <circle cx="19" cy="15" r="0.8" />
+      <path d="M16 5v3" />
+    </svg>
+  )
+}
+
+function DanceIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" stroke={iconStroke} strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <circle cx="10" cy="12" r="3" />
+      <circle cx="22" cy="12" r="3" />
+      <path d="M10 15v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-6" />
+      <path d="M12 23v2" />
+      <path d="M20 23v2" />
+      <path d="M8 18h16" />
+      <path d="M16 5v4" />
+      <path d="M13 7l3-2 3 2" />
     </svg>
   )
 }

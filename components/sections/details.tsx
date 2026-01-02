@@ -67,9 +67,9 @@ export function Details() {
   const ceremonyMapsLink = `https://maps.google.com/?q=${encodeURIComponent(siteConfig.ceremony.location)}`
   const receptionMapsLink = `https://maps.google.com/?q=${encodeURIComponent(siteConfig.reception.location)}`
 
-  // Palettes (used only for color chips in attire card) - Purple & Lilac motif
+  // Palettes (used only for color chips in attire card) - Emerald motif
   const sponsorPalette = ["#6A4F82", "#B9AACB", "#A8AF8D"]
-  const guestPalette = ["#AB7CB0", "#D4A6D4", "#CBE0FF", "#FFC4C3", "#FFE2E6"]
+  const guestPalette = ["#327B72", "#187153", "#A98634", "#FACBC5", "#E5D0CD"]
   const secondaryPalette = ["#B9AACB", "#F4F4F4", "#A8AF8D", "#6A4F82", "#5B6B3C"]
 
   const openInMaps = (link: string) => {
@@ -79,14 +79,16 @@ export function Details() {
   return (
     <Section
       id="details"
-      className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#6A4F82]"
+      className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#187153]"
     >
-      {/* Background elements with purple & lilac motif */}
+      {/* Background image - same as gallery */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Subtle gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#6A4F82]/85 via-[#B9AACB]/60 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#6A4F82]/90 via-[#B9AACB]/55 to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(185,170,203,0.22),transparent_55%)] opacity-80" />
+        <img
+          src="/Details/newBackground.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        />
       </div>
 
       {/* Header */}
@@ -111,11 +113,13 @@ export function Details() {
           <span className="font-semibold text-white">“I do.”</span>
         </p>
 
-        {/* Simple divider */}
+        {/* Decorative element below subtitle - matching gallery style */}
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
-          <div className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_12px_rgba(255,255,255,0.7)]" />
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-l from-transparent via-white/60 to-transparent" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#327B72]/60" />
+          <div className="w-1.5 h-1.5 bg-[#A98634]/80 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#FACBC5]/80 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#327B72]/80 rounded-full" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#327B72]/60" />
         </div>
       </div>
 
@@ -140,8 +144,8 @@ export function Details() {
               date: siteConfig.ceremony.date,
               time: siteConfig.ceremony.time,
               mapLink: ceremonyMapsLink,
-              gradient: "from-[#6A4F82] via-[#B9AACB] to-[#F4F4F4]",
-              image: "/Details/Lorenzo Farm and Resort and events Place.jpg",
+              gradient: "from-[#187153] via-[#327B72] to-[#FACBC5]",
+              image: "/Details/Casa Joros Mendenilla Resort Catanauan Quezon.jpg",
             },
             {
               key: "reception",
@@ -151,13 +155,13 @@ export function Details() {
               date: siteConfig.reception.date,
               time: siteConfig.reception.time,
               mapLink: receptionMapsLink,
-              gradient: "from-[#B9AACB] via-[#A8AF8D] to-[#F4F4F4]",
-              image: "/Details/Balai Alexandria Events Place Brgy Dampulan Jaen Nueva Ecija.jpg",
+              gradient: "from-[#327B72] via-[#A98634] to-[#FACBC5]",
+              image: "/Details/Casa Pavillion.png",
             },
           ].map((info) => (
             <div
               key={info.key}
-              className="overflow-hidden rounded-xl sm:rounded-2xl border border-[#F0F0EE]/25 bg-gradient-to-b shadow-[0_20px_60px_rgba(0,0,0,0.45)] transition-transform duration-500 group hover:scale-[1.01]"
+              className="overflow-hidden rounded-xl sm:rounded-2xl border border-[#327B72]/40 bg-gradient-to-b shadow-[0_20px_60px_rgba(0,0,0,0.45)] transition-transform duration-500 group hover:scale-[1.01]"
               style={{ backgroundImage: undefined }}
             >
               {/* Top image */}
@@ -170,7 +174,7 @@ export function Details() {
                   sizes="100vw"
                   priority
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t from-[#6A4F82]/95 via-[#B9AACB]/65 to-transparent`} />
+                <div className={`absolute inset-0 bg-gradient-to-t from-[#187153]/95 via-[#327B72]/65 to-transparent`} />
                 <div className="absolute inset-0 flex flex-col justify-end px-3 sm:px-6 pb-3 sm:pb-6 text-white">
                   <p className="style-script-regular text-xl sm:text-2xl md:text-3xl font-normal leading-none drop-shadow-md">
                     {info.label}
@@ -182,20 +186,20 @@ export function Details() {
               </div>
 
               {/* Details panel */}
-              <div className="bg-[#F4F4F4]/95 text-[#6A4F82] px-3 sm:px-6 py-4 sm:py-6 space-y-4 backdrop-blur-sm">
+              <div className="bg-[#FACBC5]/95 text-[#187153] px-3 sm:px-6 py-4 sm:py-6 space-y-4 backdrop-blur-sm">
                 <div className="space-y-2.5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 text-left">
-                    <div className="rounded-md border border-[#B9AACB] bg-white/80 px-2.5 py-2 shadow-sm">
-                      <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#B9AACB] uppercase mb-0.5">
+                    <div className="rounded-md border border-[#327B72] bg-white/80 px-2.5 py-2 shadow-sm">
+                      <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#327B72] uppercase mb-0.5">
                         Date
                       </p>
-                      <p className="text-sm sm:text-base font-bold text-[#6A4F82]">{info.date}</p>
+                      <p className="text-sm sm:text-base font-bold text-[#187153]">{info.date}</p>
                     </div>
-                    <div className="rounded-md border border-[#B9AACB] bg-white/80 px-2.5 py-2 shadow-sm">
-                      <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#B9AACB] uppercase mb-0.5">
+                    <div className="rounded-md border border-[#327B72] bg-white/80 px-2.5 py-2 shadow-sm">
+                      <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#327B72] uppercase mb-0.5">
                         {info.label}
                       </p>
-                      <p className="text-sm sm:text-base font-bold text-[#6A4F82]">{info.time}</p>
+                      <p className="text-sm sm:text-base font-bold text-[#187153]">{info.time}</p>
                     </div>
                   </div>
                 </div>
@@ -203,14 +207,14 @@ export function Details() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-3">
                   <button
                     onClick={() => openInMaps(info.mapLink)}
-                    className="flex items-center justify-center gap-1.5 rounded-lg bg-[#6A4F82] text-white py-2.5 sm:py-3 shadow-lg hover:translate-y-[-2px] hover:bg-[#B9AACB] transition-all text-xs sm:text-sm font-semibold"
+                    className="flex items-center justify-center gap-1.5 rounded-lg bg-[#187153] text-white py-2.5 sm:py-3 shadow-lg hover:translate-y-[-2px] hover:bg-[#327B72] transition-all text-xs sm:text-sm font-semibold"
                   >
                     <Navigation className="w-4 h-4" />
                     Get Directions
                   </button>
                   <button
                     onClick={() => copyToClipboard(info.location, info.key)}
-                    className="flex items-center justify-center gap-1.5 rounded-lg border border-[#B9AACB]/35 text-[#6A4F82] py-2.5 sm:py-3 hover:bg-[#B9AACB]/5 transition-all text-xs sm:text-sm font-semibold"
+                    className="flex items-center justify-center gap-1.5 rounded-lg border border-[#327B72]/35 text-[#187153] py-2.5 sm:py-3 hover:bg-[#327B72]/5 transition-all text-xs sm:text-sm font-semibold"
                   >
                     {copiedItems.has(info.key) ? (
                       <>
@@ -244,30 +248,30 @@ export function Details() {
 
         <div className="space-y-3 sm:space-y-4">
           {/* Attire Guidelines */}
-          <div className="relative rounded-2xl border border-white/40 bg-white/85 backdrop-blur-lg shadow-[0_18px_40px_rgba(106,79,130,0.18)] p-3.5 sm:p-5 overflow-hidden">
+          <div className="relative rounded-2xl border border-[#327B72]/40 bg-white/85 backdrop-blur-lg shadow-[0_18px_40px_rgba(24,113,83,0.18)] p-3.5 sm:p-5 overflow-hidden">
             <div className="mb-2.5 sm:mb-3 relative z-10 text-center">
-              <h4 className="text-[0.75rem] sm:text-sm md:text-base font-semibold tracking-[0.3em] uppercase text-[#6A4F82]">
+              <h4 className="text-[0.75rem] sm:text-sm md:text-base font-semibold tracking-[0.3em] uppercase text-[#187153]">
                 Attire &amp; Motif
               </h4>
             </div>
 
-            <div className="relative w-full rounded-2xl overflow-hidden border border-white/60 shadow-xl bg-white p-4 sm:p-6 space-y-3 sm:space-y-4">
+            <div className="relative w-full rounded-2xl overflow-hidden border border-[#327B72]/60 shadow-xl bg-white p-4 sm:p-6 space-y-3 sm:space-y-4">
               <div className="text-center space-y-2 sm:space-y-3">
-                <p className="text-xs sm:text-sm font-semibold text-[#6A4F82]">
+                <p className="text-xs sm:text-sm font-semibold text-[#187153]">
                   {siteConfig.dressCode.note}
                 </p>
-                <p className="text-xs sm:text-sm text-[#6A4F82]/90">
+                <p className="text-xs sm:text-sm text-[#187153]/90">
                   Please dress within our wedding colors to help create a soft, elegant romantic celebration.
                 </p>
               </div>
 
               <div className="space-y-4">
-                <div className="border-t border-[#B9AACB] pt-4">
-                  <h5 className="font-semibold text-xs sm:text-sm text-[#6A4F82] mb-2">Principal Sponsors Attire</h5>
-                  <p className="text-[10px] sm:text-xs text-[#6A4F82]/80 mb-2">Kindly align attire below.</p>
-                  <div className="relative w-full aspect-[4/3] sm:aspect-[5/3] rounded-xl overflow-hidden border border-[#B9AACB] bg-[#F4F4F4] mb-3">
+                <div className="border-t border-[#327B72] pt-4">
+                  <h5 className="font-semibold text-xs sm:text-sm text-[#187153] mb-2">Principal Sponsors Attire</h5>
+                  <p className="text-[10px] sm:text-xs text-[#187153]/80 mb-2">Kindly align attire below.</p>
+                  <div className="relative w-full aspect-[4/3] sm:aspect-[5/3] rounded-xl overflow-hidden border border-[#327B72] bg-[#FACBC5] mb-3">
                     <Image
-                      src="/Details/Principal Sponsors Attire new.png"
+                      src="/Details/sponsorAttire.png"
                       alt="Principal sponsors attire guideline"
                       fill
                       className="object-contain"
@@ -276,14 +280,14 @@ export function Details() {
                     />
                   </div>
                   <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
-                    <p className="text-[#6A4F82]">
-                      <span className="font-semibold">Male Sponsor:</span> {siteConfig.dressCode.sponsors.male}
+                    <p className="text-[#187153]">
+                      <span className="font-semibold">Male Sponsor:</span> Barong, Black Pants and Leather Shoes
                     </p>
-                    <p className="text-[#6A4F82]">
-                      <span className="font-semibold">Female Sponsor:</span> {siteConfig.dressCode.sponsors.female}
+                    <p className="text-[#187153]">
+                      <span className="font-semibold">Female Sponsor:</span> shades of Emerald Green, Teal, or Blush Pink Gown
                     </p>
                     <div className="pt-1">
-                      {/* <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] text-[#6A4F82] mb-1">
+                      {/* <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] text-[#187153] mb-1">
                         Palette
                       </p>
                       <div className="flex flex-wrap gap-1.5">
@@ -300,11 +304,11 @@ export function Details() {
                   </div>
                 </div>
 
-                <div className="border-t border-[#B9AACB] pt-4">
-                  <h5 className="font-semibold text-xs sm:text-sm text-[#6A4F82] mb-2">Wedding Guests</h5>
-                  <div className="relative w-full aspect-[4/3] sm:aspect-[5/3] rounded-xl overflow-hidden border border-[#B9AACB] bg-[#F4F4F4] mb-3">
+                <div className="border-t border-[#327B72] pt-4">
+                  <h5 className="font-semibold text-xs sm:text-sm text-[#187153] mb-2">Wedding Guests</h5>
+                  <div className="relative w-full aspect-[4/3] sm:aspect-[5/3] rounded-xl overflow-hidden border border-[#327B72] bg-[#FACBC5] mb-3">
                     <Image
-                      src="/Details/Guest Attire 3.png"
+                      src="/Details/guestAttire.png"
                       alt="Guest attire guideline"
                       fill
                       className="object-contain"
@@ -313,14 +317,14 @@ export function Details() {
                     />
                   </div>
                   <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
-                    <p className="text-[#6A4F82] font-semibold">
+                    <p className="text-[#187153] font-semibold">
                       Formal or Semi Formal
                     </p>
-                    <p className="text-[#6A4F82]">
+                    <p className="text-[#187153]">
                       We Encourage you to dress according to our wedding color.
                     </p>
                     <div className="pt-1">
-                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] text-[#6A4F82] mb-1">
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] text-[#187153] mb-1">
                         Palette
                       </p>
                       <div className="flex flex-wrap gap-1.5">
@@ -341,19 +345,19 @@ export function Details() {
           </div>
 
           {/* Arrival Time & Reception Guidelines */}
-          <div className="relative rounded-2xl border border-white/40 bg-white/85 backdrop-blur-lg shadow-[0_18px_40px_rgba(106,79,130,0.18)] p-3.5 sm:p-5 overflow-hidden">
+          <div className="relative rounded-2xl border border-[#327B72]/40 bg-white/85 backdrop-blur-lg shadow-[0_18px_40px_rgba(24,113,83,0.18)] p-3.5 sm:p-5 overflow-hidden">
             <div className="space-y-4 sm:space-y-5">
               {/* Arrival Time */}
-              <div className="relative w-full rounded-2xl overflow-hidden border border-white/60 shadow-xl bg-white p-4 sm:p-6">
+              <div className="relative w-full rounded-2xl overflow-hidden border border-[#327B72]/60 shadow-xl bg-white p-4 sm:p-6">
                 <div className="mb-3 sm:mb-4">
-                  <h4 className="text-[0.75rem] sm:text-sm md:text-base font-semibold tracking-[0.3em] uppercase text-[#6A4F82] mb-3">
+                  <h4 className="text-[0.75rem] sm:text-sm md:text-base font-semibold tracking-[0.3em] uppercase text-[#187153] mb-3">
                     Arrival Time
                   </h4>
                   <div className="space-y-2 sm:space-y-2.5">
-                    <p className="text-xs sm:text-sm text-[#6A4F82] leading-relaxed">
-                      Kindly arrive by <span className="font-semibold text-[#B9AACB]">{siteConfig.ceremony.guestsTime}</span> so we can begin the wedding ceremony promptly at exactly <span className="font-semibold text-[#B9AACB]">{siteConfig.ceremony.time}</span>.
+                    <p className="text-xs sm:text-sm text-[#187153] leading-relaxed">
+                      Kindly arrive by <span className="font-semibold text-[#327B72]">{siteConfig.ceremony.guestsTime}</span> so we can begin the wedding ceremony promptly at exactly <span className="font-semibold text-[#327B72]">{siteConfig.ceremony.time}</span>.
                     </p>
-                    <p className="text-xs sm:text-sm text-[#6A4F82] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#187153] leading-relaxed">
                       Your punctuality means so much to us — and don&apos;t forget to have a light snack beforehand so you can enjoy the celebration comfortably!
                     </p>
                   </div>
@@ -361,13 +365,13 @@ export function Details() {
               </div>
 
               {/* Reception Guidelines */}
-              <div className="relative w-full rounded-2xl overflow-hidden border border-white/60 shadow-xl bg-white p-4 sm:p-6">
+              <div className="relative w-full rounded-2xl overflow-hidden border border-[#327B72]/60 shadow-xl bg-white p-4 sm:p-6">
                 <div className="mb-3 sm:mb-4">
-                  <h4 className="text-[0.75rem] sm:text-sm md:text-base font-semibold tracking-[0.3em] uppercase text-[#6A4F82] mb-3">
+                  <h4 className="text-[0.75rem] sm:text-sm md:text-base font-semibold tracking-[0.3em] uppercase text-[#187153] mb-3">
                     Reception Guidelines
                   </h4>
                   <div className="space-y-2 sm:space-y-2.5">
-                    <p className="text-xs sm:text-sm text-[#6A4F82] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#187153] leading-relaxed">
                       The seating will be formal, RSVP-style. That's why we're asking you to fill out this invitation form to secure your spot. Kindly do not bring plus ones unless explicitly stated in your invitation.
                     </p>
                   </div>
@@ -376,26 +380,26 @@ export function Details() {
             </div>
           </div>
 
-          {/* Travel & Parking - Compact, purple lilac motif */}
-          <div className="relative rounded-2xl border border-[#B9AACB]/70 bg-[#F4F4F4]/90 backdrop-blur-lg shadow-[0_18px_40px_rgba(106,79,130,0.18)] p-3.5 sm:p-5 overflow-hidden">
+          {/* Travel & Parking - Compact, emerald motif */}
+          <div className="relative rounded-2xl border border-[#327B72]/70 bg-[#FACBC5]/90 backdrop-blur-lg shadow-[0_18px_40px_rgba(24,113,83,0.18)] p-3.5 sm:p-5 overflow-hidden">
             {/* Header */}
             <div className="flex items-center justify-center gap-2 mb-2.5 sm:mb-3 relative z-10">
-              <div className="p-1.5 rounded-full shadow-md bg-white/95 border border-[#B9AACB]/60">
-                <Car className="w-3.5 h-3.5 text-[#6A4F82]" />
+              <div className="p-1.5 rounded-full shadow-md bg-white/95 border border-[#327B72]/60">
+                <Car className="w-3.5 h-3.5 text-[#187153]" />
               </div>
-              <h4 className="font-semibold text-xs sm:text-base text-[#6A4F82]">Parking &amp; Travel</h4>
+              <h4 className="font-semibold text-xs sm:text-base text-[#187153]">Parking &amp; Travel</h4>
             </div>
 
             <div className="space-y-3 relative z-10">
               {/* Parking */}
-              <div className="rounded-xl p-2.5 sm:p-3 border border-[#B9AACB]/80 bg-gradient-to-br from-white/95 via-[#F4F4F4]/95 to-white/90 shadow-sm">
+              <div className="rounded-xl p-2.5 sm:p-3 border border-[#327B72]/80 bg-gradient-to-br from-white/95 via-[#FACBC5]/95 to-white/90 shadow-sm">
                 <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-[#6A4F82]/90 text-[#F4F4F4]">
+                  <div className="p-2 rounded-lg bg-[#187153]/90 text-white">
                     <Car className="w-4 h-4" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-[11px] sm:text-sm font-semibold text-[#6A4F82]">Parking Available</p>
-                    <p className="text-[10px] sm:text-xs text-[#6A4F82]/85">
+                    <p className="text-[11px] sm:text-sm font-semibold text-[#187153]">Parking Available</p>
+                    <p className="text-[10px] sm:text-xs text-[#187153]/85">
                       Parking is available at the venue. Please arrive early to find a comfortable spot.
                     </p>
                   </div>
@@ -403,14 +407,14 @@ export function Details() {
               </div>
 
               {/* Transportation */}
-              <div className="rounded-xl p-2.5 sm:p-3 border border-[#B9AACB]/80 bg-gradient-to-br from-white/95 via-[#F4F4F4]/95 to-white/90 shadow-sm">
+              <div className="rounded-xl p-2.5 sm:p-3 border border-[#327B72]/80 bg-gradient-to-br from-white/95 via-[#FACBC5]/95 to-white/90 shadow-sm">
                 <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-[#B9AACB]/90 text-[#F4F4F4]">
+                  <div className="p-2 rounded-lg bg-[#327B72]/90 text-white">
                     <Navigation className="w-4 h-4" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-[11px] sm:text-sm font-semibold text-[#6A4F82]">Transportation</p>
-                    <p className="text-[10px] sm:text-xs text-[#6A4F82]/85">
+                    <p className="text-[11px] sm:text-sm font-semibold text-[#187153]">Transportation</p>
+                    <p className="text-[10px] sm:text-xs text-[#187153]/85">
                       Private vehicles and local transport are welcome. Coordinate with friends or family and plan your
                       route ahead of time.
                     </p>
@@ -419,24 +423,24 @@ export function Details() {
               </div>
 
               {/* Tips */}
-              <div className="rounded-xl p-2.5 sm:p-3 border border-[#B9AACB]/75 bg-gradient-to-br from-white/95 via-[#F4F4F4]/95 to-white/90">
-                <p className="text-[11px] sm:text-sm font-semibold mb-2 flex items-center gap-2 text-[#6A4F82]">
-                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#6A4F82]/10 text-[#6A4F82]">
+              <div className="rounded-xl p-2.5 sm:p-3 border border-[#327B72]/75 bg-gradient-to-br from-white/95 via-[#FACBC5]/95 to-white/90">
+                <p className="text-[11px] sm:text-sm font-semibold mb-2 flex items-center gap-2 text-[#187153]">
+                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#187153]/10 text-[#187153]">
                     <MapPin className="w-3.5 h-3.5" />
                   </span>
                   Quick Tips
                 </p>
-                <ul className="text-[10px] sm:text-xs space-y-1 text-[#6A4F82]/90">
+                <ul className="text-[10px] sm:text-xs space-y-1 text-[#187153]/90">
                   <li className="flex items-start gap-2">
-                    <span className="text-[#B9AACB] mt-0.5">•</span>
+                    <span className="text-[#327B72] mt-0.5">•</span>
                     <span>Plan your route ahead to avoid unexpected delays.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#B9AACB] mt-0.5">•</span>
+                    <span className="text-[#327B72] mt-0.5">•</span>
                     <span>Please avoid walking during the ceremony. Approach the coordinator or wait to be guided.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#B9AACB] mt-0.5">•</span>
+                    <span className="text-[#327B72] mt-0.5">•</span>
                     <span>Coordinate carpooling with friends or family when possible.</span>
                   </li>
                 </ul>
@@ -451,29 +455,29 @@ export function Details() {
         <div
           className="fixed inset-0 backdrop-blur-xl z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 animate-in fade-in duration-500"
           onClick={() => setShowImageModal(null)}
-          style={{ backgroundColor: "rgba(248, 241, 236, 0.96)" }}
+          style={{ backgroundColor: "rgba(250, 203, 197, 0.96)" }}
         >
           {/* Decorative background elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div
               className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse"
-              style={{ backgroundColor: "#660033", opacity: 0.12 }}
+              style={{ backgroundColor: "#187153", opacity: 0.12 }}
             />
             <div
               className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse"
-              style={{ backgroundColor: "#B76E79", opacity: 0.14, animationDelay: "1s" }}
+              style={{ backgroundColor: "#327B72", opacity: 0.14, animationDelay: "1s" }}
             />
           </div>
 
           <div
             className="relative max-w-6xl w-full max-h-[95vh] sm:max-h-[90vh] bg-gradient-to-br from-white via-white rounded-3xl overflow-hidden shadow-2xl border-2 animate-in zoom-in-95 duration-500 group"
             onClick={(e) => e.stopPropagation()}
-            style={{ borderColor: "#6600331f", backgroundColor: "#FFF8F2" }}
+            style={{ borderColor: "#1871531f", backgroundColor: "#FACBC5" }}
           >
             {/* Decorative top accent */}
             <div
               className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r"
-              style={{ background: "linear-gradient(to right, #660033, #B76E79, #F5E5D9)" }}
+              style={{ background: "linear-gradient(to right, #187153, #327B72, #FACBC5)" }}
             />
 
             {/* Enhanced close button */}
@@ -481,28 +485,28 @@ export function Details() {
               onClick={() => setShowImageModal(null)}
               className="absolute top-4 right-4 sm:top-5 sm:right-5 md:top-6 md:right-6 z-20 hover:bg-white backdrop-blur-sm p-2.5 sm:p-3 rounded-xl shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl active:scale-95 border-2 group/close"
               title="Close (ESC)"
-              style={{ backgroundColor: "#FFF8F2", borderColor: "#66003333", color: "#1a1a1a" }}
+              style={{ backgroundColor: "#FACBC5", borderColor: "#18715333", color: "#187153" }}
             >
-              <X className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 group-hover/close:text-red-500 transition-colors" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 group-hover/close:text-[#187153] transition-colors" />
             </button>
 
             {/* Venue badge */}
             <div className="absolute top-4 left-4 sm:top-5 sm:left-5 md:top-6 md:left-6 z-20">
               <div
                 className="flex items-center gap-2 backdrop-blur-md px-4 py-2 rounded-full shadow-xl border-2"
-                style={{ backgroundColor: "#FFF8F2", borderColor: "#66003333" }}
+                style={{ backgroundColor: "#FACBC5", borderColor: "#18715333" }}
               >
                 {showImageModal === "ceremony" ? (
                   <>
-                    <Heart className="w-4 h-4" fill="#B76E79" style={{ color: "#660033" }} />
-                    <span className="text-xs sm:text-sm font-bold" style={{ color: "#1a1a1a" }}>
+                    <Heart className="w-4 h-4" fill="#327B72" style={{ color: "#187153" }} />
+                    <span className="text-xs sm:text-sm font-bold" style={{ color: "#187153" }}>
                       Ceremony Venue
                     </span>
                   </>
                 ) : (
                   <>
-                    <Utensils className="w-4 h-4" style={{ color: "#B76E79" }} />
-                    <span className="text-xs sm:text-sm font-bold" style={{ color: "#1a1a1a" }}>
+                    <Utensils className="w-4 h-4" style={{ color: "#327B72" }} />
+                    <span className="text-xs sm:text-sm font-bold" style={{ color: "#187153" }}>
                       Reception Venue
                     </span>
                   </>
@@ -513,13 +517,13 @@ export function Details() {
             {/* Image section with enhanced effects */}
             <div
               className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] overflow-hidden"
-              style={{ backgroundColor: "#FFF8F2" }}
+              style={{ backgroundColor: "#FACBC5" }}
             >
               {/* Shimmer effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-0" />
 
               <Image
-                src={showImageModal === "ceremony" ? "/Details/RELIGIOUS-Daraga_Church,_Albay.jpg" : "/Details/Hotel St. ellis.jpg"}
+                src={showImageModal === "ceremony" ? "/Details/Casa Joros Mendenilla Resort Catanauan Quezon.jpg" : "/Details/Casa Pavillion.png"}
                 alt={showImageModal === "ceremony" ? siteConfig.ceremony.location : siteConfig.reception.location}
                 fill
                 className="object-contain p-6 sm:p-8 md:p-10 transition-transform duration-700 group-hover:scale-105 z-10"
@@ -531,10 +535,10 @@ export function Details() {
             {/* Enhanced content section */}
             <div
               className="p-5 sm:p-6 md:p-8 bg-gradient-to-br from-white to-white/95 backdrop-blur-sm border-t-2 relative"
-              style={{ borderColor: "#6600331f", backgroundColor: "#FFF8F2" }}
+              style={{ borderColor: "#1871531f", backgroundColor: "#FACBC5" }}
             >
               {/* Decorative line */}
-              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#660033]/30 to-transparent" />
+              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#187153]/30 to-transparent" />
 
               <div className="space-y-5">
                 {/* Header with venue info */}
@@ -542,17 +546,17 @@ export function Details() {
                   <div className="space-y-2">
                     <h3
                       className="text-xl sm:text-2xl md:text-3xl font-bold flex items-center gap-3"
-                      style={{ color: "#1a1a1a" }}
+                      style={{ color: "#187153" }}
                     >
                       {showImageModal === "ceremony" ? (
-                        <Heart className="w-6 h-6" fill="#B76E79" style={{ color: "#660033" }} />
+                        <Heart className="w-6 h-6" fill="#327B72" style={{ color: "#187153" }} />
                       ) : (
-                        <Utensils className="w-6 h-6" style={{ color: "#B76E79" }} />
+                        <Utensils className="w-6 h-6" style={{ color: "#327B72" }} />
                       )}
                       {showImageModal === "ceremony" ? siteConfig.ceremony.venue : siteConfig.reception.venue}
                     </h3>
-                    <div className="flex items-center gap-2 text-sm opacity-70" style={{ color: "#1a1a1a" }}>
-                      <MapPin className="w-4 h-4" style={{ color: "#660033" }} />
+                    <div className="flex items-center gap-2 text-sm opacity-70" style={{ color: "#187153" }}>
+                      <MapPin className="w-4 h-4" style={{ color: "#187153" }} />
                       <span>
                         {showImageModal === "ceremony"
                           ? siteConfig.ceremony.location
@@ -565,13 +569,13 @@ export function Details() {
                       <div
                         className="flex items-center gap-2 text-sm font-medium px-3 py-2 rounded-lg border"
                         style={{
-                          color: "#1a1a1a",
-                          backgroundColor: "#F5E5D9",
+                          color: "#187153",
+                          backgroundColor: "#FACBC5",
                           opacity: 0.9,
-                          borderColor: "#66003333",
+                          borderColor: "#18715333",
                         }}
                       >
-                        <Clock className="w-4 h-4" style={{ color: "#660033" }} />
+                        <Clock className="w-4 h-4" style={{ color: "#187153" }} />
                         <span>
                           {siteConfig.ceremony.date} at {siteConfig.ceremony.time}
                         </span>
@@ -581,13 +585,13 @@ export function Details() {
                       <div
                         className="flex items-center gap-2 text-sm font-medium px-3 py-2 rounded-lg border"
                         style={{
-                          color: "#1a1a1a",
-                          backgroundColor: "#FDECEF",
+                          color: "#187153",
+                          backgroundColor: "#FACBC5",
                           opacity: 0.9,
-                          borderColor: "#B76E7933",
+                          borderColor: "#327B7233",
                         }}
                       >
-                        <Clock className="w-4 h-4" style={{ color: "#B76E79" }} />
+                        <Clock className="w-4 h-4" style={{ color: "#327B72" }} />
                         <span>
                           {siteConfig.reception.date} - {siteConfig.reception.time}
                         </span>
@@ -606,9 +610,9 @@ export function Details() {
                           `modal-${showImageModal}`,
                         )
                       }
-                      className="flex items-center justify-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 bg-white border-2 rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md hover:bg-[#F5E5D9]/25 whitespace-nowrap"
+                      className="flex items-center justify-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 bg-white border-2 rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 shadow-md hover:bg-[#FACBC5]/25 whitespace-nowrap"
                       title="Copy address"
-                      style={{ borderColor: "#66003333", color: "#1a1a1a" }}
+                      style={{ borderColor: "#18715333", color: "#187153" }}
                     >
                       {copiedItems.has(`modal-${showImageModal}`) ? (
                         <>
@@ -631,8 +635,8 @@ export function Details() {
                       style={{
                         background:
                           showImageModal === "ceremony"
-                            ? "linear-gradient(to right, #660033, #B76E79)"
-                            : "linear-gradient(to right, #B76E79, #F5E5D9)",
+                            ? "linear-gradient(to right, #187153, #327B72)"
+                            : "linear-gradient(to right, #327B72, #FACBC5)",
                       }}
                     >
                       <Navigation className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -642,7 +646,7 @@ export function Details() {
                 </div>
 
                 {/* Additional info */}
-                <div className="flex items-center gap-2 text-xs opacity-65" style={{ color: "#1a1a1a" }}>
+                <div className="flex items-center gap-2 text-xs opacity-65" style={{ color: "#187153" }}>
                   <span className="flex items-center gap-1.5">
                     <Camera className="w-3 h-3" />
                     Click outside to close

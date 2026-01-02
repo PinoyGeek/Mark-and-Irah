@@ -1,14 +1,14 @@
 export const siteConfig = {
   couple: {
-    bride: "Catherine Rivera",
-    brideNickname: "Catherine",
-    groom: "Mark Niño Cabral",
-    groomNickname: "Mark",
+    bride: "Jasmin P. Rosima",
+    brideNickname: "Jasmin",
+    groom: "Nathaniel L Villaganas",
+    groomNickname: "Nathaniel",
   },
   wedding: {
-    date: "January 11, 2026",
+    date: "March 29, 2026",
     time: "3:00 PM",
-    venue: "Lorenzo Farm and Resort and Events Place / Balai Alexandria Events Place",
+    venue: "Casa Joros Mendenilla Resort Catanauan Quezon / Casa Joros Pavilion",
     tagline: "are getting married!",
     theme: "Purple & Sage Motif",
     motif: "#6A4F82, #B9AACB, #A8AF8D, #F4F4F4, #5B6B3C",
@@ -19,18 +19,18 @@ export const siteConfig = {
     },
   },
   ceremony: {
-    location: "Lorenzo Farm and Resort and Events Place, Brgy Dampulan Jaen Nueva Ecija",
-    venue: "Lorenzo Farm and Resort and Events Place",
-    date: "January 11, 2026",
+    location: "Casa Joros Mendenilla Resort Catanauan Quezon",
+    venue: "Casa Joros Mendenilla Resort Catanauan Quezon",
+    date: "March 29, 2026",
     day: "Sunday",
     time: "3:00 PM",
     entourageTime: "2:30 PM",
     guestsTime: "2:30 PM",
   },
   reception: {
-    location: "Balai Alexandria Events Place, Brgy Dampulan Jaen Nueva Ecija",
-    venue: "Balai Alexandria Events Place",
-    date: "January 11, 2026",
+    location: "Casa Joros Pavilion, Catanauan Quezon",
+    venue: "Casa Joros Pavilion",
+    date: "March 29, 2026",
     time: "Reception to follow",
   },
   dressCode: {
@@ -63,8 +63,8 @@ Now, as they prepare to say yes before God and the people they love most, Cather
     secondary: "#B9AACB",
   },
   snapShare: {
-    googleDriveLink: "https://drive.google.com/drive/folders/1gFI7Q-1J85w2gwOQ-Ugkakeei2poqBM8?usp=sharing",
-    hashtag: "#CatherineAndMark2026",
+    googleDriveLink: "https://drive.google.com/drive/folders/1Km13XQfthVxvD-owEnD7ajGjhn7ylT3A?usp=sharing",
+    hashtag: "#NathanielAndJasmin2026",
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }

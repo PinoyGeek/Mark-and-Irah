@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
-import { FadeIn } from './FadeIn';
 
 interface HeroProps {
   onOpen: () => void;
@@ -47,11 +46,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
     return () => clearInterval(timer);
   }, [mounted]);
 
-
   const images = useMemo(() => (isMobile ? mobileImages : desktopImages), [isMobile]);
 
   return (
-    <div className={`fixed inset-0 z-30 flex items-center justify-center overflow-hidden transition-all duration-1000 ${visible ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+    <div className={`fixed inset-0 z-30 flex items-center justify-center overflow-hidden transition-opacity duration-500 ${visible ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
       {/* Background Image Carousel */}
       <div className="absolute inset-0 z-0">
         {images.map((src, i) => (
@@ -59,81 +57,74 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
             key={src}
             src={src}
             alt="Couple"
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${i === index ? 'opacity-90' : 'opacity-0'}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${i === index ? 'opacity-100' : 'opacity-0'}`}
           />
         ))}
-
-        {/* Soft overlay tint with purple and sage gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#6A4F82]/40 via-[#B9AACB]/35 to-[#A8AF8D]/40 pointer-events-none" />
-        <div className="absolute inset-0 bg-[#6A4F82]/25 pointer-events-none" />
-
+        
+        {/* Emerald overlay */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(135deg, rgba(50, 123, 114, 0.4) 0%, rgba(24, 113, 83, 0.5) 50%, rgba(50, 123, 114, 0.4) 100%)'
+          }}
+        />
       </div>
 
       {/* Content Container */}
       <div className="relative z-10 flex flex-col items-center text-center p-6 w-full max-w-md mx-auto h-full">
         
         {/* Top Logo/Monogram */}
-        <FadeIn show={visible} delay={300} className="mb-auto mt-8">
-          <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-[#B9AACB]/50 flex items-center justify-center backdrop-blur-md bg-[#6A4F82]/30 shadow-lg">
+        <div className="mb-auto mt-8">
+          <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 flex items-center justify-center">
             {/* Monogram Image - White version */}
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 brightness-0 invert">
+            <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 brightness-0 invert">
               <Image
-                src="/monogram/monogram.png"
-                alt="Catherine & Mark Monogram"
+                src="/monogram/monogramnew.png"
+                alt="Nathaniel & Jasmin Monogram"
                 fill
-                className="object-contain drop-shadow-lg"
+                className="object-contain"
                 priority
               />
             </div>
           </div>
-        </FadeIn>
+        </div>
 
         <div className="flex-1" />
 
         <div className="flex flex-col items-center justify-end w-full gap-4 pb-14 sm:pb-16 md:pb-20">
-          <FadeIn show={visible} delay={600}>
           <h2
-            className="text-6xl md:text-8xl text-white transform -rotate-6 drop-shadow-lg opacity-95"
+            className="text-6xl md:text-8xl text-white transform -rotate-6"
             style={{
               fontFamily: '"Great Vibes", cursive',
               fontWeight: 400,
-              textShadow: '0 6px 18px rgba(0,0,0,0.35), 0 0 12px rgba(255,255,255,0.4)',
             }}
           >
             You are
           </h2>
-          </FadeIn>
           
-          <FadeIn show={visible} delay={900}>
           <h1
-            className="text-5xl md:text-7xl text-white font-bold tracking-wider uppercase drop-shadow-[0_10px_24px_rgba(0,0,0,0.35)]"
+            className="text-5xl md:text-7xl text-white font-bold tracking-wider uppercase"
             style={{
               fontFamily: '"Cinzel", serif',
               fontWeight: 700,
-              textShadow: '0 8px 22px rgba(0,0,0,0.38), 0 0 14px rgba(255,255,255,0.35)',
             }}
           >
             Invited!
           </h1>
-          </FadeIn>
 
-          <FadeIn show={visible} delay={1500}>
           <button 
             onClick={() => {
               onOpen();
             }}
-            className="group relative px-10 py-4 bg-[#6A4F82] text-[#F4F4F4] font-serif text-sm tracking-[0.2em] uppercase transition-all duration-500 hover:bg-[#B9AACB] shadow-lg hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 rounded-sm overflow-hidden border border-[#B9AACB]/30"
+            className="px-10 py-4 bg-white/20 text-white font-serif text-sm tracking-[0.2em] uppercase rounded-sm border border-white/40 hover:bg-white/30"
           >
             <span
-              className="relative z-10 text-white drop-shadow-md"
+              className="text-white"
               style={{ fontFamily: '"Cinzel", serif', fontWeight: 500 }}
             >
               Open Invitation
             </span>
-            {/* Button sheen effect */}
-            <div className="absolute top-0 left-[-100%] w-full h-full bg-white/20 skew-x-12 group-hover:animate-[shimmer_1s_infinite]" />
           </button>
-          </FadeIn>
         </div>
 
         {/* Bottom Spacer */}

@@ -173,10 +173,6 @@ export function Countdown() {
       id="countdown"
       className="relative bg-transparent py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Soft lavender overlay for readability */}
-      <div className="pointer-events-none absolute inset-0 bg-[#B9AACB]/45 sm:bg-[#B9AACB]/40 backdrop-blur-[1px]" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#B9AACB]/55 via-transparent to-[#B9AACB]/65" />
-
       {/* Monogram - centered at top */}
       <div className="relative flex justify-center pt-8 sm:pt-10 md:pt-12 mb-6 sm:mb-8 md:mb-10 z-10">
         <motion.div
@@ -187,7 +183,7 @@ export function Countdown() {
         >
           <div className="relative w-72 h-72 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[36rem] lg:h-[36rem] xl:w-[40rem] xl:h-[40rem] opacity-90">
             <Image
-              src="/monogram/monogram.png"
+              src="/monogram/monogramnew.png"
               alt={`${brideNickname} & ${groomNickname} Monogram`}
               fill
               className="object-contain"
