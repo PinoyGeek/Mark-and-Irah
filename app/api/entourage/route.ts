@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server"
 
 // Replace this with your Entourage Google Apps Script URL
-const ENTOURAGE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw3U0izObo5PsM7TY3doJkbbj5GQawOd-jkdC_pRFhsFKkCy3dtisgtBKNNqBNd4jm_Gg/exec'
+const ENTOURAGE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzP9KLahYbajvxaIz3Ke6h2rTPbaPAcTyFXJDVMUoGpAL5NuGY_qm88U3dznaAgXV5f/exec'
 
 // Entourage interface
 export interface Entourage {
@@ -167,4 +167,3 @@ export async function DELETE(request: NextRequest) {
     )
   }
 }
-
