@@ -45,7 +45,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Is there a dress code?",
     answer:
-      `Yes! We kindly request our guests to dress in formal attire matching our wedding colors. Please see the Attire section in Details for specific guidelines:\n\nPrincipal Sponsors:\n• Male: Barong, Black Pants and Leather Shoes\n• Female: Shades of Emerald Green, Teal, or Blush Pink Gown\n\nWedding Guests:\n• Formal or Semi Formal attire\n• We encourage you to dress according to our wedding colors to help create a soft, elegant romantic celebration.`,
+      `Yes! We kindly request our guests to dress in formal attire matching our wedding colors. Please see the Attire section in Details for specific guidelines:\n\nPrincipal Sponsors:\n• Male: Barong, Black Pants and Leather Shoes\n• Female: shades of BURGUNDY/MAROON\n\nWedding Guests:\n• Formal or Semi Formal attire\n• We encourage you to dress according to our wedding colors to help create a soft, elegant romantic celebration.`,
   },
   {
     question: "Will there be assigned seating?",
@@ -89,7 +89,7 @@ export function FAQ() {
   return (
     <Section
       id="faq"
-      className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#187153]"
+      className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#751A23]"
     >
       {/* Background image - matching gallery */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -108,7 +108,7 @@ export function FAQ() {
           className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-white mb-2`}
           style={{ textShadow: "0 2px 10px rgba(0,0,0,0.75)" }}
         >
-          Questions & Answers
+          Everything You Need to Know
         </p>
 
         <h2
@@ -117,6 +117,10 @@ export function FAQ() {
         >
           Frequently Asked Questions
         </h2>
+        
+        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white/90 font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
+          Common questions answered to help you prepare for our special day
+        </p>
 
         {/* Simple divider */}
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
@@ -129,8 +133,8 @@ export function FAQ() {
       {/* FAQ content */}
       <div className="relative z-30 max-w-4xl mx-auto px-3 sm:px-5">
         {/* Main card */}
-        <div className="relative bg-[#F4F4F4]/95 backdrop-blur-md border border-[#327B72]/60 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(24,113,83,0.3)] overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#327B72]/10 via-transparent to-[#187153]/5 pointer-events-none" />
+        <div className="relative bg-[#F4F4F4]/95 backdrop-blur-md border border-[#327B72]/60 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(117,26,35,0.3)] overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#327B72]/10 via-transparent to-[#751A23]/5 pointer-events-none" />
           
           {/* FAQ items */}
           <div className="relative p-2.5 sm:p-4 md:p-5 lg:p-6">
@@ -141,20 +145,20 @@ export function FAQ() {
                 return (
                   <div
                     key={index}
-                    className="rounded-lg sm:rounded-xl border border-[#327B72]/40 bg-white/50 hover:border-[#187153]/60 hover:bg-white/70 transition-all duration-300 overflow-hidden shadow-sm"
+                    className="rounded-lg sm:rounded-xl border border-[#327B72]/40 bg-white/50 hover:border-[#751A23]/60 hover:bg-white/70 transition-all duration-300 overflow-hidden shadow-sm"
                   >
                     <button
                       onClick={() => toggleItem(index)}
-                      className="group w-full px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 flex items-center justify-between text-left outline-none focus-visible:ring-2 focus-visible:ring-[#187153]/50 focus-visible:ring-offset-2 transition-colors"
+                      className="group w-full px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 flex items-center justify-between text-left outline-none focus-visible:ring-2 focus-visible:ring-[#751A23]/50 focus-visible:ring-offset-2 transition-colors"
                       aria-expanded={isOpen}
                       aria-controls={contentId}
                     >
-                      <span className={`${cormorant.className} font-semibold text-[#187153] pr-2 sm:pr-3 md:pr-4 text-xs sm:text-sm md:text-base lg:text-lg leading-snug sm:leading-relaxed transition-colors duration-200 group-hover:text-[#327B72]`}>
+                      <span className={`${cormorant.className} font-semibold text-[#751A23] pr-2 sm:pr-3 md:pr-4 text-xs sm:text-sm md:text-base lg:text-lg leading-snug sm:leading-relaxed transition-colors duration-200 group-hover:text-[#327B72]`}>
                         {item.question}
                       </span>
                       <ChevronDown
                         size={18}
-                        className={`text-[#187153]/60 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-[#187153]" : ""} w-4 h-4 sm:w-5 sm:h-5`}
+                        className={`text-[#751A23]/60 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-[#751A23]" : ""} w-4 h-4 sm:w-5 sm:h-5`}
                         aria-hidden
                       />
                     </button>
@@ -173,7 +177,7 @@ export function FAQ() {
                               {item.answer.split("[RSVP_LINK]")[0]}
                               <a 
                                 href="#guest-list" 
-                                className="text-[#187153] underline font-bold hover:text-[#327B72] transition-colors"
+                                className="text-[#751A23] underline font-bold hover:text-[#327B72] transition-colors"
                                 onClick={(e) => {
                                   e.preventDefault()
                                   document.getElementById('guest-list')?.scrollIntoView({ behavior: 'smooth' })

@@ -36,7 +36,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: guestsTime,
     title: "Arrival",
-    description: "The wedding party and guests arrive. Settle in, find your seats, and get ready to celebrate.",
+    description: "Welcome to our special day! Please arrive on time to find your seats, mingle with loved ones, and prepare your hearts for a beautiful celebration of love.",
     location: ceremonyVenue,
     icon: GuestsIcon,
     imageSrc: "/weddingtimeline/arrival.png",
@@ -44,7 +44,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: ceremonyTime,
     title: "Wedding Ceremony",
-    description: `Celebrate ${brideNickname} & ${groomNickname} as they say "I do."`,
+    description: `Witness the sacred moment as ${brideNickname} & ${groomNickname} exchange vows and rings, promising to love, honor, and cherish each other for all the days of their lives.`,
     location: ceremonyVenue,
     icon: RingsIcon,
     imageSrc: "/weddingtimeline/WeddingCeremony.png",
@@ -52,7 +52,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: "3:30 PM",
     title: "Photo Session",
-    description: "Capture beautiful moments with the newlyweds and wedding party.",
+    description: "Join us for beautiful group photos and candid moments. This is your chance to capture memories with the newlyweds and the entire wedding party that will last a lifetime.",
     location: ceremonyVenue,
     icon: CameraIcon,
     imageSrc: "/weddingtimeline/PhotoSession.png",
@@ -60,7 +60,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: "4:00 PM",
     title: "Cocktail Hour",
-    description: "Enjoy refreshments and light snacks as we transition to the reception.",
+    description: "Sip on refreshing beverages and enjoy delightful appetizers as we transition to the reception. Take this time to relax, reconnect with friends and family, and soak in the joyful atmosphere.",
     location: receptionVenue,
     icon: CocktailIcon,
     imageSrc: "/weddingtimeline/CockTailHour.png",
@@ -68,7 +68,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: "4:30 PM",
     title: "Reception Welcome",
-    description: "Grand entrance and welcome to the reception celebration.",
+    description: `Experience the grand entrance of ${brideNickname} & ${groomNickname} as they make their way into the reception. Get ready for an evening filled with love, laughter, and celebration.`,
     location: receptionVenue,
     icon: FireworksIcon,
     imageSrc: "/weddingtimeline/reception welcom.png",
@@ -76,7 +76,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: "5:00 PM",
     title: "Dinner Service",
-    description: "A delicious meal prepared with love for our cherished guests.",
+    description: "Savor a delicious feast prepared with love and care. Enjoy a wonderful meal with your loved ones while we celebrate this momentous occasion together.",
     location: receptionVenue,
     icon: DinnerIcon,
     imageSrc: "/weddingtimeline/DinnerService.png",
@@ -84,7 +84,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: "6:30 PM",
     title: "Cake Cutting",
-    description: "Join us for the traditional cake cutting ceremony.",
+    description: "Join us for the traditional cake cutting ceremony as the newlyweds share their first slice together, symbolizing their sweet journey ahead and their commitment to share life's joys.",
     location: receptionVenue,
     icon: CakeIcon,
     imageSrc: "/weddingtimeline/cakecutting.png",
@@ -92,7 +92,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: "7:00 PM",
     title: "Dancing & Celebration",
-    description: `Watch ${brideNickname} & ${groomNickname} share their first dance as husband and wife, then join us as we celebrate and dance the night away together!`,
+    description: `Watch ${brideNickname} & ${groomNickname} share their magical first dance as husband and wife, then hit the dance floor with us! Let's celebrate, create unforgettable memories, and dance the night away together.`,
     location: receptionVenue,
     icon: DanceIcon,
     imageSrc: "/weddingtimeline/dance.png",
@@ -100,7 +100,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: "8:30 PM",
     title: "Send-off",
-    description: `A warm send-off for ${brideNickname} & ${groomNickname} as they begin their new chapter together.`,
+    description: `Join us in a heartwarming send-off as ${brideNickname} & ${groomNickname} begin their beautiful new chapter together as husband and wife. Wave them goodbye with love, blessings, and well-wishes for their journey ahead.`,
     location: receptionVenue,
     icon: CarIcon,
     imageSrc: "/weddingtimeline/SendOff.png",
@@ -128,27 +128,27 @@ export function WeddingTimeline() {
         </h2>
 
         <p className="text-[11px] sm:text-sm md:text-base lg:text-lg text-white/95 max-w-xl mx-auto leading-relaxed px-2">
-          Join us for a beautiful day filled with love, celebration, and unforgettable moments.
+          From the moment you arrive until we bid farewell, here's everything you need to know about our special day. Join us for a beautiful celebration filled with love, joy, and unforgettable moments that will create memories to last a lifetime.
         </p>
 
         {/* Simple divider */}
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-[#B9AACB] to-transparent" />
-          <div className="w-1.5 h-1.5 bg-[#B9AACB] rounded-full shadow-[0_0_12px_rgba(185,170,203,0.9)]" />
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-l from-transparent via-[#B9AACB] to-transparent" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-[#751A23] to-transparent" />
+          <div className="w-1.5 h-1.5 bg-[#751A23] rounded-full shadow-[0_0_12px_rgba(117,26,35,0.9)]" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-l from-transparent via-[#751A23] to-transparent" />
         </div>
       </div>
 
       {/* Timeline - improved desktop layout */}
       <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-5 lg:px-8">
         {/* Vertical timeline line - desktop (aligned with left icons) */}
-        <div className="hidden md:block absolute left-[4rem] md:left-[5rem] lg:left-[6rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#B9AACB]/40 via-[#6A4F82]/55 to-[#B9AACB]/40 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#F4F4F4]" />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#F4F4F4]" />
+        <div className="hidden md:block absolute left-[4rem] md:left-[5rem] lg:left-[6rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#751A23]/40 via-[#751A23]/55 to-[#751A23]/40 pointer-events-none">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#E1C49C]" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#E1C49C]" />
         </div>
 
         {/* Mobile timeline line */}
-        <div className="md:hidden absolute left-10 sm:left-11 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#B9AACB]/45 via-[#6A4F82]/60 to-[#B9AACB]/45 pointer-events-none" />
+        <div className="md:hidden absolute left-10 sm:left-11 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#751A23]/45 via-[#751A23]/60 to-[#751A23]/45 pointer-events-none" />
 
         <div className="space-y-4 sm:space-y-5 md:space-y-8 lg:space-y-10">
           {timelineEvents.map((event, index) => (
@@ -201,7 +201,7 @@ function TimelineItem({ event, index }: { event: TimelineEvent; index: number })
 function TimelineCard({ event, Icon, mobile }: { event: TimelineEvent; Icon: TimelineIcon; mobile?: boolean }) {
   return (
     <div
-      className={`rounded-lg sm:rounded-xl border border-[#B9AACB]/60 bg-white/90 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-300 ${
+      className={`rounded-lg sm:rounded-xl border border-[#751A23]/60 bg-white/90 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-300 ${
         mobile ? "p-3" : "p-4 sm:p-5 md:p-6 lg:p-7"
       } max-w-md`}
     >
@@ -209,10 +209,10 @@ function TimelineCard({ event, Icon, mobile }: { event: TimelineEvent; Icon: Tim
         {/* Time */}
         <div className="flex items-center gap-1.5">
           <Clock
-            className={`${mobile ? "w-3.5 h-3.5" : "w-4 h-4 md:w-5 md:h-5"} text-[#6A4F82] flex-shrink-0`}
+            className={`${mobile ? "w-3.5 h-3.5" : "w-4 h-4 md:w-5 md:h-5"} text-[#751A23] flex-shrink-0`}
           />
           <p
-            className={`${mobile ? "text-[10px]" : "text-xs sm:text-sm md:text-base"} font-bold tracking-[0.15em] text-[#6A4F82] uppercase`}
+            className={`${mobile ? "text-[10px]" : "text-xs sm:text-sm md:text-base"} font-bold tracking-[0.15em] text-[#751A23] uppercase`}
           >
             {event.time}
           </p>
@@ -220,7 +220,7 @@ function TimelineCard({ event, Icon, mobile }: { event: TimelineEvent; Icon: Tim
 
         {/* Title */}
         <h3
-          className={`${mobile ? "text-sm sm:text-base" : "text-base sm:text-lg md:text-xl lg:text-2xl"} font-semibold text-[#243127] leading-tight`}
+          className={`${mobile ? "text-sm sm:text-base" : "text-base sm:text-lg md:text-xl lg:text-2xl"} font-semibold text-[#51080F] leading-tight`}
         >
           {event.title}
         </h3>
@@ -228,7 +228,7 @@ function TimelineCard({ event, Icon, mobile }: { event: TimelineEvent; Icon: Tim
         {/* Description */}
         {event.description && (
           <p
-            className={`${mobile ? "text-[10px] sm:text-xs" : "text-xs sm:text-sm md:text-base"} text-[#37413A]/80 leading-relaxed`}
+            className={`${mobile ? "text-[10px] sm:text-xs" : "text-xs sm:text-sm md:text-base"} text-[#51080F]/90 leading-relaxed`}
           >
             {event.description}
           </p>
@@ -239,12 +239,12 @@ function TimelineCard({ event, Icon, mobile }: { event: TimelineEvent; Icon: Tim
           <div
             className={`flex items-start gap-1.5 ${
               mobile ? "pt-1.5" : "pt-2 md:pt-3"
-            } border-t border-[#B9AACB]/70`}
+            } border-t border-[#751A23]/70`}
           >
             <MapPin
-              className={`${mobile ? "w-3 h-3" : "w-3.5 h-3.5 md:w-4 md:h-4"} text-[#6A4F82] mt-0.5 flex-shrink-0`}
+              className={`${mobile ? "w-3 h-3" : "w-3.5 h-3.5 md:w-4 md:h-4"} text-[#751A23] mt-0.5 flex-shrink-0`}
             />
-            <p className={`${mobile ? "text-[10px]" : "text-xs md:text-sm"} text-[#37413A]/80 leading-relaxed`}>
+            <p className={`${mobile ? "text-[10px]" : "text-xs md:text-sm"} text-[#51080F]/90 leading-relaxed`}>
               {event.location}
             </p>
           </div>
@@ -281,7 +281,7 @@ function IconBadge({
     <div
       className={`${
         mobile ? "w-10 h-10" : "w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20"
-      } rounded-full border-2 border-[#B9AACB]/70 bg-gradient-to-br from-white to-[#F4F4F4] flex items-center justify-center shadow-md hover:scale-105 transition-transform duration-300`}
+      } rounded-full border-2 border-[#751A23]/70 bg-gradient-to-br from-white to-[#E1C49C] flex items-center justify-center shadow-md hover:scale-105 transition-transform duration-300`}
     >
       <Icon
         className={`${
@@ -292,9 +292,9 @@ function IconBadge({
   )
 }
 
-/* Hand-drawn–style timeline icons (purple line art) */
+/* Hand-drawn–style timeline icons */
 
-const iconStroke = "#6A4F82"
+const iconStroke = "#751A23"
 
 function GuestsIcon(props: React.SVGProps<SVGSVGElement>) {
   return (

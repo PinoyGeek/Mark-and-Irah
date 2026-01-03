@@ -7,19 +7,19 @@ interface HeroProps {
 }
 
 const desktopImages: string[] = [
-  '/desktop-background/couple (1).jpg',
-  '/desktop-background/couple (2).jpg',
-  '/desktop-background/couple (3).jpg',
-  '/desktop-background/couple (4).jpg',
-  '/desktop-background/couple (5).jpg',
+  '/desktop-background/couple (1).JPG ',
+  '/desktop-background/couple (2).JPG',
+  '/desktop-background/couple (3).JPG',
+  '/desktop-background/couple (4).JPG',
+  '/desktop-background/couple (5).JPG',
 ];
 
 const mobileImages: string[] = [
-  '/mobile-background/couple (1).jpg',
-  '/mobile-background/couple (2).jpg',
-  '/mobile-background/couple (3).jpg',
-  '/mobile-background/couple (6).jpg',
-  '/mobile-background/couple (7).jpg',
+  '/mobile-background/couple (1).JPG',
+  '/mobile-background/couple (2).JPG',
+  '/mobile-background/couple (3).JPG',
+  '/mobile-background/couple (6).JPG',
+  '/mobile-background/couple (7).JPG',
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
@@ -61,11 +61,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
           />
         ))}
         
-        {/* Emerald overlay */}
+        {/* Overlay */}
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(135deg, rgba(50, 123, 114, 0.4) 0%, rgba(24, 113, 83, 0.5) 50%, rgba(50, 123, 114, 0.4) 100%)'
+            background: 'linear-gradient(to bottom, rgba(81, 8, 15, 0.7), rgba(117, 26, 35, 0.7))'
           }}
         />
       </div>
@@ -76,14 +76,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
         {/* Top Logo/Monogram */}
         <div className="mb-auto mt-8">
           <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 flex items-center justify-center">
-            {/* Monogram Image - White version */}
-            <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 brightness-0 invert">
+            {/* Monogram Image */}
+            <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44">
               <Image
-                src="/monogram/monogramnew.png"
-                alt="Nathaniel & Jasmin Monogram"
+                src="/monogram/monogram.png"
+                alt="Daniel & Florence Monogram"
                 fill
                 className="object-contain"
                 priority
+                style={{ filter: 'brightness(0) saturate(100%) invert(84%) sepia(28%) saturate(557%) hue-rotate(342deg) brightness(100%) contrast(88%)' }}
               />
             </div>
           </div>
@@ -93,20 +94,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
 
         <div className="flex flex-col items-center justify-end w-full gap-4 pb-14 sm:pb-16 md:pb-20">
           <h2
-            className="text-6xl md:text-8xl text-white transform -rotate-6"
+            className="text-6xl md:text-8xl transform -rotate-6"
             style={{
               fontFamily: '"Great Vibes", cursive',
               fontWeight: 400,
+              color: '#E1C49C',
             }}
           >
             You are
           </h2>
           
           <h1
-            className="text-5xl md:text-7xl text-white font-bold tracking-wider uppercase"
+            className="text-5xl md:text-7xl font-bold tracking-wider uppercase"
             style={{
               fontFamily: '"Cinzel", serif',
               fontWeight: 700,
+              color: '#E1C49C',
             }}
           >
             Invited!
@@ -116,11 +119,21 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
             onClick={() => {
               onOpen();
             }}
-            className="px-10 py-4 bg-white/20 text-white font-serif text-sm tracking-[0.2em] uppercase rounded-sm border border-white/40 hover:bg-white/30"
+            className="px-10 py-4 font-serif text-sm tracking-[0.2em] uppercase rounded-sm border transition-all duration-300"
+            style={{
+              backgroundColor: '#751A23',
+              borderColor: '#E1C49C',
+              color: '#E1C49C',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(117, 26, 35, 0.9)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#751A23';
+            }}
           >
             <span
-              className="text-white"
-              style={{ fontFamily: '"Cinzel", serif', fontWeight: 500 }}
+              style={{ fontFamily: '"Cinzel", serif', fontWeight: 500, color: '#E1C49C' }}
             >
               Open Invitation
             </span>
