@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Section } from "@/components/section"
-import { Building2, Smartphone } from "lucide-react"
+import { Smartphone } from "lucide-react"
 
 const paymentMethods = [
   {
@@ -11,15 +11,7 @@ const paymentMethods = [
     description: "Mobile payment via GCASH",
     accent: "from-[#007BFF] to-[#0056B3]",
     Icon: Smartphone,
-    qrSrc: "/QR/GCASH.png",
-  },
-  {
-    id: "landbank",
-    label: "Land Bank",
-    description: "Bank transfer via Land Bank",
-    accent: "from-[#A8AF8D] to-[#5B6B3C]",
-    Icon: Building2,
-    qrSrc: "/QR/LANDBANK QR.png",
+    qrSrc: "/QR/Gcash QR.png",
   },
 ] as const
 
