@@ -17,9 +17,9 @@ const desktopImages = [
 const mobileImages = [
   "/mobile-background/couple (1).jpeg",
   "/mobile-background/couple (2).jpeg",
-  "/mobile-background/couple (6).jpeg",
-  "/mobile-background/couple (9).jpeg",
-  "/mobile-background/couple (5).jpeg",
+  "/mobile-background/couple (6).jpg",
+  "/mobile-background/couple (9).jpg",
+  "/mobile-background/couple (5).jpg",
 ]
 
 const SHOW_BUTTERFLIES = false
