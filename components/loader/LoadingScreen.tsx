@@ -20,13 +20,13 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         }
         return prev + 2;
       });
-    }, 40);
+    }, 160);
 
     // Simulate loading time
     const timer = setTimeout(() => {
       setFadeOut(true);
       setTimeout(onComplete, 500);
-    }, 2000);
+    }, 8000);
 
     return () => {
       clearTimeout(timer);
