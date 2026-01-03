@@ -80,7 +80,7 @@ export function Details() {
 
   // Palettes (used only for color chips in attire card) - Emerald motif
   const sponsorPalette = ["#6A4F82", "#B9AACB", "#A8AF8D"]
-  const guestPalette = ["#751A23"]
+  const guestPalette = ["#51080F", "#751A23", "#A58169", "#E1C49C", "#EDE1D3"]
   const secondaryPalette = ["#B9AACB", "#F4F4F4", "#A8AF8D", "#6A4F82", "#5B6B3C"]
 
   const openInMaps = (link: string) => {
