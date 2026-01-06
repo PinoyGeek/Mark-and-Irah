@@ -6,20 +6,20 @@ import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import { siteConfig } from "@/content/site"
 
 const desktopImages = [
-  "/desktop-background/couple (1).jpeg",
-  "/desktop-background/couple (2).jpeg",
-  "/desktop-background/couple (3).jpeg",
-  "/desktop-background/couple (4).jpeg",
-  "/desktop-background/couple (5).jpeg",
+  "/images/2nd Part/1.webp",
+  "/images/2nd Part/2.webp",
+  "/images/2nd Part/3.webp",
+  "/images/2nd Part/4.webp",
+  "/images/2nd Part/5.webp",
 
 ]
 
 const mobileImages = [
-  "/mobile-background/couple (1).jpeg",
-  "/mobile-background/couple (2).jpeg",
-  "/mobile-background/couple (6).jpg",
-  "/mobile-background/couple (9).jpg",
-  "/mobile-background/couple (5).jpg",
+  "/images/2nd Part/1.webp",
+  "/images/2nd Part/2.webp",
+  "/images/2nd Part/3.webp",
+  "/images/2nd Part/4.webp",
+  "/images/2nd Part/5.webp",
 ]
 
 const SHOW_BUTTERFLIES = false

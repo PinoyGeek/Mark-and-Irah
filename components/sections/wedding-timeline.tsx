@@ -39,7 +39,7 @@ const timelineEvents: TimelineEvent[] = [
     description: "Welcome to our special day! Please arrive on time to find your seats, mingle with loved ones, and prepare your hearts for a beautiful celebration of love.",
     location: ceremonyVenue,
     icon: GuestsIcon,
-    imageSrc: "/weddingtimeline/arrival.png",
+    imageSrc: "/weddingtimeline/arrivalimage.png",
   },
   {
     time: ceremonyTime,

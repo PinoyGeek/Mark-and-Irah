@@ -7,19 +7,19 @@ interface HeroProps {
 }
 
 const desktopImages: string[] = [
-  '/desktop-background/couple (1).JPG ',
-  '/desktop-background/couple (2).JPG',
-  '/desktop-background/couple (3).JPG',
-  '/desktop-background/couple (4).JPG',
-  '/desktop-background/couple (5).JPG',
+  '/images/1st Part/1.webp',
+  '/images/1st Part/2.webp',
+  '/images/1st Part/3.webp',
+  '/images/1st Part/4.webp',
+  '/images/1st Part/5.webp',
 ];
 
 const mobileImages: string[] = [
-  '/mobile-background/couple (1).JPG',
-  '/mobile-background/couple (2).JPG',
-  '/mobile-background/couple (3).JPG',
-  '/mobile-background/couple (6).JPG',
-  '/mobile-background/couple (7).JPG',
+  '/images/1st Part/1.webp',
+  '/images/1st Part/2.webp',
+  '/images/1st Part/3.webp',
+  '/images/1st Part/4.webp',
+  '/images/1st Part/5.webp',
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {

@@ -13,21 +13,20 @@ async function getImagesFrom(dir: string) {
       .filter((e) => e.isFile())
       .map((e) => `/${dir}/${e.name}`)
       .filter((p) => p.match(/\.(jpe?g|png|webp|gif)$/i))
-      .sort((a, b) => a.localeCompare(b))
+      .sort((a, b) => {
+        // Extract numeric part from filename for proper numerical sorting
+        const numA = parseInt(a.match(/\/(\d+)\./)?.[1] || "0", 10)
+        const numB = parseInt(b.match(/\/(\d+)\./)?.[1] || "0", 10)
+        return numA - numB
+      })
   } catch {
     return []
   }
 }
 
 export default async function GalleryPage() {
-  const [desktop, mobile] = await Promise.all([
-    getImagesFrom("desktop-background"),
-    getImagesFrom("mobile-background"),
-  ])
-  const images = [
-    ...desktop.map((src) => ({ src, category: "desktop" as const })),
-    ...mobile.map((src) => ({ src, category: "mobile" as const })),
-  ]
+  const galleryImages = await getImagesFrom("images/Gallery")
+  const images = galleryImages.map((src) => ({ src, category: "gallery" as const }))
 
   return (
     <main className="min-h-screen bg-[#51080F] relative overflow-hidden">
@@ -77,11 +76,7 @@ export default async function GalleryPage() {
             <p className="font-light">
               No images found. Add files to{" "}
               <code className="px-2 py-1 bg-[#751A23]/80 rounded border border-[#751A23]/30 text-[#E1C49C]">
-                public/desktop-background
-              </code>{" "}
-              or{" "}
-              <code className="px-2 py-1 bg-[#751A23]/80 rounded border border-[#751A23]/30 text-[#E1C49C]">
-                public/mobile-background
+                public/images/Gallery
               </code>
               .
             </p>

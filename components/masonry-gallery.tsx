@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react"
 
 type ImageItem = {
   src: string
-  category: "desktop" | "mobile" | "front"
+  category: "desktop" | "mobile" | "front" | "gallery"
 }
 
 export default function MasonryGallery({ images }: { images: ImageItem[] }) {
@@ -13,20 +13,10 @@ export default function MasonryGallery({ images }: { images: ImageItem[] }) {
   const topRef = useRef<HTMLDivElement | null>(null)
   
 
-  // Shuffle AFTER mount to avoid SSR/CSR hydration mismatches
-  const [shuffledAfterMount, setShuffledAfterMount] = useState<ImageItem[] | null>(null)
-  useEffect(() => {
-    const copy = [...images]
-    for (let i = copy.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1))
-      ;[copy[i], copy[j]] = [copy[j], copy[i]]
-    }
-    setShuffledAfterMount(copy)
-  }, [images])
-
+  // Keep images in sequence (no shuffling)
   const filtered = useMemo(() => {
-    return shuffledAfterMount ?? images
-  }, [shuffledAfterMount, images])
+    return images
+  }, [images])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {

@@ -78,8 +78,8 @@ export function Details() {
   const ceremonyMapsLink = `https://maps.google.com/?q=${encodeURIComponent(siteConfig.ceremony.location)}`
   const receptionMapsLink = `https://maps.google.com/?q=${encodeURIComponent(siteConfig.reception.location)}`
 
-  // Palettes (used only for color chips in attire card) - Emerald motif
-  const sponsorPalette = ["#6A4F82", "#B9AACB", "#A8AF8D"]
+  // Palettes (used only for color chips in attire card) - Beige variants
+  const sponsorPalette = ["#F5F5DC", "#E6D5B8", "#D2B48C", "#C8A882", "#B8A082", "#A0826D"]
   const guestPalette = ["#51080F", "#751A23", "#A58169", "#E1C49C", "#EDE1D3"]
   const secondaryPalette = ["#B9AACB", "#F4F4F4", "#A8AF8D", "#6A4F82", "#5B6B3C"]
 
@@ -276,7 +276,7 @@ export function Details() {
                   <p className="text-[10px] sm:text-xs text-[#51080F]/80 mb-2">Kindly align attire below.</p>
                   <div className="relative w-full aspect-[4/3] sm:aspect-[5/3] rounded-xl overflow-hidden border border-[#751A23] bg-[#E1C49C] mb-3">
                     <Image
-                      src="/Details/sponsor (2).png"
+                      src="/Details/sponsors.png"
                       alt="Principal sponsors attire guideline"
                       fill
                       className="object-contain"
@@ -289,10 +289,10 @@ export function Details() {
                       <span className="font-semibold">Male Sponsor:</span> Barong, Black Pants and Leather Shoes
                     </p>
                     <p className="text-[#51080F]">
-                      <span className="font-semibold">Female Sponsor:</span> shades of BURGUNDY/MAROON
+                      <span className="font-semibold">Female Sponsor:</span> variants of beige
                     </p>
                     <div className="pt-1">
-                      {/* <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] text-[#751A23] mb-1">
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] text-[#751A23] mb-1">
                         Palette
                       </p>
                       <div className="flex flex-wrap gap-1.5">
@@ -304,7 +304,7 @@ export function Details() {
                             title={color}
                           />
                         ))}
-                      </div> */}
+                      </div>
                     </div>
                   </div>
                 </div>

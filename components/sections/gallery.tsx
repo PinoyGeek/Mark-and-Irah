@@ -22,12 +22,12 @@ const windSong = WindSong({
 const galleryHashtag = "#NathanielAndJasminWedding"
 
 const galleryItems = [
-  { image: "/mobile-background/couple (10).JPG", text: " " },
-  { image: "/mobile-background/couple (11).JPG", text: " " },
-  { image: "/mobile-background/couple (12).JPG", text: " " },
-  { image: "/mobile-background/couple (13).JPG", text: " " },
-  { image: "/mobile-background/couple (14).JPG", text: " " },
-  { image: "/mobile-background/couple (16).JPG", text: " " },
+  { image: "/images/3rd Part/1.webp", text: " " },
+  { image: "/images/3rd Part/2.webp", text: " " },
+  { image: "/images/3rd Part/3.webp", text: " " },
+  { image: "/images/3rd Part/4.webp", text: " " },
+  { image: "/images/3rd Part/5.webp", text: " " },
+  { image: "/images/3rd Part/6.webp", text: " " },
 
 ]
 
