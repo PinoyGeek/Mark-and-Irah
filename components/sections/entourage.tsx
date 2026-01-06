@@ -18,6 +18,11 @@ interface EntourageMember {
   Email: string
 }
 
+interface PrincipalSponsor {
+  MalePrincipalSponsor: string
+  FemalePrincipalSponsor: string
+}
+
 const ROLE_CATEGORY_ORDER = [
   "OFFICIATING MINISTER",
   "The Couple",
@@ -39,6 +44,7 @@ const ROLE_CATEGORY_ORDER = [
 
 export function Entourage() {
   const [entourage, setEntourage] = useState<EntourageMember[]>([])
+  const [sponsors, setSponsors] = useState<PrincipalSponsor[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [isVisible, setIsVisible] = useState(false)
@@ -61,13 +67,27 @@ export function Entourage() {
     }
   }
 
+  const fetchSponsors = async () => {
+    try {
+      const res = await fetch("/api/principal-sponsor", { cache: "no-store" })
+      if (!res.ok) throw new Error("Failed to load principal sponsors")
+      const data: PrincipalSponsor[] = await res.json()
+      setSponsors(data.filter(s => s.MalePrincipalSponsor || s.FemalePrincipalSponsor))
+    } catch (e: any) {
+      console.error("Failed to load sponsors:", e)
+      // Don't set error state for sponsors, just log it
+    }
+  }
+
   useEffect(() => {
     fetchEntourage()
+    fetchSponsors()
 
     // Set up auto-refresh listener for dashboard updates
     const handleEntourageUpdate = () => {
       setTimeout(() => {
         fetchEntourage()
+        fetchSponsors()
       }, 1000)
     }
 
@@ -226,6 +246,17 @@ export function Entourage() {
       id="entourage"
       className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#51080F]"
     >
+      {/* Background image - matching gallery */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <img
+          src="/Details/newBackground.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        />
+        {/* Overlay with #751A23 */}
+        <div className="absolute inset-0 bg-[#751A23]/40" />
+      </div>
 
       {/* Section Header */}
       <div className={`relative z-30 text-center mb-6 sm:mb-9 md:mb-12 px-3 sm:px-4 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
@@ -508,42 +539,102 @@ export function Entourage() {
                   // Only render once (when processing "Bridesmaids")
                   if (category === "Bridesmaids") {
                     return (
-                      <div key="BridalParty">
-                        {categoryIndex > 0 && (
-                          <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
-                            <div className="flex items-center gap-2 w-full max-w-md">
-                              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
-                              <div className="flex items-center gap-1.5">
-                                <div className="w-1 h-1 bg-white/60 rounded-full" />
-                                <div className="w-1.5 h-1.5 bg-white rounded-full" />
-                                <div className="w-1 h-1 bg-white/60 rounded-full" />
-                              </div>
-                              <div className="h-px flex-1 bg-gradient-to-l from-transparent via-white/60 to-transparent"></div>
-                            </div>
-                          </div>
-                        )}
-                        <TwoColumnLayout leftTitle="Groomsmen" rightTitle="Bridesmaids">
-                          {(() => {
-                            const maxLen = Math.max(bridesmaids.length, groomsmen.length)
-                            const rows = []
-                            for (let i = 0; i < maxLen; i++) {
-                              const groomsman = groomsmen[i]
-                              const bridesmaid = bridesmaids[i]
-                              rows.push(
-                                <React.Fragment key={`bridal-row-${i}`}>
-                                  <div key={`groomsman-cell-${i}`} className="px-2 sm:px-3 md:px-4">
-                                    {groomsman ? <NameItem member={groomsman} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                      <React.Fragment key="BridalPartySection">
+                        {/* Sponsors section - displayed before Groomsmen/Bridesmaids */}
+                        {sponsors.length > 0 && (
+                          <div key="Sponsors">
+                            {categoryIndex > 0 && (
+                              <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
+                                <div className="flex items-center gap-2 w-full max-w-md">
+                                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
+                                  <div className="flex items-center gap-1.5">
+                                    <div className="w-1 h-1 bg-white/60 rounded-full" />
+                                    <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                                    <div className="w-1 h-1 bg-white/60 rounded-full" />
                                   </div>
-                                  <div key={`bridesmaid-cell-${i}`} className="px-2 sm:px-3 md:px-4">
-                                    {bridesmaid ? <NameItem member={bridesmaid} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  <div className="h-px flex-1 bg-gradient-to-l from-transparent via-white/60 to-transparent"></div>
+                                </div>
+                              </div>
+                            )}
+                            <TwoColumnLayout leftTitle="Principal Sponsors" rightTitle="Principal Sponsors">
+                              {sponsors.map((sponsor, idx) => (
+                                <React.Fragment key={`sponsor-row-${idx}`}>
+                                  <div key={`sponsor-male-${idx}`} className="px-2 sm:px-3 md:px-4">
+                                    {sponsor.MalePrincipalSponsor ? (
+                                      <NameItem 
+                                        member={{
+                                          Name: sponsor.MalePrincipalSponsor,
+                                          RoleCategory: "",
+                                          RoleTitle: "",
+                                          Email: ""
+                                        }} 
+                                        align="right" 
+                                        showRole={false}
+                                      />
+                                    ) : (
+                                      <div className="py-0.5 sm:py-1 md:py-1.5" />
+                                    )}
+                                  </div>
+                                  <div key={`sponsor-female-${idx}`} className="px-2 sm:px-3 md:px-4">
+                                    {sponsor.FemalePrincipalSponsor ? (
+                                      <NameItem 
+                                        member={{
+                                          Name: sponsor.FemalePrincipalSponsor,
+                                          RoleCategory: "",
+                                          RoleTitle: "",
+                                          Email: ""
+                                        }} 
+                                        align="left" 
+                                        showRole={false}
+                                      />
+                                    ) : (
+                                      <div className="py-0.5 sm:py-1 md:py-1.5" />
+                                    )}
                                   </div>
                                 </React.Fragment>
-                              )
-                            }
-                            return rows
-                          })()}
-                        </TwoColumnLayout>
-                      </div>
+                              ))}
+                            </TwoColumnLayout>
+                          </div>
+                        )}
+                        
+                        {/* Groomsmen/Bridesmaids section */}
+                        <div key="BridalParty">
+                          {(categoryIndex > 0 || sponsors.length > 0) && (
+                            <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
+                              <div className="flex items-center gap-2 w-full max-w-md">
+                                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
+                                <div className="flex items-center gap-1.5">
+                                  <div className="w-1 h-1 bg-white/60 rounded-full" />
+                                  <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                                  <div className="w-1 h-1 bg-white/60 rounded-full" />
+                                </div>
+                                <div className="h-px flex-1 bg-gradient-to-l from-transparent via-white/60 to-transparent"></div>
+                              </div>
+                            </div>
+                          )}
+                          <TwoColumnLayout leftTitle="Groomsmen" rightTitle="Bridesmaids">
+                            {(() => {
+                              const maxLen = Math.max(bridesmaids.length, groomsmen.length)
+                              const rows = []
+                              for (let i = 0; i < maxLen; i++) {
+                                const groomsman = groomsmen[i]
+                                const bridesmaid = bridesmaids[i]
+                                rows.push(
+                                  <React.Fragment key={`bridal-row-${i}`}>
+                                    <div key={`groomsman-cell-${i}`} className="px-2 sm:px-3 md:px-4">
+                                      {groomsman ? <NameItem member={groomsman} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                    </div>
+                                    <div key={`bridesmaid-cell-${i}`} className="px-2 sm:px-3 md:px-4">
+                                      {bridesmaid ? <NameItem member={bridesmaid} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                    </div>
+                                  </React.Fragment>
+                                )
+                              }
+                              return rows
+                            })()}
+                          </TwoColumnLayout>
+                        </div>
+                      </React.Fragment>
                     )
                   }
                   // Skip rendering for "Groomsmen" since it's already rendered above

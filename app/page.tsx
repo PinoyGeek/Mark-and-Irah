@@ -15,6 +15,7 @@ import { PrincipalSponsors } from "@/components/sections/principal-sponsors"
 import { BookOfGuests } from "@/components/sections/book-of-guests"
 import { Registry } from "@/components/sections/registry"
 import { FAQ } from "@/components/sections/faq"
+import { GuestInformation } from "@/components/sections/guest-information"
 import { Footer } from "@/components/sections/footer"
 import { Hero as InvitationHero } from "@/components/loader/Hero"
 import { LoadingScreen } from "@/components/loader/LoadingScreen"
@@ -66,14 +67,17 @@ export default function Home() {
               <Gallery />
               <Messages />
               <Details />
-              <WeddingTimeline />
+
               <Entourage />
-              <PrincipalSponsors />
+              {/* <PrincipalSponsors /> */}
               <GuestList />
               <BookOfGuests />
               <Registry />
               <FAQ />
+              <WeddingTimeline />
+              <GuestInformation />
               <SnapShare />
+
               <Footer />
             </div>
           </div>
