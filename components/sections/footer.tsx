@@ -101,7 +101,7 @@ export function Footer() {
           <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 opacity-95">
             <Image
               src="/weddingTimeline/coupleImage-removebg.png"
-              alt={`${siteConfig.couple.brideNickname} & ${siteConfig.couple.groomNickname} illustration`}
+              alt={`${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} illustration`}
               fill
               className="object-contain"
               priority={false}
@@ -121,7 +121,7 @@ export function Footer() {
           <p
             className={`${cormorant.className} tracking-[0.25em] sm:tracking-[0.3em] text-xs sm:text-sm md:text-base text-white/95 uppercase`}
           >
-            {siteConfig.couple.brideNickname} & {siteConfig.couple.groomNickname}
+            {siteConfig.couple.groomNickname} & {siteConfig.couple.brideNickname}
           </p>
           <p
             className={`${cormorant.className} text-sm sm:text-base md:text-lg text-white/90 mt-1 sm:mt-2`}
@@ -149,7 +149,7 @@ export function Footer() {
                 </div>
                 <div className={`flex items-center gap-2 sm:gap-2.5 md:gap-3 ${cormorant.className} text-white/95`}>
                   <MapPin className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 text-white flex-shrink-0" />
-                  <span className="text-xs sm:text-sm md:text-base leading-relaxed lowercase">{ceremonyVenue.toLowerCase()}</span>
+                  <span className="text-xs sm:text-sm md:text-base leading-relaxed uppercase">{ceremonyVenue.toUpperCase()}</span>
                 </div>
               </div>
             </div>
@@ -179,7 +179,7 @@ export function Footer() {
               <div className={`space-y-2 sm:space-y-2.5 md:space-y-3 ${cormorant.className} text-white/95 text-xs sm:text-sm leading-relaxed`}>
                 <div className="flex items-start gap-2 sm:gap-2.5 md:gap-3">
                   <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white flex-shrink-0 mt-0.5" />
-                  <span className="lowercase">{ceremonyVenue.toLowerCase()}</span>
+                  <span className="uppercase">{ceremonyVenue.toUpperCase()}</span>
                 </div>
                 <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
                   <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white flex-shrink-0" />
@@ -198,7 +198,7 @@ export function Footer() {
               <div className={`space-y-2 sm:space-y-2.5 md:space-y-3 ${cormorant.className} text-white/95 text-xs sm:text-sm leading-relaxed`}>
                 <div className="flex items-start gap-2 sm:gap-2.5 md:gap-3">
                   <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white flex-shrink-0 mt-0.5" />
-                  <span className="lowercase">{receptionVenue.toLowerCase()}</span>
+                  <span className="uppercase">{receptionVenue.toUpperCase()}</span>
                 </div>
                 <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
                   <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white flex-shrink-0" />

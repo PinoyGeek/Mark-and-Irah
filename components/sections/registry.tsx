@@ -19,7 +19,7 @@ const paymentMethods = [
     description: "Bank transfer via MariBank",
     accent: "from-[#6A4F82] to-[#B9AACB]",
     Icon: Smartphone,
-    qrSrc: "/QR/MariBank.png",
+    qrSrc: "/QR/maribank.png",
   },
 ] as const
 
