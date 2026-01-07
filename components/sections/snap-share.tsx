@@ -22,11 +22,7 @@ export function SnapShare() {
 
   const websiteUrl = typeof window !== "undefined" ? window.location.href : "https://example.com"
   const driveLink = siteConfig.snapShare?.googleDriveLink || ""
-  const hashtags = [
-    "#DanielAndFlorenceMae2026",
-    "#DanielFlorenceMaeForever",
-    "#DanielAndFlorenceMae"
-  ]
+  const hashtags = ["#MAEgicalmomentwithDANIEL"]
   const allHashtagsText = hashtags.join(" ")
   const groomNickname = siteConfig.couple.groomNickname
   const brideNickname = siteConfig.couple.brideNickname
@@ -186,7 +182,7 @@ export function SnapShare() {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.25 }}
                   >
-                    <Image src="/desktop-background/couple (1).JPG" alt="Wedding moment 3" fill className="object-cover" />
+                    <Image src="/images/1st Part/2.webp" alt="Wedding moment 3" fill className="object-cover" />
                   </motion.div>
                 </div>
                 <p className={`${cormorant.className} text-white text-xs sm:text-sm text-center mt-3 sm:mt-5 px-1.5 leading-relaxed`}>

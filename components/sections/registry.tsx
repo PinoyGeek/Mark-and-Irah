@@ -13,6 +13,14 @@ const paymentMethods = [
     Icon: Smartphone,
     qrSrc: "/QR/Gcash QR.png",
   },
+  {
+    id: "maribank",
+    label: "MariBank",
+    description: "Bank transfer via MariBank",
+    accent: "from-[#6A4F82] to-[#B9AACB]",
+    Icon: Smartphone,
+    qrSrc: "/QR/MariBank.png",
+  },
 ] as const
 
 export function Registry() {
