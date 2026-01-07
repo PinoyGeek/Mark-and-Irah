@@ -12,6 +12,15 @@ const cormorant = Cormorant_Garamond({
   weight: ["400"],
 })
 
+// Helper function to convert text to title case (first letter of each word uppercase)
+const toTitleCase = (str: string) => {
+  return str
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+}
+
 export function Footer() {
   const year = new Date().getFullYear()
   const ceremonyDate = siteConfig.ceremony.date
@@ -140,7 +149,7 @@ export function Footer() {
                 <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-white/15 rounded-full flex items-center justify-center border border-[#751A23]/50 flex-shrink-0 shadow-[0_0_22px_rgba(117,26,35,0.4)]">
                   <Heart className="w-5 h-5 sm:w-6 sm:h-6 md:w-6 md:h-6 text-white" fill="#751A23" />
                 </div>
-                <h3 className="style-script-regular text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-white drop-shadow-lg">{siteConfig.couple.brideNickname} & {siteConfig.couple.groomNickname}</h3>
+                <h3 className="style-script-regular text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal text-white drop-shadow-lg">{siteConfig.couple.groomNickname} & {siteConfig.couple.brideNickname}</h3>
               </div>
               <div className="space-y-2.5 sm:space-y-3 md:space-y-4">
                 <div className={`flex items-center gap-2 sm:gap-2.5 md:gap-3 ${cormorant.className} text-white/95`}>
@@ -149,7 +158,7 @@ export function Footer() {
                 </div>
                 <div className={`flex items-center gap-2 sm:gap-2.5 md:gap-3 ${cormorant.className} text-white/95`}>
                   <MapPin className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5 text-white flex-shrink-0" />
-                  <span className="text-xs sm:text-sm md:text-base leading-relaxed uppercase">{ceremonyVenue.toUpperCase()}</span>
+                  <span className="text-xs sm:text-sm md:text-base leading-relaxed">{toTitleCase(ceremonyVenue)}</span>
                 </div>
               </div>
             </div>
@@ -179,7 +188,7 @@ export function Footer() {
               <div className={`space-y-2 sm:space-y-2.5 md:space-y-3 ${cormorant.className} text-white/95 text-xs sm:text-sm leading-relaxed`}>
                 <div className="flex items-start gap-2 sm:gap-2.5 md:gap-3">
                   <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white flex-shrink-0 mt-0.5" />
-                  <span className="uppercase">{ceremonyVenue.toUpperCase()}</span>
+                  <span>{toTitleCase(ceremonyVenue)}</span>
                 </div>
                 <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
                   <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white flex-shrink-0" />
@@ -198,7 +207,7 @@ export function Footer() {
               <div className={`space-y-2 sm:space-y-2.5 md:space-y-3 ${cormorant.className} text-white/95 text-xs sm:text-sm leading-relaxed`}>
                 <div className="flex items-start gap-2 sm:gap-2.5 md:gap-3">
                   <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white flex-shrink-0 mt-0.5" />
-                  <span className="uppercase">{receptionVenue.toUpperCase()}</span>
+                  <span>{toTitleCase(receptionVenue)}</span>
                 </div>
                 <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
                   <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white flex-shrink-0" />
@@ -276,7 +285,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 md:gap-5">
             <div className="text-center md:text-left">
               <p className={`text-white ${cormorant.className} text-xs sm:text-sm leading-relaxed`}>
-                © {year} {siteConfig.couple.brideNickname} & {siteConfig.couple.groomNickname} — crafted with love, prayers, and gratitude.
+                © {year} {siteConfig.couple.groomNickname} & {siteConfig.couple.brideNickname} — crafted with love, prayers, and gratitude.
               </p>
               <p className={`text-white/85 ${cormorant.className} text-xs sm:text-sm mt-1 leading-relaxed`}>
                 This celebration site was designed to share our story and joy with you.

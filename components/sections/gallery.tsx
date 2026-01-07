@@ -19,7 +19,7 @@ const windSong = WindSong({
   weight: "400",
 })
 
-const galleryHashtag = "#FlorenceAndDanielWedding"
+const galleryHashtag = "#DanielAndFlorenceWedding"
 
 const galleryItems = [
   { image: "/images/3rd Part/1.webp", text: " " },
@@ -145,7 +145,7 @@ export function Gallery() {
         </div>
 
         <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#E1C49C]/95 font-light max-w-xl mx-auto leading-relaxed mt-3`}>
-          Beautiful frames capturing the journey of Florence & Daniel — each photograph a precious memory of laughter, love, and the moments that led us to forever.
+          Beautiful frames capturing the journey of Daniel & Florence — each photograph a precious memory of laughter, love, and the moments that led us to forever.
         </p>
 
         <div className="flex items-center justify-center gap-2 mt-6">
