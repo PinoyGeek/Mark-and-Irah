@@ -36,7 +36,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: guestsTime,
     title: "Arrival",
-    description: "Welcome to our special day! Please arrive on time to find your seats, mingle with loved ones, and prepare your hearts for a beautiful celebration of love.",
+    description: "Please arrive on time to find your seat, settle in, and get ready for the celebration.",
     location: ceremonyVenue,
     icon: GuestsIcon,
     imageSrc: "/weddingtimeline/arrivalimage.png",
@@ -44,7 +44,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: ceremonyTime,
     title: "Wedding Ceremony",
-    description: `Witness the sacred moment as ${brideNickname} & ${groomNickname} exchange vows and rings, promising to love, honor, and cherish each other for all the days of their lives.`,
+    description: `Join us as ${brideNickname} & ${groomNickname} exchange vows and begin their life together.`,
     location: ceremonyVenue,
     icon: RingsIcon,
     imageSrc: "/weddingtimeline/WeddingCeremony.png",
@@ -52,7 +52,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: "3:30 PM",
     title: "Photo Session",
-    description: "Join us for beautiful group photos and candid moments. This is your chance to capture memories with the newlyweds and the entire wedding party that will last a lifetime.",
+    description: "Gather for group photos and candid moments with the newlyweds and wedding party.",
     location: ceremonyVenue,
     icon: CameraIcon,
     imageSrc: "/weddingtimeline/PhotoSession.png",
@@ -60,7 +60,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: "4:00 PM",
     title: "Cocktail Hour",
-    description: "Sip on refreshing beverages and enjoy delightful appetizers as we transition to the reception. Take this time to relax, reconnect with friends and family, and soak in the joyful atmosphere.",
+    description: "Enjoy drinks and light bites as we transition into the reception and mingle with guests.",
     location: receptionVenue,
     icon: CocktailIcon,
     imageSrc: "/weddingtimeline/CockTailHour.png",
@@ -68,7 +68,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: "4:30 PM",
     title: "Reception Welcome",
-    description: `Experience the grand entrance of ${brideNickname} & ${groomNickname} as they make their way into the reception. Get ready for an evening filled with love, laughter, and celebration.`,
+    description: `Celebrate the grand entrance of ${brideNickname} & ${groomNickname} and the start of the evening festivities.`,
     location: receptionVenue,
     icon: FireworksIcon,
     imageSrc: "/weddingtimeline/reception welcom.png",
@@ -76,7 +76,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: "5:00 PM",
     title: "Dinner Service",
-    description: "Savor a delicious feast prepared with love and care. Enjoy a wonderful meal with your loved ones while we celebrate this momentous occasion together.",
+    description: "Share a relaxed meal together as we continue the celebration.",
     location: receptionVenue,
     icon: DinnerIcon,
     imageSrc: "/weddingtimeline/DinnerService.png",
@@ -84,7 +84,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: "6:30 PM",
     title: "Cake Cutting",
-    description: "Join us for the traditional cake cutting ceremony as the newlyweds share their first slice together, symbolizing their sweet journey ahead and their commitment to share life's joys.",
+    description: "Watch the couple cut the cake and share a sweet moment together.",
     location: receptionVenue,
     icon: CakeIcon,
     imageSrc: "/weddingtimeline/cakecutting.png",
@@ -92,7 +92,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: "7:00 PM",
     title: "Dancing & Celebration",
-    description: `Watch ${brideNickname} & ${groomNickname} share their magical first dance as husband and wife, then hit the dance floor with us! Let's celebrate, create unforgettable memories, and dance the night away together.`,
+    description: `Enjoy the first dance of ${brideNickname} & ${groomNickname}, then join us on the dance floor.`,
     location: receptionVenue,
     icon: DanceIcon,
     imageSrc: "/weddingtimeline/dance.png",
@@ -100,7 +100,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     time: "8:30 PM",
     title: "Send-off",
-    description: `Join us in a heartwarming send-off as ${brideNickname} & ${groomNickname} begin their beautiful new chapter together as husband and wife. Wave them goodbye with love, blessings, and well-wishes for their journey ahead.`,
+    description: `Help us send off ${brideNickname} & ${groomNickname} with love and well-wishes.`,
     location: receptionVenue,
     icon: CarIcon,
     imageSrc: "/weddingtimeline/SendOff.png",
@@ -128,7 +128,7 @@ export function WeddingTimeline() {
         </h2>
 
         <p className="text-[11px] sm:text-sm md:text-base lg:text-lg text-white/95 max-w-xl mx-auto leading-relaxed px-2">
-          From the moment you arrive until we bid farewell, here's everything you need to know about our special day. Join us for a beautiful celebration filled with love, joy, and unforgettable moments that will create memories to last a lifetime.
+          A simple overview of the key moments of our day, from arrival to farewell.
         </p>
 
         {/* Simple divider */}
