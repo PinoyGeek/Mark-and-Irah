@@ -14,7 +14,7 @@ const cormorant = Cormorant_Garamond({
 export function GuestInformation() {
   // Palettes (used only for color chips in attire card) - Beige variants
   const sponsorPalette = ["#F5F5DC", "#E6D5B8", "#D2B48C", "#C8A882", "#B8A082", "#A0826D"]
-  const guestPalette = ["#51080F", "#751A23", "#A58169", "#E1C49C", "#EDE1D3"]
+  const guestPalette = ["#56030D", "#72050A", "#85060D", "#B08D6D", "#DAB993"]
 
   return (
     <Section
@@ -151,7 +151,7 @@ export function GuestInformation() {
                       Formal or Semi Formal
                     </p>
                     <p className="text-[#51080F]">
-                      We Encourage you to dress according to our wedding color.
+                      We Encourage you to dress according to our wedding color:
                     </p>
                     <div className="pt-1">
                       <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] text-[#51080F] mb-1">
