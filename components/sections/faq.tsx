@@ -45,7 +45,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Is there a dress code?",
     answer:
-      `Yes! We kindly request our guests to dress in formal attire matching our wedding colors. Please see the Attire section in Details for specific guidelines:\n\nPrincipal Sponsors:\n• Male: Barong, Black Pants and Leather Shoes\n• Female: shades of BURGUNDY/MAROON\n\nWedding Guests:\n• Formal or Semi Formal attire\n• We encourage you to dress according to our wedding colors to help create a soft, elegant romantic celebration.`,
+      `Yes! We kindly request our guests to dress in formal attire matching our wedding colors. Please see the Attire section in Details for specific guidelines:\n\nPrincipal Sponsors:\n• Male: Barong, Black Pants and Leather Shoes\n• Female: variants of beige\n\nWedding Guests:\n• Formal or Semi Formal attire\n• We encourage you to dress according to our wedding color to help create a soft, elegant romantic celebration.`,
   },
   {
     question: "Will there be assigned seating?",
@@ -75,7 +75,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Will the wedding be indoors or outdoors?",
     answer:
-      "Both the ceremony and reception will be held at covered venues, so we're prepared for any weather. However, we recommend checking the weather forecast and dressing accordingly.",
+      "Our wedding will be held outdoors. We recommend checking the weather forecast and dressing accordingly. Please come prepared for the outdoor setting.",
   },
 ]
 

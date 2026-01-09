@@ -23,7 +23,7 @@ export function CoupleVideo() {
   const { pauseMusic, resumeMusic } = useAudio()
 
   // YouTube video ID
-  const videoId = "_gPIXV2rFDg"
+  const videoId = "3G95zeJhA48"
 
   // Load YouTube IFrame API
   useEffect(() => {
