@@ -19,6 +19,7 @@ import {
   Users,
 } from "lucide-react"
 import { Cormorant_Garamond } from "next/font/google"
+import { siteConfig } from "@/content/site"
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ interface Guest {
   Message: string
   Status: string
   AllowedGuests: number
+  Companions?: Array<{ name: string; relationship: string }>
 }
 
 export function GuestList() {
@@ -98,7 +100,12 @@ export function GuestList() {
       const companionCount = Math.max(0, allowedGuests - 1) // Main guest + companions
       
       setCompanions((prev) => {
-        const newCompanions = [...prev]
+        // If we have existing companions from the selected guest, use them as base
+        const existingCompanions = selectedGuest.Companions && selectedGuest.Companions.length > 0 
+          ? [...selectedGuest.Companions] 
+          : [...prev]
+        
+        const newCompanions = [...existingCompanions]
         if (newCompanions.length < companionCount) {
           // Add empty slots
           for (let i = newCompanions.length; i < companionCount; i++) {
@@ -207,6 +214,7 @@ export function GuestList() {
           Message: guest.message || "",
           Status: guest.status || "pending",
           AllowedGuests: guest.allowedGuests || 1,
+          Companions: Array.isArray(guest.companions) ? guest.companions : [],
         }))
       
       setGuests(mappedGuests)
@@ -233,6 +241,13 @@ export function GuestList() {
       Message: guest.Message || "",
       Status: guest.Status || "pending",
     })
+    
+    // Load existing companions if available
+    if (guest.Companions && guest.Companions.length > 0) {
+      setCompanions(guest.Companions)
+    } else {
+      setCompanions([])
+    }
     
     // Check if guest has already responded (status is confirmed or declined)
     setHasResponded(!!(guest.Status && (guest.Status === "confirmed" || guest.Status === "declined")))
@@ -400,6 +415,9 @@ export function GuestList() {
         
         <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white/90 font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
           Please search for your name below to confirm your presence at our special day
+        </p>
+        <p className={`${cormorant.className} text-[0.65rem] sm:text-xs md:text-sm text-white/80 font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
+          RSVP Deadline: {siteConfig.details.rsvp.deadline}
         </p>
         
         {/* Decorative element below subtitle */}
@@ -700,27 +718,50 @@ export function GuestList() {
                           <span>Who's Coming With You?</span>
                         </label>
                         <p className="text-[10px] sm:text-xs text-[#909E8D] -mt-1 sm:-mt-1.5">
-                          Please provide names for your <span className="font-semibold">{companions.length}</span> additional {companions.length === 1 ? 'guest' : 'guests'}
+                          Please provide names and relationships for your <span className="font-semibold">{companions.length}</span> additional {companions.length === 1 ? 'guest' : 'guests'}
                         </p>
                         {companions.map((companion, index) => (
-                          <div key={index} className="bg-[#F4F4F4]/40 rounded-lg p-2 sm:p-2.5 md:p-3 border border-[#327B72]/40">
-                            <div className="flex items-center gap-1.5 mb-1.5 sm:mb-2">
+                          <div key={index} className="bg-[#F4F4F4]/40 rounded-lg p-2 sm:p-2.5 md:p-3 border border-[#327B72]/40 space-y-2 sm:space-y-2.5">
+                            <div className="flex items-center gap-1.5 mb-1 sm:mb-1.5">
                               <User className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#751A23]" />
                               <span className="text-[10px] sm:text-xs font-semibold text-[#243127]">
-                                Guest {index + 2} Name
+                                Guest {index + 2}
                               </span>
                             </div>
-                            <input
-                              type="text"
-                              value={companion.name}
-                              onChange={(e) => {
-                                const newCompanions = [...companions]
-                                newCompanions[index] = { ...newCompanions[index], name: e.target.value }
-                                setCompanions(newCompanions)
-                              }}
-                              placeholder={`Name of guest ${index + 2}`}
-                              className="w-full px-2 sm:px-2.5 py-1.5 sm:py-2 border border-[#327B72]/50 focus:border-[#751A23] rounded text-[10px] sm:text-xs font-sans text-[#243127] placeholder:text-[#909E8D]/60 transition-all duration-300 focus:ring-1 focus:ring-[#751A23]/20 bg-white"
-                            />
+                            <div className="space-y-1.5 sm:space-y-2">
+                              <div>
+                                <label className="block text-[10px] sm:text-xs font-medium text-[#243127] mb-1">
+                                  Full Name
+                                </label>
+                                <input
+                                  type="text"
+                                  value={companion.name}
+                                  onChange={(e) => {
+                                    const newCompanions = [...companions]
+                                    newCompanions[index] = { ...newCompanions[index], name: e.target.value }
+                                    setCompanions(newCompanions)
+                                  }}
+                                  placeholder={`Name of guest ${index + 2}`}
+                                  className="w-full px-2 sm:px-2.5 py-1.5 sm:py-2 border border-[#327B72]/50 focus:border-[#751A23] rounded text-[10px] sm:text-xs font-sans text-[#243127] placeholder:text-[#909E8D]/60 transition-all duration-300 focus:ring-1 focus:ring-[#751A23]/20 bg-white"
+                                />
+                              </div>
+                              <div>
+                                <label className="block text-[10px] sm:text-xs font-medium text-[#243127] mb-1">
+                                  Relationship with {selectedGuest?.Name || 'Primary Guest'}
+                                </label>
+                                <input
+                                  type="text"
+                                  value={companion.relationship}
+                                  onChange={(e) => {
+                                    const newCompanions = [...companions]
+                                    newCompanions[index] = { ...newCompanions[index], relationship: e.target.value }
+                                    setCompanions(newCompanions)
+                                  }}
+                                  placeholder="e.g., Spouse, Friend, Child, Parent"
+                                  className="w-full px-2 sm:px-2.5 py-1.5 sm:py-2 border border-[#327B72]/50 focus:border-[#751A23] rounded text-[10px] sm:text-xs font-sans text-[#243127] placeholder:text-[#909E8D]/60 transition-all duration-300 focus:ring-1 focus:ring-[#751A23]/20 bg-white"
+                                />
+                              </div>
+                            </div>
                           </div>
                         ))}
                       </div>

@@ -344,10 +344,10 @@ export function BookOfGuests() {
                           </div>
                           <div className="flex flex-wrap gap-1 sm:gap-1.5">
                             {guest.companions.map((companion, idx) => (
-                              <div key={idx} className="inline-flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2 md:px-2.5 py-0.5 sm:py-1 bg-white border border-[#327B72]/30 rounded sm:rounded-md md:rounded-lg hover:border-[#751A23]/50 transition-colors">
-                                <span className="text-[9px] sm:text-[10px] md:text-xs font-medium text-gray-800">{companion.name}</span>
-                                {companion.relationship && (
-                                  <span className="text-[8px] sm:text-[9px] md:text-[10px] text-gray-500 bg-gray-50 px-1 sm:px-1.5 py-0.5 rounded-full">
+                              <div key={idx} className="inline-flex items-center gap-1 sm:gap-1.5 px-1.5 sm:px-2 md:px-2.5 py-0.5 sm:py-1 bg-white border border-[#327B72]/30 rounded sm:rounded-md md:rounded-lg hover:border-[#751A23]/50 transition-colors">
+                                <span className="text-[9px] sm:text-[10px] md:text-xs font-medium text-gray-800 whitespace-nowrap">{companion.name}</span>
+                                {companion.relationship && companion.relationship.trim() !== "" && (
+                                  <span className="text-[8px] sm:text-[9px] md:text-[10px] text-[#751A23] bg-[#751A23]/10 px-1.5 sm:px-2 py-0.5 rounded-full font-medium border border-[#751A23]/20 whitespace-nowrap">
                                     {companion.relationship}
                                   </span>
                                 )}

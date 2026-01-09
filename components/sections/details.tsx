@@ -118,6 +118,9 @@ export function Details() {
         <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white/90 font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
           All the important details to help you join us in celebrating our special day
         </p>
+        <p className={`${cormorant.className} text-[0.65rem] sm:text-xs md:text-sm text-white/80 font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
+          RSVP Deadline: {siteConfig.details.rsvp.deadline}
+        </p>
 
         {/* Decorative element below subtitle - matching gallery style */}
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">

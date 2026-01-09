@@ -13,7 +13,7 @@ const cormorant = Cormorant_Garamond({
 
 export function GuestInformation() {
   // Palettes (used only for color chips in attire card) - Beige variants
-  const sponsorPalette = ["#F5F5DC", "#E6D5B8", "#D2B48C", "#C8A882", "#B8A082", "#A0826D"]
+  const sponsorPalette = ["#D1B48C", "#D1B79E", "#DFCFAD", "#F5DEB4", "#F0E2BB"]
   const guestPalette = ["#56030D", "#72050A", "#85060D", "#B08D6D", "#DAB993"]
 
   return (

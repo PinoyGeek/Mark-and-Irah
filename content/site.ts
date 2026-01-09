@@ -15,7 +15,7 @@ export const siteConfig = {
   },
   details: {
     rsvp: {
-      deadline: "December 31, 2025",
+      deadline: "January 25",
     },
   },
   ceremony: {

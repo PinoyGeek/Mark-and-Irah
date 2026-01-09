@@ -73,11 +73,11 @@ export default function Home() {
               <Registry />
               {/* <PrincipalSponsors /> */}
 
-              <FAQ />
-              <SnapShare />
               <GuestList />
               <BookOfGuests />
+              <FAQ />
               <Messages />
+              <SnapShare />
               <Footer />
             </div>
           </div>
