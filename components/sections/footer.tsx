@@ -29,6 +29,9 @@ export function Footer() {
   const ceremonyVenue = siteConfig.ceremony.venue
   const receptionVenue = siteConfig.reception.venue
 
+  // Format date with comma: "February 8 2026" -> "February 8, 2026"
+  const formattedDate = ceremonyDate.replace(/(\w+ \d+) (\d+)/, "$1, $2")
+
   const [ceremonyMonth = "December", ceremonyDayRaw = "21", ceremonyYear = "2025"] = ceremonyDate.split(" ")
   const ceremonyDayNumber = ceremonyDayRaw.replace(/[^0-9]/g, "") || "21"
 
@@ -135,7 +138,7 @@ export function Footer() {
           <p
             className={`${cormorant.className} text-sm sm:text-base md:text-lg text-white/90 mt-1 sm:mt-2`}
           >
-            {ceremonyDate}
+            {formattedDate}
           </p>
         </div>
       </div>
