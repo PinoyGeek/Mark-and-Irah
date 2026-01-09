@@ -30,7 +30,12 @@ export function Details() {
   const formatAddress = (address: string) => {
     return address
       .split(',')
-      .map(part => part.trim().charAt(0).toUpperCase() + part.trim().slice(1).toLowerCase())
+      .map(part => 
+        part.trim()
+          .split(' ')
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+          .join(' ')
+      )
       .join(', ')
   }
   
@@ -38,6 +43,24 @@ export function Details() {
   const receptionLocation = siteConfig.reception.location
   const ceremonyLocationFormatted = formatAddress(ceremonyLocation)
   const receptionLocationFormatted = formatAddress(receptionLocation)
+  
+  // Format date with comma: "February 8 2026" -> "February 8, 2026"
+  const formattedCeremonyDate = siteConfig.ceremony.date.replace(/(\w+ \d+) (\d+)/, "$1, $2")
+  
+  // Format reception date: "FEB 8, 2026" -> "February 8, 2026"
+  const formattedReceptionDate = siteConfig.reception.date
+    .replace(/FEB/i, "February")
+    .replace(/JAN/i, "January")
+    .replace(/MAR/i, "March")
+    .replace(/APR/i, "April")
+    .replace(/MAY/i, "May")
+    .replace(/JUN/i, "June")
+    .replace(/JUL/i, "July")
+    .replace(/AUG/i, "August")
+    .replace(/SEP/i, "September")
+    .replace(/OCT/i, "October")
+    .replace(/NOV/i, "November")
+    .replace(/DEC/i, "December")
 
   // Handle ESC key to close modal
   useEffect(() => {
@@ -175,7 +198,7 @@ export function Details() {
                   <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#751A23] uppercase mb-0.5">
                     Date
                   </p>
-                  <p className="text-sm sm:text-base font-bold text-[#51080F]">{siteConfig.ceremony.date}</p>
+                  <p className="text-sm sm:text-base font-bold text-[#51080F]">{formattedCeremonyDate}</p>
                 </div>
                 <div className="rounded-md border border-[#751A23] bg-white/80 px-2.5 py-2 shadow-sm">
                   <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#751A23] uppercase mb-0.5">
@@ -196,7 +219,7 @@ export function Details() {
                   <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#751A23] uppercase mb-0.5">
                     Date
                   </p>
-                  <p className="text-sm sm:text-base font-bold text-[#51080F]">{siteConfig.reception.date}</p>
+                  <p className="text-sm sm:text-base font-bold text-[#51080F]">{formattedReceptionDate}</p>
                 </div>
                 <div className="rounded-md border border-[#751A23] bg-white/80 px-2.5 py-2 shadow-sm">
                   <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#751A23] uppercase mb-0.5">
@@ -364,7 +387,7 @@ export function Details() {
                       >
                         <Clock className="w-4 h-4" style={{ color: "#51080F" }} />
                         <span>
-                          {siteConfig.ceremony.date} at {siteConfig.ceremony.time}
+                          {formattedCeremonyDate} at {siteConfig.ceremony.time}
                         </span>
                       </div>
                     )}
@@ -380,7 +403,7 @@ export function Details() {
                       >
                         <Clock className="w-4 h-4" style={{ color: "#51080F" }} />
                         <span>
-                          {siteConfig.reception.date} - {siteConfig.reception.time}
+                          {formattedReceptionDate} - {siteConfig.reception.time}
                         </span>
                       </div>
                     )}

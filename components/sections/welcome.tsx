@@ -58,13 +58,13 @@ export function Welcome() {
                 className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#51080F]/90 italic`}
                 style={{ textShadow: "0 1px 8px rgba(81,8,15,0.3)" }}
               >
-                &quot;Love is patient, love is kind. It does not envy, it does not boast, it is not proud… It always protects, always trusts, always hopes, always perseveres.&quot;
+                &quot;And now these three remain: faith, hope and love. But the greatest of these is love.&quot;
               </p>
               <p
                 className={`${cormorant.className} text-[0.65rem] sm:text-xs md:text-sm text-[#51080F]/80 tracking-[0.2em] uppercase`}
                 style={{ textShadow: "0 1px 6px rgba(81,8,15,0.3)" }}
               >
-                1 Corinthians 13:4–7 (NIV)
+                1 Corinthians 13:13
               </p>
             </div>
 

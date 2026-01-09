@@ -72,7 +72,6 @@ export default function Home() {
               <WeddingTimeline />
               <Registry />
               {/* <PrincipalSponsors /> */}
-
               <GuestList />
               <BookOfGuests />
               <FAQ />
