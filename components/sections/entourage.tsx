@@ -438,7 +438,7 @@ export function Entourage() {
                                 <div className="h-px flex-1 bg-gradient-to-l from-transparent via-white/60 to-transparent"></div>
                               </div>
                             </div>
-                            <TwoColumnLayout leftTitle="Principal Sponsors" rightTitle="Principal Sponsors">
+                            <TwoColumnLayout singleTitle="Principal Sponsors" centerContent={true}>
                               {sponsors.map((sponsor, idx) => (
                                 <React.Fragment key={`sponsor-row-${idx}`}>
                                   <div key={`sponsor-male-${idx}`} className="px-2 sm:px-3 md:px-4">
