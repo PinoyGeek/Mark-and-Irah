@@ -34,8 +34,8 @@ const ROLE_CATEGORY_ORDER = [
   "Maid of Honor",
   "Matron of Honor",
   "Candle Sponsors",
-  "Cord Sponsors",
   "Veil Sponsors",
+  "Cord Sponsors",
   "Groomsmen",
   "Bridesmaids",
   "Flower Girls",
@@ -423,6 +423,61 @@ export function Entourage() {
                             return rows
                           })()}
                         </TwoColumnLayout>
+                        
+                        {/* Principal Sponsors section - displayed after Parents */}
+                        {sponsors.length > 0 && (
+                          <div key="SponsorsAfterParents">
+                            <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
+                              <div className="flex items-center gap-2 w-full max-w-md">
+                                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
+                                <div className="flex items-center gap-1.5">
+                                  <div className="w-1 h-1 bg-white/60 rounded-full" />
+                                  <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                                  <div className="w-1 h-1 bg-white/60 rounded-full" />
+                                </div>
+                                <div className="h-px flex-1 bg-gradient-to-l from-transparent via-white/60 to-transparent"></div>
+                              </div>
+                            </div>
+                            <TwoColumnLayout leftTitle="Principal Sponsors" rightTitle="Principal Sponsors">
+                              {sponsors.map((sponsor, idx) => (
+                                <React.Fragment key={`sponsor-row-${idx}`}>
+                                  <div key={`sponsor-male-${idx}`} className="px-2 sm:px-3 md:px-4">
+                                    {sponsor.MalePrincipalSponsor ? (
+                                      <NameItem 
+                                        member={{
+                                          Name: sponsor.MalePrincipalSponsor,
+                                          RoleCategory: "",
+                                          RoleTitle: "",
+                                          Email: ""
+                                        }} 
+                                        align="right" 
+                                        showRole={false}
+                                      />
+                                    ) : (
+                                      <div className="py-0.5 sm:py-1 md:py-1.5" />
+                                    )}
+                                  </div>
+                                  <div key={`sponsor-female-${idx}`} className="px-2 sm:px-3 md:px-4">
+                                    {sponsor.FemalePrincipalSponsor ? (
+                                      <NameItem 
+                                        member={{
+                                          Name: sponsor.FemalePrincipalSponsor,
+                                          RoleCategory: "",
+                                          RoleTitle: "",
+                                          Email: ""
+                                        }} 
+                                        align="left" 
+                                        showRole={false}
+                                      />
+                                    ) : (
+                                      <div className="py-0.5 sm:py-1 md:py-1.5" />
+                                    )}
+                                  </div>
+                                </React.Fragment>
+                              ))}
+                            </TwoColumnLayout>
+                          </div>
+                        )}
                       </div>
                     )
                   }
@@ -540,66 +595,9 @@ export function Entourage() {
                   if (category === "Bridesmaids") {
                     return (
                       <React.Fragment key="BridalPartySection">
-                        {/* Sponsors section - displayed before Groomsmen/Bridesmaids */}
-                        {sponsors.length > 0 && (
-                          <div key="Sponsors">
-                            {categoryIndex > 0 && (
-                              <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
-                                <div className="flex items-center gap-2 w-full max-w-md">
-                                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
-                                  <div className="flex items-center gap-1.5">
-                                    <div className="w-1 h-1 bg-white/60 rounded-full" />
-                                    <div className="w-1.5 h-1.5 bg-white rounded-full" />
-                                    <div className="w-1 h-1 bg-white/60 rounded-full" />
-                                  </div>
-                                  <div className="h-px flex-1 bg-gradient-to-l from-transparent via-white/60 to-transparent"></div>
-                                </div>
-                              </div>
-                            )}
-                            <TwoColumnLayout leftTitle="Principal Sponsors" rightTitle="Principal Sponsors">
-                              {sponsors.map((sponsor, idx) => (
-                                <React.Fragment key={`sponsor-row-${idx}`}>
-                                  <div key={`sponsor-male-${idx}`} className="px-2 sm:px-3 md:px-4">
-                                    {sponsor.MalePrincipalSponsor ? (
-                                      <NameItem 
-                                        member={{
-                                          Name: sponsor.MalePrincipalSponsor,
-                                          RoleCategory: "",
-                                          RoleTitle: "",
-                                          Email: ""
-                                        }} 
-                                        align="right" 
-                                        showRole={false}
-                                      />
-                                    ) : (
-                                      <div className="py-0.5 sm:py-1 md:py-1.5" />
-                                    )}
-                                  </div>
-                                  <div key={`sponsor-female-${idx}`} className="px-2 sm:px-3 md:px-4">
-                                    {sponsor.FemalePrincipalSponsor ? (
-                                      <NameItem 
-                                        member={{
-                                          Name: sponsor.FemalePrincipalSponsor,
-                                          RoleCategory: "",
-                                          RoleTitle: "",
-                                          Email: ""
-                                        }} 
-                                        align="left" 
-                                        showRole={false}
-                                      />
-                                    ) : (
-                                      <div className="py-0.5 sm:py-1 md:py-1.5" />
-                                    )}
-                                  </div>
-                                </React.Fragment>
-                              ))}
-                            </TwoColumnLayout>
-                          </div>
-                        )}
-                        
                         {/* Groomsmen/Bridesmaids section */}
                         <div key="BridalParty">
-                          {(categoryIndex > 0 || sponsors.length > 0) && (
+                          {categoryIndex > 0 && (
                             <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
                               <div className="flex items-center gap-2 w-full max-w-md">
                                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
