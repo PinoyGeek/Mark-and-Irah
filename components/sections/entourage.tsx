@@ -30,16 +30,20 @@ const ROLE_CATEGORY_ORDER = [
   "Parents of the Bride",
   "Family of the Groom",
   "Family of the Bride",
-  "Best Man",
-  "Maid of Honor",
   "Matron of Honor",
   "Candle Sponsors",
   "Veil Sponsors",
   "Cord Sponsors",
+  "Best Man",
+  "Maid of Honor",
   "Groomsmen",
   "Bridesmaids",
+  "Little Groom",
+  "Little Bride",
+  "Ring Bearer",
+  "Bible Bearer",
+  "Coin Bearer",
   "Flower Girls",
-  "Ring/Coin Bearers",
 ]
 
 export function Entourage() {
@@ -585,6 +589,57 @@ export function Entourage() {
                   return null
                 }
 
+                // Special handling for Little Groom and Little Bride - combine into single two-column layout
+                if (category === "Little Groom" || category === "Little Bride") {
+                  // Get both little ones groups
+                  const littleGroom = grouped["Little Groom"] || []
+                  const littleBride = grouped["Little Bride"] || []
+                  
+                  // Only render once (when processing "Little Groom")
+                  if (category === "Little Groom") {
+                    return (
+                      <div key="LittleOnes">
+                        {categoryIndex > 0 && (
+                          <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
+                            <div className="flex items-center gap-2 w-full max-w-md">
+                              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
+                              <div className="flex items-center gap-1.5">
+                                <div className="w-1 h-1 bg-white/60 rounded-full" />
+                                <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                                <div className="w-1 h-1 bg-white/60 rounded-full" />
+                              </div>
+                              <div className="h-px flex-1 bg-gradient-to-l from-transparent via-white/60 to-transparent"></div>
+                            </div>
+                          </div>
+                        )}
+                        <TwoColumnLayout leftTitle="Little Groom" rightTitle="Little Bride">
+                          {(() => {
+                            const maxLen = Math.max(littleGroom.length, littleBride.length)
+                            const rows = []
+                            for (let i = 0; i < maxLen; i++) {
+                              const left = littleGroom[i]
+                              const right = littleBride[i]
+                              rows.push(
+                                <React.Fragment key={`little-row-${i}`}>
+                                  <div key={`littlegroom-cell-${i}`} className="px-2 sm:px-3 md:px-4">
+                                    {left ? <NameItem member={left} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  </div>
+                                  <div key={`littlebride-cell-${i}`} className="px-2 sm:px-3 md:px-4">
+                                    {right ? <NameItem member={right} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  </div>
+                                </React.Fragment>
+                              )
+                            }
+                            return rows
+                          })()}
+                        </TwoColumnLayout>
+                      </div>
+                    )
+                  }
+                  // Skip rendering for "Little Bride" since it's already rendered above
+                  return null
+                }
+
                 // Special handling for Bridesmaids and Groomsmen - combine into single two-column layout
                 if (category === "Bridesmaids" || category === "Groomsmen") {
                   // Get both bridal party groups
@@ -639,6 +694,77 @@ export function Entourage() {
                   return null
                 }
 
+                // Special handling: Add "Secondary Sponsors" label above Candle Sponsors
+                if (category === "Candle Sponsors") {
+                  return (
+                    <div key={category}>
+                      {categoryIndex > 0 && (
+                        <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
+                          <div className="flex items-center gap-2 w-full max-w-md">
+                            <div className="h-[1.5px] flex-1 bg-gradient-to-r from-transparent via-[#751A23]/50 to-[#751A23]"></div>
+                            <div className="w-1.5 h-1.5 bg-[#751A23] rounded-full"></div>
+                            <div className="h-[1.5px] flex-1 bg-gradient-to-l from-transparent via-[#751A23]/50 to-[#751A23]"></div>
+                          </div>
+                        </div>
+                      )}
+                      {/* Secondary Sponsors label */}
+                      <div className="mb-3 sm:mb-4 md:mb-5">
+                        <SectionTitle>Secondary Sponsors</SectionTitle>
+                      </div>
+                      <TwoColumnLayout singleTitle={category} centerContent={true}>
+                        {(() => {
+                          const PAIRED_SECTIONS = new Set(["Candle Sponsors", "Cord Sponsors", "Veil Sponsors"])
+                          if (PAIRED_SECTIONS.has(category) && members.length === 2) {
+                            const left = members[0]
+                            const right = members[1]
+                            return (
+                              <>
+                                <div className="px-2 sm:px-3 md:px-4">
+                                  <NameItem member={left} align="right" />
+                                </div>
+                                <div className="px-2 sm:px-3 md:px-4">
+                                  <NameItem member={right} align="left" />
+                                </div>
+                              </>
+                            )
+                          }
+                          if (members.length <= 2) {
+                            return (
+                              <div className="col-span-full">
+                                <div className="max-w-sm mx-auto flex flex-col items-center gap-1 sm:gap-1.5 md:gap-2">
+                                  {members.map((member, idx) => (
+                                    <NameItem key={`${category}-${idx}-${member.Name}`} member={member} align="center" />
+                                  ))}
+                                </div>
+                              </div>
+                            )
+                          }
+                          // Default two-column sections: render row-by-row pairs
+                          const half = Math.ceil(members.length / 2)
+                          const left = members.slice(0, half)
+                          const right = members.slice(half)
+                          const maxLen = Math.max(left.length, right.length)
+                          const rows = []
+                          for (let i = 0; i < maxLen; i++) {
+                            const l = left[i]
+                            const r = right[i]
+                            rows.push(
+                              <React.Fragment key={`${category}-row-${i}`}>
+                                <div key={`${category}-cell-left-${i}`} className="px-2 sm:px-3 md:px-4">
+                                  {l ? <NameItem member={l} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                </div>
+                                <div key={`${category}-cell-right-${i}`} className="px-2 sm:px-3 md:px-4">
+                                  {r ? <NameItem member={r} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                </div>
+                              </React.Fragment>
+                            )
+                          }
+                          return rows
+                        })()}
+                      </TwoColumnLayout>
+                    </div>
+                  )
+                }
 
                 // Default: single title, centered content
                 return (
@@ -660,6 +786,7 @@ export function Entourage() {
                           "Ring Bearer",
                           "Coin Bearer",
                           "Bible Bearer",
+                          "Flower Girls",
                           "Presider",
                         ])
                         // Special rule: paired sponsor roles with exactly 2 names should meet at center
