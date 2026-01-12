@@ -35,22 +35,18 @@ function CountdownUnit({ value, label }: CountdownUnitProps) {
 
   return (
     <div className="flex flex-col items-center gap-1.5 sm:gap-2">
-      {/* Elegant card with subtle hover glow */}
-      <div className="relative w-full max-w-[88px] sm:max-w-[96px] md:max-w-[110px] lg:max-w-[120px] group">
-        {/* Glow on hover */}
-        <div className="pointer-events-none absolute -inset-[3px] rounded-2xl bg-gradient-to-br from-[#E1C49C]/28 via-[#A58169]/18 to-transparent opacity-0 blur-md transition-opacity duration-500 group-hover:opacity-100" />
-        <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[#E1C49C]/5 blur-xl opacity-70" />
-
+      {/* Card container */}
+      <div className="relative w-full max-w-[88px] sm:max-w-[96px] md:max-w-[110px] lg:max-w-[120px]">
         {/* Main card */}
-        <div className="relative rounded-xl sm:rounded-2xl border border-white/40/80 bg-white/95/90 px-2.5 py-2.5 sm:px-3.5 sm:py-3.5 md:px-4 md:py-4 shadow-[0_12px_32px_rgba(0,0,0,0.45)]">
-          <div className="relative z-10 flex items-center justify-center text-[#E1C49C]">
+        <div className="relative rounded-xl sm:rounded-2xl border border-white/40/80 bg-white/95/90 px-2.5 py-2.5 sm:px-3.5 sm:py-3.5 md:px-4 md:py-4">
+          <div className="relative z-10 flex items-center justify-center text-[#8B3036]">
             <Counter
               value={value}
               places={places}
               fontSize={26}
               padding={4}
               gap={2}
-              textColor="#E1C49C"
+              textColor="#8B3036"
               fontWeight={800}
               borderRadius={6}
               horizontalPadding={3}
@@ -59,16 +55,11 @@ function CountdownUnit({ value, label }: CountdownUnitProps) {
               gradientTo="transparent"
               counterStyle={{
                 backgroundColor: "transparent",
-                textShadow:
-                  "0 0 12px rgba(229,196,156,0.55), 0 0 24px rgba(229,196,156,0.35), 0 4px 12px rgba(0,0,0,0.35)",
-                filter: "drop-shadow(0 0 10px rgba(229,196,156,0.3))",
               }}
               digitStyle={{
                 minWidth: "1.15ch",
                 fontFamily: "Arial, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-                color: "#E1C49C",
-                textShadow:
-                  "0 0 10px rgba(229,196,156,0.6), 0 0 20px rgba(229,196,156,0.35), 0 2px 8px rgba(0,0,0,0.35)",
+                color: "#8B3036",
               }}
             />
           </div>
@@ -76,7 +67,7 @@ function CountdownUnit({ value, label }: CountdownUnitProps) {
       </div>
 
       {/* Label */}
-      <span className="text-[10px] sm:text-xs md:text-sm font-inter font-semibold uppercase tracking-[0.16em] text-[#E1C49C]/90">
+      <span className="text-[10px] sm:text-xs md:text-sm font-inter font-semibold uppercase tracking-[0.16em] text-[#8B3036]/90">
         {label}
       </span>
     </div>
@@ -171,8 +162,64 @@ export function Countdown() {
   return (
     <Section
       id="countdown"
-      className="relative bg-transparent py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
+      className="relative py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
+      {/* Background gradient */}
+      <div 
+        className="absolute inset-0 -z-10"
+        style={{
+          background: "linear-gradient(to bottom, #F3D1C8, #FAB1AA)",
+        }}
+      />
+      
+      {/* Flower decoration - top left corner */}
+      <div className="absolute left-0 top-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt="Flower decoration"
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-y-[-1]"
+          priority={false}
+        />
+      </div>
+      
+      {/* Flower decoration - top right corner */}
+      <div className="absolute right-0 top-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt="Flower decoration"
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-x-[-1] scale-y-[-1]"
+          priority={false}
+        />
+      </div>
+      
+      {/* Flower decoration - left bottom corner */}
+      <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt="Flower decoration"
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80"
+          priority={false}
+        />
+      </div>
+      
+      {/* Flower decoration - right bottom corner */}
+      <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt="Flower decoration"
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-x-[-1]"
+          priority={false}
+        />
+      </div>
+      
       {/* Monogram - centered at top */}
       <div className="relative flex justify-center pt-8 sm:pt-10 md:pt-12 mb-6 sm:mb-8 md:mb-10 z-10">
         <motion.div
@@ -189,12 +236,10 @@ export function Countdown() {
               className="object-contain"
               style={{
                 filter:
-                  "brightness(0) saturate(100%) invert(88%) sepia(19%) saturate(332%) hue-rotate(336deg) brightness(101%) contrast(90%) drop-shadow(0 0 22px rgba(229,196,156,0.7)) drop-shadow(0 0 38px rgba(229,196,156,0.45)) drop-shadow(0 10px 20px rgba(0,0,0,0.45))",
+                  "brightness(0) saturate(100%) invert(27%) sepia(48%) saturate(2000%) hue-rotate(330deg) brightness(95%) contrast(90%)",
               }}
               priority={false}
             />
-            {/* Glow effect behind monogram */}
-            <div className="absolute inset-0 blur-3xl bg-[#E1C49C]/25 -z-10 scale-125" />
           </div>
         </motion.div>
       </div>
@@ -208,11 +253,11 @@ export function Countdown() {
           <div className="w-8 sm:w-12 md:w-16 h-px bg-[#E1C49C]/25" />
         </div>
         
-        <h2 className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-[#E1C49C] mb-2 sm:mb-3 md:mb-4 drop-shadow-lg">
+        <h2 className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-[#8B3036] mb-2 sm:mb-3 md:mb-4">
           Counting down to our forever
         </h2>
         
-        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#E1C49C]/95 font-light max-w-xl mx-auto leading-relaxed px-2">
+        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#8B3036]/95 font-light max-w-xl mx-auto leading-relaxed px-2">
           Every heartbeat brings us closer to the moment when two hearts become one. Join {groomNickname} and {brideNickname} as they count down to forever.
         </p>
         
@@ -249,13 +294,11 @@ export function Countdown() {
             <div className="relative sm:rounded-3xl p-6 sm:p-8 md:p-10 mb-6 sm:mb-8">
               <div className="w-full max-w-2xl mx-auto">
                 <div
-                  className={`${cinzel.className} flex flex-col items-center gap-1.5 sm:gap-2.5 md:gap-3 text-[#E1C49C] font-bold`}
-                  style={{ textShadow: "0 4px 16px rgba(0,0,0,0.6)" }}
+                  className={`${cinzel.className} flex flex-col items-center gap-1.5 sm:gap-2.5 md:gap-3 text-[#8B3036] font-bold`}
                 >
                   {/* Month */}
                   <span
-                    className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] text-[#E1C49C]"
-                    style={{ textShadow: "0 2px 14px rgba(229,196,156,0.65)" }}
+                    className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] text-[#8B3036]"
                   >
                     {ceremonyMonth}
                   </span>
@@ -264,29 +307,19 @@ export function Countdown() {
                   <div className="flex w-full items-center gap-2 sm:gap-4 md:gap-5">
                     {/* Day of week & divider */}
                     <div className="flex flex-1 items-center justify-end gap-1.5 sm:gap-2.5">
-                      <span className="h-[0.5px] flex-1 bg-[#E1C49C]/45" />
+                      <span className="h-[0.5px] flex-1 bg-[#8B3036]/45" />
                       <span
-                        className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[#E1C49C]"
-                        style={{ textShadow: "0 2px 14px rgba(229,196,156,0.65)" }}
+                        className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[#8B3036]"
                       >
                         {ceremonyDayShort}
                       </span>
-                      <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-[#E1C49C]/45" />
+                      <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-[#8B3036]/45" />
                     </div>
 
-                    {/* Day number with glow */}
+                    {/* Day number */}
                     <div className="relative flex items-center justify-center px-3 sm:px-4 md:px-5">
                       <span
-                        aria-hidden="true"
-                        className="absolute inset-0 mx-auto h-[70%] max-h-[180px] w-[100px] sm:w-[140px] md:w-[170px] rounded-full bg-gradient-to-b from-[#E1C49C]/40 via-[#E1C49C]/25 to-transparent blur-[30px] opacity-85"
-                      />
-                      <span
-                        className={`${cinzel.className} relative text-[3rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6rem] font-bold leading-none tracking-wider text-[#E1C49C]`}
-                        style={{
-                          textShadow:
-                            "0 0 22px rgba(229,196,156,0.9), 0 0 40px rgba(229,196,156,0.7), 0 6px 20px rgba(0,0,0,0.55)",
-                          filter: "drop-shadow(0 0 26px rgba(229,196,156,0.65))",
-                        }}
+                        className={`${cinzel.className} relative text-[3rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6rem] font-bold leading-none tracking-wider text-[#8B3036]`}
                       >
                         {ceremonyDayNumber.padStart(2, "0")}
                       </span>
@@ -294,21 +327,19 @@ export function Countdown() {
 
                     {/* Time */}
                     <div className="flex flex-1 items-center gap-1.5 sm:gap-2.5">
-                      <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-[#E1C49C]/45" />
+                      <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-[#8B3036]/45" />
                       <span
-                        className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[#E1C49C]"
-                        style={{ textShadow: "0 2px 14px rgba(229,196,156,0.65)" }}
+                        className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[#8B3036]"
                       >
                         {ceremonyTimeDisplay.split(",")[0]}
                       </span>
-                      <span className="h-[0.5px] flex-1 bg-[#E1C49C]/45" />
+                      <span className="h-[0.5px] flex-1 bg-[#8B3036]/45" />
                     </div>
                   </div>
 
                   {/* Year */}
                   <span
-                    className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] text-[#E1C49C]"
-                    style={{ textShadow: "0 2px 14px rgba(229,196,156,0.65)" }}
+                    className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] text-[#8B3036]"
                   >
                     {ceremonyYear}
                   </span>

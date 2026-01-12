@@ -5,6 +5,7 @@ import { ChevronDown } from "lucide-react"
 import { Section } from "@/components/section"
 import { Cormorant_Garamond } from "next/font/google"
 import { siteConfig } from "@/content/site"
+import Image from "next/image"
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -77,6 +78,11 @@ const faqItems: FAQItem[] = [
     answer:
       "Our wedding will be held outdoors. We recommend checking the weather forecast and dressing accordingly. Please come prepared for the outdoor setting.",
   },
+  {
+    question: "How can I help the couple have a great time during their wedding?",
+    answer:
+      "• Pray with us for favorable weather and the continuous blessings of our Lord as we enter this new chapter of our lives as husband and wife.\n\n• RSVP as soon as your schedule is cleared.\n\n• Dress appropriately and follow our wedding motif.\n\n• Be on time.\n\n• Follow the seating arrangement in the reception.\n\n• Stay until the end of the program.\n\n• Join the activities and enjoy!",
+  },
 ]
 
 export function FAQ() {
@@ -89,52 +95,41 @@ export function FAQ() {
   return (
     <Section
       id="faq"
-      className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#751A23]"
+      className="relative py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Background image - matching gallery */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <img
-          src="/Details/newBackground.jpg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
-        />
-      </div>
-
       {/* Section Header */}
       <div className="relative z-30 text-center mb-6 sm:mb-9 md:mb-12 px-3 sm:px-4">
         {/* Small label */}
         <p
           className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-white mb-2`}
-          style={{ textShadow: "0 2px 10px rgba(0,0,0,0.75)" }}
         >
           Everything You Need to Know
         </p>
 
         <h2
           className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-1.5 sm:mb-3 md:mb-4"
-          style={{ textShadow: "0 4px 18px rgba(0,0,0,0.85)" }}
         >
           Frequently Asked Questions
         </h2>
         
-        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white/90 font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
+        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
           Common questions answered to help you prepare for our special day
         </p>
 
         {/* Simple divider */}
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-[#327B72]/80 to-transparent" />
-          <div className="w-1.5 h-1.5 rounded-full bg-white/80" />
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-l from-transparent via-[#327B72]/80 to-transparent" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#8B3036]/60" />
+          <div className="w-1.5 h-1.5 bg-[#8B3036]/80 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#8B3036]/60 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#8B3036]/80 rounded-full" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#8B3036]/60" />
         </div>
       </div>
 
       {/* FAQ content */}
       <div className="relative z-30 max-w-4xl mx-auto px-3 sm:px-5">
         {/* Main card */}
-        <div className="relative bg-[#F4F4F4]/95 backdrop-blur-md border border-[#327B72]/60 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(117,26,35,0.3)] overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#327B72]/10 via-transparent to-[#751A23]/5 pointer-events-none" />
+        <div className="relative bg-white/95 backdrop-blur-md border border-[#8B3036]/40 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] overflow-hidden">
           
           {/* FAQ items */}
           <div className="relative p-2.5 sm:p-4 md:p-5 lg:p-6">
@@ -145,20 +140,20 @@ export function FAQ() {
                 return (
                   <div
                     key={index}
-                    className="rounded-lg sm:rounded-xl border border-[#327B72]/40 bg-white/50 hover:border-[#751A23]/60 hover:bg-white/70 transition-all duration-300 overflow-hidden shadow-sm"
+                    className="rounded-lg sm:rounded-xl border border-[#8B3036]/40 bg-white/80 hover:border-[#8B3036]/60 hover:bg-white transition-all duration-300 overflow-hidden shadow-sm"
                   >
                     <button
                       onClick={() => toggleItem(index)}
-                      className="group w-full px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 flex items-center justify-between text-left outline-none focus-visible:ring-2 focus-visible:ring-[#751A23]/50 focus-visible:ring-offset-2 transition-colors"
+                      className="group w-full px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 flex items-center justify-between text-left outline-none focus-visible:ring-2 focus-visible:ring-[#8B3036]/50 focus-visible:ring-offset-2 transition-colors"
                       aria-expanded={isOpen}
                       aria-controls={contentId}
                     >
-                      <span className={`${cormorant.className} font-semibold text-[#751A23] pr-2 sm:pr-3 md:pr-4 text-xs sm:text-sm md:text-base lg:text-lg leading-snug sm:leading-relaxed transition-colors duration-200 group-hover:text-[#327B72]`}>
+                      <span className={`${cormorant.className} font-semibold text-[#8B3036] pr-2 sm:pr-3 md:pr-4 text-xs sm:text-sm md:text-base lg:text-lg leading-snug sm:leading-relaxed transition-colors duration-200 group-hover:text-[#8B3036]`}>
                         {item.question}
                       </span>
                       <ChevronDown
                         size={18}
-                        className={`text-[#751A23]/60 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-[#751A23]" : ""} w-4 h-4 sm:w-5 sm:h-5`}
+                        className={`text-[#8B3036]/60 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-[#8B3036]" : ""} w-4 h-4 sm:w-5 sm:h-5`}
                         aria-hidden
                       />
                     </button>
@@ -171,13 +166,13 @@ export function FAQ() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <div className="px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 bg-white/30 border-t border-[#327B72]/40">
+                        <div className="px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 bg-white/50 border-t border-[#8B3036]/40">
                           {item.answer.includes("[RSVP_LINK]") ? (
-                            <p className={`${cormorant.className} text-[#37413A] font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg whitespace-pre-line tracking-wide`}>
+                            <p className={`${cormorant.className} text-[#8B3036] font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg whitespace-pre-line tracking-wide`}>
                               {item.answer.split("[RSVP_LINK]")[0]}
                               <a 
                                 href="#guest-list" 
-                                className="text-[#751A23] underline font-bold hover:text-[#327B72] transition-colors"
+                                className="text-[#8B3036] underline font-bold hover:text-[#8B3036]/80 transition-colors"
                                 onClick={(e) => {
                                   e.preventDefault()
                                   document.getElementById('guest-list')?.scrollIntoView({ behavior: 'smooth' })
@@ -188,7 +183,7 @@ export function FAQ() {
                               {item.answer.split("[/RSVP_LINK]")[1]}
                             </p>
                           ) : (
-                            <p className={`${cormorant.className} text-[#37413A] font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg whitespace-pre-line tracking-wide`}>
+                            <p className={`${cormorant.className} text-[#8B3036] font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg whitespace-pre-line tracking-wide`}>
                               {item.answer}
                             </p>
                           )}

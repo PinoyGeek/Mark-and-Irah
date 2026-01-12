@@ -241,20 +241,20 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             <Button
               type="submit"
               disabled={isSubmitting || !nameValue.trim() || !messageValue.trim()}
-              className="w-full text-white py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-4 sm:px-5 md:px-6 lg:px-7 rounded-xl text-xs sm:text-sm md:text-base font-lora font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group border border-[#751A23]"
+              className="w-full text-white py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-4 sm:px-5 md:px-6 lg:px-7 rounded-xl text-xs sm:text-sm md:text-base font-lora font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group border border-[#657551]"
               style={{ 
-                backgroundColor: "#751A23",
-                boxShadow: "0 6px 20px rgba(117,26,35,0.35), 0 2px 8px rgba(117,26,35,0.2)",
+                backgroundColor: "#657551",
+                boxShadow: "0 6px 20px rgba(101,117,81,0.35), 0 2px 8px rgba(101,117,81,0.2)",
               }}
               onMouseEnter={(e) => {
                 if (!e.currentTarget.disabled) {
-                  e.currentTarget.style.backgroundColor = "#751A23";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(117,26,35,0.4), 0 3px 10px rgba(117,26,35,0.25)";
+                  e.currentTarget.style.backgroundColor = "#657551";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(101,117,81,0.4), 0 3px 10px rgba(101,117,81,0.25)";
                 }
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#751A23";
-                e.currentTarget.style.boxShadow = "0 6px 20px rgba(117,26,35,0.35), 0 2px 8px rgba(117,26,35,0.2)";
+                e.currentTarget.style.backgroundColor = "#657551";
+                e.currentTarget.style.boxShadow = "0 6px 20px rgba(101,117,81,0.35), 0 2px 8px rgba(101,117,81,0.2)";
               }}
             >
               {isSubmitting ? (

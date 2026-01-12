@@ -2,7 +2,15 @@ import fs from "fs";
 import path from "path";
 import sharp from "sharp";
 
-const IMAGES_DIR = path.resolve(process.cwd(), "public", "images");
+// Get directories from command line args or use defaults
+const args = process.argv.slice(2);
+const DIRECTORIES = args.length > 0
+  ? args.map(dir => path.resolve(process.cwd(), dir))
+  : [
+      path.resolve(process.cwd(), "public", "images"),
+      path.resolve(process.cwd(), "public", "desktop-background"),
+      path.resolve(process.cwd(), "public", "mobile-background"),
+    ];
 
 const VALID_INPUT_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".JPG", ".JPEG", ".PNG"]);
 
@@ -50,19 +58,29 @@ function getAllImageFiles(dir: string): string[] {
 }
 
 async function main(): Promise<void> {
-  if (!fs.existsSync(IMAGES_DIR)) {
-    console.error(`Directory not found: ${IMAGES_DIR}`);
-    process.exit(1);
+  // Check all directories exist
+  for (const dir of DIRECTORIES) {
+    if (!fs.existsSync(dir)) {
+      console.warn(`Warning: Directory not found: ${dir}`);
+    }
   }
 
-  const targets = getAllImageFiles(IMAGES_DIR);
+  // Get all image files from all directories
+  const targets: string[] = [];
+  for (const dir of DIRECTORIES) {
+    if (fs.existsSync(dir)) {
+      const files = getAllImageFiles(dir);
+      targets.push(...files);
+    }
+  }
 
   if (targets.length === 0) {
     console.log("No JPG/PNG images found to convert.");
     return;
   }
 
-  console.log(`Found ${targets.length} images in ${IMAGES_DIR} and subdirectories`);
+  console.log(`Found ${targets.length} images in the following directories:`);
+  DIRECTORIES.forEach(dir => console.log(`  - ${dir}`));
   console.log(`Converting to WebP format...\n`);
 
   let converted = 0;

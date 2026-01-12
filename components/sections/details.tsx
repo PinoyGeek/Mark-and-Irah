@@ -47,20 +47,23 @@ export function Details() {
   // Format date with comma: "February 8 2026" -> "February 8, 2026"
   const formattedCeremonyDate = siteConfig.ceremony.date.replace(/(\w+ \d+) (\d+)/, "$1, $2")
   
-  // Format reception date: "FEB 8, 2026" -> "February 8, 2026"
-  const formattedReceptionDate = siteConfig.reception.date
-    .replace(/FEB/i, "February")
-    .replace(/JAN/i, "January")
-    .replace(/MAR/i, "March")
-    .replace(/APR/i, "April")
-    .replace(/MAY/i, "May")
-    .replace(/JUN/i, "June")
-    .replace(/JUL/i, "July")
-    .replace(/AUG/i, "August")
-    .replace(/SEP/i, "September")
-    .replace(/OCT/i, "October")
-    .replace(/NOV/i, "November")
-    .replace(/DEC/i, "December")
+  // Format reception date: "FEB 8, 2026" -> "February 8, 2026" or keep as is if already formatted
+  const receptionDate = siteConfig.reception.date
+  const formattedReceptionDate = receptionDate.includes("March") || receptionDate.includes("January") || receptionDate.includes("February") || receptionDate.includes("April") || receptionDate.includes("May") || receptionDate.includes("June") || receptionDate.includes("July") || receptionDate.includes("August") || receptionDate.includes("September") || receptionDate.includes("October") || receptionDate.includes("November") || receptionDate.includes("December")
+    ? receptionDate // Already formatted, use as is
+    : receptionDate
+      .replace(/FEB/i, "February")
+      .replace(/JAN/i, "January")
+      .replace(/MAR/i, "March")
+      .replace(/APR/i, "April")
+      .replace(/MAY/i, "May")
+      .replace(/JUN/i, "June")
+      .replace(/JUL/i, "July")
+      .replace(/AUG/i, "August")
+      .replace(/SEP/i, "September")
+      .replace(/OCT/i, "October")
+      .replace(/NOV/i, "November")
+      .replace(/DEC/i, "December")
 
   // Handle ESC key to close modal
   useEffect(() => {
@@ -107,80 +110,123 @@ export function Details() {
   return (
     <Section
       id="details"
-      className="relative py-12 md:py-16 lg:py-20 overflow-hidden bg-[#51080F]"
+      className="relative py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Background image - same as gallery */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <img
-          src="/Details/newBackground.jpg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+      {/* Background gradient */}
+      <div 
+        className="absolute inset-0 -z-10"
+        style={{
+          background: "linear-gradient(to bottom, #F3D1C8, #FAB1AA)",
+        }}
+      />
+      
+      {/* Flower decoration - top left corner */}
+      <div className="absolute left-0 top-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt="Flower decoration"
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-y-[-1]"
+          priority={false}
         />
-        {/* Overlay with #751A23 */}
-        <div className="absolute inset-0 bg-[#751A23]/40" />
+      </div>
+      
+      {/* Flower decoration - top right corner */}
+      <div className="absolute right-0 top-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt="Flower decoration"
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-x-[-1] scale-y-[-1]"
+          priority={false}
+        />
+      </div>
+      
+      {/* Flower decoration - left bottom corner */}
+      <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt="Flower decoration"
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80"
+          priority={false}
+        />
+      </div>
+      
+      {/* Flower decoration - right bottom corner */}
+      <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt="Flower decoration"
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-x-[-1]"
+          priority={false}
+        />
       </div>
 
       {/* Header */}
       <div className="relative z-30 text-center mb-6 sm:mb-9 md:mb-12 px-3 sm:px-4">
         {/* Small label */}
         <p
-          className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-white mb-2`}
-          style={{ textShadow: "0 2px 10px rgba(0,0,0,0.75)" }}
+          className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-[#8B3036] mb-2`}
         >
           Ceremony & Reception Details
         </p>
 
         <h2
-          className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-1.5 sm:mb-3 md:mb-4"
-          style={{ textShadow: "0 4px 18px rgba(0,0,0,0.9)" }}
+          className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#8B3036] mb-1.5 sm:mb-3 md:mb-4"
         >
           Details
         </h2>
 
-        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white/90 font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
+        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#8B3036]/95 font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
           All the important details to help you join us in celebrating our special day
         </p>
-        <p className={`${cormorant.className} text-[0.65rem] sm:text-xs md:text-sm text-white/80 font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
+        <p className={`${cormorant.className} text-[0.65rem] sm:text-xs md:text-sm text-[#8B3036]/80 font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
           RSVP Deadline: {siteConfig.details.rsvp.deadline}
         </p>
 
-        {/* Decorative element below subtitle - matching gallery style */}
+        {/* Decorative element below subtitle */}
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#751A23]/60" />
-          <div className="w-1.5 h-1.5 bg-[#A58169]/80 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#E1C49C]/80 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#751A23]/80 rounded-full" />
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#751A23]/60" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#8B3036]/60" />
+          <div className="w-1.5 h-1.5 bg-[#8B3036]/80 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#8B3036]/60 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#8B3036]/80 rounded-full" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#8B3036]/60" />
         </div>
       </div>
 
-      {/* Ceremony & Reception Locations (combined container) */}
-      <div className="relative z-10 mb-4 sm:mb-8 max-w-6xl mx-auto px-3 sm:px-5">
-        <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-[#751A23]/40 bg-gradient-to-b shadow-[0_20px_60px_rgba(0,0,0,0.45)] transition-transform duration-500 group hover:scale-[1.01]">
-          {/* Combined image */}
+      {/* Ceremony & Reception Containers - Separate */}
+      <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-5 space-y-6 sm:space-y-8">
+        {/* Ceremony Container */}
+        <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-[#8B3036]/40 bg-white/95 shadow-[0_20px_60px_rgba(0,0,0,0.15)] transition-transform duration-500 group hover:scale-[1.01]">
+          {/* Ceremony image */}
           <div className="relative h-64 sm:h-80 md:h-96 w-full">
             <Image
-              src="/Details/CasaAntonia.png"
+              src="/Details/Los Arcos De Hermano- Sjdm Bulacan1.jpg"
               alt={ceremonyLocationFormatted}
               fill
               className="object-cover"
               sizes="100vw"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#751A23]/95 via-[#751A23]/65 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#F5D4CF]/95 via-[#F5D4CF]/65 to-transparent" />
             <div className="absolute inset-0 flex flex-col justify-end px-3 sm:px-6 pb-3 sm:pb-6 text-white">
               <p className="style-script-regular text-xl sm:text-2xl md:text-3xl font-normal leading-none drop-shadow-md mb-2">
-                Ceremony & Reception
+                Ceremony
               </p>
             </div>
           </div>
 
-          {/* Details panel - Combined */}
-          <div className="bg-[#E1C49C]/95 text-[#51080F] px-3 sm:px-6 py-4 sm:py-6 space-y-4 backdrop-blur-sm">
+          {/* Ceremony Details panel */}
+          <div className="bg-white/95 text-[#51080F] px-3 sm:px-6 py-4 sm:py-6 space-y-4 backdrop-blur-sm">
             {/* Address */}
-            <div className="text-left pb-3 border-b border-[#751A23]/30">
-              <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#751A23] uppercase mb-1">
+            <div className="text-left pb-3 border-b border-[#8B3036]/30">
+              <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#8B3036] uppercase mb-1">
                 Location
               </p>
               <p className="text-sm sm:text-base md:text-lg font-medium text-[#51080F]">
@@ -188,45 +234,19 @@ export function Details() {
               </p>
             </div>
 
-            {/* Ceremony Details */}
-            <div className="space-y-2.5">
-              <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#751A23] uppercase">
-                Ceremony
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 text-left">
-                <div className="rounded-md border border-[#751A23] bg-white/80 px-2.5 py-2 shadow-sm">
-                  <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#751A23] uppercase mb-0.5">
-                    Date
-                  </p>
-                  <p className="text-sm sm:text-base font-bold text-[#51080F]">{formattedCeremonyDate}</p>
-                </div>
-                <div className="rounded-md border border-[#751A23] bg-white/80 px-2.5 py-2 shadow-sm">
-                  <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#751A23] uppercase mb-0.5">
-                    Time
-                  </p>
-                  <p className="text-sm sm:text-base font-bold text-[#51080F]">{siteConfig.ceremony.time}</p>
-                </div>
+            {/* Ceremony Date & Time */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 text-left">
+              <div className="rounded-md border border-[#8B3036] bg-white/80 px-2.5 py-2 shadow-sm">
+                <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#8B3036] uppercase mb-0.5">
+                  Date
+                </p>
+                <p className="text-sm sm:text-base font-bold text-[#51080F]">{formattedCeremonyDate}</p>
               </div>
-            </div>
-
-            {/* Reception Details */}
-            <div className="space-y-2.5 pt-2 border-t border-[#751A23]/30">
-              <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#751A23] uppercase">
-                Reception
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 text-left">
-                <div className="rounded-md border border-[#751A23] bg-white/80 px-2.5 py-2 shadow-sm">
-                  <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#751A23] uppercase mb-0.5">
-                    Date
-                  </p>
-                  <p className="text-sm sm:text-base font-bold text-[#51080F]">{formattedReceptionDate}</p>
-                </div>
-                <div className="rounded-md border border-[#751A23] bg-white/80 px-2.5 py-2 shadow-sm">
-                  <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#751A23] uppercase mb-0.5">
-                    Time
-                  </p>
-                  <p className="text-sm sm:text-base font-bold text-[#51080F]">{siteConfig.reception.time}</p>
-                </div>
+              <div className="rounded-md border border-[#8B3036] bg-white/80 px-2.5 py-2 shadow-sm">
+                <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#8B3036] uppercase mb-0.5">
+                  Time
+                </p>
+                <p className="text-sm sm:text-base font-bold text-[#51080F]">{siteConfig.ceremony.time}</p>
               </div>
             </div>
 
@@ -234,16 +254,93 @@ export function Details() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-3 pt-2">
               <button
                 onClick={() => openInMaps(ceremonyMapsLink)}
-                className="flex items-center justify-center gap-1.5 rounded-lg bg-[#751A23] text-white py-2.5 sm:py-3 shadow-lg hover:translate-y-[-2px] hover:bg-[#751A23]/90 transition-all text-xs sm:text-sm font-semibold"
+                className="flex items-center justify-center gap-1.5 rounded-lg bg-[#657551] text-white py-2.5 sm:py-3 shadow-lg hover:translate-y-[-2px] hover:bg-[#657551]/90 transition-all text-xs sm:text-sm font-semibold"
               >
                 <Navigation className="w-4 h-4" />
                 Get Directions
               </button>
               <button
-                onClick={() => copyToClipboard(ceremonyLocation, "ceremony-reception")}
-                className="flex items-center justify-center gap-1.5 rounded-lg border border-[#751A23]/35 text-[#51080F] py-2.5 sm:py-3 hover:bg-[#751A23]/5 transition-all text-xs sm:text-sm font-semibold"
+                onClick={() => copyToClipboard(ceremonyLocation, "ceremony")}
+                className="flex items-center justify-center gap-1.5 rounded-lg border border-[#8B3036]/35 text-[#51080F] py-2.5 sm:py-3 hover:bg-[#8B3036]/5 transition-all text-xs sm:text-sm font-semibold"
               >
-                {copiedItems.has("ceremony-reception") ? (
+                {copiedItems.has("ceremony") ? (
+                  <>
+                    <Check className="w-4 h-4" />
+                    Copied
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4" />
+                    Copy Address
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Reception Container */}
+        <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-[#8B3036]/40 bg-white/95 shadow-[0_20px_60px_rgba(0,0,0,0.15)] transition-transform duration-500 group hover:scale-[1.01]">
+          {/* Reception image */}
+          <div className="relative h-64 sm:h-80 md:h-96 w-full">
+            <Image
+              src="/Details/Los Arcos De Hermano- Sjdm Bulacan.jpg"
+              alt={receptionLocationFormatted}
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#F5D4CF]/95 via-[#F5D4CF]/65 to-transparent" />
+            <div className="absolute inset-0 flex flex-col justify-end px-3 sm:px-6 pb-3 sm:pb-6 text-white">
+              <p className="style-script-regular text-xl sm:text-2xl md:text-3xl font-normal leading-none drop-shadow-md mb-2">
+                Reception
+              </p>
+            </div>
+          </div>
+
+          {/* Reception Details panel */}
+          <div className="bg-white/95 text-[#51080F] px-3 sm:px-6 py-4 sm:py-6 space-y-4 backdrop-blur-sm">
+            {/* Address */}
+            <div className="text-left pb-3 border-b border-[#8B3036]/30">
+              <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#8B3036] uppercase mb-1">
+                Location
+              </p>
+              <p className="text-sm sm:text-base md:text-lg font-medium text-[#51080F]">
+                {receptionLocationFormatted}
+              </p>
+            </div>
+
+            {/* Reception Date & Time */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 text-left">
+              <div className="rounded-md border border-[#8B3036] bg-white/80 px-2.5 py-2 shadow-sm">
+                <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#8B3036] uppercase mb-0.5">
+                  Date
+                </p>
+                <p className="text-sm sm:text-base font-bold text-[#51080F]">{formattedReceptionDate}</p>
+              </div>
+              <div className="rounded-md border border-[#8B3036] bg-white/80 px-2.5 py-2 shadow-sm">
+                <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#8B3036] uppercase mb-0.5">
+                  Time
+                </p>
+                <p className="text-sm sm:text-base font-bold text-[#51080F]">{siteConfig.reception.time}</p>
+              </div>
+            </div>
+
+            {/* Action buttons */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-3 pt-2">
+              <button
+                onClick={() => openInMaps(receptionMapsLink)}
+                className="flex items-center justify-center gap-1.5 rounded-lg bg-[#657551] text-white py-2.5 sm:py-3 shadow-lg hover:translate-y-[-2px] hover:bg-[#657551]/90 transition-all text-xs sm:text-sm font-semibold"
+              >
+                <Navigation className="w-4 h-4" />
+                Get Directions
+              </button>
+              <button
+                onClick={() => copyToClipboard(receptionLocation, "reception")}
+                className="flex items-center justify-center gap-1.5 rounded-lg border border-[#8B3036]/35 text-[#51080F] py-2.5 sm:py-3 hover:bg-[#8B3036]/5 transition-all text-xs sm:text-sm font-semibold"
+              >
+                {copiedItems.has("reception") ? (
                   <>
                     <Check className="w-4 h-4" />
                     Copied
@@ -265,7 +362,7 @@ export function Details() {
         <div
           className="fixed inset-0 backdrop-blur-xl z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 animate-in fade-in duration-500"
           onClick={() => setShowImageModal(null)}
-          style={{ backgroundColor: "rgba(229, 196, 156, 0.96)" }}
+          style={{ backgroundColor: "rgba(243, 209, 200, 0.96)" }}
         >
           {/* Decorative background elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -333,8 +430,8 @@ export function Details() {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-0" />
 
               <Image
-                src="/Details/CasaAntonia.png"
-                alt={ceremonyLocationFormatted}
+                src={showImageModal === "ceremony" ? "/Details/Los Arcos De Hermano- Sjdm Bulacan1.jpg" : "/Details/Los Arcos De Hermano- Sjdm Bulacan.jpg"}
+                alt={showImageModal === "ceremony" ? ceremonyLocationFormatted : receptionLocationFormatted}
                 fill
                 className="object-contain p-6 sm:p-8 md:p-10 transition-transform duration-700 group-hover:scale-105 z-10"
                 sizes="95vw"
@@ -445,8 +542,8 @@ export function Details() {
                       style={{
                         background:
                           showImageModal === "ceremony"
-                            ? "linear-gradient(to right, #751A23, #751A23)"
-                            : "linear-gradient(to right, #751A23, #E1C49C)",
+                            ? "linear-gradient(to right, #657551, #657551)"
+                            : "linear-gradient(to right, #657551, #657551)",
                       }}
                     >
                       <Navigation className="w-4 h-4 sm:w-5 sm:h-5" />

@@ -5,22 +5,21 @@ import { motion } from "motion/react"
 import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import { siteConfig } from "@/content/site"
 
-const desktopImages = [
-  "/images/2nd Part/1.webp",
-  "/images/2nd Part/2.webp",
-  "/images/2nd Part/3.webp",
-  "/images/2nd Part/4.webp",
-  "/images/2nd Part/5.webp",
+const desktopImages: string[] = [
+  '/desktop-background/couple (12).webp',
+  '/desktop-background/couple (9).webp',
+  '/desktop-background/couple (5).webp',
+  '/desktop-background/couple (4).webp',
+  '/desktop-background/couple (7).webp',
+];
 
-]
-
-const mobileImages = [
-  "/images/2nd Part/1.webp",
-  "/images/2nd Part/2.webp",
-  "/images/2nd Part/3.webp",
-  "/images/2nd Part/4.webp",
-  "/images/2nd Part/5.webp",
-]
+const mobileImages: string[] = [
+  '/mobile-background/couple (9).webp',
+  '/mobile-background/couple (18).webp',
+  '/mobile-background/couple (20).webp',
+  '/mobile-background/couple (23).webp',
+  '/mobile-background/couple (5).webp',
+];
 
 const SHOW_BUTTERFLIES = false
 
@@ -127,10 +126,10 @@ export function Hero() {
             }}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#51080F]/90 via-[#751A23]/70 to-transparent z-0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#51080F]/75 z-0" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(117,26,35,0.3),transparent_55%)] mix-blend-screen" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(165,129,105,0.28),transparent_35%)] opacity-70 animate-[pulse_9s_ease-in-out_infinite]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#E2AAAD]/90 via-[#E2AAAD]/70 to-transparent z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#E2AAAD]/75 z-0" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(226,170,173,0.3),transparent_55%)] mix-blend-screen" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(226,170,173,0.28),transparent_35%)] opacity-70 animate-[pulse_9s_ease-in-out_infinite]" />
       </div>
 
       {SHOW_BUTTERFLIES && (
@@ -574,21 +573,21 @@ export function Hero() {
             <div className="w-full flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch">
             <a
               href="#guest-list"
-              className={`${cormorant.className} group relative flex-1 sm:min-w-[200px] md:min-w-[220px] rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E1C49C]/70`}
+              className={`${cormorant.className} group relative flex-1 sm:min-w-[200px] md:min-w-[220px] rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#657551]/70`}
               style={{
-                backgroundColor: "#E1C49C",
-                boxShadow: "0 10px 24px rgba(229,196,156,0.4)",
+                backgroundColor: "#657551",
+                boxShadow: "0 10px 24px rgba(101,117,81,0.4)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#EDE1D3";
-                e.currentTarget.style.boxShadow = "0 12px 28px rgba(229,196,156,0.5)";
+                e.currentTarget.style.backgroundColor = "#556442";
+                e.currentTarget.style.boxShadow = "0 12px 28px rgba(101,117,81,0.5)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#E1C49C";
-                e.currentTarget.style.boxShadow = "0 10px 24px rgba(229,196,156,0.4)";
+                e.currentTarget.style.backgroundColor = "#657551";
+                e.currentTarget.style.boxShadow = "0 10px 24px rgba(101,117,81,0.4)";
               }}
             >
-              <span className="relative z-10 inline-flex h-full min-h-[3rem] sm:min-h-[3.25rem] w-full items-center justify-center px-6 sm:px-8 text-[0.65rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.32em] sm:tracking-[0.36em] text-[#51080F] font-semibold transition-all duration-300" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.2)" }}>
+              <span className="relative z-10 inline-flex h-full min-h-[3rem] sm:min-h-[3.25rem] w-full items-center justify-center px-6 sm:px-8 text-[0.65rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.32em] sm:tracking-[0.36em] text-[#F5D4CF] font-semibold transition-all duration-300" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.2)" }}>
                 Confirm Attendance
               </span>
             </a>

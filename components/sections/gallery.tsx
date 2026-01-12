@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import NextImage from "next/image"
+import Image from "next/image"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { Section } from "@/components/section"
 import { motion } from "motion/react"
@@ -22,12 +23,12 @@ const windSong = WindSong({
 const galleryHashtag = "#DanielAndFlorenceWedding"
 
 const galleryItems = [
-  { image: "/images/3rd Part/1.webp", text: " " },
-  { image: "/images/3rd Part/2.webp", text: " " },
-  { image: "/images/3rd Part/3.webp", text: " " },
-  { image: "/images/3rd Part/4.webp", text: " " },
-  { image: "/images/3rd Part/5.webp", text: " " },
-  { image: "/images/3rd Part/6.webp", text: " " },
+  { image: "/mobile-background/couple (23).webp", text: " " },
+  { image: "/mobile-background/couple (13).webp", text: " " },
+  { image: "/mobile-background/couple (21).webp", text: " " },
+  { image: "/mobile-background/couple (20).webp", text: " " },
+  { image: "/mobile-background/couple (19).webp", text: " " },
+  { image: "/mobile-background/couple (9).webp", text: " " },
 
 ]
 
@@ -112,39 +113,80 @@ export function Gallery() {
   return (
     <Section
       id="gallery"
-      className="relative bg-[#51080F] py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
+      className="relative py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Background image */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Background image */}
-        <img
-          src="/Details/newBackground.jpg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+      {/* Background gradient */}
+      <div 
+        className="absolute inset-0 -z-10"
+        style={{
+          background: "linear-gradient(to bottom, #F3D1C8, #FAB1AA)",
+        }}
+      />
+      
+      {/* Flower decoration - top left corner */}
+      <div className="absolute left-0 top-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt="Flower decoration"
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-y-[-1]"
+          priority={false}
         />
-        {/* Overlay with #751A23 */}
-        <div className="absolute inset-0 bg-[#751A23]/40" />
+      </div>
+      
+      {/* Flower decoration - top right corner */}
+      <div className="absolute right-0 top-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt="Flower decoration"
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-x-[-1] scale-y-[-1]"
+          priority={false}
+        />
+      </div>
+      
+      {/* Flower decoration - left bottom corner */}
+      <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt="Flower decoration"
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80"
+          priority={false}
+        />
+      </div>
+      
+      {/* Flower decoration - right bottom corner */}
+      <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt="Flower decoration"
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-x-[-1]"
+          priority={false}
+        />
       </div>
 
       {/* Header */}
       <div className="relative z-10 text-center mb-8 sm:mb-10 md:mb-12 px-4">
         <div className="space-y-2 sm:space-y-3">
           <p
-            className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-[#E1C49C]`}
-            style={{ textShadow: "0 2px 10px rgba(0,0,0,0.75)" }}
+            className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-[#8B3036]`}
           >
             Cherished Moments with {coupleDisplayName}
           </p>
           <h2
-            className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#E1C49C]"
-            style={{ textShadow: "0 4px 18px rgba(0,0,0,0.9)" }}
+            className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#8B3036]"
           >
             Our Love Story in Pictures
           </h2>
         </div>
 
-        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#E1C49C]/95 font-light max-w-xl mx-auto leading-relaxed mt-3`}>
+        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#8B3036]/95 font-light max-w-xl mx-auto leading-relaxed mt-3`}>
           Beautiful frames capturing the journey of Daniel & Florence — each photograph a precious memory of laughter, love, and the moments that led us to forever.
         </p>
 
@@ -396,10 +438,10 @@ export function Gallery() {
           href="/gallery"
           className="group inline-flex items-center gap-2 px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-3.5 md:py-4 rounded-lg sm:rounded-xl font-semibold sm:font-bold transition-all duration-300 uppercase tracking-wider text-xs sm:text-sm md:text-base whitespace-nowrap relative overflow-hidden border-2 backdrop-blur-sm"
           style={{
-            backgroundColor: "#751A23",
-            borderColor: "#751A23",
+            backgroundColor: "#657551",
+            borderColor: "#657551",
             color: "#E1C49C",
-            boxShadow: "0 6px 26px rgba(117,26,35,0.45), 0 2px 10px rgba(117,26,35,0.6)",
+            boxShadow: "0 6px 26px rgba(101,117,81,0.45), 0 2px 10px rgba(101,117,81,0.6)",
           }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -408,14 +450,14 @@ export function Gallery() {
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.98 }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "#751A23";
-            e.currentTarget.style.borderColor = "#A58169";
-            e.currentTarget.style.boxShadow = "0 10px 34px rgba(117,26,35,0.55), 0 4px 14px rgba(117,26,35,0.8)";
+            e.currentTarget.style.backgroundColor = "#657551";
+            e.currentTarget.style.borderColor = "#7A8A5F";
+            e.currentTarget.style.boxShadow = "0 10px 34px rgba(101,117,81,0.55), 0 4px 14px rgba(101,117,81,0.8)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "#751A23";
-            e.currentTarget.style.borderColor = "#751A23";
-            e.currentTarget.style.boxShadow = "0 6px 26px rgba(117,26,35,0.45), 0 2px 10px rgba(117,26,35,0.6)";
+            e.currentTarget.style.backgroundColor = "#657551";
+            e.currentTarget.style.borderColor = "#657551";
+            e.currentTarget.style.boxShadow = "0 6px 26px rgba(101,117,81,0.45), 0 2px 10px rgba(101,117,81,0.6)";
           }}
         >
           <span className="relative z-10">View Full Gallery</span>
@@ -436,7 +478,7 @@ export function Gallery() {
           />
           {/* Pulsing glow effect */}
           <motion.div 
-            className="absolute inset-0 bg-[#751A23]/25 rounded-lg sm:rounded-xl blur-xl -z-10"
+            className="absolute inset-0 bg-[#657551]/25 rounded-lg sm:rounded-xl blur-xl -z-10"
             animate={{
               opacity: [0.3, 0.6, 0.3],
               scale: [1, 1.1, 1],

@@ -23,7 +23,7 @@ export function CoupleVideo() {
   const { pauseMusic, resumeMusic } = useAudio()
 
   // YouTube video ID
-  const videoId = "3G95zeJhA48"
+  const videoId = "eFyFCehaJhA"
 
   // Load YouTube IFrame API
   useEffect(() => {
@@ -142,36 +142,49 @@ export function CoupleVideo() {
         id="couple-video"
         className="relative bg-[#51080F] py-8 sm:py-10 md:py-12 lg:py-16 overflow-hidden"
       >
-      {/* Background aligned with gallery */}
+      {/* Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <img
-          src="/Details/newBackground.jpg"
+          src="/decoration/DDA foto's, afbeeldingen, assets.jpg"
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-[#751A23]/40" />
+        {/* Background gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F3D1C8] to-[#FAB1AA]" />
+      </div>
+
+      {/* Decoration - right bottom corner */}
+      <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/right-bottom-corner.png"
+          alt="Decoration"
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80"
+          priority={false}
+        />
       </div>
 
       {/* Header - compact, with updated title */}
       <div className="relative z-10 text-center mb-6 sm:mb-8 md:mb-10 px-3 sm:px-4">
         {/* Simple decorative dots */}
         <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#751A23]/60" />
-          <div className="w-1.5 h-1.5 bg-[#A58169]/80 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#E1C49C]/80 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#751A23]/80 rounded-full" />
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#751A23]/60" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#8B3036]/60" />
+          <div className="w-1.5 h-1.5 bg-[#8B3036]/80 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#F5D4CF]/80 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#8B3036]/80 rounded-full" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#8B3036]/60" />
         </div>
         
         <h2
-          className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#E1C49C] mb-2 sm:mb-3 md:mb-4 drop-shadow-lg"
-          style={{ textShadow: "0 4px 18px rgba(0,0,0,0.85)" }}
+          className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#8B3036] mb-2 sm:mb-3 md:mb-4 drop-shadow-lg"
+          style={{ textShadow: "0 4px 18px rgba(139,48,54,0.85)" }}
         >
           A Glimpse of Our Love
         </h2>
         
-        <p className="text-xs sm:text-sm md:text-base text-[#E1C49C]/90 font-light max-w-xl mx-auto px-2">
+        <p className="text-xs sm:text-sm md:text-base text-[#8B3036]/90 font-light max-w-xl mx-auto px-2">
           Watch the journey that brought our hearts together
         </p>
       </div>
@@ -187,13 +200,13 @@ export function CoupleVideo() {
             className="relative group"
           >
             {/* Enhanced layered shadow effects for depth */}
-            <div className="absolute -inset-2 bg-gradient-to-r from-[#751A23]/35 via-[#E1C49C]/22 to-[#751A23]/35 blur-2xl opacity-70 group-hover:opacity-90 transition-all duration-500" />
+            <div className="absolute -inset-2 bg-gradient-to-r from-[#8B3036]/35 via-[#F5D4CF]/22 to-[#8B3036]/35 blur-2xl opacity-70 group-hover:opacity-90 transition-all duration-500" />
             <div className="absolute -inset-4 bg-black/25 blur-3xl opacity-45 group-hover:opacity-65 transition-all duration-500" />
             
             {/* Elegant video frame with rounded corners and enhanced shadows */}
-            <div className="relative bg-gradient-to-br from-black via-[#1a0010] to-black overflow-hidden rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4),0_16px_64px_rgba(0,0,0,0.35),0_0_0_1px_rgba(117,26,35,0.2)] group-hover:shadow-[0_14px_52px_rgba(0,0,0,0.5),0_26px_100px_rgba(0,0,0,0.4),0_0_0_1px_rgba(117,26,35,0.3)] transition-all duration-500">
+            <div className="relative bg-gradient-to-br from-black via-[#1a0010] to-black overflow-hidden rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4),0_16px_64px_rgba(0,0,0,0.35),0_0_0_1px_rgba(139,48,54,0.2)] group-hover:shadow-[0_14px_52px_rgba(0,0,0,0.5),0_26px_100px_rgba(0,0,0,0.4),0_0_0_1px_rgba(139,48,54,0.3)] transition-all duration-500">
               {/* Decorative border with gradient */}
-              <div className="absolute inset-0 rounded-lg sm:rounded-xl md:rounded-2xl border border-[#E1C49C]/20 group-hover:border-[#E1C49C]/35 transition-colors duration-500 pointer-events-none z-20" />
+              <div className="absolute inset-0 rounded-lg sm:rounded-xl md:rounded-2xl border border-[#F5D4CF]/20 group-hover:border-[#F5D4CF]/35 transition-colors duration-500 pointer-events-none z-20" />
               
               {/* Inner shadow for depth */}
               <div className="absolute inset-0 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[inset_0_0_40px_rgba(0,0,0,0.5)] pointer-events-none z-10" />
@@ -235,18 +248,13 @@ export function CoupleVideo() {
                   >
                     {/* Custom poster image */}
                     <Image
-                      src="/images/Gallery/5.webp"
+                      src="/desktop-background/couple (12).webp"
                       alt="Video thumbnail"
                       fill
                       className="object-cover transform group-hover:scale-105 transition-transform duration-500"
                       priority
                     />
                     
-                    {/* Enhanced gradient overlay for better depth and play button visibility */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/35 group-hover:from-black/70 group-hover:via-black/35 group-hover:to-black/45 transition-all duration-300" />
-                    
-                    {/* Inner shadow for depth */}
-                    <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.3)]" />
                     
                     {/* Custom Play Button with enhanced shadows */}
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -256,11 +264,11 @@ export function CoupleVideo() {
                         className="relative"
                       >
                         {/* Glow effect behind button */}
-                        <div className="absolute inset-0 rounded-full bg-[#751A23]/45 blur-2xl scale-150 group-hover:bg-[#E1C49C]/55 group-hover:scale-[1.7] transition-all duration-300" />
+                        <div className="absolute inset-0 rounded-full bg-[#8B3036]/45 blur-2xl scale-150 group-hover:bg-[#F5D4CF]/55 group-hover:scale-[1.7] transition-all duration-300" />
                         
                         {/* Play button */}
-                        <div className="relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.4),0_16px_48px_rgba(0,0,0,0.25),0_0_0_1px_rgba(117,26,35,0.2)] group-hover:bg-white group-hover:shadow-[0_12px_52px_rgba(0,0,0,0.5),0_24px_72px_rgba(117,26,35,0.35),0_0_0_1px_rgba(117,26,35,0.3)] transition-all duration-300">
-                          <Play className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#E1C49C] fill-[#E1C49C] ml-1 drop-shadow-md" />
+                        <div className="relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.4),0_16px_48px_rgba(0,0,0,0.25),0_0_0_1px_rgba(139,48,54,0.2)] group-hover:bg-white group-hover:shadow-[0_12px_52px_rgba(0,0,0,0.5),0_24px_72px_rgba(139,48,54,0.35),0_0_0_1px_rgba(139,48,54,0.3)] transition-all duration-300">
+                          <Play className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#8B3036] fill-[#8B3036] ml-1 drop-shadow-md" />
                         </div>
                       </motion.div>
                     </div>
@@ -326,7 +334,7 @@ export function CoupleVideo() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-center mt-8 sm:mt-10"
           >
-            <p className="text-xs sm:text-sm md:text-base text-[#9B7C6A]/80 font-light italic max-w-lg mx-auto px-4">
+            <p className="text-xs sm:text-sm md:text-base text-[#8B3036]/80 font-light italic max-w-lg mx-auto px-4">
               A glimpse into the moments that made our hearts one
             </p>
           </motion.div>

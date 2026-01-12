@@ -54,7 +54,7 @@ export default function Home() {
             {enableDecor && (
               <div className="fixed inset-0 z-0 pointer-events-none">
                 <Suspense fallback={<div className="w-full h-full bg-gradient-to-b from-primary/10 to-secondary/5" />}>
-                  <Silk speed={5} scale={1.1} color="#51080F" noiseIntensity={0.8} rotation={0.3} />
+                  <Silk speed={5} scale={1.1} color="#FAB1AA" noiseIntensity={0.8} rotation={0.3} />
                 </Suspense>
               </div>
             )}
@@ -66,16 +66,17 @@ export default function Home() {
               <CoupleVideo /> 
               <Countdown />
               <Gallery />
+              <Messages />
               <Details />
-              <Entourage />
               <GuestInformation />
+              <Entourage />
               <WeddingTimeline />
-              <Registry />
+
               {/* <PrincipalSponsors /> */}
               <GuestList />
               <BookOfGuests />
               <FAQ />
-              <Messages />
+              <Registry />v
               <SnapShare />
               <Footer />
             </div>
