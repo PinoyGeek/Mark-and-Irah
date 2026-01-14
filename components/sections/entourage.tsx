@@ -159,7 +159,7 @@ export function Entourage() {
       align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
     return (
        <h3
-         className={`relative ${cormorant.className} text-xs sm:text-sm md:text-base lg:text-lg font-extrabold uppercase text-[#324D3E] mb-2 sm:mb-2.5 md:mb-3 tracking-[0.14em] sm:tracking-[0.18em] ${textAlign} ${className} transition-all duration-300 whitespace-nowrap`}
+         className={`relative ${cormorant.className} text-xs sm:text-sm md:text-sm lg:text-base font-extrabold uppercase text-[#324D3E] mb-1 sm:mb-1.5 md:mb-2 tracking-[0.14em] sm:tracking-[0.18em] ${textAlign} ${className} transition-all duration-300 whitespace-nowrap`}
        >
         {children}
       </h3>
@@ -182,7 +182,7 @@ export function Entourage() {
       align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
     return (
       <div
-        className={`relative flex flex-col ${containerAlign} justify-center py-1 sm:py-1.5 md:py-2 leading-snug sm:leading-relaxed group/item transition-all duration-300 hover:scale-[1.02] sm:hover:scale-[1.03]`}
+        className={`relative flex flex-col ${containerAlign} justify-center py-0.5 sm:py-1 md:py-1 leading-snug sm:leading-snug group/item transition-all duration-300 hover:scale-[1.02] sm:hover:scale-[1.03]`}
       >
         {/* Hover highlight effect */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#324D3E]/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 rounded-md" />
@@ -194,7 +194,7 @@ export function Entourage() {
         </p>
         {showRole && member.RoleTitle && (
           <p
-            className={`relative text-[#324D3E]/70 text-[9px] sm:text-[10px] md:text-[11px] lg:text-xs font-medium mt-0.5 leading-tight sm:leading-snug ${textAlign} tracking-wide uppercase group-hover/item:text-[#324D3E] transition-colors duration-300`}
+            className={`relative text-[#324D3E]/70 text-[9px] sm:text-[10px] md:text-[10px] lg:text-xs font-medium mt-0 leading-tight ${textAlign} tracking-wide uppercase group-hover/item:text-[#324D3E] transition-colors duration-300`}
           >
             {member.RoleTitle}
           </p>
@@ -219,9 +219,9 @@ export function Entourage() {
   }) => {
     if (singleTitle) {
       return (
-        <div className="mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+        <div className="mb-2 sm:mb-2.5 md:mb-3">
           <SectionTitle>{singleTitle}</SectionTitle>
-          <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 gap-y-1 sm:gap-y-1.5 md:gap-y-2 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
+          <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-6 sm:gap-x-8 md:gap-x-12 gap-y-0.5 sm:gap-y-1 md:gap-y-1 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
             {children}
           </div>
         </div>
@@ -229,8 +229,8 @@ export function Entourage() {
     }
 
     return (
-      <div className="mb-3 sm:mb-4 md:mb-6 lg:mb-8">
-        <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 mb-1.5 sm:mb-2 md:mb-3">
+      <div className="mb-2 sm:mb-2.5 md:mb-3">
+        <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-8 sm:gap-x-12 md:gap-x-16 mb-2 sm:mb-2.5 md:mb-3">
           {leftTitle && (
             <SectionTitle align="right" className="pr-2 sm:pr-3 md:pr-4">{leftTitle}</SectionTitle>
           )}
@@ -238,7 +238,7 @@ export function Entourage() {
             <SectionTitle align="left" className="pl-2 sm:pl-3 md:pl-4">{rightTitle}</SectionTitle>
           )}
         </div>
-        <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 gap-y-1 sm:gap-y-1.5 md:gap-y-2 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
+        <div className={`grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-6 sm:gap-x-8 md:gap-x-12 gap-y-0.5 sm:gap-y-1 md:gap-y-1 ${centerContent ? 'max-w-2xl mx-auto' : ''}`}>
           {children}
         </div>
       </div>
@@ -249,7 +249,7 @@ export function Entourage() {
     <section
       ref={sectionRef}
       id="entourage"
-      className="relative py-12 md:py-16 lg:py-20 overflow-hidden"
+      className="relative py-8 md:py-10 lg:py-12 overflow-hidden"
     >
       {/* Background gradient */}
       <div 
@@ -312,7 +312,7 @@ export function Entourage() {
       </div>
 
       {/* Section Header */}
-      <div className={`relative z-30 text-center mb-6 sm:mb-9 md:mb-12 px-3 sm:px-4 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+      <div className={`relative z-30 text-center mb-4 sm:mb-5 md:mb-6 px-3 sm:px-4 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
         {/* Small label */}
         <p
           className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-[#324D3E] mb-2`}
@@ -321,26 +321,17 @@ export function Entourage() {
         </p>
 
         <h2
-          className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#324D3E] mb-1.5 sm:mb-3 md:mb-4"
+          className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#324D3E] mb-1 sm:mb-2 md:mb-2.5"
         >
           Wedding Entourage
         </h2>
 
         {/* Sublabel */}
         <p
-          className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#324D3E]/95 mb-3 sm:mb-4 md:mb-5 italic`}
+          className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#324D3E]/95 mb-2 sm:mb-2.5 md:mb-3 italic`}
         >
           Honoring those who share in our joy
         </p>
-
-        {/* Simple divider */}
-        <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-[#324D3E]/80 to-transparent" />
-          <div className="w-1.5 h-1.5 bg-[#324D3E]/80 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#324D3E]/60 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#324D3E]/80 rounded-full" />
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-[#324D3E]/80 to-transparent" />
-        </div>
       </div>
 
       {/* Central Card Container */}
@@ -352,7 +343,7 @@ export function Entourage() {
         {/* Card with new theme */}
         <div className="relative bg-[#BCCFC0]/95 backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border border-[#324D3E]/40 shadow-[0_20px_60px_rgba(50,77,62,0.15)] transition-all duration-500 group">
           {/* Card content */}
-          <div className="relative p-3 sm:p-6 md:p-8 z-10">
+          <div className="relative p-3 sm:p-4 md:p-5 z-10">
             {isLoading ? (
               <div className="flex items-center justify-center py-24 sm:py-28 md:py-32">
                 <div className="flex flex-col items-center gap-4">
@@ -392,23 +383,15 @@ export function Entourage() {
                   return (
                     <div key={category}>
                       {categoryIndex > 0 && (
-                        <div className="flex justify-center py-2 sm:py-3 md:py-4 mb-3 sm:mb-4 md:mb-6">
-                          <div className="flex items-center gap-1.5 sm:gap-2 w-full max-w-md">
-                            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#324D3E]/40 to-transparent"></div>
-                            <div className="flex items-center gap-1 sm:gap-1.5">
-                              <div className="w-0.5 h-0.5 sm:w-1 sm:h-1 bg-[#8B3036]/40 rounded-full" />
-                              <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#8B3036]/60 rounded-full" />
-                              <div className="w-0.5 h-0.5 sm:w-1 sm:h-1 bg-[#8B3036]/40 rounded-full" />
-                            </div>
-                            <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#324D3E]/40 to-transparent"></div>
-                          </div>
+                        <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-2 sm:mb-2.5 md:mb-3">
+                          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-[#324D3E]/30 to-transparent"></div>
                         </div>
                       )}
                       <TwoColumnLayout singleTitle="The Couple" centerContent={true}>
-                        <div className="px-2 sm:px-3 md:px-4">
+                        <div className="px-1.5 sm:px-2 md:px-2.5">
                           {groom && <NameItem member={groom} align="right" />}
                         </div>
-                        <div className="px-2 sm:px-3 md:px-4">
+                        <div className="px-1.5 sm:px-2 md:px-2.5">
                           {bride && <NameItem member={bride} align="left" />}
                         </div>
                       </TwoColumnLayout>
@@ -440,16 +423,8 @@ export function Entourage() {
                     return (
                       <div key="Parents">
                         {categoryIndex > 0 && (
-                          <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
-                            <div className="flex items-center gap-2 w-full max-w-md">
-                              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#324D3E]/40 to-transparent"></div>
-                              <div className="flex items-center gap-1.5">
-                                <div className="w-1 h-1 bg-[#324D3E]/40 rounded-full" />
-                                <div className="w-1.5 h-1.5 bg-[#324D3E]/60 rounded-full" />
-                                <div className="w-1 h-1 bg-[#324D3E]/40 rounded-full" />
-                              </div>
-                              <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#324D3E]/40 to-transparent"></div>
-                            </div>
+                          <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-2 sm:mb-2.5 md:mb-3">
+                            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-[#324D3E]/30 to-transparent"></div>
                           </div>
                         )}
                         <TwoColumnLayout leftTitle="Groom’s Parents" rightTitle="Bride’s Parents">
@@ -463,11 +438,11 @@ export function Entourage() {
                               const right = rightArr[i]
                               rows.push(
                                 <React.Fragment key={`parents-row-${i}`}>
-                                  <div key={`parent-groom-${i}`} className="px-2 sm:px-3 md:px-4">
-                                    {left ? <NameItem member={left} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  <div key={`parent-groom-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
+                                    {left ? <NameItem member={left} align="right" /> : <div className="py-0.5" />}
                                   </div>
-                                  <div key={`parent-bride-${i}`} className="px-2 sm:px-3 md:px-4">
-                                    {right ? <NameItem member={right} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  <div key={`parent-bride-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
+                                    {right ? <NameItem member={right} align="left" /> : <div className="py-0.5" />}
                                   </div>
                                 </React.Fragment>
                               )
@@ -479,21 +454,12 @@ export function Entourage() {
                         {/* Principal Sponsors section - displayed after Parents */}
                         {sponsors.length > 0 && (
                           <div key="SponsorsAfterParents">
-                            <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
-                              <div className="flex items-center gap-2 w-full max-w-md">
-                                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#324D3E]/40 to-transparent"></div>
-                                <div className="flex items-center gap-1.5">
-                                  <div className="w-1 h-1 bg-[#324D3E]/40 rounded-full" />
-                                  <div className="w-1.5 h-1.5 bg-[#324D3E]/60 rounded-full" />
-                                  <div className="w-1 h-1 bg-[#324D3E]/40 rounded-full" />
-                                </div>
-                                <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#324D3E]/40 to-transparent"></div>
-                              </div>
+                            <div className="flex justify-center py-1.5 sm:py-2 md:py-2.5 mb-2 sm:mb-2.5 md:mb-3">
                             </div>
                             <TwoColumnLayout singleTitle="Principal Sponsors" centerContent={true}>
                               {sponsors.map((sponsor, idx) => (
                                 <React.Fragment key={`sponsor-row-${idx}`}>
-                                  <div key={`sponsor-male-${idx}`} className="px-2 sm:px-3 md:px-4">
+                                  <div key={`sponsor-male-${idx}`} className="px-1.5 sm:px-2 md:px-2.5">
                                     {sponsor.MalePrincipalSponsor ? (
                                       <NameItem 
                                         member={{
@@ -509,7 +475,7 @@ export function Entourage() {
                                       <div className="py-0.5 sm:py-1 md:py-1.5" />
                                     )}
                                   </div>
-                                  <div key={`sponsor-female-${idx}`} className="px-2 sm:px-3 md:px-4">
+                                  <div key={`sponsor-female-${idx}`} className="px-1.5 sm:px-2 md:px-2.5">
                                     {sponsor.FemalePrincipalSponsor ? (
                                       <NameItem 
                                         member={{
@@ -546,16 +512,8 @@ export function Entourage() {
                     return (
                       <div key="Family">
                         {categoryIndex > 0 && (
-                          <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
-                            <div className="flex items-center gap-2 w-full max-w-md">
-                              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#324D3E]/40 to-transparent"></div>
-                              <div className="flex items-center gap-1.5">
-                                <div className="w-1 h-1 bg-[#324D3E]/40 rounded-full" />
-                                <div className="w-1.5 h-1.5 bg-[#324D3E]/60 rounded-full" />
-                                <div className="w-1 h-1 bg-[#324D3E]/40 rounded-full" />
-                              </div>
-                              <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#324D3E]/40 to-transparent"></div>
-                            </div>
+                          <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-2 sm:mb-2.5 md:mb-3">
+                            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-[#324D3E]/30 to-transparent"></div>
                           </div>
                         )}
                         <TwoColumnLayout leftTitle="Family of the Groom" rightTitle="Family of the Bride">
@@ -567,11 +525,11 @@ export function Entourage() {
                               const right = familyBride[i]
                               rows.push(
                                 <React.Fragment key={`family-row-${i}`}>
-                                  <div key={`family-groom-${i}`} className="px-2 sm:px-3 md:px-4">
-                                    {left ? <NameItem member={left} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  <div key={`family-groom-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
+                                    {left ? <NameItem member={left} align="right" /> : <div className="py-0.5" />}
                                   </div>
-                                  <div key={`family-bride-${i}`} className="px-2 sm:px-3 md:px-4">
-                                    {right ? <NameItem member={right} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  <div key={`family-bride-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
+                                    {right ? <NameItem member={right} align="left" /> : <div className="py-0.5" />}
                                   </div>
                                 </React.Fragment>
                               )
@@ -597,16 +555,8 @@ export function Entourage() {
                     return (
                       <div key="HonorAttendants">
                         {categoryIndex > 0 && (
-                          <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
-                            <div className="flex items-center gap-2 w-full max-w-md">
-                              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#324D3E]/40 to-transparent"></div>
-                              <div className="flex items-center gap-1.5">
-                                <div className="w-1 h-1 bg-[#324D3E]/40 rounded-full" />
-                                <div className="w-1.5 h-1.5 bg-[#324D3E]/60 rounded-full" />
-                                <div className="w-1 h-1 bg-[#324D3E]/40 rounded-full" />
-                              </div>
-                              <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#324D3E]/40 to-transparent"></div>
-                            </div>
+                          <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-2 sm:mb-2.5 md:mb-3">
+                            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-[#324D3E]/30 to-transparent"></div>
                           </div>
                         )}
                         <TwoColumnLayout leftTitle="Best Man" rightTitle="Maid of Honor">
@@ -618,11 +568,11 @@ export function Entourage() {
                               const right = maidOfHonor[i]
                               rows.push(
                                 <React.Fragment key={`honor-row-${i}`}>
-                                  <div key={`bestman-cell-${i}`} className="px-2 sm:px-3 md:px-4">
-                                    {left ? <NameItem member={left} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  <div key={`bestman-cell-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
+                                    {left ? <NameItem member={left} align="right" /> : <div className="py-0.5" />}
                                   </div>
-                                  <div key={`maid-cell-${i}`} className="px-2 sm:px-3 md:px-4">
-                                    {right ? <NameItem member={right} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  <div key={`maid-cell-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
+                                    {right ? <NameItem member={right} align="left" /> : <div className="py-0.5" />}
                                   </div>
                                 </React.Fragment>
                               )
@@ -648,16 +598,8 @@ export function Entourage() {
                     return (
                       <div key="LittleOnes">
                         {categoryIndex > 0 && (
-                          <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
-                            <div className="flex items-center gap-2 w-full max-w-md">
-                              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#324D3E]/40 to-transparent"></div>
-                              <div className="flex items-center gap-1.5">
-                                <div className="w-1 h-1 bg-[#324D3E]/40 rounded-full" />
-                                <div className="w-1.5 h-1.5 bg-[#324D3E]/60 rounded-full" />
-                                <div className="w-1 h-1 bg-[#324D3E]/40 rounded-full" />
-                              </div>
-                              <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#324D3E]/40 to-transparent"></div>
-                            </div>
+                          <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-2 sm:mb-2.5 md:mb-3">
+                            <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-[#324D3E]/30 to-transparent"></div>
                           </div>
                         )}
                         <TwoColumnLayout leftTitle="Little Groom" rightTitle="Little Bride">
@@ -669,11 +611,11 @@ export function Entourage() {
                               const right = littleBride[i]
                               rows.push(
                                 <React.Fragment key={`little-row-${i}`}>
-                                  <div key={`littlegroom-cell-${i}`} className="px-2 sm:px-3 md:px-4">
-                                    {left ? <NameItem member={left} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  <div key={`littlegroom-cell-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
+                                    {left ? <NameItem member={left} align="right" /> : <div className="py-0.5" />}
                                   </div>
-                                  <div key={`littlebride-cell-${i}`} className="px-2 sm:px-3 md:px-4">
-                                    {right ? <NameItem member={right} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  <div key={`littlebride-cell-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
+                                    {right ? <NameItem member={right} align="left" /> : <div className="py-0.5" />}
                                   </div>
                                 </React.Fragment>
                               )
@@ -701,16 +643,8 @@ export function Entourage() {
                         {/* Groomsmen/Bridesmaids section */}
                         <div key="BridalParty">
                           {categoryIndex > 0 && (
-                            <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
-                              <div className="flex items-center gap-2 w-full max-w-md">
-                                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#324D3E]/40 to-transparent"></div>
-                                <div className="flex items-center gap-1.5">
-                                  <div className="w-1 h-1 bg-[#324D3E]/40 rounded-full" />
-                                  <div className="w-1.5 h-1.5 bg-[#324D3E]/60 rounded-full" />
-                                  <div className="w-1 h-1 bg-[#324D3E]/40 rounded-full" />
-                                </div>
-                                <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#324D3E]/40 to-transparent"></div>
-                              </div>
+                            <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-2 sm:mb-2.5 md:mb-3">
+                              <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-[#324D3E]/30 to-transparent"></div>
                             </div>
                           )}
                           <TwoColumnLayout leftTitle="Groomsmen" rightTitle="Bridesmaids">
@@ -722,10 +656,10 @@ export function Entourage() {
                                 const bridesmaid = bridesmaids[i]
                                 rows.push(
                                   <React.Fragment key={`bridal-row-${i}`}>
-                                    <div key={`groomsman-cell-${i}`} className="px-2 sm:px-3 md:px-4">
+                                    <div key={`groomsman-cell-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
                                       {groomsman ? <NameItem member={groomsman} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
                                     </div>
-                                    <div key={`bridesmaid-cell-${i}`} className="px-2 sm:px-3 md:px-4">
+                                    <div key={`bridesmaid-cell-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
                                       {bridesmaid ? <NameItem member={bridesmaid} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
                                     </div>
                                   </React.Fragment>
@@ -747,16 +681,12 @@ export function Entourage() {
                   return (
                     <div key={category}>
                       {categoryIndex > 0 && (
-                        <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
-                          <div className="flex items-center gap-2 w-full max-w-md">
-                            <div className="h-[1.5px] flex-1 bg-gradient-to-r from-transparent via-[#324D3E]/50 to-[#324D3E]"></div>
-                            <div className="w-1.5 h-1.5 bg-[#324D3E] rounded-full"></div>
-                            <div className="h-[1.5px] flex-1 bg-gradient-to-l from-transparent via-[#324D3E]/50 to-[#324D3E]"></div>
-                          </div>
+                        <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-2 sm:mb-2.5 md:mb-3">
+                          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-[#324D3E]/30 to-transparent"></div>
                         </div>
                       )}
                       {/* Secondary Sponsors label */}
-                      <div className="mb-3 sm:mb-4 md:mb-5">
+                      <div className="mb-1.5 sm:mb-2 md:mb-2.5">
                         <SectionTitle>Secondary Sponsors</SectionTitle>
                       </div>
                       <TwoColumnLayout singleTitle={category} centerContent={true}>
@@ -767,10 +697,10 @@ export function Entourage() {
                             const right = members[1]
                             return (
                               <>
-                                <div className="px-2 sm:px-3 md:px-4">
+                                <div className="px-1.5 sm:px-2 md:px-2.5">
                                   <NameItem member={left} align="right" />
                                 </div>
-                                <div className="px-2 sm:px-3 md:px-4">
+                                <div className="px-1.5 sm:px-2 md:px-2.5">
                                   <NameItem member={right} align="left" />
                                 </div>
                               </>
@@ -779,7 +709,7 @@ export function Entourage() {
                           if (members.length <= 2) {
                             return (
                               <div className="col-span-full">
-                                <div className="max-w-sm mx-auto flex flex-col items-center gap-1 sm:gap-1.5 md:gap-2">
+                                <div className="max-w-sm mx-auto flex flex-col items-center gap-0.5 sm:gap-1 md:gap-1">
                                   {members.map((member, idx) => (
                                     <NameItem key={`${category}-${idx}-${member.Name}`} member={member} align="center" />
                                   ))}
@@ -798,10 +728,10 @@ export function Entourage() {
                             const r = right[i]
                             rows.push(
                               <React.Fragment key={`${category}-row-${i}`}>
-                                <div key={`${category}-cell-left-${i}`} className="px-2 sm:px-3 md:px-4">
+                                <div key={`${category}-cell-left-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
                                   {l ? <NameItem member={l} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
                                 </div>
-                                <div key={`${category}-cell-right-${i}`} className="px-2 sm:px-3 md:px-4">
+                                <div key={`${category}-cell-right-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
                                   {r ? <NameItem member={r} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
                                 </div>
                               </React.Fragment>
@@ -818,12 +748,8 @@ export function Entourage() {
                 return (
                   <div key={category}>
                     {categoryIndex > 0 && (
-                      <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
-                        <div className="flex items-center gap-2 w-full max-w-md">
-                          <div className="h-[1.5px] flex-1 bg-gradient-to-r from-transparent via-[#751A23]/50 to-[#751A23]"></div>
-                          <div className="w-1.5 h-1.5 bg-[#751A23] rounded-full"></div>
-                          <div className="h-[1.5px] flex-1 bg-gradient-to-l from-transparent via-[#751A23]/50 to-[#751A23]"></div>
-                        </div>
+                      <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-2 sm:mb-2.5 md:mb-3">
+                        <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-[#324D3E]/30 to-transparent"></div>
                       </div>
                     )}
                     <TwoColumnLayout singleTitle={category} centerContent={true}>
@@ -844,10 +770,10 @@ export function Entourage() {
                           const right = members[1]
                           return (
                             <>
-                              <div className="px-2 sm:px-3 md:px-4">
+                              <div className="px-1.5 sm:px-2 md:px-2.5">
                                 <NameItem member={left} align="right" />
                               </div>
-                              <div className="px-2 sm:px-3 md:px-4">
+                              <div className="px-1.5 sm:px-2 md:px-2.5">
                                 <NameItem member={right} align="left" />
                               </div>
                             </>
@@ -875,10 +801,10 @@ export function Entourage() {
                           const r = right[i]
                           rows.push(
                             <React.Fragment key={`${category}-row-${i}`}>
-                              <div key={`${category}-cell-left-${i}`} className="px-2 sm:px-3 md:px-4">
+                              <div key={`${category}-cell-left-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
                                 {l ? <NameItem member={l} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
                               </div>
-                              <div key={`${category}-cell-right-${i}`} className="px-2 sm:px-3 md:px-4">
+                              <div key={`${category}-cell-right-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
                                 {r ? <NameItem member={r} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
                               </div>
                             </React.Fragment>
@@ -897,15 +823,7 @@ export function Entourage() {
                 return (
                   <div key={category}>
                     <div className="flex justify-center py-3 sm:py-4 md:py-5 mb-5 sm:mb-6 md:mb-8">
-                      <div className="flex items-center gap-2 w-full max-w-md">
-                        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#324D3E]/50 to-[#324D3E]/70"></div>
-                        <div className="flex items-center gap-1.5">
-                          <div className="w-1 h-1 bg-[#324D3E]/70 rounded-full" />
-                          <div className="w-1.5 h-1.5 bg-[#324D3E]/90 rounded-full" />
-                          <div className="w-1 h-1 bg-[#324D3E]/70 rounded-full" />
-                        </div>
-                        <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#324D3E]/50 to-[#324D3E]/70"></div>
-                      </div>
+
                     </div>
                     <TwoColumnLayout singleTitle={category} centerContent={true}>
                       {(() => {
@@ -931,10 +849,10 @@ export function Entourage() {
                           const r = right[i]
                           rows.push(
                             <React.Fragment key={`${category}-row-${i}`}>
-                              <div key={`${category}-cell-left-${i}`} className="px-2 sm:px-3 md:px-4">
+                              <div key={`${category}-cell-left-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
                                 {l ? <NameItem member={l} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
                               </div>
-                              <div key={`${category}-cell-right-${i}`} className="px-2 sm:px-3 md:px-4">
+                              <div key={`${category}-cell-right-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
                                 {r ? <NameItem member={r} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
                               </div>
                             </React.Fragment>
