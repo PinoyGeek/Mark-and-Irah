@@ -38,7 +38,7 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
     return (
       <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
         {[1, 2, 3].map((i) => (
-          <Card key={i} className="border-2 border-[#324D3E]/70 shadow-lg bg-[#BCCFC0]/85 backdrop-blur-md rounded-xl sm:rounded-2xl">
+          <Card key={i} className="shadow-lg bg-[#BCCFC0]/85 backdrop-blur-md rounded-xl sm:rounded-2xl">
             <CardContent className="p-2.5 sm:p-3 md:p-4 lg:p-5">
               <div className="flex justify-between items-start mb-2 sm:mb-3 md:mb-4">
                 <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
@@ -95,7 +95,7 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
       {visibleMessages.map((msg, index) => (
         <Card
           key={index}
-          className={`relative border-2 border-[#324D3E]/75 shadow-lg bg-[#BCCFC0]/88 backdrop-blur-md hover:shadow-2xl hover:border-[#324D3E] transition-all duration-500 group overflow-hidden transform rounded-xl sm:rounded-2xl hover:scale-[1.01] ${
+          className={`relative shadow-lg bg-[#BCCFC0]/88 backdrop-blur-md hover:shadow-2xl transition-all duration-500 group overflow-hidden transform rounded-xl sm:rounded-2xl hover:scale-[1.01] ${
             isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
           }`}
           style={{
@@ -162,16 +162,27 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
               </div>
             </div>
             
-            <div className="relative">
-              <span className="absolute -left-0.5 -top-0.5 sm:-left-1 sm:-top-1 md:-left-2 md:-top-2 text-xl sm:text-2xl md:text-4xl text-[#324D3E]/30 font-playfair group-hover:text-[#324D3E]/55 transition-all duration-300 group-hover:scale-110">
-                "
-              </span>
-              <p className="text-[#324D3E]/90 text-xs sm:text-sm md:text-base leading-snug sm:leading-relaxed pl-3 sm:pl-4 md:pl-6 font-lora group-hover:text-[#324D3E]/95 transition-colors duration-300">
+            <div className="relative pl-4 sm:pl-6 md:pl-8 pr-2 sm:pr-4 md:pr-6 py-2 sm:py-3">
+              {/* Decorative left quote mark */}
+              <div className="absolute left-0 top-0 flex flex-col items-start">
+                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#324D3E]/25 font-playfair leading-none group-hover:text-[#324D3E]/40 transition-all duration-300 group-hover:scale-110" style={{ fontFamily: 'Georgia, serif' }}>
+                  "
+                </span>
+                <div className="w-8 sm:w-10 md:w-12 h-0.5 bg-gradient-to-r from-[#324D3E]/20 to-transparent mt-1 group-hover:from-[#324D3E]/35 transition-all duration-300" />
+              </div>
+              
+              {/* Message text with elegant styling */}
+              <p className="text-[#324D3E]/90 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed sm:leading-loose font-lora italic group-hover:text-[#324D3E]/95 transition-colors duration-300 relative z-10">
                 {msg.message}
               </p>
-              <span className="absolute -right-0.5 -bottom-0.5 sm:-right-1 sm:-bottom-1 md:-right-2 md:-bottom-2 text-xl sm:text-2xl md:text-4xl text-[#324D3E]/40 font-playfair group-hover:text-[#324D3E]/70 transition-all duration-300 group-hover:scale-110">
-                "
-              </span>
+              
+              {/* Decorative right quote mark */}
+              <div className="absolute right-0 bottom-0 flex flex-col items-end">
+                <div className="w-8 sm:w-10 md:w-12 h-0.5 bg-gradient-to-l from-[#324D3E]/20 to-transparent mb-1 group-hover:from-[#324D3E]/35 transition-all duration-300" />
+                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#324D3E]/30 font-playfair leading-none group-hover:text-[#324D3E]/50 transition-all duration-300 group-hover:scale-110" style={{ fontFamily: 'Georgia, serif' }}>
+                  "
+                </span>
+              </div>
             </div>
             
               {/* Enhanced message bottom accent */}
