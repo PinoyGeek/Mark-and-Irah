@@ -86,16 +86,16 @@ export function Navbar() {
     <nav
       className={`sticky top-0 z-50 transition-all duration-700 ease-out ${
         isScrolled
-          ? "bg-[#657551]/96 backdrop-blur-xl shadow-[0_10px_40px_rgba(101,117,81,0.35)] border-b border-[#657551]/70"
-          : "bg-[#657551]/92 backdrop-blur-lg border-b border-[#657551]/60"
+          ? "bg-[#324D3E]/96 backdrop-blur-xl shadow-[0_10px_40px_rgba(50,77,62,0.35)] border-b border-[#324D3E]/70"
+          : "bg-[#324D3E]/92 backdrop-blur-lg border-b border-[#324D3E]/60"
       }`}
     >
       {/* Elegant glow effect when scrolled */}
       {isScrolled && (
-        <div className="absolute inset-0 bg-gradient-to-r from-[#657551]/28 via-[#657551]/16 to-[#657551]/28 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#324D3E]/28 via-[#324D3E]/16 to-[#324D3E]/28 pointer-events-none" />
       )}
       {/* Subtle texture overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#657551]/8 via-transparent to-[#657551]/12 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#324D3E]/8 via-transparent to-[#324D3E]/12 pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 relative">
         <div className="flex justify-between items-center h-14 sm:h-16 md:h-20">
@@ -105,15 +105,15 @@ export function Navbar() {
                 src="/monogram/monogram.png"
                 alt={`${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} Monogram`}
                 fill
-                className="object-contain group-hover:scale-110 group-active:scale-105 transition-all duration-500 drop-shadow-[0_4px_16px_rgba(101,117,81,0.3)] group-hover:drop-shadow-[0_6px_22px_rgba(101,117,81,0.4)]"
+                className="object-contain group-hover:scale-110 group-active:scale-105 transition-all duration-500 drop-shadow-[0_4px_16px_rgba(217,229,215,0.3)] group-hover:drop-shadow-[0_6px_22px_rgba(217,229,215,0.4)]"
                 style={{
-                  filter: "brightness(0) saturate(100%) invert(90%) sepia(10%) saturate(500%) hue-rotate(320deg) brightness(105%) contrast(95%)",
+                  filter: "brightness(0) saturate(100%) invert(88%) sepia(8%) saturate(400%) hue-rotate(100deg) brightness(110%) contrast(95%)",
                 }}
               />
             </div>
             
             {/* Subtle background glow on hover */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F5D4CF]/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D9E5D7]/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10" />
           </Link>
 
           <div className="hidden md:flex gap-1 items-center">
@@ -125,24 +125,24 @@ export function Navbar() {
                   href={link.href}
                   className={`px-3 lg:px-4 py-2 text-xs lg:text-sm ${cormorant.className} font-medium rounded-lg transition-all duration-500 relative group ${
                     isActive
-                      ? "text-[#657551] bg-[#F5D4CF]/95 backdrop-blur-md shadow-[0_6px_18px_rgba(101,117,81,0.35)] border border-[#F5D4CF]"
-                      : "text-[#F5D4CF]/95 hover:text-[#657551] hover:bg-[#F5D4CF]/95 hover:border hover:border-[#F5D4CF]/80 hover:shadow-[0_6px_18px_rgba(101,117,81,0.3)] hover:scale-105 active:scale-95 bg-white/0 border border-transparent"
+                      ? "text-[#324D3E] bg-[#D9E5D7]/95 backdrop-blur-md shadow-[0_6px_18px_rgba(50,77,62,0.35)] border border-[#D9E5D7]"
+                      : "text-[#D9E5D7]/95 hover:text-[#324D3E] hover:bg-[#D9E5D7]/95 hover:border hover:border-[#D9E5D7]/80 hover:shadow-[0_6px_18px_rgba(50,77,62,0.3)] hover:scale-105 active:scale-95 bg-white/0 border border-transparent"
                   }`}
                 >
                   {link.label}
                   <span
-                    className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#F5D4CF] via-[#F5D4CF] to-[#F5D4CF] transition-all duration-500 rounded-full ${
+                    className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#D9E5D7] via-[#D9E5D7] to-[#D9E5D7] transition-all duration-500 rounded-full ${
                       isActive
-                        ? "w-full shadow-[0_0_10px_rgba(245,212,207,0.6)]"
-                        : "w-0 group-hover:w-full group-hover:shadow-[0_0_8px_rgba(245,212,207,0.5)]"
+                        ? "w-full shadow-[0_0_10px_rgba(217,229,215,0.6)]"
+                        : "w-0 group-hover:w-full group-hover:shadow-[0_0_8px_rgba(217,229,215,0.5)]"
                     }`}
                   />
                   {/* Active indicator dot */}
                   {isActive && (
-                    <div className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-[#F5D4CF] animate-pulse shadow-[0_0_6px_rgba(245,212,207,0.8)]" />
+                    <div className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-[#D9E5D7] animate-pulse shadow-[0_0_6px_rgba(217,229,215,0.8)]" />
                   )}
                   {/* Subtle accent on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#F5D4CF]/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#D9E5D7]/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
                 </Link>
               )
             })}
@@ -151,18 +151,18 @@ export function Navbar() {
           <div className="md:hidden flex items-center h-full">
             {/* Decorative halo to improve tap target and visual affordance */}
             <div className="relative">
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-[#657551]/20 via-[#657551]/14 to-transparent blur-md pointer-events-none" />
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-[#324D3E]/20 via-[#324D3E]/14 to-transparent blur-md pointer-events-none" />
               <StaggeredMenu
                 position="left"
                 items={menuItems}
                 socialItems={[]}
                 displaySocials={false}
                 displayItemNumbering={true}
-                menuButtonColor="#F5D4CF"
-                openMenuButtonColor="#657551"
+                menuButtonColor="#D9E5D7"
+                openMenuButtonColor="#324D3E"
                 changeMenuColorOnOpen={true}
-                colors={["#657551", "#657551", "#657551", "#F5D4CF", "#F5D4CF"]}
-                accentColor="#F5D4CF"
+                colors={["#324D3E", "#324D3E", "#324D3E", "#D9E5D7", "#D9E5D7"]}
+                accentColor="#D9E5D7"
                 isFixed={true}
                 onMenuOpen={() => {}}
                 onMenuClose={() => {}}

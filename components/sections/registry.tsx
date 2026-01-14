@@ -34,19 +34,19 @@ export function Registry() {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="relative bg-[#F4F4F4]/95 backdrop-blur-md border border-[#B9AACB]/60 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(106,79,130,0.3)] p-4 sm:p-6 md:p-8 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#B9AACB]/20 via-transparent to-[#6A4F82]/10 pointer-events-none" />
+        <div className="relative bg-[#BCCFC0]/95 backdrop-blur-md border border-[#324D3E]/40 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(50,77,62,0.15)] p-4 sm:p-6 md:p-8 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#324D3E]/20 via-transparent to-[#8EA58B]/10 pointer-events-none" />
 
           <div className="relative z-10 flex flex-col items-center justify-center">
-            <div className="relative bg-white/95 rounded-xl sm:rounded-2xl border-2 border-dashed border-[#B9AACB]/40 p-5 sm:p-6 md:p-8 text-center shadow-[0_6px_24px_rgba(106,79,130,0.15)] max-w-md">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F4F4F4] px-3 py-1 rounded-full shadow-sm border-2 border-[#B9AACB]/50 text-xs font-semibold tracking-[0.2em] text-[#6A4F82] uppercase">
-                VYBE:
+            <div className="relative bg-white/95 rounded-xl sm:rounded-2xl border-2 border-dashed border-[#324D3E]/40 p-5 sm:p-6 md:p-8 text-center shadow-[0_6px_24px_rgba(50,77,62,0.15)] max-w-md">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#BCCFC0] px-3 py-1 rounded-full shadow-sm border-2 border-[#324D3E]/50 text-xs font-semibold tracking-[0.2em] text-[#324D3E] uppercase">
+                GCash:
               </div>
               <div className="flex flex-col items-center gap-4 w-full mt-4">
-                <div className="w-56 h-56 sm:w-64 sm:h-64 border-2 border-dashed border-[#B9AACB]/40 rounded-xl sm:rounded-2xl flex items-center justify-center bg-white relative overflow-hidden">
+                <div className="w-56 h-56 sm:w-64 sm:h-64 border-2 border-dashed border-[#324D3E]/40 rounded-xl sm:rounded-2xl flex items-center justify-center bg-white relative overflow-hidden">
                   <Image
-                    src="/QR/VYBE.png"
-                    alt="VYBE QR code"
+                    src="/QR/monogram.png"
+                    alt="GCash QR code"
                     fill
                     sizes="256px"
                     className="object-contain p-4"

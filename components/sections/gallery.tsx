@@ -23,12 +23,12 @@ const windSong = WindSong({
 const galleryHashtag = "#DanielAndFlorenceWedding"
 
 const galleryItems = [
-  { image: "/mobile-background/couple (23).webp", text: " " },
-  { image: "/mobile-background/couple (13).webp", text: " " },
-  { image: "/mobile-background/couple (21).webp", text: " " },
-  { image: "/mobile-background/couple (20).webp", text: " " },
-  { image: "/mobile-background/couple (19).webp", text: " " },
-  { image: "/mobile-background/couple (9).webp", text: " " },
+  { image: "/mobile-background/couple (1).webp", text: " " },
+  { image: "/mobile-background/couple (2).webp", text: " " },
+  { image: "/mobile-background/couple (3).webp", text: " " },
+  { image: "/mobile-background/couple (4).webp", text: " " },
+  { image: "/mobile-background/couple (5).webp", text: " " },
+  { image: "/desktop-background/couple (7).webp", text: " " },
 
 ]
 
@@ -119,7 +119,7 @@ export function Gallery() {
       <div 
         className="absolute inset-0 -z-10"
         style={{
-          background: "linear-gradient(to bottom, #F3D1C8, #FAB1AA)",
+          background: "linear-gradient(to bottom, #8EA58B, #BCCFC0)",
         }}
       />
       
@@ -130,8 +130,9 @@ export function Gallery() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-y-[-1]"
+          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-y-[-1]"
           priority={false}
+          style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(800%) hue-rotate(140deg) brightness(95%) contrast(90%)' }}
         />
       </div>
       
@@ -142,8 +143,9 @@ export function Gallery() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-x-[-1] scale-y-[-1]"
+          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-x-[-1] scale-y-[-1]"
           priority={false}
+          style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(800%) hue-rotate(140deg) brightness(95%) contrast(90%)' }}
         />
       </div>
       
@@ -154,8 +156,9 @@ export function Gallery() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80"
+          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
           priority={false}
+          style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(800%) hue-rotate(140deg) brightness(95%) contrast(90%)' }}
         />
       </div>
       
@@ -166,8 +169,9 @@ export function Gallery() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-x-[-1]"
+          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-x-[-1]"
           priority={false}
+          style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(800%) hue-rotate(140deg) brightness(95%) contrast(90%)' }}
         />
       </div>
 
@@ -175,25 +179,25 @@ export function Gallery() {
       <div className="relative z-10 text-center mb-8 sm:mb-10 md:mb-12 px-4">
         <div className="space-y-2 sm:space-y-3">
           <p
-            className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-[#8B3036]`}
+            className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-[#324D3E]`}
           >
             Cherished Moments with {coupleDisplayName}
           </p>
           <h2
-            className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#8B3036]"
+            className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#324D3E]"
           >
             Our Love Story in Pictures
           </h2>
         </div>
 
-        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#8B3036]/95 font-light max-w-xl mx-auto leading-relaxed mt-3`}>
+        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#324D3E]/95 font-light max-w-xl mx-auto leading-relaxed mt-3`}>
           Beautiful frames capturing the journey of Daniel & Florence — each photograph a precious memory of laughter, love, and the moments that led us to forever.
         </p>
 
         <div className="flex items-center justify-center gap-2 mt-6">
-          <div className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent via-[#751A23]/80 to-transparent" />
+          <div className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent via-[#324D3E]/80 to-transparent" />
           <motion.div
-            className="w-1.5 h-1.5 rounded-full bg-[#751A23]/80"
+            className="w-1.5 h-1.5 rounded-full bg-[#324D3E]/80"
             animate={{
               scale: [1, 1.3, 1],
               opacity: [0.7, 1, 0.7],
@@ -204,7 +208,7 @@ export function Gallery() {
               ease: "easeInOut",
             }}
           />
-          <div className="w-8 sm:w-12 h-px bg-gradient-to-l from-transparent via-[#751A23]/80 to-transparent" />
+          <div className="w-8 sm:w-12 h-px bg-gradient-to-l from-transparent via-[#324D3E]/80 to-transparent" />
         </div>
       </div>
 
@@ -214,7 +218,7 @@ export function Gallery() {
           <div className="max-w-5xl w-full">
             {isLoading ? (
               <div className="flex items-center justify-center h-48 sm:h-60 md:h-72">
-                <div className="w-10 h-10 border-[3px] border-[#E1C49C]/40 border-t-[#751A23] rounded-full animate-spin" />
+                <div className="w-10 h-10 border-[3px] border-[#BCCFC0]/40 border-t-[#324D3E] rounded-full animate-spin" />
               </div>
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3.5 md:gap-4.5">
@@ -234,7 +238,7 @@ export function Gallery() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     {/* Subtle glow on hover */}
-                    <div className="absolute -inset-0.5 bg-gradient-to-br from-[#751A23]/45 via-[#A58169]/28 to-[#E1C49C]/20 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+                    <div className="absolute -inset-0.5 bg-gradient-to-br from-[#324D3E]/45 via-[#8EA58B]/28 to-[#BCCFC0]/20 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
                     
                     <div className="relative aspect-[3/4] md:aspect-square overflow-hidden">
                       <img
@@ -246,12 +250,12 @@ export function Gallery() {
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       {/* Gradient overlay on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#751A23]/65 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#324D3E]/65 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     
                     {/* Image counter badge */}
-                    <div className="absolute top-2 right-2 bg-[#751A23]/90 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-[#751A23]/70">
-                      <span className="text-xs font-medium text-[#E1C49C] tracking-wide">
+                    <div className="absolute top-2 right-2 bg-[#324D3E]/90 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-[#324D3E]/70">
+                      <span className="text-xs font-medium text-[#D9E5D7] tracking-wide">
                         {index + 1}/{galleryItems.length}
                       </span>
                     </div>
@@ -328,8 +332,8 @@ export function Gallery() {
             {/* Top bar with counter and close - Compact for iPhone SE */}
             <div className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between p-2 sm:p-3 md:p-4 lg:p-6">
               {/* Image counter - Smaller on mobile */}
-              <div className="bg-[#751A23]/90 backdrop-blur-md rounded-full px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 border border-[#751A23]/70">
-                <span className="text-xs sm:text-sm md:text-base font-medium text-[#E1C49C]">
+              <div className="bg-[#324D3E]/90 backdrop-blur-md rounded-full px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 border border-[#324D3E]/70">
+                <span className="text-xs sm:text-sm md:text-base font-medium text-[#D9E5D7]">
                   {currentIndex + 1} / {galleryItems.length}
                 </span>
               </div>
@@ -341,10 +345,10 @@ export function Gallery() {
                   setSelectedImage(null)
                   resetZoom()
                 }}
-                className="bg-[#751A23]/90 hover:bg-[#751A23] active:bg-[#751A23]/95 backdrop-blur-md rounded-full p-1.5 sm:p-2 md:p-2.5 lg:p-3 transition-all duration-200 border border-[#751A23]/70 hover:border-[#751A23] touch-manipulation"
+                className="bg-[#324D3E]/90 hover:bg-[#324D3E] active:bg-[#324D3E]/95 backdrop-blur-md rounded-full p-1.5 sm:p-2 md:p-2.5 lg:p-3 transition-all duration-200 border border-[#324D3E]/70 hover:border-[#324D3E] touch-manipulation"
                 aria-label="Close lightbox"
               >
-                <X size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#E1C49C]" />
+                <X size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#D9E5D7]" />
               </button>
             </div>
 
@@ -357,10 +361,10 @@ export function Gallery() {
                     navigateImage('prev')
                     resetZoom()
                   }}
-                  className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-[#751A23]/90 hover:bg-[#751A23] active:bg-[#751A23]/95 backdrop-blur-md rounded-full p-2 sm:p-2.5 md:p-3 lg:p-4 transition-all duration-200 border border-[#751A23]/70 hover:border-[#751A23] touch-manipulation"
+                  className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-[#324D3E]/90 hover:bg-[#324D3E] active:bg-[#324D3E]/95 backdrop-blur-md rounded-full p-2 sm:p-2.5 md:p-3 lg:p-4 transition-all duration-200 border border-[#324D3E]/70 hover:border-[#324D3E] touch-manipulation"
                   aria-label="Previous image"
                 >
-                  <ChevronLeft size={18} className="sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#E1C49C]" />
+                  <ChevronLeft size={18} className="sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#D9E5D7]" />
                 </button>
 
                 <button
@@ -369,10 +373,10 @@ export function Gallery() {
                     navigateImage('next')
                     resetZoom()
                   }}
-                  className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-[#751A23]/90 hover:bg-[#751A23] active:bg-[#751A23]/95 backdrop-blur-md rounded-full p-2 sm:p-2.5 md:p-3 lg:p-4 transition-all duration-200 border border-[#751A23]/70 hover:border-[#751A23] touch-manipulation"
+                  className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-[#324D3E]/90 hover:bg-[#324D3E] active:bg-[#324D3E]/95 backdrop-blur-md rounded-full p-2 sm:p-2.5 md:p-3 lg:p-4 transition-all duration-200 border border-[#324D3E]/70 hover:border-[#324D3E] touch-manipulation"
                   aria-label="Next image"
                 >
-                  <ChevronRight size={18} className="sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#E1C49C]" />
+                  <ChevronRight size={18} className="sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#D9E5D7]" />
                 </button>
               </>
             )}
@@ -400,10 +404,10 @@ export function Gallery() {
                     setSelectedImage(null)
                     resetZoom()
                   }}
-                  className="absolute top-1 right-1 sm:top-2 sm:right-2 bg-[#751A23]/90 hover:bg-[#751A23] active:bg-[#751A23]/95 backdrop-blur-md rounded-full p-1.5 sm:p-2 md:p-2.5 transition-all duration-200 border border-[#751A23]/70 hover:border-[#751A23] touch-manipulation z-30"
+                  className="absolute top-1 right-1 sm:top-2 sm:right-2 bg-[#324D3E]/90 hover:bg-[#324D3E] active:bg-[#324D3E]/95 backdrop-blur-md rounded-full p-1.5 sm:p-2 md:p-2.5 transition-all duration-200 border border-[#324D3E]/70 hover:border-[#324D3E] touch-manipulation z-30"
                   aria-label="Close lightbox"
                 >
-                  <X size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#E1C49C]" />
+                  <X size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#D9E5D7]" />
                 </button>
                 
                 {/* Zoom reset button - Compact */}
@@ -413,7 +417,7 @@ export function Gallery() {
                       e.stopPropagation()
                       resetZoom()
                     }}
-                    className="absolute bottom-1 right-1 sm:bottom-2 sm:right-2 bg-[#751A23]/90 hover:bg-[#751A23] active:bg-[#751A23]/95 backdrop-blur-md text-[#E1C49C] rounded-full px-2 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-medium border border-[#751A23]/70 transition-all duration-200 touch-manipulation z-20"
+                    className="absolute bottom-1 right-1 sm:bottom-2 sm:right-2 bg-[#324D3E]/90 hover:bg-[#324D3E] active:bg-[#324D3E]/95 backdrop-blur-md text-[#D9E5D7] rounded-full px-2 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-medium border border-[#324D3E]/70 transition-all duration-200 touch-manipulation z-20"
                   >
                     Reset
                   </button>
@@ -424,7 +428,7 @@ export function Gallery() {
             {/* Bottom hint for mobile - Compact */}
             {galleryItems.length > 1 && (
               <div className="absolute bottom-1 left-1/2 -translate-x-1/2 sm:hidden z-20">
-                <p className="text-[10px] text-[#E1C49C]/70 bg-[#751A23]/90 backdrop-blur-sm rounded-full px-2 py-1 border border-[#751A23]/70">
+                <p className="text-[10px] text-[#D9E5D7]/70 bg-[#324D3E]/90 backdrop-blur-sm rounded-full px-2 py-1 border border-[#324D3E]/70">
                   Swipe
                 </p>
               </div>
@@ -438,10 +442,10 @@ export function Gallery() {
           href="/gallery"
           className="group inline-flex items-center gap-2 px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-3.5 md:py-4 rounded-lg sm:rounded-xl font-semibold sm:font-bold transition-all duration-300 uppercase tracking-wider text-xs sm:text-sm md:text-base whitespace-nowrap relative overflow-hidden border-2 backdrop-blur-sm"
           style={{
-            backgroundColor: "#657551",
-            borderColor: "#657551",
-            color: "#E1C49C",
-            boxShadow: "0 6px 26px rgba(101,117,81,0.45), 0 2px 10px rgba(101,117,81,0.6)",
+            backgroundColor: "#324D3E",
+            borderColor: "#324D3E",
+            color: "#D9E5D7",
+            boxShadow: "0 6px 26px rgba(50,77,62,0.45), 0 2px 10px rgba(50,77,62,0.6)",
           }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -450,14 +454,14 @@ export function Gallery() {
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.98 }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "#657551";
-            e.currentTarget.style.borderColor = "#7A8A5F";
-            e.currentTarget.style.boxShadow = "0 10px 34px rgba(101,117,81,0.55), 0 4px 14px rgba(101,117,81,0.8)";
+            e.currentTarget.style.backgroundColor = "#2a4035";
+            e.currentTarget.style.borderColor = "#2a4035";
+            e.currentTarget.style.boxShadow = "0 10px 34px rgba(50,77,62,0.55), 0 4px 14px rgba(50,77,62,0.8)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "#657551";
-            e.currentTarget.style.borderColor = "#657551";
-            e.currentTarget.style.boxShadow = "0 6px 26px rgba(101,117,81,0.45), 0 2px 10px rgba(101,117,81,0.6)";
+            e.currentTarget.style.backgroundColor = "#324D3E";
+            e.currentTarget.style.borderColor = "#324D3E";
+            e.currentTarget.style.boxShadow = "0 6px 26px rgba(50,77,62,0.45), 0 2px 10px rgba(50,77,62,0.6)";
           }}
         >
           <span className="relative z-10">View Full Gallery</span>
@@ -474,11 +478,11 @@ export function Gallery() {
             <ChevronRight size={16} className="sm:w-5 sm:h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
           </motion.div>
           <div 
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#751A23]/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#324D3E]/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
           />
           {/* Pulsing glow effect */}
           <motion.div 
-            className="absolute inset-0 bg-[#657551]/25 rounded-lg sm:rounded-xl blur-xl -z-10"
+            className="absolute inset-0 bg-[#324D3E]/25 rounded-lg sm:rounded-xl blur-xl -z-10"
             animate={{
               opacity: [0.3, 0.6, 0.3],
               scale: [1, 1.1, 1],

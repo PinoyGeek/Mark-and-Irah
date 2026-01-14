@@ -1,50 +1,50 @@
 export const siteConfig = {
   couple: {
-    bride: "RIZCHELLE JOICE MACARAIG",
-    brideNickname: "Rizchelle",
-    groom: "DENMARK VALENCIA",
-    groomNickname: "Denmark",
+    bride: "VANESSA JEAN PINO MONTERDE",
+    brideNickname: "Vanessa Jean",
+    groom: "JOHN MARK RODRIGUEZ ROBLES",
+    groomNickname: "John Mark",
   },
   wedding: {
-    date: "MARCH 3, 2026",
-    time: "3PM",
-    venue: "St. Joseph the Worker Parish Church - SJDM Bulacan",
+    date: "MARCH 7, 2026",
+    time: "3:00 PM",
+    venue: "Caleruega Church",
     tagline: "are getting married!",
-    theme: "Purple & Sage Motif",
-    motif: "#6A4F82, #B9AACB, #A8AF8D, #F4F4F4, #5B6B3C",
+    theme: "Modern Filipiniana",
+    motif: "#87AE73, #9CAF88, #F5F5DC, #E6D5B8, #D2B48C",
   },
   details: {
     rsvp: {
-      deadline: "January 25, 2026",
+      deadline: "January 31, 2026",
     },
   },
   ceremony: {
-    location: "St. Joseph the Worker Parish Church - SJDM Bulacan",
-    venue: "St. Joseph the Worker Parish Church - SJDM Bulacan",
-    date: "March 3 2026",
-    day: "Tuesday",
+    location: "Caleruega Church, Caleruega Rd, Brgy. Kaylaway, Batulao Nasugbu, Batangas",
+    venue: "Caleruega Church",
+    date: "March 7 2026",
+    day: "Saturday",
     time: "3:00PM",
     entourageTime: "2:30 PM",
-    guestsTime: "2:30 PM",
+    guestsTime: "1:30 PM",
   },
   reception: {
-    location: "Los Arcos De Hermano- SJDM Bulacan",
-    venue: "Los Arcos De Hermano- SJDM Bulacan",
-    date: "March 3, 2026",
+    location: "Kayama Mountain Resort and Events Place, Sitio Kaytuyang, Brgy. Aga Nasugbu, Batangas",
+    venue: "Kayama Mountain Resort and Events Place",
+    date: "March 7, 2026",
     time: "Reception to follow",
   },
   dressCode: {
-    theme: "Purple & Sage Motif",
-    colors: ["#6A4F82", "#B9AACB", "#A8AF8D", "#F4F4F4", "#5B6B3C"],
+    theme: "Modern Filipiniana",
+    colors: ["#87AE73", "#9CAF88", "#F5F5DC", "#E6D5B8", "#D2B48C"],
     sponsors: {
-      male: "Barong, Black Pants and Leather Shoes",
-      female: "Purple/Lavender/Sage Long Gown"
+      male: "Barong Tagalog | Puting Panloob | Itim na Pantalon | Itim na sapatos",
+      female: "Filipiniana or Traje de Mestiza"
     },
     guests: {
-      gents: "Polo & Pants (Strictly no Tshirt)",
-      ladies: "Formal Dress/Gown/Suit"
+      gents: "Barong Tagalog | Puting Panloob | Itim na Pantalon | Itim na sapatos",
+      ladies: "Filipiniana or Traje de Mestiza"
     },
-    note: "We kindly request our guests to dress in formal attire with a color of our motif."
+    note: "We kindly request our guests to dress in formal attire following our Modern Filipiniana theme."
   },
   narratives: {
     groom: `The first time Mark saw Catherine, time seemed to slow down. It was an ordinary day that instantly became unforgettable: one smile, one hello, and suddenly his world had a new center. He didn't have the perfect words ready, but he knew he had met someone who felt like home.
@@ -59,12 +59,12 @@ Mark's steadiness won her heart: the way he showed up, even when schedules were 
 Now, as they prepare to say yes before God and the people they love most, Catherine is grateful for the patience, humor, and hope Mark brings to every day. She knows this next chapter is just the start of the love story they get to write together.`,
   },
   colors: {
-    primary: "#6A4F82",
-    secondary: "#B9AACB",
+    primary: "#87AE73",
+    secondary: "#F5F5DC",
   },
   snapShare: {
-    googleDriveLink: "https://drive.google.com/drive/folders/1DA8Vuy84aZoBR3J4FRSFBPARW6ocNd-p?usp=sharing",
-    hashtag: "#DenmarkAndRizchelle2026",
+    googleDriveLink: "https://drive.google.com/drive/folders/1OJi_twmhxHvhKh8-WY0lzHOmb_OklnOt?usp=sharing",
+    hashtag: "#anJOHNnaforeverniVANE",
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }

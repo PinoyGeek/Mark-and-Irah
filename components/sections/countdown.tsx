@@ -39,14 +39,14 @@ function CountdownUnit({ value, label }: CountdownUnitProps) {
       <div className="relative w-full max-w-[88px] sm:max-w-[96px] md:max-w-[110px] lg:max-w-[120px]">
         {/* Main card */}
         <div className="relative rounded-xl sm:rounded-2xl border border-white/40/80 bg-white/95/90 px-2.5 py-2.5 sm:px-3.5 sm:py-3.5 md:px-4 md:py-4">
-          <div className="relative z-10 flex items-center justify-center text-[#8B3036]">
+          <div className="relative z-10 flex items-center justify-center text-white">
             <Counter
               value={value}
               places={places}
               fontSize={26}
               padding={4}
               gap={2}
-              textColor="#8B3036"
+              textColor="#FFFFFF"
               fontWeight={800}
               borderRadius={6}
               horizontalPadding={3}
@@ -59,7 +59,7 @@ function CountdownUnit({ value, label }: CountdownUnitProps) {
               digitStyle={{
                 minWidth: "1.15ch",
                 fontFamily: "Arial, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-                color: "#8B3036",
+                color: "#FFFFFF",
               }}
             />
           </div>
@@ -67,7 +67,7 @@ function CountdownUnit({ value, label }: CountdownUnitProps) {
       </div>
 
       {/* Label */}
-      <span className="text-[10px] sm:text-xs md:text-sm font-inter font-semibold uppercase tracking-[0.16em] text-[#8B3036]/90">
+      <span className="text-[10px] sm:text-xs md:text-sm font-inter font-semibold uppercase tracking-[0.16em] text-white/90">
         {label}
       </span>
     </div>
@@ -164,14 +164,6 @@ export function Countdown() {
       id="countdown"
       className="relative py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Background gradient */}
-      <div 
-        className="absolute inset-0 -z-10"
-        style={{
-          background: "linear-gradient(to bottom, #F3D1C8, #FAB1AA)",
-        }}
-      />
-      
       {/* Flower decoration - top left corner */}
       <div className="absolute left-0 top-0 z-0 pointer-events-none">
         <Image
@@ -179,8 +171,9 @@ export function Countdown() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-y-[-1]"
+          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-y-[-1]"
           priority={false}
+          style={{ filter: 'brightness(0) saturate(100%) invert(100%)' }}
         />
       </div>
       
@@ -191,8 +184,9 @@ export function Countdown() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-x-[-1] scale-y-[-1]"
+          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-x-[-1] scale-y-[-1]"
           priority={false}
+          style={{ filter: 'brightness(0) saturate(100%) invert(100%)' }}
         />
       </div>
       
@@ -203,8 +197,9 @@ export function Countdown() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80"
+          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
           priority={false}
+          style={{ filter: 'brightness(0) saturate(100%) invert(100%)' }}
         />
       </div>
       
@@ -215,8 +210,9 @@ export function Countdown() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-x-[-1]"
+          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-x-[-1]"
           priority={false}
+          style={{ filter: 'brightness(0) saturate(100%) invert(100%)' }}
         />
       </div>
       
@@ -235,8 +231,7 @@ export function Countdown() {
               fill
               className="object-contain"
               style={{
-                filter:
-                  "brightness(0) saturate(100%) invert(27%) sepia(48%) saturate(2000%) hue-rotate(330deg) brightness(95%) contrast(90%)",
+                filter: "brightness(0) saturate(100%) invert(100%)",
               }}
               priority={false}
             />
@@ -248,24 +243,24 @@ export function Countdown() {
       <div className="relative z-10 text-center mb-6 sm:mb-8 md:mb-10 px-3 sm:px-4">
         {/* Decorative element above title */}
         <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#E1C49C]/25" />
-          <div className="w-1.5 h-1.5 bg-gradient-to-br from-[#A58169] to-[#751A23] rounded-full shadow-[0_0_12px_rgba(165,129,105,0.9)]" />
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#E1C49C]/25" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-white/25" />
+          <div className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_12px_rgba(255,255,255,0.9)]" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-white/25" />
         </div>
         
-        <h2 className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-[#8B3036] mb-2 sm:mb-3 md:mb-4">
+        <h2 className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-white mb-2 sm:mb-3 md:mb-4">
           Counting down to our forever
         </h2>
         
-        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#8B3036]/95 font-light max-w-xl mx-auto leading-relaxed px-2">
+        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/95 font-light max-w-xl mx-auto leading-relaxed px-2">
           Every heartbeat brings us closer to the moment when two hearts become one. Join {groomNickname} and {brideNickname} as they count down to forever.
         </p>
         
         {/* Decorative element below subtitle */}
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-          <div className="w-1 h-1 bg-[#E1C49C]/70 rounded-full" />
-          <div className="w-1 h-1 bg-[#E1C49C]/40 rounded-full" />
-          <div className="w-1 h-1 bg-[#E1C49C]/70 rounded-full" />
+          <div className="w-1 h-1 bg-white/70 rounded-full" />
+          <div className="w-1 h-1 bg-white/40 rounded-full" />
+          <div className="w-1 h-1 bg-white/70 rounded-full" />
         </div>
       </div>
 
@@ -294,11 +289,11 @@ export function Countdown() {
             <div className="relative sm:rounded-3xl p-6 sm:p-8 md:p-10 mb-6 sm:mb-8">
               <div className="w-full max-w-2xl mx-auto">
                 <div
-                  className={`${cinzel.className} flex flex-col items-center gap-1.5 sm:gap-2.5 md:gap-3 text-[#8B3036] font-bold`}
+                  className={`${cinzel.className} flex flex-col items-center gap-1.5 sm:gap-2.5 md:gap-3 text-white font-bold`}
                 >
                   {/* Month */}
                   <span
-                    className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] text-[#8B3036]"
+                    className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] text-white"
                   >
                     {ceremonyMonth}
                   </span>
@@ -307,19 +302,19 @@ export function Countdown() {
                   <div className="flex w-full items-center gap-2 sm:gap-4 md:gap-5">
                     {/* Day of week & divider */}
                     <div className="flex flex-1 items-center justify-end gap-1.5 sm:gap-2.5">
-                      <span className="h-[0.5px] flex-1 bg-[#8B3036]/45" />
+                      <span className="h-[0.5px] flex-1 bg-white/45" />
                       <span
-                        className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[#8B3036]"
+                        className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-white"
                       >
                         {ceremonyDayShort}
                       </span>
-                      <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-[#8B3036]/45" />
+                      <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-white/45" />
                     </div>
 
                     {/* Day number */}
                     <div className="relative flex items-center justify-center px-3 sm:px-4 md:px-5">
                       <span
-                        className={`${cinzel.className} relative text-[3rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6rem] font-bold leading-none tracking-wider text-[#8B3036]`}
+                        className={`${cinzel.className} relative text-[3rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6rem] font-bold leading-none tracking-wider text-white`}
                       >
                         {ceremonyDayNumber.padStart(2, "0")}
                       </span>
@@ -327,19 +322,19 @@ export function Countdown() {
 
                     {/* Time */}
                     <div className="flex flex-1 items-center gap-1.5 sm:gap-2.5">
-                      <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-[#8B3036]/45" />
+                      <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-white/45" />
                       <span
-                        className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[#8B3036]"
+                        className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] text-white"
                       >
                         {ceremonyTimeDisplay.split(",")[0]}
                       </span>
-                      <span className="h-[0.5px] flex-1 bg-[#8B3036]/45" />
+                      <span className="h-[0.5px] flex-1 bg-white/45" />
                     </div>
                   </div>
 
                   {/* Year */}
                   <span
-                    className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] text-[#8B3036]"
+                    className="text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] text-white"
                   >
                     {ceremonyYear}
                   </span>

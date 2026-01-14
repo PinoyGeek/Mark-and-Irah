@@ -15,10 +15,10 @@ const desktopImages: string[] = [
 ];
 
 const mobileImages: string[] = [
-  '/mobile-background/couple (9).webp',
-  '/mobile-background/couple (18).webp',
-  '/mobile-background/couple (20).webp',
-  '/mobile-background/couple (23).webp',
+  '/mobile-background/couple (1).webp',
+  '/mobile-background/couple (2).webp',
+  '/mobile-background/couple (3).webp',
+  '/mobile-background/couple (4).webp',
   '/mobile-background/couple (5).webp',
 ];
 
@@ -65,7 +65,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to bottom, rgba(243, 209, 200, 0.7), rgba(250, 177, 170, 0.7))'
+            backgroundColor: 'rgba(188, 207, 192, 0.6)'
           }}
         />
       </div>
@@ -84,7 +84,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
                 fill
                 className="object-contain"
                 priority
-                style={{ filter: 'brightness(0) saturate(100%) invert(45%) sepia(90%) saturate(2000%) hue-rotate(340deg) brightness(0.55) contrast(1.2)' }}
+                style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(800%) hue-rotate(140deg) brightness(95%) contrast(90%)' }}
               />
             </div>
           </div>
@@ -98,7 +98,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
             style={{
               fontFamily: '"Great Vibes", cursive',
               fontWeight: 400,
-              color: '#8B3036',
+              color: '#324D3E',
             }}
           >
             You are
@@ -109,7 +109,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
             style={{
               fontFamily: '"Cinzel", serif',
               fontWeight: 700,
-              color: '#8B3036',
+              color: '#324D3E',
             }}
           >
             Invited!
@@ -121,15 +121,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
             }}
             className="px-10 py-4 font-serif text-sm tracking-[0.2em] uppercase rounded-sm border transition-all duration-300"
             style={{
-              backgroundColor: '#657551',
-              borderColor: '#657551',
+              backgroundColor: '#324D3E',
+              borderColor: '#324D3E',
               color: '#FFFFFF',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#556442';
+              e.currentTarget.style.backgroundColor = '#2a4035';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#657551';
+              e.currentTarget.style.backgroundColor = '#324D3E';
             }}
           >
             <span

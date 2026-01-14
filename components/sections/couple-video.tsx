@@ -21,9 +21,9 @@ export function CoupleVideo() {
   const playerRef = useRef<any>(null)
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const { pauseMusic, resumeMusic } = useAudio()
-
+  // https://youtu.be/uFL5RhrKzQ0
   // YouTube video ID
-  const videoId = "eFyFCehaJhA"
+  const videoId = "uFL5RhrKzQ0"
 
   // Load YouTube IFrame API
   useEffect(() => {
@@ -151,40 +151,28 @@ export function CoupleVideo() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Background gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F3D1C8] to-[#FAB1AA]" />
-      </div>
-
-      {/* Decoration - right bottom corner */}
-      <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
-        <Image
-          src="/decoration/right-bottom-corner.png"
-          alt="Decoration"
-          width={300}
-          height={300}
-          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80"
-          priority={false}
-        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#8EA58B] to-[#BCCFC0]" />
       </div>
 
       {/* Header - compact, with updated title */}
       <div className="relative z-10 text-center mb-6 sm:mb-8 md:mb-10 px-3 sm:px-4">
         {/* Simple decorative dots */}
         <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#8B3036]/60" />
-          <div className="w-1.5 h-1.5 bg-[#8B3036]/80 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#F5D4CF]/80 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#8B3036]/80 rounded-full" />
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#8B3036]/60" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#324D3E]/60" />
+          <div className="w-1.5 h-1.5 bg-[#324D3E]/80 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#BCCFC0]/80 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#324D3E]/80 rounded-full" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#324D3E]/60" />
         </div>
         
         <h2
-          className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#8B3036] mb-2 sm:mb-3 md:mb-4 drop-shadow-lg"
-          style={{ textShadow: "0 4px 18px rgba(139,48,54,0.85)" }}
+          className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#324D3E] mb-2 sm:mb-3 md:mb-4 drop-shadow-lg"
+          style={{ textShadow: "0 4px 18px rgba(50,77,62,0.85)" }}
         >
           A Glimpse of Our Love
         </h2>
         
-        <p className="text-xs sm:text-sm md:text-base text-[#8B3036]/90 font-light max-w-xl mx-auto px-2">
+        <p className="text-xs sm:text-sm md:text-base text-[#324D3E]/90 font-light max-w-xl mx-auto px-2">
           Watch the journey that brought our hearts together
         </p>
       </div>
@@ -200,39 +188,39 @@ export function CoupleVideo() {
             className="relative group"
           >
             {/* Enhanced layered shadow effects for depth */}
-            <div className="absolute -inset-2 bg-gradient-to-r from-[#8B3036]/35 via-[#F5D4CF]/22 to-[#8B3036]/35 blur-2xl opacity-70 group-hover:opacity-90 transition-all duration-500" />
+            <div className="absolute -inset-2 bg-gradient-to-r from-[#324D3E]/35 via-[#BCCFC0]/22 to-[#324D3E]/35 blur-2xl opacity-70 group-hover:opacity-90 transition-all duration-500" />
             <div className="absolute -inset-4 bg-black/25 blur-3xl opacity-45 group-hover:opacity-65 transition-all duration-500" />
             
             {/* Elegant video frame with rounded corners and enhanced shadows */}
-            <div className="relative bg-gradient-to-br from-black via-[#1a0010] to-black overflow-hidden rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4),0_16px_64px_rgba(0,0,0,0.35),0_0_0_1px_rgba(139,48,54,0.2)] group-hover:shadow-[0_14px_52px_rgba(0,0,0,0.5),0_26px_100px_rgba(0,0,0,0.4),0_0_0_1px_rgba(139,48,54,0.3)] transition-all duration-500">
+            <div className="relative bg-gradient-to-br from-black via-[#1a0010] to-black overflow-hidden rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4),0_16px_64px_rgba(0,0,0,0.35),0_0_0_1px_rgba(50,77,62,0.2)] group-hover:shadow-[0_14px_52px_rgba(0,0,0,0.5),0_26px_100px_rgba(0,0,0,0.4),0_0_0_1px_rgba(50,77,62,0.3)] transition-all duration-500">
               {/* Decorative border with gradient */}
-              <div className="absolute inset-0 rounded-lg sm:rounded-xl md:rounded-2xl border border-[#F5D4CF]/20 group-hover:border-[#F5D4CF]/35 transition-colors duration-500 pointer-events-none z-20" />
+              <div className="absolute inset-0 rounded-lg sm:rounded-xl md:rounded-2xl border border-[#BCCFC0]/20 group-hover:border-[#BCCFC0]/35 transition-colors duration-500 pointer-events-none z-20" />
               
               {/* Inner shadow for depth */}
               <div className="absolute inset-0 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[inset_0_0_40px_rgba(0,0,0,0.5)] pointer-events-none z-10" />
               
               {/* Elegant corner accents - top left */}
               <div className="absolute top-0 left-0 w-12 sm:w-16 md:w-20 h-12 sm:h-16 md:h-20 pointer-events-none z-20">
-                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-[#F5E5D9]/60 via-[#FDECEF]/40 to-transparent" />
-                <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-[#F5E5D9]/60 via-[#FDECEF]/40 to-transparent" />
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-[#BCCFC0]/60 via-[#D9E5D7]/40 to-transparent" />
+                <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-[#BCCFC0]/60 via-[#D9E5D7]/40 to-transparent" />
               </div>
               
               {/* Elegant corner accents - top right */}
               <div className="absolute top-0 right-0 w-12 sm:w-16 md:w-20 h-12 sm:h-16 md:h-20 pointer-events-none z-20">
-                <div className="absolute top-0 right-0 w-full h-px bg-gradient-to-l from-[#F5E5D9]/60 via-[#FDECEF]/40 to-transparent" />
-                <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-[#F5E5D9]/60 via-[#FDECEF]/40 to-transparent" />
+                <div className="absolute top-0 right-0 w-full h-px bg-gradient-to-l from-[#BCCFC0]/60 via-[#D9E5D7]/40 to-transparent" />
+                <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-[#BCCFC0]/60 via-[#D9E5D7]/40 to-transparent" />
               </div>
               
               {/* Elegant corner accents - bottom left */}
               <div className="absolute bottom-0 left-0 w-12 sm:w-16 md:w-20 h-12 sm:h-16 md:h-20 pointer-events-none z-20">
-                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-[#F5E5D9]/60 via-[#FDECEF]/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 w-px h-full bg-gradient-to-t from-[#F5E5D9]/60 via-[#FDECEF]/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-[#BCCFC0]/60 via-[#D9E5D7]/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 w-px h-full bg-gradient-to-t from-[#BCCFC0]/60 via-[#D9E5D7]/40 to-transparent" />
               </div>
               
               {/* Elegant corner accents - bottom right */}
               <div className="absolute bottom-0 right-0 w-12 sm:w-16 md:w-20 h-12 sm:h-16 md:h-20 pointer-events-none z-20">
-                <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-l from-[#F5E5D9]/60 via-[#FDECEF]/40 to-transparent" />
-                <div className="absolute bottom-0 right-0 w-px h-full bg-gradient-to-t from-[#F5E5D9]/60 via-[#FDECEF]/40 to-transparent" />
+                <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-l from-[#BCCFC0]/60 via-[#D9E5D7]/40 to-transparent" />
+                <div className="absolute bottom-0 right-0 w-px h-full bg-gradient-to-t from-[#BCCFC0]/60 via-[#D9E5D7]/40 to-transparent" />
               </div>
               
               {/* Video wrapper with 16:9 aspect ratio */}
@@ -264,11 +252,11 @@ export function CoupleVideo() {
                         className="relative"
                       >
                         {/* Glow effect behind button */}
-                        <div className="absolute inset-0 rounded-full bg-[#8B3036]/45 blur-2xl scale-150 group-hover:bg-[#F5D4CF]/55 group-hover:scale-[1.7] transition-all duration-300" />
+                        <div className="absolute inset-0 rounded-full bg-[#324D3E]/45 blur-2xl scale-150 group-hover:bg-[#BCCFC0]/55 group-hover:scale-[1.7] transition-all duration-300" />
                         
                         {/* Play button */}
-                        <div className="relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.4),0_16px_48px_rgba(0,0,0,0.25),0_0_0_1px_rgba(139,48,54,0.2)] group-hover:bg-white group-hover:shadow-[0_12px_52px_rgba(0,0,0,0.5),0_24px_72px_rgba(139,48,54,0.35),0_0_0_1px_rgba(139,48,54,0.3)] transition-all duration-300">
-                          <Play className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#8B3036] fill-[#8B3036] ml-1 drop-shadow-md" />
+                        <div className="relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.4),0_16px_48px_rgba(0,0,0,0.25),0_0_0_1px_rgba(50,77,62,0.2)] group-hover:bg-white group-hover:shadow-[0_12px_52px_rgba(0,0,0,0.5),0_24px_72px_rgba(50,77,62,0.35),0_0_0_1px_rgba(50,77,62,0.3)] transition-all duration-300">
+                          <Play className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#324D3E] fill-[#324D3E] ml-1 drop-shadow-md" />
                         </div>
                       </motion.div>
                     </div>
@@ -334,7 +322,7 @@ export function CoupleVideo() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-center mt-8 sm:mt-10"
           >
-            <p className="text-xs sm:text-sm md:text-base text-[#8B3036]/80 font-light italic max-w-lg mx-auto px-4">
+            <p className="text-xs sm:text-sm md:text-base text-[#324D3E]/80 font-light italic max-w-lg mx-auto px-4">
               A glimpse into the moments that made our hearts one
             </p>
           </motion.div>

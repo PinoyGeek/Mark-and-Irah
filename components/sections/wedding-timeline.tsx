@@ -34,7 +34,7 @@ interface TimelineEvent {
 
 const timelineEvents: TimelineEvent[] = [
   {
-    time: guestsTime,
+    time: "1:30 PM",
     title: "Arrival",
     description: "Please arrive on time to find your seat, settle in, and get ready for the celebration.",
     location: ceremonyVenue,
@@ -42,20 +42,20 @@ const timelineEvents: TimelineEvent[] = [
     imageSrc: "/weddingtimeline/arrivalimage.png",
   },
   {
-    time: ceremonyTime,
+    time: "2:30 PM",
+    title: "Processional",
+    description: "The wedding party begins the processional as we prepare for the ceremony.",
+    location: ceremonyVenue,
+    icon: ChurchIcon,
+    imageSrc: "/weddingtimeline/WeddingCeremony.png",
+  },
+  {
+    time: "3:00 PM",
     title: "Wedding Ceremony",
     description: `Join us as ${groomNickname} & ${brideNickname} exchange vows and begin their life together.`,
     location: ceremonyVenue,
     icon: RingsIcon,
     imageSrc: "/weddingtimeline/WeddingCeremony.png",
-  },
-  {
-    time: "4:30 PM",
-    title: "Photo Session",
-    description: "Gather for group photos and candid moments with the newlyweds and wedding party.",
-    location: ceremonyVenue,
-    icon: CameraIcon,
-    imageSrc: "/weddingtimeline/PhotoSession.png",
   },
   {
     time: "5:00 PM",
@@ -66,15 +66,15 @@ const timelineEvents: TimelineEvent[] = [
     imageSrc: "/weddingtimeline/CockTailHour.png",
   },
   {
-    time: "5:30 PM",
-    title: "Reception Welcome",
+    time: "6:00 PM",
+    title: "Program Starts",
     description: `Celebrate the grand entrance of ${groomNickname} & ${brideNickname} and the start of the evening festivities.`,
     location: receptionVenue,
     icon: FireworksIcon,
     imageSrc: "/weddingtimeline/reception welcom.png",
   },
   {
-    time: "6:00 PM",
+    time: "7:00 PM",
     title: "Dinner Service",
     description: "Share a relaxed meal together as we continue the celebration.",
     location: receptionVenue,
@@ -82,23 +82,7 @@ const timelineEvents: TimelineEvent[] = [
     imageSrc: "/weddingtimeline/DinnerService.png",
   },
   {
-    time: "6:30 PM",
-    title: "Cake Cutting",
-    description: "Watch the couple cut the cake and share a sweet moment together.",
-    location: receptionVenue,
-    icon: CakeIcon,
-    imageSrc: "/weddingtimeline/cakecutting.png",
-  },
-  {
-    time: "7:00 PM",
-    title: "Dancing & Celebration",
-    description: `Enjoy the first dance of ${groomNickname} & ${brideNickname}, then join us on the dance floor.`,
-    location: receptionVenue,
-    icon: DanceIcon,
-    imageSrc: "/weddingtimeline/dance.png",
-  },
-  {
-    time: "8:30 PM",
+    time: "9:00 PM",
     title: "Send-off",
     description: `Help us send off ${groomNickname} & ${brideNickname} with love and well-wishes.`,
     location: receptionVenue,
@@ -132,24 +116,24 @@ export function WeddingTimeline() {
 
         {/* Simple divider */}
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#8B3036]/60" />
-          <div className="w-1.5 h-1.5 bg-[#8B3036]/80 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#8B3036]/60 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#8B3036]/80 rounded-full" />
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#8B3036]/60" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#324D3E]/60" />
+          <div className="w-1.5 h-1.5 bg-[#324D3E]/80 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#324D3E]/60 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-[#324D3E]/80 rounded-full" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#324D3E]/60" />
         </div>
       </div>
 
       {/* Timeline - improved desktop layout */}
       <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-5 lg:px-8">
         {/* Vertical timeline line - desktop (aligned with left icons) */}
-        <div className="hidden md:block absolute left-[4rem] md:left-[5rem] lg:left-[6rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#8B3036]/40 via-[#8B3036]/55 to-[#8B3036]/40 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#8B3036]" />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#8B3036]" />
+        <div className="hidden md:block absolute left-[4rem] md:left-[5rem] lg:left-[6rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#324D3E]/40 via-[#324D3E]/55 to-[#324D3E]/40 pointer-events-none">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#324D3E]" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#324D3E]" />
         </div>
 
         {/* Mobile timeline line */}
-        <div className="md:hidden absolute left-10 sm:left-11 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#8B3036]/45 via-[#8B3036]/60 to-[#8B3036]/45 pointer-events-none" />
+        <div className="md:hidden absolute left-10 sm:left-11 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#324D3E]/45 via-[#324D3E]/60 to-[#324D3E]/45 pointer-events-none" />
 
         <div className="space-y-4 sm:space-y-5 md:space-y-8 lg:space-y-10">
           {timelineEvents.map((event, index) => (
@@ -202,7 +186,7 @@ function TimelineItem({ event, index }: { event: TimelineEvent; index: number })
 function TimelineCard({ event, Icon, mobile }: { event: TimelineEvent; Icon: TimelineIcon; mobile?: boolean }) {
   return (
     <div
-      className={`rounded-lg sm:rounded-xl border border-[#8B3036]/40 bg-white/95 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-300 ${
+      className={`rounded-lg sm:rounded-xl border border-[#324D3E]/40 bg-[#D9E5D7] backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-300 ${
         mobile ? "p-3" : "p-4 sm:p-5 md:p-6 lg:p-7"
       } max-w-md`}
     >
@@ -210,10 +194,10 @@ function TimelineCard({ event, Icon, mobile }: { event: TimelineEvent; Icon: Tim
         {/* Time */}
         <div className="flex items-center gap-1.5">
           <Clock
-            className={`${mobile ? "w-3.5 h-3.5" : "w-4 h-4 md:w-5 md:h-5"} text-[#8B3036] flex-shrink-0`}
+            className={`${mobile ? "w-3.5 h-3.5" : "w-4 h-4 md:w-5 md:h-5"} text-[#324D3E] flex-shrink-0`}
           />
           <p
-            className={`${mobile ? "text-[10px]" : "text-xs sm:text-sm md:text-base"} font-bold tracking-[0.15em] text-[#8B3036] uppercase`}
+            className={`${mobile ? "text-[10px]" : "text-xs sm:text-sm md:text-base"} font-bold tracking-[0.15em] text-[#324D3E] uppercase`}
           >
             {event.time}
           </p>
@@ -221,7 +205,7 @@ function TimelineCard({ event, Icon, mobile }: { event: TimelineEvent; Icon: Tim
 
         {/* Title */}
         <h3
-          className={`${mobile ? "text-sm sm:text-base" : "text-base sm:text-lg md:text-xl lg:text-2xl"} font-semibold text-[#8B3036] leading-tight`}
+          className={`${mobile ? "text-sm sm:text-base" : "text-base sm:text-lg md:text-xl lg:text-2xl"} font-semibold text-[#324D3E] leading-tight`}
         >
           {event.title}
         </h3>
@@ -229,7 +213,7 @@ function TimelineCard({ event, Icon, mobile }: { event: TimelineEvent; Icon: Tim
         {/* Description */}
         {event.description && (
           <p
-            className={`${mobile ? "text-[10px] sm:text-xs" : "text-xs sm:text-sm md:text-base"} text-[#8B3036]/90 leading-relaxed`}
+            className={`${mobile ? "text-[10px] sm:text-xs" : "text-xs sm:text-sm md:text-base"} text-[#324D3E]/90 leading-relaxed`}
           >
             {event.description}
           </p>
@@ -240,12 +224,12 @@ function TimelineCard({ event, Icon, mobile }: { event: TimelineEvent; Icon: Tim
           <div
             className={`flex items-start gap-1.5 ${
               mobile ? "pt-1.5" : "pt-2 md:pt-3"
-            } border-t border-[#8B3036]/40`}
+            } border-t border-[#324D3E]/40`}
           >
             <MapPin
-              className={`${mobile ? "w-3 h-3" : "w-3.5 h-3.5 md:w-4 md:h-4"} text-[#8B3036] mt-0.5 flex-shrink-0`}
+              className={`${mobile ? "w-3 h-3" : "w-3.5 h-3.5 md:w-4 md:h-4"} text-[#324D3E] mt-0.5 flex-shrink-0`}
             />
-            <p className={`${mobile ? "text-[10px]" : "text-xs md:text-sm"} text-[#8B3036]/90 leading-relaxed`}>
+            <p className={`${mobile ? "text-[10px]" : "text-xs md:text-sm"} text-[#324D3E]/90 leading-relaxed`}>
               {event.location}
             </p>
           </div>
@@ -282,12 +266,12 @@ function IconBadge({
     <div
       className={`${
         mobile ? "w-10 h-10" : "w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20"
-      } rounded-full border-2 border-[#8B3036]/70 bg-white flex items-center justify-center shadow-md hover:scale-105 transition-transform duration-300`}
+      } rounded-full border-2 border-[#324D3E]/70 bg-white flex items-center justify-center shadow-md hover:scale-105 transition-transform duration-300`}
     >
       <Icon
         className={`${
           mobile ? "w-5 h-5" : "w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
-        } text-[#8B3036]`}
+        } text-[#324D3E]`}
       />
     </div>
   )
@@ -295,7 +279,7 @@ function IconBadge({
 
 /* Hand-drawn–style timeline icons */
 
-const iconStroke = "#8B3036"
+const iconStroke = "#324D3E"
 
 function GuestsIcon(props: React.SVGProps<SVGSVGElement>) {
   return (

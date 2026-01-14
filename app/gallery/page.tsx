@@ -40,7 +40,7 @@ export default async function GalleryPage() {
       <div 
         className="absolute inset-0 -z-10"
         style={{
-          background: "linear-gradient(to bottom, #F3D1C8, #FAB1AA)",
+          background: "linear-gradient(to bottom, #8EA58B, #BCCFC0)",
         }}
       />
       
@@ -51,8 +51,9 @@ export default async function GalleryPage() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-y-[-1]"
+          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-y-[-1]"
           priority={false}
+          style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(800%) hue-rotate(140deg) brightness(95%) contrast(90%)' }}
         />
       </div>
       
@@ -63,8 +64,9 @@ export default async function GalleryPage() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-x-[-1] scale-y-[-1]"
+          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-x-[-1] scale-y-[-1]"
           priority={false}
+          style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(800%) hue-rotate(140deg) brightness(95%) contrast(90%)' }}
         />
       </div>
       
@@ -75,8 +77,9 @@ export default async function GalleryPage() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80"
+          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
           priority={false}
+          style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(800%) hue-rotate(140deg) brightness(95%) contrast(90%)' }}
         />
       </div>
       
@@ -87,8 +90,9 @@ export default async function GalleryPage() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px] opacity-80 scale-x-[-1]"
+          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-x-[-1]"
           priority={false}
+          style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(800%) hue-rotate(140deg) brightness(95%) contrast(90%)' }}
         />
       </div>
 
@@ -96,35 +100,35 @@ export default async function GalleryPage() {
         <div className="text-center mb-6 sm:mb-8 md:mb-10 px-3 sm:px-4">
           {/* Decorative element above title */}
           <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <div className="w-8 sm:w-12 md:w-16 h-px bg-[#8B3036]/60" />
-            <div className="w-1.5 h-1.5 bg-[#8B3036]/80 rounded-full" />
-            <div className="w-1.5 h-1.5 bg-[#8B3036]/60 rounded-full" />
-            <div className="w-1.5 h-1.5 bg-[#8B3036]/80 rounded-full" />
-            <div className="w-8 sm:w-12 md:w-16 h-px bg-[#8B3036]/60" />
+            <div className="w-8 sm:w-12 md:w-16 h-px bg-[#324D3E]/60" />
+            <div className="w-1.5 h-1.5 bg-[#324D3E]/80 rounded-full" />
+            <div className="w-1.5 h-1.5 bg-[#324D3E]/60 rounded-full" />
+            <div className="w-1.5 h-1.5 bg-[#324D3E]/80 rounded-full" />
+            <div className="w-8 sm:w-12 md:w-16 h-px bg-[#324D3E]/60" />
           </div>
           
           <h1
-            className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-[#8B3036] mb-2 sm:mb-3 md:mb-4"
+            className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-[#324D3E] mb-2 sm:mb-3 md:mb-4"
           >
             Our Love Story Gallery
           </h1>
-          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#8B3036]/95 font-light max-w-xl mx-auto leading-relaxed px-2">
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#324D3E]/95 font-light max-w-xl mx-auto leading-relaxed px-2">
             Every photograph tells a story of Daniel & Florence's journey to forever
           </p>
           
           {/* Decorative element below subtitle */}
           <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-            <div className="w-1.5 h-1.5 bg-[#8B3036]/80 rounded-full" />
-            <div className="w-1.5 h-1.5 bg-[#8B3036]/60 rounded-full" />
-            <div className="w-1.5 h-1.5 bg-[#8B3036]/80 rounded-full" />
+            <div className="w-1.5 h-1.5 bg-[#324D3E]/80 rounded-full" />
+            <div className="w-1.5 h-1.5 bg-[#324D3E]/60 rounded-full" />
+            <div className="w-1.5 h-1.5 bg-[#324D3E]/80 rounded-full" />
           </div>
         </div>
 
         {images.length === 0 ? (
-          <div className="text-center text-[#8B3036]/90">
+          <div className="text-center text-[#324D3E]/90">
             <p className="font-light">
               No images found. Add files to{" "}
-              <code className="px-2 py-1 bg-[#8B3036]/80 rounded border border-[#8B3036]/30 text-[#8B3036]">
+              <code className="px-2 py-1 bg-[#324D3E]/80 rounded border border-[#324D3E]/30 text-[#324D3E]">
                 public/mobile-background or public/desktop-background
               </code>
               .

@@ -43,28 +43,51 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       <div 
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(180deg, #F3D1C8 0%, #FAB1AA 100%)'
+          background: 'linear-gradient(to bottom, #8EA58B, #BCCFC0)'
         }}
       />
 
       {/* Corner floral decoration */}
       <div className="absolute inset-0 pointer-events-none">
+        {/* Top left */}
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt="Floral decoration top left"
+          width={300}
+          height={300}
+          className="absolute top-0 left-0 w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
+          style={{ transform: 'scaleY(-1)', filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(800%) hue-rotate(140deg) brightness(95%) contrast(90%)' }}
+          priority={false}
+        />
+        {/* Top right */}
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt="Floral decoration top right"
+          width={300}
+          height={300}
+          className="absolute top-0 right-0 w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
+          style={{ transform: 'scaleX(-1) scaleY(-1)', filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(800%) hue-rotate(140deg) brightness(95%) contrast(90%)' }}
+          priority={false}
+        />
+        {/* Bottom left */}
         <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt="Floral decoration bottom left"
-          width={220}
-          height={220}
-          className="absolute bottom-0 left-0 w-32 sm:w-44 opacity-80"
-          priority
+          width={300}
+          height={300}
+          className="absolute bottom-0 left-0 w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
+          style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(800%) hue-rotate(140deg) brightness(95%) contrast(90%)' }}
+          priority={false}
         />
+        {/* Bottom right */}
         <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt="Floral decoration bottom right"
-          width={220}
-          height={220}
-          className="absolute bottom-0 right-0 w-32 sm:w-44 opacity-80"
-          style={{ transform: 'scaleX(-1)' }}
-          priority
+          width={300}
+          height={300}
+          className="absolute bottom-0 right-0 w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
+          style={{ transform: 'scaleX(-1)', filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(800%) hue-rotate(140deg) brightness(95%) contrast(90%)' }}
+          priority={false}
         />
       </div>
 
@@ -78,7 +101,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
               fill
               className="object-contain"
               priority
-              style={{ filter: 'brightness(0) saturate(100%) invert(30%) sepia(25%) saturate(1200%) hue-rotate(320deg) brightness(95%) contrast(85%)' }}
+              style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(800%) hue-rotate(140deg) brightness(95%) contrast(90%)' }}
             />
           </div>
         </div>
@@ -86,41 +109,43 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         {/* Content section */}
         <div className="text-center w-full max-w-sm sm:max-w-2xl mx-auto px-6 sm:px-8 md:px-12">
           {/* Couple names */}
-          <p
-            className="text-lg sm:text-2xl tracking-[0.15em] sm:tracking-[0.2em] mb-6 sm:mb-8"
-            style={{ fontFamily: '"Cinzel", serif', fontWeight: 500, color: '#BC677C' }}
+          <div
+            className="text-4xl sm:text-6xl md:text-7xl mb-6 sm:mb-8 leading-tight"
+            style={{ fontFamily: '"Style Script", cursive', fontWeight: 400, fontStyle: 'normal', color: '#324D3E' }}
           >
-            Denmark & Rizchelle
-          </p>
+            <div>John Mark</div>
+            <div>&</div>
+            <div>Vanessa Jean</div>
+          </div>
 
           {/* Message */}
           <div className="space-y-4 sm:space-y-5 mb-6 sm:mb-8">
             <p
-              className="text-xs sm:text-sm leading-relaxed sm:leading-loose tracking-wide italic"
-              style={{ fontFamily: '"Cinzel", serif', fontWeight: 300, color: '#BC677C' }}
+              className="text-base sm:text-lg leading-relaxed sm:leading-loose tracking-wide"
+              style={{ fontFamily: '"Style Script", cursive', fontWeight: 400, color: '#324D3E' }}
             >
               Behind the scenes, something beautiful is gently coming together—woven with love, dreams, and shared moments. This space is being shaped with care, patience, and heartfelt intention.
             </p>
             <p
-              className="text-xs sm:text-sm leading-relaxed sm:leading-loose tracking-wide italic"
-              style={{ fontFamily: '"Cinzel", serif', fontWeight: 300, color: '#BC677C' }}
+              className="text-base sm:text-lg leading-relaxed sm:leading-loose tracking-wide"
+              style={{ fontFamily: '"Style Script", cursive', fontWeight: 400, color: '#324D3E' }}
             >
               Please hold on for just a moment as we reveal something special, made not just to be seen, but to be felt.
             </p>
           </div>
 
           {/* Progress bar */}
-          <div className="relative w-full max-w-xs sm:max-w-sm h-0.5 mx-auto rounded-full overflow-hidden mb-3 sm:mb-4" style={{ backgroundColor: 'rgba(188, 103, 124, 0.2)' }}>
+          <div className="relative w-full max-w-xs sm:max-w-sm h-0.5 mx-auto rounded-full overflow-hidden mb-3 sm:mb-4" style={{ backgroundColor: 'rgba(50, 77, 62, 0.2)' }}>
             <div 
               className="absolute inset-y-0 left-0 transition-all duration-300 ease-out rounded-full"
-              style={{ width: `${progress}%`, backgroundColor: '#BC677C' }}
+              style={{ width: `${progress}%`, backgroundColor: '#324D3E' }}
             />
           </div>
           
           {/* Progress percentage */}
           <p
             className="text-[9px] sm:text-[10px] tracking-[0.2em]"
-            style={{ fontFamily: '"Cinzel", serif', fontWeight: 300, color: 'rgba(188, 103, 124, 0.7)' }}
+            style={{ fontFamily: '"Style Script", cursive', fontWeight: 400, color: 'rgba(50, 77, 62, 0.7)' }}
           >
             {progress}%
           </p>
