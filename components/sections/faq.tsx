@@ -73,11 +73,6 @@ const faqItems: FAQItem[] = [
       "Please let us know about any dietary restrictions or allergies when you RSVP. We want to ensure everyone can enjoy the celebration comfortably.",
   },
   {
-    question: "Will the wedding be indoors or outdoors?",
-    answer:
-      "Our wedding will be held outdoors. We recommend checking the weather forecast and dressing accordingly. Please come prepared for the outdoor setting.",
-  },
-  {
     question: "How can I help the couple have a great time during their wedding?",
     answer:
       "• Pray with us for favorable weather and the continuous blessings of our Lord as we enter this new chapter of our lives as husband and wife.\n\n• RSVP as soon as your schedule is cleared.\n\n• Dress appropriately and follow our wedding motif.\n\n• Be on time.\n\n• Follow the seating arrangement in the reception.\n\n• Stay until the end of the program.\n\n• Join the activities and enjoy!",

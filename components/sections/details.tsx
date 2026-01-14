@@ -176,21 +176,21 @@ export function Details() {
       <div className="relative z-30 text-center mb-6 sm:mb-9 md:mb-12 px-3 sm:px-4">
         {/* Small label */}
         <p
-          className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-[#324D3E] mb-2`}
+          className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-white mb-2`}
         >
           Ceremony & Reception Details
         </p>
 
         <h2
-          className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#324D3E] mb-1.5 sm:mb-3 md:mb-4"
+          className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-1.5 sm:mb-3 md:mb-4"
         >
           Details
         </h2>
 
-        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#324D3E]/95 font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
+        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
           All the important details to help you join us in celebrating our special day
         </p>
-        <p className={`${cormorant.className} text-[0.65rem] sm:text-xs md:text-sm text-[#324D3E]/80 font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
+        <p className={`${cormorant.className} text-[0.65rem] sm:text-xs md:text-sm text-white font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
           RSVP Deadline: {siteConfig.details.rsvp.deadline}
         </p>
 
@@ -207,7 +207,7 @@ export function Details() {
       {/* Ceremony & Reception Containers - Separate */}
       <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-5 space-y-6 sm:space-y-8">
         {/* Ceremony Container */}
-        <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-[#324D3E]/40 bg-[#BCCFC0]/95 shadow-[0_20px_60px_rgba(50,77,62,0.15)] transition-transform duration-500 group hover:scale-[1.01]">
+        <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-[#738A6E]/40 bg-white/95 backdrop-blur-lg shadow-[0_18px_40px_rgba(0,0,0,0.15)] transition-transform duration-500 group hover:scale-[1.01]">
           {/* Ceremony image */}
           <div className="relative h-64 sm:h-80 md:h-96 w-full">
             <Image
@@ -227,30 +227,30 @@ export function Details() {
           </div>
 
           {/* Ceremony Details panel */}
-          <div className="bg-[#BCCFC0]/95 text-[#324D3E] px-3 sm:px-6 py-4 sm:py-6 space-y-4 backdrop-blur-sm">
+          <div className="bg-white text-[#738A6E] px-3 sm:px-6 py-4 sm:py-6 space-y-4 backdrop-blur-sm">
             {/* Address */}
-            <div className="text-left pb-3 border-b border-[#324D3E]/30">
-              <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#324D3E] uppercase mb-1">
+            <div className="text-left pb-3 border-b border-[#738A6E]/30">
+              <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#738A6E] uppercase mb-1">
                 Location
               </p>
-              <p className="text-sm sm:text-base md:text-lg font-medium text-[#324D3E]">
+              <p className="text-sm sm:text-base md:text-lg font-medium text-[#738A6E]">
                 {ceremonyLocationFormatted}
               </p>
             </div>
 
             {/* Ceremony Date & Time */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 text-left">
-              <div className="rounded-md border border-[#324D3E] bg-[#D9E5D7]/80 px-2.5 py-2 shadow-sm">
-                <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#324D3E] uppercase mb-0.5">
+              <div className="rounded-md border border-[#738A6E] bg-white px-2.5 py-2 shadow-sm">
+                <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#738A6E] uppercase mb-0.5">
                   Date
                 </p>
-                <p className="text-sm sm:text-base font-bold text-[#324D3E]">{formattedCeremonyDate}</p>
+                <p className="text-sm sm:text-base font-bold text-[#738A6E]">{formattedCeremonyDate}</p>
               </div>
-              <div className="rounded-md border border-[#324D3E] bg-[#D9E5D7]/80 px-2.5 py-2 shadow-sm">
-                <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#324D3E] uppercase mb-0.5">
+              <div className="rounded-md border border-[#738A6E] bg-white px-2.5 py-2 shadow-sm">
+                <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#738A6E] uppercase mb-0.5">
                   Time
                 </p>
-                <p className="text-sm sm:text-base font-bold text-[#324D3E]">{siteConfig.ceremony.time}</p>
+                <p className="text-sm sm:text-base font-bold text-[#738A6E]">{siteConfig.ceremony.time}</p>
               </div>
             </div>
 
@@ -258,14 +258,14 @@ export function Details() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-3 pt-2">
               <button
                 onClick={() => openInMaps(ceremonyMapsLink)}
-                className="flex items-center justify-center gap-1.5 rounded-lg bg-[#324D3E] text-[#D9E5D7] py-2.5 sm:py-3 shadow-lg hover:translate-y-[-2px] hover:bg-[#2a4035] transition-all text-xs sm:text-sm font-semibold"
+                className="flex items-center justify-center gap-1.5 rounded-lg bg-[#738A6E] text-white py-2.5 sm:py-3 shadow-lg hover:translate-y-[-2px] hover:bg-[#738A6E]/90 transition-all text-xs sm:text-sm font-semibold"
               >
                 <Navigation className="w-4 h-4" />
                 Get Directions
               </button>
               <button
                 onClick={() => copyToClipboard(ceremonyLocation, "ceremony")}
-                className="flex items-center justify-center gap-1.5 rounded-lg border border-[#324D3E]/35 text-[#324D3E] py-2.5 sm:py-3 hover:bg-[#324D3E]/5 transition-all text-xs sm:text-sm font-semibold"
+                className="flex items-center justify-center gap-1.5 rounded-lg border border-[#738A6E]/35 text-[#738A6E] py-2.5 sm:py-3 hover:bg-[#738A6E]/5 transition-all text-xs sm:text-sm font-semibold"
               >
                 {copiedItems.has("ceremony") ? (
                   <>
@@ -284,7 +284,7 @@ export function Details() {
         </div>
 
         {/* Reception Container */}
-        <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-[#324D3E]/40 bg-[#BCCFC0]/95 shadow-[0_20px_60px_rgba(50,77,62,0.15)] transition-transform duration-500 group hover:scale-[1.01]">
+        <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-[#738A6E]/40 bg-white/95 backdrop-blur-lg shadow-[0_18px_40px_rgba(0,0,0,0.15)] transition-transform duration-500 group hover:scale-[1.01]">
           {/* Reception image */}
           <div className="relative h-64 sm:h-80 md:h-96 w-full">
             <Image
@@ -304,30 +304,30 @@ export function Details() {
           </div>
 
           {/* Reception Details panel */}
-          <div className="bg-[#BCCFC0]/95 text-[#324D3E] px-3 sm:px-6 py-4 sm:py-6 space-y-4 backdrop-blur-sm">
+          <div className="bg-white text-[#738A6E] px-3 sm:px-6 py-4 sm:py-6 space-y-4 backdrop-blur-sm">
             {/* Address */}
-            <div className="text-left pb-3 border-b border-[#324D3E]/30">
-              <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#324D3E] uppercase mb-1">
+            <div className="text-left pb-3 border-b border-[#738A6E]/30">
+              <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#738A6E] uppercase mb-1">
                 Location
               </p>
-              <p className="text-sm sm:text-base md:text-lg font-medium text-[#324D3E]">
+              <p className="text-sm sm:text-base md:text-lg font-medium text-[#738A6E]">
                 {receptionLocationFormatted}
               </p>
             </div>
 
             {/* Reception Date & Time */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 text-left">
-              <div className="rounded-md border border-[#324D3E] bg-[#D9E5D7]/80 px-2.5 py-2 shadow-sm">
-                <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#324D3E] uppercase mb-0.5">
+              <div className="rounded-md border border-[#738A6E] bg-white px-2.5 py-2 shadow-sm">
+                <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#738A6E] uppercase mb-0.5">
                   Date
                 </p>
-                <p className="text-sm sm:text-base font-bold text-[#324D3E]">{formattedReceptionDate}</p>
+                <p className="text-sm sm:text-base font-bold text-[#738A6E]">{formattedReceptionDate}</p>
               </div>
-              <div className="rounded-md border border-[#324D3E] bg-[#D9E5D7]/80 px-2.5 py-2 shadow-sm">
-                <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#324D3E] uppercase mb-0.5">
+              <div className="rounded-md border border-[#738A6E] bg-white px-2.5 py-2 shadow-sm">
+                <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] text-[#738A6E] uppercase mb-0.5">
                   Time
                 </p>
-                <p className="text-sm sm:text-base font-bold text-[#324D3E]">{siteConfig.reception.time}</p>
+                <p className="text-sm sm:text-base font-bold text-[#738A6E]">{siteConfig.reception.time}</p>
               </div>
             </div>
 
@@ -335,14 +335,14 @@ export function Details() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-3 pt-2">
               <button
                 onClick={() => openInMaps(receptionMapsLink)}
-                className="flex items-center justify-center gap-1.5 rounded-lg bg-[#324D3E] text-[#D9E5D7] py-2.5 sm:py-3 shadow-lg hover:translate-y-[-2px] hover:bg-[#2a4035] transition-all text-xs sm:text-sm font-semibold"
+                className="flex items-center justify-center gap-1.5 rounded-lg bg-[#738A6E] text-white py-2.5 sm:py-3 shadow-lg hover:translate-y-[-2px] hover:bg-[#738A6E]/90 transition-all text-xs sm:text-sm font-semibold"
               >
                 <Navigation className="w-4 h-4" />
                 Get Directions
               </button>
               <button
                 onClick={() => copyToClipboard(receptionLocation, "reception")}
-                className="flex items-center justify-center gap-1.5 rounded-lg border border-[#324D3E]/35 text-[#324D3E] py-2.5 sm:py-3 hover:bg-[#324D3E]/5 transition-all text-xs sm:text-sm font-semibold"
+                className="flex items-center justify-center gap-1.5 rounded-lg border border-[#738A6E]/35 text-[#738A6E] py-2.5 sm:py-3 hover:bg-[#738A6E]/5 transition-all text-xs sm:text-sm font-semibold"
               >
                 {copiedItems.has("reception") ? (
                   <>

@@ -23,9 +23,7 @@ export function SnapShare() {
   const websiteUrl = typeof window !== "undefined" ? window.location.href : "https://example.com"
   const driveLink = siteConfig.snapShare?.googleDriveLink || ""
   const hashtags = [
-    "#RizchelleAndDenmark2026",
-    "#RizDenmarkWedding",
-    "#RizDenForever"
+    "#anJOHNnaforeverniVANESSA"
   ]
   const allHashtagsText = hashtags.join(" ")
   const groomNickname = siteConfig.couple.groomNickname
@@ -200,15 +198,15 @@ export function SnapShare() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#324D3E]/40 bg-white/95 px-3 py-1.5 text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#324D3E]">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-white/40 bg-white/95 px-3 py-1.5 text-[10px] sm:text-xs tracking-[0.3em] uppercase text-white">
             Share Your Memories
           </div>
           <h2
-            className="style-script-regular text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-[#324D3E] mt-2 sm:mt-4"
+            className="style-script-regular text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white mt-2 sm:mt-4"
           >
             Capture & Share the Celebration
           </h2>
-          <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#324D3E]/95 max-w-2xl mx-auto mt-2 sm:mt-4 leading-relaxed px-2`}>
+          <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white max-w-2xl mx-auto mt-2 sm:mt-4 leading-relaxed px-2`}>
             Capture the beautiful moments of {groomNickname} & {brideNickname}'s wedding day. Share your favorite memories so our keepsake gallery glows with every smile, embrace, and celebration from this special day.
           </p>
           <div className="mx-auto mt-3 sm:mt-5 h-px w-20 sm:w-24 bg-[#324D3E]/60" />

@@ -2,6 +2,7 @@ import fs from "fs/promises"
 import path from "path"
 import Image from "next/image"
 import MasonryGallery from "@/components/masonry-gallery"
+import { siteConfig } from "@/content/site"
 
 // Generate on each request so newly added images in public/ appear without a rebuild
 export const dynamic = "force-dynamic"
@@ -108,12 +109,12 @@ export default async function GalleryPage() {
           </div>
           
           <h1
-            className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-[#324D3E] mb-2 sm:mb-3 md:mb-4"
+            className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-white mb-2 sm:mb-3 md:mb-4"
           >
             Our Love Story Gallery
           </h1>
-          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#324D3E]/95 font-light max-w-xl mx-auto leading-relaxed px-2">
-            Every photograph tells a story of Daniel & Florence's journey to forever
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white font-light max-w-xl mx-auto leading-relaxed px-2">
+            Every photograph tells a story of {siteConfig.couple.groomNickname} & {siteConfig.couple.brideNickname}'s journey to forever
           </p>
           
           {/* Decorative element below subtitle */}

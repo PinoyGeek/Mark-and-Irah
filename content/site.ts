@@ -1,9 +1,9 @@
 export const siteConfig = {
   couple: {
     bride: "VANESSA JEAN PINO MONTERDE",
-    brideNickname: "Vanessa Jean",
+    brideNickname: "Vanessa",
     groom: "JOHN MARK RODRIGUEZ ROBLES",
-    groomNickname: "John Mark",
+    groomNickname: "John",
   },
   wedding: {
     date: "MARCH 7, 2026",
@@ -31,7 +31,7 @@ export const siteConfig = {
     location: "Kayama Mountain Resort and Events Place, Sitio Kaytuyang, Brgy. Aga Nasugbu, Batangas",
     venue: "Kayama Mountain Resort and Events Place",
     date: "March 7, 2026",
-    time: "Reception to follow",
+    time: "5:00 PM",
   },
   dressCode: {
     theme: "Modern Filipiniana",
@@ -63,8 +63,8 @@ Now, as they prepare to say yes before God and the people they love most, Cather
     secondary: "#F5F5DC",
   },
   snapShare: {
-    googleDriveLink: "https://drive.google.com/drive/folders/1OJi_twmhxHvhKh8-WY0lzHOmb_OklnOt?usp=sharing",
-    hashtag: "#anJOHNnaforeverniVANE",
+    googleDriveLink: "https://drive.google.com/drive/folders/1lk45T1tGmm5_Oa48ABV_Cgrnpp1T2kTk?usp=sharing",
+    hashtag: "#anJOHNnaforeverniVANESSA",
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }

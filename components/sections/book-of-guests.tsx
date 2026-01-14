@@ -201,18 +201,18 @@ export function BookOfGuests() {
       <div className="relative z-10 text-center mb-3 sm:mb-4 md:mb-6 px-2 sm:px-3 md:px-4">
         {/* Small label */}
         <p
-          className={`${cormorant.className} text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.25em] text-[#324D3E] mb-1 sm:mb-1.5`}
+          className={`${cormorant.className} text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.25em] text-white mb-1 sm:mb-1.5`}
         >
           Our Cherished Guests
         </p>
 
         <h2
-          className="style-script-regular text-xl sm:text-3xl md:text-4xl lg:text-5xl text-[#324D3E] mb-1 sm:mb-2 md:mb-3"
+          className="style-script-regular text-xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-1 sm:mb-2 md:mb-3"
         >
           Book of Guests
         </h2>
 
-        <p className={`${cormorant.className} text-[10px] sm:text-xs md:text-sm text-[#324D3E]/95 font-light max-w-lg mx-auto leading-relaxed px-2`}>
+        <p className={`${cormorant.className} text-[10px] sm:text-xs md:text-sm text-white font-light max-w-lg mx-auto leading-relaxed px-2`}>
           Meet the cherished souls joining us in celebration — your presence makes our day truly special
         </p>
 

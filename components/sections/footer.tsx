@@ -171,13 +171,13 @@ export function Footer() {
         >
           <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 opacity-95">
             <Image
-              src="/weddingTimeline/coupleImage-removebg.png"
-              alt={`${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} illustration`}
+              src="/monogram/monogramnew.png"
+              alt={`${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} monogram`}
               fill
               className="object-contain"
               priority={false}
               style={{
-                filter: "brightness(0) saturate(100%) invert(19%) sepia(28%) saturate(1100%) hue-rotate(142deg) brightness(88%) contrast(98%)",
+                filter: "brightness(0) invert(1)",
               }}
             />
           </div>
@@ -186,14 +186,19 @@ export function Footer() {
         {/* Names & Date below illustration */}
         <div className="mt-3 sm:mt-4 md:mt-5 text-center">
           <p
-            className={`${cormorant.className} tracking-[0.25em] sm:tracking-[0.3em] text-xs sm:text-sm md:text-base text-[#324D3E] uppercase`}
+            className={`${cormorant.className} tracking-[0.25em] sm:tracking-[0.3em] text-xs sm:text-sm md:text-base text-white uppercase`}
           >
             {siteConfig.couple.groomNickname} & {siteConfig.couple.brideNickname}
           </p>
           <p
-            className={`${cormorant.className} text-sm sm:text-base md:text-lg text-[#324D3E]/95 mt-1 sm:mt-2`}
+            className={`${cormorant.className} text-sm sm:text-base md:text-lg text-white mt-1 sm:mt-2`}
           >
-            {formattedDate}
+            {ceremonyDate}
+          </p>
+          <p
+            className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white mt-1 sm:mt-2`}
+          >
+            {siteConfig.ceremony.venue}
           </p>
         </div>
       </div>

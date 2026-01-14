@@ -166,13 +166,13 @@ export function CoupleVideo() {
         </div>
         
         <h2
-          className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-[#324D3E] mb-2 sm:mb-3 md:mb-4 drop-shadow-lg"
-          style={{ textShadow: "0 4px 18px rgba(50,77,62,0.85)" }}
+          className="imperial-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-2 sm:mb-3 md:mb-4 drop-shadow-lg"
+          style={{ textShadow: "0 4px 18px rgba(0,0,0,0.5)" }}
         >
           A Glimpse of Our Love
         </h2>
         
-        <p className="text-xs sm:text-sm md:text-base text-[#324D3E]/90 font-light max-w-xl mx-auto px-2">
+        <p className="text-xs sm:text-sm md:text-base text-white font-light max-w-xl mx-auto px-2">
           Watch the journey that brought our hearts together
         </p>
       </div>

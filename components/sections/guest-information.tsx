@@ -77,7 +77,7 @@ export function GuestInformation() {
 
               <div className="relative w-full aspect-[4/3] sm:aspect-[5/3] rounded-xl overflow-hidden border border-[#738A6E]/40 bg-white/90 mb-3">
                 <Image
-                  src="/Details/useThisImage.png"
+                  src="/Details/newguestattire.png"
                   alt="Attire guideline"
                   fill
                   className="object-contain"
@@ -105,6 +105,23 @@ export function GuestInformation() {
                         Filipiniana or Traje de Mestiza
                       </p>
                     </div>
+                  </div>
+                </div>
+
+                {/* Color Palette */}
+                <div className="space-y-2 pt-2">
+                  <p className="text-[10px] sm:text-xs font-semibold text-[#738A6E] uppercase tracking-wide text-left">
+                    Sage green &amp; Beige
+                  </p>
+                  <div className="flex flex-wrap items-center justify-start gap-2 sm:gap-2.5">
+                    {/* Sage Green Colors */}
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border border-[#738A6E]/20 shadow-sm" style={{ backgroundColor: '#BCCFC0' }} />
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border border-[#738A6E]/20 shadow-sm" style={{ backgroundColor: '#8EA58B' }} />
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border border-[#738A6E]/20 shadow-sm" style={{ backgroundColor: '#738A6E' }} />
+                    {/* Beige Colors */}
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border border-[#738A6E]/20 shadow-sm" style={{ backgroundColor: '#F5F5DC' }} />
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border border-[#738A6E]/20 shadow-sm" style={{ backgroundColor: '#E6D5B8' }} />
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border border-[#738A6E]/20 shadow-sm" style={{ backgroundColor: '#D2B48C' }} />
                   </div>
                 </div>
               </div>
