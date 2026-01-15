@@ -45,7 +45,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Is there a dress code?",
     answer:
-      `Yes! We kindly request our guests to dress in formal attire matching our wedding colors. Please see the Attire section in Details for specific guidelines:\n\nNinong & Guest:\n• Barong Tagalog | Puting Panloob | Itim na Pantalon | Itim na sapatos\n\nNinang & Guest:\n• Filipiniana or Traje de Mestiza\n\nWe encourage you to dress according to our wedding color to help create a soft, elegant romantic celebration.`,
+      `Yes! We kindly request our guests to dress in formal attire matching our wedding colors. Please see the Attire section in Details for specific guidelines:\n\nNinong & Guest:\n• Barong Tagalog | Puting Panloob | Itim na Pantalon | Itim na sapatos\n\nNinang & Guest:\n• Modern Filipiniana or Traje de Mestiza\n\nWe encourage you to dress according to our wedding color to help create a soft, elegant romantic celebration.`,
   },
   {
     question: "Will there be assigned seating?",

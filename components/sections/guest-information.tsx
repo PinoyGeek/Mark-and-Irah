@@ -102,7 +102,7 @@ export function GuestInformation() {
                         <span className="font-semibold">Ninang &amp; Guest:</span>
                       </p>
                       <p className="text-[#738A6E] pl-4">
-                        Filipiniana or Traje de Mestiza
+                        Modern Filipiniana or Traje de Mestiza
                       </p>
                     </div>
                   </div>

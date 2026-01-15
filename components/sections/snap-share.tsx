@@ -198,7 +198,7 @@ export function SnapShare() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-white/40 bg-white/95 px-3 py-1.5 text-[10px] sm:text-xs tracking-[0.3em] uppercase text-white">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-white/40 bg-white/95 px-3 py-1.5 text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#324D3E]">
             Share Your Memories
           </div>
           <h2

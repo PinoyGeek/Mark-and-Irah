@@ -23,7 +23,7 @@ export const siteConfig = {
     venue: "Caleruega Church",
     date: "March 7 2026",
     day: "Saturday",
-    time: "3:00PM",
+    time: "3:00 PM",
     entourageTime: "2:30 PM",
     guestsTime: "1:30 PM",
   },
@@ -42,7 +42,7 @@ export const siteConfig = {
     },
     guests: {
       gents: "Barong Tagalog | Puting Panloob | Itim na Pantalon | Itim na sapatos",
-      ladies: "Filipiniana or Traje de Mestiza"
+      ladies: "Modern Filipiniana or Traje de Mestiza"
     },
     note: "We kindly request our guests to dress in formal attire following our Modern Filipiniana theme."
   },
