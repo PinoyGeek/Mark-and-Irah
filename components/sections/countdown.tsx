@@ -236,7 +236,7 @@ export function Countdown() {
               fill
               className="object-contain"
               style={{
-                filter: "brightness(0) saturate(100%) invert(88%) sepia(8%) saturate(800%) hue-rotate(10deg) brightness(105%) contrast(90%)",
+                filter: "brightness(0) invert(1)",
               }}
               priority={false}
             />
