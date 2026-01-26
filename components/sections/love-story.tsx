@@ -27,7 +27,7 @@ export function LoveStory() {
               Once upon a signature…
             </p>
             <p>
-              Our story began with a simple signature, one that slowly turned into something magical. He was my financial advisor, and I was there to sign documents. It was July 5, 2021, and we met at the Lobby of the building. Little did we know, that ordinary day would start a story neither of us expected.
+            Our story began with a single signature—an unremarkable moment that quietly unfolded into something extraordinary. He was my financial advisor, and I had come merely to sign documents. On July 2021, we met in the lobby of the building, unaware that fate had already taken note. What seemed like an ordinary day became the first chapter of a love story neither of us saw coming.
             </p>
           </>
         }

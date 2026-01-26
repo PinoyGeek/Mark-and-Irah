@@ -30,6 +30,16 @@ const cinzel = Cinzel({
 export function Details() {
   const [copiedItems, setCopiedItems] = useState<Set<string>>(new Set())
   const [showImageModal, setShowImageModal] = useState<string | null>(null)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [rotationOffset, setRotationOffset] = useState(0)
+  
+  // Couple images from mobile-background (max 4)
+  const coupleImages = [
+    "/mobile-background/couple (1).webp",
+    "/desktop-background/couple (21).webp",
+    "/mobile-background/couple (22).webp",
+    "/mobile-background/couple (25).webp",
+  ]
   
   // Convert address to title case for display
   const formatAddress = (address: string) => {
@@ -87,6 +97,24 @@ export function Details() {
       document.body.style.overflow = "unset"
     }
   }, [showImageModal])
+
+  // Auto-rotate images in carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % coupleImages.length)
+    }, 3000) // Change image every 3 seconds
+
+    return () => clearInterval(interval)
+  }, [coupleImages.length])
+
+  // Continuous gentle rotation animation
+  useEffect(() => {
+    const rotationInterval = setInterval(() => {
+      setRotationOffset((prev) => (prev + 0.5) % 360)
+    }, 50) // Update rotation every 50ms for smooth animation
+
+    return () => clearInterval(rotationInterval)
+  }, [])
 
   const copyToClipboard = async (text: string, itemId: string) => {
     try {
@@ -290,6 +318,97 @@ export function Details() {
                   </>
                 )}
               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Gentle Reminders Container */}
+      <div className="relative z-10 max-w-4xl mx-auto px-3 sm:px-5 mt-8 sm:mt-12 md:mt-16">
+        <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-[#E1D5C7]/40 bg-[#E1D5C7] backdrop-blur-lg shadow-[0_18px_40px_rgba(225,213,199,0.15)]">
+          {/* Content */}
+          <div className="relative z-10 px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10">
+            {/* Animated couple photos carousel */}
+            <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8">
+              {coupleImages.map((image, index) => {
+                const isActive = index === currentImageIndex
+                // Alternate rotation: -5deg, 5deg, -3deg, 3deg for variety
+                const baseRotation = index === 0 ? -5 : index === 1 ? 5 : index === 2 ? -3 : 3
+                // Add gentle rotation animation for active image
+                const currentRotation = isActive 
+                  ? baseRotation + Math.sin(rotationOffset * Math.PI / 180) * 2 
+                  : baseRotation
+                
+                return (
+                  <div
+                    key={index}
+                    className={`relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg overflow-hidden border-2 border-[#E1D5C7]/60 shadow-lg transition-all duration-700 ease-in-out ${
+                      isActive ? 'scale-110 z-10' : 'scale-100 opacity-70'
+                    }`}
+                    style={{
+                      transform: `rotate(${currentRotation}deg) ${isActive ? 'scale(1.1)' : 'scale(1)'}`,
+                    }}
+                  >
+                    <Image
+                      src={image}
+                      alt={`Wedding couple ${index + 1}`}
+                      fill
+                      className={`object-cover transition-opacity duration-500 ${
+                        isActive ? 'opacity-100' : 'opacity-70'
+                      }`}
+                      sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
+                    />
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Title */}
+            <h3 className={`${cinzel.className} text-2xl sm:text-3xl md:text-4xl text-center text-[#606C60] mb-6 sm:mb-8 font-normal tracking-wide`}>
+              GENTLE REMINDERS
+            </h3>
+
+            {/* Reminders List */}
+            <div className="space-y-4 sm:space-y-5 md:space-y-6 max-w-2xl mx-auto">
+              {/* Children Reminder */}
+              <div className="bg-white/50 rounded-lg p-4 sm:p-5 md:p-6 border border-[#E1D5C7]/40 shadow-sm">
+                <h4 className={`${cinzel.className} text-base sm:text-lg md:text-xl font-semibold text-[#606C60] mb-2 sm:mb-3`}>
+                  CHILDREN
+                </h4>
+                <p className={`${cormorant.className} text-sm sm:text-base md:text-lg text-[#606C60]/90 leading-relaxed`}>
+                  To allow all of our guests to celebrate without distraction, we respectfully request that the wedding reception be an adults-only event. Thank you for your understanding.
+                </p>
+              </div>
+
+              {/* Unplugged Ceremony Reminder */}
+              <div className="bg-white/50 rounded-lg p-4 sm:p-5 md:p-6 border border-[#E1D5C7]/40 shadow-sm">
+                <h4 className={`${cinzel.className} text-base sm:text-lg md:text-xl font-semibold text-[#606C60] mb-2 sm:mb-3`}>
+                  UNPLUGGED CEREMONY
+                </h4>
+                <p className={`${cormorant.className} text-sm sm:text-base md:text-lg text-[#606C60]/90 leading-relaxed`}>
+                  We are having an unplugged ceremony, meaning we kindly ask all guests to put away their phones and cameras. We want everyone to be fully in the moment with us. Don't worry—our professional photographer will capture all the special moments, and we'll be happy to share them with you later!
+                </p>
+              </div>
+
+              {/* Arrival Reminder */}
+              <div className="bg-white/50 rounded-lg p-4 sm:p-5 md:p-6 border border-[#E1D5C7]/40 shadow-sm">
+                <h4 className={`${cinzel.className} text-base sm:text-lg md:text-xl font-semibold text-[#606C60] mb-2 sm:mb-3`}>
+                  ARRIVAL
+                </h4>
+                <p className={`${cormorant.className} text-sm sm:text-base md:text-lg text-[#606C60]/90 leading-relaxed`}>
+                  To ensure everything runs smoothly, please arrive at least 30 minutes before the ceremony starts. This will give you time to find your seat, take in the beautiful setup, and be fully present for our special moment.
+                </p>
+              </div>
+
+              {/* Gifts Reminder */}
+              <div className="bg-white/50 rounded-lg p-4 sm:p-5 md:p-6 border border-[#E1D5C7]/40 shadow-sm">
+                <h4 className={`${cinzel.className} text-base sm:text-lg md:text-xl font-semibold text-[#606C60] mb-2 sm:mb-3`}>
+                  GIFTS
+                </h4>
+                <p className={`${cormorant.className} text-sm sm:text-base md:text-lg text-[#606C60]/90 leading-relaxed`}>
+                  Your presence is already the greatest gift, but if you'd like to give something, cash gifts are preferred. This will help us start our new journey together in the most meaningful way.
+                </p>
+              </div>
             </div>
           </div>
         </div>

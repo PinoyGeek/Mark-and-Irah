@@ -15,7 +15,7 @@ export const siteConfig = {
   },
   details: {
     rsvp: {
-      deadline: "September 01, 2026",
+      deadline: "July 01, 2026",
       contact: "Monique Ogalesco",
       phone: "647-622-5353",
     },

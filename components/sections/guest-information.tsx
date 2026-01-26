@@ -155,7 +155,7 @@ export function GuestInformation() {
                 <div 
                   className="w-full h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
                   style={{ 
-                    backgroundColor: '#DFDBD2',
+                    backgroundColor: '#E7E7E7',
                     clipPath: 'polygon(0 12%, 50% 0%, 100% 12%, 100% 100%, 0% 100%)',
                     borderRadius: '0 0 4px 4px',
                     boxShadow: '0 2px 8px rgba(223, 219, 210, 0.25)',
