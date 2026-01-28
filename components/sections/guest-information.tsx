@@ -98,12 +98,24 @@ export function GuestInformation() {
                   Attire guide
                 </h5>
                 <p className={`${cormorant.className} text-xs sm:text-sm md:text-base lg:text-lg text-center text-[#606C60] font-semibold`}>
-                  Strictly semi formal/ formal attire
+                  strictly formal attire
                 </p>
               </div>
               <p className={`${cormorant.className} text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-center text-[#606C60] max-w-3xl mx-auto leading-relaxed sm:leading-loose`}>
                 We know many like to come dressed to compliment the big day. Provided below is the color palette of our day. We look forward to seeing you all!
               </p>
+            </div>
+
+            {/* Attire guide image */}
+            <div className="mb-5 sm:mb-6 md:mb-8 lg:mb-10 relative z-10 flex justify-center px-2">
+              <Image
+                src="/Details/attire.png"
+                alt="Attire guide - semi formal and formal dress code"
+                width={800}
+                height={600}
+                className="w-full max-w-2xl h-auto object-contain"
+                priority={false}
+              />
             </div>
 
             {/* Color Palette - 5 blocks with arched tops */}
@@ -150,12 +162,12 @@ export function GuestInformation() {
                 />
               </div>
               
-              {/* Color 4: #DFDBD2 */}
+              {/* Color 4: #737373 */}
               <div className="flex-1 max-w-[60px] sm:max-w-[70px] md:max-w-[90px] lg:max-w-[110px] xl:max-w-[130px] group">
                 <div 
                   className="w-full h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
                   style={{ 
-                    backgroundColor: '#E7E7E7',
+                    backgroundColor: '#737373',
                     clipPath: 'polygon(0 12%, 50% 0%, 100% 12%, 100% 100%, 0% 100%)',
                     borderRadius: '0 0 4px 4px',
                     boxShadow: '0 2px 8px rgba(223, 219, 210, 0.25)',

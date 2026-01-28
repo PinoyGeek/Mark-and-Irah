@@ -4,7 +4,7 @@ import React from "react"
 import { useState, useEffect, useMemo, useRef } from "react"
 import { siteConfig } from "@/content/site"
 import { Loader2, Users } from "lucide-react"
-import { Cormorant_Garamond, Cinzel } from "next/font/google"
+import { Cormorant_Garamond, Cinzel, Great_Vibes } from "next/font/google"
 import Image from "next/image"
 
 const cormorant = Cormorant_Garamond({
@@ -15,6 +15,11 @@ const cormorant = Cormorant_Garamond({
 const cinzel = Cinzel({
   subsets: ["latin"],
   weight: ["400"],
+})
+
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: "400",
 })
 
 interface EntourageMember {
@@ -150,7 +155,7 @@ export function Entourage() {
     return grouped
   }, [entourage])
 
-  // Helper component for elegant section titles
+  // Helper component for elegant section titles (category labels)
   const SectionTitle = ({ 
     children,
     align = "center",
@@ -164,7 +169,7 @@ export function Entourage() {
       align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
     return (
        <h3
-         className={`relative ${cinzel.className} text-xs sm:text-sm md:text-sm lg:text-base font-extrabold uppercase text-[#606C60] mb-1 sm:mb-1.5 md:mb-2 tracking-[0.14em] sm:tracking-[0.18em] ${textAlign} ${className} transition-all duration-300 whitespace-nowrap`}
+         className={`relative ${greatVibes.className} text-base sm:text-lg md:text-xl lg:text-2xl font-normal text-[#606C60] mb-1 sm:mb-1.5 md:mb-2 ${textAlign} ${className} transition-all duration-300 whitespace-nowrap`}
        >
         {children}
       </h3>

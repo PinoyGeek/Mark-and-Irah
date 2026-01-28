@@ -48,6 +48,11 @@ const faqItems: FAQItem[] = [
       "Each invitation includes a specific number of reserved seats. Please check your invitation details in the RSVP section. If you need to request additional seats, you can use the 'Request to Join' feature, and we'll do our best to accommodate based on availability.",
   },
   {
+    question: "Can I bring my children?",
+    answer:
+      "While we love your little ones, we kindly request an adults-only celebration so everyone can relax and enjoy the evening.",
+  },
+  {
     question: "Is there a dress code?",
     answer:
       `Wedding ATTIRE found in guest details section.\n\nAttire guide\nStrictly semi formal/ formal attire\n\nWe know many like to come dressed to compliment the big day. Provided below is the color palette of our day. We look forward to seeing you all!`,

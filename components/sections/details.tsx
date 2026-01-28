@@ -376,7 +376,7 @@ export function Details() {
                   CHILDREN
                 </h4>
                 <p className={`${cormorant.className} text-sm sm:text-base md:text-lg text-[#606C60]/90 leading-relaxed`}>
-                  To allow all of our guests to celebrate without distraction, we respectfully request that the wedding reception be an adults-only event. Thank you for your understanding.
+                  While we love your little ones, we kindly request an adults-only celebration so everyone can relax and enjoy the evening.
                 </p>
               </div>
 
