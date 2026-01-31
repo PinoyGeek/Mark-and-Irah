@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useState, useCallback, useEffect } from "react"
+import Image from "next/image"
 import { MessageCircle, Heart, Sparkles, Send } from "lucide-react"
 import { Section } from "@/components/section"
 import { Card, CardContent } from "@/components/ui/card"
@@ -21,6 +22,9 @@ const cinzel = Cinzel({
   subsets: ["latin"],
   weight: "400",
 })
+
+const MSG_COLOR = "#9B6A41"
+const DECO_FILTER = "brightness(0) invert(1)"
 
 interface Message {
   timestamp: string
@@ -111,30 +115,23 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
       `}</style>
       
       {/* Decorative background elements */}
-      <div className="absolute -top-3 -left-3 w-8 h-8 bg-[#606C60]/25 rounded-full blur-sm animate-pulse-slow" />
-      <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#606C60]/30 rounded-full blur-md animate-pulse-slow" />
+      <div className="absolute -top-3 -left-3 w-8 h-8 bg-[#9B6A41]/20 rounded-full blur-sm animate-pulse-slow" />
+      <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#9B6A41]/20 rounded-full blur-md animate-pulse-slow" />
       
-      <Card className={`relative w-full border-2 border-[#606C60]/70 shadow-[0_12px_30px_rgba(96,108,96,0.35)] bg-[#E1D5C7] backdrop-blur-md transition-all duration-500 group overflow-hidden rounded-2xl ${
-        isFocused ? 'scale-[1.01] border-[#606C60] bg-[#E1D5C7]' : 'hover:bg-[#E1D5C7]'
+      <Card className={`relative w-full border-2 border-[#9B6A41]/40 shadow-[0_12px_30px_rgba(155,106,65,0.15)] bg-white backdrop-blur-md transition-all duration-500 group overflow-hidden rounded-2xl ${
+        isFocused ? 'scale-[1.01] border-[#9B6A41]' : 'hover:border-[#9B6A41]/60'
       } ${isSubmitted ? 'animate-bounce' : ''}`}>
-        {/* Glass effect gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#606C60]/22 via-[#E1D5C7]/10 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#E1D5C7]/30 via-transparent to-transparent"></div>
-        
-        {/* Frosted glass effect */}
-        <div className="absolute inset-0 backdrop-blur-xl bg-gradient-to-br from-[#E1D5C7]/18 to-[#E1D5C7]/6" />
-        
-        {/* Animated shine effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#606C60]/28 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+        {/* Subtle overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#9B6A41]/05 via-transparent to-transparent pointer-events-none" />
         
         {/* Success animation overlay */}
         {isSubmitted && (
-          <div className="absolute inset-0 bg-gradient-to-br from-[#606C60]/25 via-[#606C60]/20 to-transparent flex items-center justify-center z-20 pointer-events-none">
+          <div className="absolute inset-0 bg-white/90 flex items-center justify-center z-20 pointer-events-none">
             <div className="flex flex-col items-center gap-2 animate-pulse">
-              <div className="w-16 h-16 bg-[#606C60] rounded-full flex items-center justify-center shadow-lg">
-                <Sparkles className="h-8 w-8 text-[#E1D5C7]" />
+              <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: MSG_COLOR }}>
+                <Sparkles className="h-8 w-8 text-white" />
               </div>
-              <p className="text-[#606C60] font-semibold text-lg">Sent!</p>
+              <p className="font-semibold text-lg" style={{ color: MSG_COLOR }}>Sent!</p>
             </div>
           </div>
         )}
@@ -143,15 +140,15 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
           {/* Header with icon */}
           <div className="text-center mb-3 sm:mb-4 md:mb-5 lg:mb-6">
             <div className="relative inline-block mb-2 sm:mb-3 md:mb-4">
-              <div className="absolute inset-0 bg-[#606C60]/40 rounded-full blur-lg scale-150" />
-              <div className="relative w-9 h-9 sm:w-11 sm:h-11 md:w-14 md:h-14 bg-[#606C60] rounded-full flex items-center justify-center mx-auto shadow-lg">
-                <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-[#E1D5C7]" />
+              <div className="absolute inset-0 bg-[#9B6A41]/30 rounded-full blur-lg scale-150" />
+              <div className="relative w-9 h-9 sm:w-11 sm:h-11 md:w-14 md:h-14 rounded-full flex items-center justify-center mx-auto shadow-lg" style={{ backgroundColor: MSG_COLOR }}>
+                <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white" />
               </div>
             </div>
-            <h3 className={`${cinzel.className} text-base sm:text-lg md:text-xl font-bold text-[#606C60] mb-1.5 sm:mb-2`}>
+            <h3 className={`${cinzel.className} text-base sm:text-lg md:text-xl font-bold mb-1.5 sm:mb-2`} style={{ color: MSG_COLOR }}>
               Share Your Love
             </h3>
-            <p className={`${cormorant.className} text-[10px] sm:text-xs md:text-sm text-[#606C60]/70`}>
+            <p className={`${cormorant.className} text-[10px] sm:text-xs md:text-sm`} style={{ color: MSG_COLOR, opacity: 0.85 }}>
               Your words will be part of {coupleDisplayName}&apos;s keepsake for years to come.
             </p>
           </div>
@@ -165,11 +162,9 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
           >
             {/* Name Field */}
             <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
-              <label className={`${cormorant.className} block text-xs sm:text-sm md:text-base font-medium text-[#606C60] flex items-center gap-1.5 sm:gap-2`}>
-                <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#606C60]/25 to-[#606C60]/25 rounded-full flex items-center justify-center transition-all duration-300 ${
-                  focusedField === 'name' ? 'scale-110 bg-[#606C60]/40' : ''
-                }`}>
-                  <Heart className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-[#606C60]" />
+              <label className={`${cormorant.className} block text-xs sm:text-sm md:text-base font-medium flex items-center gap-1.5 sm:gap-2`} style={{ color: MSG_COLOR }}>
+                <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center transition-all duration-300 ${focusedField === 'name' ? 'scale-110' : ''}`} style={{ backgroundColor: `${MSG_COLOR}20` }}>
+                  <Heart className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4" style={{ color: MSG_COLOR }} />
                 </div>
                 Your Name
               </label>
@@ -182,11 +177,12 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                   onFocus={() => setFocusedField('name')}
                   onBlur={() => setFocusedField(null)}
                   placeholder="Full Name"
-                  className={`${cormorant.className} message-form-input w-full border-2 rounded-xl py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-3 sm:px-4 md:px-5 text-xs sm:text-sm md:text-base placeholder:italic transition-all duration-300 bg-[#E1D5C7] backdrop-blur-sm shadow-sm hover:shadow-md focus:shadow-lg text-[#606C60] ${
+                  className={`${cormorant.className} message-form-input w-full border-2 rounded-xl py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-3 sm:px-4 md:px-5 text-xs sm:text-sm md:text-base placeholder:italic transition-all duration-300 bg-white shadow-sm hover:shadow-md focus:shadow-lg ${
                     focusedField === 'name' 
-                      ? 'border-[#606C60] focus:border-[#606C60] focus:ring-4 focus:ring-[#606C60]/25 shadow-lg' 
-                      : 'border-[#606C60]/40 hover:border-[#606C60]/40'
+                      ? 'border-[#9B6A41] focus:border-[#9B6A41] focus:ring-4 focus:ring-[#9B6A41]/25 shadow-lg' 
+                      : 'border-[#9B6A41]/40 hover:border-[#9B6A41]/50'
                   }`}
+                  style={{ color: MSG_COLOR }}
                 />
                 {nameValue && (
                   <div className="absolute right-3 top-1/2 -translate-y-1/2">
@@ -199,18 +195,14 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             {/* Message Field */}
             <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
               <div className="flex items-center justify-between">
-                <label className={`${cormorant.className} block text-xs sm:text-sm md:text-base font-medium text-[#606C60] flex items-center gap-1.5 sm:gap-2`}>
-                  <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-gradient-to-br from-[#606C60]/25 to-[#606C60]/25 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    focusedField === 'message' ? 'scale-110 bg-[#606C60]/40' : ''
-                  }`}>
-                    <MessageCircle className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 text-[#606C60]" />
+                <label className={`${cormorant.className} block text-xs sm:text-sm md:text-base font-medium flex items-center gap-1.5 sm:gap-2`} style={{ color: MSG_COLOR }}>
+                  <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center transition-all duration-300 ${focusedField === 'message' ? 'scale-110' : ''}`} style={{ backgroundColor: `${MSG_COLOR}20` }}>
+                    <MessageCircle className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4" style={{ color: MSG_COLOR }} />
                   </div>
                   Your Message
                 </label>
                 {messageValue && (
-                  <span className={`${cormorant.className} text-[10px] sm:text-xs transition-colors ${
-                    messageValue.length > 500 ? 'text-red-500' : 'text-[#606C60]/50'
-                  }`}>
+                  <span className={`${cormorant.className} text-[10px] sm:text-xs transition-colors ${messageValue.length > 500 ? 'text-red-500' : ''}`} style={messageValue.length <= 500 ? { color: MSG_COLOR, opacity: 0.6 } : undefined}>
                     {messageValue.length}/500
                   </span>
                 )}
@@ -228,11 +220,12 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                   onFocus={() => setFocusedField('message')}
                   onBlur={() => setFocusedField(null)}
                   placeholder={`Write a heartfelt message for ${coupleDisplayName}... share your wishes, memories, or words of love that will be treasured forever 💕`}
-                  className={`${cormorant.className} message-form-textarea w-full border-2 rounded-xl min-h-[80px] sm:min-h-[100px] md:min-h-[120px] text-xs sm:text-sm md:text-base placeholder:italic placeholder:leading-relaxed transition-all duration-300 resize-none bg-[#E1D5C7] backdrop-blur-sm shadow-sm hover:shadow-md focus:shadow-lg py-2 sm:py-3 md:py-4 px-3 sm:px-4 md:px-5 text-[#606C60] ${
+                  className={`${cormorant.className} message-form-textarea w-full border-2 rounded-xl min-h-[80px] sm:min-h-[100px] md:min-h-[120px] text-xs sm:text-sm md:text-base placeholder:italic placeholder:leading-relaxed transition-all duration-300 resize-none bg-white shadow-sm hover:shadow-md focus:shadow-lg py-2 sm:py-3 md:py-4 px-3 sm:px-4 md:px-5 ${
                     focusedField === 'message' 
-                      ? 'border-[#606C60] focus:border-[#606C60] focus:ring-4 focus:ring-[#606C60]/25 shadow-lg' 
-                      : 'border-[#606C60]/40 hover:border-[#606C60]/40'
+                      ? 'border-[#9B6A41] focus:border-[#9B6A41] focus:ring-4 focus:ring-[#9B6A41]/25 shadow-lg' 
+                      : 'border-[#9B6A41]/40 hover:border-[#9B6A41]/50'
                   }`}
+                  style={{ color: MSG_COLOR }}
                 />
                 {messageValue && (
                   <div className="absolute right-3 top-3">
@@ -246,20 +239,20 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             <Button
               type="submit"
               disabled={isSubmitting || !nameValue.trim() || !messageValue.trim()}
-              className={`${cormorant.className} w-full text-[#E1D5C7] py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-4 sm:px-5 md:px-6 lg:px-7 rounded-xl text-xs sm:text-sm md:text-base font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group border border-[#606C60]`}
+              className={`${cormorant.className} w-full text-white py-2 sm:py-2.5 md:py-3 lg:py-3.5 px-4 sm:px-5 md:px-6 lg:px-7 rounded-xl text-xs sm:text-sm md:text-base font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group border border-[#9B6A41]`}
               style={{ 
-                backgroundColor: "#606C60",
-                boxShadow: "0 6px 20px rgba(96,108,96,0.35), 0 2px 8px rgba(96,108,96,0.2)",
+                backgroundColor: MSG_COLOR,
+                boxShadow: "0 6px 20px rgba(155,106,65,0.3), 0 2px 8px rgba(155,106,65,0.15)",
               }}
               onMouseEnter={(e) => {
                 if (!e.currentTarget.disabled) {
-                  e.currentTarget.style.backgroundColor = "#4d5650";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(96,108,96,0.4), 0 3px 10px rgba(96,108,96,0.25)";
+                  e.currentTarget.style.backgroundColor = "#7d5534";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(155,106,65,0.35), 0 3px 10px rgba(155,106,65,0.2)";
                 }
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#606C60";
-                e.currentTarget.style.boxShadow = "0 6px 20px rgba(96,108,96,0.35), 0 2px 8px rgba(96,108,96,0.2)";
+                e.currentTarget.style.backgroundColor = MSG_COLOR;
+                e.currentTarget.style.boxShadow = "0 6px 20px rgba(155,106,65,0.3), 0 2px 8px rgba(155,106,65,0.15)";
               }}
             >
               {isSubmitting ? (
@@ -272,7 +265,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                 </span>
               ) : (
                 <span className="flex items-center justify-center gap-2 relative z-10">
-                  <Send className="h-4 w-4 sm:h-5 sm:w-5 text-[#E1D5C7]" />
+                  <Send className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                   Send Message
                 </span>
               )}
@@ -329,23 +322,32 @@ export function Messages() {
       id="messages"
       className="relative overflow-hidden"
     >
-      <div className="relative max-w-6xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
+      {/* Corner floral decoration - white (same as welcome/countdown) */}
+      <div className="absolute left-0 top-0 z-0 pointer-events-none">
+        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-60 scale-y-[-1]" priority={false} style={{ filter: DECO_FILTER }} />
+      </div>
+      <div className="absolute right-0 top-0 z-0 pointer-events-none">
+        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-60 scale-x-[-1] scale-y-[-1]" priority={false} style={{ filter: DECO_FILTER }} />
+      </div>
+      <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
+        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-60" priority={false} style={{ filter: DECO_FILTER }} />
+      </div>
+      <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
+        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-60 scale-x-[-1]" priority={false} style={{ filter: DECO_FILTER }} />
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10">
           <div className="space-y-2 sm:space-y-2.5">
-            <p
-              className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-white`}
-            >
+            <p className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-white`}>
               Messages for {coupleDisplayName}
             </p>
             <h2 className={`${cinzel.className} text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white`}>
               Love notes &amp; prayers
             </h2>
           </div>
-          
-          <p
-            className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white font-light max-w-3xl mx-auto leading-relaxed px-2 sm:px-4 mt-2`}
-          >
+          <p className={`${cormorant.className} text-xs sm:text-sm md:text-base font-light max-w-3xl mx-auto leading-relaxed px-2 sm:px-4 mt-2 text-white`}>
             Leave a short note for {coupleDisplayName}. Every wish and prayer becomes part of their forever story.
           </p>
         </div>
@@ -371,17 +373,16 @@ export function Messages() {
         <div className="relative max-w-4xl mx-auto">
           <div className="text-center mb-4 sm:mb-6 md:mb-8">
             <div className="relative inline-block mb-3 sm:mb-4 md:mb-6">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#606C60]/50 via-[#606C60]/35 to-[#606C60]/30 rounded-full blur-xl scale-150 animate-pulse-slow" />
-              <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 bg-gradient-to-br from-[#606C60] via-[#606C60] to-[#606C60] rounded-full flex items-center justify-center mx-auto shadow-lg hover:scale-110 transition-transform duration-300">
-                <MessageCircle className="h-4 w-4 sm:h-6 sm:h-6 md:h-8 md:w-8 text-[#E1D5C7]" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#9B6A41]/30 via-[#9B6A41]/20 to-[#9B6A41]/20 rounded-full blur-xl scale-150 animate-pulse-slow" />
+              <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center mx-auto shadow-lg hover:scale-110 transition-transform duration-300" style={{ backgroundColor: MSG_COLOR }}>
+                <MessageCircle className="h-4 w-4 sm:h-6 sm:h-6 md:h-8 md:w-8 text-white" />
               </div>
-              {/* Outer glow ring */}
-              <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-[#606C60]/35 via-[#606C60]/25 to-[#606C60]/25 blur-md opacity-0 hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute -inset-2 rounded-full bg-[#9B6A41]/20 blur-md opacity-0 hover:opacity-100 transition-opacity duration-300" />
             </div>
-            <h3 className={`${cinzel.className} text-lg sm:text-xl md:text-2xl font-bold text-white mb-1.5 sm:mb-2 md:mb-3`}>
+            <h3 className={`${cinzel.className} text-lg sm:text-xl md:text-2xl font-bold mb-1.5 sm:mb-2 md:mb-3 text-white`}>
               Messages from Loved Ones
             </h3>
-            <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white max-w-2xl mx-auto px-2 sm:px-4`}>
+            <p className={`${cormorant.className} text-xs sm:text-sm md:text-base max-w-2xl mx-auto px-2 sm:px-4 text-white`}>
               Read the beautiful messages shared by family and friends
             </p>
           </div>

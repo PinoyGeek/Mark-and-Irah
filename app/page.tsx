@@ -55,19 +55,21 @@ export default function Home() {
             {enableDecor && (
               <div className="fixed inset-0 z-0 pointer-events-none">
                 <Suspense fallback={<div className="w-full h-full bg-gradient-to-b from-primary/10 to-secondary/5" />}>
-                  <Silk speed={5} scale={1.1} color="#96A298" noiseIntensity={0.8} rotation={0.3} />
+                  <Silk speed={5} scale={1.1} color="#9B6A41" noiseIntensity={0.8} rotation={0.3} />
                 </Suspense>
               </div>
             )}
 
             <div className="relative z-10">
               {appState === AppState.DETAILS && <Navbar />}
+              {/* Spacer so content starts below fixed navbar (h-12 sm:h-14 md:h-16) */}
+              {appState === AppState.DETAILS && <div className="h-12 sm:h-14 md:h-16" aria-hidden />}
               <MainHero />
               <Welcome />
-              <CoupleVideo /> 
+              {/* <CoupleVideo />  */}
               <Countdown />
-              <LoveStory />
-              <Gallery />
+              {/* <LoveStory /> */}
+              {/* <Gallery /> */}
               <Messages />
               <Details />
               <GuestInformation />
@@ -78,7 +80,7 @@ export default function Home() {
               <GuestList />
               <BookOfGuests />
               <FAQ />
-              {/* <Registry /> */}
+              <Registry />
               <SnapShare />
               <Footer />
             </div>

@@ -169,55 +169,49 @@ export function Countdown() {
       id="countdown"
       className="relative py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Flower decoration - top left corner */}
+      {/* Corner floral decoration - white */}
       <div className="absolute left-0 top-0 z-0 pointer-events-none">
         <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
-          alt="Flower decoration"
+          alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-y-[-1]"
           priority={false}
-          style={{ filter: 'brightness(0) saturate(100%) invert(88%) sepia(5%) saturate(500%) hue-rotate(10deg) brightness(110%) contrast(90%)' }}
+          style={{ filter: "brightness(0) invert(1)" }}
         />
       </div>
-      
-      {/* Flower decoration - top right corner */}
       <div className="absolute right-0 top-0 z-0 pointer-events-none">
         <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
-          alt="Flower decoration"
+          alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-x-[-1] scale-y-[-1]"
           priority={false}
-          style={{ filter: 'brightness(0) saturate(100%) invert(88%) sepia(5%) saturate(500%) hue-rotate(10deg) brightness(110%) contrast(90%)' }}
+          style={{ filter: "brightness(0) invert(1)" }}
         />
       </div>
-      
-      {/* Flower decoration - left bottom corner */}
       <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
         <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
-          alt="Flower decoration"
+          alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
           priority={false}
-          style={{ filter: 'brightness(0) saturate(100%) invert(88%) sepia(5%) saturate(500%) hue-rotate(10deg) brightness(110%) contrast(90%)' }}
+          style={{ filter: "brightness(0) invert(1)" }}
         />
       </div>
-      
-      {/* Flower decoration - right bottom corner */}
       <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
         <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
-          alt="Flower decoration"
+          alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-x-[-1]"
           priority={false}
-          style={{ filter: 'brightness(0) saturate(100%) invert(88%) sepia(5%) saturate(500%) hue-rotate(10deg) brightness(110%) contrast(90%)' }}
+          style={{ filter: "brightness(0) invert(1)" }}
         />
       </div>
       
@@ -231,7 +225,7 @@ export function Countdown() {
         >
           <div className="relative w-72 h-72 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[36rem] lg:h-[36rem] xl:w-[40rem] xl:h-[40rem] opacity-90">
             <Image
-              src="/monogram/newMonogram.png"
+              src="/monogram/newmonogram.png"
               alt={`${groomNickname} & ${brideNickname} Monogram`}
               fill
               className="object-contain"

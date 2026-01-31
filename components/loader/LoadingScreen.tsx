@@ -44,9 +44,22 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       <div 
         className="absolute inset-0"
         style={{
-          backgroundColor: '#606C60'
+          backgroundColor: '#FFFFFF'
         }}
       />
+
+      {/* Date background watermark */}
+      <div
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+        aria-hidden
+      >
+        <span
+          className="text-[clamp(8rem,25vw,18rem)] font-extralight tracking-[0.2em] opacity-[0.06]"
+          style={{ fontFamily: '"Cinzel", serif', color: '#9B6A41' }}
+        >
+          03 26 26
+        </span>
+      </div>
 
       {/* Corner floral decoration */}
       <div className="absolute inset-0 pointer-events-none">
@@ -57,7 +70,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           width={300}
           height={300}
           className="absolute top-0 left-0 w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
-          style={{ transform: 'scaleY(-1)', filter: 'brightness(0) saturate(100%) invert(89%) sepia(5%) saturate(800%) hue-rotate(10deg) brightness(105%) contrast(90%)' }}
+          style={{ transform: 'scaleY(-1)', filter: 'brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(900%) hue-rotate(355deg) brightness(95%) contrast(90%)' }}
           priority={false}
         />
         {/* Top right */}
@@ -67,7 +80,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           width={300}
           height={300}
           className="absolute top-0 right-0 w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
-          style={{ transform: 'scaleX(-1) scaleY(-1)', filter: 'brightness(0) saturate(100%) invert(89%) sepia(5%) saturate(800%) hue-rotate(10deg) brightness(105%) contrast(90%)' }}
+          style={{ transform: 'scaleX(-1) scaleY(-1)', filter: 'brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(900%) hue-rotate(355deg) brightness(95%) contrast(90%)' }}
           priority={false}
         />
         {/* Bottom left */}
@@ -77,7 +90,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           width={300}
           height={300}
           className="absolute bottom-0 left-0 w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
-          style={{ filter: 'brightness(0) saturate(100%) invert(89%) sepia(5%) saturate(800%) hue-rotate(10deg) brightness(105%) contrast(90%)' }}
+          style={{ filter: 'brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(900%) hue-rotate(355deg) brightness(95%) contrast(90%)' }}
           priority={false}
         />
         {/* Bottom right */}
@@ -87,7 +100,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           width={300}
           height={300}
           className="absolute bottom-0 right-0 w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
-          style={{ transform: 'scaleX(-1)', filter: 'brightness(0) saturate(100%) invert(89%) sepia(5%) saturate(800%) hue-rotate(10deg) brightness(105%) contrast(90%)' }}
+          style={{ transform: 'scaleX(-1)', filter: 'brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(900%) hue-rotate(355deg) brightness(95%) contrast(90%)' }}
           priority={false}
         />
       </div>
@@ -97,12 +110,12 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         <div className="relative flex items-center justify-center mb-8 sm:mb-12">
           <div className="relative w-28 sm:w-40 h-28 sm:h-40">
             <Image
-              src="/monogram/newMonogram.png"
+              src="/monogram/newmonogram.png"
               alt="Monogram"
               fill
               className="object-contain"
               priority
-              style={{ filter: 'brightness(0) saturate(100%) invert(89%) sepia(5%) saturate(800%) hue-rotate(10deg) brightness(105%) contrast(90%)' }}
+              style={{ filter: 'brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(900%) hue-rotate(355deg) brightness(95%) contrast(90%)' }}
             />
           </div>
         </div>
@@ -111,42 +124,42 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         <div className="text-center w-full max-w-sm sm:max-w-2xl mx-auto px-6 sm:px-8 md:px-12">
           {/* Couple names */}
           <div
-            className="text-3xl sm:text-5xl md:text-6xl mb-6 sm:mb-8 leading-tight"
-            style={{ fontFamily: '"Cinzel", serif', fontWeight: 400, fontStyle: 'normal', color: '#E1D5C7' }}
+            className="text-3xl sm:text-5xl md:text-6xl mb-4 sm:mb-6 leading-tight"
+            style={{ fontFamily: '"Cinzel", serif', fontWeight: 400, fontStyle: 'normal', color: '#9B6A41' }}
           >
             <div>{siteConfig.couple.groomNickname}</div>
             <div>&</div>
             <div>{siteConfig.couple.brideNickname}</div>
           </div>
 
-          {/* Message */}
-          <div className="space-y-4 sm:space-y-5 mb-6 sm:mb-8">
+          {/* Invitation text */}
+          <div className="space-y-1 sm:space-y-2 mb-6 sm:mb-8">
             <p
-              className="text-sm sm:text-base leading-relaxed sm:leading-loose tracking-wide"
-              style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400, color: '#E1D5C7' }}
+              className="text-xs sm:text-sm tracking-[0.25em] uppercase"
+              style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 500, color: '#9B6A41', letterSpacing: '0.2em' }}
             >
-              Behind the scenes, something beautiful is gently coming together—woven with love, dreams, and shared moments. This space is being shaped with care, patience, and heartfelt intention.
+              Together with their families
             </p>
             <p
-              className="text-sm sm:text-base leading-relaxed sm:leading-loose tracking-wide"
-              style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400, color: '#E1D5C7' }}
+              className="text-base sm:text-lg tracking-wide"
+              style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400, color: '#9B6A41' }}
             >
-              Please hold on for just a moment as we reveal something special, made not just to be seen, but to be felt.
+              Preparing your invitation
             </p>
           </div>
 
           {/* Progress bar */}
-          <div className="relative w-full max-w-xs sm:max-w-sm h-0.5 mx-auto rounded-full overflow-hidden mb-3 sm:mb-4" style={{ backgroundColor: 'rgba(225, 213, 199, 0.3)' }}>
+          <div className="relative w-full max-w-xs sm:max-w-sm h-0.5 mx-auto rounded-full overflow-hidden mb-3 sm:mb-4" style={{ backgroundColor: 'rgba(155, 106, 65, 0.3)' }}>
             <div 
               className="absolute inset-y-0 left-0 transition-all duration-300 ease-out rounded-full"
-              style={{ width: `${progress}%`, backgroundColor: '#E1D5C7' }}
+              style={{ width: `${progress}%`, backgroundColor: '#9B6A41' }}
             />
           </div>
           
           {/* Progress percentage */}
           <p
             className="text-[8px] sm:text-[9px] tracking-[0.2em]"
-            style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400, color: '#E1D5C7' }}
+            style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400, color: '#9B6A41' }}
           >
             {progress}%
           </p>

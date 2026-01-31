@@ -20,10 +20,16 @@ const cinzel = Cinzel({
 
 const { groomNickname, brideNickname } = siteConfig.couple
 const ceremonyTime = siteConfig.ceremony.time
-const guestsTime = siteConfig.ceremony.guestsTime
+const guestsTime = siteConfig.ceremony.guestsTime ?? "12:30 PM"
 const ceremonyVenue = siteConfig.ceremony.venue
 const receptionVenue = siteConfig.reception.venue
 const receptionTime = siteConfig.reception.time
+
+const TIMELINE_TEXT = "#9B6A41"
+const DECO_FILTER =
+  "brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(900%) hue-rotate(355deg) brightness(95%) contrast(90%)"
+// White tint for corner florals in timeline header area
+const DECO_FILTER_WHITE = "brightness(0) saturate(100%) invert(1)"
 
 type TimelineIcon = React.ComponentType<React.SVGProps<SVGSVGElement>>
 
@@ -39,7 +45,7 @@ interface TimelineEvent {
 
 const timelineEvents: TimelineEvent[] = [
   {
-    time: "3:30 PM",
+    time: guestsTime,
     title: "Arrival",
     description: "Please arrive on time to find your seat, settle in, and get ready for the celebration.",
     location: ceremonyVenue,
@@ -47,7 +53,7 @@ const timelineEvents: TimelineEvent[] = [
     imageSrc: "/weddingtimeline/arrivalimage.png",
   },
   {
-    time: "4:00 PM",
+    time: ceremonyTime,
     title: "Wedding Ceremony",
     description: `Join us as ${groomNickname} & ${brideNickname} exchange vows and begin their life together.`,
     location: ceremonyVenue,
@@ -94,43 +100,85 @@ export function WeddingTimeline() {
       id="wedding-timeline"
       className="relative py-8 sm:py-10 md:py-14 lg:py-18 overflow-hidden"
     >
-      {/* Header */}
+      {/* Corner floral decoration - white */}
+      <div className="absolute inset-0 pointer-events-none z-[1]">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt=""
+          width={300}
+          height={300}
+          className="absolute top-0 left-0 w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-25"
+          style={{ transform: "scaleY(-1)", filter: DECO_FILTER_WHITE }}
+          priority={false}
+        />
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt=""
+          width={300}
+          height={300}
+          className="absolute top-0 right-0 w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-25"
+          style={{ transform: "scaleX(-1) scaleY(-1)", filter: DECO_FILTER_WHITE }}
+          priority={false}
+        />
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt=""
+          width={300}
+          height={300}
+          className="absolute bottom-0 left-0 w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-25"
+          style={{ filter: DECO_FILTER_WHITE }}
+          priority={false}
+        />
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt=""
+          width={300}
+          height={300}
+          className="absolute bottom-0 right-0 w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-25"
+          style={{ transform: "scaleX(-1)", filter: DECO_FILTER_WHITE }}
+          priority={false}
+        />
+      </div>
+
+      {/* Header - white text */}
       <div className="relative z-10 text-center mb-6 sm:mb-9 md:mb-12 px-3 sm:px-4">
-        {/* Small label */}
         <p
-          className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm tracking-[0.3em] uppercase text-white mb-2`}
+          className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm tracking-[0.3em] uppercase mb-2 text-white`}
         >
           Day Schedule
         </p>
 
-        <h2 className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-1.5 sm:mb-3 md:mb-4`}>
+        <h2 className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal mb-1.5 sm:mb-3 md:mb-4 text-white`}>
           Wedding Timeline
         </h2>
 
-        <p className={`${cormorant.className} text-[11px] sm:text-sm md:text-base lg:text-lg text-white max-w-xl mx-auto leading-relaxed px-2`}>
+        <p className={`${cormorant.className} text-[11px] sm:text-sm md:text-base lg:text-lg max-w-xl mx-auto leading-relaxed px-2 text-white/90`}>
           A simple overview of the key moments of our day, from arrival to farewell.
         </p>
 
-        {/* Simple divider */}
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#606C60]/60" />
-          <div className="w-1.5 h-1.5 bg-[#606C60]/80 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#606C60]/60 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-[#606C60]/80 rounded-full" />
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-[#606C60]/60" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-white/50" />
+          <div className="w-1.5 h-1.5 bg-white/80 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+          <div className="w-1.5 h-1.5 bg-white/80 rounded-full" />
+          <div className="w-8 sm:w-12 md:w-16 h-px bg-white/50" />
         </div>
       </div>
 
-      {/* Timeline - improved desktop layout */}
+      {/* Timeline */}
       <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-5 lg:px-8">
-        {/* Vertical timeline line - desktop (aligned with left icons) */}
-        <div className="hidden md:block absolute left-[4rem] md:left-[5rem] lg:left-[6rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#606C60]/40 via-[#606C60]/55 to-[#606C60]/40 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#606C60]" />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#606C60]" />
+        <div
+          className="hidden md:block absolute left-[4rem] md:left-[5rem] lg:left-[6rem] top-0 bottom-0 w-0.5 bg-gradient-to-b pointer-events-none opacity-50"
+          style={{ background: `linear-gradient(to bottom, ${TIMELINE_TEXT}40, ${TIMELINE_TEXT}88, ${TIMELINE_TEXT}40)` }}
+        >
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: TIMELINE_TEXT }} />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: TIMELINE_TEXT }} />
         </div>
 
-        {/* Mobile timeline line */}
-        <div className="md:hidden absolute left-10 sm:left-11 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#606C60]/45 via-[#606C60]/60 to-[#606C60]/45 pointer-events-none" />
+        <div
+          className="md:hidden absolute left-10 sm:left-11 top-0 bottom-0 w-0.5 pointer-events-none opacity-55"
+          style={{ background: `linear-gradient(to bottom, ${TIMELINE_TEXT}45, ${TIMELINE_TEXT}99, ${TIMELINE_TEXT}45)` }}
+        />
 
         <div className="space-y-4 sm:space-y-5 md:space-y-8 lg:space-y-10">
           {timelineEvents.map((event, index) => (
@@ -183,50 +231,45 @@ function TimelineItem({ event, index }: { event: TimelineEvent; index: number })
 function TimelineCard({ event, Icon, mobile }: { event: TimelineEvent; Icon: TimelineIcon; mobile?: boolean }) {
   return (
     <div
-      className={`rounded-lg sm:rounded-xl border border-[#606C60]/40 bg-[#E1D5C7] backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-300 ${
+      className={`rounded-lg sm:rounded-xl border backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-300 ${
         mobile ? "p-3" : "p-4 sm:p-5 md:p-6 lg:p-7"
-      } max-w-md`}
+      } max-w-md bg-white/95`}
+      style={{ borderColor: `${TIMELINE_TEXT}50`, boxShadow: `0 4px 20px ${TIMELINE_TEXT}15` }}
     >
       <div className={`${mobile ? "space-y-2" : "space-y-3 md:space-y-4"}`}>
-        {/* Time */}
         <div className="flex items-center gap-1.5">
-          <Clock
-            className={`${mobile ? "w-3.5 h-3.5" : "w-4 h-4 md:w-5 md:h-5"} text-[#606C60] flex-shrink-0`}
-          />
+          <Clock className={`${mobile ? "w-3.5 h-3.5" : "w-4 h-4 md:w-5 md:h-5"} flex-shrink-0`} style={{ color: TIMELINE_TEXT }} />
           <p
-            className={`${mobile ? "text-[10px]" : "text-xs sm:text-sm md:text-base"} font-bold tracking-[0.15em] text-[#606C60] uppercase`}
+            className={`${mobile ? "text-[10px]" : "text-xs sm:text-sm md:text-base"} font-bold tracking-[0.15em] uppercase`}
+            style={{ color: TIMELINE_TEXT }}
           >
             {event.time}
           </p>
         </div>
 
-        {/* Title */}
         <h3
-          className={`${mobile ? "text-sm sm:text-base" : "text-base sm:text-lg md:text-xl lg:text-2xl"} ${cinzel.className} font-semibold text-[#606C60] leading-tight`}
+          className={`${mobile ? "text-sm sm:text-base" : "text-base sm:text-lg md:text-xl lg:text-2xl"} ${cinzel.className} font-semibold leading-tight`}
+          style={{ color: TIMELINE_TEXT }}
         >
           {event.title}
         </h3>
 
-        {/* Description */}
         {event.description && (
           <p
-            className={`${mobile ? "text-[10px] sm:text-xs" : "text-xs sm:text-sm md:text-base"} ${cormorant.className} text-[#606C60]/90 leading-relaxed`}
+            className={`${mobile ? "text-[10px] sm:text-xs" : "text-xs sm:text-sm md:text-base"} ${cormorant.className} leading-relaxed opacity-90`}
+            style={{ color: TIMELINE_TEXT }}
           >
             {event.description}
           </p>
         )}
 
-        {/* Location */}
         {event.location && (
           <div
-            className={`flex items-start gap-1.5 ${
-              mobile ? "pt-1.5" : "pt-2 md:pt-3"
-            } border-t border-[#606C60]/40`}
+            className={`flex items-start gap-1.5 ${mobile ? "pt-1.5" : "pt-2 md:pt-3"} border-t`}
+            style={{ borderColor: `${TIMELINE_TEXT}40` }}
           >
-            <MapPin
-              className={`${mobile ? "w-3 h-3" : "w-3.5 h-3.5 md:w-4 md:h-4"} text-[#606C60] mt-0.5 flex-shrink-0`}
-            />
-            <p className={`${mobile ? "text-[10px]" : "text-xs md:text-sm"} ${cormorant.className} text-[#606C60]/90 leading-relaxed`}>
+            <MapPin className={`${mobile ? "w-3 h-3" : "w-3.5 h-3.5 md:w-4 md:h-4"} mt-0.5 flex-shrink-0`} style={{ color: TIMELINE_TEXT }} />
+            <p className={`${mobile ? "text-[10px]" : "text-xs md:text-sm"} ${cormorant.className} leading-relaxed opacity-90`} style={{ color: TIMELINE_TEXT }}>
               {event.location}
             </p>
           </div>
@@ -263,20 +306,17 @@ function IconBadge({
     <div
       className={`${
         mobile ? "w-10 h-10" : "w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20"
-      } rounded-full border-2 border-[#606C60]/70 bg-white flex items-center justify-center shadow-md hover:scale-105 transition-transform duration-300`}
+      } rounded-full border-2 bg-white flex items-center justify-center shadow-md hover:scale-105 transition-transform duration-300`}
+      style={{ borderColor: `${TIMELINE_TEXT}99` }}
     >
-      <Icon
-        className={`${
-          mobile ? "w-5 h-5" : "w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
-        } text-[#606C60]`}
-      />
+      <Icon className={`${mobile ? "w-5 h-5" : "w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"}`} style={{ color: TIMELINE_TEXT }} />
     </div>
   )
 }
 
 /* Hand-drawn–style timeline icons */
 
-const iconStroke = "#606C60"
+const iconStroke = TIMELINE_TEXT
 
 function GuestsIcon(props: React.SVGProps<SVGSVGElement>) {
   return (

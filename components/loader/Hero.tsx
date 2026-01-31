@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 interface HeroProps {
@@ -6,46 +6,20 @@ interface HeroProps {
   visible: boolean;
 }
 
-const desktopImages: string[] = [
-  '/desktop-background/couple (12).webp',
-  '/desktop-background/couple (9).webp',
-  '/desktop-background/couple (5).webp',
-  '/desktop-background/couple (4).webp',
-  '/desktop-background/couple (7).webp',
-];
-
-const mobileImages: string[] = [
-  '/mobile-background/couple (1).webp',
-  '/mobile-background/couple (2).webp',
-  '/mobile-background/couple (3).webp',
-  '/mobile-background/couple (4).webp',
-  '/mobile-background/couple (5).webp',
-];
+const BACKGROUND_VIDEO_SRC = '/decoration/Falling Autumn Leaves Background Loop.mp4';
 
 export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
-  const [index, setIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [contentVisible, setContentVisible] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    if (typeof window === 'undefined') return;
-
-    const media = window.matchMedia('(max-width: 768px)');
-    const handleChange = () => setIsMobile(media.matches);
-    handleChange();
-    media.addEventListener('change', handleChange);
-    return () => media.removeEventListener('change', handleChange);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % 5);
-    }, 5500);
-    return () => clearInterval(timer);
-  }, [mounted]);
+    const video = videoRef.current;
+    if (video && visible) {
+      video.play().catch(() => {
+        // Autoplay may be blocked; mute is required for most browsers
+      });
+    }
+  }, [visible]);
 
   useEffect(() => {
     if (visible) {
@@ -74,46 +48,34 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
     };
   }, []);
 
-  const images = useMemo(() => (isMobile ? mobileImages : desktopImages), [isMobile]);
-
   return (
       <div className={`fixed inset-0 z-30 flex items-center justify-center overflow-hidden transition-opacity duration-500 ${visible ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-      {/* Background Image Carousel */}
+      {/* Background video - loop */}
       <div className="absolute inset-0 z-0">
-        {images.map((src, i) => (
-          <div
-            key={src}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === index ? 'opacity-100' : 'opacity-0'}`}
-            style={{
-              transform: i === index ? 'scale(1)' : 'scale(1.05)',
-              transition: 'opacity 1s ease-in-out, transform 1s ease-in-out'
-            }}
-          >
-            <Image
-              src={src}
-              alt="Couple"
-              fill
-              quality={90}
-              priority={i === 0}
-              className="object-cover"
-              sizes="100vw"
-            />
-          </div>
-        ))}
+        <video
+          ref={videoRef}
+          src={BACKGROUND_VIDEO_SRC}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          aria-hidden
+        />
         
-        {/* Gradient Overlay */}
+        {/* Gradient Overlay - white */}
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to bottom, rgba(225, 213, 199, 0.5), rgba(225, 213, 199, 0.7))'
+            background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.7))'
           }}
         />
         
-        {/* Subtle vignette effect */}
+        {/* Subtle vignette effect - white */}
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'radial-gradient(ellipse at center, transparent 0%, rgba(225, 213, 199, 0.3) 100%)'
+            background: 'radial-gradient(ellipse at center, transparent 0%, rgba(255, 255, 255, 0.3) 100%)'
           }}
         />
       </div>
@@ -136,12 +98,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
               }}
             >
               <Image
-                src="/monogram/newMonogram.png"
+                src="/monogram/newmonogram.png"
                 alt="Monogram"
                 fill
                 className="object-contain drop-shadow-lg"
                 priority
-                style={{ filter: 'brightness(0) saturate(100%) invert(37%) sepia(3%) saturate(1200%) hue-rotate(120deg) brightness(95%) contrast(92%)' }}
+                style={{ filter: 'brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(900%) hue-rotate(355deg) brightness(95%) contrast(90%)' }}
               />
             </div>
           </div>
@@ -157,8 +119,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
             style={{
               fontFamily: '"Great Vibes", cursive',
               fontWeight: 400,
-              color: '#606C60',
-              textShadow: '0 2px 8px rgba(96, 108, 96, 0.15)',
+              color: '#9B6A41',
+              textShadow: '0 2px 8px rgba(155, 106, 65, 0.2)',
             }}
           >
             You are
@@ -171,8 +133,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
             style={{
               fontFamily: '"Cinzel", serif',
               fontWeight: 700,
-              color: '#606C60',
-              textShadow: '0 2px 8px rgba(96, 108, 96, 0.15)',
+              color: '#9B6A41',
+              textShadow: '0 2px 8px rgba(155, 106, 65, 0.2)',
               letterSpacing: '0.05em',
             }}
           >
@@ -187,19 +149,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
               contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{
-              backgroundColor: '#606C60',
-              borderColor: '#606C60',
+              backgroundColor: '#9B6A41',
+              borderColor: '#9B6A41',
               color: '#FFFFFF',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#4d5650';
+              e.currentTarget.style.backgroundColor = '#7d5534';
               e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.borderColor = '#4d5650';
+              e.currentTarget.style.borderColor = '#7d5534';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#606C60';
+              e.currentTarget.style.backgroundColor = '#9B6A41';
               e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.borderColor = '#606C60';
+              e.currentTarget.style.borderColor = '#9B6A41';
             }}
           >
             <span

@@ -1,7 +1,15 @@
 "use client"
 
-import Image from "next/image"
+import { QRCodeCanvas } from "qrcode.react"
 import { Section } from "@/components/section"
+
+const GCASH_NUMBER = "09154601546"
+
+// Warm brown palette to match hero/details
+const REGISTRY_ACCENT = "#9B6A41"
+const REGISTRY_DARK = "#624630"
+const REGISTRY_DARKER = "#3E2914"
+const REGISTRY_CREAM = "#F8F4EE"
 
 export function Registry() {
   return (
@@ -34,24 +42,42 @@ export function Registry() {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="relative bg-[#BCCFC0]/95 backdrop-blur-md border border-[#324D3E]/40 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(50,77,62,0.15)] p-4 sm:p-6 md:p-8 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#324D3E]/20 via-transparent to-[#8EA58B]/10 pointer-events-none" />
+        <div
+          className="relative backdrop-blur-md border rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden"
+          style={{ backgroundColor: `${REGISTRY_CREAM}ee`, borderColor: `${REGISTRY_ACCENT}40`, boxShadow: `0 20px 60px ${REGISTRY_DARKER}15` }}
+        >
+          <div className="absolute inset-0 pointer-events-none opacity-60" style={{ background: `linear-gradient(to bottom right, ${REGISTRY_ACCENT}20, transparent, ${REGISTRY_ACCENT}08)` }} />
 
           <div className="relative z-10 flex flex-col items-center justify-center">
-            <div className="relative bg-white/95 rounded-xl sm:rounded-2xl border-2 border-dashed border-[#324D3E]/40 p-5 sm:p-6 md:p-8 text-center shadow-[0_6px_24px_rgba(50,77,62,0.15)] max-w-md">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#BCCFC0] px-3 py-1 rounded-full shadow-sm border-2 border-[#324D3E]/50 text-xs font-semibold tracking-[0.2em] text-[#324D3E] uppercase">
-                GCash:
+            <div
+              className="relative bg-white/95 rounded-xl sm:rounded-2xl border-2 border-dashed p-5 sm:p-6 md:p-8 text-center max-w-md"
+              style={{ borderColor: `${REGISTRY_ACCENT}40`, boxShadow: `0 6px 24px ${REGISTRY_DARKER}12` }}
+            >
+              <div
+                className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full shadow-sm border-2 text-xs font-semibold tracking-[0.2em] uppercase"
+                style={{ backgroundColor: REGISTRY_CREAM, borderColor: `${REGISTRY_ACCENT}60`, color: REGISTRY_DARKER }}
+              >
+                GCash
               </div>
               <div className="flex flex-col items-center gap-4 w-full mt-4">
-                <div className="w-56 h-56 sm:w-64 sm:h-64 border-2 border-dashed border-[#324D3E]/40 rounded-xl sm:rounded-2xl flex items-center justify-center bg-white relative overflow-hidden">
-                  <Image
-                    src="/QR/monogram.png"
-                    alt="GCash QR code"
-                    fill
-                    sizes="256px"
-                    className="object-contain p-4"
+                <div
+                  className="w-56 h-56 sm:w-64 sm:h-64 border-2 border-dashed rounded-xl sm:rounded-2xl flex items-center justify-center bg-white p-4"
+                  style={{ borderColor: `${REGISTRY_ACCENT}40` }}
+                >
+                  <QRCodeCanvas
+                    id="registry-gcash-qr"
+                    value={GCASH_NUMBER}
+                    size={224}
+                    includeMargin
+                    className="bg-white w-full h-full max-w-[224px] max-h-[224px]"
                   />
                 </div>
+                <p className="text-base sm:text-lg md:text-xl font-semibold tracking-wide" style={{ color: REGISTRY_DARKER }}>
+                  {GCASH_NUMBER}
+                </p>
+                <p className="text-xs sm:text-sm" style={{ color: REGISTRY_DARK }}>
+                  Scan the QR or use this number to send via GCash
+                </p>
               </div>
             </div>
           </div>

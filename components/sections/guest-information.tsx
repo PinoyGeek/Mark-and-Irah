@@ -16,210 +16,155 @@ const cinzel = Cinzel({
   weight: "400",
 })
 
+// Guest information color palette
+const GUEST_LIGHT = "#C1AC94"   // light beige/nude
+const GUEST_MEDIUM = "#624630"   // medium brown
+const GUEST_DARK = "#3E2914"    // dark brown
+const GUEST_BG = "#F8F4EE"      // very light beige container background
+
 export function GuestInformation() {
 
   return (
     <Section
       id="guest-information"
-      className="relative py-12 md:py-16 lg:py-20 overflow-hidden"
+      className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden bg-white"
     >
-      {/* Header */}
-      <div className="relative z-30 text-center mb-6 sm:mb-9 md:mb-12 px-3 sm:px-4">
-        {/* Small label */}
+      {/* Header - tighter on iPhone SE */}
+      <div className="relative z-30 text-center mb-4 sm:mb-6 md:mb-9 lg:mb-12 px-4 sm:px-4 max-w-[100vw]">
         <p
-          className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-white mb-2`}
+          className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.2em] sm:tracking-[0.28em] mb-1.5 sm:mb-2`}
+          style={{ color: GUEST_DARK }}
         >
           Important Guidelines
         </p>
 
         <h2
-          className="style-script-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-1.5 sm:mb-3 md:mb-4"
+          className="style-script-regular text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-1 sm:mb-1.5 md:mb-3 md:mb-4 break-words"
+          style={{ color: GUEST_DARK }}
         >
           Guest Information
         </h2>
 
-        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
+        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed px-1 sm:px-2 mb-2 sm:mb-3 min-w-0`} style={{ color: GUEST_MEDIUM }}>
           Everything you need to know to make your experience smooth and enjoyable
         </p>
 
-        {/* Decorative element below subtitle */}
-        <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-white/60" />
-          <div className="w-1.5 h-1.5 bg-white/80 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-white/60 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-white/80 rounded-full" />
-          <div className="w-8 sm:w-12 md:w-16 h-px bg-white/60" />
+        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-2 sm:mt-3 md:mt-4">
+          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px opacity-50" style={{ backgroundColor: GUEST_MEDIUM }} />
+          <div className="w-1.5 h-1.5 rounded-full opacity-80 flex-shrink-0" style={{ backgroundColor: GUEST_DARK }} />
+          <div className="w-1.5 h-1.5 rounded-full opacity-60 flex-shrink-0" style={{ backgroundColor: GUEST_MEDIUM }} />
+          <div className="w-1.5 h-1.5 rounded-full opacity-80 flex-shrink-0" style={{ backgroundColor: GUEST_DARK }} />
+          <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px opacity-50" style={{ backgroundColor: GUEST_MEDIUM }} />
         </div>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 mb-4 sm:mb-7 max-w-4xl mx-auto px-3 sm:px-5">
-        {/* Important Information Header */}
-        <div className="text-center mb-3 sm:mb-5">
-          <h3 className="text-base sm:text-xl md:text-2xl font-semibold mb-1 sm:mb-2 text-white">
-            Important Information
-          </h3>
-          <p className="text-[11px] sm:text-xs md:text-sm text-white max-w-xl mx-auto leading-relaxed">
-            Kindly take note of these details to help the day flow smoothly and beautifully.
-          </p>
-        </div>
+      {/* Content - comfortable padding on small screens */}
+      <div className="relative z-10 mb-4 sm:mb-7 max-w-4xl mx-auto px-4 sm:px-5 min-w-0">
+        <div className="space-y-4 sm:space-y-4">
+          {/* Attire - open layout, no container - mobile-optimized */}
+          <div className="py-4 sm:py-6 md:py-8 lg:py-10">
+            <h4 className={`${cinzel.className} text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-[0.08em] sm:tracking-[0.12em] uppercase text-center mb-1 sm:mb-2`} style={{ color: GUEST_DARK }}>
+              Wedding Attire
+            </h4>
+            <p className={`${cormorant.className} text-[11px] sm:text-xs md:text-sm font-normal tracking-[0.15em] sm:tracking-[0.2em] uppercase text-center mb-5 sm:mb-8 md:mb-10 lg:mb-12`} style={{ color: GUEST_MEDIUM }}>
+              We kindly request our guests to dress in formal attire following our theme.
+            </p>
 
-        <div className="space-y-3 sm:space-y-4">
-          {/* Attire Guidelines */}
-          <div className="relative rounded-xl sm:rounded-2xl md:rounded-3xl border-2 border-[#606C60]/30 bg-[#F5F2ED] backdrop-blur-lg shadow-[0_20px_50px_rgba(96,108,96,0.2)] p-3 sm:p-6 md:p-8 lg:p-10 xl:p-14 overflow-hidden">
-            {/* Decorative background elements */}
-            <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute top-0 left-1/4 w-24 h-24 sm:w-32 sm:h-32 bg-[#606C60]/5 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 right-1/4 w-28 h-28 sm:w-40 sm:h-40 bg-[#606C60]/5 rounded-full blur-3xl" />
-            </div>
-
-            {/* Title */}
-            <div className="mb-4 sm:mb-6 md:mb-8 lg:mb-10 text-center relative z-10">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 md:gap-3 lg:gap-4">
-                <h4 className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-[#606C60] drop-shadow-sm`}>
-                  Wedding
-                </h4>
-                <h4 className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-semibold tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#606C60] opacity-90">
-                  ATTIRE
-                </h4>
-              </div>
-              {/* Decorative underline */}
-              <div className="mt-3 sm:mt-4 md:mt-5 flex items-center justify-center gap-1.5 sm:gap-2">
-                <div className="w-6 sm:w-8 md:w-12 h-px bg-[#606C60]/30" />
-                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#606C60]/50 rounded-full" />
-                <div className="w-6 sm:w-8 md:w-12 h-px bg-[#606C60]/30" />
-              </div>
-            </div>
-
-            {/* Description Text */}
-            <div className="mb-5 sm:mb-6 md:mb-8 lg:mb-10 relative z-10 px-2">
-              <div className="mb-3 sm:mb-4 md:mb-5">
-                <h5 className={`${cinzel.className} text-base sm:text-lg md:text-xl lg:text-2xl text-center text-[#606C60] mb-2 sm:mb-3`}>
-                  Attire guide
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-14 max-w-4xl mx-auto justify-items-center md:justify-items-stretch">
+              {/* Left: Principal Sponsors - centered on mobile */}
+              <div className="text-center md:text-left flex flex-col items-center md:items-start w-full min-w-0 max-w-[280px] md:max-w-none">
+                <h5 className={`${cinzel.className} text-xs sm:text-sm md:text-base lg:text-lg font-bold tracking-[0.1em] sm:tracking-[0.15em] uppercase mb-0.5 sm:mb-1`} style={{ color: GUEST_DARK }}>
+                  Principal Sponsors
                 </h5>
-                <p className={`${cormorant.className} text-xs sm:text-sm md:text-base lg:text-lg text-center text-[#606C60] font-semibold`}>
-                  strictly formal attire
+                <p className={`${cormorant.className} text-[11px] sm:text-xs md:text-sm font-normal tracking-[0.12em] sm:tracking-[0.18em] uppercase mb-2 sm:mb-3 md:mb-4`} style={{ color: GUEST_MEDIUM }}>
+                  Strictly Formal
                 </p>
+                <ul className={`${cormorant.className} text-[11px] sm:text-xs md:text-sm lg:text-base italic space-y-1 sm:space-y-1.5 mb-3 sm:mb-5 md:mb-6 leading-snug`} style={{ color: GUEST_DARK }}>
+                  <li>Gentlemen: Black Suit and Pants</li>
+                  <li>Ladies: Champagne Long Gown</li>
+                </ul>
+                <div className="relative w-full aspect-[4/3] max-w-[260px] sm:max-w-[280px] md:max-w-xs mx-auto md:mx-0 md:mr-auto">
+                  <Image
+                    src="/Details/principal.png"
+                    alt="Principal Sponsors attire - strictly formal"
+                    fill
+                    className="object-contain object-center md:object-left"
+                    sizes="(max-width: 375px) 260px, (max-width: 640px) 280px, 50vw"
+                    priority={false}
+                  />
+                </div>
               </div>
-              <p className={`${cormorant.className} text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-center text-[#606C60] max-w-3xl mx-auto leading-relaxed sm:leading-loose`}>
-                We know many like to come dressed to compliment the big day. Provided below is the color palette of our day. We look forward to seeing you all!
-              </p>
-            </div>
 
-            {/* Attire guide image */}
-            <div className="mb-5 sm:mb-6 md:mb-8 lg:mb-10 relative z-10 flex justify-center px-2">
-              <Image
-                src="/Details/attire.png"
-                alt="Attire guide - semi formal and formal dress code"
-                width={800}
-                height={600}
-                className="w-full max-w-2xl h-auto object-contain"
-                priority={false}
-              />
-            </div>
-
-            {/* Color Palette - 5 blocks with arched tops */}
-            <div className="flex items-end justify-center gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5 relative z-10">
-              {/* Color 1: #606C60 */}
-              <div className="flex-1 max-w-[60px] sm:max-w-[70px] md:max-w-[90px] lg:max-w-[110px] xl:max-w-[130px] group">
-                <div 
-                  className="w-full h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-                  style={{ 
-                    backgroundColor: '#606C60',
-                    clipPath: 'polygon(0 12%, 50% 0%, 100% 12%, 100% 100%, 0% 100%)',
-                    borderRadius: '0 0 4px 4px',
-                    boxShadow: '0 2px 8px rgba(96, 108, 96, 0.25)',
-                    border: '2px solid rgba(96, 108, 96, 0.3)'
-                  }}
-                />
-              </div>
-              
-              {/* Color 2: #E1D5C7 */}
-              <div className="flex-1 max-w-[60px] sm:max-w-[70px] md:max-w-[90px] lg:max-w-[110px] xl:max-w-[130px] group">
-                <div 
-                  className="w-full h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-                  style={{ 
-                    backgroundColor: '#E1D5C7',
-                    clipPath: 'polygon(0 12%, 50% 0%, 100% 12%, 100% 100%, 0% 100%)',
-                    borderRadius: '0 0 4px 4px',
-                    boxShadow: '0 2px 8px rgba(225, 213, 199, 0.25)',
-                    border: '2px solid rgba(96, 108, 96, 0.3)'
-                  }}
-                />
-              </div>
-              
-              {/* Color 3: #96A298 */}
-              <div className="flex-1 max-w-[60px] sm:max-w-[70px] md:max-w-[90px] lg:max-w-[110px] xl:max-w-[130px] group">
-                <div 
-                  className="w-full h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-                  style={{ 
-                    backgroundColor: '#96A298',
-                    clipPath: 'polygon(0 12%, 50% 0%, 100% 12%, 100% 100%, 0% 100%)',
-                    borderRadius: '0 0 4px 4px',
-                    boxShadow: '0 2px 8px rgba(150, 162, 152, 0.25)',
-                    border: '2px solid rgba(96, 108, 96, 0.3)'
-                  }}
-                />
-              </div>
-              
-              {/* Color 4: #737373 */}
-              <div className="flex-1 max-w-[60px] sm:max-w-[70px] md:max-w-[90px] lg:max-w-[110px] xl:max-w-[130px] group">
-                <div 
-                  className="w-full h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-                  style={{ 
-                    backgroundColor: '#737373',
-                    clipPath: 'polygon(0 12%, 50% 0%, 100% 12%, 100% 100%, 0% 100%)',
-                    borderRadius: '0 0 4px 4px',
-                    boxShadow: '0 2px 8px rgba(223, 219, 210, 0.25)',
-                    border: '2px solid rgba(96, 108, 96, 0.3)'
-                  }}
-                />
-              </div>
-              
-              {/* Color 5: #555754 */}
-              <div className="flex-1 max-w-[60px] sm:max-w-[70px] md:max-w-[90px] lg:max-w-[110px] xl:max-w-[130px] group">
-                <div 
-                  className="w-full h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-                  style={{ 
-                    backgroundColor: '#555754',
-                    clipPath: 'polygon(0 12%, 50% 0%, 100% 12%, 100% 100%, 0% 100%)',
-                    borderRadius: '0 0 4px 4px',
-                    boxShadow: '0 2px 8px rgba(85, 87, 84, 0.25)',
-                    border: '2px solid rgba(96, 108, 96, 0.3)'
-                  }}
-                />
+              {/* Right: Guests - centered on mobile when stacked */}
+              <div className="text-center md:text-right flex flex-col items-center md:items-end w-full min-w-0 max-w-[280px] md:max-w-none">
+                <div className="relative w-full aspect-[4/3] max-w-[260px] sm:max-w-[280px] md:max-w-xs mx-auto md:ml-auto md:mr-0 mb-3 sm:mb-5 md:mb-6 order-first">
+                  <Image
+                    src="/Details/guest.png"
+                    alt="Guests attire - semi formal"
+                    fill
+                    className="object-contain object-center md:object-right"
+                    sizes="(max-width: 375px) 260px, (max-width: 640px) 280px, 50vw"
+                    priority={false}
+                  />
+                </div>
+                <h5 className={`${cinzel.className} text-xs sm:text-sm md:text-base lg:text-lg font-bold tracking-[0.1em] sm:tracking-[0.15em] uppercase mb-0.5 sm:mb-1`} style={{ color: GUEST_DARK }}>
+                  Guests
+                </h5>
+                <p className={`${cormorant.className} text-[11px] sm:text-xs md:text-sm font-normal tracking-[0.12em] sm:tracking-[0.18em] uppercase mb-2 sm:mb-3 md:mb-4`} style={{ color: GUEST_MEDIUM }}>
+                  Semi-Formal
+                </p>
+                <ul className={`${cormorant.className} text-[11px] sm:text-xs md:text-sm lg:text-base italic space-y-1 sm:space-y-1.5 mb-3 sm:mb-5 md:mb-6 leading-snug`} style={{ color: GUEST_DARK }}>
+                  <li>Gentlemen: Long Sleeves and Pants</li>
+                  <li>Ladies: Floor-Length Dress</li>
+                </ul>
+                <div className="flex items-center justify-center md:justify-end gap-2 sm:gap-3 mt-auto">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full flex-shrink-0" style={{ backgroundColor: GUEST_LIGHT }} />
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full flex-shrink-0" style={{ backgroundColor: GUEST_MEDIUM }} />
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full flex-shrink-0" style={{ backgroundColor: GUEST_DARK }} />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Arrival Time & Reception Guidelines */}
-          <div className="relative rounded-xl sm:rounded-2xl border-2 border-[#606C60]/30 bg-[#F5F2ED] backdrop-blur-lg shadow-[0_18px_40px_rgba(96,108,96,0.15)] p-3.5 sm:p-5 md:p-6 overflow-hidden">
+          {/* Arrival Time & Reception Guidelines - tighter padding on mobile */}
+          <div
+            className="relative rounded-xl sm:rounded-2xl border-2 backdrop-blur-lg p-3 sm:p-4 md:p-5 lg:p-6 overflow-hidden"
+            style={{
+              borderColor: `${GUEST_LIGHT}99`,
+              backgroundColor: GUEST_BG,
+              boxShadow: `0 18px 40px ${GUEST_MEDIUM}12`,
+            }}
+          >
             <div className="space-y-3 sm:space-y-4 md:space-y-5">
-              {/* Arrival Time */}
-              <div className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden border-2 border-[#606C60]/30 shadow-lg bg-[#F5F2ED] p-3 sm:p-4 md:p-5 lg:p-6">
-                <div className="mb-2 sm:mb-3">
-                  <h4 className={`${cinzel.className} text-xs sm:text-sm md:text-base font-semibold tracking-[0.25em] uppercase text-[#606C60] mb-2 sm:mb-3`}>
+              <div
+                className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden border-2 shadow-lg p-3 sm:p-4 md:p-5 lg:p-6 min-w-0"
+                style={{ borderColor: `${GUEST_LIGHT}99`, backgroundColor: GUEST_BG }}
+              >
+                <div className="mb-1 sm:mb-2 md:mb-3">
+                  <h4 className={`${cinzel.className} text-[11px] sm:text-xs md:text-sm lg:text-base font-semibold tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-1.5 sm:mb-2 md:mb-3`} style={{ color: GUEST_DARK }}>
                     Arrival Time
                   </h4>
-                  <div className="space-y-2 sm:space-y-2.5">
-                    <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#606C60] leading-relaxed`}>
-                      Kindly arrive by <span className="font-semibold text-[#606C60]">3:30 PM</span> so we can begin the wedding ceremony promptly at exactly <span className="font-semibold text-[#606C60]">4:00 PM</span>.
+                  <div className="space-y-1.5 sm:space-y-2 md:space-y-2.5">
+                    <p className={`${cormorant.className} text-xs sm:text-sm md:text-base leading-relaxed`} style={{ color: GUEST_MEDIUM }}>
+                      Kindly arrive by <span className="font-semibold" style={{ color: GUEST_DARK }}>{siteConfig.ceremony.guestsTime ?? "12:30 PM"}</span> so we can begin the wedding ceremony promptly at exactly <span className="font-semibold" style={{ color: GUEST_DARK }}>{siteConfig.ceremony.time}</span>.
                     </p>
-                    <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#606C60] leading-relaxed`}>
+                    <p className={`${cormorant.className} text-xs sm:text-sm md:text-base leading-relaxed`} style={{ color: GUEST_MEDIUM }}>
                       Your punctuality means so much to us — and don&apos;t forget to have a light snack beforehand so you can enjoy the celebration comfortably!
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Reception Guidelines */}
-              <div className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden border-2 border-[#606C60]/30 shadow-lg bg-[#F5F2ED] p-3 sm:p-4 md:p-5 lg:p-6">
-                <div className="mb-2 sm:mb-3">
-                  <h4 className={`${cinzel.className} text-xs sm:text-sm md:text-base font-semibold tracking-[0.25em] uppercase text-[#606C60] mb-2 sm:mb-3`}>
+              <div
+                className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden border-2 shadow-lg p-3 sm:p-4 md:p-5 lg:p-6 min-w-0"
+                style={{ borderColor: `${GUEST_LIGHT}99`, backgroundColor: GUEST_BG }}
+              >
+                <div className="mb-1 sm:mb-2 md:mb-3">
+                  <h4 className={`${cinzel.className} text-[11px] sm:text-xs md:text-sm lg:text-base font-semibold tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-1.5 sm:mb-2 md:mb-3`} style={{ color: GUEST_DARK }}>
                     Reception Guidelines
                   </h4>
-                  <div className="space-y-2 sm:space-y-2.5">
-                    <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#606C60] leading-relaxed`}>
+                  <div className="space-y-1.5 sm:space-y-2 md:space-y-2.5">
+                    <p className={`${cormorant.className} text-xs sm:text-sm md:text-base leading-relaxed`} style={{ color: GUEST_MEDIUM }}>
                       The seating will be formal, RSVP-style. That&apos;s why we&apos;re asking you to fill out this invitation form to secure your spot. Kindly do not bring plus ones unless explicitly stated in your invitation.
                     </p>
                   </div>
@@ -228,67 +173,69 @@ export function GuestInformation() {
             </div>
           </div>
 
-          {/* Travel & Parking - Compact */}
-          <div className="relative rounded-xl sm:rounded-2xl border-2 border-[#606C60]/30 bg-[#F5F2ED] backdrop-blur-lg shadow-[0_18px_40px_rgba(96,108,96,0.15)] p-3.5 sm:p-5 md:p-6 overflow-hidden">
-            {/* Header */}
-            <div className="flex items-center justify-center gap-2 mb-2.5 sm:mb-3 relative z-10">
-              <div className="p-1.5 rounded-full shadow-md bg-[#F5F2ED] border-2 border-[#606C60]/30">
-                <Car className="w-3.5 h-3.5 text-[#606C60]" />
+          {/* Travel & Parking - mobile padding */}
+          <div
+            className="relative rounded-xl sm:rounded-2xl border-2 backdrop-blur-lg p-3 sm:p-4 md:p-5 lg:p-6 overflow-hidden min-w-0"
+            style={{
+              borderColor: `${GUEST_LIGHT}99`,
+              backgroundColor: GUEST_BG,
+              boxShadow: `0 18px 40px ${GUEST_MEDIUM}12`,
+            }}
+          >
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-2 sm:mb-2.5 md:mb-3 relative z-10">
+              <div className="p-1.5 rounded-full shadow-md border-2 flex-shrink-0" style={{ backgroundColor: GUEST_BG, borderColor: `${GUEST_LIGHT}99` }}>
+                <Car className="w-3.5 h-3.5" style={{ color: GUEST_DARK }} />
               </div>
-              <h4 className={`${cinzel.className} font-semibold text-xs sm:text-sm md:text-base text-[#606C60]`}>Parking &amp; Travel</h4>
+              <h4 className={`${cinzel.className} font-semibold text-xs sm:text-sm md:text-base`} style={{ color: GUEST_DARK }}>Parking &amp; Travel</h4>
             </div>
 
-            <div className="space-y-3 relative z-10">
-              {/* Parking */}
-              <div className="rounded-xl p-2.5 sm:p-3 border-2 border-[#606C60]/30 bg-[#F5F2ED] shadow-sm">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-[#606C60] text-[#E1D5C7]">
-                    <Car className="w-4 h-4" />
+            <div className="space-y-2.5 sm:space-y-3 relative z-10">
+              <div className="rounded-lg sm:rounded-xl p-2.5 sm:p-3 border-2 shadow-sm min-w-0" style={{ borderColor: `${GUEST_LIGHT}99`, backgroundColor: GUEST_BG }}>
+                <div className="flex items-start gap-2.5 sm:gap-3">
+                  <div className="p-1.5 sm:p-2 rounded-lg text-white flex-shrink-0" style={{ backgroundColor: GUEST_DARK }}>
+                    <Car className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
-                  <div className="flex-1">
-                    <p className={`${cormorant.className} text-[11px] sm:text-sm md:text-base font-semibold text-[#606C60]`}>Parking Available</p>
-                    <p className={`${cormorant.className} text-[10px] sm:text-xs md:text-sm text-[#606C60]/85`}>
+                  <div className="flex-1 min-w-0">
+                    <p className={`${cormorant.className} text-xs sm:text-sm md:text-base font-semibold`} style={{ color: GUEST_DARK }}>Parking Available</p>
+                    <p className={`${cormorant.className} text-xs sm:text-xs md:text-sm opacity-85 leading-snug`} style={{ color: GUEST_MEDIUM }}>
                       Parking is available at the venue. Please arrive early to find a comfortable spot.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Transportation */}
-              <div className="rounded-xl p-2.5 sm:p-3 border-2 border-[#606C60]/30 bg-[#F5F2ED] shadow-sm">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-[#606C60] text-[#E1D5C7]">
-                    <Navigation className="w-4 h-4" />
+              <div className="rounded-lg sm:rounded-xl p-2.5 sm:p-3 border-2 shadow-sm min-w-0" style={{ borderColor: `${GUEST_LIGHT}99`, backgroundColor: GUEST_BG }}>
+                <div className="flex items-start gap-2.5 sm:gap-3">
+                  <div className="p-1.5 sm:p-2 rounded-lg text-white flex-shrink-0" style={{ backgroundColor: GUEST_DARK }}>
+                    <Navigation className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
-                  <div className="flex-1">
-                    <p className={`${cormorant.className} text-[11px] sm:text-sm md:text-base font-semibold text-[#606C60]`}>Transportation</p>
-                    <p className={`${cormorant.className} text-[10px] sm:text-xs md:text-sm text-[#606C60]/85`}>
-                      Private vehicles and local transport are welcome. Coordinate with friends or family and plan your
-                      route ahead of time.
+                  <div className="flex-1 min-w-0">
+                    <p className={`${cormorant.className} text-xs sm:text-sm md:text-base font-semibold`} style={{ color: GUEST_DARK }}>Transportation</p>
+                    <p className={`${cormorant.className} text-xs sm:text-xs md:text-sm opacity-85 leading-snug`} style={{ color: GUEST_MEDIUM }}>
+                      Private vehicles and local transport are welcome. Coordinate with friends or family and plan your route ahead of time.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Tips */}
-              <div className="rounded-xl p-2.5 sm:p-3 border-2 border-[#606C60]/30 bg-[#F5F2ED]">
-                <p className={`${cormorant.className} text-[11px] sm:text-sm md:text-base font-semibold mb-2 flex items-center gap-2 text-[#606C60]`}>
-                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#606C60]/10 text-[#606C60]">
-                    <MapPin className="w-3.5 h-3.5" />
+              <div className="rounded-lg sm:rounded-xl p-2.5 sm:p-3 border-2 min-w-0" style={{ borderColor: `${GUEST_LIGHT}99`, backgroundColor: GUEST_BG }}>
+                <p className={`${cormorant.className} text-xs sm:text-sm md:text-base font-semibold mb-1.5 sm:mb-2 flex items-center gap-2`} style={{ color: GUEST_DARK }}>
+                  <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full flex-shrink-0" style={{ backgroundColor: "rgba(62, 41, 20, 0.12)", color: GUEST_DARK }}>
+                    <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </span>
                   Quick Tips
                 </p>
-                <ul className={`${cormorant.className} text-[10px] sm:text-xs md:text-sm space-y-1 text-[#606C60]/90`}>
+                <ul className={`${cormorant.className} text-xs sm:text-xs md:text-sm space-y-1 opacity-90 leading-snug`} style={{ color: GUEST_MEDIUM }}>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#606C60] mt-0.5">•</span>
+                    <span className="mt-0.5 flex-shrink-0" style={{ color: GUEST_DARK }}>•</span>
                     <span>Plan your route ahead to avoid unexpected delays.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#606C60] mt-0.5">•</span>
+                    <span className="mt-0.5 flex-shrink-0" style={{ color: GUEST_DARK }}>•</span>
                     <span>Please avoid walking during the ceremony. Approach the coordinator or wait to be guided.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#606C60] mt-0.5">•</span>
+                    <span className="mt-0.5 flex-shrink-0" style={{ color: GUEST_DARK }}>•</span>
                     <span>Coordinate carpooling with friends or family when possible.</span>
                   </li>
                 </ul>

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
+import Image from "next/image"
 import { Section } from "@/components/section"
 import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import { siteConfig } from "@/content/site"
@@ -15,6 +16,14 @@ const cinzel = Cinzel({
   subsets: ["latin"],
   weight: ["400"],
 })
+
+// FAQ palette — warm brown to match hero/details/guest-info
+const FAQ_ACCENT = "#9B6A41"
+const FAQ_DARK = "#624630"
+const FAQ_DARKER = "#3E2914"
+const FAQ_CREAM = "#F8F4EE"
+const FAQ_CREAM_ALT = "#E8E0D5"
+const DECO_FILTER_WHITE = "brightness(0) saturate(100%) invert(1)"
 
 interface FAQItem {
   question: string
@@ -55,7 +64,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Is there a dress code?",
     answer:
-      `Wedding ATTIRE found in guest details section.\n\nAttire guide\nStrictly semi formal/ formal attire\n\nWe know many like to come dressed to compliment the big day. Provided below is the color palette of our day. We look forward to seeing you all!`,
+      `Wedding attire details are in the Guest Information section above.\n\n• Principal Sponsors: Strictly formal (Gentlemen: Black Suit and Pants | Ladies: Champagne Long Gown)\n• Guests: Semi-formal / formal following our motif\n\nWe look forward to seeing you dressed for the occasion!`,
   },
   {
     question: "Will there be assigned seating?",
@@ -101,41 +110,88 @@ export function FAQ() {
       id="faq"
       className="relative py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Section Header */}
+      {/* Corner decorations — warm brown tint */}
+      <div className="absolute left-0 top-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt=""
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-60 scale-y-[-1]"
+          priority={false}
+          style={{ filter: DECO_FILTER_WHITE }}
+        />
+      </div>
+      <div className="absolute right-0 top-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt=""
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-60 scale-x-[-1] scale-y-[-1]"
+          priority={false}
+          style={{ filter: DECO_FILTER_WHITE }}
+        />
+      </div>
+      <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt=""
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-60"
+          priority={false}
+          style={{ filter: DECO_FILTER_WHITE }}
+        />
+      </div>
+      <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
+        <Image
+          src="/decoration/flower-decoration-left-bottom-corner2.png"
+          alt=""
+          width={300}
+          height={300}
+          className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-60 scale-x-[-1]"
+          priority={false}
+          style={{ filter: DECO_FILTER_WHITE }}
+        />
+      </div>
+
+      {/* Section Header — white text */}
       <div className="relative z-30 text-center mb-6 sm:mb-9 md:mb-12 px-3 sm:px-4">
-        {/* Small label */}
         <p
-          className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-white mb-2`}
+          className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] mb-2 text-white`}
         >
           Everything You Need to Know
         </p>
-
         <h2
-          className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-1.5 sm:mb-3 md:mb-4`}
+          className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-1.5 sm:mb-3 md:mb-4 text-white`}
         >
           Frequently Asked Questions
         </h2>
-        
-        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-white font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`}>
+        <p
+          className={`${cormorant.className} text-xs sm:text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3 text-white`}
+        >
           Common questions answered to help you prepare for our special day
         </p>
-
-        {/* Simple divider */}
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
           <div className="w-8 sm:w-12 md:w-16 h-px bg-white/60" />
-          <div className="w-1.5 h-1.5 bg-white/80 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-white/60 rounded-full" />
-          <div className="w-1.5 h-1.5 bg-white/80 rounded-full" />
+          <div className="w-1.5 h-1.5 rounded-full bg-white/80" />
+          <div className="w-1.5 h-1.5 rounded-full bg-white/60" />
+          <div className="w-1.5 h-1.5 rounded-full bg-white/80" />
           <div className="w-8 sm:w-12 md:w-16 h-px bg-white/60" />
         </div>
       </div>
 
-      {/* FAQ content */}
+      {/* FAQ content — cream container with warm brown accents */}
       <div className="relative z-30 max-w-4xl mx-auto px-3 sm:px-5">
-        {/* Main card */}
-        <div className="relative bg-[#E1D5C7]/95 backdrop-blur-md border border-[#606C60]/40 rounded-lg sm:rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(96,108,96,0.15)] overflow-hidden">
-          
-          {/* FAQ items */}
+        <div
+          className="relative backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border shadow-lg"
+          style={{
+            backgroundColor: FAQ_CREAM,
+            borderColor: `${FAQ_ACCENT}35`,
+            boxShadow: `0 4px 24px rgba(62,41,20,0.08), 0 0 0 1px ${FAQ_ACCENT}15`,
+          }}
+        >
           <div className="relative p-2.5 sm:p-4 md:p-5 lg:p-6">
             <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
               {faqItems.map((item, index) => {
@@ -144,20 +200,28 @@ export function FAQ() {
                 return (
                   <div
                     key={index}
-                    className="rounded-lg sm:rounded-xl border border-[#606C60]/40 bg-white/80 hover:border-[#606C60]/60 hover:bg-white transition-all duration-300 overflow-hidden shadow-sm"
+                    className="rounded-xl sm:rounded-2xl border overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md"
+                    style={{
+                      backgroundColor: "rgba(255,255,255,0.9)",
+                      borderColor: `${FAQ_ACCENT}30`,
+                    }}
                   >
                     <button
                       onClick={() => toggleItem(index)}
-                      className="group w-full px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 flex items-center justify-between text-left outline-none focus-visible:ring-2 focus-visible:ring-[#606C60]/50 focus-visible:ring-offset-2 transition-colors"
+                      className="group w-full px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 flex items-center justify-between text-left outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#9B6A4150] transition-colors"
                       aria-expanded={isOpen}
                       aria-controls={contentId}
                     >
-                      <span className={`${cinzel.className} font-semibold text-[#606C60] pr-2 sm:pr-3 md:pr-4 text-xs sm:text-sm md:text-base lg:text-lg leading-snug sm:leading-relaxed transition-colors duration-200 group-hover:text-[#606C60]`}>
+                      <span
+                        className={`${cinzel.className} font-semibold pr-2 sm:pr-3 md:pr-4 text-xs sm:text-sm md:text-base lg:text-lg leading-snug sm:leading-relaxed transition-colors duration-200`}
+                        style={{ color: isOpen ? FAQ_ACCENT : FAQ_DARK }}
+                      >
                         {item.question}
                       </span>
                       <ChevronDown
                         size={18}
-                        className={`text-[#606C60]/60 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-[#606C60]" : ""} w-4 h-4 sm:w-5 sm:h-5`}
+                        className={`flex-shrink-0 transition-transform duration-300 w-4 h-4 sm:w-5 sm:h-5 ${isOpen ? "rotate-180" : ""}`}
+                        style={{ color: FAQ_ACCENT }}
                         aria-hidden
                       />
                     </button>
@@ -170,16 +234,20 @@ export function FAQ() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <div className="px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 bg-white/50 border-t border-[#606C60]/40">
+                        <div
+                          className="px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 border-t"
+                          style={{ backgroundColor: FAQ_CREAM_ALT + "99", borderColor: `${FAQ_ACCENT}25` }}
+                        >
                           {item.answer.includes("[RSVP_LINK]") ? (
-                            <p className={`${cormorant.className} text-[#606C60] font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg whitespace-pre-line tracking-wide`}>
+                            <p className={`${cormorant.className} font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg whitespace-pre-line tracking-wide`} style={{ color: FAQ_DARKER }}>
                               {item.answer.split("[RSVP_LINK]")[0]}
-                              <a 
-                                href="#guest-list" 
-                                className="text-[#606C60] underline font-bold hover:text-[#606C60]/80 transition-colors"
+                              <a
+                                href="#guest-list"
+                                className="underline font-bold transition-colors hover:opacity-80"
+                                style={{ color: FAQ_ACCENT }}
                                 onClick={(e) => {
                                   e.preventDefault()
-                                  document.getElementById('guest-list')?.scrollIntoView({ behavior: 'smooth' })
+                                  document.getElementById("guest-list")?.scrollIntoView({ behavior: "smooth" })
                                 }}
                               >
                                 {item.answer.match(/\[RSVP_LINK\](.*?)\[\/RSVP_LINK\]/)?.[1]}
@@ -188,84 +256,33 @@ export function FAQ() {
                             </p>
                           ) : item.question === "Is there a dress code?" ? (
                             <div className="space-y-3 sm:space-y-4">
-                              <p className={`${cormorant.className} text-[#606C60] font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg tracking-wide`}>
+                              <p className={`${cormorant.className} font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg tracking-wide whitespace-pre-line`} style={{ color: FAQ_DARKER }}>
                                 {item.answer}
                               </p>
-                              {/* Color Palette */}
+                              {/* Warm brown color palette */}
                               <div className="flex items-end justify-center gap-1.5 sm:gap-2 md:gap-3 mt-4 sm:mt-5">
-                                {/* Color 1: #606C60 */}
-                                <div className="flex-1 max-w-[40px] sm:max-w-[50px] md:max-w-[60px] lg:max-w-[70px] group">
-                                  <div 
-                                    className="w-full h-16 sm:h-20 md:h-24 lg:h-28 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-                                    style={{ 
-                                      backgroundColor: '#606C60',
-                                      clipPath: 'polygon(0 12%, 50% 0%, 100% 12%, 100% 100%, 0% 100%)',
-                                      borderRadius: '0 0 4px 4px',
-                                      boxShadow: '0 2px 8px rgba(96, 108, 96, 0.25)',
-                                      border: '2px solid rgba(96, 108, 96, 0.3)'
-                                    }}
-                                  />
-                                </div>
-                                
-                                {/* Color 2: #E1D5C7 */}
-                                <div className="flex-1 max-w-[40px] sm:max-w-[50px] md:max-w-[60px] lg:max-w-[70px] group">
-                                  <div 
-                                    className="w-full h-16 sm:h-20 md:h-24 lg:h-28 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-                                    style={{ 
-                                      backgroundColor: '#E1D5C7',
-                                      clipPath: 'polygon(0 12%, 50% 0%, 100% 12%, 100% 100%, 0% 100%)',
-                                      borderRadius: '0 0 4px 4px',
-                                      boxShadow: '0 2px 8px rgba(225, 213, 199, 0.25)',
-                                      border: '2px solid rgba(96, 108, 96, 0.3)'
-                                    }}
-                                  />
-                                </div>
-                                
-                                {/* Color 3: #96A298 */}
-                                <div className="flex-1 max-w-[40px] sm:max-w-[50px] md:max-w-[60px] lg:max-w-[70px] group">
-                                  <div 
-                                    className="w-full h-16 sm:h-20 md:h-24 lg:h-28 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-                                    style={{ 
-                                      backgroundColor: '#96A298',
-                                      clipPath: 'polygon(0 12%, 50% 0%, 100% 12%, 100% 100%, 0% 100%)',
-                                      borderRadius: '0 0 4px 4px',
-                                      boxShadow: '0 2px 8px rgba(150, 162, 152, 0.25)',
-                                      border: '2px solid rgba(96, 108, 96, 0.3)'
-                                    }}
-                                  />
-                                </div>
-                                
-                                {/* Color 4: #DFDBD2 */}
-                                <div className="flex-1 max-w-[40px] sm:max-w-[50px] md:max-w-[60px] lg:max-w-[70px] group">
-                                  <div 
-                                    className="w-full h-16 sm:h-20 md:h-24 lg:h-28 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-                                    style={{ 
-                                      backgroundColor: '#DFDBD2',
-                                      clipPath: 'polygon(0 12%, 50% 0%, 100% 12%, 100% 100%, 0% 100%)',
-                                      borderRadius: '0 0 4px 4px',
-                                      boxShadow: '0 2px 8px rgba(223, 219, 210, 0.25)',
-                                      border: '2px solid rgba(96, 108, 96, 0.3)'
-                                    }}
-                                  />
-                                </div>
-                                
-                                {/* Color 5: #555754 */}
-                                <div className="flex-1 max-w-[40px] sm:max-w-[50px] md:max-w-[60px] lg:max-w-[70px] group">
-                                  <div 
-                                    className="w-full h-16 sm:h-20 md:h-24 lg:h-28 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-                                    style={{ 
-                                      backgroundColor: '#555754',
-                                      clipPath: 'polygon(0 12%, 50% 0%, 100% 12%, 100% 100%, 0% 100%)',
-                                      borderRadius: '0 0 4px 4px',
-                                      boxShadow: '0 2px 8px rgba(85, 87, 84, 0.25)',
-                                      border: '2px solid rgba(96, 108, 96, 0.3)'
-                                    }}
-                                  />
-                                </div>
+                                {[
+                                  { color: FAQ_ACCENT, label: "Accent" },
+                                  { color: FAQ_CREAM, label: "Cream" },
+                                  { color: "#C1AC94", label: "Beige" },
+                                  { color: FAQ_DARK, label: "Brown" },
+                                  { color: FAQ_DARKER, label: "Dark" },
+                                ].map(({ color }) => (
+                                  <div key={color} className="flex-1 max-w-[40px] sm:max-w-[50px] md:max-w-[60px] lg:max-w-[70px] group">
+                                    <div
+                                      className="w-full h-16 sm:h-20 md:h-24 lg:h-28 transition-all duration-300 group-hover:scale-105 rounded-b"
+                                      style={{
+                                        backgroundColor: color,
+                                        boxShadow: `0 2px 8px ${color}40`,
+                                        border: `2px solid ${FAQ_ACCENT}25`,
+                                      }}
+                                    />
+                                  </div>
+                                ))}
                               </div>
                             </div>
                           ) : (
-                            <p className={`${cormorant.className} text-[#606C60] font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg whitespace-pre-line tracking-wide`}>
+                            <p className={`${cormorant.className} font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg whitespace-pre-line tracking-wide`} style={{ color: FAQ_DARKER }}>
                               {item.answer}
                             </p>
                           )}
