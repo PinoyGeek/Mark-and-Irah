@@ -298,3 +298,57 @@ html {
     transform: rotate(calc(var(--base-rot, 0deg) + 3deg)) scale(1.1);
   }
 }
+
+/* Book of Guests carousel — roll-out (current slide exits with page-turn feel) */
+@keyframes guest-roll-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0) translateZ(0) rotateX(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-32px) translateZ(-40px) rotateX(8deg) scale(0.98);
+  }
+}
+
+/* Book of Guests carousel — roll-in (new cards enter with stagger + subtle 3D) */
+@keyframes guest-roll-in {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) translateZ(-20px) rotateX(-6deg) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateZ(0) rotateX(0deg) scale(1);
+  }
+}
+
+/* Reduced motion: simple fade only */
+@keyframes guest-roll-out-reduced {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes guest-roll-in-reduced {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animate-guest-roll-out {
+  animation: guest-roll-out 0.6s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+  transform-style: preserve-3d;
+}
+
+.animate-guest-roll-in {
+  animation: guest-roll-in 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+  transform-style: preserve-3d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-guest-roll-out {
+    animation: guest-roll-out-reduced 0.35s ease-out forwards;
+  }
+  .animate-guest-roll-in {
+    animation: guest-roll-in-reduced 0.35s ease-out backwards;
+  }
+}

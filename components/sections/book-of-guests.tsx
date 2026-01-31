@@ -54,6 +54,7 @@ export function BookOfGuests() {
   const [showIncrease, setShowIncrease] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [justEntered, setJustEntered] = useState(false)
 
   // Helper function to get initials from name
   const getInitials = (name: string): string => {
@@ -173,7 +174,9 @@ export function BookOfGuests() {
           return next >= confirmedGuests.length ? 0 : next
         })
         setIsTransitioning(false)
-      }, 300)
+        setJustEntered(true)
+        setTimeout(() => setJustEntered(false), 1100)
+      }, 600)
     }, 5000)
     return () => clearInterval(interval)
   }, [confirmedGuests.length])
@@ -314,19 +317,32 @@ export function BookOfGuests() {
         {/* Guest List Display - 4 cards with carousel */}
         {confirmedGuests.length > 0 && (
           <div className="max-w-5xl mx-auto px-2 sm:px-4 md:px-6">
-            <div className="relative overflow-hidden">
+            <div
+              className="relative overflow-hidden"
+              style={{
+                perspective: "1200px",
+                perspectiveOrigin: "center 85%",
+                transformStyle: "preserve-3d",
+              }}
+            >
               <div
-                key={currentIndex}
-                className={`space-y-2 sm:space-y-3 md:space-y-4 transition-opacity duration-300 ease-in-out ${isTransitioning ? "opacity-0" : "opacity-100"}`}
+                className={`space-y-2 sm:space-y-3 md:space-y-4 ${isTransitioning ? "animate-guest-roll-out" : ""}`}
+                style={{ transformStyle: "preserve-3d" }}
               >
                 {getVisibleGuests().map((guest, index) => (
                   <div
                     key={`${guest.id}-${currentIndex}-${index}`}
-                    className="relative group rounded-xl sm:rounded-2xl p-2.5 sm:p-4 md:p-6 transition-all duration-300 border hover:shadow-xl"
+                    className={`relative group rounded-xl sm:rounded-2xl p-2.5 sm:p-4 md:p-6 transition-all duration-300 border hover:shadow-xl ${justEntered ? "animate-guest-roll-in" : ""}`}
                     style={{
                       backgroundColor: BOOK_CREAM,
                       borderColor: `${BOOK_ACCENT}30`,
                       boxShadow: "0 2px 12px rgba(62,41,20,0.06)",
+                      ...(justEntered
+                        ? {
+                            animationDelay: `${index * 120}ms`,
+                            backfaceVisibility: "hidden",
+                          }
+                        : {}),
                     }}
                   >
                   <div className="flex items-start gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-2.5 md:mb-3">
@@ -470,7 +486,9 @@ export function BookOfGuests() {
                           setTimeout(() => {
                             setCurrentIndex(idx * CARDS_PER_VIEW)
                             setIsTransitioning(false)
-                          }, 300)
+                            setJustEntered(true)
+                            setTimeout(() => setJustEntered(false), 1100)
+                          }, 600)
                         }}
                         className="h-2 rounded-full transition-all duration-300 hover:opacity-90"
                         style={{
