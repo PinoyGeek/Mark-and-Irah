@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import Image from "next/image"
 import { Section } from "@/components/section"
 import {
   Search,
@@ -21,11 +20,6 @@ import {
 } from "lucide-react"
 import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import { siteConfig } from "@/content/site"
-
-// Match hero/details: warm brown accent
-const GUEST_LIST_ACCENT = "#9B6A41"
-const GUEST_LIST_HEADER_BG = "#E8E0D5"
-const DECO_FILTER_WHITE = "brightness(0) saturate(100%) invert(1)"
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -406,21 +400,7 @@ export function GuestList() {
   }
 
   return (
-    <Section id="guest-list" className="relative z-30 py-6 sm:py-10 md:py-12 lg:py-16 overflow-hidden">
-      {/* Corner decorations — white */}
-      <div className="absolute left-0 top-0 z-0 pointer-events-none">
-        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-60 scale-y-[-1]" priority={false} style={{ filter: DECO_FILTER_WHITE }} />
-      </div>
-      <div className="absolute right-0 top-0 z-0 pointer-events-none">
-        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-60 scale-x-[-1] scale-y-[-1]" priority={false} style={{ filter: DECO_FILTER_WHITE }} />
-      </div>
-      <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
-        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-60" priority={false} style={{ filter: DECO_FILTER_WHITE }} />
-      </div>
-      <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
-        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-60 scale-x-[-1]" priority={false} style={{ filter: DECO_FILTER_WHITE }} />
-      </div>
-
+    <Section id="guest-list" className="relative z-30 py-6 sm:py-10 md:py-12 lg:py-16">
       {/* Header */}
       <div className="relative z-10 text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10 px-2 sm:px-3 md:px-4">
         {/* Small label */}
@@ -579,21 +559,21 @@ export function GuestList() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
-              <div className="relative bg-[#E8E0D5] p-3 sm:p-4 md:p-5 lg:p-6 flex-shrink-0">
+              <div className="relative bg-[#BCCFC0] p-3 sm:p-4 md:p-5 lg:p-6 flex-shrink-0">
                 <div className="relative flex items-start justify-between gap-1.5 sm:gap-2">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 mb-1 sm:mb-1.5 md:mb-2 lg:mb-3">
                       <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
                         <Heart className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 lg:h-5 lg:w-5 text-[#9B6A41]" />
                       </div>
-                      <h3 className={`${cinzel.className} text-base sm:text-lg md:text-xl lg:text-2xl xl:text-4xl font-bold text-[#9B6A41] truncate`}>
+                      <h3 className={`${cinzel.className} text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl font-bold text-[#9B6A41] truncate`}>
                         You're Invited!
                       </h3>
                     </div>
-                    <p className={`${cormorant.className} text-[#9B6A41]/95 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-tight sm:leading-normal`}>
+                    <p className={`${cormorant.className} text-[#9B6A41]/95 text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg leading-tight sm:leading-normal`}>
                       Hello <span className="font-extrabold text-[#9B6A41]">{selectedGuest?.Name}</span>, you are invited to our wedding!
                     </p>
-                    <p className={`${cormorant.className} text-[#9B6A41]/90 text-xs sm:text-sm md:text-base mt-1 sm:mt-1.5`}>
+                    <p className={`${cormorant.className} text-[#9B6A41]/90 text-[10px] sm:text-xs md:text-sm mt-1 sm:mt-1.5`}>
                       We've reserved <span className="font-bold text-[#9B6A41]">{selectedGuest?.AllowedGuests || 1}</span> {selectedGuest?.AllowedGuests === 1 ? 'seat' : 'seats'} for you.
                     </p>
                   </div>
@@ -852,7 +832,7 @@ export function GuestList() {
 
               {/* Enhanced Success Overlay */}
               {success && (
-                <div className="absolute inset-0 bg-[#E8E0D5]/98 backdrop-blur-md flex items-center justify-center z-50 animate-in fade-in duration-300 p-2 sm:p-3 md:p-4">
+                <div className="absolute inset-0 bg-[#BCCFC0]/98 backdrop-blur-md flex items-center justify-center z-50 animate-in fade-in duration-300 p-2 sm:p-3 md:p-4">
                   <div className="text-center p-3 sm:p-4 md:p-5 lg:p-6 max-w-sm mx-auto">
                     {/* Enhanced Icon Circle */}
                     <div className="relative inline-flex items-center justify-center mb-3 sm:mb-4">
@@ -861,7 +841,7 @@ export function GuestList() {
                       <div className="absolute inset-0 rounded-full border-2 border-[#8B3036]/30" />
                       {/* Icon container */}
                       <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-white rounded-full flex items-center justify-center shadow-xl">
-                        <CheckCircle className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-10 lg:w-10 text-[#E8E0D5]" strokeWidth={2.5} />
+                        <CheckCircle className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-10 lg:w-10 text-[#BCCFC0]" strokeWidth={2.5} />
                       </div>
                     </div>
                     
@@ -930,7 +910,7 @@ export function GuestList() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header with Gradient */}
-              <div className="relative bg-[#E8E0D5] p-3 sm:p-4 md:p-5 lg:p-6 flex-shrink-0">
+              <div className="relative bg-[#BCCFC0] p-3 sm:p-4 md:p-5 lg:p-6 flex-shrink-0">
                 <div className="relative flex items-start justify-between gap-1.5 sm:gap-2">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 mb-1 sm:mb-1.5 md:mb-2 lg:mb-3">
@@ -1078,7 +1058,7 @@ export function GuestList() {
 
               {/* Enhanced Success Overlay */}
               {requestSuccess && (
-                <div className="absolute inset-0 bg-[#E8E0D5]/98 backdrop-blur-md flex items-center justify-center z-50 animate-in fade-in duration-300 p-2 sm:p-3 md:p-4">
+                <div className="absolute inset-0 bg-[#BCCFC0]/98 backdrop-blur-md flex items-center justify-center z-50 animate-in fade-in duration-300 p-2 sm:p-3 md:p-4">
                   <div className="text-center p-3 sm:p-4 md:p-5 lg:p-6 max-w-sm mx-auto">
                     {/* Enhanced Icon Circle */}
                     <div className="relative inline-flex items-center justify-center mb-3 sm:mb-4">
@@ -1087,7 +1067,7 @@ export function GuestList() {
                       <div className="absolute inset-0 rounded-full border-2 border-[#8B3036]/30" />
                       {/* Icon container */}
                       <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-white rounded-full flex items-center justify-center shadow-xl">
-                        <CheckCircle className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-10 lg:w-10 text-[#E8E0D5]" strokeWidth={2.5} />
+                        <CheckCircle className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-10 lg:w-10 text-[#BCCFC0]" strokeWidth={2.5} />
                       </div>
                     </div>
                     
