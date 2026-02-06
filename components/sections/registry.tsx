@@ -4,7 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import { Section } from "@/components/section"
 
-const GCASH_NUMBER = "09154601546"
+const GCASH_NUMBER = "+63 969 296 9854"
 
 // Warm brown palette to match hero/details
 const REGISTRY_ACCENT = "#9B6A41"

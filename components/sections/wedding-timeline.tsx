@@ -20,7 +20,7 @@ const cinzel = Cinzel({
 
 const { groomNickname, brideNickname } = siteConfig.couple
 const ceremonyTime = siteConfig.ceremony.time
-const guestsTime = siteConfig.ceremony.guestsTime ?? "12:30 PM"
+const guestsTime = siteConfig.ceremony.guestsTime ?? "1:30 PM"
 const ceremonyVenue = siteConfig.ceremony.venue
 const receptionVenue = siteConfig.reception.venue
 const receptionTime = siteConfig.reception.time

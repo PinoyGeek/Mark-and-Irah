@@ -457,7 +457,7 @@ export function Details() {
                   ARRIVAL
                 </h4>
                 <p className={`${cormorant.className} text-sm sm:text-base md:text-lg leading-relaxed`} style={{ color: DETAILS_TEXT }}>
-                  We kindly request guests to arrive by <span className="font-semibold">12:30 PM</span> to allow ample time to settle in before the ceremony, which will begin promptly at <span className="font-semibold">2:30 PM</span>.{" "}
+                  We kindly request guests to arrive by <span className="font-semibold">1:30 PM</span> to allow ample time to settle in before the ceremony, which will begin promptly at <span className="font-semibold">2:30 PM</span>.{" "}
                   The reception will follow at <span className="font-semibold">5:00 PM</span>.
                 </p>
               </div>

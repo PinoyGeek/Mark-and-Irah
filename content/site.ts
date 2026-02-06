@@ -27,7 +27,7 @@ export const siteConfig = {
     day: "Thursday",
     time: "2:30 PM",
     entourageTime: "1:00 PM",
-    guestsTime: "12:30 PM",
+    guestsTime: "1:30 PM",
   },
   reception: {
     location: "Ardesia Resort and Spa Angeles Pampanga",
