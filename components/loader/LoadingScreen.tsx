@@ -89,7 +89,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   const coupleNames = `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}`;
-  const hashtag = `#${siteConfig.couple.groomNickname}And${siteConfig.couple.brideNickname}`;
+  const hashtag = 'ToInffyNitty&Beyond';
   const productionCredit = '';
 
   // Palette tuned to requested hues
