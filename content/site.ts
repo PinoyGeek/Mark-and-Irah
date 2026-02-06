@@ -25,7 +25,7 @@ export const siteConfig = {
     venue: "Holy Rosary Parish Church Angeles Pampanga",
     date: "March 26 2026",
     day: "Thursday",
-    time: "1:30 PM",
+    time: "2:30 PM",
     entourageTime: "1:00 PM",
     guestsTime: "12:30 PM",
   },
@@ -33,7 +33,7 @@ export const siteConfig = {
     location: "Ardesia Resort and Spa Angeles Pampanga",
     venue: "Ardesia Resort and Spa Angeles Pampanga",
     date: "March 26, 2026",
-    time: "3:00 PM",
+    time: "5:00 PM",
   },
   dressCode: {
     theme: "Modern Filipiniana",

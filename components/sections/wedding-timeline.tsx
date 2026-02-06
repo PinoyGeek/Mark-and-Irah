@@ -61,7 +61,7 @@ const timelineEvents: TimelineEvent[] = [
     imageSrc: "/weddingtimeline/WeddingCeremony.png",
   },
   {
-    time: "5:00 PM",
+    time: receptionTime,
     title: "Cocktail Hour",
     description: "Enjoy drinks and light bites as we transition into the reception and mingle with guests.",
     location: receptionVenue,
@@ -85,7 +85,7 @@ const timelineEvents: TimelineEvent[] = [
     imageSrc: "/weddingtimeline/DinnerService.png",
   },
   {
-    time: "9:00 PM",
+    time: "9:00 PM - 11:00 PM",
     title: "Send-off",
     description: `Help us send off ${groomNickname} & ${brideNickname} with love and well-wishes.`,
     location: receptionVenue,

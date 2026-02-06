@@ -85,7 +85,7 @@ export function GuestInformation() {
                 </ul>
                 <div className="relative w-full aspect-[4/3] max-w-[260px] sm:max-w-[280px] md:max-w-xs mx-auto md:mx-0 md:mr-auto">
                   <Image
-                    src="/Details/principal.png"
+                    src="/Details/principalsponsornew.png"
                     alt="Principal Sponsors attire - strictly formal"
                     fill
                     className="object-contain object-center md:object-left"
@@ -146,10 +146,22 @@ export function GuestInformation() {
                   </h4>
                   <div className="space-y-1.5 sm:space-y-2 md:space-y-2.5">
                     <p className={`${cormorant.className} text-xs sm:text-sm md:text-base leading-relaxed`} style={{ color: GUEST_MEDIUM }}>
-                      Kindly arrive by <span className="font-semibold" style={{ color: GUEST_DARK }}>{siteConfig.ceremony.guestsTime ?? "12:30 PM"}</span> so we can begin the wedding ceremony promptly at exactly <span className="font-semibold" style={{ color: GUEST_DARK }}>{siteConfig.ceremony.time}</span>.
+                      We kindly request guests to arrive by{" "}
+                      <span className="font-semibold" style={{ color: GUEST_DARK }}>
+                        {siteConfig.ceremony.guestsTime ?? "12:30 PM"}
+                      </span>{" "}
+                      to allow ample time to settle in before the ceremony, which will begin promptly at{" "}
+                      <span className="font-semibold" style={{ color: GUEST_DARK }}>
+                        {siteConfig.ceremony.time}
+                      </span>
+                      .
                     </p>
                     <p className={`${cormorant.className} text-xs sm:text-sm md:text-base leading-relaxed`} style={{ color: GUEST_MEDIUM }}>
-                      Your punctuality means so much to us — and don&apos;t forget to have a light snack beforehand so you can enjoy the celebration comfortably!
+                      The reception will follow at{" "}
+                      <span className="font-semibold" style={{ color: GUEST_DARK }}>
+                        {siteConfig.reception.time ?? "5:00 PM"}
+                      </span>
+                      .
                     </p>
                   </div>
                 </div>

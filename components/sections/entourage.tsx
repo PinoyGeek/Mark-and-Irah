@@ -4,7 +4,7 @@ import React from "react"
 import { useState, useEffect, useMemo, useRef } from "react"
 import { siteConfig, entourage as staticEntourage, principalSponsors as staticSponsors } from "@/content/site"
 import { Loader2, Users } from "lucide-react"
-import { Cormorant_Garamond, Cinzel, Great_Vibes } from "next/font/google"
+import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import Image from "next/image"
 
 const cormorant = Cormorant_Garamond({
@@ -15,11 +15,6 @@ const cormorant = Cormorant_Garamond({
 const cinzel = Cinzel({
   subsets: ["latin"],
   weight: ["400"],
-})
-
-const greatVibes = Great_Vibes({
-  subsets: ["latin"],
-  weight: "400",
 })
 
 interface EntourageMember {
@@ -214,7 +209,7 @@ export function Entourage() {
       align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
     return (
       <h3
-        className={`relative ${greatVibes.className} text-base sm:text-lg md:text-xl lg:text-2xl font-normal mb-1 sm:mb-1.5 md:mb-2 ${textAlign} ${className} transition-all duration-300 whitespace-nowrap`}
+        className={`relative ${cinzel.className} text-[0.7rem] sm:text-[0.85rem] md:text-base lg:text-lg tracking-[0.18em] uppercase mb-1 sm:mb-1.5 md:mb-2 ${textAlign} ${className} transition-all duration-300 whitespace-nowrap`}
         style={{ color: ENTOURAGE_TEXT }}
       >
         {children}

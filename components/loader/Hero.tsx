@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 
 interface HeroProps {
@@ -6,20 +6,46 @@ interface HeroProps {
   visible: boolean;
 }
 
-const BACKGROUND_VIDEO_SRC = '/decoration/Falling Autumn Leaves Background Loop.mp4';
+const desktopImages: string[] = [
+  '/desktop-background/couple (1).webp',
+  '/desktop-background/couple (2).webp',
+  '/desktop-background/couple (3).webp',
+  '/desktop-background/couple (4).webp',
+  '/desktop-background/couple (5).webp',
+];
+
+const mobileImages: string[] = [
+  '/mobile-background/couple (1).webp',
+  '/mobile-background/couple (2).webp',
+  '/mobile-background/couple (3).webp',
+  '/mobile-background/couple (4).webp',
+  '/mobile-background/couple (5).webp',
+];
 
 export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [index, setIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [contentVisible, setContentVisible] = useState(false);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (video && visible) {
-      video.play().catch(() => {
-        // Autoplay may be blocked; mute is required for most browsers
-      });
-    }
-  }, [visible]);
+    setMounted(true);
+    if (typeof window === 'undefined') return;
+
+    const media = window.matchMedia('(max-width: 768px)');
+    const handleChange = () => setIsMobile(media.matches);
+    handleChange();
+    media.addEventListener('change', handleChange);
+    return () => media.removeEventListener('change', handleChange);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % 5);
+    }, 5500);
+    return () => clearInterval(timer);
+  }, [mounted]);
 
   useEffect(() => {
     if (visible) {
@@ -48,22 +74,34 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
     };
   }, []);
 
+  const images = useMemo(() => (isMobile ? mobileImages : desktopImages), [isMobile]);
+
   return (
       <div className={`fixed inset-0 z-30 flex items-center justify-center overflow-hidden transition-opacity duration-500 ${visible ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-      {/* Background video - loop */}
+      {/* Background Image Carousel */}
       <div className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
-          src={BACKGROUND_VIDEO_SRC}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          aria-hidden
-        />
+        {images.map((src, i) => (
+          <div
+            key={src}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === index ? 'opacity-100' : 'opacity-0'}`}
+            style={{
+              transform: i === index ? 'scale(1)' : 'scale(1.05)',
+              transition: 'opacity 1s ease-in-out, transform 1s ease-in-out'
+            }}
+          >
+            <Image
+              src={src}
+              alt="Couple"
+              fill
+              quality={90}
+              priority={i === 0}
+              className="object-cover"
+              sizes="100vw"
+            />
+          </div>
+        ))}
         
-        {/* Gradient Overlay - white */}
+        {/* Gradient Overlay - light/white */}
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -71,7 +109,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
           }}
         />
         
-        {/* Subtle vignette effect - white */}
+        {/* Subtle vignette effect - light/white */}
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -103,7 +141,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
                 fill
                 className="object-contain drop-shadow-lg"
                 priority
-                style={{ filter: 'brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(900%) hue-rotate(355deg) brightness(95%) contrast(90%)' }}
+                style={{
+                  filter:
+                    'brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(900%) hue-rotate(355deg) brightness(95%) contrast(90%)',
+                }}
               />
             </div>
           </div>

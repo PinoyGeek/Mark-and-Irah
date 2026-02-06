@@ -15,6 +15,11 @@ const cormorant = Cormorant_Garamond({
   weight: ["400", "500", "600"],
 })
 
+// Match Details/Gallery palette
+const GALLERY_TEXT = "#9B6A41"
+const GALLERY_DECO_FILTER =
+  "brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(900%) hue-rotate(355deg) brightness(95%) contrast(90%)"
+
 // Generate on each request so newly added images in public/ appear without a rebuild
 export const dynamic = "force-dynamic"
 
@@ -47,11 +52,9 @@ export default async function GalleryPage() {
   })
 
   return (
-    <main className="min-h-screen relative overflow-hidden">
+    <main className="min-h-screen relative overflow-hidden bg-white">
       {/* Background */}
-      <div 
-        className="absolute inset-0 -z-10 bg-[#E1D5C7]"
-      />
+      <div className="absolute inset-0 -z-10 bg-white" />
       
       {/* Flower decoration - top left corner */}
       <div className="absolute left-0 top-0 z-0 pointer-events-none">
@@ -60,9 +63,9 @@ export default async function GalleryPage() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-y-[-1]"
+          className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-25 scale-y-[-1]"
           priority={false}
-          style={{ filter: 'brightness(0) saturate(100%) invert(38%) sepia(8%) saturate(1000%) hue-rotate(100deg) brightness(95%) contrast(90%)' }}
+          style={{ filter: GALLERY_DECO_FILTER }}
         />
       </div>
       
@@ -73,9 +76,9 @@ export default async function GalleryPage() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-x-[-1] scale-y-[-1]"
+          className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-25 scale-x-[-1] scale-y-[-1]"
           priority={false}
-          style={{ filter: 'brightness(0) saturate(100%) invert(38%) sepia(8%) saturate(1000%) hue-rotate(100deg) brightness(95%) contrast(90%)' }}
+          style={{ filter: GALLERY_DECO_FILTER }}
         />
       </div>
       
@@ -86,9 +89,9 @@ export default async function GalleryPage() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
+          className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-25"
           priority={false}
-          style={{ filter: 'brightness(0) saturate(100%) invert(38%) sepia(8%) saturate(1000%) hue-rotate(100deg) brightness(95%) contrast(90%)' }}
+          style={{ filter: GALLERY_DECO_FILTER }}
         />
       </div>
       
@@ -99,45 +102,59 @@ export default async function GalleryPage() {
           alt="Flower decoration"
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-x-[-1]"
+          className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-25 scale-x-[-1]"
           priority={false}
-          style={{ filter: 'brightness(0) saturate(100%) invert(38%) sepia(8%) saturate(1000%) hue-rotate(100deg) brightness(95%) contrast(90%)' }}
+          style={{ filter: GALLERY_DECO_FILTER }}
         />
       </div>
 
       <section className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-16">
         <div className="text-center mb-6 sm:mb-8 md:mb-10 px-3 sm:px-4">
-          {/* Decorative element above title */}
+          {/* Decorative element above title - match Details/Gallery */}
           <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <div className="w-8 sm:w-12 md:w-16 h-px bg-[#606C60]/60" />
-            <div className="w-1.5 h-1.5 bg-[#606C60]/80 rounded-full" />
-            <div className="w-1.5 h-1.5 bg-[#606C60]/60 rounded-full" />
-            <div className="w-1.5 h-1.5 bg-[#606C60]/80 rounded-full" />
-            <div className="w-8 sm:w-12 md:w-16 h-px bg-[#606C60]/60" />
+            <div
+              className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-transparent"
+              style={{ background: `linear-gradient(to right, transparent, ${GALLERY_TEXT}40, transparent)` }}
+            />
+            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: GALLERY_TEXT }} />
+            <div className="w-1.5 h-1.5 rounded-full opacity-50" style={{ backgroundColor: GALLERY_TEXT }} />
+            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: GALLERY_TEXT }} />
+            <div
+              className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-transparent"
+              style={{ background: `linear-gradient(to right, transparent, ${GALLERY_TEXT}40, transparent)` }}
+            />
           </div>
-          
+
           <h1
-            className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-[#606C60] mb-2 sm:mb-3 md:mb-4`}
+            className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal mb-2 sm:mb-3 md:mb-4`}
+            style={{ color: GALLERY_TEXT }}
           >
             Our Love Story Gallery
           </h1>
-          <p className={`${cormorant.className} text-xs sm:text-sm md:text-base lg:text-lg text-[#606C60] font-light max-w-xl mx-auto leading-relaxed px-2`}>
-            Every photograph tells a story of {siteConfig.couple.groomNickname} & {siteConfig.couple.brideNickname}'s journey to forever
+          <p
+            className={`${cormorant.className} text-xs sm:text-sm md:text-base lg:text-lg font-light max-w-xl mx-auto leading-relaxed px-2`}
+            style={{ color: GALLERY_TEXT }}
+          >
+            Every photograph tells a story of {siteConfig.couple.groomNickname} & {siteConfig.couple.brideNickname}'s journey to
+            forever
           </p>
-          
+
           {/* Decorative element below subtitle */}
           <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-            <div className="w-1.5 h-1.5 bg-[#606C60]/80 rounded-full" />
-            <div className="w-1.5 h-1.5 bg-[#606C60]/60 rounded-full" />
-            <div className="w-1.5 h-1.5 bg-[#606C60]/80 rounded-full" />
+            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: GALLERY_TEXT }} />
+            <div className="w-1.5 h-1.5 rounded-full opacity-50" style={{ backgroundColor: GALLERY_TEXT }} />
+            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: GALLERY_TEXT }} />
           </div>
         </div>
 
         {images.length === 0 ? (
-          <div className={`${cormorant.className} text-center text-[#606C60]/90`}>
+          <div className={`${cormorant.className} text-center`} style={{ color: `${GALLERY_TEXT}e6` }}>
             <p className="font-light">
               No images found. Add files to{" "}
-              <code className="px-2 py-1 bg-[#606C60]/80 rounded border border-[#606C60]/30 text-[#606C60]">
+              <code
+                className="px-2 py-1 rounded border"
+                style={{ backgroundColor: `${GALLERY_TEXT}10`, borderColor: `${GALLERY_TEXT}40`, color: GALLERY_TEXT }}
+              >
                 public/mobile-background or public/desktop-background
               </code>
               .

@@ -1,45 +1,39 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
+import Link from "next/link"
 import NextImage from "next/image"
-import Image from "next/image"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
+import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import { Section } from "@/components/section"
-import { motion } from "motion/react"
-import { Cormorant_Garamond, WindSong, Cinzel } from "next/font/google"
-import { siteConfig } from "@/content/site"
 // Removed circular gallery in favor of a responsive masonry layout
 
+// Match Details section typography & warm brown palette
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-})
-
-const windSong = WindSong({
-  subsets: ["latin"],
-  weight: "400",
+  weight: ["400"],
 })
 
 const cinzel = Cinzel({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400"],
 })
 
-const galleryHashtag = "#JohnAndVanessaWedding"
+const GALLERY_TEXT = "#9B6A41"
+const GALLERY_DECO_FILTER =
+  "brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(900%) hue-rotate(355deg) brightness(95%) contrast(90%)"
 
 const galleryItems = [
-  { image: "/mobile-background/couple (12).webp", text: " " },
-  { image: "/mobile-background/couple (15).webp", text: " " },
-  { image: "/mobile-background/couple (13).webp", text: " " },
-  { image: "/mobile-background/couple (19).webp", text: " " },
-  { image: "/mobile-background/couple (22).webp", text: " " },
-  { image: "/desktop-background/couple (3).webp", text: " " },
+  { image: "/mobile-background/couple (1).webp", text: " " },   
+  { image: "/mobile-background/couple (5).webp", text: " " },
+  { image: "/mobile-background/couple (3).webp", text: " " },
+  { image: "/mobile-background/couple (4).webp", text: " " },
+
+
 
 ]
 
 export function Gallery() {
-  const { brideNickname, groomNickname } = siteConfig.couple
-  const coupleDisplayName = `${groomNickname} & ${brideNickname}`
   const [selectedImage, setSelectedImage] = useState<(typeof galleryItems)[0] | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
@@ -99,12 +93,10 @@ export function Gallery() {
   // Preload adjacent images for smoother nav
   useEffect(() => {
     if (selectedImage) {
-      if (typeof window !== "undefined") {
-        const nextImg = new window.Image()
-        nextImg.src = galleryItems[(currentIndex + 1) % galleryItems.length].image
-        const prevImg = new window.Image()
-        prevImg.src = galleryItems[(currentIndex - 1 + galleryItems.length) % galleryItems.length].image
-      }
+      const next = new Image()
+      next.src = galleryItems[(currentIndex + 1) % galleryItems.length].image
+      const prev = new Image()
+      prev.src = galleryItems[(currentIndex - 1 + galleryItems.length) % galleryItems.length].image
     }
   }, [selectedImage, currentIndex])
 
@@ -118,162 +110,201 @@ export function Gallery() {
   return (
     <Section
       id="gallery"
-      className="relative py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
+      className="relative py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden bg-white"
     >
-      {/* Background */}
-      <div 
-        className="absolute inset-0 -z-10 bg-[#E1D5C7]"
-      />
-      
-      {/* Flower decoration - top left corner */}
-      <div className="absolute left-0 top-0 z-0 pointer-events-none">
-        <Image
+      {/* Corner floral decoration - aligned with Details section */}
+      <div className="absolute inset-0 pointer-events-none z-[1]">
+        <NextImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
-          alt="Flower decoration"
+          alt=""
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-y-[-1]"
+          className="absolute top-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px] opacity-20"
+          style={{ transform: "scaleY(-1)", filter: GALLERY_DECO_FILTER }}
           priority={false}
-          style={{ filter: 'brightness(0) saturate(100%) invert(38%) sepia(8%) saturate(1000%) hue-rotate(100deg) brightness(95%) contrast(90%)' }}
         />
-      </div>
-      
-      {/* Flower decoration - top right corner */}
-      <div className="absolute right-0 top-0 z-0 pointer-events-none">
-        <Image
+        <NextImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
-          alt="Flower decoration"
+          alt=""
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-x-[-1] scale-y-[-1]"
+          className="absolute top-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px] opacity-20"
+          style={{ transform: "scaleX(-1) scaleY(-1)", filter: GALLERY_DECO_FILTER }}
           priority={false}
-          style={{ filter: 'brightness(0) saturate(100%) invert(38%) sepia(8%) saturate(1000%) hue-rotate(100deg) brightness(95%) contrast(90%)' }}
         />
-      </div>
-      
-      {/* Flower decoration - left bottom corner */}
-      <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
-        <Image
+        <NextImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
-          alt="Flower decoration"
+          alt=""
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60"
+          className="absolute bottom-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px] opacity-20"
+          style={{ filter: GALLERY_DECO_FILTER }}
           priority={false}
-          style={{ filter: 'brightness(0) saturate(100%) invert(38%) sepia(8%) saturate(1000%) hue-rotate(100deg) brightness(95%) contrast(90%)' }}
         />
-      </div>
-      
-      {/* Flower decoration - right bottom corner */}
-      <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
-        <Image
+        <NextImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
-          alt="Flower decoration"
+          alt=""
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-60 scale-x-[-1]"
+          className="absolute bottom-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px] opacity-20"
+          style={{ transform: "scaleX(-1)", filter: GALLERY_DECO_FILTER }}
           priority={false}
-          style={{ filter: 'brightness(0) saturate(100%) invert(38%) sepia(8%) saturate(1000%) hue-rotate(100deg) brightness(95%) contrast(90%)' }}
         />
       </div>
 
-      {/* Header */}
-      <div className="relative z-10 text-center mb-8 sm:mb-10 md:mb-12 px-4">
-        <div className="space-y-2 sm:space-y-3">
-          <p
-            className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] text-[#606C60]`}
-          >
-            Cherished Moments with {coupleDisplayName}
-          </p>
-          <h2
-            className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#606C60]`}
-          >
-            Our Love Story in Pictures
-          </h2>
-        </div>
-
-        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base text-[#606C60] font-light max-w-xl mx-auto leading-relaxed mt-3`}>
-          Beautiful frames capturing the journey of {coupleDisplayName} — each photograph a precious memory of laughter, love, and the moments that led us to forever.
+      {/* Header - match Details typography & decoration */}
+      <div className="relative z-10 text-center mb-12 sm:mb-16 md:mb-20 px-4 sm:px-6">
+        <p
+          className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] mb-2`}
+          style={{ color: GALLERY_TEXT }}
+        >
+          Moments from Our Story
+        </p>
+        <h2
+          className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-2 sm:mb-3`}
+          style={{ color: GALLERY_TEXT }}
+        >
+          Gallery
+        </h2>
+        <p
+          className={`${cormorant.className} text-xs sm:text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed px-2 mb-3 sm:mb-4`}
+          style={{ color: GALLERY_TEXT }}
+        >
+          Every captured frame is a piece of our journey, lovingly preserved.
         </p>
 
-        <div className="flex items-center justify-center gap-2 mt-6">
-          <div className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent via-[#606C60]/80 to-transparent" />
-          <motion.div
-            className="w-1.5 h-1.5 rounded-full bg-[#606C60]/80"
-            animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.7, 1, 0.7],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+        {/* Decorative element - hero/details style */}
+        <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
+          <div
+            className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-transparent"
+            style={{ background: `linear-gradient(to right, transparent, ${GALLERY_TEXT}40, transparent)` }}
           />
-          <div className="w-8 sm:w-12 h-px bg-gradient-to-l from-transparent via-[#606C60]/80 to-transparent" />
+          <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: GALLERY_TEXT }} />
+          <div className="w-1.5 h-1.5 rounded-full opacity-50" style={{ backgroundColor: GALLERY_TEXT }} />
+          <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: GALLERY_TEXT }} />
+          <div
+            className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-transparent"
+            style={{ background: `linear-gradient(to right, transparent, ${GALLERY_TEXT}40, transparent)` }}
+          />
         </div>
       </div>
 
       {/* Gallery content */}
       <div className="relative z-10 w-full">
-        <div className="flex justify-center px-4 sm:px-5 md:px-6">
-          <div className="max-w-5xl w-full">
+        <div className="flex justify-center px-4 sm:px-6 md:px-8">
+          <div className="max-w-6xl w-full">
             {isLoading ? (
-              <div className="flex items-center justify-center h-48 sm:h-60 md:h-72">
-                <div className="w-10 h-10 border-[3px] border-[#E1D5C7]/40 border-t-[#606C60] rounded-full animate-spin" />
+              <div className="flex items-center justify-center h-64 sm:h-80 md:h-96">
+                <div className="w-12 h-12 border-[3px] border-[#9F8650]/30 border-t-[#9F8650] rounded-full animate-spin" />
               </div>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3.5 md:gap-4.5">
-                {galleryItems.map((item, index) => (
-                  <motion.button
-                    key={item.image + index}
-                    type="button"
-                    className="group relative w-full overflow-hidden rounded-lg sm:rounded-xl bg-white/5 backdrop-blur-lg border border-white/15 shadow-lg hover:shadow-xl hover:border-white/40 transition-all duration-300"
-                    onClick={() => {
-                      setSelectedImage(item)
-                      setCurrentIndex(index)
-                    }}
-                    aria-label={`Open image ${index + 1}`}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+              <>
+                {/* Mobile: swipeable sliding gallery (scroll-snap carousel) */}
+                <div className="sm:hidden">
+                  <div
+                    className="flex gap-3 overflow-x-auto px-1 pb-3 snap-x snap-mandatory scroll-px-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                    aria-label="Gallery carousel"
                   >
-                    {/* Subtle glow on hover */}
-                    <div className="absolute -inset-0.5 bg-gradient-to-br from-[#606C60]/45 via-[#606C60]/28 to-[#E1D5C7]/20 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
-                    
-                    <div className="relative aspect-[3/4] md:aspect-square overflow-hidden">
-                      <NextImage
-                        src={item.image}
-                        alt={item.text || `Gallery image ${index + 1}`}
-                        fill
-                        sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        quality={90}
-                        loading="lazy"
-                      />
-                      {/* Gradient overlay on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#606C60]/65 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                    </div>
-                    
-                    {/* Image counter badge */}
-                    <div className="absolute top-2 right-2 bg-[#606C60]/90 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-[#606C60]/70 z-20">
-                      <span className="text-xs font-medium text-[#E1D5C7] tracking-wide">
-                        {index + 1}/{galleryItems.length}
-                      </span>
-                    </div>
-                  </motion.button>
-                ))}
+                    {galleryItems.map((item, index) => (
+                      <button
+                        key={item.image + index}
+                        type="button"
+                        className="group relative snap-center shrink-0 w-[82%] overflow-hidden rounded-lg bg-white/80 backdrop-blur-sm border border-[#9F8650]/30 active:border-[#9F8650]/50 transition-all duration-300"
+                        onClick={() => {
+                          setSelectedImage(item)
+                          setCurrentIndex(index)
+                        }}
+                        aria-label={`Open image ${index + 1}`}
+                      >
+                        {/* Subtle glow on active (mobile) */}
+                        <div className="absolute -inset-0.5 bg-gradient-to-br from-[#9F8650]/20 to-[#800A06]/10 rounded-lg opacity-0 group-active:opacity-100 transition-opacity duration-300 blur-sm" />
+
+                        <div className="relative aspect-[3/4] overflow-hidden">
+                          <img
+                            src={item.image}
+                            alt={item.text || `Gallery image ${index + 1}`}
+                            loading="lazy"
+                            decoding="async"
+                            sizes="90vw"
+                            className="w-full h-full object-cover transition-transform duration-500 group-active:scale-[1.02]"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-active:opacity-100 transition-opacity duration-300" />
+                        </div>
+
+                        <div className="absolute top-2 right-2 bg-[#800A06]/60 backdrop-blur-sm rounded-full px-2 py-1">
+                          <span className="text-xs font-medium text-white">
+                            {index + 1}/{galleryItems.length}
+                          </span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+
+                  <p className="mt-2 text-center text-xs font-[family-name:var(--font-crimson)] text-[#800A06]/70 tracking-wide">
+                    Swipe to slide
+                  </p>
+                </div>
+
+                {/* Tablet/Desktop: existing grid */}
+                <div className="hidden sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5 lg:gap-6">
+                  {galleryItems.map((item, index) => (
+                    <button
+                      key={item.image + index}
+                      type="button"
+                      className="group relative w-full overflow-hidden rounded-xl bg-white/80 backdrop-blur-sm border border-[#9F8650]/30 hover:border-[#9F8650]/50 transition-all duration-300"
+                      onClick={() => {
+                        setSelectedImage(item)
+                        setCurrentIndex(index)
+                      }}
+                      aria-label={`Open image ${index + 1}`}
+                    >
+                      {/* Subtle glow on hover */}
+                      <div className="absolute -inset-0.5 bg-gradient-to-br from-[#9F8650]/20 to-[#800A06]/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+
+                      <div className="relative aspect-[3/4] md:aspect-square overflow-hidden">
+                        <img
+                          src={item.image}
+                          alt={item.text || `Gallery image ${index + 1}`}
+                          loading="lazy"
+                          decoding="async"
+                          sizes="(min-width: 1024px) 20vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        {/* Gradient overlay on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+
+                      {/* Image counter badge */}
+                      <div className="absolute top-2 right-2 bg-[#800A06]/60 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span className="text-xs font-medium text-white">
+                          {index + 1}/{galleryItems.length}
+                        </span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* View more */}
+            {!isLoading && (
+              <div className="mt-10 sm:mt-12 flex justify-center">
+                <Link
+                  href="/gallery"
+                  className="inline-flex items-center justify-center rounded-full px-7 py-3 text-sm sm:text-base font-medium tracking-wide bg-white/80 backdrop-blur-sm border border-[#9F8650]/40 text-[#800A06] shadow-md hover:shadow-lg hover:bg-white/90 hover:border-[#9F8650]/60 transition-all duration-200"
+                >
+                  View more
+                </Link>
               </div>
             )}
           </div>
         </div>
       </div>
 
-      {/* Lightbox Modal - Compact for iPhone SE */}
+      {/* Lightbox Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex items-center justify-center p-1 sm:p-2 md:p-4"
+          className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
           onClick={() => {
             setSelectedImage(null)
             resetZoom()
@@ -332,30 +363,30 @@ export function Gallery() {
                 setTouchDeltaX(0)
               }}
             >
-            {/* Top bar with counter and close - Compact for iPhone SE */}
-            <div className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between p-2 sm:p-3 md:p-4 lg:p-6">
-              {/* Image counter - Smaller on mobile */}
-              <div className="bg-[#606C60]/90 backdrop-blur-md rounded-full px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 border border-[#606C60]/70">
-                <span className="text-xs sm:text-sm md:text-base font-medium text-[#E1D5C7]">
+            {/* Top bar with counter and close */}
+            <div className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between p-4 sm:p-6">
+              {/* Image counter */}
+              <div className="bg-black/40 backdrop-blur-md rounded-full px-4 py-2 border border-[#9F8650]/40">
+                <span className="text-sm sm:text-base font-medium text-[#9F8650]">
                   {currentIndex + 1} / {galleryItems.length}
                 </span>
               </div>
               
-              {/* Close button - Compact but touch-friendly */}
+              {/* Close button */}
               <button
                 onClick={(e) => {
                   e.stopPropagation()
                   setSelectedImage(null)
                   resetZoom()
                 }}
-                className="bg-[#606C60]/90 hover:bg-[#606C60] active:bg-[#606C60]/95 backdrop-blur-md rounded-full p-1.5 sm:p-2 md:p-2.5 lg:p-3 transition-all duration-200 border border-[#606C60]/70 hover:border-[#606C60] touch-manipulation"
+                className="bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full p-2 sm:p-3 transition-all duration-200 border border-white/20 hover:border-white/40"
                 aria-label="Close lightbox"
               >
-                <X size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#E1D5C7]" />
+                <X size={20} className="sm:w-6 sm:h-6 text-white" />
               </button>
             </div>
 
-            {/* Navigation buttons - Compact for iPhone SE */}
+            {/* Navigation buttons */}
             {galleryItems.length > 1 && (
               <>
                 <button
@@ -364,10 +395,10 @@ export function Gallery() {
                     navigateImage('prev')
                     resetZoom()
                   }}
-                  className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-[#606C60]/90 hover:bg-[#606C60] active:bg-[#606C60]/95 backdrop-blur-md rounded-full p-2 sm:p-2.5 md:p-3 lg:p-4 transition-all duration-200 border border-[#606C60]/70 hover:border-[#606C60] touch-manipulation"
+                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full p-3 sm:p-4 transition-all duration-200 border border-white/20 hover:border-white/40"
                   aria-label="Previous image"
                 >
-                  <ChevronLeft size={18} className="sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#E1D5C7]" />
+                  <ChevronLeft size={24} className="sm:w-7 sm:h-7 text-white" />
                 </button>
 
                 <button
@@ -376,132 +407,56 @@ export function Gallery() {
                     navigateImage('next')
                     resetZoom()
                   }}
-                  className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-[#606C60]/90 hover:bg-[#606C60] active:bg-[#606C60]/95 backdrop-blur-md rounded-full p-2 sm:p-2.5 md:p-3 lg:p-4 transition-all duration-200 border border-[#606C60]/70 hover:border-[#606C60] touch-manipulation"
+                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full p-3 sm:p-4 transition-all duration-200 border border-white/20 hover:border-white/40"
                   aria-label="Next image"
                 >
-                  <ChevronRight size={18} className="sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#E1D5C7]" />
+                  <ChevronRight size={24} className="sm:w-7 sm:h-7 text-white" />
                 </button>
               </>
             )}
 
-            {/* Image container - Optimized for iPhone SE */}
-            <div className="relative w-full h-full flex items-center justify-center pt-12 sm:pt-14 md:pt-16 lg:pt-20 pb-2 sm:pb-3 md:pb-4 lg:pb-6 overflow-hidden">
+            {/* Image container */}
+            <div className="relative w-full h-full flex items-center justify-center pt-16 sm:pt-20 pb-4 sm:pb-6 overflow-hidden">
               <div
-                className="relative inline-block max-w-full max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] md:max-h-[85vh]"
+                className="relative inline-block max-w-full max-h-full"
                 onClick={(e) => e.stopPropagation()}
-                style={{ 
-                  transform: `translate3d(${pan.x}px, ${pan.y}px, 0) scale(${zoomScale})`, 
-                  transition: pinchStartDist ? 'none' : 'transform 200ms ease-out',
-                }}
               >
                 <img
                   src={selectedImage.image || "/placeholder.svg"}
                   alt={selectedImage.text || "Gallery image"}
-                  className="max-w-full max-h-full object-contain rounded sm:rounded-lg shadow-2xl will-change-transform"
-                  style={{
-                    imageRendering: 'high-quality',
-                    WebkitImageRendering: 'high-quality',
+                  style={{ 
+                    transform: `translate3d(${pan.x}px, ${pan.y}px, 0) scale(${zoomScale})`, 
+                    transition: pinchStartDist ? 'none' : 'transform 200ms ease-out' 
                   }}
+                  className="max-w-full max-h-[75vh] sm:max-h-[85vh] object-contain rounded-lg shadow-2xl will-change-transform"
                 />
                 
-                {/* Close button on image - Top right */}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    setSelectedImage(null)
-                    resetZoom()
-                  }}
-                  className="absolute top-1 right-1 sm:top-2 sm:right-2 bg-[#606C60]/90 hover:bg-[#606C60] active:bg-[#606C60]/95 backdrop-blur-md rounded-full p-1.5 sm:p-2 md:p-2.5 transition-all duration-200 border border-[#606C60]/70 hover:border-[#606C60] touch-manipulation z-30"
-                  aria-label="Close lightbox"
-                >
-                  <X size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#E1D5C7]" />
-                </button>
-                
-                {/* Zoom reset button - Compact */}
+                {/* Zoom reset button */}
                 {zoomScale > 1 && (
                   <button
                     onClick={(e) => {
                       e.stopPropagation()
                       resetZoom()
                     }}
-                    className="absolute bottom-1 right-1 sm:bottom-2 sm:right-2 bg-[#606C60]/90 hover:bg-[#606C60] active:bg-[#606C60]/95 backdrop-blur-md text-[#E1D5C7] rounded-full px-2 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-medium border border-[#606C60]/70 transition-all duration-200 touch-manipulation z-20"
+                    className="absolute bottom-2 right-2 bg-black/60 hover:bg-black/80 backdrop-blur-md text-white rounded-full px-3 py-1.5 text-xs font-medium border border-white/20 transition-all duration-200"
                   >
-                    Reset
+                    Reset Zoom
                   </button>
                 )}
               </div>
             </div>
 
-            {/* Bottom hint for mobile - Compact */}
+            {/* Bottom hint for mobile */}
             {galleryItems.length > 1 && (
-              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 sm:hidden z-20">
-                <p className="text-[10px] text-[#E1D5C7]/70 bg-[#606C60]/90 backdrop-blur-sm rounded-full px-2 py-1 border border-[#606C60]/70">
-                  Swipe
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 sm:hidden z-20">
+                <p className="text-xs text-white/60 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1.5 border border-white/10">
+                  Swipe to navigate
                 </p>
               </div>
             )}
           </div>
         </div>
       )}
-      {/* View more button */}
-      <div className="relative z-10 mt-8 sm:mt-10 md:mt-12 flex justify-center px-4">
-        <motion.a
-          href="/gallery"
-          className="group inline-flex items-center gap-2 px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-3.5 md:py-4 rounded-lg sm:rounded-xl font-semibold sm:font-bold transition-all duration-300 uppercase tracking-wider text-xs sm:text-sm md:text-base whitespace-nowrap relative overflow-hidden border-2 backdrop-blur-sm"
-          style={{
-            backgroundColor: "#606C60",
-            borderColor: "#606C60",
-            color: "#E1D5C7",
-            boxShadow: "0 6px 26px rgba(96,108,96,0.45), 0 2px 10px rgba(96,108,96,0.6)",
-          }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          whileHover={{ scale: 1.05, y: -2 }}
-          whileTap={{ scale: 0.98 }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "#4d5650";
-            e.currentTarget.style.borderColor = "#4d5650";
-            e.currentTarget.style.boxShadow = "0 10px 34px rgba(96,108,96,0.55), 0 4px 14px rgba(96,108,96,0.8)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "#606C60";
-            e.currentTarget.style.borderColor = "#606C60";
-            e.currentTarget.style.boxShadow = "0 6px 26px rgba(96,108,96,0.45), 0 2px 10px rgba(96,108,96,0.6)";
-          }}
-        >
-          <span className="relative z-10">View Full Gallery</span>
-          <motion.div
-            animate={{
-              x: [0, 4, 0],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <ChevronRight size={16} className="sm:w-5 sm:h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
-          </motion.div>
-          <div 
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#606C60]/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
-          />
-          {/* Pulsing glow effect */}
-          <motion.div 
-            className="absolute inset-0 bg-[#606C60]/25 rounded-lg sm:rounded-xl blur-xl -z-10"
-            animate={{
-              opacity: [0.3, 0.6, 0.3],
-              scale: [1, 1.1, 1],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        </motion.a>
-      </div>
     </Section>
   )
 }

@@ -69,7 +69,7 @@ export default function Home() {
               {/* <CoupleVideo />  */}
               <Countdown />
               {/* <LoveStory /> */}
-              {/* <Gallery /> */}
+              <Gallery />
               <Messages />
               <Details />
               <GuestInformation />

@@ -51,7 +51,7 @@ export default function MasonryGallery({ images }: { images: ImageItem[] }) {
       {filtered.length === 0 ? (
         <div className="text-center text-[#606C60]/80 font-sans">No images to display.</div>
       ) : (
-        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-3 sm:gap-4">
+        <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-3 sm:gap-4">
           {filtered.map((img, idx) => (
           <button
             key={img.src}
@@ -62,15 +62,15 @@ export default function MasonryGallery({ images }: { images: ImageItem[] }) {
           >
             <div className="relative w-full overflow-hidden rounded-xl border border-[#606C60]/40 bg-white/5 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:border-[#606C60]/60">
               {!loaded[img.src] && (
-                <div className="aspect-[3/4] sm:aspect-[4/5] w-full animate-pulse bg-gradient-to-br from-[#606C60]/30 via-[#E1D5C7]/25 to-[#606C60]/30" />
+                <div className="aspect-[4/5] sm:aspect-[4/5] w-full animate-pulse bg-gradient-to-br from-[#606C60]/30 via-[#E1D5C7]/25 to-[#606C60]/30" />
               )}
-              <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full">
+              <div className="relative aspect-[4/5] sm:aspect-[4/5] w-full">
                 <Image
                   src={img.src}
                   alt=""
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  className={`rounded-xl transition-transform duration-300 group-hover:scale-[1.02] object-cover ${
+                  className={`rounded-xl transition-transform duration-300 group-hover:scale-[1.02] object-cover object-top ${
                     loaded[img.src] ? "opacity-100" : "opacity-0"
                   }`}
                   quality={90}
