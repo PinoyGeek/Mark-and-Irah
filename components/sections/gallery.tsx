@@ -25,9 +25,10 @@ const GALLERY_DECO_FILTER =
 
 const galleryItems = [
   { image: "/mobile-background/couple (1).webp", text: " " },   
-  { image: "/mobile-background/couple (5).webp", text: " " },
+  { image: "/desktop-background/couple (1).webp", text: " " },
   { image: "/mobile-background/couple (3).webp", text: " " },
   { image: "/mobile-background/couple (4).webp", text: " " },
+  { image: "/desktop-background/couple (2).webp", text: " " },
 
 
 
