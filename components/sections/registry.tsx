@@ -108,6 +108,9 @@ export function Registry() {
                     priority={false}
                   />
                 </div>
+                <div className="text-base sm:text-lg font-medium mt-2" style={{ color: REGISTRY_DARKER }}>
+                  {isGCash ? "Alvin Lopez" : "Hannah Blas"}
+                </div>
                 {isGCash && (
                   <p className="text-base sm:text-lg md:text-xl font-semibold tracking-wide" style={{ color: REGISTRY_DARKER }}>
                     {GCASH_NUMBER}

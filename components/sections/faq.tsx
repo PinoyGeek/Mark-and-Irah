@@ -263,7 +263,6 @@ export function FAQ() {
                               <div className="flex items-end justify-center gap-1.5 sm:gap-2 md:gap-3 mt-4 sm:mt-5">
                                 {[
                                   { color: FAQ_ACCENT, label: "Accent" },
-                                  { color: FAQ_CREAM, label: "Cream" },
                                   { color: "#C1AC94", label: "Beige" },
                                   { color: FAQ_DARK, label: "Brown" },
                                   { color: FAQ_DARKER, label: "Dark" },

@@ -15,7 +15,7 @@ export const siteConfig = {
   },
   details: {
     rsvp: {
-      deadline: "March 01, 2026",
+      deadline: "March 12, 2026",
       contact: "Hannah Blas",
       phone: "",
     },

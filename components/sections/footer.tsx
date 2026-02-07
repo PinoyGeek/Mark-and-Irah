@@ -241,6 +241,24 @@ export function Footer() {
                 </div>
               </div>
             </motion.div>
+
+            <motion.div className="backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 border transition-all duration-300 shadow-lg hover:shadow-xl" style={{ backgroundColor: `${FOOTER_CREAM}ee`, borderColor: `${FOOTER_ACCENT}35` }} whileHover={{ y: -3 }} transition={{ duration: 0.2 }}>
+              <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3 mb-2.5 sm:mb-3 md:mb-4">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center border flex-shrink-0" style={{ borderColor: `${FOOTER_ACCENT}40` }}>
+                  <Calendar className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 flex-shrink-0" style={{ color: FOOTER_ACCENT }} />
+                </div>
+                <h4 className={`${cinzel.className} font-semibold text-base sm:text-lg md:text-xl`} style={{ color: FOOTER_DARK }}>RSVP Deadline</h4>
+              </div>
+              <div className={`space-y-2 sm:space-y-2.5 md:space-y-3 ${cormorant.className} text-xs sm:text-sm leading-relaxed`} style={{ color: FOOTER_DARK }}>
+                <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
+                  <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" style={{ color: FOOTER_ACCENT }} />
+                  <span>{siteConfig.details.rsvp.deadline}</span>
+                </div>
+                <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
+                  <span className="text-xs sm:text-sm leading-relaxed opacity-90">Please confirm your attendance by this date.</span>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Contact + Quick Links */}

@@ -185,37 +185,7 @@ export function SnapShare() {
         >
           {/* Left on desktop / second on mobile: QR Wedding Website + Use Our Hashtag */}
           <motion.div className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-6 xl:gap-8 order-2 lg:order-1 min-w-0" variants={fadeInUp}>
-            <div className="flex-1">
-              <div
-                className="rounded-xl sm:rounded-2xl p-3 sm:p-5 md:p-8 lg:p-9 xl:p-10 shadow-xl text-center h-full flex flex-col border"
-                style={{ backgroundColor: `${SNAP_CREAM}ee`, borderColor: `${SNAP_ACCENT}35` }}
-              >
-                <h4 className={`${cinzel.className} text-base sm:text-lg md:text-xl lg:text-2xl font-semibold mb-2 sm:mb-3 lg:mb-4`} style={{ color: SNAP_DARK }}>
-                  Share Our Wedding Website
-                </h4>
-                <p className={`${cormorant.className} text-xs sm:text-sm lg:text-base mb-3 sm:mb-4 lg:mb-5 leading-relaxed px-1`} style={{ color: SNAP_DARK }}>
-                  Spread the word about {groomNickname} & {brideNickname}&apos;s wedding celebration. Share this QR code with friends and family so they can join the celebration.
-                </p>
-                <div className="mx-auto inline-flex flex-col items-center bg-white/95 backdrop-blur-sm p-2.5 sm:p-5 md:p-7 lg:p-8 xl:p-9 rounded-xl sm:rounded-2xl shadow-md border mb-3 sm:mb-4 flex-1 justify-center" style={{ borderColor: `${SNAP_ACCENT}30` }}>
-                  <div className="mb-2 sm:mb-3 lg:mb-4 p-1.5 sm:p-3 rounded-lg sm:rounded-xl bg-white border" style={{ borderColor: `${SNAP_ACCENT}25` }}>
-                    <div className="bg-white p-1.5 sm:p-3 lg:p-4 rounded-lg shadow-sm border" style={{ borderColor: `${SNAP_ACCENT}20` }}>
-                      <QRCodeCanvas id="snapshare-qr" value={websiteUrl} size={qrWebsiteSize} includeMargin className="bg-white" />
-                    </div>
-                  </div>
-                  <button
-                    onClick={downloadQRCode}
-                    className="flex items-center gap-1.5 sm:gap-2 mx-auto px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg text-white border shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 text-xs sm:text-sm font-semibold"
-                    style={{ backgroundColor: SNAP_ACCENT, borderColor: SNAP_ACCENT }}
-                  >
-                    <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                    <span className={`${cormorant.className} tracking-[0.15em] sm:tracking-[0.18em] uppercase font-medium`}>Download QR</span>
-                  </button>
-                </div>
-                <p className={`${cormorant.className} text-xs sm:text-sm lg:text-base mt-auto leading-relaxed`} style={{ color: SNAP_DARK }}>
-                  Scan with any camera app to open the full invitation and schedule.
-                </p>
-              </div>
-            </div>
+       
 
             <div className="rounded-xl sm:rounded-2xl p-3 sm:p-5 md:p-7 lg:p-8 xl:p-9 shadow-xl border" style={{ backgroundColor: `${SNAP_CREAM}ee`, borderColor: `${SNAP_ACCENT}35` }}>
               <h5 className={`${cinzel.className} text-base sm:text-lg md:text-xl lg:text-2xl font-semibold mb-2 sm:mb-3 lg:mb-4 text-center`} style={{ color: SNAP_DARK }}>
