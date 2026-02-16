@@ -33,7 +33,7 @@ export const siteConfig = {
     location: "Ardesia Resort and Spa Angeles Pampanga",
     venue: "Ardesia Resort and Spa Angeles Pampanga",
     date: "March 26, 2026",
-    time: "5:00 PM",
+    time: "4:30 PM",
   },
   dressCode: {
     theme: "Modern Filipiniana",

@@ -183,75 +183,8 @@ export function SnapShare() {
           initial="initial"
           animate="animate"
         >
-          {/* Left on desktop / second on mobile: QR Wedding Website + Use Our Hashtag */}
+          {/* Left on desktop / second on mobile: Share on Social Media */}
           <motion.div className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-6 xl:gap-8 order-2 lg:order-1 min-w-0" variants={fadeInUp}>
-       
-
-            <div className="rounded-xl sm:rounded-2xl p-3 sm:p-5 md:p-7 lg:p-8 xl:p-9 shadow-xl border" style={{ backgroundColor: `${SNAP_CREAM}ee`, borderColor: `${SNAP_ACCENT}35` }}>
-              <h5 className={`${cinzel.className} text-base sm:text-lg md:text-xl lg:text-2xl font-semibold mb-2 sm:mb-3 lg:mb-4 text-center`} style={{ color: SNAP_DARK }}>
-                Use Our Hashtag
-              </h5>
-              <p className={`${cormorant.className} text-xs sm:text-sm lg:text-base text-center mb-3 sm:mb-4 lg:mb-5 leading-relaxed`} style={{ color: SNAP_DARK }}>
-                Tag your photos and posts with our wedding hashtag to join the celebration!
-              </p>
-              <div className="space-y-2.5 sm:space-y-3 lg:space-y-4 mb-3 sm:mb-4 lg:mb-5">
-                {hashtags.map((hashtag, index) => (
-                  <motion.div
-                    key={index}
-                    className="bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-5 border shadow-sm hover:shadow-md transition-all duration-200"
-                    style={{ borderColor: `${SNAP_ACCENT}30` }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3">
-                      <span className={`${cormorant.className} font-bold text-sm sm:text-base md:text-lg lg:text-xl break-all flex-1 text-center sm:text-left`} style={{ color: SNAP_DARK }}>
-                        {hashtag}
-                      </span>
-                      <button
-                        onClick={() => copyHashtag(hashtag, index)}
-                        className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-white transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105 whitespace-nowrap flex-shrink-0 ${copiedHashtagIndex === index ? "bg-green-600" : ""}`}
-                        style={copiedHashtagIndex !== index ? { backgroundColor: SNAP_ACCENT } : undefined}
-                      >
-                        {copiedHashtagIndex === index ? (
-                          <>
-                            <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                            <span className={`${cormorant.className} text-xs sm:text-sm font-medium`}>Copied!</span>
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                            <span className={`${cormorant.className} text-xs sm:text-sm font-medium`}>Copy</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-              <button
-                onClick={copyAllHashtags}
-                className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 sm:py-3 rounded-lg text-white border-2 transition-all duration-200 shadow-md hover:shadow-lg ${copiedAllHashtags ? "bg-green-500/90 border-green-400" : ""}`}
-                style={!copiedAllHashtags ? { backgroundColor: SNAP_ACCENT, borderColor: SNAP_ACCENT } : undefined}
-              >
-                {copiedAllHashtags ? (
-                  <>
-                    <Check className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className={`${cormorant.className} text-xs sm:text-sm font-semibold uppercase tracking-[0.15em]`}>All Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className={`${cormorant.className} text-xs sm:text-sm font-semibold uppercase tracking-[0.15em]`}>Copy Hashtag</span>
-                  </>
-                )}
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Right on desktop / first on mobile: Share on Social Media + Upload Your Photos & Videos */}
-          <motion.div className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-6 xl:gap-8 order-1 lg:order-2 min-w-0" variants={fadeInUp}>
             <div className="rounded-xl sm:rounded-2xl p-3 sm:p-5 md:p-7 lg:p-8 xl:p-9 shadow-xl border" style={{ backgroundColor: `${SNAP_CREAM}ee`, borderColor: `${SNAP_ACCENT}35` }}>
               <h5 className={`${cinzel.className} text-base sm:text-lg md:text-xl lg:text-2xl font-semibold mb-2 sm:mb-3 lg:mb-4 text-center`} style={{ color: SNAP_DARK }}>
                 Share on Social Media
@@ -294,7 +227,10 @@ export function SnapShare() {
                 </button>
               </div>
             </div>
+          </motion.div>
 
+          {/* Right on desktop / first on mobile: Upload Your Photos & Videos */}
+          <motion.div className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-6 xl:gap-8 order-1 lg:order-2 min-w-0" variants={fadeInUp}>
             {driveLink && (
               <div className="rounded-xl sm:rounded-2xl p-3 sm:p-5 md:p-7 lg:p-8 xl:p-9 shadow-xl text-center border" style={{ backgroundColor: `${SNAP_CREAM}ee`, borderColor: `${SNAP_ACCENT}35` }}>
                 <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border bg-white px-2.5 py-1 text-[10px] sm:text-xs lg:text-sm uppercase tracking-[0.25em] sm:tracking-[0.32em] mb-2 sm:mb-3 lg:mb-4" style={{ borderColor: `${SNAP_ACCENT}40`, color: SNAP_DARK }}>

@@ -108,7 +108,7 @@ export function FAQ() {
   return (
     <Section
       id="faq"
-      className="relative py-12 md:py-16 lg:py-20 overflow-hidden"
+      className="relative py-12 md:py-16 lg:py-20 overflow-hidden z-20"
     >
       {/* Corner decorations — warm brown tint */}
       <div className="absolute left-0 top-0 z-0 pointer-events-none">
