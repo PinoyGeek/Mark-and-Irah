@@ -45,12 +45,11 @@ export function Details() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [rotationOffset, setRotationOffset] = useState(0)
 
-  // Couple images from Couple_img (max 4)
+  // Ceremony & reception hero carousel images (mobile backgrounds)
   const coupleImages = [
-    "/Couple_img/couple (1).jpg",
-    "/Couple_img/couple (2).jpg",
-    "/Couple_img/couple (3).jpg",
-    "/Couple_img/Capture the Love.png",
+    "/mobile-background/couple (14).webp",
+    "/mobile-background/couple (13).webp",
+    "/mobile-background/couple (1).webp",
   ]
 
   // Convert address to title case for display
@@ -256,14 +255,19 @@ export function Details() {
           style={{ borderColor: `${palette.sage}50`, boxShadow: `0 18px 48px ${palette.deep}15` }}
         >
           <div className="relative h-64 sm:h-80 md:h-96 w-full">
-            <Image
-              src="/Details/image.png"
-              alt={ceremonyLocationFormatted}
-              fill
-              className="object-cover"
-              sizes="100vw"
-              priority
-            />
+            {coupleImages.map((image, index) => (
+              <Image
+                key={image}
+                src={image}
+                alt={ceremonyLocationFormatted}
+                fill
+                className={`object-cover transition-opacity duration-1000 ${
+                  index === currentImageIndex ? "opacity-100" : "opacity-0"
+                }`}
+                sizes="100vw"
+                priority={index === 0}
+              />
+            ))}
             <div
               className="absolute inset-0 bg-gradient-to-t to-transparent"
               style={{ background: `linear-gradient(to top, ${palette.deep}dd 0%, ${palette.deep}55 50%, transparent 100%)` }}
@@ -401,8 +405,7 @@ export function Details() {
                   ARRIVAL
                 </h4>
                 <p className={`${cormorant.className} text-sm sm:text-base md:text-lg leading-relaxed`} style={{ color: palette.deep }}>
-                  We kindly request guests to arrive by <span className="font-semibold">1:30 PM</span> to allow ample time to settle in before the ceremony, which will begin promptly at <span className="font-semibold">2:30 PM</span>.{" "}
-                  The reception will follow at <span className="font-semibold">5:00 PM</span>.
+                “As our ceremony will promptly begin at 1:00 pm, we kindly encourage our guests to have an early lunch before your arrival.”
                 </p>
               </div>
 
@@ -411,7 +414,7 @@ export function Details() {
                   GIFTS
                 </h4>
                 <p className={`${cormorant.className} text-sm sm:text-base md:text-lg leading-relaxed`} style={{ color: palette.deep }}>
-                  Your presence is already the greatest gift, but if you&apos;d like to give something, cash gifts are preferred. This will help us start our new journey together in the most meaningful way.
+                We are truly grateful for your love and support. If you desire to bless us with a gift, a monetary offering to help us begin our married life would be deeply appreciated.
                 </p>
               </div>
             </div>

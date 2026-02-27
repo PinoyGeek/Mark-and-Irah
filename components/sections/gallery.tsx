@@ -196,7 +196,7 @@ export function Gallery() {
           className={`${cormorant.className} text-xs sm:text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed px-2 mb-3 sm:mb-4`}
           style={{ color: palette.medium }}
         >
-          A few of our favourite moments together—thank you for being part of our journey.
+          From our first chapter to this beautiful season of commitment, every moment has been a testament to love, faith, and grace. We share these memories with heartfelt gratitude as we look forward to the lifetime that awaits us.
         </p>
 
         {/* Decorative element — sage dividers (hero style) */}

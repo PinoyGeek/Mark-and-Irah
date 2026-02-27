@@ -66,7 +66,7 @@ export function Hero() {
           className="text-[clamp(5.5rem,18vw,12rem)] font-extralight tracking-[0.25em] opacity-[0.07]"
           style={{ fontFamily: '"Cinzel", serif', color: palette.deep }}
         >
-          04 18 26
+         
         </span>
       </div>
 
@@ -143,17 +143,31 @@ export function Hero() {
 
           {/* Couple names — hero focal point */}
           <h1
-            className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-[0.14em] sm:tracking-[0.18em] font-semibold leading-tight`}
+            className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-[0.14em] sm:tracking-[0.18em] font-normal leading-tight`}
             style={{ color: palette.deep }}
           >
-            <span className="block">{groomName}</span>
+            <span className="block">
+              <span className="inline-block align-baseline text-[clamp(3.25rem,7vw,4.75rem)] leading-none">
+                {groomName[0]}
+              </span>
+              <span className="inline-block align-baseline text-[clamp(2.25rem,5.2vw,3.25rem)] ml-1 tracking-[0.18em]">
+                {groomName.slice(1)}
+              </span>
+            </span>
             <span
-              className="block text-2xl sm:text-3xl md:text-4xl font-light tracking-[0.35em] my-2 sm:my-3"
+              className="block text-2xl sm:text-3xl md:text-4xl font-normal tracking-[0.35em] my-2 sm:my-3"
               style={{ color: palette.terracotta }}
             >
               &amp;
             </span>
-            <span className="block">{brideName}</span>
+            <span className="block">
+              <span className="inline-block align-baseline text-[clamp(3.25rem,7vw,4.75rem)] leading-none">
+                {brideName[0]}
+              </span>
+              <span className="inline-block align-baseline text-[clamp(2.25rem,5.2vw,3.25rem)] ml-1 tracking-[0.18em]">
+                {brideName.slice(1)}
+              </span>
+            </span>
           </h1>
 
           {/* Venue & occasion */}

@@ -63,7 +63,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Can I bring my children?",
     answer:
-      "While we love your little ones, we kindly request an adults-only celebration so everyone can relax and enjoy the evening.",
+      "While we adore your little ones, this will be an adults-only celebration. We kindly request that only children who are part of the wedding entourage be in attendance.",
   },
   {
     question: "Is there a dress code?",
