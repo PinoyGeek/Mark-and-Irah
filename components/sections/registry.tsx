@@ -40,7 +40,7 @@ export function Registry() {
         </h2>
         
         <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 font-light max-w-2xl mx-auto leading-relaxed px-2">
-          With all that we have we are truly blessed. Your Presence and prayer are that we request, but if you are thinking of giving a gift, to help us on our way a monetary or if you prefer to purchase a gift, feel free to surprise as on your on way.
+        We are truly grateful for your love and support. If you desire to bless us with a gift, a monetary offering to help us begin our married life would be deeply appreciated.
         </p>
         
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">

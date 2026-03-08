@@ -22,6 +22,16 @@ const GUEST_MEDIUM = "#624630"   // medium brown
 const GUEST_DARK = "#3E2914"    // dark brown
 const GUEST_BG = "#F8F4EE"      // very light beige container background
 
+// Guest attire motif palette (swatches shown in Wedding Attire)
+const GUEST_ATTIRE_PALETTE = [
+  "#A85D23",
+  "#BA7438",
+  "#543634",
+  "#7D5740",
+  "#C78537",
+  "#792C18",
+]
+
 export function GuestInformation() {
 
   return (
@@ -117,10 +127,14 @@ export function GuestInformation() {
                   <li>Gentlemen: Long Sleeves and Pants</li>
                   <li>Ladies: Floor-Length Dress</li>
                 </ul>
-                <div className="flex items-center justify-center md:justify-end gap-2 sm:gap-3 mt-auto">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full flex-shrink-0" style={{ backgroundColor: GUEST_LIGHT }} />
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full flex-shrink-0" style={{ backgroundColor: GUEST_MEDIUM }} />
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full flex-shrink-0" style={{ backgroundColor: GUEST_DARK }} />
+                <div className="flex items-center justify-center md:justify-end gap-1.5 sm:gap-2 md:gap-2.5 flex-wrap mt-auto">
+                  {GUEST_ATTIRE_PALETTE.map((color) => (
+                    <div
+                      key={color}
+                      className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full flex-shrink-0 border border-white/50 shadow-sm"
+                      style={{ backgroundColor: color }}
+                    />
+                  ))}
                 </div>
               </div>
             </div>

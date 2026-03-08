@@ -63,7 +63,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Can I bring my children?",
     answer:
-      "While we adore your little ones, this will be an adults-only celebration. We kindly request that only children who are part of the wedding entourage be in attendance.",
+      "While we adore your little ones, this will be an adults-only celebration. We kindly request that only children who are part of the wedding entourage be in attendance.s",
   },
   {
     question: "Is there a dress code?",
@@ -234,26 +234,6 @@ export function FAQ() {
                               </a>
                               {item.answer.split("[/RSVP_LINK]")[1]}
                             </p>
-                          ) : item.question === "Is there a dress code?" ? (
-                            <div className="space-y-3 sm:space-y-4">
-                              <p className={`${cormorant.className} font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg tracking-wide whitespace-pre-line`} style={{ color: palette.deep }}>
-                                {item.answer}
-                              </p>
-                              <div className="flex items-end justify-center gap-1.5 sm:gap-2 md:gap-3 mt-4 sm:mt-5">
-                                {[palette.terracotta, palette.sage, palette.medium, palette.deep].map((color) => (
-                                  <div key={color} className="flex-1 max-w-[40px] sm:max-w-[50px] md:max-w-[60px] lg:max-w-[70px] group">
-                                    <div
-                                      className="w-full h-16 sm:h-20 md:h-24 lg:h-28 transition-all duration-300 group-hover:scale-105 rounded-b"
-                                      style={{
-                                        backgroundColor: color,
-                                        boxShadow: `0 2px 8px ${color}40`,
-                                        border: `2px solid ${palette.sage}40`,
-                                      }}
-                                    />
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
                           ) : (
                             <p className={`${cormorant.className} font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg whitespace-pre-line tracking-wide`} style={{ color: palette.deep }}>
                               {item.answer}
