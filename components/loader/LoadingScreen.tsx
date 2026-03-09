@@ -10,12 +10,12 @@ interface LoadingScreenProps {
 
 // Countdown boxes with color photos - numbers show days, hours, minutes
 const COUNTDOWN_BOXES = [
-  { src: '/mobile-background/couple (6).webp' },
-  { src: '/mobile-background/couple (10).webp' },
-  { src: '/mobile-background/couple (3).webp' },
+  { src: '/new/couple (1).jpg' },
+  { src: '/new/couple (3).jpg' },
+  { src: '/new/couple (4).jpg' },
 ];
 
-const MAIN_BW_IMAGE = '/mobile-background/couple (15).webp';
+const MAIN_BW_IMAGE = '/new/portrait.jpg';
 const STAGGER_DELAY_MS = 4000; // Each image appears every 4 seconds
 const BOX_TRANSITION_MS = 1200; // Slow, smooth transition
 const TOTAL_DURATION_MS = COUNTDOWN_BOXES.length * STAGGER_DELAY_MS + 3000;
@@ -89,7 +89,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   const coupleNames = `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}`;
-  const hashtag = '#GLENNsHeartForCLARENCE';
+  const hashtag = '#GLENdlessJourneyWithCLARENCE';
   const productionCredit = '';
 
   // Palette tuned to requested hues

@@ -31,12 +31,11 @@ const GALLERY_DECO_FILTER =
   "brightness(0) saturate(100%) invert(18%) sepia(35%) saturate(1200%) hue-rotate(15deg) brightness(92%) contrast(88%)"
 
 const galleryItems = [
-  { image: "/mobile-background/couple (15).webp", text: " " },   
-  { image: "/mobile-background/couple (3).webp", text: " " },
-  { image: "/mobile-background/couple (6).webp", text: " " },
-  { image: "/mobile-background/couple (10).webp", text: " " },
-  { image: "/mobile-background/couple (11).webp", text: " " },
-
+  { image: "/new/newbg/couple (3).jpg", text: " " },   
+  { image: "/new/newbg/couple (2).jpg", text: " " },
+  { image: "/new/newbg/couple (4).jpg", text: " " },
+  { image: "/new/newbg/couple (5).jpg", text: " " },
+  { image: "/new/newbg/couple (1).jpg", text: " " },
 
 
 ]
