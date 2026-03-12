@@ -10,38 +10,58 @@ const cinzel = Cinzel({
   weight: "400",
 })
 
+// Champagne Gold + Beige + Soft Brown
+// creates a luxury, elegant, and warm aesthetic
+const palette = {
+  deepBrown: "#4E3B31",
+  softBrown: "#8B6F5A",
+  background: "#F5EFE6",
+  champagneGold: "#D6BFA3",
+  champagneLight: "#F2E4D3",
+  accentLine: "#D6BFA3",
+} as const
+
 export function LoveStory() {
   return (
-    <div className="min-h-screen bg-[#606C60] overflow-x-hidden">
-      
+    <div className="min-h-screen bg-[#E8DCCB] overflow-x-hidden">
+
+
+      <div className="text-center text-[#8B6F5A] z-0 relative px-4">
+        <div className="w-12 sm:w-16 h-[1px] bg-[#D6BFA3] mx-auto mb-4 sm:mb-6 opacity-60"></div>
+        <h1 className={`${cinzel.className} text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl uppercase tracking-[0.14em] sm:tracking-[0.18em] font-normal leading-tight text-[#4E3B31] mt-8`}>
+          Every love story is beautiful
+        </h1>
+        <p className={`${cinzel.className} text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.14em] sm:tracking-[0.18em] font-normal leading-tight text-[#8B6F5A] mb-1`}>
+          but ours is my favorite.
+        </p>
+      </div>
+
       {/* SECTION 1: Top - Dark */}
       <StorySection
-        theme="dark"
+        theme="light"
         layout="image-left"
         isFirst={true}
-        imageSrc="/mobile-background/couple (1).webp"
-        title="Our story"
+        title="Love in the Time of Stillness"
+        imageSrc="/mobile-background/couple (2).jpeg"
         text={
           <>
             <p className="mb-4">
-              Once upon a signature…
+            On January 14, 2024, after years of growing together through life’s challenges and quiet joys, Jesanine and Joseph got engaged. In that moment, they chose each other — not just for now, but for always. Surrounded by the stillness that had once brought them together, they decided to tie the knot, ready to face the future hand in hand, with a love that had already proven strong in the silence.
             </p>
-            <p>
-            Our story began with a single signature—an unremarkable moment that quietly unfolded into something extraordinary. He was my financial advisor, and I had come merely to sign documents. On July 2021, we met in the lobby of the building, unaware that fate had already taken note. What seemed like an ordinary day became the first chapter of a love story neither of us saw coming.
-            </p>
+           
           </>
         }
       />
 
       {/* SECTION 2: Middle - Light */}
       <StorySection
-        theme="light"
+        theme="dark"
         layout="image-right"
-        imageSrc="/mobile-background/couple (31).webp"
+        imageSrc="/mobile-background/couple (3).jpeg"
         text={
           <>
             <p>
-              I wasn&apos;t looking for anything, yet somehow, our connection grew in its own gentle, unexpected way. And then, on June 1, 2022, our story truly began—we became us. We found a love that feels like home.
+            “In a time marked by distance and uncertainty, they built something enduring — a quiet, steady kind of love that reminded them both that even in the darkest seasons, connection finds a way to bloom.”
             </p>
           </>
         }
@@ -49,10 +69,10 @@ export function LoveStory() {
 
       {/* SECTION 3: Bottom - Dark */}
       <StorySection
-        theme="dark"
+        theme="light"
         layout="image-left"
         isLast={true}
-        imageSrc="/mobile-background/couple (10).webp"
+        imageSrc="/mobile-background/couple (4).jpeg"
         text={
           <>
             <p>
@@ -69,15 +89,15 @@ export function LoveStory() {
       />
       
       {/* Footer Decoration */}
-      <div className="bg-[#606C60] pt-8 sm:pt-10 md:pt-12 pb-16 sm:pb-20 md:pb-24 text-center text-[#E1D5C7] z-0 relative px-4">
-        <div className="w-12 sm:w-16 h-[1px] bg-[#E1D5C7] mx-auto mb-4 sm:mb-6 opacity-30"></div>
+      <div className="bg-[#E8DCCB] pt-8 sm:pt-10 md:pt-12 pb-16 sm:pb-20 md:pb-24 text-center text-[#4E3B31] z-0 relative px-4">
+        <div className="w-12 sm:w-16 h-[1px] bg-[#D6BFA3] mx-auto mb-4 sm:mb-6 opacity-60"></div>
         <Link 
           href="#guest-list"
-          className={`${cinzel.className} group relative inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-3.5 text-[0.7rem] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase font-normal text-[#606C60] bg-[#E1D5C7] rounded-sm border border-[#E1D5C7] transition-all duration-300 hover:bg-[#d4c5b3] hover:border-[#d4c5b3] hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E1D5C7]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#606C60]`}
+          className={`${cinzel.className} group relative inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-3.5 text-[0.7rem] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase font-normal text-[#4E3B31] bg-[#D6BFA3] rounded-sm border border-[#D6BFA3] transition-all duration-300 hover:bg-[#C9A989] hover:border-[#C9A989] hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D6BFA3]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#F2E4D3]`}
         >
           <span className="relative z-10">Join us</span>
           {/* Subtle glow effect on hover */}
-          <div className="absolute inset-0 rounded-sm bg-[#E1D5C7] opacity-0 group-hover:opacity-20 blur-md transition-opacity duration-300 -z-0"></div>
+          <div className="absolute inset-0 rounded-sm bg-[#D6BFA3] opacity-0 group-hover:opacity-25 blur-md transition-opacity duration-300 -z-0"></div>
         </Link>
       </div>
 

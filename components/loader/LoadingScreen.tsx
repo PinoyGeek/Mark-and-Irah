@@ -10,12 +10,12 @@ interface LoadingScreenProps {
 
 // Countdown boxes with color photos - numbers show days, hours, minutes
 const COUNTDOWN_BOXES = [
-  { src: '/new/couple (1).jpg' },
-  { src: '/new/couple (3).jpg' },
-  { src: '/new/couple (4).jpg' },
+  { src: '/frontboxes/boxes (1).jpeg' },
+  { src: '/frontboxes/boxes (2).jpeg' },
+  { src: '/frontboxes/boxes (3).jpeg' },
 ];
 
-const MAIN_BW_IMAGE = '/new/portrait.jpg';
+const MAIN_BW_IMAGE = '/frontboxes/front.jpeg';
 const STAGGER_DELAY_MS = 4000; // Each image appears every 4 seconds
 const BOX_TRANSITION_MS = 1200; // Slow, smooth transition
 const TOTAL_DURATION_MS = COUNTDOWN_BOXES.length * STAGGER_DELAY_MS + 3000;
@@ -26,10 +26,10 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   const [visibleBoxes, setVisibleBoxes] = useState<number[]>([]);
   const [now, setNow] = useState(() => new Date());
 
-  // Live countdown: days, hours, minutes until wedding
+    // Live countdown: days, hours, minutes until wedding
   const countdown = useMemo(() => {
-    const wedding = new Date('2026-04-18T13:30:00');
-    const diff = wedding.getTime() - now.getTime();
+    const weddingDate = new Date(siteConfig.wedding.date);
+    const diff = weddingDate.getTime() - now.getTime();
     if (diff <= 0) return { days: 0, hours: 0, minutes: 0 };
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -49,9 +49,21 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
     return `${days} DAYS TO GO`;
   }, [countdown.days]);
 
-  // Wedding date: 04.18.26 (month, day, year)
-  const countdownNumbers = ['04', '18', '26'];
-  const countdownLabels = ['MONTH', 'DAY', 'YEAR'];
+  // Wedding date derived from siteConfig.wedding.date
+  const debutDateObj = new Date(siteConfig.wedding.date);
+  const debutMonthName = debutDateObj
+    .toLocaleString('default', { month: 'short' })
+    .toUpperCase(); // e.g. "MAY"
+  const debutDay = String(debutDateObj.getDate()).padStart(2, '0'); // e.g. "09"
+  const debutYear = String(debutDateObj.getFullYear()); // e.g. "2026"
+
+  const countdownNumbers = [debutMonthName, debutDay, debutYear]; // e.g. May, 09, 2026
+  const countdownLabels = ['Month', 'Day', 'Year']; // should return Month, Day, Year
+
+  useEffect(() => {
+    const t = setInterval(() => setNow(new Date()), 60000); // update every minute
+    return () => clearInterval(t);
+  }, []);
 
   useEffect(() => {
     const t = setInterval(() => setNow(new Date()), 60000); // update every minute
@@ -89,16 +101,24 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   const coupleNames = `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}`;
-  const hashtag = '#GLENdlessJourneyWithCLARENCE';
+  const hashtag = '#JanCarloAndHannah';
   const productionCredit = '';
 
+
+//   Background	#F5EFE6
+// Section Alternate	#E8DCCB
+// Headings	#4E3B31
+// Paragraph Text	#8B6F5A
+// Buttons	#D6BFA3
+// Button Hover	#C9A989
+// Borders / Dividers	#F2E4D3
   // Palette tuned to requested hues
   const palette = {
-    deep: '#994524',
-    medium: '#C0531C',
-    accent: '#E69A41',
-    cream: '#FFF7ED',
-    soft: '#FBE5D6',
+    deep: '#4E3B31',
+    medium: '#F5F5DC',
+    accent: '#C9A989',
+    cream: '#F2E4D3',
+    soft: '#F5EFE6',
   };
 
   return (
@@ -133,16 +153,16 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-3 sm:mb-4">
               <span
                 className="hidden sm:block h-px w-12 flex-shrink-0"
-                style={{ backgroundColor: palette.accent }}
+                style={{ backgroundColor: palette.cream }}
               />
               <p className="text-center">
                 <span
-                  className="inline-block text-[10px] sm:text-xs tracking-[0.28em] sm:tracking-[0.36em] font-[family-name:var(--font-crimson)] uppercase px-3 py-1.5 rounded-full backdrop-blur-sm border"
+                  className="inline-block text-[10px] sm:text-xs tracking-[0.28em] sm:tracking-[0.36em] font-[family-name:'Cinzel', serif] uppercase px-3 py-1.5 rounded-full backdrop-blur-sm border"
                   style={{
-                    color: '#800A06',
-                    backgroundColor: 'rgba(255, 247, 237, 0.86)',
-                    borderColor: 'rgba(128, 10, 6, 0.18)',
-                    textShadow: '0 1px 0 rgba(255,255,255,0.7)',
+                    color: '#4E3B31',
+                    backgroundColor: palette.cream,
+                    borderColor: palette.deep,
+                    textShadow: '0 1px 0 palette.soft',
                   }}
                 >
                   Your invitation is on its way
@@ -156,12 +176,12 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
             <p className="text-center mb-4 sm:mb-5">
               <span
-                className="inline-block text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] font-[family-name:var(--font-crimson)] px-3 py-1.5 rounded-full backdrop-blur-sm border"
+                className="inline-block text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] font-[family-name:'Cinzel', serif] px-3 py-1.5 rounded-full backdrop-blur-sm border"
                 style={{
                   color: '#800A06',
-                  backgroundColor: 'rgba(255, 247, 237, 0.86)',
-                  borderColor: 'rgba(128, 10, 6, 0.18)',
-                  textShadow: '0 1px 0 rgba(255,255,255,0.7)',
+                  backgroundColor: palette.cream,
+                  borderColor: palette.deep,
+                  textShadow: '0 1px 0 palette.soft',
                 }}
               >
                 {hashtag}
@@ -175,7 +195,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
                   fontFamily: '"Cinzel", serif',
                   color: '#FFFFFF',
                   textShadow:
-                    '0 2px 14px rgba(0,0,0,0.55), 0 0 22px rgba(230,154,65,0.55), 0 0 44px rgba(192,83,28,0.25)',
+                    '0 2px 14px rgba(0,0,0,0.55), 0 0 22px palette.accent, 0 0 44px palette.deep',
                 }}
               >
                 {countdownText}
@@ -194,35 +214,42 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
             return (
               <div
                 key={i}
-                className="relative flex-1 max-w-[28vw] sm:max-w-[140px] md:max-w-[160px] aspect-[3/4] overflow-hidden"
+                className="relative flex-1 max-w-[28vw] sm:max-w-[140px] md:max-w-[160px] aspect-[3/4] overflow-hidden rounded-3xl border border-white/40 bg-white/10 backdrop-blur-md shadow-[0_18px_45px_rgba(0,0,0,0.35)]"
                 style={{
                   opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(24px) scale(0.96)',
+                  transform: isVisible
+                    ? 'translateY(0) scale(1)'
+                    : 'translateY(28px) scale(0.94)',
                   transition: `opacity ${BOX_TRANSITION_MS}ms cubic-bezier(0.4, 0, 0.2, 1), transform ${BOX_TRANSITION_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`,
                 }}
               >
                 <Image
                   src={item.src}
-                  alt={`${coupleNames}`}
+                  alt={coupleNames}
                   fill
-                  className="object-cover"
+                  className="object-cover scale-105"
                   sizes="(max-width: 640px) 28vw, 160px"
                 />
-                {/* Bold wedding date number + label - right corner */}
-                <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 flex flex-col items-end">
+                {/* Soft gradient overlay for readable number */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: `linear-gradient(145deg, ${palette.deep}66 0%, transparent 40%, ${palette.accent}aa 100%)`,
+                  }}
+                />
+
+                {/* Bold debut date number + label - centered at bottom */}
+                <div className="absolute bottom-2 inset-x-0 sm:bottom-3 flex flex-col items-center">
                   <span
-                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black select-none leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black select-none leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
                     style={{
                       fontFamily: 'var(--font-granika), sans-serif',
-                      color: palette.cream,
+                      color: palette.soft,
                     }}
                   >
                     {countdownNumbers[i]}
                   </span>
-                  <span
-                    className="text-[8px] sm:text-[9px] tracking-widest uppercase mt-0.5"
-                    style={{ color: palette.soft }}
-                  >
+                  <span className="text-[8px] sm:text-[9px] tracking-widest uppercase mt-0.5 text-[rgba(255,246,248,0.85)]">
                     {countdownLabels[i]}
                   </span>
                 </div>
@@ -242,7 +269,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           <div
             className="text-center text-2xl sm:text-3xl md:text-4xl mb-2"
             style={{
-              fontFamily: 'var(--font-crimson)',
+              fontFamily: '"Cinzel", serif',
               color: palette.cream,
               textShadow: '0 2px 10px rgba(0,0,0,0.35)',
             }}

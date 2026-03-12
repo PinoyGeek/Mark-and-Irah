@@ -6,12 +6,21 @@ import { Cinzel } from "next/font/google"
 import { siteConfig } from "@/content/site"
 
 // Wedding palette: deep brown, medium brown, sage-gold, cream, terracotta
+// --champagne-gold: #D6BFA3;
+// --soft-beige: #F5EFE6;
+// --warm-beige: #E8DCCB;
+// --soft-brown: #8B6F5A;
+// --deep-brown: #4E3B31;
+// --champagne-light: #F2E4D3;
+
 const palette = {
-  deep: "#45301F",   // primary text, strong accents
-  medium: "#875F2C", // secondary text, borders
-  sage: "#A2976A",   // subtle accents, dividers
-  cream: "#F5D8B0", // background, soft surfaces
+  deepBrown: "#4E3B31",   // primary text, strong accents
+  mediumBrown: "#8B6F5A", // secondary text, borders
+  sageGold: "#A2976A",   // subtle accents, dividers
+  cream: "#F5EFE6", // background, soft surfaces
   terracotta: "#8F553D", // CTAs, highlights
+  champagneGold: "#D6BFA3",
+  champagneLight: "#F2E4D3",
 } as const
 
 // Corner florals tinted to match deep brown
@@ -48,7 +57,7 @@ export function Hero() {
         <div
           className="absolute inset-0 opacity-[0.35]"
           style={{
-            background: `linear-gradient(165deg, ${palette.cream} 0%, ${palette.sage}18 40%, ${palette.medium}08 70%, ${palette.deep}06 100%)`,
+            background: `linear-gradient(165deg, ${palette.cream} 0%, ${palette.sageGold}18 40%, ${palette.mediumBrown}08 70%, ${palette.deepBrown}06 100%)`,
           }}
         />
         <div
@@ -64,7 +73,7 @@ export function Hero() {
       >
         <span
           className="text-[clamp(5.5rem,18vw,12rem)] font-extralight tracking-[0.25em] opacity-[0.07]"
-          style={{ fontFamily: '"Cinzel", serif', color: palette.deep }}
+          style={{ fontFamily: '"Cinzel", serif', color: palette.deepBrown }}
         >
          
         </span>
@@ -119,7 +128,7 @@ export function Hero() {
           {/* Invitation line — refined copy */}
           <p
             className={`${cinzel.className} text-[0.65rem] sm:text-xs uppercase tracking-[0.28em] sm:tracking-[0.32em] font-light`}
-            style={{ color: palette.medium }}
+            style={{ color: palette.mediumBrown }}
           >
             Together with their families, they request the pleasure of your company
           </p>
@@ -127,24 +136,24 @@ export function Hero() {
           <div className="flex items-center justify-center gap-3 sm:gap-4 my-6 sm:my-8" aria-hidden>
             <span
               className="h-px w-12 sm:w-16 rounded-full"
-              style={{ backgroundColor: palette.sage }}
+              style={{ backgroundColor: palette.sageGold }}
             />
             <span
               className="text-[0.5rem] sm:text-[0.55rem] tracking-[0.4em] uppercase"
-              style={{ color: palette.sage }}
+              style={{ color: palette.sageGold }}
             >
               at the celebration of their marriage
             </span>
             <span
               className="h-px w-12 sm:w-16 rounded-full"
-              style={{ backgroundColor: palette.sage }}
+              style={{ backgroundColor: palette.sageGold }}
             />
           </div>
 
           {/* Couple names — hero focal point */}
           <h1
             className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-[0.14em] sm:tracking-[0.18em] font-normal leading-tight`}
-            style={{ color: palette.deep }}
+            style={{ color: palette.deepBrown }}
           >
             <span className="block">
               <span className="inline-block align-baseline text-[clamp(3.25rem,7vw,4.75rem)] leading-none">
@@ -156,7 +165,7 @@ export function Hero() {
             </span>
             <span
               className="block text-2xl sm:text-3xl md:text-4xl font-normal tracking-[0.35em] my-2 sm:my-3"
-              style={{ color: palette.terracotta }}
+              style={{ color: palette.champagneGold }}
             >
               &amp;
             </span>
@@ -171,7 +180,7 @@ export function Hero() {
           </h1>
 
           {/* Venue & occasion */}
-          <div className="mt-8 sm:mt-10 space-y-2 sm:space-y-2.5" style={{ color: palette.medium }}>
+          <div className="mt-8 sm:mt-10 space-y-2 sm:space-y-2.5" style={{ color: palette.mediumBrown }}>
             <p className={`${cinzel.className} text-[0.65rem] sm:text-xs uppercase tracking-[0.18em] leading-relaxed max-w-sm mx-auto`}>
               {ceremonyVenue}
             </p>
@@ -183,12 +192,12 @@ export function Hero() {
           {/* Date & time — clear hierarchy */}
           <div
             className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t"
-            style={{ borderColor: `${palette.sage}50`, color: palette.deep }}
+            style={{ borderColor: `${palette.sageGold}50`, color: palette.deepBrown }}
           >
             <p className={`${cinzel.className} text-[0.7rem] sm:text-xs uppercase tracking-[0.2em] font-medium`}>
               {ceremonyDay} · {ceremonyTime}
             </p>
-            <p className={`${cinzel.className} text-[0.65rem] sm:text-xs uppercase tracking-[0.24em] mt-1.5`} style={{ color: palette.medium }}>
+            <p className={`${cinzel.className} text-[0.65rem] sm:text-xs uppercase tracking-[0.24em] mt-1.5`} style={{ color: palette.mediumBrown }}>
               {ceremonyDate}
             </p>
           </div>
@@ -197,24 +206,24 @@ export function Hero() {
           <div className="mt-10 sm:mt-12">
             <a
               href="#guest-list"
-              className={`${cinzel.className} inline-block px-10 sm:px-14 py-3.5 sm:py-4 text-[0.65rem] sm:text-xs uppercase tracking-[0.22em] rounded-sm transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:ring-offset-[#F5D8B0] focus-visible:ring-[#45301F]`}
+                  className={`${cinzel.className} inline-block px-10 sm:px-14 py-3.5 sm:py-4 text-[0.65rem] sm:text-xs uppercase tracking-[0.22em] rounded-sm transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:ring-offset-[${palette.champagneGold}] focus-visible:ring-[${palette.deepBrown}]`}
               style={{
-                color: palette.cream,
-                backgroundColor: palette.terracotta,
-                border: `2px solid ${palette.terracotta}`,
-                boxShadow: `0 4px 14px ${palette.deep}25`,
+                color: palette.deepBrown,
+                backgroundColor: palette.champagneGold,
+                border: `2px solid ${palette.champagneGold}`,
+                boxShadow: `0 4px 14px ${palette.deepBrown}25`,
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = palette.deep
-                e.currentTarget.style.borderColor = palette.deep
+                e.currentTarget.style.backgroundColor = palette.deepBrown
+                e.currentTarget.style.borderColor = palette.deepBrown
                 e.currentTarget.style.transform = "translateY(-1px)"
-                e.currentTarget.style.boxShadow = `0 6px 20px ${palette.deep}35`
+                e.currentTarget.style.boxShadow = `0 6px 20px ${palette.deepBrown}35`
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = palette.terracotta
-                e.currentTarget.style.borderColor = palette.terracotta
+                    e.currentTarget.style.backgroundColor = palette.champagneGold
+                e.currentTarget.style.borderColor = palette.champagneGold
                 e.currentTarget.style.transform = "translateY(0)"
-                e.currentTarget.style.boxShadow = `0 4px 14px ${palette.deep}25`
+                e.currentTarget.style.boxShadow = `0 4px 14px ${palette.deepBrown}25`
               }}
             >
               Confirm your attendance

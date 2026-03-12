@@ -67,19 +67,18 @@ export default function Home() {
               <MainHero />
               <Welcome />
               {/* <CoupleVideo />  */}
+              <LoveStory />
               <Countdown />
-              {/* <LoveStory /> */}
               <Gallery />
               <Messages />
               <Details />
-              <GuestInformation />
+              {/* <GuestInformation /> */}
               <Entourage />
               <WeddingTimeline />
-
               {/* <PrincipalSponsors /> */}
+              <FAQ />
               <GuestList />
               <BookOfGuests />
-              <FAQ />
               <Registry />
               <SnapShare />
               <Footer />

@@ -6,20 +6,37 @@ interface HeroProps {
   visible: boolean;
 }
 
+// Background (beige)          #F5EFE6
+// Section Alternate           #E8DCCB
+// Soft Brown (headings)       #8B6F5A
+// Deep Brown (accents/shadow) #4E3B31
+// Champagne Gold (buttons)    #D6BFA3
+// Champagne Hover (richer)    #C9A989
+// Borders / Dividers          #F2E4D3
+  // Palette tuned for champagne gold + beige + soft brown
+  const palette = {
+    deep: '#4E3B31',
+    softBrown: '#8B6F5A',
+    champagne: '#D6BFA3',
+    champagneHover: '#C9A989',
+    cream: '#F2E4D3',
+    soft: '#F5EFE6',
+  };
+
 const desktopImages: string[] = [
-  '/desktop-background/couple (1).webp',
-  '/desktop-background/couple (2).webp',
-  '/desktop-background/couple (3).webp',
-  '/desktop-background/couple (4).webp',
-  '/desktop-background/couple (5).webp'
+  '/desktop-background/couple (1).jpeg',
+  '/desktop-background/couple (2).jpeg',
+  '/desktop-background/couple (3).jpeg',
+  '/desktop-background/couple (4).jpeg',
+  '/desktop-background/couple (5).jpeg'
 ];
 
 const mobileImages: string[] = [
-  '/new/newbg/couple (1).jpg',
-  '/new/newbg/couple (2).jpg',
-  '/new/newbg/couple (3).jpg',
-  '/new/newbg/couple (4).jpg',
-  '/new/newbg/couple (5).jpg'
+  '/mobile-background/couple (1).jpeg',
+  '/mobile-background/couple (2).jpeg',
+  '/mobile-background/couple (3).jpeg',
+  '/mobile-background/couple (4).jpeg',
+  '/mobile-background/couple (5).jpeg'
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
@@ -101,19 +118,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
           </div>
         ))}
         
-        {/* Gradient Overlay - light/white */}
+        {/* Gradient Overlay - light champagne into beige, very soft so photo stays visible */}
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.7))'
+            background: 'linear-gradient(to bottom, rgba(214, 191, 163, 0.13), rgba(245, 239, 230, 0.47))'
           }}
         />
         
-        {/* Subtle vignette effect - light/white */}
+        {/* Subtle vignette effect - soft brown edges, clear warm center */}
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'radial-gradient(ellipse at center, transparent 0%, rgba(255, 255, 255, 0.3) 100%)'
+            background: 'radial-gradient(ellipse at center, transparent 0%, rgba(78, 59, 49, 0.18) 100%)'
           }}
         />
       </div>
@@ -136,14 +153,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
               }}
             >
               <Image
-                src="/Details/newmonogram.png"
+                src="/monogram/newMongoram.png"
                 alt="Monogram"
                 fill
-                className="object-contain drop-shadow-lg"
+                className="object-contain"
                 priority
                 style={{
-                  filter:
-                    'brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(900%) hue-rotate(355deg) brightness(95%) contrast(90%)',
+                  // Make monogram white with a soft champagne glow
+                  filter: 'brightness(0) saturate(100%) invert(100%) drop-shadow(0 8px 20px rgba(214, 191, 163, 0.6))',
                 }}
               />
             </div>
@@ -160,8 +177,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
             style={{
               fontFamily: '"Great Vibes", cursive',
               fontWeight: 400,
-              color: '#9B6A41',
-              textShadow: '0 2px 8px rgba(155, 106, 65, 0.2)',
+              color: palette.soft, // #F5EFE6
+              textShadow: '0 0 18px rgba(245, 239, 230, 0.9)',
             }}
           >
             You are
@@ -174,8 +191,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
             style={{
               fontFamily: '"Cinzel", serif',
               fontWeight: 700,
-              color: '#9B6A41',
-              textShadow: '0 2px 8px rgba(155, 106, 65, 0.2)',
+              color: palette.soft, // #F5EFE6
+              textShadow: '0 0 22px rgba(245, 239, 230, 0.95)',
               letterSpacing: '0.05em',
             }}
           >
@@ -190,23 +207,23 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
               contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{
-              backgroundColor: '#9B6A41',
-              borderColor: '#9B6A41',
-              color: '#FFFFFF',
+              backgroundColor: palette.champagne,
+              borderColor: palette.champagneHover,
+              color: palette.deep,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#7d5534';
+              e.currentTarget.style.backgroundColor = palette.champagneHover;
               e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.borderColor = '#7d5534';
+              e.currentTarget.style.borderColor = palette.deep;
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#9B6A41';
+              e.currentTarget.style.backgroundColor = palette.champagne;
               e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.borderColor = '#9B6A41';
+              e.currentTarget.style.borderColor = palette.champagneHover;
             }}
           >
             <span
-              style={{ fontFamily: '"Cinzel", serif', fontWeight: 500, color: '#FFFFFF' }}
+              style={{ fontFamily: '"Cinzel", serif', fontWeight: 500, color: palette.deep }}
             >
               Open Invitation
             </span>

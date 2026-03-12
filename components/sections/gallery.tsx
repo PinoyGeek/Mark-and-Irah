@@ -8,13 +8,14 @@ import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import { Section } from "@/components/section"
 // Removed circular gallery in favor of a responsive masonry layout
 
-// Wedding palette — match hero section
+// Champagne Gold + Beige + Soft Brown
+// creates a luxury, elegant, and warm aesthetic
 const palette = {
-  deep: "#45301F",
-  medium: "#875F2C",
-  sage: "#A2976A",
-  cream: "#F5D8B0",
-  terracotta: "#8F553D",
+  deep: "#4E3B31",            // deep brown
+  softBrown: "#8B6F5A",       // soft brown
+  background: "#E8DCCB",      // beige background
+  champagneGold: "#D6BFA3",   // champagne
+  champagneLight: "#F2E4D3",  // light champagne / paper
 } as const
 
 const cormorant = Cormorant_Garamond({
@@ -31,11 +32,12 @@ const GALLERY_DECO_FILTER =
   "brightness(0) saturate(100%) invert(18%) sepia(35%) saturate(1200%) hue-rotate(15deg) brightness(92%) contrast(88%)"
 
 const galleryItems = [
-  { image: "/new/newbg/couple (3).jpg", text: " " },   
-  { image: "/new/newbg/couple (2).jpg", text: " " },
-  { image: "/new/newbg/couple (4).jpg", text: " " },
-  { image: "/new/newbg/couple (5).jpg", text: " " },
-  { image: "/new/newbg/couple (1).jpg", text: " " },
+  { image: "/mobile-background/couple (4).jpeg", text: " " },   
+  { image: "/mobile-background/couple (2).jpeg", text: " " },
+  { image: "/mobile-background/couple (3).jpeg", text: " " },
+  { image: "/mobile-background/couple (4).jpeg", text: " " },
+  { image: "/mobile-background/couple (5).jpeg", text: " " },
+  { image: "/mobile-background/couple (1).jpeg", text: " " },
 
 
 ]
@@ -117,19 +119,19 @@ export function Gallery() {
   return (
     <div
       className="relative w-full"
-      style={{ backgroundColor: palette.cream }}
+      style={{ backgroundColor: palette.background }}
     >
       {/* Full-bleed layered background — same as hero (inline styles so it always applies) */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div
-          className="absolute inset-0 opacity-[0.35]"
+          className="absolute inset-0 opacity-[0.25]"
           style={{
-            background: `linear-gradient(165deg, ${palette.cream} 0%, ${palette.sage}18 40%, ${palette.medium}08 70%, ${palette.deep}06 100%)`,
+            background: `linear-gradient(165deg, ${palette.champagneLight} 0%, ${palette.champagneGold}22 35%, ${palette.softBrown}10 70%, ${palette.deep}08 100%)`,
           }}
         />
         <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{ background: `radial-gradient(ellipse 80% 50% at 50% 20%, ${palette.terracotta} 0%, transparent 60%)` }}
+          className="absolute inset-0 opacity-[0.08]"
+          style={{ background: `radial-gradient(ellipse 80% 50% at 50% 15%, ${palette.champagneGold} 0%, transparent 55%)` }}
         />
       </div>
 
@@ -181,7 +183,7 @@ export function Gallery() {
       <div className="relative z-10 text-center mb-12 sm:mb-16 md:mb-20 px-4 sm:px-6">
         <p
           className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] mb-2`}
-          style={{ color: palette.medium }}
+          style={{ color: palette.softBrown }}
         >
           Our Story in Frames
         </p>
@@ -193,20 +195,20 @@ export function Gallery() {
         </h2>
         <p
           className={`${cormorant.className} text-xs sm:text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed px-2 mb-3 sm:mb-4`}
-          style={{ color: palette.medium }}
+          style={{ color: palette.softBrown }}
         >
           From our first chapter to this beautiful season of commitment, every moment has been a testament to love, faith, and grace. We share these memories with heartfelt gratitude as we look forward to the lifetime that awaits us.
         </p>
 
-        {/* Decorative element — sage dividers (hero style) */}
+        {/* Decorative element — champagne dividers */}
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-          <span className="h-px w-10 sm:w-14 rounded-full" style={{ backgroundColor: palette.sage }} />
+          <span className="h-px w-10 sm:w-14 rounded-full" style={{ backgroundColor: palette.champagneGold }} />
           <div className="flex gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: palette.sage }} />
-            <span className="w-1.5 h-1.5 rounded-full opacity-50" style={{ backgroundColor: palette.sage }} />
-            <span className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: palette.sage }} />
+            <span className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: palette.champagneGold }} />
+            <span className="w-1.5 h-1.5 rounded-full opacity-50" style={{ backgroundColor: palette.champagneGold }} />
+            <span className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: palette.champagneGold }} />
           </div>
-          <span className="h-px w-10 sm:w-14 rounded-full" style={{ backgroundColor: palette.sage }} />
+          <span className="h-px w-10 sm:w-14 rounded-full" style={{ backgroundColor: palette.champagneGold }} />
         </div>
       </div>
 
@@ -314,11 +316,11 @@ export function Gallery() {
               <div className="mt-10 sm:mt-12 flex justify-center">
                 <Link
                   href="/gallery"
-                  className={`${cinzel.className} inline-flex items-center justify-center rounded-sm px-8 py-3.5 text-[0.65rem] sm:text-xs uppercase tracking-[0.22em] font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#F5D8B0] focus-visible:ring-[#45301F]`}
+                    className={`${cinzel.className} inline-flex items-center justify-center rounded-sm px-8 py-3.5 text-[0.65rem] sm:text-xs uppercase tracking-[0.22em] font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[${palette.champagneLight}] focus-visible:ring-[${palette.deep}]`}
                   style={{
-                    color: palette.cream,
-                    backgroundColor: palette.terracotta,
-                    border: `2px solid ${palette.terracotta}`,
+                    color: palette.deep,
+                    backgroundColor: palette.champagneGold,
+                    border: `2px solid ${palette.champagneGold}`,
                     boxShadow: `0 4px 14px ${palette.deep}20`,
                   }}
                   onMouseEnter={(e) => {
@@ -327,8 +329,8 @@ export function Gallery() {
                     e.currentTarget.style.boxShadow = `0 6px 20px ${palette.deep}30`
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = palette.terracotta
-                    e.currentTarget.style.borderColor = palette.terracotta
+                    e.currentTarget.style.backgroundColor = palette.champagneGold
+                    e.currentTarget.style.borderColor = palette.champagneGold
                     e.currentTarget.style.boxShadow = `0 4px 14px ${palette.deep}20`
                   }}
                 >

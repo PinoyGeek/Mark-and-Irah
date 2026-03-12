@@ -29,17 +29,15 @@ interface PrincipalSponsor {
   FemalePrincipalSponsor: string
 }
 
-// Wedding motif — align with hero, gallery, details
+// Champagne Gold + Beige + Soft Brown
+// creates a luxury, elegant, and warm aesthetic
 const palette = {
-  deep: "#45301F",
-  medium: "#875F2C",
-  sage: "#A2976A",
-  cream: "#F5D8B0",
-  terracotta: "#8F553D",
+  deep: "#4E3B31",            // deep brown
+  softBrown: "#8B6F5A",       // soft brown
+  background: "#E8DCCB",      // beige background
+  champagneGold: "#D6BFA3",   // champagne
+  champagneLight: "#F2E4D3",  // light champagne / paper
 } as const
-
-const DECO_FILTER =
-  "brightness(0) saturate(100%) invert(18%) sepia(35%) saturate(1200%) hue-rotate(15deg) brightness(92%) contrast(88%)"
 
 function mapStaticEntourage(): EntourageMember[] {
   const roleToCategory: Record<string, string> = {
@@ -244,7 +242,7 @@ export function Entourage() {
       >
         <div
           className="absolute inset-0 bg-gradient-to-r from-transparent to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 rounded-md"
-          style={{ background: `linear-gradient(to right, transparent, ${palette.sage}25, transparent)` }}
+          style={{ background: `linear-gradient(to right, transparent, ${palette.champagneGold}35, transparent)` }}
         />
         <p
           className={`relative text-[11px] sm:text-[13px] md:text-sm lg:text-base font-semibold ${textAlign} transition-all duration-300`}
@@ -307,18 +305,30 @@ export function Entourage() {
   }
 
   return (
-    <div className="relative w-full" style={{ backgroundColor: palette.cream }}>
-      {/* Full-bleed layered background — same as hero, gallery, details */}
+    <div className="relative w-full" style={{ backgroundColor: palette.background }}>
+      {/* Full-bleed layered background — champagne + beige with soft movement */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        {/* Soft diagonal wash */}
         <div
-          className="absolute inset-0 opacity-[0.35]"
+          className="absolute inset-0 opacity-[0.26]"
           style={{
-            background: `linear-gradient(165deg, ${palette.cream} 0%, ${palette.sage}18 40%, ${palette.medium}08 70%, ${palette.deep}06 100%)`,
+            background: `linear-gradient(145deg, ${palette.champagneLight} 0%, ${palette.champagneGold}24 35%, ${palette.softBrown}10 70%, ${palette.deep}08 100%)`,
           }}
         />
+        {/* Gentle spotlight behind center card */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{ background: `radial-gradient(ellipse 80% 50% at 50% 20%, ${palette.terracotta} 0%, transparent 60%)` }}
+          className="absolute inset-0 opacity-[0.16]"
+          style={{
+            background: `radial-gradient(circle at 50% 15%, ${palette.champagneGold} 0%, transparent 58%)`,
+          }}
+        />
+        {/* Vertical soft stripes for subtle texture */}
+        <div
+          className="absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(90deg, rgba(255,255,255,0.0) 0, rgba(255,255,255,0.0) 32px, rgba(255,255,255,0.24) 33px, rgba(255,255,255,0.24) 34px)",
+          }}
         />
       </div>
 
@@ -327,7 +337,7 @@ export function Entourage() {
         id="entourage"
         className="relative z-10 py-8 md:py-10 lg:py-12 overflow-hidden"
       >
-      {/* Corner floral decoration - same as hero */}
+      {/* Corner floral decoration - softly tinted */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
         <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
@@ -335,7 +345,7 @@ export function Entourage() {
           width={300}
           height={300}
           className="absolute top-0 left-0 w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-20"
-          style={{ transform: "scaleY(-1)", filter: DECO_FILTER }}
+          style={{ transform: "scaleY(-1)", filter: "brightness(0) saturate(100%) invert(23%) sepia(12%) saturate(911%) hue-rotate(338deg) brightness(93%) contrast(90%)" }}
           priority={false}
         />
         <Image
@@ -344,7 +354,7 @@ export function Entourage() {
           width={300}
           height={300}
           className="absolute top-0 right-0 w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-20"
-          style={{ transform: "scaleX(-1) scaleY(-1)", filter: DECO_FILTER }}
+          style={{ transform: "scaleX(-1) scaleY(-1)", filter: "brightness(0) saturate(100%) invert(23%) sepia(12%) saturate(911%) hue-rotate(338deg) brightness(93%) contrast(90%)" }}
           priority={false}
         />
         <Image
@@ -353,7 +363,7 @@ export function Entourage() {
           width={300}
           height={300}
           className="absolute bottom-0 left-0 w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-20"
-          style={{ filter: DECO_FILTER }}
+          style={{ filter: "brightness(0) saturate(100%) invert(23%) sepia(12%) saturate(911%) hue-rotate(338deg) brightness(93%) contrast(90%)" }}
           priority={false}
         />
         <Image
@@ -362,7 +372,7 @@ export function Entourage() {
           width={300}
           height={300}
           className="absolute bottom-0 right-0 w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-20"
-          style={{ transform: "scaleX(-1)", filter: DECO_FILTER }}
+          style={{ transform: "scaleX(-1)", filter: "brightness(0) saturate(100%) invert(23%) sepia(12%) saturate(911%) hue-rotate(338deg) brightness(93%) contrast(90%)" }}
           priority={false}
         />
       </div>
@@ -371,21 +381,21 @@ export function Entourage() {
       <div className={`relative z-30 text-center mb-4 sm:mb-5 md:mb-6 px-3 sm:px-4 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}>
         <p
           className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] mb-2`}
-          style={{ color: palette.medium }}
+          style={{ color: palette.softBrown }}
         >
           Those who stand with {siteConfig.couple.groomNickname} &amp; {siteConfig.couple.brideNickname}
         </p>
 
         <h2
           className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-1 sm:mb-2 md:mb-2.5`}
-          style={{ color: palette.deep }}
+          style={{ color: palette.deep, textShadow: "0 2px 10px rgba(78,59,49,0.22)" }}
         >
           Wedding Entourage
         </h2>
 
         <p
           className={`${cormorant.className} text-xs sm:text-sm md:text-base mb-2 sm:mb-2.5 md:mb-3 italic opacity-90`}
-          style={{ color: palette.medium }}
+          style={{ color: palette.softBrown }}
         >
           Honoring those who share in our joy
         </p>
@@ -398,8 +408,8 @@ export function Entourage() {
         }`}
       >
         <div
-          className="relative bg-white/95 backdrop-blur-lg rounded-xl sm:rounded-2xl overflow-hidden border shadow-lg transition-all duration-500 group"
-          style={{ borderColor: `${palette.sage}50`, boxShadow: `0 18px 40px ${palette.deep}15` }}
+          className="relative bg-[#F5EFE6]/95 backdrop-blur-lg rounded-xl sm:rounded-2xl overflow-hidden border shadow-lg transition-all duration-500 group"
+          style={{ borderColor: `${palette.champagneGold}70`, boxShadow: `0 18px 40px ${palette.deep}20` }}
         >
           {/* Card content */}
           <div className="relative p-3 sm:p-4 md:p-5 z-10">

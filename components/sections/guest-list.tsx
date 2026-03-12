@@ -559,7 +559,7 @@ export function GuestList() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
-              <div className="relative bg-[#BCCFC0] p-3 sm:p-4 md:p-5 lg:p-6 flex-shrink-0">
+              <div className="relative bg-[#D6BFA3] p-3 sm:p-4 md:p-5 lg:p-6 flex-shrink-0">
                 <div className="relative flex items-start justify-between gap-1.5 sm:gap-2">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 mb-1 sm:mb-1.5 md:mb-2 lg:mb-3">
@@ -910,7 +910,7 @@ export function GuestList() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header with Gradient */}
-              <div className="relative bg-[#BCCFC0] p-3 sm:p-4 md:p-5 lg:p-6 flex-shrink-0">
+              <div className="relative bg-[#E8DCCB] p-3 sm:p-4 md:p-5 lg:p-6 flex-shrink-0">
                 <div className="relative flex items-start justify-between gap-1.5 sm:gap-2">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 mb-1 sm:mb-1.5 md:mb-2 lg:mb-3">

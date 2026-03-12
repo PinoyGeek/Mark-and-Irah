@@ -17,17 +17,15 @@ const cinzel = Cinzel({
   weight: ["400", "600"],
 })
 
-// Wedding motif — align with hero, gallery, details
+// Champagne Gold + Beige + Soft Brown
+// creates a luxury, elegant, and warm aesthetic
 const palette = {
-  deep: "#45301F",
-  medium: "#875F2C",
-  sage: "#A2976A",
-  cream: "#F5D8B0",
-  terracotta: "#8F553D",
+  deep: "#4E3B31",            // deep brown
+  softBrown: "#8B6F5A",       // soft brown
+  background: "#E8DCCB",      // beige background
+  champagneGold: "#D6BFA3",   // champagne
+  champagneLight: "#F2E4D3",  // light champagne / paper
 } as const
-
-const DECO_FILTER =
-  "brightness(0) saturate(100%) invert(18%) sepia(35%) saturate(1200%) hue-rotate(15deg) brightness(92%) contrast(88%)"
 
 interface FAQItem {
   question: string
@@ -41,14 +39,19 @@ const faqItems: FAQItem[] = [
       `Our wedding will be held on ${siteConfig.ceremony.date} (${siteConfig.ceremony.day}). The ceremony will begin promptly at ${siteConfig.ceremony.time}, and we kindly ask guests to arrive by ${siteConfig.ceremony.guestsTime} to help us begin on time. The reception will follow at ${siteConfig.reception.time}.`,
   },
   {
+    question: "What time should I arrive for the ceremony?",
+    answer:
+      `Our ceremony will begin promptly at ${siteConfig.ceremony.time}. We kindly ask guests to arrive 30–45 minutes earlier to allow enough time for parking, walking to the ceremony area, and finding your seats so we can begin on time.`,
+  },
+  {
     question: "Where will the ceremony and reception take place?",
     answer:
       `The ceremony will be held at ${siteConfig.ceremony.location}. The reception will follow at ${siteConfig.reception.location}. You can find detailed directions, addresses, and maps in the Details section above.`,
   },
   {
-    question: "What time should I arrive?",
+    question: "Is there an entourage call time?",
     answer:
-      `We kindly request guests to arrive by ${siteConfig.ceremony.guestsTime} to allow ample time to settle in before the ceremony, which will begin promptly at ${siteConfig.ceremony.time}. The reception will follow at ${siteConfig.reception.time}. The entourage is requested to arrive by ${siteConfig.ceremony.entourageTime}. Your punctuality means so much to us!`,
+      `Yes. Our entourage is requested to arrive by ${siteConfig.ceremony.entourageTime} so we can prepare and settle before the ceremony begins promptly at ${siteConfig.ceremony.time}.`,
   },
   {
     question: "How do I RSVP?",
@@ -56,24 +59,24 @@ const faqItems: FAQItem[] = [
       `Please RSVP through the RSVP section on this invitation. Simply search for your name in the guest list, confirm your attendance, and let us know if you'll be bringing companions. We kindly ask for your response on or before ${siteConfig.details.rsvp.deadline} to help us prepare for the big day. For any questions, please contact ${siteConfig.details.rsvp.contact} at ${siteConfig.details.rsvp.phone}.`,
   },
   {
-    question: "Can I bring a plus one or additional guests?",
+    question: "Can I bring a guest or a date?",
     answer:
-      "Each invitation includes a specific number of reserved seats. Please check your invitation details in the RSVP section. If you need to request additional seats, you can use the 'Request to Join' feature, and we'll do our best to accommodate based on availability.",
+      "If your invitation includes a plus one or lists your guest’s name, you are welcome to bring them. Otherwise, we would love to keep our wedding intimate and reserved for close family and friends, so we kindly ask guests not to bring additional companions.",
   },
   {
-    question: "Can I bring my children?",
+    question: "Are children allowed at the event?",
     answer:
-      "While we adore your little ones, this will be an adults-only celebration. We kindly request that only children who are part of the wedding entourage be in attendance.s",
+      "As much as we adore your little ones, we have decided to keep our celebration an adult-only event to maintain an intimate and relaxed atmosphere for everyone.\n\nChildren who are part of the entourage are, of course, included. Otherwise, unless your child’s name is specifically listed on your invitation and included in your RSVP, we kindly ask that only adults attend.\n\nWe truly appreciate your understanding and can’t wait to celebrate this special day with you.",
   },
   {
     question: "Is there a dress code?",
     answer:
-      `Wedding attire details are in the Guest Information section above.\n\n• Principal Sponsors: Strictly formal (Gentlemen: Black Suit and Pants | Ladies: Champagne Long Gown)\n• Guests: Semi-formal / formal following our motif\n\nWe look forward to seeing you dressed for the occasion!`,
+      `Wedding attire details are in the Guest Information section above ${siteConfig.dressCode.note}.`,
   },
   {
-    question: "Will there be assigned seating?",
+    question: "Can I sit anywhere at the reception?",
     answer:
-      "Yes, there will be assigned seating at the reception. Your table number will be displayed in the Book of Guests section once your RSVP is confirmed. Our reception team will gladly guide you to your table so you can relax and enjoy the celebration.",
+      "Please don't. We kindly ask our guests to follow the seating arrangement prepared for the reception.\n\nA great deal of thought and care went into planning the seating so that everyone will feel comfortable and be seated with friends, family, or guests who share similar connections. Each seat was thoughtfully arranged with every guest in mind. Our reception team will gladly assist you in finding your assigned table.",
   },
   {
     question: "Is there parking available?",
@@ -81,14 +84,34 @@ const faqItems: FAQItem[] = [
       "Yes, parking is available at both venues. Please follow the parking signs and instructions from our venue coordinators.",
   },
   {
-    question: "What should I give as a gift?",
+    question: "Will there be a wedding gift registry?",
     answer:
       "With all that we have, we are truly blessed. Your presence and prayers are what we request most. However, if you desire to give nonetheless, a monetary gift to help us begin our new life together would be humbly appreciated. You can find our gift registry information in the Gift Guide section.",
   },
   {
-    question: "Can I take photos and videos during the ceremony?",
+    question: "Unplugged Ceremony",
     answer:
-      "We have a professional photographer and videographer capturing our special moments. We kindly ask that you keep your phones on silent and refrain from taking photos during the ceremony. However, we'd love to see your photos and videos from the reception! Please check the Snap & Share section for details on how to upload them.",
+      "EYES UP, PHONES DOWN, HEARTS OPEN.\n\nThe greatest gift you can give us during our ceremony is your presence. We respectfully request that guests refrain from taking photos or videos during the ceremony so our official photographers can capture every moment without distraction. We promise to share the beautiful photos with you afterward!\n\nOur professional photographers will be capturing every beautiful memory, and we promise to share the photos with everyone afterwards.",
+  },
+  {
+    question: "Can I take photos or videos during the reception?",
+    answer:
+      "Yes! While our I DO’s will be unplugged, our reception will not be. As a couple who loves photos and memories, we would love for you to capture the fun moments throughout the evening. We prepared this celebration wholeheartedly and we want everyone to enjoy it fully.",
+  },
+  {
+    question: "What should I do if I can’t make it?",
+    answer:
+      "Your presence will truly be missed, but we completely understand.\n\nPlease kindly let us know through RSVP as soon as possible so we may adjust arrangements accordingly.",
+  },
+  {
+    question: "I said “No” to RSVP but my plans changed. Can I still attend?",
+    answer:
+      "Please check with us first before making arrangements. Due to limited seating and a carefully planned guest list, attendance cannot be guaranteed without prior confirmation.",
+  },
+  {
+    question: "When is the appropriate time to leave?",
+    answer:
+      "It took us some time to plan for a heartfelt wedding that everyone would hopefully enjoy. We humbly request that you celebrate with us until the program ends. Please don't eat and run! Let's laugh, take pictures, sing, and have fun!",
   },
   {
     question: "What if I have dietary restrictions or allergies?",
@@ -110,55 +133,67 @@ export function FAQ() {
   }
 
   return (
-    <div className="relative w-full" style={{ backgroundColor: palette.cream }}>
-      {/* Full-bleed layered background — same as hero, gallery, details */}
+    <div className="relative w-full" style={{ backgroundColor: palette.background }}>
+      {/* Full-bleed layered background — champagne + beige with gentle texture */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        {/* Soft diagonal wash */}
         <div
-          className="absolute inset-0 opacity-[0.35]"
+          className="absolute inset-0 opacity-[0.24]"
           style={{
-            background: `linear-gradient(165deg, ${palette.cream} 0%, ${palette.sage}18 40%, ${palette.medium}08 70%, ${palette.deep}06 100%)`,
+            background: `linear-gradient(150deg, ${palette.champagneLight} 0%, ${palette.champagneGold}24 35%, ${palette.softBrown}10 70%, ${palette.deep}08 100%)`,
           }}
         />
+        {/* Glow behind FAQ card */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{ background: `radial-gradient(ellipse 80% 50% at 50% 20%, ${palette.terracotta} 0%, transparent 60%)` }}
+          className="absolute inset-0 opacity-[0.18]"
+          style={{
+            background: `radial-gradient(circle at 50% 10%, ${palette.champagneGold} 0%, transparent 55%)`,
+          }}
+        />
+        {/* Subtle vertical texture */}
+        <div
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(90deg, rgba(255,255,255,0.0) 0, rgba(255,255,255,0.0) 32px, rgba(255,255,255,0.3) 33px, rgba(255,255,255,0.3) 34px)",
+          }}
         />
       </div>
 
       <Section id="faq" className="relative z-10 py-12 md:py-16 lg:py-20 overflow-hidden">
-      {/* Corner decorations — deep brown tint (hero style) */}
+      {/* Corner decorations — soft brown tint */}
       <div className="absolute left-0 top-0 z-0 pointer-events-none">
-        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-20 scale-y-[-1]" priority={false} style={{ filter: DECO_FILTER }} />
+        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-20 scale-y-[-1]" priority={false} style={{ filter: "brightness(0) saturate(100%) invert(26%) sepia(12%) saturate(846%) hue-rotate(347deg) brightness(93%) contrast(92%)" }} />
       </div>
       <div className="absolute right-0 top-0 z-0 pointer-events-none">
-        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-20 scale-x-[-1] scale-y-[-1]" priority={false} style={{ filter: DECO_FILTER }} />
+        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-20 scale-x-[-1] scale-y-[-1]" priority={false} style={{ filter: "brightness(0) saturate(100%) invert(26%) sepia(12%) saturate(846%) hue-rotate(347deg) brightness(93%) contrast(92%)" }} />
       </div>
       <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
-        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-20" priority={false} style={{ filter: DECO_FILTER }} />
+        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-20" priority={false} style={{ filter: "brightness(0) saturate(100%) invert(26%) sepia(12%) saturate(846%) hue-rotate(347deg) brightness(93%) contrast(92%)" }} />
       </div>
       <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
-        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-20 scale-x-[-1]" priority={false} style={{ filter: DECO_FILTER }} />
+        <Image src="/decoration/flower-decoration-left-bottom-corner2.png" alt="" width={300} height={300} className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] opacity-20 scale-x-[-1]" priority={false} style={{ filter: "brightness(0) saturate(100%) invert(26%) sepia(12%) saturate(846%) hue-rotate(347deg) brightness(93%) contrast(92%)" }} />
       </div>
 
       {/* Section Header */}
       <div className="relative z-30 text-center mb-6 sm:mb-9 md:mb-12 px-3 sm:px-4">
-        <p className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] mb-2`} style={{ color: palette.medium }}>
-          Everything You Need to Know
+        <p className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] mb-2`} style={{ color: palette.softBrown }}>
+          Answers for our celebration day
         </p>
-        <h2 className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-1.5 sm:mb-3 md:mb-4`} style={{ color: palette.deep }}>
+        <h2 className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-1.5 sm:mb-3 md:mb-4`} style={{ color: palette.deep, textShadow: "0 2px 10px rgba(78,59,49,0.22)" }}>
           Frequently Asked Questions
         </h2>
-        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`} style={{ color: palette.medium }}>
-          Common questions answered to help you prepare for our special day
+        <p className={`${cormorant.className} text-xs sm:text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed px-2 mb-2 sm:mb-3`} style={{ color: palette.softBrown }}>
+          Helpful notes so you can simply arrive, celebrate, and enjoy this new chapter with us.
         </p>
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-          <span className="h-px w-10 sm:w-14 rounded-full" style={{ backgroundColor: palette.sage }} />
+          <span className="h-px w-10 sm:w-14 rounded-full" style={{ backgroundColor: palette.champagneGold }} />
           <div className="flex gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: palette.sage }} />
-            <span className="w-1.5 h-1.5 rounded-full opacity-50" style={{ backgroundColor: palette.sage }} />
-            <span className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: palette.sage }} />
+            <span className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: palette.champagneGold }} />
+            <span className="w-1.5 h-1.5 rounded-full opacity-50" style={{ backgroundColor: palette.champagneGold }} />
+            <span className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: palette.champagneGold }} />
           </div>
-          <span className="h-px w-10 sm:w-14 rounded-full" style={{ backgroundColor: palette.sage }} />
+          <span className="h-px w-10 sm:w-14 rounded-full" style={{ backgroundColor: palette.champagneGold }} />
         </div>
       </div>
 
@@ -167,9 +202,9 @@ export function FAQ() {
         <div
           className="relative backdrop-blur-md rounded-xl sm:rounded-2xl overflow-hidden border shadow-lg"
           style={{
-            backgroundColor: `${palette.cream}ee`,
-            borderColor: `${palette.sage}50`,
-            boxShadow: `0 4px 24px ${palette.deep}12`,
+            backgroundColor: `${palette.champagneLight}f0`,
+            borderColor: `${palette.champagneGold}70`,
+            boxShadow: `0 4px 28px ${palette.deep}18`,
           }}
         >
           <div className="relative p-2.5 sm:p-4 md:p-5 lg:p-6">
@@ -182,8 +217,8 @@ export function FAQ() {
                     key={index}
                     className="rounded-xl sm:rounded-2xl border overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md"
                     style={{
-                      backgroundColor: "rgba(255,255,255,0.92)",
-                      borderColor: `${palette.sage}40`,
+                      backgroundColor: "rgba(255,255,255,0.96)",
+                      borderColor: `${palette.champagneGold}55`,
                     }}
                   >
                     <button
@@ -194,14 +229,14 @@ export function FAQ() {
                     >
                       <span
                         className={`${cinzel.className} font-semibold pr-2 sm:pr-3 md:pr-4 text-xs sm:text-sm md:text-base lg:text-lg leading-snug sm:leading-relaxed transition-colors duration-200`}
-                        style={{ color: isOpen ? palette.terracotta : palette.deep }}
+                        style={{ color: isOpen ? palette.softBrown : palette.deep }}
                       >
                         {item.question}
                       </span>
                       <ChevronDown
                         size={18}
                         className={`flex-shrink-0 transition-transform duration-300 w-4 h-4 sm:w-5 sm:h-5 ${isOpen ? "rotate-180" : ""}`}
-                        style={{ color: palette.terracotta }}
+                        style={{ color: palette.softBrown }}
                         aria-hidden
                       />
                     </button>
@@ -216,7 +251,7 @@ export function FAQ() {
                       <div className="overflow-hidden">
                         <div
                           className="px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 border-t"
-                          style={{ backgroundColor: `${palette.cream}cc`, borderColor: `${palette.sage}30` }}
+                          style={{ backgroundColor: `${palette.background}e6`, borderColor: `${palette.champagneGold}40` }}
                         >
                           {item.answer.includes("[RSVP_LINK]") ? (
                             <p className={`${cormorant.className} font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg whitespace-pre-line tracking-wide`} style={{ color: palette.deep }}>
@@ -224,7 +259,7 @@ export function FAQ() {
                               <a
                                 href="#guest-list"
                                 className="underline font-bold transition-colors hover:opacity-80"
-                                style={{ color: palette.terracotta }}
+                                style={{ color: palette.softBrown }}
                                 onClick={(e) => {
                                   e.preventDefault()
                                   document.getElementById("guest-list")?.scrollIntoView({ behavior: "smooth" })

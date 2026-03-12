@@ -1,52 +1,52 @@
 export const siteConfig = {
   couple: {
-    bride: "Clarence Albaran",
-    brideNickname: "Clarence",
-    groom: "Glenn Joseph Bacus",
-    groomNickname: "Glenn",
+    bride: "Hannah Yoshiko Martinez",
+    brideNickname: "Hannah",
+    groom: "Jan Carlo Sayson",
+    groomNickname: "Jan Carlo",
   },
   wedding: {
-    date: "APRIL 18, 2026",
+    date: "May 2, 2026",
     time: "1:30 PM",
-    venue: "Altamers Mountain Resort, Kinambulan, Kapatagan, Digos City",
+    venue: "Delle Sorelle Taytay Rizal (Fountain Area) ; East Riviera Subdivision 1920 Taytay Calabarzon",
     tagline: "are getting married!",
-    theme: "Modern Filipiniana",
-    motif: "#87AE73, #9CAF88, #F5F5DC, #E6D5B8, #D2B48C",
+    theme: "Our wedding palette is inspired by timeless elegance and warmth.Motif Colors: Champagne Gold, Soft Beige, Warm Soft Brown",
+    motif: "#F5D8B0, #F5F5DC, #E6D5B8, #D2B48C",
   },
   details: {
     rsvp: {
-      deadline: "April 4, 2026",
-      contact: "Clarence Albaran",
-      phone: "",
+      deadline: "April 15, 2026.",
+      contact: "Hannah Yoshiko Martinez",
+      phone: "0917 888 8888",
     },
   },
   ceremony: {
-    location: "Altamers Mountain Resort, Kinambulan, Kapatagan, Digos City",
-    venue: "Altamers Mountain Resort, Kinambulan, Kapatagan, Digos City",
-    date: "April 18 2026",
+    location: "Delle Sorelle Taytay Rizal (Fountain Area) ",
+    venue: "East Riviera Subdivision 1920 Taytay Calabarzon",
+    date: "May 2, 2026",
     day: "Saturday",
-    time: "1:00 PM",
+    time: "1:30 PM",
     entourageTime: "1:00 PM",
-    guestsTime: "12:00 NN",
+    guestsTime: "1:00 PM",
   },
   reception: {
-    location: "Altamers Mountain Resort, Kinambulan, Kapatagan, Digos City",
-    venue: "Altamers Mountain Resort, Kinambulan, Kapatagan, Digos City",
-    date: "April 18, 2026",
+    location: "Delle Sorelle Taytay Rizal (The Courtyard)",
+    venue: "East Riviera Subdivision, Highway 2000, Phase-2, Taytay, Philippines, 1920",
+    date: "May 2, 2026",
     time: "4:00 PM",
   },
   dressCode: {
-    theme: "Modern Filipiniana",
+      theme: "SEMI-FORMAL",
     colors: ["#87AE73", "#9CAF88", "#F5F5DC", "#E6D5B8", "#D2B48C"],
     sponsors: {
-      male: "Barong Tagalog | Puting Panloob | Itim na Pantalon | Itim na sapatos",
-      female: "Filipiniana or Traje de Mestiza"
+      male: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
+      female: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers."
     },
     guests: {
-      gents: "Barong Tagalog | Puting Panloob | Itim na Pantalon | Itim na sapatos",
-      ladies: "Modern Filipiniana or Traje de Mestiza"
+      gents: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
+      ladies: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers."
     },
-    note: "We kindly request our guests to dress in formal attire following our Modern Filipiniana theme."
+    note: "We kindly request our guests to dress in attire following our wedding palette."
   },
   narratives: {
     ourStory: `Once upon a signature…

@@ -15,6 +15,25 @@ const cinzel = Cinzel({
   weight: "400",
 })
 
+
+// Wedding palette: deep brown, medium brown, sage-gold, cream, terracotta
+// --champagne-gold: #D6BFA3;
+// --soft-beige: #F5EFE6;
+// --warm-beige: #E8DCCB;
+// --soft-brown: #8B6F5A;
+// --deep-brown: #4E3B31;
+// --champagne-light: #F2E4D3;
+
+const palette = {
+  deepBrown: "#4E3B31",
+  mediumBrown: "#8B6F5A",
+  sageGold: "#A2976A",
+  cream: "#F5EFE6",
+  terracotta: "#8F553D",
+  champagneGold: "#D6BFA3",
+  champagneLight: "#F2E4D3",
+} as const
+
 const WELCOME_TEXT = "#9B6A41"
 // Corner decoration - white
 const DECO_FILTER = "brightness(0) invert(1)"
@@ -87,13 +106,13 @@ export function Welcome() {
           <div className="space-y-1 sm:space-y-1.5 md:space-y-2.5">
             <p
               className={`${cormorant.className} text-[0.65rem] sm:text-[0.7rem] md:text-xs lg:text-sm uppercase tracking-[0.24em] sm:tracking-[0.28em]`}
-              style={{ color: WELCOME_TEXT }}
+              style={{ color: palette.deepBrown }}
             >
               {groomName} &amp; {brideName}
             </p>
             <h2
               className={`${cinzel.className} text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[2.9rem]`}
-              style={{ color: WELCOME_TEXT }}
+              style={{ color: palette.deepBrown }}
             >
               Welcome to our wedding website
             </h2>
@@ -103,13 +122,13 @@ export function Welcome() {
             <div className="space-y-0.5 sm:space-y-1">
               <p
                 className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm lg:text-base italic leading-relaxed`}
-                style={{ color: WELCOME_TEXT, opacity: 0.9 }}
+                style={{ color: palette.deepBrown, opacity: 0.9 }}
               >
                 &quot;In God&apos;s perfect time, love grows and all things become beautiful.&quot;
               </p>
               <p
                 className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm lg:text-base italic leading-relaxed`}
-                style={{ color: WELCOME_TEXT, opacity: 0.9 }}
+                style={{ color: palette.deepBrown, opacity: 0.9 }}
               >
                 &quot;Love bears all things, hopes all things, endures all things.&quot;
               </p>
@@ -126,7 +145,7 @@ export function Welcome() {
           {/* Body text */}
           <div
             className={`${cormorant.className} text-[0.75rem] sm:text-[0.85rem] md:text-sm lg:text-base leading-relaxed sm:leading-6 md:leading-7 space-y-2.5 sm:space-y-3 md:space-y-4`}
-            style={{ color: WELCOME_TEXT }}
+            style={{ color: palette.deepBrown }}
           >
             <p>
               We&apos;ve found a love that&apos;s a true blessing, and we give thanks to God for writing the
