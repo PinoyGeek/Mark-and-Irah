@@ -7,8 +7,8 @@ import { siteConfig } from "@/content/site"
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://glenn-and-clarence-invitation.vercel.app/"
 const canonicalUrl = siteUrl.replace(/\/$/, "")
-const desktopHero = "/Details/LinkPreviewwnew.jpg"
-const mobileHero = "/Details/LinkPreviewwnew.jpg"
+const desktopHero = "/Details/linkPreview.jpeg"
+const mobileHero = "/Details/linkPreview.jpeg"
 const eventImageUrl = `${canonicalUrl}${desktopHero}`
 
 const coupleNames = `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}`
