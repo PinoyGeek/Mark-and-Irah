@@ -242,7 +242,7 @@ export function CoupleVideo() {
                   >
                     {/* Custom poster image */}
                     <Image
-                      src="/desktop-background/couple (12).webp"
+                      src="/desktop-background/couple-12.webp"
                       alt="Video thumbnail"
                       fill
                       className="object-cover transform group-hover:scale-105 transition-transform duration-500"
