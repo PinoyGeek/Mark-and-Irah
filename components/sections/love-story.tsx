@@ -42,7 +42,7 @@ export function LoveStory() {
         layout="image-left"
         isFirst={true}
         title="Love in the Time of Stillness"
-        imageSrc="/mobile-background/couple (2).jpeg"
+        imageSrc="/mobile-background/couple (2).webp"
         text={
           <>
             <p className="mb-4">
@@ -57,7 +57,7 @@ export function LoveStory() {
       <StorySection
         theme="dark"
         layout="image-right"
-        imageSrc="/mobile-background/couple (3).jpeg"
+        imageSrc="/mobile-background/couple (3).webp"
         text={
           <>
             <p>
@@ -72,7 +72,7 @@ export function LoveStory() {
         theme="light"
         layout="image-left"
         isLast={true}
-        imageSrc="/mobile-background/couple (4).jpeg"
+        imageSrc="/mobile-background/couple (4).webp"
         text={
           <>
             <p>
