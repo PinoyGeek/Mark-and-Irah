@@ -92,13 +92,13 @@ export function Welcome() {
               className={`${cormorant.className} text-[0.65rem] sm:text-[0.7rem] md:text-xs lg:text-sm uppercase tracking-[0.24em] sm:tracking-[0.28em]`}
               style={{ color: 'var(--color-motif-deep)' }}
             >
-              {groomName} &amp; {brideName}
+              {brideName} &amp; {groomName}
             </p>
             <h2
               className={`${cinzel.className} text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[2.9rem]`}
               style={{ color: 'var(--color-motif-deep)' }}
             >
-              Welcome to our wedding website
+              Welcome to our forever
             </h2>
 
 
@@ -108,14 +108,10 @@ export function Welcome() {
                 className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm lg:text-base italic leading-relaxed`}
                 style={{ color: 'var(--color-motif-deep)', opacity: 0.9 }}
               >
-                &quot;In God&apos;s perfect time, love grows and all things become beautiful.&quot;
+                &quot;I have found the one whom my soul loves.&quot;
               </p>
-              <p
-                className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm lg:text-base italic leading-relaxed`}
-                style={{ color: 'var(--color-motif-deep)', opacity: 0.9 }}
-              >
-                &quot;Love bears all things, hopes all things, endures all things.&quot;
-              </p>
+              <p className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm lg:text-base italic leading-relaxed`} style={{ color: 'var(--color-motif-deep)', opacity: 0.9 }}>Song of Solomon 3:4</p>
+
             </div>
 
             {/* Divider */}
@@ -132,14 +128,10 @@ export function Welcome() {
             style={{ color: 'var(--color-motif-deep)' }}
           >
             <p>
-              We&apos;ve found a love that&apos;s a true blessing, and we give thanks to God for writing the
-              beautiful story of our journey together. With hearts full of gratitude, we&apos;re excited to share
-              this blessing with you! Thank you for your love, prayers, and support. We can&apos;t wait to celebrate
-              this joyful day together!
+            Our love is a blessing we hold close to our hearts, and we are deeply grateful to God for gently guiding our story and bringing our lives together in such a beautiful way. With hearts full of joy and thanksgiving, we are so happy to share this special moment of our journey with you. Your love, prayers, and support have meant so much to us, and it would mean the world to celebrate this meaningful day surrounded by the people who have been part of our lives and our story.
             </p>
             <p>
-              Feel free to browse through important information and other helpful reminders — everything you
-              need to join us in this celebration!
+            As you prepare to celebrate with us, please feel free to browse through the important information and helpful reminders. Everything you need to know for the day is here. Your presence and shared joy will truly make this celebration even more special for us. 
             </p>
           </div>
           </div>

@@ -26,19 +26,19 @@ interface HeroProps {
 
 
 const desktopImages: string[] = [
-  '/desktop-background/couple (1).jpg',
-  '/desktop-background/couple (2).jpg',
-  '/desktop-background/couple (3).jpg',
-  '/desktop-background/couple (4).jpg',
-  '/desktop-background/couple (5).jpg'
+  '/slide/desktop/couple (1).jpg',
+  '/slide/desktop/couple (2).jpg',
+  '/slide/desktop/couple (3).jpg',
+  '/slide/desktop/couple (4).jpg',
+  '/slide/desktop/couple (5).jpg'
 ];
 
 const mobileImages: string[] = [
-  '/mobile-background/couple (21).jpg',
-  '/mobile-background/couple (11).jpg',
-  '/mobile-background/couple (16).jpg',
-  '/mobile-background/couple (21).jpg',
-  '/mobile-background/couple (14).jpg'
+  '/slide/mobile/couple (21).jpg',
+  '/slide/mobile/couple (11).jpg',
+  '/slide/mobile/couple (16).jpg',
+  '/slide/mobile/couple (21).jpg',
+  '/slide/mobile/couple (14).jpg'
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
@@ -155,7 +155,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
               }}
             >
               <Image
-                src="/monogram/newmonogram.png"
+                src="/monogram/mongoram.png"
                 alt="Monogram"
                 fill
                 className="object-contain"

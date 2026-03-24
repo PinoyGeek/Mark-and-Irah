@@ -24,9 +24,9 @@ export function LoveStory() {
         <h1 className={`${cinzel.className} text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl uppercase tracking-[0.14em] sm:tracking-[0.18em] font-normal leading-tight text-motif-deep mt-8`}>
           Our Love Story
         </h1>
-        <p className={`${cinzel.className} text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.14em] sm:tracking-[0.18em] font-normal leading-tight text-motif-medium mb-1`}>
+        {/* <p className={`${cinzel.className} text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.14em] sm:tracking-[0.18em] font-normal leading-tight text-motif-medium mb-1`}>
           Every photograph tells a story of {siteConfig.couple.brideNickname} & {siteConfig.couple.groomNickname}'s journey to forever
-        </p>
+        </p> */}
       </div>
 
       {/* SECTION 1: Top - Dark */}
@@ -39,7 +39,7 @@ export function LoveStory() {
         text={
           <>
             <p className="mb-4">
-            Met as first-year students at the Adventist University of the Philippines. What began as a simple classroom encounter slowly turned into a meaningful friendship
+            We met as first-year students at the Adventist University of the Philippines. What began as a simple classroom encounter slowly turned into a meaningful friendship.
             </p>
            
           </>
@@ -55,7 +55,7 @@ export function LoveStory() {
         text={
           <>
             <p>
-            After years of getting to know each other, we finally made it official. Our story began at AUP, and we made it official at MVC as we toured around Mindanao together
+            After years of growing together and getting to know each other more deeply, we finally made it official. Our story first began at AUP, and during one unforgettable summer road trip, we took a leap of faith and chose each other.
             </p>
           </>
         }

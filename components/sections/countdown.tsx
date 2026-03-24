@@ -228,7 +228,7 @@ export function Countdown() {
         >
           <div className="relative w-72 h-72 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[36rem] lg:h-[36rem] xl:w-[40rem] xl:h-[40rem] opacity-90">
             <Image
-              src="/monogram/newmonogram.png"
+              src="/monogram/mongoram.png"
               alt={`${groomNickname} & ${brideNickname} Monogram`}
               fill
               className="object-contain"
@@ -254,9 +254,9 @@ export function Countdown() {
           Counting down to our forever
         </h2>
         
-        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-motif-cream/95 font-light max-w-xl mx-auto leading-relaxed px-2">
+        {/* <p className="text-xs sm:text-sm md:text-base lg:text-lg text-motif-cream/95 font-light max-w-xl mx-auto leading-relaxed px-2">
           Every heartbeat brings us closer to the moment when two hearts become one. Join {groomNickname} and {brideNickname} as they count down to forever.
-        </p>
+        </p> */}
         
         {/* Decorative element below subtitle */}
         <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
