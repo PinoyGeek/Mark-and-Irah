@@ -67,46 +67,46 @@ const faqItems: FAQItem[] = [
     answer:
       "Yes, parking is available at the venue, and parking attendants, along with our coordinators, will assist you on the day",
   },
-  // {
-  //   question: "Will there be a wedding gift registry?",
-  //   answer:
-  //     "With all that we have, we are truly blessed. Your presence and prayers are what we request most. However, if you desire to give nonetheless, a monetary gift to help us begin our new life together would be humbly appreciated. You can find our gift registry information in the Gift Guide section.",
-  // },
-  // {
-  //   question: "Unplugged Ceremony",
-  //   answer:
-  //     "EYES UP, PHONES DOWN, HEARTS OPEN.\n\nThe greatest gift you can give us during our ceremony is your presence. We respectfully request that guests refrain from taking photos or videos during the ceremony so our official photographers can capture every moment without distraction. We promise to share the beautiful photos with you afterward!\n\nOur professional photographers will be capturing every beautiful memory, and we promise to share the photos with everyone afterwards.",
-  // },
-  // {
-  //   question: "Can I take photos or videos during the reception?",
-  //   answer:
-  //     "Yes! While our I DO’s will be unplugged, our reception will not be. As a couple who loves photos and memories, we would love for you to capture the fun moments throughout the evening. We prepared this celebration wholeheartedly and we want everyone to enjoy it fully.",
-  // },
-  // {
-  //   question: "What should I do if I can’t make it?",
-  //   answer:
-  //     "Your presence will truly be missed, but we completely understand.\n\nPlease kindly let us know through RSVP as soon as possible so we may adjust arrangements accordingly.",
-  // },
-  // {
-  //   question: "I said “No” to RSVP but my plans changed. Can I still attend?",
-  //   answer:
-  //     "Please check with us first before making arrangements. Due to limited seating and a carefully planned guest list, attendance cannot be guaranteed without prior confirmation.",
-  // },
-  // {
-  //   question: "When is the appropriate time to leave?",
-  //   answer:
-  //     "It took us some time to plan for a heartfelt wedding that everyone would hopefully enjoy. We humbly request that you celebrate with us until the program ends. Please don't eat and run! Let's laugh, take pictures, sing, and have fun!",
-  // },
-  // {
-  //   question: "What if I have dietary restrictions or allergies?",
-  //   answer:
-  //     "Please let us know about any dietary restrictions or allergies when you RSVP. We want to ensure everyone can enjoy the celebration comfortably.",
-  // },
-  // {
-  //   question: "How can I help the couple have a great time during their wedding?",
-  //   answer:
-  //     "• Pray with us for favorable weather and the continuous blessings of our Lord as we enter this new chapter of our lives as husband and wife.\n\n• RSVP as soon as your schedule is cleared.\n\n• Dress appropriately and follow our wedding motif.\n\n• Be on time.\n\n• Follow the seating arrangement in the reception.\n\n• Stay until the end of the program.\n\n• Join the activities and enjoy!",
-  // },
+  {
+    question: "Will there be a wedding gift registry?",
+    answer:
+      "With all that we have, we are truly blessed. Your presence and prayers are what we request most. However, if you desire to give nonetheless, a monetary gift to help us begin our new life together would be humbly appreciated. You can find our gift registry information in the Gift Guide section.",
+  },
+  {
+    question: "Unplugged Ceremony",
+    answer:
+      "EYES UP, PHONES DOWN, HEARTS OPEN.\n\nThe greatest gift you can give us during our ceremony is your presence. We respectfully request that guests refrain from taking photos or videos during the ceremony so our official photographers can capture every moment without distraction. We promise to share the beautiful photos with you afterward!\n\nOur professional photographers will be capturing every beautiful memory, and we promise to share the photos with everyone afterwards.",
+  },
+  {
+    question: "Can I take photos or videos during the reception?",
+    answer:
+      "Yes! While our I DO’s will be unplugged, our reception will not be. As a couple who loves photos and memories, we would love for you to capture the fun moments throughout the evening. We prepared this celebration wholeheartedly and we want everyone to enjoy it fully.",
+  },
+  {
+    question: "What should I do if I can’t make it?",
+    answer:
+      "Your presence will truly be missed, but we completely understand.\n\nPlease kindly let us know through RSVP as soon as possible so we may adjust arrangements accordingly.",
+  },
+  {
+    question: "I said “No” to RSVP but my plans changed. Can I still attend?",
+    answer:
+      "Please check with us first before making arrangements. Due to limited seating and a carefully planned guest list, attendance cannot be guaranteed without prior confirmation.",
+  },
+  {
+    question: "When is the appropriate time to leave?",
+    answer:
+      "It took us some time to plan for a heartfelt wedding that everyone would hopefully enjoy. We humbly request that you celebrate with us until the program ends. Please don't eat and run! Let's laugh, take pictures, sing, and have fun!",
+  },
+  {
+    question: "What if I have dietary restrictions or allergies?",
+    answer:
+      "Please let us know about any dietary restrictions or allergies when you RSVP. We want to ensure everyone can enjoy the celebration comfortably.",
+  },
+  {
+    question: "How can I help the couple have a great time during their wedding?",
+    answer:
+      "• Pray with us for favorable weather and the continuous blessings of our Lord as we enter this new chapter of our lives as husband and wife.\n\n• RSVP as soon as your schedule is cleared.\n\n• Dress appropriately and follow our wedding motif.\n\n• Be on time.\n\n• Follow the seating arrangement in the reception.\n\n• Stay until the end of the program.\n\n• Join the activities and enjoy!",
+  },
 ]
 
 export function FAQ() {

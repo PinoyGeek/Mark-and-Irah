@@ -14,13 +14,13 @@ const cinzel = Cinzel({
 const GCASH_QR = [
   {
     id: "MariBank",
-    src: "/QR/gcash.png",
+    src: "",
     label: "MariBank",
     accountNumber: "MARIBANK: (****2960) Ltryl Benitez",
   },
   {
     id: "gcash",
-    src: "/QR/gcash2.png",
+    src: "",
     label: "GCash",
     accountNumber: "GCash: LT**L B.",
   },

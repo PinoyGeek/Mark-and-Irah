@@ -5,6 +5,16 @@ export const siteConfig = {
     groom: "Kenneth Siman", //Ltryl B. Benitez
     groomNickname: "Kenneth", //Ltryl
   },
+  googleAPI:{
+    guestList: "https://script.google.com/macros/s/AKfycbyEr2o10YlHZ_13-QQF7vZ72dHkD7uaJLm4qZwzGY3JCMe9W8AOyu6Q2SWbL6fMRTH7Fg/exec",
+    guestRequest: "https://script.google.com/macros/s/AKfycbwtOtn2eI0_8XWV9qr0D2ypUEkznp5vYsrX-CnUK-oUNww058Vygw3o-nYb7Hl-LebJZA/exec",
+    message: "https://script.google.com/macros/s/AKfycbwtOtn2eI0_8XWV9qr0D2ypUEkznp5vYsrX-CnUK-oUNww058Vygw3o-nYb7Hl-LebJZA/exec",
+    messageForm: "https://docs.google.com/forms/d/e/1FAIpQLSf0WUkTPmzeNx0nl7NQiHAzXB7X7uhK3lrX0SZPZKn0MX-6VQ/formResponse",
+entourage: "https://script.google.com/macros/s/AKfycbwtOtn2eI0_8XWV9qr0D2ypUEkznp5vYsrX-CnUK-oUNww058Vygw3o-nYb7Hl-LebJZA/exec",
+sponsors: "https://script.google.com/macros/s/AKfycbwtOtn2eI0_8XWV9qr0D2ypUEkznp5vYsrX-CnUK-oUNww058Vygw3o-nYb7Hl-LebJZA/exec",
+weddingDetails: "https://script.google.com/macros/s/AKfycbwtOtn2eI0_8XWV9qr0D2ypUEkznp5vYsrX-CnUK-oUNww058Vygw3o-nYb7Hl-LebJZA/exec",
+
+  },
   wedding: {
     date: "June 24, 2026",
     time: "2:30 PM",
@@ -85,7 +95,7 @@ Now, as they prepare to say yes before God and the people they love most, Cather
   },
   snapShare: {
     googleDriveLink: "https://drive.google.com/drive/folders/1OHc4gq4VHPequrPTjIrV6-YpZ5ctk9lo?usp=sharing",
-    hashtag: ["#ForeverBRYLEongingToLTRYL"],
+    hashtag: ["#NOMAYnatedForKenneth","#KENNETHLiveWithoutNomay"],
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }

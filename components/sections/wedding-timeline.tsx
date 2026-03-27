@@ -18,7 +18,7 @@ const cinzel = Cinzel({
   weight: ["400"],
 })
 
-const { groomNickname, brideNickname } = siteConfig.couple
+// const { groomNickname, brideNickname } = siteConfig.couple
 const ceremonyTime = siteConfig.ceremony.time
 const guestsTime = siteConfig.ceremony.guestsTime ?? "1:30 PM"
 const ceremonyVenue = siteConfig.ceremony.venue
@@ -46,7 +46,7 @@ interface TimelineEvent {
 
 const timelineEvents: TimelineEvent[] = [
   {
-    time: "",
+    time: "2:30 PM",
     title: "Arrival",
     // description: "Please arrive on time to find your seat, settle in, and get ready for the celebration.",
     location: ceremonyVenue,
@@ -155,7 +155,7 @@ export function WeddingTimeline() {
           className={`${cormorant.className} text-[0.85rem] sm:text-base md:text-lg tracking-[0.04em] lowercase mb-1 drop-shadow-sm`}
           style={{ color: TIMELINE_TEXT }}
         >
-          wedding day
+          Wedding Day
         </p>
 
         <h2
