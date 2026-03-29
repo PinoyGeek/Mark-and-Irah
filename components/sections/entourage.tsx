@@ -676,8 +676,8 @@ export function Entourage() {
                             const maxLen = Math.max(bestMan.length, maidOfHonor.length)
                             const rows = []
                             for (let i = 0; i < maxLen; i++) {
-                              const left = maidOfHonor[i]
-                              const right = bestMan[i]
+                              const left = bestMan[i]
+                              const right = maidOfHonor[i]
                               rows.push(
                                 <React.Fragment key={`honor-row-${i}`}>
                                   <div key={`maid-cell-${i}`} className="px-1.5 sm:px-2 md:px-2.5">
