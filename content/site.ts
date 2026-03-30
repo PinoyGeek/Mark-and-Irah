@@ -8,15 +8,15 @@ export const siteConfig = {
     backgroundMusic:"/background_music/Ed Sheeran - The Joker And The Queen (Lyrics) feat. Taylor Swift.mp3"
   },
   googleAPI:{
-    messageForm: "https://docs.google.com/forms/d/e/1FAIpQLScFmpNtAI3vx2FKRaMIE38Kcn0w9ajHtz7CYn6CYgQ8yKqAng/formResponse",
-    message: "https://script.google.com/macros/s/AKfycbyuP6pES5o5ZguyuUEW_TCe80YNmKkpOM3l_ED2YTFTeMDvEQ4VBgrNMxx3WBs10iR2Kw/exec",
-    guestList: "https://script.google.com/macros/s/AKfycbxiU8Tk0Lrhgy9Yz7ODpamVvhaIyVxibNHTd_1NTXaU6NEaDy2hx56XwkPw3NDpnCtDuw/exec",
-    guestRequest: "https://script.google.com/macros/s/AKfycbyDBijMrRGWbqeE7ipotE7KTritduviNlT0wdZ-TBp44ttdejaRHeJSD1_0zfyxN3lU/exec",
-    entourage: "https://script.google.com/macros/s/AKfycbxDJuS4w9hlf9N0VYS6qbGN43uJBVGYgiGFdPg-xwrUCkURkHAbFhRgFuY-m4DNxk6pow/exec",
-    sponsors: "https://script.google.com/macros/s/AKfycbzYWENhNcIed-cIUzQUDD8JZavcjQ1n5ulNYEdsQfWSRIEZfQG8W06tik3dzpIutM2IWQ/exec",
-    weddingDetails: "https://script.google.com/macros/s/AKfycbzRaNGHVEwL9K9-7w7vA0PY8nBjPOQdq7ODmOFMcJuOeVCPGpeBzrulwn8pgPBKlus--g/exec",
-////google share
-    googleShare: "https://docs.google.com/spreadsheets/d/17ji99dMUexZD77VGYWLv8n4VoKcpK0PmkhXrpcUx31o/edit?usp=sharing",
+    messageForm: "https://docs.google.com/forms/d/e/1FAIpQLScFmpNtAI3vx2FKRaMIE38Kcn0w9ajHtz7CYn6CYgQ8yKqAng/formResponse", //done
+    message: "https://script.google.com/macros/s/AKfycbx6G-cc8v2OJdWPOSJpARdwqigPcAzAvyZPTd1v6cIwZuHHoRXW1ZBeBDDBg1Tt5Mc0/exec", //done
+    guestList: "https://script.google.com/macros/s/AKfycbyd62qRIHpsAQfG-yxV6oqF0RXtL3oJcWcsBpICn_cicAPPbEZTpa0yIcJrS-3SfnKi/exec", //done
+    guestRequest: "https://script.google.com/macros/s/AKfycbwQ3Jo1ycAwY0ZPZcmZrRuK1Sg_X9w-9t8H5_Lq069qWKlJvaIteO1nmUEPpGLfrXdV/exec", //done
+    entourage: "https://script.google.com/macros/s/AKfycbzH5KpZMOHBmUpeuTtM3cfURhMc77_oyUaHZmSoP0JAQoenBqfb5mV5z9i2SEUSnkly/exec", //done
+    sponsors: "https://script.google.com/macros/s/AKfycbz3xGAnhS-aTRnkUPPMmT-1zVsssbDphzqdWR0gW5mSttDqE1nf4GgmELJYUrSEyt-W/exec", //done
+    weddingDetails: "https://script.google.com/macros/s/AKfycby4v8qqP2dpT5G3oOBb2g3we70qGnx_paDqH1hZdMT_P31-MzflyoQDnercr84Wemio/exec", //done
+////google share 
+    googleShare: "https://docs.google.com/spreadsheets/d/1NzySlITNcY__DZtbF57EVfVjvy5SCEw35adaofzaioQ/edit?usp=sharing",
   },
   wedding: {
     date: "April 25, 2026",
