@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import Image from 'next/image';
 import { siteConfig } from '@/content/site';
+import { CloudinaryImage } from '@/components/ui/cloudinary-image';
 
 interface HeroProps {
   onOpen: () => void;
@@ -109,7 +109,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
               transition: 'opacity 1s ease-in-out, transform 1s ease-in-out'
             }}
           >
-            <Image
+            <CloudinaryImage
               src={src}
               alt="Couple"
               fill
@@ -155,14 +155,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
                 animation: contentVisible ? 'gentleFloat 3s ease-in-out infinite' : 'none'
               }}
             >
-              <Image
+              <CloudinaryImage
                 src={siteConfig.couple.monogram}
                 alt="Monogram"
                 fill
                 className="object-contain"
                 priority
                 style={{
-                  // Make monogram white with a soft champagne glow
                   filter: 'brightness(0) saturate(100%) invert(100%) drop-shadow(0 8px 20px var(--color-motif-deep)60)',
                 }}
               />

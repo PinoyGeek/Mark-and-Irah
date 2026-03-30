@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect } from "react"
-import Image from "next/image"
 import { gsap } from "gsap"
+import { CloudinaryImage } from "@/components/ui/cloudinary-image"
 
 interface BounceCardsProps {
   className?: string
@@ -143,14 +143,13 @@ export default function BounceCards({
           onTouchStart={() => pushSiblings(idx)}
           onTouchEnd={() => resetSiblings()}
         >
-          <Image
+          <CloudinaryImage
             src={src || "/placeholder.svg"}
             alt={`card-${idx}`}
             fill
             sizes="(max-width: 640px) 120px, (max-width: 768px) 160px, 200px"
             className="object-cover"
             loading="lazy"
-            decoding="async"
             priority={false}
           />
         </div>

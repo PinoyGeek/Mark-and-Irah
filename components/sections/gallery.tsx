@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
-import NextImage from "next/image"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import { Section } from "@/components/section"
+import { CloudinaryImage } from "@/components/ui/cloudinary-image"
+import { getCloudinaryUrl } from "@/lib/cloudinary"
 // Removed circular gallery in favor of a responsive masonry layout
 
 // Palette lives in globals.css → @theme inline → --color-motif-*
@@ -101,10 +102,10 @@ export function Gallery() {
   // Preload adjacent images for smoother nav
   useEffect(() => {
     if (selectedImage) {
-      const next = new Image()
-      next.src = galleryItems[(currentIndex + 1) % galleryItems.length].image
-      const prev = new Image()
-      prev.src = galleryItems[(currentIndex - 1 + galleryItems.length) % galleryItems.length].image
+      const next = new window.Image()
+      next.src = getCloudinaryUrl(galleryItems[(currentIndex + 1) % galleryItems.length].image, { width: 1200 })
+      const prev = new window.Image()
+      prev.src = getCloudinaryUrl(galleryItems[(currentIndex - 1 + galleryItems.length) % galleryItems.length].image, { width: 1200 })
     }
   }, [selectedImage, currentIndex])
 
@@ -140,39 +141,39 @@ export function Gallery() {
       >
       {/* Corner floral decoration - aligned with Details section */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
-        <NextImage
+        <CloudinaryImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
           height={300}
-          className="absolute top-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]" //opacity-20
+          className="absolute top-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
           style={{ transform: "scaleY(-1)", filter: GALLERY_DECO_FILTER }}
           priority={false}
         />
-        <NextImage
+        <CloudinaryImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
           height={300}
-          className="absolute top-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]" //opacity-20
+          className="absolute top-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
           style={{ transform: "scaleX(-1) scaleY(-1)", filter: GALLERY_DECO_FILTER }}
           priority={false}
         />
-        <NextImage
+        <CloudinaryImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
           height={300}
-          className="absolute bottom-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]" //opacity-20
+          className="absolute bottom-0 left-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
           style={{ filter: GALLERY_DECO_FILTER }}
           priority={false}
         />
-        <NextImage
+        <CloudinaryImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
           height={300}
-          className="absolute bottom-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]" //opacity-20
+          className="absolute bottom-0 right-0 w-auto h-auto max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
           style={{ transform: "scaleX(-1)", filter: GALLERY_DECO_FILTER }}
           priority={false}
         />
@@ -243,11 +244,10 @@ export function Gallery() {
 
                         <div className="relative aspect-[3/4] overflow-hidden">
                           <img
-                            src={item.image}
+                            src={getCloudinaryUrl(item.image, { width: 600, quality: "auto" })}
                             alt={item.text || `Gallery image ${index + 1}`}
                             loading="lazy"
                             decoding="async"
-                            sizes="90vw"
                             className="w-full h-full object-cover transition-transform duration-500 group-active:scale-[1.02]"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-active:opacity-100 transition-opacity duration-300" />
@@ -285,11 +285,10 @@ export function Gallery() {
 
                       <div className="relative aspect-[3/4] md:aspect-square overflow-hidden">
                         <img
-                          src={item.image}
+                          src={getCloudinaryUrl(item.image, { width: 500, quality: "auto" })}
                           alt={item.text || `Gallery image ${index + 1}`}
                           loading="lazy"
                           decoding="async"
-                          sizes="(min-width: 1024px) 20vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                         {/* Gradient overlay on hover */}
@@ -462,7 +461,7 @@ export function Gallery() {
                 onClick={(e) => e.stopPropagation()}
               >
                 <img
-                  src={selectedImage.image || "/placeholder.svg"}
+                  src={getCloudinaryUrl(selectedImage.image || "/placeholder.svg", { width: 1200, quality: "auto" })}
                   alt={selectedImage.text || "Gallery image"}
                   style={{ 
                     transform: `translate3d(${pan.x}px, ${pan.y}px, 0) scale(${zoomScale})`, 

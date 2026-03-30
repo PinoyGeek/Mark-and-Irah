@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useEffect, useState, useMemo } from 'react';
-import Image from 'next/image';
 import { siteConfig } from '@/content/site';
+import { CloudinaryImage } from '@/components/ui/cloudinary-image';
 
 
 interface LoadingScreenProps {
@@ -132,7 +132,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       {/* Background image with overlay */}
       <div className="absolute inset-0">
         {/* Mobile background */}
-        <Image
+        <CloudinaryImage
           src={MAIN_BW_IMAGE}
           alt=""
           fill
@@ -141,7 +141,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           priority
         />
         {/* Desktop background (md and above) */}
-        <Image
+        <CloudinaryImage
           src={DESKTOP_BW_IMAGE}
           alt=""
           fill
@@ -235,7 +235,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
                   transition: `opacity ${BOX_TRANSITION_MS}ms cubic-bezier(0.4, 0, 0.2, 1), transform ${BOX_TRANSITION_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`,
                 }}
               >
-                <Image
+                <CloudinaryImage
                   src={item.src}
                   alt={coupleNames}
                   fill

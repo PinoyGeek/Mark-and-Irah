@@ -14,10 +14,14 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+      {
+        protocol: "https",
         hostname: "**",
       },
     ],
-    // Enable Next.js Image Optimization for better performance
+    // Images are optimized by Cloudinary (f_auto, q_auto) via cloudinaryLoader
     unoptimized: false,
   },
   experimental: {

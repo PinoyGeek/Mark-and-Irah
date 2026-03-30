@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useMemo, useRef } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { siteConfig } from "@/content/site"
+import { CloudinaryImage } from "@/components/ui/cloudinary-image"
 import StaggeredMenu from "./StaggeredMenu"
 import { Cormorant_Garamond } from "next/font/google"
 
@@ -105,12 +105,12 @@ export function Navbar() {
         <div className="flex justify-between items-center h-12 sm:h-14 md:h-16">
           <Link href="#home" className="flex-shrink-0 group relative z-10">
             <div className="relative w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12">
-              <Image
+              <CloudinaryImage
                 src={siteConfig.couple.monogram}
                 alt={`${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} Monogram`}
                 fill
-                 className="object-contain group-hover:scale-110 group-active:scale-105 transition-all duration-500 drop-shadow-[0_4px_16px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_6px_22px_rgba(255,255,255,0.4)]"
-                 style={{
+                className="object-contain group-hover:scale-110 group-active:scale-105 transition-all duration-500 drop-shadow-[0_4px_16px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_6px_22px_rgba(255,255,255,0.4)]"
+                style={{
                   filter: "brightness(0) invert(1)",
                 }}
               />

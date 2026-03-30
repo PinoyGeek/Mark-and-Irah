@@ -2,9 +2,9 @@
 
 import { Section } from "@/components/section"
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import { QRCodeSVG } from "qrcode.react"
 import { siteConfig } from "@/content/site"
+import { CloudinaryImage } from "@/components/ui/cloudinary-image"
 import { Cinzel, Cormorant_Garamond } from "next/font/google"
 import {
   Shirt,
@@ -130,49 +130,53 @@ export function Details() {
 
       {/* Flower decoration - top left corner */}
       <div className="absolute left-0 top-0 z-0 pointer-events-none">
-        <img
+        <CloudinaryImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
-          alt="Flower decoration"
+          alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-65 scale-y-[-1]"
           style={{ filter: DECO_FILTER }}
+          priority={false}
         />
       </div>
 
       {/* Flower decoration - top right corner */}
       <div className="absolute right-0 top-0 z-0 pointer-events-none">
-        <img
+        <CloudinaryImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
-          alt="Flower decoration"
+          alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-65 scale-x-[-1] scale-y-[-1]"
           style={{ filter: DECO_FILTER }}
+          priority={false}
         />
       </div>
 
       {/* Flower decoration - left bottom corner */}
       <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
-        <img
+        <CloudinaryImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
-          alt="Flower decoration"
+          alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-65"
           style={{ filter: DECO_FILTER }}
+          priority={false}
         />
       </div>
 
       {/* Flower decoration - right bottom corner */}
       <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
-        <img
+        <CloudinaryImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
-          alt="Flower decoration"
+          alt=""
           width={300}
           height={300}
           className="w-auto h-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-[280px] opacity-65 scale-x-[-1]"
           style={{ filter: DECO_FILTER }}
+          priority={false}
         />
       </div>
 
@@ -212,7 +216,7 @@ export function Details() {
           <div className="relative bg-motif-cream rounded-xl sm:rounded-2xl overflow-hidden border border-motif-deep/20  shadow-[0_16px_40px_rgba(0,0,0,0.18)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.24)] hover:border-motif-deep/80 transition-all duration-300">
             {/* Venue Image */}
             <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[30rem] overflow-hidden">
-              <Image
+              <CloudinaryImage
                 src={siteConfig.ceremony.image}
                 alt={siteConfig.ceremony.location}
                 fill
@@ -356,7 +360,7 @@ export function Details() {
                     index === currentReceptionImageIndex ? "opacity-100" : "opacity-0"
                   }`}
                 >
-                  <Image
+                  <CloudinaryImage
                     src={src}
                     alt={siteConfig.reception.venue}
                     fill
@@ -509,7 +513,7 @@ export function Details() {
 
               {/* Principal sponsor attire image */}
               <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] max-w-2xl mx-auto rounded-lg sm:rounded-xl overflow-hidden border border-motif-medium/30 mb-4 sm:mb-6 md:mb-8">
-                <Image
+                <CloudinaryImage
                   src={siteConfig.dressCode.sponsors.photo}
                   alt="Principal sponsor attire — follow the color palette"
                   fill
@@ -567,7 +571,7 @@ export function Details() {
 
               {/* Principal sponsor attire image */}
               <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] max-w-2xl mx-auto rounded-lg sm:rounded-xl overflow-hidden border border-motif-medium/30 mb-4 sm:mb-6 md:mb-8">
-                <Image
+                <CloudinaryImage
                   src={siteConfig.dressCode.guests.photo}
                   alt={siteConfig.dressCode.guests.notes}
                   fill
@@ -660,7 +664,7 @@ export function Details() {
                       transform: `rotate(${currentRotation}deg) ${isActive ? 'scale(1.1)' : 'scale(1)'}`,
                     }}
                   >
-                    <Image
+                    <CloudinaryImage
                       src={image}
                       alt={`Wedding couple ${index + 1}`}
                       fill
@@ -798,7 +802,7 @@ export function Details() {
               {/* Shimmer effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-0" />
 
-              <Image
+              <CloudinaryImage
                 src={showImageModal === "ceremony" ? "/Details/ceremony&location.jpg" : "/Details/Kayama Mountain Resort And Events Place, Sitio Kaytuyang, Brgy. Aga Nasugbu, Batangas.png"}
                 alt={showImageModal === "ceremony" ? ceremonyLocationFormatted : receptionLocationFormatted}
                 fill

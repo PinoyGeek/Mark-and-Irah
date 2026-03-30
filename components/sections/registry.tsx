@@ -1,10 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import { Section } from "@/components/section"
 import { Cinzel } from "next/font/google"
 import { siteConfig } from "@/content/site"
+import { CloudinaryImage } from "@/components/ui/cloudinary-image"
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -74,7 +74,7 @@ export function Registry() {
           {/* Active QR image */}
           <div className="flex flex-col items-center">
             <div className="relative w-52 h-52 sm:w-60 sm:h-60 md:w-72 md:h-72 rounded-xl overflow-hidden bg-white shadow-lg">
-            <Image
+            <CloudinaryImage
               src={activeItem.src}
               alt={`QR code - ${activeItem.label}`}
               fill

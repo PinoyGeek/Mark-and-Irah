@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, useTransform } from "motion/react"
 import { useState } from "react"
+import { getCloudinaryUrl } from "@/lib/cloudinary"
 
 interface CardData {
   id: number
@@ -119,7 +120,7 @@ export default function Stack({
               }}
             >
               <img
-                src={card.img || "/placeholder.svg"}
+                src={getCloudinaryUrl(card.img || "/placeholder.svg", { width: 400, quality: "auto" })}
                 alt={`card-${card.id}`}
                 className="w-full h-full object-cover pointer-events-none"
               />
