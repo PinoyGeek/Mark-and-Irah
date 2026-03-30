@@ -7,19 +7,19 @@ import { siteConfig } from "@/content/site"
 import { getCloudinaryUrl } from "@/lib/cloudinary"
 
 const desktopImages: string[] = [
-  '/desktop-background/couple (6).webp',
-  '/desktop-background/couple (7).webp',
-  '/desktop-background/couple (8).webp',
-  '/desktop-background/couple (9).webp',
-  '/desktop-background/couple (10).webp',
+  '/desktop-background/couple (6).jpg',
+  '/desktop-background/couple (7).jpg',
+  '/desktop-background/couple (8).jpg',
+  '/desktop-background/couple (9).jpg',
+  '/desktop-background/couple (10).jpg',
 ].map((src) => getCloudinaryUrl(src, { width: 1920, quality: "auto" }))
 
 const mobileImages: string[] = [
-  '/mobile-background/couple (6).webp',
-  '/mobile-background/couple (2).webp',
-  '/mobile-background/couple (8).webp',
-  '/mobile-background/couple (9).webp',
-  '/mobile-background/couple (10).webp',
+  '/mobile-background/couple (1).jpg',
+  '/mobile-background/couple (2).jpg',
+  '/mobile-background/couple (3).jpg',
+  '/mobile-background/couple (4).jpg',
+  '/mobile-background/couple (5).jpg',
 ].map((src) => getCloudinaryUrl(src, { width: 768, quality: "auto" }))
 
 const SHOW_BUTTERFLIES = false

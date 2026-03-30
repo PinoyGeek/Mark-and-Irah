@@ -1,14 +1,14 @@
 export const siteConfig = {
   couple: {
-    bride: "Ronnie May Labordo", //Noenyl Bryle M. Gonzaga
-    brideNickname: "Nomay", //Ltryl
-    groom: "Kenneth Siman", //Ltryl B. Benitez
-    groomNickname: "Kenneth",
-    monogram:"/monogram/newmonogram.png" ,//Ltryl
+    bride: "Ma. Geraldine B. Divina", //Noenyl Bryle M. Gonzaga
+    brideNickname: "Era", //Ltryl
+    groom: "Vincent Ivan M. Ferrer", //Ltryl B. Benitez
+    groomNickname: "Vince",
+    monogram:"/monogram/monogram.png" ,//Ltryl
     backgroundMusic:"/background_music/Ed Sheeran - The Joker And The Queen (Lyrics) feat. Taylor Swift.mp3"
   },
   googleAPI:{
-    messageForm: "https://docs.google.com/forms/d/e/1FAIpQLSf0WUkTPmzeNx0nl7NQiHAzXB7X7uhK3lrX0SZPZKn0MX-6VQ/formResponse",
+    messageForm: "https://docs.google.com/forms/d/e/1FAIpQLScFmpNtAI3vx2FKRaMIE38Kcn0w9ajHtz7CYn6CYgQ8yKqAng/formResponse",
     message: "https://script.google.com/macros/s/AKfycbyuP6pES5o5ZguyuUEW_TCe80YNmKkpOM3l_ED2YTFTeMDvEQ4VBgrNMxx3WBs10iR2Kw/exec",
     guestList: "https://script.google.com/macros/s/AKfycbxiU8Tk0Lrhgy9Yz7ODpamVvhaIyVxibNHTd_1NTXaU6NEaDy2hx56XwkPw3NDpnCtDuw/exec",
     guestRequest: "https://script.google.com/macros/s/AKfycbyDBijMrRGWbqeE7ipotE7KTritduviNlT0wdZ-TBp44ttdejaRHeJSD1_0zfyxN3lU/exec",
@@ -19,67 +19,67 @@ export const siteConfig = {
     googleShare: "https://docs.google.com/spreadsheets/d/17ji99dMUexZD77VGYWLv8n4VoKcpK0PmkhXrpcUx31o/edit?usp=sharing",
   },
   wedding: {
-    date: "June 24, 2026",
-    time: "2:30 PM",
-    venue: "Our Lady of Lourdes Parish",
+    date: "April 25, 2026",
+    time: "1:00 PM",
+    venue: "Sto. Niño De Taguig Parish",
     tagline: "are getting married!",
     theme: "Our wedding palette is inspired by timeless elegance and warmth.Motif Colors: Champagne Gold, Soft Beige, Warm Soft Brown",
-    motif: "#9CAA99, #C4D1E2, #8799A7, #997C76, #A9A9A9, #D5D1C8",
+    motif: "#BBCED5, #B9C3A8, #F3D8C5, #D1C4D4, #ECD8BA, #F4E8D8, #E1DCCF",
   },
   details: {
     rsvp: {
-      deadline: "June 10, 2026.",
-      contact: "Kenneth Siman",
-      phone: "0927 815 3245",
+      deadline: "April 10, 2026.",
+      contact: "Ma. Geraldine B. Divina",
+      phone: "to be announced",
     },
   },
   giftRegistry: {
     QR_1:{
-    id: "BPI",
-    src: "/QR/BPI.png",
-    label: "BPI",
-    accountNumber: "BPI: RO***E CA*****L LA****O",
-    },
-    QR_2:{
     id: "Gcash",
     src: "/QR/Gcash.png",
-    label: "GCash",
-    accountNumber: "GCash: RO***E M** L.",
+    label: "Gcash",
+    accountNumber: "Gcash: Ma. Geraldine B. Divina",
+    },
+    QR_2:{
+    id: "Landbank",
+    src: "/QR/LandBank.png",
+    label: "Landbank",
+    accountNumber: "Landbank: Ma. Geraldine B. Divina",
     }
   },
   ceremony: {
-    location: "Our Lady of Lourdes Parish",
-    venue: "Our Lady of Lourdes Parish — Tagaytay",
-    date: "June 24, 2026",
-    day: "Wednesday",
-    time: "2:30 PM",
-    entourageTime: "2:00 PM",
-    guestsTime: "2:30 PM",
+    location: "Sto. Niño De Taguig Parish",
+    venue: "Sampaloc St. Zone 1. Signal Village, Taguig City",
+    date: "April 25, 2026",
+    day: "Saturday",
+    time: "1:00 PM",
+    entourageTime: "12:00 PM",
+    guestsTime: "12:30 PM",
     image: "/Details/ceremony.png",
   },
   reception: {
-    location: "Infinity Tagaytay Events Place",
-    venue: "Infinity Tagaytay Events Place",
-    date: "June 24, 2026",
-    time: "4:00 PM",
-    image: ["/Details/reception.png", "/Details/reception2.png"],
-  },
+    location: "Mahogany Farm Events Place Farm Hall",
+    venue: "Samama Compound 1, Brgy. Ligid-Tipas, Taguig City",
+    date: "April 25, 2026",
+    time: "2 :30 PM",
+    image: ["/Details/reception2.png","/Details/reception1.png"],
+  },                          
   dressCode: {
       theme: "SEMI-FORMAL",
-    colors: "#E8E0D5, #D1AD97, #C49E92, #C19A83, #9A7A6B",
+    colors: "#BBCED5, #B9C3A8, #F3D8C5, #D1C4D4, #ECD8BA, #F4E8D8, #E1DCCF",
     sponsors: {
       male: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
       female: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
-      notes: "Barong Tagalog and Long Gowns in curated shades of brown",
+      notes: "Ninong: Barong and Black Slacks\n Ninang: Pilipiniana Inspired Gown",
       photo: "/Details/sponsors.png",
-      palette: "#E8E0D5, #D1AD97, #C49E92, #C19A83, #9A7A6B"
+      palette: "#ECD8BA, #F4E8D8, #E1DCCF"
     },
     guests: {
       gents: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
       ladies: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
-      notes: "Semi-Formal attire in shades of brown and dusty pink.",
-      photo: "/Details/guest.png",
-      palette: "#E8E0D3, #D1AD97, #C49F90, #F7CDCF, #DDB2AC"
+      notes: "You may glam up in theses shades.",
+      photo: "/Details/Guest.png",
+      palette: "#BBCED5, #B9C3A8, #F3D8C5, #D1C4D4, #ECD8BA, #F4E8D8, #E1DCCF",
     },
     note: "We kindly request our guests to dress in attire following our wedding palette."
   },
@@ -112,7 +112,7 @@ Now, as they prepare to say yes before God and the people they love most, Cather
   },
   snapShare: {
     googleDriveLink: "https://drive.google.com/drive/folders/1OHc4gq4VHPequrPTjIrV6-YpZ5ctk9lo?usp=sharing",
-    hashtag: ["#NOMAYnatedForKenneth","#KENNETHLiveWithoutNomay"],
+    hashtag: ["#VINCEgotMesmERAized","#heaVINCENTforERA"],
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }

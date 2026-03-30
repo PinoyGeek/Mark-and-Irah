@@ -11,13 +11,13 @@ interface LoadingScreenProps {
 
 // Countdown boxes with color photos - numbers show days, hours, minutes
 const COUNTDOWN_BOXES = [
-  { src: '/frontboxes/box (1).webp' },
-  { src: '/frontboxes/box (2).webp' },
-  { src: '/frontboxes/box (3).webp' },
+  { src: '/frontboxes/box1.jpg' },
+  { src: '/frontboxes/box2.jpg' },
+  { src: '/frontboxes/box3.jpg' },
 ];
 
-const MAIN_BW_IMAGE = '/frontboxes/Front.webp';
-const DESKTOP_BW_IMAGE = '/frontboxes/desktopView.JPG';
+const MAIN_BW_IMAGE = '/frontboxes/phone.jpg';
+const DESKTOP_BW_IMAGE = '/frontboxes/desktop.jpg';
 const STAGGER_DELAY_MS = 4000; // Each image appears every 4 seconds
 const BOX_TRANSITION_MS = 1200; // Slow, smooth transition
 const TOTAL_DURATION_MS = COUNTDOWN_BOXES.length * STAGGER_DELAY_MS + 3000;
@@ -103,7 +103,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   const coupleNames = `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}`;
-  const hashtag = '#KennethLiveWithoutNomay';
+  const hashtag = siteConfig.snapShare.hashtag[0];
   const productionCredit = '';
 
 
@@ -274,7 +274,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         <div className="flex flex-col items-center justify-center w-full py-6 sm:py-8 px-4 flex-shrink-0">
           <p
             className="text-center text-sm sm:text-base tracking-[0.18em] uppercase text-[family-name:var(--font-crimson)] mb-2"
-            style={{ color: 'var(--color-motif-deep)' }}
+            style={{ color: 'var(--color-motif-cream)' }}
           >
             Almost ready for
           </p>
@@ -282,7 +282,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
             className="text-center text-2xl sm:text-3xl md:text-4xl mb-2"
             style={{
               fontFamily: '"Cinzel", serif',
-              color: 'var(--color-motif-deep)',
+              color: 'var(--color-motif-cream)',
               textShadow: '0 2px 10px var(--color-motif-deep)35',
             }}
           >

@@ -34,13 +34,17 @@ export function LoveStory() {
         theme="light"
         layout="image-left"
         isFirst={true}
-        title="Tara, Bible study?"
-        imageSrc="/mobile-background/couple (7).webp"
+        title="A Love Meant to Last"
+        imageSrc="/mobile-background/couple (1).jpg"
         text={
           <>
             <p className="mb-4">
-            "
-            That simple and playful message from Kenneth on July 4, 2021, at 12:15 AM changed everything. We had always known of each other-living in the same barangay-but never truly felt each other's presence. Then came that moment, and with it, a conversation that opened the door to something beautiful.
+            Era and Vince’s story began in the simplest yet most 
+            meaningful way—two hearts crossing paths at the 
+            right moment, unaware that something extraordinary 
+            was about to unfold.  <i> <strong>We hope you could share your own love story with us; this is just a demo sample that can be replaced anytime </strong></i>. 
+            What started as a connection soon blossomed into a love that felt both natural and destined, growing stronger with every 
+            shared smile and conversation.
             </p>
            
           </>
@@ -51,12 +55,12 @@ export function LoveStory() {
       <StorySection
         theme="dark"
         layout="image-right"
-        imageSrc="/mobile-background/couple (8).webp"
+        imageSrc="/mobile-background/couple (5).jpg"
         // title="Became a Couple (2019)"
         text={
           <>
             <p>
-            What we discovered first wasn't love. It was comfort. It was familiarity, like finding home in someone's words and presence. Despite our obvious differences, we found joy in each other's company. Our days became filled with laughter, adventure, faith, and, eventually, love.
+            As time passed, their bond deepened into something unshakable. Through life’s highs and lows, they became each other’s constant—finding comfort in presence, strength in unity, and joy in the little things. Their love is built not just on romance, but on genuine friendship and unwavering support.
             </p>
           </>
         }
@@ -67,12 +71,43 @@ export function LoveStory() {
         theme="light"
         layout="image-left"
         isLast={true}
-        imageSrc="/mobile-background/couple (9).webp"
+        imageSrc="/mobile-background/couple (3).jpg"
         // title="The Proposal (2025)"
         text={
           <>
             <p>
-            From that late-night message to this day, our story has been a journey of grace and growth - a testament that when God writes your love story, it begins with something simple yet extraordinary.
+            Together, they have created a journey filled with memories, laughter, and dreams for the future. Each chapter of their story reflects patience, understanding, and a love that continues to evolve. They have learned that true love is not just about finding the right person, but about choosing each other every day.
+            </p>
+           
+          </>
+        }
+      />
+            {/* SECTION 4: Middle - Light */}
+            <StorySection
+        theme="dark"
+        layout="image-right"
+        imageSrc="/mobile-background/couple (4).jpg"
+        // title="Became a Couple (2019)"
+        text={
+          <>
+            <p>
+            Now, Era and Vince are ready to take the next step—hand in hand, heart to heart. With grateful spirits and hopeful hearts, they choose to turn their love into a lifelong commitment, embracing a future filled with shared dreams and endless possibilities.
+            </p>
+          </>
+        }
+      />
+
+      {/* SECTION 5: Bottom - Dark */}
+      <StorySection
+        theme="light"
+        layout="image-left"
+        isLast={true}
+        imageSrc="/mobile-background/couple (2).jpg"
+        // title="The Proposal (2025)"
+        text={
+          <>
+            <p>
+            With this, they joyfully invite you to witness the beginning of their forever—a celebration of love, unity, and the promise of a beautiful life together.
             </p>
            
           </>

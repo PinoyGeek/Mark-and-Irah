@@ -27,19 +27,19 @@ interface HeroProps {
 
 
 const desktopImages: string[] = [
-  '/desktop-background/couple (1).webp',
-  '/desktop-background/couple (2).webp',
-  '/desktop-background/couple (3).webp',
-  '/desktop-background/couple (4).webp',
-  '/desktop-background/couple (5).webp'
+  '/desktop-background/couple (1).jpg',
+  '/desktop-background/couple (2).jpg',
+  '/desktop-background/couple (3).jpg',
+  '/desktop-background/couple (4).jpg',
+  '/desktop-background/couple (5).jpg'
 ];
 
 const mobileImages: string[] = [
-  '/mobile-background/couple (1).webp',
-  '/mobile-background/couple (2).webp',
-  '/mobile-background/couple (3).webp',
-  '/mobile-background/couple (4).webp',
-  '/mobile-background/couple (5).webp'
+'/mobile-background/couple (1).jpg',
+  '/mobile-background/couple (2).jpg',
+  '/mobile-background/couple (3).jpg',
+  '/mobile-background/couple (4).jpg',
+  '/mobile-background/couple (5).jpg'
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
@@ -162,7 +162,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
                 className="object-contain"
                 priority
                 style={{
-                  filter: 'brightness(0) saturate(100%) invert(100%) drop-shadow(0 8px 20px var(--color-motif-deep)60)',
+                  filter: 'brightness(0) invert(1) drop-shadow(0 4px 16px rgba(255,255,255,0.35))',
                 }}
               />
             </div>

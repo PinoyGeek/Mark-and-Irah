@@ -1,13 +1,21 @@
 const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+const PROJECT_PREFIX = "wedding-projects/vince-and-era"
 
 /**
- * Converts a local public path to a Cloudinary public ID.
- * "/mobile-background/couple (1).webp" → "mobile-background/couple (1)"
+ * Converts a local public path to a Cloudinary public ID, scoped to this
+ * project's folder so it never collides with other wedding projects.
+ * "/mobile-background/couple (1).webp"
+ *   → "wedding-projects/vince-and-era/mobile-background/couple (1)"
  */
 function toPublicId(src: string): string {
-  return src
+  // Already a full Cloudinary public ID (e.g. passed directly from upload output)
+  if (src.startsWith(PROJECT_PREFIX)) return src
+
+  const relative = src
     .replace(/^\//, "")       // strip leading slash
     .replace(/\.[^/.]+$/, "") // strip file extension
+
+  return `${PROJECT_PREFIX}/${relative}`
 }
 
 /**
