@@ -35,16 +35,16 @@ export const siteConfig = {
   },
   giftRegistry: {
     QR_1:{
-    id: "MariBank",
-    src: "/QR/pleaseProvideQR.png",
-    label: "MariBank",
-    accountNumber: "MARIBANK: To Follow",
+    id: "BPI",
+    src: "/QR/BPI.png",
+    label: "BPI",
+    accountNumber: "BPI: RO***E CA*****L LA****O",
     },
     QR_2:{
-    id: "gcash",
-    src: "/QR/pleaseProvideQR.png",
+    id: "Gcash",
+    src: "/QR/Gcash.png",
     label: "GCash",
-    accountNumber: "GCash: to Follow.",
+    accountNumber: "GCash: RO***E M** L.",
     }
   },
   ceremony: {
@@ -77,7 +77,7 @@ export const siteConfig = {
     guests: {
       gents: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
       ladies: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
-      notes: "Barong Tagalog and Long Gowns in curated shades of brown",
+      notes: "Semi-Formal attire in shades of brown and dusty pink.",
       photo: "/Details/guest.png",
       palette: "#E8E0D3, #D1AD97, #C49F90, #F7CDCF, #DDB2AC"
     },
