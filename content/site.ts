@@ -5,7 +5,7 @@ export const siteConfig = {
     groom: "Vincent Ivan M. Ferrer", //Ltryl B. Benitez
     groomNickname: "Vince",
     monogram:"/monogram/newMonogram.png" ,//Ltryl
-    backgroundMusic:"/background_music/Ed Sheeran - The Joker And The Queen (Lyrics) feat. Taylor Swift.mp3"
+    backgroundMusic:"/background_music//Ed Sheeran - The Joker And The Queen (Lyrics) feat. Taylor Swift.mp3"
   },
   googleAPI:{
     messageForm: "https://docs.google.com/forms/d/e/1FAIpQLScFmpNtAI3vx2FKRaMIE38Kcn0w9ajHtz7CYn6CYgQ8yKqAng/formResponse", //done

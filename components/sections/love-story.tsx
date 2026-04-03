@@ -103,7 +103,7 @@ Until Valentine’s Day came.
             <StorySection
         theme="dark"
         layout="image-right"
-        imageSrc="/mobile-background/couple (4).jpg"
+        imageSrc="/frontboxes/box-3.jpg"
         title="The Chocolate Move"
         text={
           <>

@@ -7,11 +7,11 @@ import { siteConfig } from "@/content/site"
 import { getCloudinaryUrl } from "@/lib/cloudinary"
 
 const desktopImages: string[] = [
-  '/desktop-background/couple (6).jpg',
-  '/desktop-background/couple (7).jpg',
-  '/desktop-background/couple (8).jpg',
-  '/desktop-background/couple (9).jpg',
-  '/desktop-background/couple (10).jpg',
+  '/gallery/couple (1).jpg',
+  '/gallery/couple (2).jpg',
+  '/gallery/couple (3).jpg',
+  '/gallery/couple (4).jpg',
+  '/gallery/couple (5).jpg',
 ].map((src) => getCloudinaryUrl(src, { width: 1920, quality: "auto" }))
 
 const mobileImages: string[] = [
