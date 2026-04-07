@@ -5,36 +5,45 @@ import { siteConfig } from "@/content/site"
 import { CloudinaryImage } from "@/components/ui/cloudinary-image"
 import { Cinzel, Cormorant_Garamond } from "next/font/google"
 
-const cinzel = Cinzel({
-  subsets: ["latin"],
-  weight: "400",
-})
+const cinzel = Cinzel({ subsets: ["latin"], weight: "400" })
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
 })
 
-// Match Details/Gallery palette
-const GALLERY_TEXT = "#9B6A41"
-const GALLERY_DECO_FILTER =
-  "brightness(0) saturate(100%) invert(32%) sepia(55%) saturate(900%) hue-rotate(355deg) brightness(95%) contrast(90%)"
-
-// Generate on each request so newly added images in public/ appear without a rebuild
+// Re-read on every request so newly added images appear without a rebuild
 export const dynamic = "force-dynamic"
 
-async function getGalleryImages() {
-  const abs = path.join(process.cwd(), "public", "gallery")
+type GalleryImage = {
+  src: string
+  category: "desktop" | "mobile"
+  width: number
+  height: number
+  orientation: "landscape" | "portrait"
+}
+
+async function readImageDir(
+  folder: "desktop-background" | "mobile-background",
+  category: "desktop" | "mobile"
+): Promise<GalleryImage[]> {
+  const IMAGE_EXT = /\.(jpe?g|png|webp|gif)$/i
+  const abs = path.join(process.cwd(), "public", folder)
   try {
     const entries = await fs.readdir(abs, { withFileTypes: true })
     return entries
-      .filter((e) => e.isFile())
-      .map((e) => `/gallery/${e.name}`)
-      .filter((p) => p.match(/\.(jpe?g|png|webp|gif)$/i))
+      .filter((e) => e.isFile() && IMAGE_EXT.test(e.name))
+      .map((e) => ({
+        src: `/${folder}/${e.name}`,
+        category,
+        width: category === "desktop" ? 1920 : 1080,
+        height: category === "desktop" ? 1080 : 1920,
+        orientation: (category === "desktop" ? "landscape" : "portrait") as "landscape" | "portrait",
+      }))
       .sort((a, b) => {
-        // Extract numeric part from filename for proper numerical sorting
-        const numA = parseInt(a.match(/\((\d+)\)/)?.[1] || "0", 10)
-        const numB = parseInt(b.match(/\((\d+)\)/)?.[1] || "0", 10)
+        // Sort numerically by the (N) suffix in filename
+        const numA = parseInt(a.src.match(/\((\d+)\)/)?.[1] ?? "0", 10)
+        const numB = parseInt(b.src.match(/\((\d+)\)/)?.[1] ?? "0", 10)
         return numA - numB
       })
   } catch {
@@ -43,120 +52,208 @@ async function getGalleryImages() {
 }
 
 export default async function GalleryPage() {
-  const allImages = await getGalleryImages()
-  const images = allImages.map((src) => ({
-    src,
-    category: "gallery" as const,
-    width: 1200,
-    height: 900,
-    orientation: "landscape" as const,
-  }))
+  const [desktopImages, mobileImages] = await Promise.all([
+    readImageDir("desktop-background", "desktop"),
+    readImageDir("mobile-background", "mobile"),
+  ])
+
+  // Desktop images first (landscape), then mobile portrait images
+  const images = [...desktopImages, ...mobileImages]
 
   return (
-    <main className="min-h-screen relative overflow-hidden bg-white">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10 bg-white" />
-      
-      {/* Flower decoration - top left corner */}
+    <main
+      className="min-h-screen relative overflow-hidden"
+      style={{ backgroundColor: "var(--color-motif-cream)" }}
+    >
+      {/* Subtle layered background tint — matches main page gallery section */}
+      <div
+        className="absolute inset-0 -z-10 opacity-[0.18] pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(165deg, var(--color-motif-cream) 0%, color-mix(in srgb, var(--color-motif-soft) 13%, transparent) 35%, color-mix(in srgb, var(--color-motif-medium) 6%, transparent) 70%, color-mix(in srgb, var(--color-motif-deep) 5%, transparent) 100%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 -z-10 opacity-[0.07] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 50% at 50% 0%, var(--color-motif-soft) 0%, transparent 55%)",
+        }}
+      />
+
+      {/* Corner floral decorations */}
       <div className="absolute left-0 top-0 z-0 pointer-events-none">
         <CloudinaryImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-25 scale-y-[-1]"
+          className="w-auto h-auto max-w-[120px] sm:max-w-[170px] md:max-w-[220px] lg:max-w-[260px] opacity-20"
           priority={false}
-          style={{ filter: GALLERY_DECO_FILTER }}
+          style={{ transform: "scaleY(-1)" }}
         />
       </div>
-      
-      {/* Flower decoration - top right corner */}
       <div className="absolute right-0 top-0 z-0 pointer-events-none">
         <CloudinaryImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-25 scale-x-[-1] scale-y-[-1]"
+          className="w-auto h-auto max-w-[120px] sm:max-w-[170px] md:max-w-[220px] lg:max-w-[260px] opacity-20"
           priority={false}
-          style={{ filter: GALLERY_DECO_FILTER }}
+          style={{ transform: "scaleX(-1) scaleY(-1)" }}
         />
       </div>
-      
-      {/* Flower decoration - left bottom corner */}
       <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
         <CloudinaryImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-25"
+          className="w-auto h-auto max-w-[120px] sm:max-w-[170px] md:max-w-[220px] lg:max-w-[260px] opacity-20"
           priority={false}
-          style={{ filter: GALLERY_DECO_FILTER }}
         />
       </div>
-      
-      {/* Flower decoration - right bottom corner */}
       <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
         <CloudinaryImage
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
           height={300}
-          className="w-auto h-auto max-w-[140px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[260px] opacity-25 scale-x-[-1]"
+          className="w-auto h-auto max-w-[120px] sm:max-w-[170px] md:max-w-[220px] lg:max-w-[260px] opacity-20"
           priority={false}
-          style={{ filter: GALLERY_DECO_FILTER }}
+          style={{ transform: "scaleX(-1)" }}
         />
       </div>
 
       <section className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-16">
-        <div className="text-center mb-6 sm:mb-8 md:mb-10 px-3 sm:px-4">
-          {/* Decorative element above title - match Details/Gallery */}
+        {/* Section header */}
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 px-3 sm:px-4">
+          {/* Top divider dots */}
           <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <div
-              className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-transparent"
-              style={{ background: `linear-gradient(to right, transparent, ${GALLERY_TEXT}40, transparent)` }}
+            <span
+              className="h-px w-10 sm:w-14 rounded-full"
+              style={{
+                background:
+                  "linear-gradient(to right, transparent, color-mix(in srgb, var(--color-motif-accent) 60%, transparent))",
+              }}
             />
-            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: GALLERY_TEXT }} />
-            <div className="w-1.5 h-1.5 rounded-full opacity-50" style={{ backgroundColor: GALLERY_TEXT }} />
-            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: GALLERY_TEXT }} />
-            <div
-              className="w-8 sm:w-12 md:w-16 h-px bg-gradient-to-r from-transparent to-transparent"
-              style={{ background: `linear-gradient(to right, transparent, ${GALLERY_TEXT}40, transparent)` }}
+            <div className="flex gap-1.5">
+              <span
+                className="w-1.5 h-1.5 rounded-full opacity-80"
+                style={{ backgroundColor: "var(--color-motif-accent)" }}
+              />
+              <span
+                className="w-1.5 h-1.5 rounded-full opacity-50"
+                style={{ backgroundColor: "var(--color-motif-accent)" }}
+              />
+              <span
+                className="w-1.5 h-1.5 rounded-full opacity-80"
+                style={{ backgroundColor: "var(--color-motif-accent)" }}
+              />
+            </div>
+            <span
+              className="h-px w-10 sm:w-14 rounded-full"
+              style={{
+                background:
+                  "linear-gradient(to left, transparent, color-mix(in srgb, var(--color-motif-accent) 60%, transparent))",
+              }}
             />
           </div>
+
+          <p
+            className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm uppercase tracking-[0.28em] mb-2`}
+            style={{ color: "var(--color-motif-medium)" }}
+          >
+            Our Story in Frames
+          </p>
 
           <h1
             className={`${cinzel.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal mb-2 sm:mb-3 md:mb-4`}
-            style={{ color: GALLERY_TEXT }}
+            style={{ color: "var(--color-motif-deep)" }}
           >
             Our Love Story Gallery
           </h1>
+
           <p
             className={`${cormorant.className} text-xs sm:text-sm md:text-base lg:text-lg font-light max-w-xl mx-auto leading-relaxed px-2`}
-            style={{ color: GALLERY_TEXT }}
+            style={{ color: "var(--color-motif-medium)" }}
           >
-            Every photograph tells a story of {siteConfig.couple.groomNickname} & {siteConfig.couple.brideNickname}'s journey to
-            forever
+            Every photograph tells a story of {siteConfig.couple.groomNickname} &amp;{" "}
+            {siteConfig.couple.brideNickname}&apos;s journey to forever
           </p>
 
-          {/* Decorative element below subtitle */}
+          {/* Bottom divider dots */}
           <div className="flex items-center justify-center gap-2 mt-3 sm:mt-4">
-            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: GALLERY_TEXT }} />
-            <div className="w-1.5 h-1.5 rounded-full opacity-50" style={{ backgroundColor: GALLERY_TEXT }} />
-            <div className="w-1.5 h-1.5 rounded-full opacity-80" style={{ backgroundColor: GALLERY_TEXT }} />
+            <span
+              className="h-px w-10 sm:w-14 rounded-full"
+              style={{
+                background:
+                  "linear-gradient(to right, transparent, color-mix(in srgb, var(--color-motif-accent) 60%, transparent))",
+              }}
+            />
+            <div className="flex gap-1.5">
+              <span
+                className="w-1.5 h-1.5 rounded-full opacity-80"
+                style={{ backgroundColor: "var(--color-motif-accent)" }}
+              />
+              <span
+                className="w-1.5 h-1.5 rounded-full opacity-50"
+                style={{ backgroundColor: "var(--color-motif-accent)" }}
+              />
+              <span
+                className="w-1.5 h-1.5 rounded-full opacity-80"
+                style={{ backgroundColor: "var(--color-motif-accent)" }}
+              />
+            </div>
+            <span
+              className="h-px w-10 sm:w-14 rounded-full"
+              style={{
+                background:
+                  "linear-gradient(to left, transparent, color-mix(in srgb, var(--color-motif-accent) 60%, transparent))",
+              }}
+            />
           </div>
+
+          {/* Image count badge */}
+          {images.length > 0 && (
+            <p
+              className={`${cormorant.className} text-xs sm:text-sm mt-4 opacity-70`}
+              style={{ color: "var(--color-motif-medium)" }}
+            >
+              {desktopImages.length} landscape · {mobileImages.length} portrait
+            </p>
+          )}
         </div>
 
+        {/* Gallery grid or empty state */}
         {images.length === 0 ? (
-          <div className={`${cormorant.className} text-center`} style={{ color: `${GALLERY_TEXT}e6` }}>
-            <p className="font-light">
+          <div
+            className={`${cormorant.className} text-center py-16`}
+            style={{ color: "var(--color-motif-medium)" }}
+          >
+            <p className="font-light text-base">
               No images found. Add files to{" "}
               <code
-                className="px-2 py-1 rounded border"
-                style={{ backgroundColor: `${GALLERY_TEXT}10`, borderColor: `${GALLERY_TEXT}40`, color: GALLERY_TEXT }}
+                className="px-2 py-1 rounded border text-sm"
+                style={{
+                  backgroundColor: "color-mix(in srgb, var(--color-motif-deep) 8%, transparent)",
+                  borderColor: "color-mix(in srgb, var(--color-motif-deep) 30%, transparent)",
+                  color: "var(--color-motif-deep)",
+                }}
               >
-                public/gallery
+                public/desktop-background
+              </code>{" "}
+              or{" "}
+              <code
+                className="px-2 py-1 rounded border text-sm"
+                style={{
+                  backgroundColor: "color-mix(in srgb, var(--color-motif-deep) 8%, transparent)",
+                  borderColor: "color-mix(in srgb, var(--color-motif-deep) 30%, transparent)",
+                  color: "var(--color-motif-deep)",
+                }}
+              >
+                public/mobile-background
               </code>
               .
             </p>
@@ -164,8 +261,6 @@ export default async function GalleryPage() {
         ) : (
           <MasonryGallery images={images} />
         )}
-
-
       </section>
     </main>
   )

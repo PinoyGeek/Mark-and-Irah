@@ -1,6 +1,6 @@
 "use client"
 
-import { Suspense, useState, useCallback, useEffect } from "react"
+import { Suspense, useState, useCallback, useEffect, useLayoutEffect } from "react"
 import dynamic from "next/dynamic"
 import { Hero as MainHero } from "@/components/sections/hero"
 import { Welcome } from "@/components/sections/welcome"
@@ -23,14 +23,19 @@ import { Navbar } from "@/components/navbar"
 import { AppState } from "@/components/types"
 import { SnapShare } from "@/components/sections/snap-share"
 import { CoupleVideo } from "@/components/sections/couple-video"
+import { LoveStoryNew } from "@/components/sections/loveStoryNew"
 
 const Silk = dynamic(() => import("@/components/silk"), { ssr: false })
 const GuestList = dynamic(() => import("@/components/sections/guest-list").then(mod => ({ default: mod.GuestList })), { ssr: false })
 
 export default function Home() {
-  // Skip loading/landing only when returning from /gallery.
-  // The flag is set by the "View Full Gallery" button and cleared immediately
-  // here so a page refresh always replays the loading screen.
+  // Fresh page loads always start at LOADING so the intro plays.
+  // The useState initializer handles pure client-side remounts (no SSR),
+  // but in Next.js App Router, "use client" pages are SSR'd first — during
+  // hydration the initializer does NOT re-run, so window/sessionStorage is
+  // never checked. The useLayoutEffect below is the reliable safety net:
+  // it fires synchronously before the browser paints, switches state to
+  // DETAILS before anything is visible, and prevents any flash.
   const [appState, setAppState] = useState<AppState>(() => {
     if (typeof window !== "undefined") {
       const returning = sessionStorage.getItem("returnFromGallery")
@@ -42,6 +47,19 @@ export default function Home() {
     return AppState.LOADING
   })
   const enableDecor = process.env.NEXT_PUBLIC_ENABLE_DECOR !== 'false'
+
+  // Catches the SSR-hydration case: useState initializer ran on the server
+  // (no window) and returned LOADING. useLayoutEffect runs on the client
+  // before the first paint, so we can correct the state with zero flash.
+  useLayoutEffect(() => {
+    if (appState !== AppState.LOADING) return
+    const returning = sessionStorage.getItem("returnFromGallery")
+    if (returning === "true") {
+      sessionStorage.removeItem("returnFromGallery")
+      setAppState(AppState.DETAILS)
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   // When returning from /gallery, scroll to the #gallery hash in the URL
   useEffect(() => {
@@ -76,7 +94,7 @@ export default function Home() {
             {enableDecor && (
               <div className="fixed inset-0 z-0 pointer-events-none">
                 <Suspense fallback={<div className="w-full h-full bg-gradient-to-b from-primary/10 to-secondary/5" />}>
-                  <Silk speed={5} scale={1.1} color="#763B0E" noiseIntensity={0.8} rotation={0.3} />
+                  <Silk speed={5} scale={1.1} color="#182C49" noiseIntensity={0.8} rotation={0.3} />
                 </Suspense>
               </div>
             )}
@@ -88,16 +106,15 @@ export default function Home() {
               <MainHero />
               <Welcome />
                <CoupleVideo /> 
-              <LoveStory />
+              {/* <LoveStory /> */}
+              <LoveStoryNew />
               <Countdown />
               <Gallery />
               <Messages />
               <Details />
               {/* <GuestInformation /> */}
               <Entourage />
-
               <GuestList />
-
               <BookOfGuests />
               <WeddingTimeline />
               {/* <PrincipalSponsors /> */}

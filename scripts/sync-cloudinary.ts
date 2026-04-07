@@ -41,7 +41,7 @@ cloudinary.config({
 // ---------------------------------------------------------------------------
 
 const ROOT_NAMESPACE = "wedding-projects"
-const DEFAULT_PROJECT = "Vince and Era"
+const DEFAULT_PROJECT = "Mark and Irah"
 
 const IMAGE_EXTENSIONS = new Set([
   ".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif", ".svg",

@@ -2,16 +2,15 @@
 
 import { useEffect, useState, useMemo } from "react"
 import { motion } from "motion/react"
-import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import { siteConfig } from "@/content/site"
 import { getCloudinaryUrl } from "@/lib/cloudinary"
 
 const desktopImages: string[] = [
-  '/gallery/couple (1).jpg',
-  '/gallery/couple (2).jpg',
-  '/gallery/couple (3).jpg',
-  '/gallery/couple (4).jpg',
-  '/gallery/couple (5).jpg',
+  '/desktop-background/couple (1).jpg',
+  '/desktop-background/couple (2).jpg',
+  '/desktop-background/couple (3).jpg',
+  '/desktop-background/couple (4).jpg',
+  '/desktop-background/couple (5).jpg',
 ].map((src) => getCloudinaryUrl(src, { width: 1920, quality: "auto" }))
 
 const mobileImages: string[] = [
@@ -24,20 +23,11 @@ const mobileImages: string[] = [
 
 const SHOW_BUTTERFLIES = false
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-})
-
-const cinzel = Cinzel({
-  subsets: ["latin"],
-  weight: "700",
-})
-
-const cinzelRegular = Cinzel({
-  subsets: ["latin"],
-  weight: "400",
-})
+// Font shorthands — all loaded globally via layout.tsx CSS variables
+const FONT_SCRIPT  = 'var(--font-brittany), cursive'   // Brittany Signature Script
+const FONT_DISPLAY = 'var(--font-agrandir), sans-serif' // Agrandir Wide Bold
+const FONT_SERIF   = 'var(--font-cinzel), serif'        // Cinzel
+const FONT_NUMERAL = 'var(--font-abril), cursive'       // Abril Fatface
 
 export function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -132,10 +122,43 @@ export function Hero() {
             }}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-motif-deep/90 via-motif-deep/70 to-transparent z-0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-motif-deep/75 z-0" />
-        <div className="absolute inset-0 mix-blend-screen" style={{ background: 'radial-gradient(circle at top, color-mix(in srgb, var(--color-motif-deep) 30%, transparent), transparent 55%)' }} />
-        <div className="absolute inset-0 opacity-70 animate-[pulse_9s_ease-in-out_infinite]" style={{ background: 'radial-gradient(circle at 20% 30%, color-mix(in srgb, var(--color-motif-deep) 28%, transparent), transparent 35%)' }} />
+        {/* Top veil — darkens sky so monogram / tagline stay readable */}
+        <div
+          className="absolute inset-0 pointer-events-none z-[1]"
+          style={{
+            background: `linear-gradient(
+              to bottom,
+              rgba(80,17,46,0.60) 0%,
+              rgba(80,17,46,0.22) 30%,
+              transparent 55%
+            )`,
+          }}
+        />
+        {/* Bottom veil — strong dark canvas behind names, date, CTA */}
+        <div
+          className="absolute inset-0 pointer-events-none z-[1]"
+          style={{
+            background: `linear-gradient(
+              to top,
+              rgba(24,44,73,0.88) 0%,
+              rgba(80,17,46,0.60) 35%,
+              transparent 65%
+            )`,
+          }}
+        />
+        {/* Diagonal motif wash — warmth without blocking the photo */}
+        <div
+          className="absolute inset-0 pointer-events-none z-[1]"
+          style={{
+            background: `linear-gradient(
+              135deg,
+              rgba(80,17,46,0.22) 0%,
+              rgba(190,132,0,0.06) 50%,
+              rgba(24,44,73,0.24) 100%
+            )`,
+            mixBlendMode: 'multiply',
+          }}
+        />
       </div>
 
       {SHOW_BUTTERFLIES && (
@@ -463,102 +486,160 @@ export function Hero() {
         >
           {/* Main Invitation Text */}
           <div className="space-y-2 sm:space-y-3 md:space-y-4">
-            {/* Names & Tagline */}
-            <h1
-              className={`${cormorant.className} text-xs sm:text-sm md:text-base lg:text-lg tracking-[0.24em] sm:tracking-[0.28em] uppercase font-medium text-center text-motif-cream`}
+            {/* Tagline */}
+            <p
+              className="text-[0.6rem] sm:text-[0.7rem] md:text-xs lg:text-sm tracking-[0.28em] sm:tracking-[0.34em] uppercase text-center -mt-8 sm:-mt-12 md:-mt-16 mb-6 sm:mb-8 md:mb-10"
               style={{
-                textShadow: "0 2px 10px rgba(0,0,0,0.75)",
+                fontFamily: FONT_DISPLAY,
+                fontWeight: 700,
+                color: 'var(--color-motif-silver)',
+                textShadow: "0 2px 12px rgba(0,0,0,0.75)",
               }}
             >
               Together with our families,
               <br />
               we joyfully invite you to witness our union.
-            </h1>
-            <h1
-              className={`${cinzelRegular.className} text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl drop-shadow-2xl`}
-                style={{
-                  color: 'var(--color-motif-cream)',
-                  textShadow: "0 0 24px rgba(0,0,0,0.9)",
-                  fontWeight: 400,
-                }}
+            </p>
+
+            {/* Couple names — Brittany Signature Script */}
+            <div
+              className="leading-none"
+              style={{
+                fontFamily: FONT_SCRIPT,
+                fontSize: 'clamp(3.8rem, 14vw, 8rem)',
+                color: 'var(--color-motif-cream)',
+                textShadow:
+                  '0 2px 24px rgba(0,0,0,0.70), 0 0 40px rgba(190,132,0,0.22)',
+                letterSpacing: '0.01em',
+              }}
             >
               <span className="block">{brideName}</span>
-              <span className="block">&</span>
+              <span className="block" style={{ fontSize: '0.55em', letterSpacing: '0.06em', fontFamily: FONT_SERIF, fontWeight: 400 }}>&amp;</span>
               <span className="block">{groomName}</span>
-            </h1>
+            </div>
           </div>
 
           {/* Date & Time block */}
           <div className="w-full max-w-2xl mx-auto">
-            <div
-              className={`${cormorant.className} flex flex-col items-center gap-1.5 sm:gap-2.5 md:gap-3 text-motif-cream/95`}
-              style={{ textShadow: "0 4px 16px rgba(0,0,0,0.6)" }}
-            >
+            <div className="flex flex-col items-center gap-1.5 sm:gap-2.5 md:gap-3">
+
+              {/* Month */}
               <span
-                className={`${cinzel.className} text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] font-light text-motif-cream`}
-                style={{ textShadow: "0 2px 14px color-mix(in srgb, var(--color-motif-deep) 65%, transparent)" }}
+                className="text-[0.65rem] sm:text-xs md:text-sm uppercase"
+                style={{
+                  fontFamily: FONT_DISPLAY,
+                  fontWeight: 700,
+                  letterSpacing: '0.40em',
+                  color: 'var(--color-motif-cream)',
+                  textShadow: '0 2px 14px rgba(0,0,0,0.65)',
+                }}
               >
                 {weddingMonth}
               </span>
 
               <div className="flex w-full items-center gap-2 sm:gap-4 md:gap-5">
-                {/* Day of week & divider */}
-              <div className="flex flex-1 items-center justify-end gap-1.5 sm:gap-2.5">
-                  <span className="h-[0.5px] flex-1 bg-motif-cream/45" />
+                {/* Day of week + left rule */}
+                <div className="flex flex-1 items-center justify-end gap-1.5 sm:gap-2.5">
                   <span
-                    className={`${cinzel.className} text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light text-motif-cream`}
-                    style={{ textShadow: "0 2px 14px color-mix(in srgb, var(--color-motif-deep) 65%, transparent)" }}
+                    className="h-px flex-1"
+                    style={{ background: 'linear-gradient(to right, transparent, rgba(247,243,239,0.45))' }}
+                  />
+                  <span
+                    className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase"
+                    style={{
+                      fontFamily: FONT_DISPLAY,
+                      fontWeight: 700,
+                      letterSpacing: '0.30em',
+                      color: 'var(--color-motif-cream)',
+                      textShadow: '0 2px 14px rgba(0,0,0,0.65)',
+                    }}
                   >
                     {ceremonyDayShort}
                   </span>
-                  <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-motif-cream/45" />
+                  <span
+                    className="h-px w-6 sm:w-8 md:w-10"
+                    style={{ backgroundColor: 'rgba(247,243,239,0.45)' }}
+                  />
                 </div>
 
-                {/* Day number */}
+                {/* Day number — Abril Fatface */}
                 <div className="relative flex items-center justify-center px-3 sm:px-4 md:px-5">
                   <span
                     aria-hidden="true"
-                    className="absolute inset-0 mx-auto h-[70%] max-h-[180px] w-[100px] sm:w-[140px] md:w-[170px] rounded-full bg-gradient-to-b from-motif-soft/40 via-motif-soft/30 to-transparent blur-[28px] opacity-80"
+                    className="absolute inset-0 mx-auto h-[70%] max-h-[180px] w-[100px] sm:w-[140px] md:w-[170px] rounded-full blur-[28px] opacity-70"
+                    style={{ background: 'radial-gradient(circle, rgba(183,110,121,0.50), transparent 70%)' }}
                   />
                   <span
-                    className={`${cinzel.className} relative text-[4rem] sm:text-[5.5rem] md:text-[6.5rem] lg:text-[7rem] font-light leading-none tracking-wider text-motif-cream`}
+                    className="relative text-[4rem] sm:text-[5.5rem] md:text-[6.5rem] lg:text-[7rem] leading-none"
                     style={{
-                      textShadow: "0 0 22px var(--color-motif-cream), 0 0 40px color-mix(in srgb, var(--color-motif-cream) 70%, transparent)",
-                      filter: "drop-shadow(0 0 26px color-mix(in srgb, var(--color-motif-cream) 65%, transparent))",
+                      fontFamily: FONT_NUMERAL,
+                      color: 'var(--color-motif-cream)',
+                      textShadow:
+                        '0 2px 16px rgba(0,0,0,0.70), 0 0 36px rgba(247,243,239,0.30)',
                     }}
                   >
                     {weddingDayNumber}
                   </span>
                 </div>
 
-                {/* Time */}
+                {/* Time + right rule */}
                 <div className="flex flex-1 items-center gap-1.5 sm:gap-2.5">
-                  <span className="h-[0.5px] w-6 sm:w-8 md:w-10 bg-motif-cream/45" />
                   <span
-                    className={`${cinzel.className} text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-light text-motif-cream`}
-                    style={{ textShadow: "0 2px 14px color-mix(in srgb, var(--color-motif-deep) 65%, transparent)" }}
+                    className="h-px w-6 sm:w-8 md:w-10"
+                    style={{ backgroundColor: 'rgba(247,243,239,0.45)' }}
+                  />
+                  <span
+                    className="text-[0.6rem] sm:text-[0.7rem] md:text-xs uppercase"
+                    style={{
+                      fontFamily: FONT_DISPLAY,
+                      fontWeight: 700,
+                      letterSpacing: '0.30em',
+                      color: 'var(--color-motif-cream)',
+                      textShadow: '0 2px 14px rgba(0,0,0,0.65)',
+                    }}
                   >
                     {ceremonyTime.split(",")[0]}
                   </span>
-                  <span className="h-[0.5px] flex-1 bg-motif-cream/45" />
+                  <span
+                    className="h-px flex-1"
+                    style={{ background: 'linear-gradient(to left, transparent, rgba(247,243,239,0.45))' }}
+                  />
                 </div>
               </div>
 
+              {/* Year */}
               <span
-                className={`${cinzel.className} text-[0.65rem] sm:text-xs md:text-sm uppercase tracking-[0.4em] sm:tracking-[0.5em] font-light text-motif-cream`}
-                style={{ textShadow: "0 2px 14px color-mix(in srgb, var(--color-motif-deep) 65%, transparent)" }}
+                className="text-[0.65rem] sm:text-xs md:text-sm uppercase"
+                style={{
+                  fontFamily: FONT_DISPLAY,
+                  fontWeight: 700,
+                  letterSpacing: '0.40em',
+                  color: 'var(--color-motif-cream)',
+                  textShadow: '0 2px 14px rgba(0,0,0,0.65)',
+                }}
               >
                 {weddingYear}
               </span>
+
             </div>
           </div>
+
+          {/* Thin gold divider */}
+          <div
+            className="mx-auto w-20 sm:w-28 h-px"
+            style={{ background: 'linear-gradient(90deg, transparent, var(--color-motif-accent), transparent)' }}
+          />
 
           {/* Venue */}
           <div className="space-y-1 sm:space-y-1.5 pt-1 sm:pt-2">
             <p
-              className={`${cinzel.className} text-xs sm:text-sm md:text-base lg:text-lg uppercase tracking-[0.22em] sm:tracking-[0.26em] md:tracking-[0.3em] text-motif-cream font-medium`}
+              className="text-xs sm:text-sm md:text-base lg:text-lg uppercase text-center"
               style={{
-                textShadow: "0 2px 18px rgba(0,0,0,0.9)",
+                fontFamily: FONT_DISPLAY,
+                fontWeight: 700,
+                letterSpacing: '0.24em',
+                color: 'var(--color-motif-cream)',
+                textShadow: '0 2px 18px rgba(0,0,0,0.85)',
               }}
             >
               {siteConfig.ceremony.location}
@@ -568,36 +649,54 @@ export function Hero() {
           {/* Call-to-action section */}
           <div className="pt-3 sm:pt-4 md:pt-5 flex flex-col gap-3 sm:gap-4 items-center max-w-2xl mx-auto w-full px-4">
             <p
-              className={`${cinzel.className} text-[0.7rem] sm:text-xs md:text-sm lg:text-base uppercase tracking-[0.24em] sm:tracking-[0.28em] text-motif-cream/95 font-normal leading-relaxed text-center px-4`}
+              className="text-[0.65rem] sm:text-xs md:text-sm uppercase leading-relaxed text-center px-4"
               style={{
-                textShadow: "0 2px 14px rgba(0,0,0,0.7)",
+                fontFamily: FONT_DISPLAY,
+                fontWeight: 700,
+                letterSpacing: '0.24em',
+                color: 'rgba(247,243,239,0.85)',
+                textShadow: '0 2px 14px rgba(0,0,0,0.70)',
               }}
             >
               Your presence, prayers, and love will mean the world to us.
             </p>
 
-            {/* Call-to-action buttons */}
+            {/* CTA button */}
             <div className="w-full flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch">
-            <a
-              href="#guest-list"
-              className={`${cormorant.className} group relative flex-1 sm:min-w-[200px] md:min-w-[220px] rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-motif-deep/70`}
-              style={{
-                backgroundColor: "var(--color-motif-cream)",
-                boxShadow: "0 10px 24px color-mix(in srgb, var(--color-motif-cream) 40%, transparent)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "color-mix(in srgb, var(--color-motif-cream) 75%, var(--color-motif-medium))";
-                e.currentTarget.style.boxShadow = "0 12px 28px color-mix(in srgb, var(--color-motif-cream) 50%, transparent)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--color-motif-cream)";
-                e.currentTarget.style.boxShadow = "0 10px 24px color-mix(in srgb, var(--color-motif-cream) 40%, transparent)";
-              }}
-            >
-              <span className="relative z-10 inline-flex h-full min-h-[3rem] sm:min-h-[3.25rem] w-full items-center justify-center px-6 sm:px-8 text-[0.65rem] sm:text-[0.7rem] md:text-xs uppercase tracking-[0.32em] sm:tracking-[0.36em] text-motif-deep font-semibold transition-all duration-300" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.1)" }}>
-                Confirm Attendance
-              </span>
-            </a>
+              <a
+                href="#guest-list"
+                className="group relative flex-1 sm:min-w-[200px] md:min-w-[220px] overflow-hidden transition-all duration-300 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none"
+                style={{
+                  borderRadius: '2px',
+                  border: '1px solid rgba(190,132,0,0.65)',
+                  backgroundColor: 'rgba(80,17,46,0.48)',
+                  backdropFilter: 'blur(8px)',
+                  boxShadow: '0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(190,132,0,0.18)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(190,132,0,0.22)';
+                  e.currentTarget.style.borderColor = 'rgba(190,132,0,0.90)';
+                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.40), 0 0 16px rgba(190,132,0,0.20)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(80,17,46,0.48)';
+                  e.currentTarget.style.borderColor = 'rgba(190,132,0,0.65)';
+                  e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(190,132,0,0.18)';
+                }}
+              >
+                <span
+                  className="inline-flex h-full min-h-[3rem] sm:min-h-[3.25rem] w-full items-center justify-center px-6 sm:px-8 text-[0.65rem] sm:text-[0.7rem] md:text-xs uppercase"
+                  style={{
+                    fontFamily: FONT_DISPLAY,
+                    fontWeight: 700,
+                    letterSpacing: '0.32em',
+                    color: 'var(--color-motif-cream)',
+                    textShadow: '0 1px 6px rgba(0,0,0,0.35)',
+                  }}
+                >
+                  Confirm Attendance
+                </span>
+              </a>
             </div>
           </div>
         </div>

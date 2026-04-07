@@ -7,31 +7,14 @@ interface HeroProps {
   visible: boolean;
 }
 
-// Background (beige)          #F5EFE6
-// Section Alternate           #E8DCCB
-// Soft Brown (headings)       #8B6F5A
-// Deep Brown (accents/shadow) #4E3B31
-// Champagne Gold (buttons)    #D6BFA3
-// Champagne Hover (richer)    #C9A989
-// Borders / Dividers          #F2E4D3
-  // Palette tuned for champagne gold + beige + soft brown
- // Palette tuned to motif: sage green, muted sage, warm ivory, powder blue, steel blue, luxury silver
- const palette = {
-  deep: '--color-motif-deep',    // sage green — primary elegance, headings, borders
-  medium: '--color-motif-medium',  // soft muted sage — secondary text, subtle elements
-  accent: '--color-motif-accent',  // steel blue — deeper accent, hashtag, dividers
-  cream: '--color-motif-cream',   // warm ivory — surfaces, overlays, light text on dark
-  soft: '--color-motif-soft',    // powder blue — highlights, glow accents, progress fill
-  silver: '--color-motif-silver',  // luxury silver — neutral separators, track backgrounds
-};
 
 
 const desktopImages: string[] = [
-  '/gallery/couple (1).jpg',
-  '/gallery/couple (2).jpg',
-  '/gallery/couple (3).jpg',
-  '/gallery/couple (4).jpg',
-  '/gallery/couple (5).jpg'
+  '/desktop-background/couple (1).jpg',
+  '/desktop-background/couple (2).jpg',
+  '/desktop-background/couple (3).jpg',
+  '/desktop-background/couple (4).jpg',
+  '/desktop-background/couple (5).jpg'
 ];
 
 const mobileImages: string[] = [
@@ -121,20 +104,44 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
           </div>
         ))}
         
-        {/* Gradient Overlay - light champagne into beige, very soft so photo stays visible */}
-        <div 
+        {/* Top veil — softens the sky/upper area so the monogram reads clearly */}
+        <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to bottom, var(--color-motif-deep)13, var(--color-motif-cream)47)'
+            background: `linear-gradient(
+              to bottom,
+              rgba(80,17,46,0.55) 0%,
+              rgba(80,17,46,0.20) 28%,
+              transparent 52%
+            )`,
           }}
         />
-        
-        {/* Subtle vignette effect - soft brown edges, clear warm center */}
-        <div 
+
+        {/* Bottom veil — darkens behind "You are / Invited! / button" text block */}
+        <div
           className="absolute inset-0 pointer-events-none"
           style={{
-              background: 'radial-gradient(ellipse at center, transparent 0%, var(--color-motif-deep)18 100%)'
-            }}
+            background: `linear-gradient(
+              to top,
+              rgba(24,44,73,0.82) 0%,
+              rgba(80,17,46,0.55) 32%,
+              transparent 62%
+            )`,
+          }}
+        />
+
+        {/* Diagonal motif wash — adds warmth without blocking the photo */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `linear-gradient(
+              135deg,
+              rgba(80,17,46,0.22) 0%,
+              rgba(190,132,0,0.06) 50%,
+              rgba(24,44,73,0.24) 100%
+            )`,
+            mixBlendMode: 'multiply',
+          }}
         />
       </div>
 
@@ -172,6 +179,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
         <div className="flex-1" />
 
         <div className="flex flex-col items-center justify-end w-full gap-5 sm:gap-6 pb-14 sm:pb-16 md:pb-20">
+          {/* "You are" — script */}
           <h2
             className={`text-6xl md:text-8xl transform -rotate-6 transition-all duration-1000 ease-out delay-200 ${
               contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -179,13 +187,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
             style={{
               fontFamily: '"Great Vibes", cursive',
               fontWeight: 400,
-              color: 'var(--color-motif-cream)', // #F5EFE6
-              textShadow: '0 0 18px var(--color-motif-cream)',
+              color: 'var(--color-motif-cream)',
+              textShadow:
+                '0 2px 14px rgba(0,0,0,0.6), 0 0 28px rgba(247,243,239,0.30)',
             }}
           >
             You are
           </h2>
-          
+
+          {/* "Invited!" — serif display */}
           <h1
             className={`text-5xl md:text-7xl font-bold tracking-wider uppercase transition-all duration-1000 ease-out delay-300 ${
               contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -193,42 +203,55 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
             style={{
               fontFamily: '"Cinzel", serif',
               fontWeight: 700,
-              color: 'var(--color-motif-cream)', // #F5EFE6
-              textShadow: '0 0 22px var(--color-motif-cream)95',
-              letterSpacing: '0.05em',
+              color: 'var(--color-motif-cream)',
+              textShadow:
+                '0 2px 16px rgba(0,0,0,0.65), 0 0 32px rgba(190,132,0,0.35)',
+              letterSpacing: '0.08em',
             }}
           >
             Invited!
           </h1>
 
-          <button 
-            onClick={() => {
-              onOpen();
+          {/* Thin gold divider */}
+          <div
+            className={`w-20 h-px transition-all duration-1000 ease-out delay-400 ${
+              contentVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+            }`}
+            style={{
+              background: `linear-gradient(90deg, transparent, var(--color-motif-accent), transparent)`,
             }}
-            className={`px-10 py-4 font-serif text-sm tracking-[0.2em] uppercase rounded-sm border transition-all duration-500 ease-out delay-500 shadow-lg hover:shadow-xl ${
+          />
+
+          {/* CTA Button */}
+          <button
+            onClick={onOpen}
+            className={`relative px-10 py-3.5 text-xs tracking-[0.25em] uppercase transition-all duration-500 ease-out delay-500 group ${
               contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{
-              backgroundColor: 'var(--color-motif-medium)',
-              borderColor: 'var(--color-motif-medium)',
+              fontFamily: '"Cinzel", serif',
+              fontWeight: 500,
               color: 'var(--color-motif-cream)',
+              border: '1px solid rgba(190,132,0,0.6)',
+              backgroundColor: 'rgba(80,17,46,0.45)',
+              backdropFilter: 'blur(8px)',
+              boxShadow: '0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(190,132,0,0.20)',
+              borderRadius: '2px',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-motif-medium)';
+              e.currentTarget.style.backgroundColor = 'rgba(190,132,0,0.25)';
+              e.currentTarget.style.borderColor = 'rgba(190,132,0,0.90)';
               e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.borderColor = 'var(--color-motif-medium)';
+              e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.40), 0 0 16px rgba(190,132,0,0.20)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-motif-deep)';
+              e.currentTarget.style.backgroundColor = 'rgba(80,17,46,0.45)';
+              e.currentTarget.style.borderColor = 'rgba(190,132,0,0.6)';
               e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.borderColor = 'var(--color-motif-medium)';
+              e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(190,132,0,0.20)';
             }}
           >
-            <span
-              style={{ fontFamily: '"Cinzel", serif', fontWeight: 500, color: 'var(--color-motif-cream)' }}
-            >
-              Open Invitation
-            </span>
+            Open Invitation
           </button>
         </div>
 

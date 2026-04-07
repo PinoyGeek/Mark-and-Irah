@@ -11,12 +11,12 @@ interface LoadingScreenProps {
 
 // Countdown boxes with color photos - numbers show days, hours, minutes
 const COUNTDOWN_BOXES = [
-  { src: '/frontboxes/box1.jpg' },
-  { src: '/frontboxes/box-2.jpg' },
-  { src: '/frontboxes/box-3.jpg' },
+  { src: '/frontboxes/box (1).jpg' },
+  { src: '/frontboxes/box (2).jpg' },
+  { src: '/frontboxes/box (3).jpg' },
 ];
 
-const MAIN_BW_IMAGE = '/frontboxes/phone.jpg';
+const MAIN_BW_IMAGE = '/mobile-background/couple (1).jpg';
 const DESKTOP_BW_IMAGE = '/frontboxes/desktop.jpg';
 const STAGGER_DELAY_MS = 4000; // Each image appears every 4 seconds
 const BOX_TRANSITION_MS = 1200; // Slow, smooth transition
@@ -103,25 +103,9 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   const coupleNames = `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}`;
-  const hashtag = siteConfig.snapShare.hashtag[0];
   const productionCredit = '';
 
 
-//   Background	#F5EFE6
-// --color-motif-deep:    #9C5A63; /* deeper rose */
-// --color-motif-medium:  #D88C9A; /* muted pink */
-// --color-motif-accent:  #F2B5B5; /* pastel pink */
-// --color-motif-cream:   #FFF8F5; /* creamy white */
-// --color-motif-soft:    #F9E4E4; /* soft background */
-// --color-motif-silver:  #CFC7C7; /* refined gray */
-  const palette = {
-    deep: '--color-motif-deep',
-    medium: '--color-motif-medium',
-    accent: '--color-motif-accent',
-    cream: '--color-motif-cream',
-    soft: '--color-motif-soft',
-    silver: '--color-motif-silver',
-  };
 
   return (
     <div
@@ -149,70 +133,73 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           sizes="100vw"
           priority
         />
-        {/* Gradient overlay for readability and warmth */}
+        {/* Base gradient overlay for image readability */}
         <div
           className="absolute inset-0"
           style={{
             background: `linear-gradient(180deg, var(--color-motif-deep)40 0%, transparent 25%, transparent 75%, var(--color-motif-deep)55 100%)`,
           }}
         />
+        {/* Motif colour gradient — sits above image, behind all text */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `linear-gradient(
+              160deg,
+              rgba(80,17,46,0.52) 0%,
+              rgba(24,44,73,0.28) 35%,
+              rgba(190,132,0,0.10) 65%,
+              rgba(80,17,46,0.60) 100%
+            )`,
+            mixBlendMode: 'multiply',
+          }}
+        />
       </div>
 
       <div className="relative flex flex-col flex-1 min-h-0">
-        {/* Top: headline + hashtag + countdown (readable over photo, no container) */}
-        <div className="flex flex-col items-center justify-center w-full pt-12 sm:pt-16 md:pt-24 px-4 sm:px-6 flex-shrink-0">
-          <div className="w-full max-w-lg mx-auto">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-              <span
-                className="hidden sm:block h-px w-12 flex-shrink-0"
-                style={{ backgroundColor: 'var(--color-motif-cream)' }}
-              />
-              <p className="text-center">
-                <span
-                  className="inline-block text-[10px] sm:text-xs tracking-[0.28em] sm:tracking-[0.36em] font-[family-name:'Cinzel', serif] uppercase px-3 py-1.5 rounded-full backdrop-blur-sm border"
-                  style={{
-                    color: 'var(--color-motif-deep)',
-                    backgroundColor: 'var(--color-motif-cream)',
-                    borderColor: 'var(--color-motif-deep)',
-                    textShadow: '0 1px 0 palette.soft',
-                  }}
-                >
-                  Your invitation is on its way
-                </span>
-              </p>
-              <span
-                className="hidden sm:block h-px w-12 flex-shrink-0"
-                style={{ backgroundColor: 'var(--color-motif-accent)' }}
-              />
-            </div>
+        {/* Top: Save the Date + countdown */}
+        <div className="flex flex-col items-center justify-center w-full pt-10 sm:pt-14 md:pt-20 px-4 sm:px-6 flex-shrink-0">
+          <div className="w-full max-w-lg mx-auto flex flex-col items-center">
 
-            <p className="text-center mb-4 sm:mb-5">
-              <span
-                className="inline-block text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] font-[family-name:'Cinzel', serif] px-3 py-1.5 rounded-full backdrop-blur-sm border"
-                style={{
-                  color: 'var(--color-motif-deep)',
-                  backgroundColor: 'var(--color-motif-cream)',
-                  borderColor: 'var(--color-motif-deep)',
-                  textShadow: '0 1px 0 palette.soft',
-                }}
-              >
-                {hashtag}
-              </span>
-            </p>
+            {/* "Save the Date:" — Brittany Signature Script */}
+            <h1
+              className="text-center leading-none mb-1 sm:mb-2"
+              style={{
+                fontFamily: 'var(--font-brittany), cursive',
+                fontSize: 'clamp(3.5rem, 14vw, 7rem)',
+                color: 'var(--color-motif-cream)',
+                textShadow:
+                  '0 2px 18px rgba(0,0,0,0.55), 0 0 32px rgba(190,132,0,0.35)',
+                letterSpacing: '0.01em',
+              }}
+            >
+              Save the Date
+            </h1>
 
+            {/* Thin accent rule */}
+            <div
+              className="w-24 sm:w-32 h-px my-3 sm:my-4"
+              style={{
+                background: `linear-gradient(90deg, transparent, var(--color-motif-accent), transparent)`,
+              }}
+            />
+
+            {/* Countdown text — Agrandir Wide Bold */}
             <h2 className="text-center">
               <span
-                className="inline-block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-[0.08em] sm:tracking-[0.12em] uppercase max-w-md mx-auto leading-tight px-2"
+                className="inline-block text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[0.10em] sm:tracking-[0.14em] uppercase leading-tight px-2"
                 style={{
-                  fontFamily: '"Cinzel", serif',
+                  fontFamily: 'var(--font-agrandir), sans-serif',
+                  fontWeight: 700,
                   color: 'var(--color-motif-cream)',
                   textShadow:
-                    '0 2px 14px rgba(0,0,0,0.55), 0 0 22px var(--color-motif-accent), 0 0 44px var(--color-motif-deep)',
+                    '0 2px 14px rgba(0,0,0,0.55), 0 0 22px rgba(190,132,0,0.4), 0 0 44px rgba(80,17,46,0.6)',
                 }}
               >
                 {countdownText}
               </span>
             </h2>
+
           </div>
         </div>
 
@@ -242,26 +229,44 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
                   className="object-cover scale-105"
                   sizes="(max-width: 640px) 28vw, 160px"
                 />
-                {/* Soft gradient overlay for readable number */}
+                {/* Gradient overlay — darkens bottom for text contrast */}
                 <div
                   className="absolute inset-0"
                   style={{
-                    background: `linear-gradient(145deg, ${palette.deep}66 0%, transparent 40%, ${palette.accent}aa 100%)`,
+                    background: `linear-gradient(
+                      to bottom,
+                      rgba(80,17,46,0.18) 0%,
+                      rgba(24,44,73,0.10) 40%,
+                      rgba(80,17,46,0.72) 100%
+                    )`,
                   }}
                 />
 
-                {/* Bold debut date number + label - centered at bottom */}
-                <div className="absolute bottom-2 inset-x-0 sm:bottom-3 flex flex-col items-center">
+                {/* Counter number + label — centered in lower half */}
+                <div className="absolute inset-x-0 bottom-0 top-0 flex flex-col items-center justify-end pb-3 sm:pb-4">
                   <span
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black select-none leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+                    className="select-none leading-none"
                     style={{
-                      fontFamily: 'var(--font-granika), sans-serif',
-                      color: 'var(--color-motif-soft)',
+                      fontFamily: 'var(--font-abril), cursive',
+                      fontSize: 'clamp(2rem, 9vw, 3.8rem)',
+                      color: 'var(--color-motif-cream)',
+                      textShadow:
+                        '0 2px 12px rgba(0,0,0,0.7), 0 0 20px rgba(190,132,0,0.4)',
                     }}
                   >
                     {countdownNumbers[i]}
                   </span>
-                  <span className="text-[8px] sm:text-[9px] tracking-widest uppercase mt-0.5 text-[rgba(255,246,248,0.85)]">
+                  <span
+                    className="mt-1 uppercase"
+                    style={{
+                      fontFamily: 'var(--font-agrandir), sans-serif',
+                      fontWeight: 700,
+                      fontSize: 'clamp(0.42rem, 1.6vw, 0.6rem)',
+                      letterSpacing: '0.22em',
+                      color: 'rgba(247,243,239,0.80)',
+                      textShadow: '0 1px 4px rgba(0,0,0,0.6)',
+                    }}
+                  >
                     {countdownLabels[i]}
                   </span>
                 </div>
@@ -272,22 +277,31 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
         {/* Bottom: Names + production credit + progress bar */}
         <div className="flex flex-col items-center justify-center w-full py-6 sm:py-8 px-4 flex-shrink-0">
+          {/* "Almost ready for" — small caps label */}
           <p
-            className="text-center text-sm sm:text-base tracking-[0.18em] uppercase text-[family-name:var(--font-crimson)] mb-2"
-            style={{ color: 'var(--color-motif-cream)' }}
+            className="text-center text-[10px] sm:text-xs tracking-[0.30em] uppercase mb-1.5"
+            style={{
+              fontFamily: 'var(--font-agrandir), sans-serif',
+              color: 'var(--color-motif-silver)',
+              textShadow: '0 1px 6px rgba(0,0,0,0.5)',
+            }}
           >
             Almost ready for
           </p>
+
+          {/* Couple names — Brittany Signature Script */}
           <div
-            className="text-center text-2xl sm:text-3xl md:text-4xl mb-2"
+            className="text-center leading-none mb-1"
             style={{
-              fontFamily: '"Cinzel", serif',
+              fontFamily: 'var(--font-brittany), cursive',
+              fontSize: 'clamp(2.2rem, 9vw, 4.5rem)',
               color: 'var(--color-motif-cream)',
-              textShadow: '0 2px 10px var(--color-motif-deep)35',
+              textShadow: '0 2px 16px rgba(0,0,0,0.5), 0 0 24px rgba(190,132,0,0.25)',
             }}
           >
             {coupleNames}
           </div>
+
           {productionCredit && (
             <p
               className="text-[10px] sm:text-xs font-sans tracking-wider"
@@ -296,10 +310,15 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
               {productionCredit}
             </p>
           )}
-          {/* Preparing message + progress bar */}
+
+          {/* "Crafting your invitation experience" */}
           <p
-            className="text-xs sm:text-sm tracking-[0.22em] mt-6 mb-3 font-[family-name:var(--font-crimson)] uppercase font-semibold"
-            style={{ color: 'var(--color-motif-cream)', textShadow: '0 2px 6px rgba(0,0,0,0.6)' }}
+            className="text-[9px] sm:text-[10px] tracking-[0.28em] mt-4 mb-3 uppercase"
+            style={{
+              fontFamily: 'var(--font-agrandir), sans-serif',
+              color: 'var(--color-motif-silver)',
+              textShadow: '0 1px 6px rgba(0,0,0,0.5)',
+            }}
           >
             Crafting your invitation experience
           </p>

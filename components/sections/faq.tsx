@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { Section } from "@/components/section"
@@ -34,28 +35,37 @@ interface FAQItem {
 const faqItems: FAQItem[] = [
   {
     question: "When is the wedding?",
-    answer:
-    `Our wedding will be held on ${siteConfig.ceremony.date} (${siteConfig.ceremony.day})`
+    answer: `Our wedding will be held on ${siteConfig.ceremony.date} (${siteConfig.ceremony.day})`,
   },
   {
     question: "What time should I arrive for the ceremony?",
     answer:
-      `Our ceremony will begin promptly at ${siteConfig.ceremony.time}. We kindly ask guests to arrive 30–45 minutes earlier to allow enough time for parking, walking to the ceremony area, and finding your seats so we can begin on time.`,
+      "Our ceremony will begin promptly at 2:00 PM. We kindly ask guests to arrive 30–45 minutes earlier to allow enough time for parking, walking to the ceremony area, and finding your seats so we can begin on time. The reception will follow at 4:00 PM.",
   },
   {
-    question: "Where will the ceremony and reception take place?",
+    question: "Where will the Wedding Ceremony and Reception Take Place?",
     answer:
-    `The ceremony and reception will be held at ${siteConfig.ceremony.location}, ${siteConfig.ceremony.venue}. You can find detailed directions, addresses, and maps in the Details Section above`
+      "The ceremony will be held at the Kingdom Hall of Jehovah's Witnesses at Lawa-an Roxas City, Capiz. The reception will follow at The Espacio Verde Resort and Resente Residence. You can find detailed directions, addresses, and maps in the Details section above.",
   },
   {
-    question: "Is there an entourage call time?",
+    question: "How can I know if I'm going to the Reception of Espacio Verde or Resente Residence?",
     answer:
-    `Yes. We request our Principal Sponsors to arrive at ${siteConfig.ceremony.entourageTime} so we can prepapre and settle before the ceremony begins`
+      "We would love to accommodate everyone in one location to share our joy on this special day at one long table. However, since the resort's capacity is limited, please remember that true maturity and friendship are not defined by location. Whether you are at Espacio Verde or Resente Residence, we are grateful to have you with us today.\n\nIf you are assigned to Espacio Verde, you will receive a confirmation ticket with your full name. Please download the file and present it at the entrance gate. If you have not received this ticket, and your name is not included on the list, kindly proceed to Resente Residence.",
   },
   {
-    question: "How do I RSVP?",
+    question: "Is the seat transferable?",
     answer:
-    `Please RSVP through the RSVP section on this invitation. Simply search for your name in the guest list and confirm your attendance. Due Date of final RSVP is on ${siteConfig.details.rsvp.deadline}. For any questions, please contact ${siteConfig.details.rsvp.contact} via Messenger`
+      "No. Reserved seats are non-transferable. Please inform us in advance so we can reassign your seat accordingly.",
+  },
+  {
+    question: "Are children allowed at the event?",
+    answer:
+      "As much as we adore your little ones, we have decided to keep our celebration an adult-only event to maintain an intimate and relaxed atmosphere for everyone.\n\nWe truly appreciate your understanding and can't wait to celebrate this special day with you.",
+  },
+  {
+    question: "Is there a dress code?",
+    answer:
+      "Wedding attire details are in the Guest Information section above. We kindly request our guests to dress in attire following our wedding palette.",
   },
   {
     question: "Can I sit anywhere at the reception?",
@@ -65,7 +75,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Is there parking available?",
     answer:
-      "Yes, parking is available at the venue, and parking attendants, along with our coordinators, will assist you on the day",
+      "Yes, parking is available at both venues. Please follow the parking signs and instructions from our venue coordinators.",
   },
   {
     question: "Will there be a wedding gift registry?",
@@ -80,34 +90,66 @@ const faqItems: FAQItem[] = [
   {
     question: "Can I take photos or videos during the reception?",
     answer:
-      "Yes! While our I DO’s will be unplugged, our reception will not be. As a couple who loves photos and memories, we would love for you to capture the fun moments throughout the evening. We prepared this celebration wholeheartedly and we want everyone to enjoy it fully.",
-  },
-  {
-    question: "What should I do if I can’t make it?",
-    answer:
-      "Your presence will truly be missed, but we completely understand.\n\nPlease kindly let us know through RSVP as soon as possible so we may adjust arrangements accordingly.",
-  },
-  {
-    question: "I said “No” to RSVP but my plans changed. Can I still attend?",
-    answer:
-      "Please check with us first before making arrangements. Due to limited seating and a carefully planned guest list, attendance cannot be guaranteed without prior confirmation.",
+      "Yes! While our I DO's will be unplugged, our reception will not be. As a couple who loves photos and memories, we would love for you to capture the fun moments throughout the evening. We prepared this celebration wholeheartedly and we want everyone to enjoy it fully.",
   },
   {
     question: "When is the appropriate time to leave?",
     answer:
-      "It took us some time to plan for a heartfelt wedding that everyone would hopefully enjoy. We humbly request that you celebrate with us until the program ends. Please don't eat and run! Let's laugh, take pictures, sing, and have fun!",
+      "It took us some time to plan a heartfelt wedding that we hope everyone will enjoy. We humbly request that you celebrate with us until the program concludes. Please don't eat and run! Let's laugh together, take pictures, share meaningful conversations, and have fun!",
   },
   {
-    question: "What if I have dietary restrictions or allergies?",
+    question: "Can I participate in customs and traditions such as clinking glasses at weddings, pinning or clipping money, throwing money, or tossing rice and coins?",
     answer:
-      "Please let us know about any dietary restrictions or allergies when you RSVP. We want to ensure everyone can enjoy the celebration comfortably.",
+      "No. Our trained conscience guides us not to participate in such customs and traditions. We live to please Jehovah our God, the Originator of marriage, and to make this wedding day honorable in His sight. We cherish and value your support for us. Thank you so much!",
+  },
+  {
+    question: "Where to stay in Roxas City?",
+    answer:
+      "Just go to Google, type 'Roxas City Hotels' in the search engine, and click on agoda.com. Booking hotels on Agoda is generally cheaper than walking in, often saving you significant money compared to the \"rack rate\" at the front desk.\n\nIf you're looking for something practical and budget-friendly, yet simple and classy, you may consider the ff:\n\n• Stay In Apartelle\n[LINK:https://www.facebook.com/profile.php?id=61578408670101]View on Facebook[/LINK]\n(Near Espacio Verde, Capiz Bay Resort, River Tours, Roxas City Plaza)\n\n• Sitio Uno\n[LINK:https://www.facebook.com/SitioUnoResidences]View on Facebook[/LINK]\n(Near Kingdom Hall of JW Lawaan, Robinsons Mall, Pueblo De Panay, El Circulo, Victorias, Kaffa Restaurant)\n\n• Twin Hearts Residences\n[LINK:https://www.facebook.com/profile.php?id=100085629667307]View on Facebook[/LINK]\n(Near Kingdom Hall of JW Lawaan, Robinsons Mall, Pueblo De Panay, El Circulo, KFC, Bus/Ceres Terminal)\n\nPlease click the Facebook links above to view the room rates and amenities. Thank you!",
   },
   {
     question: "How can I help the couple have a great time during their wedding?",
     answer:
-      "• Pray with us for favorable weather and the continuous blessings of our Lord as we enter this new chapter of our lives as husband and wife.\n\n• RSVP as soon as your schedule is cleared.\n\n• Dress appropriately and follow our wedding motif.\n\n• Be on time.\n\n• Follow the seating arrangement in the reception.\n\n• Stay until the end of the program.\n\n• Join the activities and enjoy!",
+      "• Pray with us for favorable weather and the continuous blessings from Jehovah God as we enter this new chapter of our lives as husband and wife.\n\n• Dress appropriately and follow our wedding motif.\n\n• Secure your confirmation ticket.\n\n• Be on time.\n\n• Follow the seating arrangement in the reception.\n\n• Don't hesitate to leave us a warm message.\n\n• Stay until the end of the program.\n\n• Join the activities and enjoy!",
   },
 ]
+
+/** Renders answer text, turning [LINK:url]label[/LINK] markers into anchor tags. */
+function renderAnswer(answer: string, className: string, style: React.CSSProperties) {
+  if (!answer.includes("[LINK:")) {
+    return <p className={className} style={style}>{answer}</p>
+  }
+
+  const linkPattern = /\[LINK:(.*?)\](.*?)\[\/LINK\]/g
+  const segments: React.ReactNode[] = []
+  let lastIndex = 0
+  let match: RegExpExecArray | null
+
+  while ((match = linkPattern.exec(answer)) !== null) {
+    if (match.index > lastIndex) {
+      segments.push(answer.slice(lastIndex, match.index))
+    }
+    segments.push(
+      <a
+        key={match.index}
+        href={match[1]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline font-bold transition-colors hover:opacity-80"
+        style={{ color: palette.softBrown }}
+      >
+        {match[2]}
+      </a>
+    )
+    lastIndex = match.index + match[0].length
+  }
+
+  if (lastIndex < answer.length) {
+    segments.push(answer.slice(lastIndex))
+  }
+
+  return <p className={className} style={style}>{segments}</p>
+}
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -195,13 +237,14 @@ export function FAQ() {
               {faqItems.map((item, index) => {
                 const isOpen = openIndex === index
                 const contentId = `faq-item-${index}`
+                const answerClassName = `${cormorant.className} font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg whitespace-pre-line tracking-wide`
+                const answerStyle = { color: palette.deep }
                 return (
                   <div
                     key={index}
                     className="rounded-xl sm:rounded-2xl border overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md"
                     style={{
                       backgroundColor: 'color-mix(in srgb, var(--color-motif-cream) 96%, white)',
-                      // borderColor: 'color-mix(in srgb, var(--color-motif-silver) 33%, transparent)',
                       boxShadow: '0 4px 28px color-mix(in srgb, var(--color-motif-deep) 10%, transparent)',
                     }}
                   >
@@ -237,27 +280,7 @@ export function FAQ() {
                           className="px-2.5 sm:px-3 md:px-4 lg:px-5 py-2 sm:py-2.5 md:py-3 lg:py-4 border-t"
                           style={{ backgroundColor: 'color-mix(in srgb, var(--color-motif-cream) 90%, transparent)', borderColor: 'color-mix(in srgb, var(--color-motif-deep) 25%, transparent)' }}
                         >
-                          {item.answer.includes("[RSVP_LINK]") ? (
-                            <p className={`${cormorant.className} font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg whitespace-pre-line tracking-wide`} style={{ color: palette.deep }}>
-                              {item.answer.split("[RSVP_LINK]")[0]}
-                              <a
-                                href="#guest-list"
-                                className="underline font-bold transition-colors hover:opacity-80"
-                                style={{ color: palette.softBrown }}
-                                onClick={(e) => {
-                                  e.preventDefault()
-                                  document.getElementById("guest-list")?.scrollIntoView({ behavior: "smooth" })
-                                }}
-                              >
-                                {item.answer.match(/\[RSVP_LINK\](.*?)\[\/RSVP_LINK\]/)?.[1]}
-                              </a>
-                              {item.answer.split("[/RSVP_LINK]")[1]}
-                            </p>
-                          ) : (
-                            <p className={`${cormorant.className} font-medium leading-relaxed sm:leading-loose text-xs sm:text-sm md:text-base lg:text-lg whitespace-pre-line tracking-wide`} style={{ color: palette.deep }}>
-                              {item.answer}
-                            </p>
-                          )}
+                          {renderAnswer(item.answer, answerClassName, answerStyle)}
                         </div>
                       </div>
                     </div>

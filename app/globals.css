@@ -88,12 +88,12 @@
   --font-serif: "Great Vibes", "Great Vibes Fallback";
 
   /* ─── Motif palette — edit here, affects every component ─── */
-  --color-motif-deep:    #5A3A1A;  /* deep brown (main text / headers) */
-  --color-motif-medium:  #8B5E34;  /* warm gold-brown */
-  --color-motif-accent:  #C89B6D;  /* soft gold highlight */
-  --color-motif-cream:   #F7F3EE;  /* background ivory */
-  --color-motif-soft:    #EDE3D9;  /* soft beige section */
-  --color-motif-silver:  #CFC6BD;  /* neutral divider */
+  --color-motif-deep:    #50112E;  /* deep wine - primary text / headings */
+  --color-motif-medium:  #182C49;  /* navy - secondary text / sections */
+  --color-motif-accent:  #0C3B3C;  /* gold - buttons / highlights */
+  --color-motif-cream:   #F7F3EF;  /* soft warm white background */
+  --color-motif-soft:    #B76E79;  /* dusty rose - romantic accents */
+  --color-motif-silver:  #D9D9D9;  /* light neutral for borders */
   /* ─────────────────────────────────────────────────────────── */
   --font-imperial-script: "Imperial Script", cursive;
   --color-background: var(--background);
@@ -360,4 +360,17 @@ html {
   .animate-guest-roll-in {
     animation: guest-roll-in-reduced 0.35s ease-out backwards;
   }
+}
+
+/* ── Mosaic gallery fade-up ── */
+@keyframes mosaic-fade-up {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+.mosaic-item {
+  opacity: 0;
+  animation: mosaic-fade-up 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mosaic-item { opacity: 1; animation: none; }
 }

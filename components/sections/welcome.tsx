@@ -22,6 +22,12 @@ const cinzel = Cinzel({
 // Corner decoration - white
 const DECO_FILTER = "brightness(0) invert(1)"
 
+// Font shorthands — all loaded globally via layout.tsx CSS variables
+const FONT_SCRIPT  = 'var(--font-brittany), cursive'   // Brittany Signature Script
+const FONT_DISPLAY = 'var(--font-agrandir), sans-serif' // Agrandir Wide Bold
+const FONT_SERIF   = 'var(--font-cinzel), serif'        // Cinzel
+const FONT_NUMERAL = 'var(--font-abril), cursive'       // Abril Fatface
+
 export function Welcome() {
   const brideName = siteConfig.couple.brideNickname || siteConfig.couple.bride
   const groomName = siteConfig.couple.groomNickname || siteConfig.couple.groom
@@ -91,8 +97,15 @@ export function Welcome() {
               {brideName} &amp; {groomName}
             </p>
             <h2
-              className={`${cinzel.className} text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[2.9rem]`}
-              style={{ color: 'var(--color-motif-deep)' }}
+                className="leading-none"
+                style={{
+                  fontFamily: 'var(--font-brittany), cursive',
+                  fontSize: 'clamp(2rem, 9vw, 4.5rem)',
+                  color: 'var(--color-motif-deep)',
+                  // textShadow:
+                  //   '0 2px 24px rgba(0,0,0,0.70), 0 0 40px rgba(190,132,0,0.22)', // gold shadow
+                  letterSpacing: '0.01em',
+                }}
             >
               Welcome to our forever
             </h2>

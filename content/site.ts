@@ -1,11 +1,11 @@
 export const siteConfig = {
   couple: {
-    bride: "Ma. Geraldine B. Divina", //Noenyl Bryle M. Gonzaga
-    brideNickname: "Era", //Ltryl
-    groom: "Vincent Ivan M. Ferrer", //Ltryl B. Benitez
-    groomNickname: "Vince",
-    monogram:"/monogram/newMonogram.png" ,//Ltryl
-    backgroundMusic:"/background_music//Ed Sheeran - The Joker And The Queen (Lyrics) feat. Taylor Swift.mp3"
+    bride: "Irah Resente", //Noenyl Bryle M. Gonzaga
+    brideNickname: "Irah", //Ltryl
+    groom: "Mark Valencia", //Ltryl B. Benitez
+    groomNickname: "Mark",
+    monogram:"/monogram/monogram.png" ,//Ltryl
+    backgroundMusic:"/background_music/The Marriage Feast.mp3"
   },
   googleAPI:{
     messageForm: "https://docs.google.com/forms/d/e/1FAIpQLScFmpNtAI3vx2FKRaMIE38Kcn0w9ajHtz7CYn6CYgQ8yKqAng/formResponse", //done
@@ -16,53 +16,65 @@ export const siteConfig = {
     sponsors: "https://script.google.com/macros/s/AKfycbz3xGAnhS-aTRnkUPPMmT-1zVsssbDphzqdWR0gW5mSttDqE1nf4GgmELJYUrSEyt-W/exec", //done
     weddingDetails: "https://script.google.com/macros/s/AKfycby4v8qqP2dpT5G3oOBb2g3we70qGnx_paDqH1hZdMT_P31-MzflyoQDnercr84Wemio/exec", //done
 ////google share 
-    googleShare: "https://docs.google.com/spreadsheets/d/1NzySlITNcY__DZtbF57EVfVjvy5SCEw35adaofzaioQ/edit?usp=sharing",
+    googleShare: "https://drive.google.com/drive/folders/1FS83MFkyYO8jmRfCEpqk4TnpFTEYuOOj/edit?usp=sharing",
   },
   wedding: {
-    date: "April 25, 2026",
-    time: "1:00 PM",
-    venue: "Sto. Niño De Taguig Parish",
+    date: "May 16, 2026",
+    time: "2:00 PM",
+    venue: "Kingdom Hall of Jehovah’s Witnesses",
     tagline: "are getting married!",
     theme: "Our wedding palette is inspired by timeless elegance and warmth.Motif Colors: Champagne Gold, Soft Beige, Warm Soft Brown",
     motif: "#BBCED5, #B9C3A8, #F3D8C5, #D1C4D4, #ECD8BA, #F4E8D8, #E1DCCF",
   },
   details: {
     rsvp: {
-      deadline: "April 10, 2026.",
-      contact: "Ma. Geraldine B. Divina",
+      deadline: "May 10, 2026.",
+      contact: "Mark Valencia",
       phone: "to be announced",
     },
   },
   giftRegistry: {
     QR_1:{
-    id: "Gcash",
-    src: "/QR/NewQRgcash.png",
-    label: "Gcash",
-    accountNumber: "Gcash: M* GE******E D.",
+    id: "BPI 1",
+    src: "/QR/BPI_1.png",
+    label: "BPI",
+    accountNumber: "BPI: IR*AL*******O RE****E",
     },
     QR_2:{
-    id: "Landbank",
-    src: "/QR/newLandBank.png",
-    label: "Landbank",
-    accountNumber: "Landbank: Vincent Ivan M. Ferrer",
+    id: "BPI 2",
+    src: "/QR/BPI_2.png",
+    label: "BPI",
+    accountNumber: "BPI: MA*K PA*******N VA*****A",
+    },
+  QR_3:{
+    id: "Gcash 1",
+    src: "/QR/Gcash_1.png",
+    label: "Gcash",
+    accountNumber: "Gcash: MA*K V.",
+    },
+    QR_4:{
+    id: "Gcash 2",
+    src: "/QR/Gcash_2.png",
+    label: "Gcash",
+    accountNumber: "Gcash: IR*H R.",
     }
   },
   ceremony: {
-    location: "Sto. Niño De Taguig Parish",
-    venue: "Sampaloc St. Zone 1. Signal Village, Taguig City",
-    date: "April 25, 2026",
+    location: "Kingdom Hall of Jehovah’s Witnesses",
+    venue: "Lawa-an Roxas City, Capiz",
+    date: "May 16, 2026",
     day: "Saturday",
-    time: "1:00 PM",
-    entourageTime: "12:00 PM",
-    guestsTime: "12:30 PM",
+    time: "2:00 PM",
+    entourageTime: "1:00 PM",
+    guestsTime: "1:30 PM",
     image: "/Details/ceremony.png",
   },
   reception: {
-    location: "Mahogany Farm Events Place Farm Hall",
-    venue: "Samama Compound 1, Brgy. Ligid-Tipas, Taguig City",
-    date: "April 25, 2026",
-    time: "2 :30 PM",
-    image: ["/Details/reception2.png","/Details/reception1.png"],
+    location: "Espacio Verde Resort",
+    venue: "Dayao Road, Roxas City, 5800 Capiz",
+    date: "May 16, 2026",
+    time: "4:00 PM",
+    image: ["/Details/reception1.png","/Details/reception2.png"],
   },                          
   dressCode: {
       theme: "SEMI-FORMAL",
@@ -71,15 +83,22 @@ export const siteConfig = {
       male: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
       female: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
       notes: "Ninong: Barong and Black Slacks\n Ninang: Pilipiniana Inspired Gown",
-      photo: "/Details/sponsors.png",
-      palette: "#ECD8BA, #F4E8D8, #E1DCCF"
+      photo: "/Details/entourage.png",
+      palette: "#BE8400, #0C3B3C",
+    },
+    usher: {
+      male: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
+      female: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
+      notes: "You may glam up in theses shades.",
+      photo: "/Details/ushser.png",
+      palette: "#BE8400, #0C3B3C",
     },
     guests: {
       gents: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
       ladies: "Guests are kindly requested to wear attire in any of the shades within our wedding palette.Color pallet and image to be followed. STRICTLY no shorts, maong jeans, t-shirts, or slippers.",
       notes: "You may glam up in theses shades.",
-      photo: "/Details/Guest.png",
-      palette: "#BBCED5, #B9C3A8, #F3D8C5, #D1C4D4, #ECD8BA, #F4E8D8, #E1DCCF",
+      photo: "/Details/guest.png",
+      palette: "#B76E79, #50112E, #182C49, #2F5972",
     },
     note: "We kindly request our guests to dress in attire following our wedding palette."
   },

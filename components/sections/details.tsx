@@ -493,8 +493,8 @@ export function Details() {
             Please dress according to the guidelines below.
           </p>
         </div>
-                {/* Attire Cards */}
-                <div className="space-y-5 sm:space-y-6 md:space-y-8">
+          {/* Entourage */}
+        <div className="space-y-5 sm:space-y-6 md:space-y-8">
           {/* Principal Sponsor Attire */}
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-br from-motif-silver/22 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
@@ -503,7 +503,7 @@ export function Details() {
               <h4
                 className={`${cinzel.className} text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-motif-deep mb-4 sm:mb-5 md:mb-6 uppercase tracking-[0.16em] text-center px-2`}
               >
-                Principal Sponsors: 
+                Male and Female Entourage
               </h4>
 
               {/* Copy: follow color palette */}
@@ -515,6 +515,63 @@ export function Details() {
               <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] max-w-2xl mx-auto rounded-lg sm:rounded-xl overflow-hidden border border-motif-medium/30 mb-4 sm:mb-6 md:mb-8">
                 <CloudinaryImage
                   src={siteConfig.dressCode.sponsors.photo}
+                  alt="Principal sponsor attire — follow the color palette"
+                  fill
+                  className="object-contain bg-[#FFF7F6]/50 p-2 sm:p-3"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 672px"
+                />
+              </div>
+
+              {/* Color palette for principal sponsors — keep explicit dress-code colors (not UI palette) */}
+              {/* <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 flex-wrap mb-5 sm:mb-6 md:mb-7 px-2">
+                {siteConfig.dressCode.sponsors.palette.split(',').map((color) => (
+                  <div
+                    key={color.trim()}
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow-md border border-white ring-2 ring-motif-silver/40 hover:scale-110 transition-transform duration-300"
+                    style={{ backgroundColor: color.trim() }}
+                    title={color.trim()}
+                  />
+                ))}
+              </div> */}
+              
+              {/* Sponsors Dress Code Text */}
+              <div className="text-center pt-3 sm:pt-4 border-t border-motif-silver/70 px-3 sm:px-4">
+                {/* <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
+                  <span className="font-semibold">{siteConfig.dressCode.sponsors.notes}</span>
+                </p> */}
+                {/* <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
+                  <span className="font-semibold">Palette inspiration:</span> {siteConfig.dressCode.colors}
+                </p>
+                <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed italic">
+                  {siteConfig.dressCode.note}
+                </p> */}
+              </div>
+            </div>
+          </div>
+
+        </div>
+        {/*Usher & Usherette and Family  */}
+        <div className="space-y-5 sm:space-y-6 md:space-y-8">
+          {/* Principal Sponsor Attire */}
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-br from-motif-silver/22 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
+            
+            <div className="relative bg-motif-cream backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-7 lg:p-9 border  hover:shadow-[0_20px_48px_rgba(0,0,0,0.24)] hover:border-motif-deep/70 transition-all duration-300">
+              <h4
+                className={`${cinzel.className} text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-motif-deep mb-4 sm:mb-5 md:mb-6 uppercase tracking-[0.16em] text-center px-2`}
+              >
+                  Usher & Usherette and Family Members
+              </h4>
+
+              {/* Copy: follow color palette */}
+              {/* <p className={`${cinzel.className} text-center text-xs sm:text-sm md:text-base lg:text-lg text-motif-deep/90 font-light leading-relaxed mb-4 sm:mb-5 md:mb-6 max-w-xl mx-auto px-3`}>
+                Please follow the color palette below for your outfit.
+              </p> */}
+
+              {/* Principal sponsor attire image */}
+              <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] max-w-2xl mx-auto rounded-lg sm:rounded-xl overflow-hidden border border-motif-medium/30 mb-4 sm:mb-6 md:mb-8">
+                <CloudinaryImage
+                  src={siteConfig.dressCode.usher.photo}
                   alt="Principal sponsor attire — follow the color palette"
                   fill
                   className="object-contain bg-[#FFF7F6]/50 p-2 sm:p-3"
@@ -536,9 +593,9 @@ export function Details() {
               
               {/* Sponsors Dress Code Text */}
               <div className="text-center pt-3 sm:pt-4 border-t border-motif-silver/70 px-3 sm:px-4">
-                <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
+                {/* <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
                   <span className="font-semibold">{siteConfig.dressCode.sponsors.notes}</span>
-                </p>
+                </p> */}
                 {/* <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
                   <span className="font-semibold">Palette inspiration:</span> {siteConfig.dressCode.colors}
                 </p>

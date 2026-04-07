@@ -24,7 +24,7 @@ interface Guest {
   message?: string
   allowedGuests: number
   companions: { name: string; relationship: string }[]
-  tableNumber: string
+  tableNumber: string | number
   isVip: boolean
   status: 'pending' | 'confirmed' | 'declined' | 'request'
   addedBy?: string
@@ -397,7 +397,7 @@ export function BookOfGuests() {
                         >
                           <MapPin className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5 flex-shrink-0" style={{ color: BOOK_ACCENT }} />
                           <span className={`${cormorant.className} text-[9px] sm:text-[10px] md:text-xs font-semibold`} style={{ color: BOOK_DARK }}>
-                            {guest.tableNumber && guest.tableNumber.trim() !== "" ? (
+                            {guest.tableNumber != null && String(guest.tableNumber).trim() !== "" ? (
                               <>Table {guest.tableNumber}</>
                             ) : (
                               <span className="opacity-65">Not Assigned</span>

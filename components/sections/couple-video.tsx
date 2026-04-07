@@ -28,9 +28,9 @@ export function CoupleVideo() {
   const playerRef = useRef<any>(null)
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const { pauseMusic, resumeMusic } = useAudio()
-  // https://youtu.be/n1eiNPQPKig
+  // https://youtu.be/hbID9D5sJ6g
   // YouTube video ID
-  const videoId = "n1eiNPQPKig"
+  const videoId = "hbID9D5sJ6g"
 
   // Load YouTube IFrame API
   useEffect(() => {
@@ -164,22 +164,29 @@ export function CoupleVideo() {
       {/* Header - compact, with updated title */}
       <div className="relative z-10 text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10 px-3 sm:px-4">
         {/* Simple decorative dots */}
-        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 md:mb-4">
+        {/* <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 md:mb-4">
           <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-motif-cream/60" />
           <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-motif-cream/80 rounded-full" />
           <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-motif-deep/80 rounded-full" />
           <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-motif-cream/80 rounded-full" />
           <div className="w-6 sm:w-8 md:w-12 lg:w-16 h-px bg-motif-cream/60" />
-        </div>
+        </div> */}
         
         <h2
-          className={`${cinzel.className} text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal text-motif-cream mb-1.5 sm:mb-2 md:mb-3 lg:mb-4 drop-shadow-lg`}
-          style={{ textShadow: "0 4px 18px rgba(236,229,219,0.3)" }}
+           className="leading-none"
+           style={{
+             fontFamily: 'var(--font-brittany), cursive',
+             fontSize: 'clamp(2rem, 9vw, 4.5rem)',
+             color: 'var(--color-motif-cream)',
+             // textShadow:
+             //   '0 2px 24px rgba(0,0,0,0.70), 0 0 40px rgba(190,132,0,0.22)', // gold shadow
+             letterSpacing: '0.01em',
+           }}
         >
           A Glimpse of Our Love
         </h2>
         
-          <p className="text-[0.7rem] sm:text-xs md:text-sm lg:text-base text-motif-cream font-light max-w-xl mx-auto px-2">
+          <p className="text-[0.7rem] sm:text-xs md:text-sm lg:text-base text-motif-cream font-light max-w-xl mx-auto px-2 mt-2">
           Watch the journey that brought our hearts together
         </p>
       </div>
@@ -243,7 +250,7 @@ export function CoupleVideo() {
                   >
                     {/* Custom poster image */}
                     <CloudinaryImage
-                      src="/Details/LinkPreview.jpg"
+                      src="/desktop-background/couple (7).jpg"
                       alt="Video thumbnail"
                       fill
                       className="object-cover transform group-hover:scale-105 transition-transform duration-500"

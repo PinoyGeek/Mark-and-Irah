@@ -32,6 +32,11 @@ const galleryItems = [
   { image: "/mobile-background/couple (3).jpg", text: " " },
   { image: "/mobile-background/couple (4).jpg", text: " " },
   { image: "/mobile-background/couple (5).jpg", text: " " },
+  { image: "/mobile-background/couple (6).jpg", text: " " },
+  { image: "/mobile-background/couple (7).jpg", text: " " },
+  { image: "/mobile-background/couple (8).jpg", text: " " },
+  { image: "/mobile-background/couple (9).jpg", text: " " },
+  { image: "/mobile-background/couple (10).jpg", text: " " },
 
 ]
 
