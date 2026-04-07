@@ -8,13 +8,13 @@ export const siteConfig = {
     backgroundMusic:"/background_music/The Marriage Feast.mp3"
   },
   googleAPI:{
-    messageForm: "https://docs.google.com/forms/d/e/1FAIpQLScFmpNtAI3vx2FKRaMIE38Kcn0w9ajHtz7CYn6CYgQ8yKqAng/formResponse", //done
-    message: "https://script.google.com/macros/s/AKfycbx6G-cc8v2OJdWPOSJpARdwqigPcAzAvyZPTd1v6cIwZuHHoRXW1ZBeBDDBg1Tt5Mc0/exec", //done
-    guestList: "https://script.google.com/macros/s/AKfycbyd62qRIHpsAQfG-yxV6oqF0RXtL3oJcWcsBpICn_cicAPPbEZTpa0yIcJrS-3SfnKi/exec", //done
-    guestRequest: "https://script.google.com/macros/s/AKfycbwQ3Jo1ycAwY0ZPZcmZrRuK1Sg_X9w-9t8H5_Lq069qWKlJvaIteO1nmUEPpGLfrXdV/exec", //done
-    entourage: "https://script.google.com/macros/s/AKfycbzH5KpZMOHBmUpeuTtM3cfURhMc77_oyUaHZmSoP0JAQoenBqfb5mV5z9i2SEUSnkly/exec", //done
-    sponsors: "https://script.google.com/macros/s/AKfycbz3xGAnhS-aTRnkUPPMmT-1zVsssbDphzqdWR0gW5mSttDqE1nf4GgmELJYUrSEyt-W/exec", //done
-    weddingDetails: "https://script.google.com/macros/s/AKfycby4v8qqP2dpT5G3oOBb2g3we70qGnx_paDqH1hZdMT_P31-MzflyoQDnercr84Wemio/exec", //done
+    messageForm: "https://docs.google.com/forms/d/e/1FAIpQLScq2smHTS7O3oK-OlDnuRr0HROPlXFED1ABGFkSXxSaRQMLrw/formResponse", //done
+    message: "https://script.google.com/macros/s/AKfycbx6G-cc8v2OJdWPOSJpARdwqigPcAzAvyZPTd1v6cIwZuHHoRXW1ZBeBDDBg1Tt5Mc0/exec", 
+    guestList: "https://script.google.com/macros/s/AKfycbyd62qRIHpsAQfG-yxV6oqF0RXtL3oJcWcsBpICn_cicAPPbEZTpa0yIcJrS-3SfnKi/exec", 
+    guestRequest: "https://script.google.com/macros/s/AKfycbwQ3Jo1ycAwY0ZPZcmZrRuK1Sg_X9w-9t8H5_Lq069qWKlJvaIteO1nmUEPpGLfrXdV/exec", 
+    entourage: "https://script.google.com/macros/s/AKfycbzH5KpZMOHBmUpeuTtM3cfURhMc77_oyUaHZmSoP0JAQoenBqfb5mV5z9i2SEUSnkly/exec", 
+    sponsors: "https://script.google.com/macros/s/AKfycbz3xGAnhS-aTRnkUPPMmT-1zVsssbDphzqdWR0gW5mSttDqE1nf4GgmELJYUrSEyt-W/exec", 
+    weddingDetails: "https://script.google.com/macros/s/AKfycby4v8qqP2dpT5G3oOBb2g3we70qGnx_paDqH1hZdMT_P31-MzflyoQDnercr84Wemio/exec", 
 ////google share 
     googleShare: "https://drive.google.com/drive/folders/1FS83MFkyYO8jmRfCEpqk4TnpFTEYuOOj/edit?usp=sharing",
   },

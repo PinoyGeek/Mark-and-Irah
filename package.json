@@ -20,8 +20,7 @@
     "bundle:explore": "mkdir -p scripts/reports && source-map-explorer '.next/static/chunks/*.js' --json=scripts/reports/source-map-explorer.json || true",
     "lh:mobile": "lighthouse http://localhost:3000 --output=json,html --output-path=./scripts/reports/lh-mobile --only-categories=performance,accessibility,best-practices,seo --form-factor=mobile --throttling-method=devtools --screenEmulation.mobile=true",
     "lh:desktop": "lighthouse http://localhost:3000 --output=json,html --output-path=./scripts/reports/lh-desktop --only-categories=performance,accessibility,best-practices,seo --preset=desktop",
-    "lhci": "lhci autorun --config=./lighthouserc.json",
-    "prepare": "husky"
+    "lhci": "lhci autorun --config=./lighthouserc.json"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
