@@ -442,9 +442,7 @@ export function LoveStoryNew() {
 
           <p className="text-motif-medium/75 text-[0.85rem] md:text-sm italic leading-loose"
             style={{ fontFamily: "'Crimson Text', serif" }}>
-            Mark &ldquo;Edoy&rdquo; prayed for a partner active in LDC, willing to sacrifice for the ministry.
-            Irah &ldquo;Yaya&rdquo; focused on pioneering and volunteering, praying for a skillful partner
-            who put Jehovah first.
+            Mark "Edoy" prayed for a partner active in LDC who was willing to sacrifice for the ministry. Irah "Yaya" focused on her pioneering and volunteering, praying for a skillful partner who put Jehovah first.
           </p>
 
           <div className="w-6 h-px bg-motif-accent/25" />
