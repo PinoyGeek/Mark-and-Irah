@@ -651,11 +651,11 @@ export function Details() {
               
               {/* Guests Dress Code Text */}
               <div className="text-center pt-3 sm:pt-4 border-t border-motif-silver/70 px-3 sm:px-4 mb-4">
-                <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
+                {/* <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed mb-2">
                   <span className="font-semibold">{siteConfig.dressCode.guests.notes}</span>
                   <br />
                
-                </p>
+                </p> */}
                 {/* <div className="mt-3 sm:mt-4 text-left max-w-2xl mx-auto">
                   <div className="flex items-center justify-center sm:justify-start gap-2 mb-2">
                     <span className="inline-flex h-2 w-2 rounded-full bg-motif-accent/80" aria-hidden="true" />
