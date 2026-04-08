@@ -22,6 +22,7 @@ function toPublicId(src: string): string {
  * Custom Next.js Image loader for Cloudinary.
  * Used as `loader={cloudinaryLoader}` on <Image> components.
  * Automatically applies f_auto + q_auto + responsive width.
+ * Falls back to the original src when NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME is not set.
  */
 export function cloudinaryLoader({
   src,
@@ -32,6 +33,7 @@ export function cloudinaryLoader({
   width: number
   quality?: number
 }): string {
+  if (!CLOUD_NAME) return src
   const publicId = toPublicId(src)
   const q = quality ?? "auto"
   return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/f_auto,q_${q},w_${width}/${publicId}`
