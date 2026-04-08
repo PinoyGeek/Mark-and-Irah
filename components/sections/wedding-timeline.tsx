@@ -21,8 +21,8 @@ const cinzel = Cinzel({
 // const { groomNickname, brideNickname } = siteConfig.couple
 const ceremonyTime = siteConfig.ceremony.time
 const guestsTime = siteConfig.ceremony.guestsTime ?? "1:30 PM"
-const ceremonyVenue = siteConfig.ceremony.venue
-const receptionVenue = siteConfig.reception.venue
+const ceremonyVenue = siteConfig.ceremony.location
+const receptionVenue = siteConfig.reception.location
 
 // Colors sourced from globals.css @theme inline — edit there to update everywhere
 // This section sits on a darker background, so render timeline text/icons in white.
@@ -46,61 +46,61 @@ interface TimelineEvent {
 
 const timelineEvents: TimelineEvent[] = [
   {
-    time: "12:00 PM",
-    title: "Arrival",
-    // description: "Please arrive on time to find your seat, settle in, and get ready for the celebration.",
+    time: "1:30 PM",
+    title: "Arrival of Guests",
+    description: "Please arrive on time to find your seat, settle in, and get ready for the celebration.",
     location: ceremonyVenue,
     icon: GuestsIcon,
     imageSrc: "/weddingtimeline/arrivalimage.png",
   },
   {
-    time: "1:00 PM",
+    time: "2:00 PM",
     title: "Wedding Ceremony",
-    // description: `Join us as ${groomNickname} & ${brideNickname} exchange vows and begin their life together.`,
+    description: `Join us as Mark & Irah exchange vows and begin their life together.`,
     location: ceremonyVenue,
     icon: RingsIcon,
     imageSrc: "/weddingtimeline/WeddingCeremony.png",
   },
   {
-    time: "2:30 PM",
-    title: "Photos",
-    // description: "We are having an unplugged ceremony, meaning we kindly ask all guests to put away their phones and cameras. We want everyone to be fully in the moment with us. Don't worry—our professional photographer will capture all the special moments, and we'll be happy to share them with you later!",
+    time: "3:00 PM",
+    title: "Picture Taking",
+    description: "Come together for group photos and share in the joy of our celebration.",
     location: ceremonyVenue,
     icon: RingsIcon,
     imageSrc: "/weddingtimeline/PhotoSession.png",
   },
   {
     time: "4:00 PM",
-    title: "Cocktail Hour",
-    // description: "Enjoy drinks and light bites as we transition into the reception and mingle with guests.",
-    location: receptionVenue,
-    icon: CocktailIcon,
-    imageSrc: "/weddingtimeline/CockTailHour.png",
-  },
-  {
-    time: "5:30 PM",
-    title: "Program Starts",
-    // description: `Celebrate the grand entrance of ${groomNickname} & ${brideNickname} and the start of the evening festivities.`,
+    title: "Reception",
+    description: `Gather as Mark & Irah make their entrance and the program begin.`,
     location: receptionVenue,
     icon: FireworksIcon,
     imageSrc: "/weddingtimeline/reception welcom.png",
   },
   {
-    time: "6:30 PM",
-    title: "Dinner Service",
-    // description: "Share a relaxed meal together as we continue the celebration.",
+    time: "4:30 PM",
+    title: "Early Dinner Service",
+    description: "Share a relaxed meal together as we continue the celebration. Enjoy the program, and moments of laughter with the couple.",
     location: receptionVenue,
     icon: DinnerIcon,
     imageSrc: "/weddingtimeline/DinnerService.png",
   },
   {
-    time: "8:30 PM",
-    title: "Party",
-    // description: "Let's dance the night away and celebrate this new chapter!",
+    time: "6:30 PM",
+    title: "After Party",
+    description: "Continue the celebration on the dance floor as the night unfolds.",
     location: receptionVenue,
     icon: DanceIcon,
     imageSrc: "/weddingtimeline/SendOff.png",
   },
+  {
+    time: "7:00 PM",
+    title: "Send Off",
+    description: "As the night comes to an end, bid farewell to the couple as they prepare for their journey together.",
+    location: receptionVenue,
+    icon: DanceIcon,
+    imageSrc: "/weddingtimeline/SendOff.png",
+  }
 ]
 
 export function WeddingTimeline() {
@@ -155,14 +155,14 @@ export function WeddingTimeline() {
           className={`${cormorant.className} text-[0.85rem] sm:text-base md:text-lg tracking-[0.04em] mb-1 drop-shadow-sm`}
           style={{ color: TIMELINE_TEXT }}
         >
-          Wedding Day
+          Day Schedule
         </p>
 
         <h2
           className={`${cinzel.className} text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[0.95] mb-2 drop-shadow`}
           style={{ color: TIMELINE_TEXT }}
         >
-          timeline
+          Wedding Timeline
         </h2>
 
         <p

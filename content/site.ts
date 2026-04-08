@@ -67,7 +67,7 @@ export const siteConfig = {
     time: "2:00 PM",
     entourageTime: "1:00 PM",
     guestsTime: "1:30 PM",
-    image: "/Details/ceremony.png",
+    image: "/Details/ceremonynew.jpg",
   },
   reception: {
     location: "Espacio Verde Resort",

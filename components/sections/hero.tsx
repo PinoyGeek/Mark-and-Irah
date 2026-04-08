@@ -664,7 +664,7 @@ export function Hero() {
             {/* CTA button */}
             <div className="w-full flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch">
               <a
-                href="#guest-list"
+                href="#love-story"
                 className="group relative flex-1 sm:min-w-[200px] md:min-w-[220px] overflow-hidden transition-all duration-300 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none"
                 style={{
                   borderRadius: '2px',
@@ -694,7 +694,7 @@ export function Hero() {
                     textShadow: '0 1px 6px rgba(0,0,0,0.35)',
                   }}
                 >
-                  Confirm Attendance
+                 Love Story
                 </span>
               </a>
             </div>

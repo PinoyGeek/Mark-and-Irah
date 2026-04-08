@@ -61,7 +61,7 @@ function mapStaticEntourage(): EntourageMember[] {
     let category = roleToCategory[role] ?? (role.endsWith("s") ? role : role + "s")
     if (group === "kate-family") category = "Parents of the Bride"
     if (group === "christian-family") category = "Parents of the Groom"
-    if (group === "candle") category = "Candle Sponsors"
+    if (group === "candle") category = "Director of the Ceremony"
     if (group === "cord") category = "Cord Sponsors"
     return { Name: name, RoleTitle: role, RoleCategory: category, Email: "" }
   })
@@ -86,8 +86,8 @@ const ROLE_CATEGORY_ORDER = [
   "Matron of Honor",
   "Best Man",
   "Maid of Honor",
-  "Candle Sponsors",
-  "Veil Sponsors",
+  "Director of the Ceremony",
+  "Director of the Feast",
   "Cord Sponsors",
   "Groomsmen",
   "Bridesmaids",
@@ -564,7 +564,7 @@ export function Entourage() {
                           <div key="SponsorsAfterParents">
                             <div className="flex justify-center py-1.5 sm:py-2 md:py-2.5 mb-2 sm:mb-2.5 md:mb-3">
                             </div>
-                            <TwoColumnLayout singleTitle="Principal Sponsors" centerContent={true}>
+                            <TwoColumnLayout singleTitle="Witnesses" centerContent={true}>
                               {sponsors.map((sponsor, idx) => (
                                 <React.Fragment key={`sponsor-row-${idx}`}>
                                   <div key={`sponsor-male-${idx}`} className="px-1.5 sm:px-2 md:px-2.5">
@@ -785,9 +785,9 @@ export function Entourage() {
                 }
 
                 // Secondary Sponsors block: render all three groups under one heading
-                if (category === "Candle Sponsors" || category === "Veil Sponsors" || category === "Cord Sponsors") {
+                if (category === "Director of the Ceremony" || category === "Director of the Feast" || category === "Cord Sponsors") {
                   // Only render the full block once — when processing the first one that exists in order
-                  const secondarySponsorGroups = ["Candle Sponsors", "Veil Sponsors", "Cord Sponsors"] as const
+                  const secondarySponsorGroups = ["Director of the Ceremony", "Director of the Feast", "Cord Sponsors"] as const
                   const firstPresentGroup = secondarySponsorGroups.find((g) => (grouped[g]?.length ?? 0) > 0)
                   if (category !== firstPresentGroup) return null
 
@@ -828,9 +828,9 @@ export function Entourage() {
                         </div>
                       )}
                       {/* Parent heading */}
-                      <div className="mb-2 sm:mb-2.5 md:mb-3">
+                      {/* <div className="mb-2 sm:mb-2.5 md:mb-3">
                         <SectionTitle>Secondary Sponsors</SectionTitle>
-                      </div>
+                      </div> */}
                       {secondarySponsorGroups.map(renderPairedGroup)}
                     </div>
                   )
@@ -856,7 +856,7 @@ export function Entourage() {
                           "Presider",
                         ])
                         // Special rule: paired sponsor roles with exactly 2 names should meet at center
-                        const PAIRED_SECTIONS = new Set(["Candle Sponsors", "Cord Sponsors", "Veil Sponsors"])
+                        const PAIRED_SECTIONS = new Set(["Director of the Ceremony", "Cord Sponsors", "Director of the Feast"])
                         if (PAIRED_SECTIONS.has(category) && members.length === 2) {
                           const left = members[0]
                           const right = members[1]

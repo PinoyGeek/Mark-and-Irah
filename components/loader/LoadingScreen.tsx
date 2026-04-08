@@ -320,7 +320,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
               textShadow: '0 1px 6px rgba(0,0,0,0.5)',
             }}
           >
-            Crafting your invitation experience
+            Getting Ready to Explore Our Wedding Website
           </p>
           <div className="w-full max-w-xs mx-auto">
             <div

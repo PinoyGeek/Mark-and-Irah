@@ -192,7 +192,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
                 '0 2px 14px rgba(0,0,0,0.6), 0 0 28px rgba(247,243,239,0.30)',
             }}
           >
-            You are
+            Welcome to
           </h2>
 
           {/* "Invited!" — serif display */}
@@ -209,7 +209,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
               letterSpacing: '0.08em',
             }}
           >
-            Invited!
+           Our Website
           </h1>
 
           {/* Thin gold divider */}
@@ -251,7 +251,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
               e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(190,132,0,0.20)';
             }}
           >
-            Open Invitation
+            Click to Open
           </button>
         </div>
 
