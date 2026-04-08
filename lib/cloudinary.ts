@@ -5,7 +5,7 @@ const PROJECT_PREFIX = "wedding-projects/mark-and-irah"
  * Converts a local public path to a Cloudinary public ID, scoped to this
  * project's folder so it never collides with other wedding projects.
  * "/mobile-background/couple (1).webp"
- *   → "wedding-projects/Mark-and-Irah/mobile-background/couple (1)"
+ *   → "wedding-projects/mark-and-irah/mobile-background/couple (1)"
  */
 function toPublicId(src: string): string {
   // Already a full Cloudinary public ID (e.g. passed directly from upload output)
@@ -16,6 +16,18 @@ function toPublicId(src: string): string {
     .replace(/\.[^/.]+$/, "") // strip file extension
 
   return `${PROJECT_PREFIX}/${relative}`
+}
+
+/**
+ * URL-encodes each path segment of a Cloudinary public ID so that filenames
+ * with spaces or special characters (e.g. "couple (5)") produce valid URLs.
+ * Slashes are preserved as path separators.
+ *
+ * "wedding-projects/mark-and-irah/mobile-background/couple (5)"
+ *   → "wedding-projects/mark-and-irah/mobile-background/couple%20(5)"
+ */
+function encodePublicId(publicId: string): string {
+  return publicId.split("/").map(encodeURIComponent).join("/")
 }
 
 /**
@@ -34,7 +46,7 @@ export function cloudinaryLoader({
   quality?: number
 }): string {
   if (!CLOUD_NAME) return src
-  const publicId = toPublicId(src)
+  const publicId = encodePublicId(toPublicId(src))
   const q = quality ?? "auto"
   return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/f_auto,q_${q},w_${width}/${publicId}`
 }
@@ -62,7 +74,7 @@ export function getCloudinaryUrl(
   if (!CLOUD_NAME) return src
   if (src.startsWith("https://") || src.startsWith("http://")) return src
 
-  const publicId = toPublicId(src)
+  const publicId = encodePublicId(toPublicId(src))
   const { width, height, quality = "auto", crop, gravity } = options
 
   const transforms: string[] = ["f_auto", `q_${quality}`]
@@ -97,7 +109,7 @@ export function getCloudinaryVideoUrl(
   if (!CLOUD_NAME) return src
   if (src.startsWith("https://") || src.startsWith("http://")) return src
 
-  const publicId = toPublicId(src)
+  const publicId = encodePublicId(toPublicId(src))
   const { quality = "auto", width, codec = "auto" } = options
 
   const transforms: string[] = [`q_${quality}`, `vc_${codec}`]
