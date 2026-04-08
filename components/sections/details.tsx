@@ -40,8 +40,8 @@ export function Details() {
   const [rotationOffset, setRotationOffset] = useState(0)
   
   const coupleImages = [
-    "/mobile-background/couple (1).jpg",
-    "/mobile-background/couple (2).jpg",
+    "/mobile-background/couple (5).jpg",
+    "/mobile-background/couple (6).jpg",
     "/mobile-background/couple (3).jpg",
     "/mobile-background/couple (4).jpg",
   ]
