@@ -1,5 +1,4 @@
-import fs from "fs/promises"
-import path from "path"
+import { v2 as cloudinary } from "cloudinary"
 import MasonryGallery from "@/components/masonry-gallery"
 import { siteConfig } from "@/content/site"
 import { CloudinaryImage } from "@/components/ui/cloudinary-image"
@@ -12,8 +11,17 @@ const cormorant = Cormorant_Garamond({
   weight: ["400", "500", "600"],
 })
 
-// Re-read on every request so newly added images appear without a rebuild
+// Re-fetch on every request so newly uploaded images appear without a rebuild
 export const dynamic = "force-dynamic"
+
+cloudinary.config({
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+  secure: true,
+})
+
+const PROJECT_PREFIX = "wedding-projects/mark-and-irah"
 
 type GalleryImage = {
   src: string
@@ -23,22 +31,31 @@ type GalleryImage = {
   orientation: "landscape" | "portrait"
 }
 
-async function readImageDir(
+type CloudinaryResource = {
+  public_id: string
+  width: number
+  height: number
+}
+
+async function fetchCloudinaryImages(
   folder: "desktop-background" | "mobile-background",
   category: "desktop" | "mobile"
 ): Promise<GalleryImage[]> {
-  const IMAGE_EXT = /\.(jpe?g|png|webp|gif)$/i
-  const abs = path.join(process.cwd(), "public", folder)
   try {
-    const entries = await fs.readdir(abs, { withFileTypes: true })
-    return entries
-      .filter((e) => e.isFile() && IMAGE_EXT.test(e.name))
-      .map((e) => ({
-        src: `/${folder}/${e.name}`,
+    const result = await cloudinary.api.resources({
+      resource_type: "image",
+      type: "upload",
+      prefix: `${PROJECT_PREFIX}/${folder}`,
+      max_results: 100,
+    })
+
+    return (result.resources as CloudinaryResource[])
+      .map((r) => ({
+        src: r.public_id,
         category,
-        width: category === "desktop" ? 1920 : 1080,
-        height: category === "desktop" ? 1080 : 1920,
-        orientation: (category === "desktop" ? "landscape" : "portrait") as "landscape" | "portrait",
+        width: r.width,
+        height: r.height,
+        orientation: (r.width >= r.height ? "landscape" : "portrait") as "landscape" | "portrait",
       }))
       .sort((a, b) => {
         // Sort numerically by the (N) suffix in filename
@@ -53,8 +70,8 @@ async function readImageDir(
 
 export default async function GalleryPage() {
   const [desktopImages, mobileImages] = await Promise.all([
-    readImageDir("desktop-background", "desktop"),
-    readImageDir("mobile-background", "mobile"),
+    fetchCloudinaryImages("desktop-background", "desktop"),
+    fetchCloudinaryImages("mobile-background", "mobile"),
   ])
 
   // Desktop images first (landscape), then mobile portrait images
