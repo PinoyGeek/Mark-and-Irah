@@ -18,14 +18,14 @@ const desktopImages: string[] = [
 ];
 
 const mobileImages: string[] = [
-'/mobile-background/couple (5).jpg',
+  '/mobile-background/couple (5).jpg',
   '/mobile-background/couple (6).jpg',
   '/mobile-background/couple (7).jpg',
   '/mobile-background/couple (8).jpg',
-    '/mobile-background/couple (9).jpg',
-  ];
+  '/mobile-background/couple (9).jpg',
+];
 
-  export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
+export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
