@@ -313,7 +313,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
           {/* "Crafting your invitation experience" */}
           <p
-            className="text-[9px] sm:text-[10px] tracking-[0.28em] mt-4 mb-3 uppercase"
+            className="text-[9px] sm:text-[10px] tracking-[0.28em] mt-4 mb-3 uppercase text-center "
             style={{
               fontFamily: 'var(--font-agrandir), sans-serif',
               color: 'var(--color-motif-silver)',

@@ -185,7 +185,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
               contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{
-              fontFamily: '"Great Vibes", cursive',
+              fontFamily: '"Brittany Signature", cursive',
               fontWeight: 400,
               color: 'var(--color-motif-cream)',
               textShadow:
@@ -195,14 +195,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
             Welcome to
           </h2>
 
-          {/* "Invited!" — serif display */}
+          {/* "Our Website" — Brittany Signature script */}
           <h1
-            className={`text-5xl md:text-7xl font-bold tracking-wider uppercase transition-all duration-1000 ease-out delay-300 ${
+            className={`text-5xl md:text-7xl tracking-wider transition-all duration-1000 ease-out delay-300 ${
               contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{
-              fontFamily: '"Cinzel", serif',
-              fontWeight: 700,
+              fontFamily: '"Brittany Signature", cursive',
+              fontWeight: 400,
               color: 'var(--color-motif-cream)',
               textShadow:
                 '0 2px 16px rgba(0,0,0,0.65), 0 0 32px rgba(190,132,0,0.35)',
