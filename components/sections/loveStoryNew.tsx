@@ -1031,7 +1031,7 @@ export function LoveStoryNew() {
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
                 sizes="25vw" />
             </div>
-            <div className="relative overflow-hidden rounded-md shadow-lg bg-motif-deep"
+            {/* <div className="relative overflow-hidden rounded-md shadow-lg bg-motif-deep"
               style={{ aspectRatio: "16/9" }}>
               <video
                 ref={heartVideoRef}
@@ -1041,7 +1041,7 @@ export function LoveStoryNew() {
               >
                 <source src={getCloudinaryVideoUrl("/assets/expressionLove/I Finally Gave My Heart.mp4")} type="video/mp4" />
               </video>
-            </div>
+            </div> */}
             <div className="relative overflow-hidden rounded-md shadow-sm hidden md:block group"
               style={{ aspectRatio: "5/4" }}>
               <CloudinaryImage src="/assets/expressionLove/11.png" alt="Expression of Love" fill
