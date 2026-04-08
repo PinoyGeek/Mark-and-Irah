@@ -1,11 +1,11 @@
 const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-const PROJECT_PREFIX = "wedding-projects/vince-and-era"
+const PROJECT_PREFIX = "wedding-projects/Mark-and-Irah"
 
 /**
  * Converts a local public path to a Cloudinary public ID, scoped to this
  * project's folder so it never collides with other wedding projects.
  * "/mobile-background/couple (1).webp"
- *   → "wedding-projects/vince-and-era/mobile-background/couple (1)"
+ *   → "wedding-projects/Mark-and-Irah/mobile-background/couple (1)"
  */
 function toPublicId(src: string): string {
   // Already a full Cloudinary public ID (e.g. passed directly from upload output)
@@ -70,4 +70,36 @@ export function getCloudinaryUrl(
   if (gravity) transforms.push(`g_${gravity}`)
 
   return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${transforms.join(",")}/${publicId}`
+}
+
+interface CloudinaryVideoUrlOptions {
+  quality?: string | number
+  width?: number
+  /** Cloudinary video codec — defaults to "auto" for adaptive format selection */
+  codec?: string
+}
+
+/**
+ * Generates a Cloudinary optimized video URL using /video/upload/.
+ * Accepts local public paths (e.g. "/assets/askingParents/video.mp4") or
+ * full Cloudinary public IDs. Falls back to the original src when
+ * NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME is not set (local dev without credentials).
+ *
+ * Usage in <video> / <source> tags:
+ *   <source src={getCloudinaryVideoUrl("/assets/askingParents/asking courtship permission.mp4")} type="video/mp4" />
+ */
+export function getCloudinaryVideoUrl(
+  src: string,
+  options: CloudinaryVideoUrlOptions = {}
+): string {
+  if (!CLOUD_NAME) return src
+  if (src.startsWith("https://") || src.startsWith("http://")) return src
+
+  const publicId = toPublicId(src)
+  const { quality = "auto", width, codec = "auto" } = options
+
+  const transforms: string[] = [`q_${quality}`, `vc_${codec}`]
+  if (width) transforms.push(`w_${width}`)
+
+  return `https://res.cloudinary.com/${CLOUD_NAME}/video/upload/${transforms.join(",")}/${publicId}`
 }

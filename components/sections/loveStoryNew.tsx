@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from 'react'
 import { CloudinaryImage } from "@/components/ui/cloudinary-image"
+import { getCloudinaryVideoUrl } from "@/lib/cloudinary"
 import { Cinzel } from "next/font/google"
 import { useAudio } from "@/contexts/audio-context"
 import { siteConfig } from '@/content/site'
@@ -862,7 +863,7 @@ export function LoveStoryNew() {
                 preload="metadata"
                 aria-label="Asking courtship permission video"
               >
-                <source src="/assets/askingParents/asking courtship permission.mp4" type="video/mp4" />
+                <source src={getCloudinaryVideoUrl("/assets/askingParents/asking courtship permission.mp4")} type="video/mp4" />
               </video>
             </div>
           </div>
@@ -1038,7 +1039,7 @@ export function LoveStoryNew() {
                 controls playsInline preload="metadata"
                 aria-label="I Finally Gave My Heart"
               >
-                <source src="/assets/expressionLove/I Finally Gave My Heart.mp4" type="video/mp4" />
+                <source src={getCloudinaryVideoUrl("/assets/expressionLove/I Finally Gave My Heart.mp4")} type="video/mp4" />
               </video>
             </div>
             <div className="relative overflow-hidden rounded-md shadow-sm hidden md:block group"

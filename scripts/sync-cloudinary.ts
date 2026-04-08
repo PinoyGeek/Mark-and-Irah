@@ -48,6 +48,11 @@ const IMAGE_EXTENSIONS = new Set([
   ".JPG", ".JPEG", ".PNG", ".WEBP",
 ])
 
+const VIDEO_EXTENSIONS = new Set([
+  ".mp4", ".mov", ".webm", ".avi", ".mkv", ".m4v",
+  ".MP4", ".MOV", ".WEBM", ".AVI", ".MKV", ".M4V",
+])
+
 /** Local folders that should never be synced to Cloudinary */
 const SKIP_FOLDERS = new Set(["favicon_io", "background_music"])
 
@@ -90,7 +95,11 @@ function slugify(name: string): string {
     .replace(/-+/g, "-")
 }
 
-function collectLocalImages(dir: string): string[] {
+function isVideo(filePath: string): boolean {
+  return VIDEO_EXTENSIONS.has(path.extname(filePath))
+}
+
+function collectLocalAssets(dir: string): string[] {
   const results: string[] = []
 
   function walk(current: string): void {
@@ -99,8 +108,11 @@ function collectLocalImages(dir: string): string[] {
       const fullPath = path.join(current, entry.name)
       if (entry.isDirectory()) {
         if (!SKIP_FOLDERS.has(entry.name)) walk(fullPath)
-      } else if (entry.isFile() && IMAGE_EXTENSIONS.has(path.extname(entry.name))) {
-        results.push(fullPath)
+      } else if (entry.isFile()) {
+        const ext = path.extname(entry.name)
+        if (IMAGE_EXTENSIONS.has(ext) || VIDEO_EXTENSIONS.has(ext)) {
+          results.push(fullPath)
+        }
       }
     }
   }
@@ -122,30 +134,33 @@ function buildPublicId(filePath: string, sourceDir: string, projectSlug: string)
 
 /**
  * Fetches all public IDs currently stored under the project's folder on Cloudinary.
- * Handles pagination automatically.
+ * Queries both image and video resource types and handles pagination automatically.
  */
 async function fetchCloudinaryAssets(projectSlug: string): Promise<Set<string>> {
   const prefix = `${ROOT_NAMESPACE}/${projectSlug}`
   const publicIds = new Set<string>()
-  let nextCursor: string | undefined
 
   process.stdout.write("  Fetching Cloudinary assets")
 
-  do {
-    const response = await cloudinary.api.resources({
-      type: "upload",
-      prefix,
-      max_results: CLOUDINARY_PAGE_SIZE,
-      ...(nextCursor ? { next_cursor: nextCursor } : {}),
-    })
+  for (const resourceType of ["image", "video"] as const) {
+    let nextCursor: string | undefined
+    do {
+      const response = await cloudinary.api.resources({
+        resource_type: resourceType,
+        type: "upload",
+        prefix,
+        max_results: CLOUDINARY_PAGE_SIZE,
+        ...(nextCursor ? { next_cursor: nextCursor } : {}),
+      })
 
-    for (const resource of response.resources) {
-      publicIds.add(resource.public_id)
-    }
+      for (const resource of response.resources) {
+        publicIds.add(resource.public_id)
+      }
 
-    nextCursor = response.next_cursor
-    process.stdout.write(".")
-  } while (nextCursor)
+      nextCursor = response.next_cursor
+      process.stdout.write(".")
+    } while (nextCursor)
+  }
 
   console.log(` ${publicIds.size} found\n`)
   return publicIds
@@ -156,45 +171,67 @@ async function uploadFile(
   publicId: string,
   dryRun: boolean
 ): Promise<"uploaded" | "failed"> {
+  const resourceType = isVideo(filePath) ? "video" : "image"
+
   if (dryRun) {
-    console.log(`  ↑ dry-run  — ${publicId}`)
+    console.log(`  ↑ dry-run  [${resourceType}] — ${publicId}`)
     return "uploaded"
   }
 
+  // Use upload_large for videos to support files over 100 MB via chunked upload
+  const uploadFn = resourceType === "video"
+    ? cloudinary.uploader.upload_large.bind(cloudinary.uploader)
+    : cloudinary.uploader.upload.bind(cloudinary.uploader)
+
   try {
-    await cloudinary.uploader.upload(filePath, {
+    await uploadFn(filePath, {
+      resource_type: resourceType,
       public_id: publicId,
       overwrite: false,
       use_filename: false,
       unique_filename: false,
+      // 50 MB chunks — stays well within Cloudinary per-chunk limits
+      chunk_size: 50 * 1024 * 1024,
     })
-    console.log(`  ↑ uploaded — ${publicId}`)
+    console.log(`  ↑ uploaded [${resourceType}] — ${publicId}`)
     return "uploaded"
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : String(err)
-    console.error(`  ✗ upload failed — ${publicId}: ${message}`)
+    const message =
+      err instanceof Error
+        ? err.message
+        : typeof err === "object" && err !== null
+          ? JSON.stringify(err)
+          : String(err)
+    console.error(`  ✗ upload failed [${resourceType}] — ${publicId}: ${message}`)
     return "failed"
   }
 }
 
-async function deleteAsset(publicId: string, dryRun: boolean): Promise<"deleted" | "failed"> {
+async function deleteAsset(
+  publicId: string,
+  filePath: string | undefined,
+  dryRun: boolean
+): Promise<"deleted" | "failed"> {
+  // Determine resource type from the file path if known, otherwise try image first
+  const resourceType = filePath && isVideo(filePath) ? "video" : "image"
+
   if (dryRun) {
-    console.log(`  🗑 dry-run  — ${publicId}`)
+    console.log(`  🗑 dry-run  [${resourceType}] — ${publicId}`)
     return "deleted"
   }
 
   try {
-    const result = await cloudinary.uploader.destroy(publicId)
+    const result = await cloudinary.uploader.destroy(publicId, { resource_type: resourceType })
     if (result.result === "ok") {
-      console.log(`  🗑 deleted  — ${publicId}`)
+      console.log(`  🗑 deleted  [${resourceType}] — ${publicId}`)
       return "deleted"
     } else {
-      console.error(`  ✗ delete failed — ${publicId}: ${result.result}`)
+      console.error(`  ✗ delete failed [${resourceType}] — ${publicId}: ${result.result}`)
       return "failed"
     }
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : String(err)
-    console.error(`  ✗ delete error  — ${publicId}: ${message}`)
+    console.error(`  ✗ delete error  [${resourceType}] — ${publicId}: ${message}`)
     return "failed"
   }
 }
@@ -261,8 +298,8 @@ async function main(): Promise<void> {
   console.log(`   Upload   : ${!opts.noUpload}`)
   console.log(`   Delete   : ${!opts.noDelete}\n`)
 
-  // --- Step 1: Build local image → publicId map ---
-  const localFiles = collectLocalImages(opts.sourceDir)
+  // --- Step 1: Build local asset → publicId map (images + videos) ---
+  const localFiles = collectLocalAssets(opts.sourceDir)
   const localPublicIds = new Map<string, string>() // publicId → filePath
 
   for (const filePath of localFiles) {
@@ -270,7 +307,10 @@ async function main(): Promise<void> {
     localPublicIds.set(publicId, filePath)
   }
 
-  console.log(`  Local images : ${localFiles.length}`)
+  const localImages = localFiles.filter((f) => IMAGE_EXTENSIONS.has(path.extname(f)))
+  const localVideos = localFiles.filter((f) => VIDEO_EXTENSIONS.has(path.extname(f)))
+  console.log(`  Local images : ${localImages.length}`)
+  console.log(`  Local videos : ${localVideos.length}`)
 
   // --- Step 2: Fetch what's currently on Cloudinary ---
   const cloudinaryIds = await fetchCloudinaryAssets(projectSlug)
@@ -333,7 +373,9 @@ async function main(): Promise<void> {
     console.log("🗑  Deleting orphaned Cloudinary assets...")
 
     for (const publicId of toDelete) {
-      const status = await deleteAsset(publicId, opts.dryRun)
+      // Pass the local filePath if we know it (for resource_type detection); orphans won't have one
+      const filePath = localPublicIds.get(publicId)
+      const status = await deleteAsset(publicId, filePath, opts.dryRun)
       if (status === "deleted") summary.deleted++
       else summary.deleteFailed++
     }
