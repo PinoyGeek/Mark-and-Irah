@@ -10,22 +10,22 @@ interface HeroProps {
 
 
 const desktopImages: string[] = [
-  '/desktop-background/couple (1).jpg',
-  '/desktop-background/couple (2).jpg',
-  '/desktop-background/couple (3).jpg',
-  '/desktop-background/couple (4).jpg',
-  '/desktop-background/couple (5).jpg'
+  '/desktop-background/couple (5).jpg',
+  '/desktop-background/couple (6).jpg',
+  '/desktop-background/couple (7).jpg',
+  '/desktop-background/couple (8).jpg',
+  '/desktop-background/couple (9).jpg',
 ];
 
 const mobileImages: string[] = [
-'/mobile-background/couple (1).jpg',
-  '/mobile-background/couple (2).jpg',
-  '/mobile-background/couple (3).jpg',
-  '/mobile-background/couple (4).jpg',
-  '/mobile-background/couple (5).jpg'
-];
+'/mobile-background/couple (5).jpg',
+  '/mobile-background/couple (6).jpg',
+  '/mobile-background/couple (7).jpg',
+  '/mobile-background/couple (8).jpg',
+    '/mobile-background/couple (9).jpg',
+  ];
 
-export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
+  export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
