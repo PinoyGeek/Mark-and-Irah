@@ -17,7 +17,7 @@ const eventImageUrl = `${canonicalUrl}${desktopHero}`
 // f_jpg forces JPEG so all OG scrapers (iMessage, Viber, Facebook, etc.) can display it.
 // The public-folder URL is kept only as a fallback in the images array below.
 const OG_IMAGE_CLOUDINARY =
-  "https://res.cloudinary.com/detbgvt1c/image/upload/f_jpg,q_auto,w_1200,h_630,c_fill/wedding-projects/Mark-and-Irah/Details/LinkPreview.jpg"
+  "https://res.cloudinary.com/detbgvt1c/image/upload/f_jpg,q_auto,w_1200,h_630,c_fill/wedding-projects/mark-and-irah/Details/LinkPreview.jpg"
 const OG_IMAGE_FALLBACK = `${canonicalUrl}${desktopHero}`
 
 const coupleNames = `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}`
