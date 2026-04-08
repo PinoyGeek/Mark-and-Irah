@@ -9,14 +9,14 @@ export const siteConfig = {
   },
   googleAPI:{
     messageForm: "https://docs.google.com/forms/d/e/1FAIpQLScq2smHTS7O3oK-OlDnuRr0HROPlXFED1ABGFkSXxSaRQMLrw/formResponse", //done
-    message: "https://script.google.com/macros/s/AKfycbx6G-cc8v2OJdWPOSJpARdwqigPcAzAvyZPTd1v6cIwZuHHoRXW1ZBeBDDBg1Tt5Mc0/exec", 
-    guestList: "https://script.google.com/macros/s/AKfycbyd62qRIHpsAQfG-yxV6oqF0RXtL3oJcWcsBpICn_cicAPPbEZTpa0yIcJrS-3SfnKi/exec", 
-    guestRequest: "https://script.google.com/macros/s/AKfycbwQ3Jo1ycAwY0ZPZcmZrRuK1Sg_X9w-9t8H5_Lq069qWKlJvaIteO1nmUEPpGLfrXdV/exec", 
-    entourage: "https://script.google.com/macros/s/AKfycbzH5KpZMOHBmUpeuTtM3cfURhMc77_oyUaHZmSoP0JAQoenBqfb5mV5z9i2SEUSnkly/exec", 
-    sponsors: "https://script.google.com/macros/s/AKfycbz3xGAnhS-aTRnkUPPMmT-1zVsssbDphzqdWR0gW5mSttDqE1nf4GgmELJYUrSEyt-W/exec", 
-    weddingDetails: "https://script.google.com/macros/s/AKfycby4v8qqP2dpT5G3oOBb2g3we70qGnx_paDqH1hZdMT_P31-MzflyoQDnercr84Wemio/exec", 
+    message: "https://script.google.com/macros/s/AKfycbw3SseCV37kEtdH7XgQ1csQKCVA2faW7FzcoH1J_FySgM6vrwpY-QVjy-F-bJzQCAQf/exec", //done
+    guestList: "https://script.google.com/macros/s/AKfycbxQIuGXE_ZTLqUl4t06KBH1UaxUx8GMexwNT0o_U6QN71ZiYrtoHcrAZAxeHl0Y9CrS/exec", //done
+    guestRequest: "https://script.google.com/macros/s/AKfycbzYDv8VsbA6ay2nXijlKsb3hlpEumj0IO6B61CgKA8mu14B03Vqfwc9nr67hr9GfsQU/exec",  //done
+    entourage: "https://script.google.com/macros/s/AKfycbwsNyNEBl3GsN-pWIL91myfwIE9bcS2fPVaT62XN9oEiq15E9mDBKYwUAlVDb91BkbY/exec",  //done
+    sponsors: "https://script.google.com/macros/s/AKfycby_zUqLlQncLf97yJpLUEuF6T5s-oA5F3BiC23INh96s1e3jy6XpD6AAAzjpxW-GyET/exec", //done
+    weddingDetails: "https://script.google.com/macros/s/AKfycbx7o7GhRy3Y2hY91u9A8INmAM9jZ58FW6fJIVBT_gvG3Qz4i39paeZKKgrjRhPTfqcI/exec", //done
 ////google share 
-    googleShare: "https://drive.google.com/drive/folders/1FS83MFkyYO8jmRfCEpqk4TnpFTEYuOOj/edit?usp=sharing",
+    googleShare: "https://docs.google.com/spreadsheets/d/1PVX5G-aSKqWcd7AOotfSV_3ER4JBH5_SJRorKBaX-iI/edit?usp=sharing",
   },
   wedding: {
     date: "May 16, 2026",
