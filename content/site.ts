@@ -4,7 +4,7 @@ export const siteConfig = {
     brideNickname: "Irah", //Ltryl
     groom: "Mark Valencia", //Ltryl B. Benitez
     groomNickname: "Mark",
-    monogram:"/monogram/monogram.png" ,//Ltryl
+    monogram:"/monogram/newMonogram.png" ,//Ltryl
     backgroundMusic:"/background_music/sjjm_E_132.mp3"
   },
   googleAPI:{

@@ -94,7 +94,7 @@ export function Welcome() {
               className={`${cormorant.className} text-[0.65rem] sm:text-[0.7rem] md:text-xs lg:text-sm uppercase tracking-[0.24em] sm:tracking-[0.28em]`}
               style={{ color: 'var(--color-motif-deep)' }}
             >
-              {brideName} &amp; {groomName}
+              {groomName} &amp; {brideName}
             </p>
             <h2
                 className="leading-none"

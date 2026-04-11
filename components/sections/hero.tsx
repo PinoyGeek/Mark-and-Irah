@@ -513,9 +513,9 @@ export function Hero() {
                 letterSpacing: '0.01em',
               }}
             >
-              <span className="block">{brideName}</span>
-              <span className="block" style={{ fontSize: '0.55em', letterSpacing: '0.06em', fontFamily: FONT_SERIF, fontWeight: 400 }}>&amp;</span>
               <span className="block">{groomName}</span>
+              <span className="block" style={{ fontSize: '0.55em', letterSpacing: '0.06em', fontFamily: FONT_SERIF, fontWeight: 400 }}>&amp;</span>
+              <span className="block">{brideName}</span>
             </div>
           </div>
 
