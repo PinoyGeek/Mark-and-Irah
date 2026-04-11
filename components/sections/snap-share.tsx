@@ -488,7 +488,7 @@ export function SnapShare() {
                   <div className="mx-auto inline-flex flex-col items-center bg-white/90 backdrop-blur-sm p-2.5 sm:p-5 rounded-xl sm:rounded-2xl shadow-md border border-motif-cream/80 mb-3 sm:mb-4">
                     <div className="mb-2 sm:mb-3 p-1.5 sm:p-3 rounded-lg sm:rounded-xl bg-motif-cream border border-motif-cream/80">
                       <div className="bg-white p-1.5 sm:p-3 rounded-lg shadow-sm border border-motif-cream/80">
-                        <Image src="/QR/QRDrive.png" alt="Google Drive QR Code" width={isMobile ? 130 : 200} height={isMobile ? 130 : 200} className="bg-white" />
+                        <CloudinaryImage src="/QR/QRDrive.png" alt="Google Drive QR Code" width={isMobile ? 130 : 200} height={isMobile ? 130 : 200} className="bg-white" />
                       </div>
                     </div>
                     <p className={`${cormorant.className} text-motif-medium text-xs sm:text-sm`}>Scan with your camera app</p>
