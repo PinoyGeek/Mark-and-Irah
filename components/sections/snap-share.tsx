@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { motion } from "motion/react"
 import { Instagram, Facebook, Twitter, Share2, Copy, Download, Check } from "lucide-react"
 import { Section } from "@/components/section"
+import Image from "next/image"
 import { QRCodeCanvas } from "qrcode.react"
 import { siteConfig } from "@/content/site"
 import { CloudinaryImage } from "@/components/ui/cloudinary-image"
@@ -81,11 +82,9 @@ export function SnapShare() {
   }
 
   const downloadDriveQRCode = () => {
-    const canvas = document.getElementById("drive-qr") as HTMLCanvasElement | null
-    if (!canvas) return
     const link = document.createElement("a")
     link.download = "drive-qr.png"
-    link.href = canvas.toDataURL("image/png")
+    link.href = "/QR/QRDrivea.png"
     link.click()
   }
 
@@ -489,7 +488,7 @@ export function SnapShare() {
                   <div className="mx-auto inline-flex flex-col items-center bg-white/90 backdrop-blur-sm p-2.5 sm:p-5 rounded-xl sm:rounded-2xl shadow-md border border-motif-cream/80 mb-3 sm:mb-4">
                     <div className="mb-2 sm:mb-3 p-1.5 sm:p-3 rounded-lg sm:rounded-xl bg-motif-cream border border-motif-cream/80">
                       <div className="bg-white p-1.5 sm:p-3 rounded-lg shadow-sm border border-motif-cream/80">
-                        <QRCodeCanvas id="drive-qr" value={driveLink} size={isMobile ? 130 : 200} includeMargin className="bg-white" fgColor={MOTIF_DEEP_HEX} />
+                        <Image src="/QR/QRDrive.png" alt="Google Drive QR Code" width={isMobile ? 130 : 200} height={isMobile ? 130 : 200} className="bg-white" />
                       </div>
                     </div>
                     <p className={`${cormorant.className} text-motif-medium text-xs sm:text-sm`}>Scan with your camera app</p>

@@ -5,7 +5,7 @@ export const siteConfig = {
     groom: "Mark Valencia", //Ltryl B. Benitez
     groomNickname: "Mark",
     monogram:"/monogram/monogram.png" ,//Ltryl
-    backgroundMusic:"/background_music/The Marriage Feast.mp3"
+    // backgroundMusic:"/background_music/sjjm_E_132.mp3"
   },
   googleAPI:{
     messageForm: "https://docs.google.com/forms/d/e/1FAIpQLScq2smHTS7O3oK-OlDnuRr0HROPlXFED1ABGFkSXxSaRQMLrw/formResponse", //done
@@ -130,8 +130,8 @@ Now, as they prepare to say yes before God and the people they love most, Cather
     secondary: "#F5F5DC",
   },
   snapShare: {
-    googleDriveLink: "https://drive.google.com/drive/folders/1OHc4gq4VHPequrPTjIrV6-YpZ5ctk9lo?usp=sharing",
-    hashtag: ["#VINCEgotMesmERAized","#heaVINCENTforERA"],
+    googleDriveLink: "https://drive.google.com/drive/folders/1FS83MFkyYO8jmRfCEpqk4TnpFTEYuOOj",
+    hashtag: ["#IrahMarkableDay"],
     instructions: "Please scan this QR Code, create a folder with your name and upload the photos and videos you have taken during our wedding reception. We are delighted to see your snaps too!",
   },
 }

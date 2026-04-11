@@ -117,7 +117,7 @@ export function Welcome() {
                 className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm lg:text-base italic leading-relaxed`}
                 style={{ color: 'var(--color-motif-deep)', opacity: 0.9 }}
               >
-                &quot;I have found the one whom my soul loves.&quot;
+                &quot;I found the one I love.&quot;
               </p>
               <p className={`${cormorant.className} text-[0.7rem] sm:text-xs md:text-sm lg:text-base italic leading-relaxed`} style={{ color: 'var(--color-motif-deep)', opacity: 0.9 }}>Song of Solomon 3:4</p>
 
@@ -137,7 +137,7 @@ export function Welcome() {
             style={{ color: 'var(--color-motif-deep)' }}
           >
             <p>
-            Our love is a blessing we hold close to our hearts, and we are deeply grateful to God for gently guiding our story and bringing our lives together in such a beautiful way. With hearts full of joy and thanksgiving, we are so happy to share this special moment of our journey with you. Your love, prayers, and support have meant so much to us, and it would mean the world to celebrate this meaningful day surrounded by the people who have been part of our lives and our story.
+            Our love is a blessing we hold close to our hearts, and we are deeply grateful to Jehovah God for gently guiding our story and bringing our lives together in such a beautiful way. With hearts full of joy and thanksgiving, we are so happy to share this special moment of our journey with you. Your love, prayers, and support have meant so much to us, and it would mean the world to celebrate this meaningful day surrounded by the people who have been part of our lives and our story.
             </p>
             <p>
             As you prepare to celebrate with us, please feel free to browse through the important information and helpful reminders. Everything you need to know for the day is here. Your presence and shared joy will truly make this celebration even more special for us. 

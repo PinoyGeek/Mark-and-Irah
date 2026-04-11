@@ -222,7 +222,8 @@ async function deleteAsset(
 
   try {
     const result = await cloudinary.uploader.destroy(publicId, { resource_type: resourceType })
-    if (result.result === "ok") {
+    if (result.result === "ok" || result.result === "not found") {
+      // "not found" means it's already gone — desired state achieved
       console.log(`  🗑 deleted  [${resourceType}] — ${publicId}`)
       return "deleted"
     } else {

@@ -655,10 +655,10 @@ export function LoveStoryNew() {
 
         {/* Quotes – 2-col on sm+, stacked on mobile */}
         <div className="grid sm:grid-cols-2 gap-4 md:gap-6 items-start">
+        <PersonQuote speaker="Mark" accent="gold"
+            text="Kakaiba siya na sister at kapansin-pansin yung eagerness niya sa paglilingkod kay Jehova. Hindi ko napansin na natatandaan ko na kahit small details ng pag-uusap namin, kahit pa once a month lang kami na mag-usap for almost a year. From time to time, tinatanong ko yung mga elder namin kung paano ko malalaman na yung isang sister ay inilaan ni Jehova para sa akin. Sabi nila, may unusual things na mangyayari na never pa nangyari before, at minsan baka nandiyan lang siya sa circle of friends ko kahit wala pang spark before." />
           <PersonQuote speaker="Irah" accent="rose"
             text="Napansin ko na magaling siya sa conversation at may sense kausap, informative at hindi shallow. Sa totoo, hindi ko ma-gets bakit may impact si Mark, kasi hindi lang naman siya yung kausap ko na brother. Pero sa kanya ko na-feel yung kapayapaan at pagiging comfortable. Kaya na-realize ko na may innate spark na siya sa akin, bagay na hindi ko pa kailanman naramdaman at in-expect." />
-          <PersonQuote speaker="Mark" accent="gold"
-            text="Kakaiba siya na sister at kapansin-pansin yung eagerness niya sa paglilingkod kay Jehova. Hindi ko napansin na natatandaan ko na kahit small details ng pag-uusap namin, kahit pa once a month lang kami na mag-usap for almost a year. From time to time, tinatanong ko yung mga elder namin kung paano ko malalaman na yung isang sister ay inilaan ni Jehova para sa akin. Sabi nila, may unusual things na mangyayari na never pa nangyari before, at minsan baka nandiyan lang siya sa circle of friends ko kahit wala pang spark before." />
         </div>
 
         {/* Bottom mosaic – roxas 38-43 (6 photos), last 2 hidden on mobile */}
@@ -734,7 +734,7 @@ export function LoveStoryNew() {
             And it&apos;s a clear sign, an answered prayer, that it&apos;s him, it&apos;s him that I should
             keep our communication intact. With that, Jehovah God gave me reason to love him more deeply!&rdquo;
           </blockquote>
-          <p className={`${cinzel.className} text-[0.5rem] tracking-[0.3em] uppercase text-motif-accent/60 mt-2.5`}>
+          <p className={`${cinzel.className} text-[0.5rem] tracking-[0.3em] uppercase text-motif-cream mt-2.5`}>
             — Irah
           </p>
         </div>

@@ -51,7 +51,7 @@ export function Footer() {
 
   const quotes = [
     `"I have found the one whom my soul loves." – Song of Solomon 3:4`,
-    "Welcome to our wedding website! We've found a love that's a true blessing, and we give thanks to God for writing the beautiful story of our journey together.",
+    "Welcome to our wedding website! We've found a love that's a true blessing, and we give thanks to JehovahGod for writing the beautiful story of our journey together.",
     "Thank you for your love, prayers, and support. We can't wait to celebrate this joyful day together!",
   ]
 
@@ -240,19 +240,27 @@ export function Footer() {
               <>
                   <motion.div className="backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 transition-all duration-300 shadow-lg hover:shadow-xl" style={{ backgroundColor: 'color-mix(in srgb, var(--color-motif-cream) 93%, transparent)' }} whileHover={{ y: -3 }} transition={{ duration: 0.2 }}>
                   <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3 mb-2.5 sm:mb-3 md:mb-4">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 flex-shrink-0" style={{ color: palette.deep }} />
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'color-mix(in srgb, var(--color-motif-deep) 12%, transparent)' }}>
+                      <Heart className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 flex-shrink-0" style={{ color: palette.deep }} />
                     </div>
                     <h4 className={`${cinzel.className} font-semibold text-base sm:text-lg md:text-xl`} style={{ color: palette.softBrown }}>Ceremony</h4>
                   </div>
-                  <div className={`space-y-2 sm:space-y-2.5 md:space-y-3 ${cormorant.className} text-xs sm:text-sm leading-relaxed`} style={{ color: palette.softBrown }}>
-                    <div className="flex items-start gap-2 sm:gap-2.5 md:gap-3">
-                      <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 mt-0.5 text-motif-deep" style={{ color: palette.background }} />
-                      <span className="text-motif-deep">{toTitleCase(ceremonyVenue)}</span>
-                    </div>
-                    <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
-                      <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" style={{ color: palette.deep }} />
-                      <span>{ceremonyTime}</span>
+
+                  <div className={`${cormorant.className} text-xs sm:text-sm leading-relaxed`} style={{ color: palette.softBrown }}>
+                    <div className="border-l-2 pl-3 sm:pl-4" style={{ borderColor: palette.deep }}>
+                      <div className="space-y-1 sm:space-y-1.5">
+                        <div className="flex items-start gap-2 sm:gap-2.5">
+                          <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 mt-0.5" style={{ color: palette.deep }} />
+                          <div>
+                            <p className="font-medium">Kingdom Hall of Jehovah's Witnesses</p>
+                            <p className="opacity-80">Lawaan, Roxas City, Capiz</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 sm:gap-2.5">
+                          <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" style={{ color: palette.deep }} />
+                          <span>{ceremonyTime}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -263,14 +271,45 @@ export function Footer() {
                     </div>
                     <h4 className={`${cinzel.className} font-semibold text-base sm:text-lg md:text-xl`} style={{ color: palette.softBrown }}>Reception</h4>
                   </div>
-                  <div className={`space-y-2 sm:space-y-2.5 md:space-y-3 ${cormorant.className} text-xs sm:text-sm leading-relaxed`} style={{ color: palette.softBrown }}>
-                    <div className="flex items-start gap-2 sm:gap-2.5 md:gap-3">
-                      <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 mt-0.5" style={{ color: palette.deep }} />
-                      <span>{toTitleCase(receptionVenue)}</span>
+
+                  <div className={`space-y-3 sm:space-y-4 ${cormorant.className} text-xs sm:text-sm leading-relaxed`} style={{ color: palette.softBrown }}>
+                    {/* Reception 1 */}
+                    <div className="border-l-2 pl-3 sm:pl-4" style={{ borderColor: palette.deep }}>
+                      <p className={`${cinzel.className} font-semibold text-xs sm:text-sm mb-1`} style={{ color: palette.deep }}>Reception 1</p>
+                      <p className="italic opacity-75 mb-1.5 text-xs leading-snug">
+                        To those who have received a confirmation ticket and seen their RSVP, kindly proceed to:
+                      </p>
+                      <div className="space-y-1 sm:space-y-1.5">
+                        <div className="flex items-start gap-2 sm:gap-2.5">
+                          <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 mt-0.5" style={{ color: palette.deep }} />
+                          <div>
+                            <p className="font-medium">Espacio Verde Resort</p>
+                            <p className="opacity-80">Dayao Road, Roxas City, 5800 Capiz</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 sm:gap-2.5">
+                          <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" style={{ color: palette.deep }} />
+                          <span>4:00 PM</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3">
-                      <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" style={{ color: palette.deep }} />
-                      <span>{receptionTime}</span>
+
+                    {/* Reception 2 */}
+                    <div className="border-l-2 pl-3 sm:pl-4" style={{ borderColor: palette.deep }}>
+                      <p className={`${cinzel.className} font-semibold text-xs sm:text-sm mb-1.5`} style={{ color: palette.deep }}>Reception 2</p>
+                      <div className="space-y-1 sm:space-y-1.5">
+                        <div className="flex items-start gap-2 sm:gap-2.5">
+                          <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 mt-0.5" style={{ color: palette.deep }} />
+                          <div>
+                            <p className="font-medium">Resente Residence</p>
+                            <p className="opacity-80">Proper Lawa-an, Roxas City, Capiz</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 sm:gap-2.5">
+                          <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" style={{ color: palette.deep }} />
+                          <span>4:00 PM</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </motion.div>

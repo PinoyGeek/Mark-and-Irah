@@ -35,6 +35,7 @@ const cinzel = Cinzel({
 export function Details() {
   const [copiedItems, setCopiedItems] = useState<Set<string>>(new Set())
   const [currentReceptionImageIndex, setCurrentReceptionImageIndex] = useState(0)
+  const [currentReception2ImageIndex, setCurrentReception2ImageIndex] = useState(0)
   const [showImageModal, setShowImageModal] = useState<string | null>(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [rotationOffset, setRotationOffset] = useState(0)
@@ -48,10 +49,24 @@ export function Details() {
 
   const receptionImages = siteConfig.reception.image
 
+  const reception2Images = [
+    "/Details/residence (1).jpg",
+    "/Details/residence (2).jpg",
+    "/Details/residence (3).jpg",
+    "/Details/residence (4).jpg",
+  ]
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentReceptionImageIndex((prev) => (prev + 1) % receptionImages.length)
     }, 3000)
+    return () => clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentReception2ImageIndex((prev) => (prev + 1) % reception2Images.length)
+    }, 3500)
     return () => clearInterval(timer)
   }, [])
 
@@ -89,10 +104,14 @@ export function Details() {
   const ceremonyMapsLink = `https://maps.google.com/?q=${encodeURIComponent(ceremonyVenueName)}`
 
   const receptionVenueName = siteConfig.reception.location
-  const receptionVenueDetail = ""
   const receptionAddress = siteConfig.reception.venue
   const receptionVenue = `${receptionVenueName}, ${receptionAddress}`
   const receptionMapsLink = `https://maps.google.com/?q=${encodeURIComponent(receptionVenue)}`
+
+  const reception2VenueName = "Resente Residence"
+  const reception2Address = "Proper Lawa-an, Roxas City, Capiz"
+  const reception2Venue = `${reception2VenueName}, ${reception2Address}`
+  const reception2MapsLink = `https://maps.google.com/?q=${encodeURIComponent(reception2Venue)}`
 
   // Aliases used in the image modal
   const ceremonyLocationFormatted = ceremonyVenueName
@@ -407,27 +426,24 @@ export function Details() {
 
         
               <div className="bg-gradient-to-br from-motif-cream/40 to-motif-cream rounded-xl p-3 sm:p-4 md:p-5 mb-4 sm:mb-6 border border-motif-deep/15">
-                <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
-                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-motif-deep mt-0.5 flex-shrink-0" />
+                <p className={`${cormorant.className} text-sm sm:text-base italic text-motif-deep/70 mb-3 leading-relaxed`}>
+                  To those who have received a confirmation ticket and seen their RSVP, kindly proceed to:
+                </p>
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-motif-deep mt-0.5 flex-shrink-0" />
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] font-semibold text-motif-deep mb-1.5 sm:mb-2 uppercase tracking-wide">
-                      Location
-                    </p>
-                    <p className={`${cinzel.className} text-xs sm:text-sm md:text-base lg:text-lg font-[family-name:var(--font-crimson)] text-motif-deep leading-relaxed`}>
+                    <p className={`${cinzel.className} text-sm sm:text-base md:text-lg font-semibold text-motif-deep leading-snug mb-1`}>
                       {receptionVenueName}
                     </p>
-                    {receptionVenueDetail && (
-                    <p className={`${cinzel.className} text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] text-motif-deep/70 leading-relaxed mt-1`}>
-                        {receptionVenueDetail}
-                      </p>
-                    )}
-                    <p className={`${cinzel.className} text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] text-motif-deep/70 leading-relaxed`}>
+                    <p className={`${cormorant.className} text-sm sm:text-base text-motif-deep/70 leading-relaxed`}>
                       {receptionAddress}
                     </p>
+                    <p className={`${cormorant.className} text-sm sm:text-base font-semibold text-motif-deep mt-1`}>
+                      4:00 PM
+                    </p>
                   </div>
-              
-                  <div className="flex flex-col items-center gap-1.5 sm:gap-2 flex-shrink-0">
-                  <div className="bg-motif-cream p-1.5 sm:p-2 md:p-2.5 rounded-lg border border-motif-deep/20 shadow-sm">
+                  <div className="flex flex-col items-center gap-1.5 flex-shrink-0">
+                    <div className="bg-motif-cream p-1.5 sm:p-2 md:p-2.5 rounded-lg border border-motif-deep/20 shadow-sm">
                       <QRCodeSVG
                         value={receptionMapsLink}
                         size={80}
@@ -437,19 +453,18 @@ export function Details() {
                         bgColor="var(--color-motif-cream)"
                       />
                     </div>
-                    <p className="text-[9px] sm:text-[10px] md:text-xs font-[family-name:var(--font-crimson)] text-motif-deep/60 italic text-center max-w-[80px]">
+                    <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] text-motif-deep/60 italic text-center max-w-[80px]">
                       Scan for directions
                     </p>
                   </div>
                 </div>
               </div>
 
-     
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4">
                 <button
                   onClick={() => openInMaps(receptionMapsLink)}
                   className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 md:py-3 bg-motif-deep hover:bg-motif-accent text-motif-cream rounded-lg font-[family-name:var(--font-crimson)] font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] premium-shadow"
-                  aria-label="Get directions to reception venue"
+                  aria-label="Get directions to Reception 1"
                 >
                   <Navigation className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" />
                   <span>Get Directions</span>
@@ -457,7 +472,7 @@ export function Details() {
                 <button
                   onClick={() => copyToClipboard(receptionVenue, 'reception')}
                   className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 md:py-3 bg-motif-cream border-2 border-motif-deep/30 hover:border-motif-deep/50 hover:bg-motif-silver/20 text-motif-deep rounded-lg font-[family-name:var(--font-crimson)] font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-                  aria-label="Copy reception venue address"
+                  aria-label="Copy Reception 1 address"
                 >
                   {copiedItems.has('reception') ? (
                     <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0 text-motif-deep" />
@@ -465,6 +480,111 @@ export function Details() {
                     <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" />
                   )}
                   <span>{copiedItems.has('reception') ? 'Copied!' : 'Copy Address'}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Reception 2 Card */}
+        <div className="relative group">
+          <div className="absolute -inset-1 bg-gradient-to-br from-motif-silver/22 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
+
+          <div className="relative elegant-card bg-motif-cream rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.18)] border border-motif-deep/25 premium-shadow hover:border-motif-deep/45 transition-all duration-300">
+
+            {/* Image carousel */}
+            <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[30rem] overflow-hidden">
+              {reception2Images.map((src, index) => (
+                <div
+                  key={src}
+                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                    index === currentReception2ImageIndex ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <CloudinaryImage
+                    src={src}
+                    alt={reception2VenueName}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1280px"
+                    priority={index === 0}
+                  />
+                </div>
+              ))}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10" />
+
+              <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 md:bottom-6 md:left-6 right-3 sm:right-4 md:right-6 z-20">
+                <h3 className={`${cinzel.className} text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal text-white mb-0.5 sm:mb-1 drop-shadow-lg uppercase tracking-[0.1em] leading-tight`}>
+                  {reception2VenueName}
+                </h3>
+                <p className={`${cinzel.className} text-xs sm:text-sm md:text-base text-white/95 drop-shadow-md tracking-wide`}>
+                  {reception2Address}
+                </p>
+              </div>
+            </div>
+
+            <div className="p-3 sm:p-5 md:p-7 lg:p-9">
+              <div className="text-center mb-5 sm:mb-8">
+                <p className={`${cinzel.className} text-xs sm:text-sm md:text-base font-semibold text-motif-medium uppercase tracking-[0.2em] mb-2 sm:mb-3`}>
+                  Starts at
+                </p>
+                <p className={`${cinzel.className} text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-motif-deep tracking-wide`}>
+                  4:00 PM
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-motif-cream/40 to-motif-cream rounded-xl p-3 sm:p-4 md:p-5 mb-4 sm:mb-6 border border-motif-deep/15">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-motif-deep mt-0.5 flex-shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <p className={`${cinzel.className} text-sm sm:text-base md:text-lg font-semibold text-motif-deep leading-snug mb-1`}>
+                      {reception2VenueName}
+                    </p>
+                    <p className={`${cormorant.className} text-sm sm:text-base text-motif-deep/70 leading-relaxed`}>
+                      {reception2Address}
+                    </p>
+                    <p className={`${cormorant.className} text-sm sm:text-base font-semibold text-motif-deep mt-1`}>
+                      4:00 PM
+                    </p>
+                  </div>
+                  <div className="flex flex-col items-center gap-1.5 flex-shrink-0">
+                    <div className="bg-motif-cream p-1.5 sm:p-2 md:p-2.5 rounded-lg border border-motif-deep/20 shadow-sm">
+                      <QRCodeSVG
+                        value={reception2MapsLink}
+                        size={80}
+                        level="M"
+                        includeMargin={false}
+                        fgColor="var(--color-motif-deep)"
+                        bgColor="var(--color-motif-cream)"
+                      />
+                    </div>
+                    <p className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] text-motif-deep/60 italic text-center max-w-[80px]">
+                      Scan for directions
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4">
+                <button
+                  onClick={() => openInMaps(reception2MapsLink)}
+                  className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 md:py-3 bg-motif-deep hover:bg-motif-accent text-motif-cream rounded-lg font-[family-name:var(--font-crimson)] font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] premium-shadow"
+                  aria-label="Get directions to Reception 2"
+                >
+                  <Navigation className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" />
+                  <span>Get Directions</span>
+                </button>
+                <button
+                  onClick={() => copyToClipboard(reception2Venue, 'reception2')}
+                  className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 md:py-3 bg-motif-cream border-2 border-motif-deep/30 hover:border-motif-deep/50 hover:bg-motif-silver/20 text-motif-deep rounded-lg font-[family-name:var(--font-crimson)] font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                  aria-label="Copy Reception 2 address"
+                >
+                  {copiedItems.has('reception2') ? (
+                    <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0 text-motif-deep" />
+                  ) : (
+                    <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" />
+                  )}
+                  <span>{copiedItems.has('reception2') ? 'Copied!' : 'Copy Address'}</span>
                 </button>
               </div>
             </div>
