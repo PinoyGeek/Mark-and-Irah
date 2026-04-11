@@ -5,7 +5,7 @@ export const siteConfig = {
     groom: "Mark Valencia", //Ltryl B. Benitez
     groomNickname: "Mark",
     monogram:"/monogram/monogram.png" ,//Ltryl
-    // backgroundMusic:"/background_music/sjjm_E_132.mp3"
+    backgroundMusic:"/background_music/sjjm_E_132.mp3"
   },
   googleAPI:{
     messageForm: "https://docs.google.com/forms/d/e/1FAIpQLScq2smHTS7O3oK-OlDnuRr0HROPlXFED1ABGFkSXxSaRQMLrw/formResponse", //done
