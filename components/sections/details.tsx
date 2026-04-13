@@ -889,7 +889,7 @@ export function Details() {
                 Arrival
                 </h4>
                 <p className={`${cormorant.className} text-sm sm:text-base md:text-lg text-motif-deep/80 leading-relaxed`}>
-                To ensure everything runs smoothly, please arrive at least 30 minutes before the ceremony starts. The program will begin at 3:30 PM, so we kindly ask everyone to arrive by 2:30 PM. This will give you time to find your seat, take in the beautiful setup, and be fully present for our special moment
+                To ensure everything runs smoothly, please arrive at least 30 minutes before the ceremony starts. The program will begin at 2:00 PM, so we kindly ask everyone to arrive by 1:00 PM. This will give you time to find your seat, take in the beautiful setup, and be fully present for our special moment
                 </p>
               </div>
 

@@ -8,6 +8,7 @@ import { Countdown } from "@/components/sections/countdown"
 import { WeddingTimeline } from "@/components/sections/wedding-timeline"
 import { Gallery } from "@/components/sections/gallery"
 import { Messages } from "@/components/sections/messages"
+import { VideoMessage } from "@/components/sections/video-message"
 import { Details } from "@/components/sections/details"
 import { Entourage } from "@/components/sections/entourage"
 import { PrincipalSponsors } from "@/components/sections/principal-sponsors"
@@ -110,6 +111,7 @@ export default function Home() {
               <LoveStoryNew />
               <Countdown />
               <Gallery />
+              <VideoMessage />
               <Messages />
               <Details />
               {/* <GuestInformation /> */}
