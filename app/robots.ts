@@ -13,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://vince-and-era.weddinginvitationrsvp.com/sitemap.xml",
+    sitemap: "https://Mark-and-Irah.weddinginvitationrsvp.com/sitemap.xml",
   }
 }

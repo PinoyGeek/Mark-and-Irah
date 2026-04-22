@@ -37,12 +37,12 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            {/* <h3
+            <h3
               className="font-serif font-bold text-lg mb-2 tracking-[0.12em] uppercase"
               style={{ color: 'var(--color-motif-deep)' }}
             >
               {siteConfig.couple.bride} & {siteConfig.couple.groom}
-            </h3> */}
+            </h3>
             <p className="text-sm" style={{ color: 'var(--color-motif-medium)' }}>
               {siteConfig.wedding.date}
             </p>
