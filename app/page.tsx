@@ -106,25 +106,24 @@ export default function Home() {
               {appState === AppState.DETAILS && <div className="h-12 sm:h-14 md:h-16" aria-hidden />}
               <MainHero />
               <Welcome />
+              <Countdown />
+              <Details />
+              <WeddingTimeline />
+              <Entourage />
+              <Registry />
+              <Gallery />
+              <FAQ />
+              <Messages />
+              <VideoMessage />
                <CoupleVideo /> 
               {/* <LoveStory /> */}
               <LoveStoryNew />
-              <Countdown />
-              <Gallery />
-              <VideoMessage />
-              <Messages />
-              <Details />
+        
               {/* <GuestInformation /> */}
-              <Entourage />
               <GuestList />
               <BookOfGuests />
-              <WeddingTimeline />
               {/* <PrincipalSponsors /> */}
-              <FAQ />
-
-              <Registry />
               <SnapShare />
-
               <Footer />
             </div>
           </div>
