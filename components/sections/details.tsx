@@ -4,7 +4,7 @@ import { Section } from "@/components/section"
 import { useState, useEffect } from "react"
 import { QRCodeSVG } from "qrcode.react"
 import { siteConfig } from "@/content/site"
-import { CloudinaryImage } from "@/components/ui/cloudinary-image"
+import Image from "next/image"
 import { Cinzel, Cormorant_Garamond } from "next/font/google"
 import {
   Shirt,
@@ -149,7 +149,7 @@ export function Details() {
 
       {/* Flower decoration - top left corner */}
       <div className="absolute left-0 top-0 z-0 pointer-events-none">
-        <CloudinaryImage
+        <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
@@ -162,7 +162,7 @@ export function Details() {
 
       {/* Flower decoration - top right corner */}
       <div className="absolute right-0 top-0 z-0 pointer-events-none">
-        <CloudinaryImage
+        <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
@@ -175,7 +175,7 @@ export function Details() {
 
       {/* Flower decoration - left bottom corner */}
       <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
-        <CloudinaryImage
+        <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
@@ -188,7 +188,7 @@ export function Details() {
 
       {/* Flower decoration - right bottom corner */}
       <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
-        <CloudinaryImage
+        <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
@@ -235,7 +235,7 @@ export function Details() {
           <div className="relative bg-motif-cream rounded-xl sm:rounded-2xl overflow-hidden border border-motif-deep/20  shadow-[0_16px_40px_rgba(0,0,0,0.18)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.24)] hover:border-motif-deep/80 transition-all duration-300">
             {/* Venue Image */}
             <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[30rem] overflow-hidden">
-              <CloudinaryImage
+              <Image
                 src={siteConfig.ceremony.image}
                 alt={siteConfig.ceremony.location}
                 fill
@@ -379,7 +379,7 @@ export function Details() {
                     index === currentReceptionImageIndex ? "opacity-100" : "opacity-0"
                   }`}
                 >
-                  <CloudinaryImage
+                  <Image
                     src={src}
                     alt={siteConfig.reception.venue}
                     fill
@@ -501,7 +501,7 @@ export function Details() {
                     index === currentReception2ImageIndex ? "opacity-100" : "opacity-0"
                   }`}
                 >
-                  <CloudinaryImage
+                  <Image
                     src={src}
                     alt={reception2VenueName}
                     fill
@@ -633,7 +633,7 @@ export function Details() {
 
               {/* Principal sponsor attire image */}
               <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] max-w-2xl mx-auto rounded-lg sm:rounded-xl overflow-hidden border border-motif-medium/30 mb-4 sm:mb-6 md:mb-8">
-                <CloudinaryImage
+                <Image
                   src={siteConfig.dressCode.sponsors.photo}
                   alt="Principal sponsor attire — follow the color palette"
                   fill
@@ -690,7 +690,7 @@ export function Details() {
 
               {/* Principal sponsor attire image */}
               <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] max-w-2xl mx-auto rounded-lg sm:rounded-xl overflow-hidden border border-motif-medium/30 mb-4 sm:mb-6 md:mb-8">
-                <CloudinaryImage
+                <Image
                   src={siteConfig.dressCode.usher.photo}
                   alt="Principal sponsor attire — follow the color palette"
                   fill
@@ -748,7 +748,7 @@ export function Details() {
 
               {/* Principal sponsor attire image */}
               <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] max-w-2xl mx-auto rounded-lg sm:rounded-xl overflow-hidden border border-motif-medium/30 mb-4 sm:mb-6 md:mb-8">
-                <CloudinaryImage
+                <Image
                   src={siteConfig.dressCode.guests.photo}
                   alt={siteConfig.dressCode.guests.notes}
                   fill
@@ -841,7 +841,7 @@ export function Details() {
                       transform: `rotate(${currentRotation}deg) ${isActive ? 'scale(1.1)' : 'scale(1)'}`,
                     }}
                   >
-                    <CloudinaryImage
+                    <Image
                       src={image}
                       alt={`Wedding couple ${index + 1}`}
                       fill
@@ -979,7 +979,7 @@ export function Details() {
               {/* Shimmer effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-0" />
 
-              <CloudinaryImage
+              <Image
                 src={showImageModal === "ceremony" ? "/Details/ceremony.png" : "/Details/reception1.png"}
                 alt={showImageModal === "ceremony" ? ceremonyLocationFormatted : receptionLocationFormatted}
                 fill
