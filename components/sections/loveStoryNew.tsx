@@ -2,7 +2,6 @@
 
 import React, { useRef, useEffect } from 'react'
 import Image from 'next/image'
-import { getCloudinaryVideoUrl } from "@/lib/cloudinary"
 import { Cinzel } from "next/font/google"
 import { useAudio } from "@/contexts/audio-context"
 import { siteConfig } from '@/content/site'
@@ -336,7 +335,7 @@ export function LoveStoryNew() {
           {/* Portrait row */}
           <div className="flex items-center justify-center gap-3 sm:gap-6 mb-6">
             <PortraitCard
-              src="/assets/Mark.jpg" alt="Mark"
+              src="/assets/Mark.webp" alt="Mark"
               name='Mark "Edoy"' label="Mark Portrait" rotate="-3deg"
               className="w-24 sm:w-32 md:w-40"
             />
@@ -365,7 +364,7 @@ export function LoveStoryNew() {
             </div>
 
             <PortraitCard
-              src="/assets/Irah.jpg" alt="Irah"
+              src="/assets/Irah.webp" alt="Irah"
               name='Irah "Yaya"' label="Irah Portrait" rotate="3deg"
               className="w-24 sm:w-32 md:w-40"
             />
@@ -388,14 +387,14 @@ export function LoveStoryNew() {
         <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
           {[
             {
-              src: "/assets/MarkAvatar.jpg",
+              src: "/assets/MarkAvatar.webp",
               name: "Mark", role: "The Shepherd",
               nameColor: "text-motif-accent", roleColor: "text-motif-accent/60",
               ring: "ring-motif-accent/25", borderColor: "border-motif-accent/15",
               quote: "And Yes, She is Everything! The woman that I Dream and I Desire.. The Woman Who is Beautiful inside and out.. My Long Lost Shulammite...",
             },
             {
-              src: "/assets/IrahAvatar.jpg",
+              src: "/assets/IrahAvatar.webp",
               name: "Irah", role: "The Shulammite",
               nameColor: "text-motif-soft", roleColor: "text-motif-soft/60",
               ring: "ring-motif-soft/25", borderColor: "border-motif-soft/15",
@@ -486,7 +485,7 @@ export function LoveStoryNew() {
 
           {/* ── Mark ── */}
           <div className="flex flex-col gap-3">
-            <ImageBox src="/desktop-background/couple (5).jpg" alt="Mark in service"
+            <ImageBox src="/desktop-background/couple (5).webp" alt="Mark in service"
               aspectRatio="16/10" className="w-full shadow-md" label="Mark Service Photo" />
 
             {/* Name tag */}
@@ -527,7 +526,7 @@ export function LoveStoryNew() {
 
           {/* ── Irah ── */}
           <div className="flex flex-col gap-3">
-            <ImageBox src="/desktop-background/couple (6).jpg" alt="Irah in service"
+            <ImageBox src="/desktop-background/couple (6). webp" alt="Irah in service"
               aspectRatio="16/10" className="w-full shadow-md" label="Irah Service Photo" />
 
             {/* Name tag */}
@@ -598,9 +597,9 @@ export function LoveStoryNew() {
 
             {/* Photo pair – 2-col row on mobile, stacked col on desktop */}
             <div className="order-3 md:order-none grid grid-cols-2 md:grid-cols-1 gap-2 w-full">
-              <ImageBox src="/assets/firstMeet/28.png" alt="Regional Convention"
+              <ImageBox src="/assets/firstMeet/28.webp" alt="Regional Convention"
                 aspectRatio="5/4" className="w-full shadow-lg rounded-md" />
-              <ImageBox src="/assets/firstMeet/29.png" alt="Dinner at Resente"
+              <ImageBox src="/assets/firstMeet/29.webp" alt="Dinner at Resente"
                 aspectRatio="5/4" className="w-full shadow-md rounded-md" />
             </div>
 
@@ -624,9 +623,9 @@ export function LoveStoryNew() {
 
             {/* Photo pair – 2-col row on mobile, stacked col on desktop */}
             <div className="order-3 md:order-none grid grid-cols-2 md:grid-cols-1 gap-2 w-full">
-              <ImageBox src="/assets/firstMeet/30.png" alt="People's Park Walk"
+              <ImageBox src="/assets/firstMeet/30.webp" alt="People's Park Walk"
                 aspectRatio="5/4" className="w-full shadow-lg rounded-md" />
-              <ImageBox src="/assets/firstMeet/31.png" alt="Dinner Together"
+              <ImageBox src="/assets/firstMeet/31.webp" alt="Dinner Together"
                 aspectRatio="5/4" className="w-full shadow-md rounded-md" />
             </div>
 
@@ -645,12 +644,12 @@ export function LoveStoryNew() {
 
         {/* Top mosaic – roxas 32-37 (6 photos), last 2 hidden on mobile */}
         <MosaicGallery className="mb-5" hideOnMobile={[4, 5]} items={[
-          { src: "/assets/roxas/32.png", alt: "Roxas City Convention" },
-          { src: "/assets/roxas/33.png", alt: "Roxas City Convention" },
-          { src: "/assets/roxas/34.png", alt: "Roxas City Convention" },
-          { src: "/assets/roxas/35.png", alt: "Roxas City" },
-          { src: "/assets/roxas/36.png", alt: "Roxas City" },
-          { src: "/assets/roxas/37.png", alt: "Roxas City" },
+          { src: "/assets/roxas/32.webp", alt: "Roxas City Convention" },
+          { src: "/assets/roxas/33.webp", alt: "Roxas City Convention" },
+          { src: "/assets/roxas/34.webp", alt: "Roxas City Convention" },
+          { src: "/assets/roxas/35.webp", alt: "Roxas City" },
+          { src: "/assets/roxas/36.webp", alt: "Roxas City" },
+          { src: "/assets/roxas/37.webp", alt: "Roxas City" },
         ]} />
 
         {/* Quotes – 2-col on sm+, stacked on mobile */}
@@ -663,12 +662,12 @@ export function LoveStoryNew() {
 
         {/* Bottom mosaic – roxas 38-43 (6 photos), last 2 hidden on mobile */}
         <MosaicGallery className="mt-4" hideOnMobile={[4, 5]} items={[
-          { src: "/assets/roxas/38.png", alt: "Roxas City" },
-          { src: "/assets/roxas/39.png", alt: "Roxas City" },
-          { src: "/assets/roxas/40.png", alt: "Roxas City" },
-          { src: "/assets/roxas/41.png", alt: "Roxas City" },
-          { src: "/assets/roxas/42.png", alt: "Roxas City" },
-          { src: "/assets/roxas/43.png", alt: "Roxas City" },
+          { src: "/assets/roxas/38.webp", alt: "Roxas City" },
+          { src: "/assets/roxas/39.webp", alt: "Roxas City" },
+          { src: "/assets/roxas/40.webp", alt: "Roxas City" },
+          { src: "/assets/roxas/41.webp", alt: "Roxas City" },
+          { src: "/assets/roxas/42.webp", alt: "Roxas City" },
+          { src: "/assets/roxas/43.webp", alt: "Roxas City" },
         ]} />
       </Chapter>
 
@@ -678,10 +677,10 @@ export function LoveStoryNew() {
 
         {/* Opening mosaic – flowers 16, 17, 20, 21 (4 photos) */}
         <MosaicGallery className="mb-5" items={[
-          { src: "/assets/flowers/16.png", alt: "Falling in love" },
-          { src: "/assets/flowers/17.png", alt: "Falling in love" },
-          { src: "/assets/flowers/20.png", alt: "Together" },
-          { src: "/assets/flowers/21.png", alt: "Together" },
+          { src: "/assets/flowers/16.webp", alt: "Falling in love" },
+          { src: "/assets/flowers/17.webp", alt: "Falling in love" },
+          { src: "/assets/flowers/20.webp", alt: "Together" },
+          { src: "/assets/flowers/21.webp", alt: "Together" },
         ]} />
 
 
@@ -712,9 +711,9 @@ export function LoveStoryNew() {
 
         {/* Mid mosaic – 3 more flowers between content and milestone */}
         <MosaicGallery className="mb-5" items={[
-          { src: "/assets/flowers/22.png", alt: "Together" },
-          { src: "/assets/flowers/23.png", alt: "Together" },
-          { src: "/assets/flowers/24.png", alt: "Together" },
+          { src: "/assets/flowers/22.webp", alt: "Together" },
+          { src: "/assets/flowers/23.webp", alt: "Together" },
+          { src: "/assets/flowers/24.webp", alt: "Together" },
         ]} />
 
         {/* ── Key Date Milestone ── */}
@@ -747,12 +746,12 @@ export function LoveStoryNew() {
 
         {/* Bottom mosaic – flowers 25-27 + roxas 44-46, last 2 hidden on mobile */}
         <MosaicGallery className="mt-5" hideOnMobile={[4, 5]} items={[
-          { src: "/assets/flowers/25.png", alt: "Together" },
-          { src: "/assets/flowers/26.png", alt: "Together" },
-          { src: "/assets/flowers/27.png", alt: "Together" },
-          { src: "/assets/roxas/44.png",   alt: "Roxas" },
-          { src: "/assets/roxas/45.png",   alt: "Roxas" },
-          { src: "/assets/roxas/46.png",   alt: "Roxas" },
+          { src: "/assets/flowers/25.webp", alt: "Together" },
+          { src: "/assets/flowers/26.webp", alt: "Together" },
+          { src: "/assets/flowers/27.webp", alt: "Together" },
+          { src: "/assets/roxas/44.webp",   alt: "Roxas" },
+          { src: "/assets/roxas/45.webp",   alt: "Roxas" },
+          { src: "/assets/roxas/46.webp",   alt: "Roxas" },
         ]} />
       </Chapter>
 
@@ -783,7 +782,7 @@ export function LoveStoryNew() {
             <PersonQuote speaker="Irah" accent="rose"
               text="Nagustuhan ko yung respectful manner niya. Ipinagpaalam niya ako sa aking mga magulang at kapatid, diretso siyang nagsabi ng intention niya. Nagustuhan ko rin kung paano niya minamahal sina mama at papa. Transparent siya sa lahat sa status namin sa kaniyang congregation at close friends kaya sobrang na-appreciate ko yung warmness nila sa akin nang minsan na dumalaw ako kina Mark. Doon nakita ko kung anong klaseng tao siya at na convince ako na sasagutin ko siya sa susunod na mga araw dahil alam ko safe ako sa kanya! Nakita ko rin kung paano siya tumutulong sa Bible Studies niya, kung paano siya pahalagahan ng mga kaibigan niya na nasa RTO, LDC at mga ka-kongregasyon, and how he loves me to the full." />
 
-            <ImageBox src="/desktop-background/couple (11).jpg" alt="Mark and Irah together"
+            <ImageBox src="/desktop-background/couple (11).webp" alt="Mark and Irah together"
               aspectRatio="5/4" className="w-full shadow-sm rounded-md hidden sm:block" />
 
             <PersonQuote speaker="Irah" accent="rose"
@@ -806,7 +805,7 @@ export function LoveStoryNew() {
             <PersonQuote speaker="Mark" accent="gold"
               text="Every time na may mga theocratic activities ay magkasama kami ni Irah, yun na din yung time na magkasama kami nagde-date, bonding with family and friends. Nakikita ko na si Irah ay isang masigasig, mabait, at napakabuting sister na kapit talaga sa isang maybahay na sister. Nakikita ko din na willing na willing si Irah na mag-sacrifice para sa paglilingkod kay Jehova. Nakita ko how she puts her heart in every detail of her bethel assignments, how she loves her Bible studies so much, how she stands to live as regular pioneer for almost 15 years, the way she deals with her family and congregation, how she remain balance in her spiritual career and in her secular job." />
 
-            <ImageBox src="/desktop-background/couple (10).jpg" alt="Mark and Irah together"
+            <ImageBox src="/desktop-background/couple (10).webp" alt="Mark and Irah together"
               aspectRatio="5/4" className="w-full shadow-sm rounded-md hidden sm:block" />
 
             <PersonQuote speaker="Mark" accent="gold"
