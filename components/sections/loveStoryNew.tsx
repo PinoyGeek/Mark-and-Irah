@@ -526,7 +526,7 @@ export function LoveStoryNew() {
 
           {/* ── Irah ── */}
           <div className="flex flex-col gap-3">
-            <ImageBox src="/desktop-background/couple (6). webp" alt="Irah in service"
+            <ImageBox src="/desktop-background/couple (6).webp" alt="Irah in service"
               aspectRatio="16/10" className="w-full shadow-md" label="Irah Service Photo" />
 
             {/* Name tag */}
