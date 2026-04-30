@@ -5,8 +5,8 @@ import Link from "next/link"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { Cormorant_Garamond, Cinzel } from "next/font/google"
 import { Section } from "@/components/section"
-import { CloudinaryImage } from "@/components/ui/cloudinary-image"
-import { getCloudinaryUrl } from "@/lib/cloudinary"
+import Image from 'next/image'
+
 // Removed circular gallery in favor of a responsive masonry layout
 
 // Palette lives in globals.css → @theme inline → --color-motif-*
@@ -27,16 +27,16 @@ const cinzel = Cinzel({
 })
 
 const galleryItems = [
-  { image: "/mobile-background/couple (1).jpg", text: " " },
-  { image: "/mobile-background/couple (2).jpg", text: " " },
-  { image: "/mobile-background/couple (3).jpg", text: " " },
-  { image: "/mobile-background/couple (4).jpg", text: " " },
-  { image: "/mobile-background/couple (5).jpg", text: " " },
-  { image: "/mobile-background/couple (6).jpg", text: " " },
-  { image: "/mobile-background/couple (7).jpg", text: " " },
-  { image: "/mobile-background/couple (8).jpg", text: " " },
-  { image: "/mobile-background/couple (9).jpg", text: " " },
-  { image: "/mobile-background/couple (10).jpg", text: " " },
+  { image: "/mobile-background/couple (1).webp", text: " " },
+  { image: "/mobile-background/couple (2).webp", text: " " },
+  { image: "/mobile-background/couple (3).webp", text: " " },
+  { image: "/mobile-background/couple (4).webp", text: " " },
+  { image: "/mobile-background/couple (5).webp", text: " " },
+  { image: "/mobile-background/couple (6).webp", text: " " },
+  { image: "/mobile-background/couple (7).webp", text: " " },
+  { image: "/mobile-background/couple (8).webp", text: " " },
+  { image: "/mobile-background/couple (9).webp", text: " " },
+  { image: "/mobile-background/couple (10).webp", text: " " },
 ]
 
 export function Gallery() {
@@ -100,9 +100,9 @@ export function Gallery() {
   useEffect(() => {
     if (selectedImage) {
       const next = new window.Image()
-      next.src = getCloudinaryUrl(galleryItems[(currentIndex + 1) % galleryItems.length].image, { width: 1200 })
+      next.src = galleryItems[(currentIndex + 1) % galleryItems.length].image
       const prev = new window.Image()
-      prev.src = getCloudinaryUrl(galleryItems[(currentIndex - 1 + galleryItems.length) % galleryItems.length].image, { width: 1200 })
+      prev.src = galleryItems[(currentIndex - 1 + galleryItems.length) % galleryItems.length].image
     }
   }, [selectedImage, currentIndex])
 
@@ -138,7 +138,7 @@ export function Gallery() {
       >
       {/* Corner floral decoration - aligned with Details section */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
-        <CloudinaryImage
+        <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
@@ -147,7 +147,7 @@ export function Gallery() {
           style={{ transform: "scaleY(-1)", filter: GALLERY_DECO_FILTER }}
           priority={false}
         />
-        <CloudinaryImage
+        <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
@@ -156,7 +156,7 @@ export function Gallery() {
           style={{ transform: "scaleX(-1) scaleY(-1)", filter: GALLERY_DECO_FILTER }}
           priority={false}
         />
-        <CloudinaryImage
+        <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
@@ -165,7 +165,7 @@ export function Gallery() {
           style={{ filter: GALLERY_DECO_FILTER }}
           priority={false}
         />
-        <CloudinaryImage
+        <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
@@ -241,7 +241,7 @@ export function Gallery() {
 
                         <div className="relative aspect-[3/4] overflow-hidden">
                           <img
-                            src={getCloudinaryUrl(item.image, { width: 600, quality: "auto" })}
+                            src={item.image}
                             alt={item.text || `Gallery image ${index + 1}`}
                             loading="lazy"
                             decoding="async"
@@ -282,7 +282,7 @@ export function Gallery() {
 
                       <div className="relative aspect-[3/4] md:aspect-square overflow-hidden">
                         <img
-                          src={getCloudinaryUrl(item.image, { width: 500, quality: "auto" })}
+                          src={item.image}
                           alt={item.text || `Gallery image ${index + 1}`}
                           loading="lazy"
                           decoding="async"
@@ -458,7 +458,7 @@ export function Gallery() {
                 onClick={(e) => e.stopPropagation()}
               >
                 <img
-                  src={getCloudinaryUrl(selectedImage.image || "/placeholder.svg", { width: 1200, quality: "auto" })}
+                  src={selectedImage.image || "/placeholder.svg"}
                   alt={selectedImage.text || "Gallery image"}
                   style={{ 
                     transform: `translate3d(${pan.x}px, ${pan.y}px, 0) scale(${zoomScale})`, 

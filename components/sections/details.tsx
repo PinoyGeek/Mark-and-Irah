@@ -41,19 +41,19 @@ export function Details() {
   const [rotationOffset, setRotationOffset] = useState(0)
   
   const coupleImages = [
-    "/mobile-background/couple (5).jpg",
-    "/mobile-background/couple (6).jpg",
-    "/mobile-background/couple (3).jpg",
-    "/mobile-background/couple (4).jpg",
+    "/mobile-background/couple (5).webp",
+    "/mobile-background/couple (6).webp",
+    "/mobile-background/couple (3).webp",
+    "/mobile-background/couple (4).webp",
   ]
 
   const receptionImages = siteConfig.reception.image
 
   const reception2Images = [
-    "/Details/residence (1).jpg",
-    "/Details/residence (2).jpg",
-    "/Details/residence (3).jpg",
-    "/Details/residence (4).jpg",
+    "/Details/residence (1).webp",
+    "/Details/residence (2).webp",
+    "/Details/residence (3).webp",
+    "/Details/residence (4).webp",
   ]
 
   useEffect(() => {

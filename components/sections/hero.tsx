@@ -3,23 +3,22 @@
 import { useEffect, useState, useMemo } from "react"
 import { motion } from "motion/react"
 import { siteConfig } from "@/content/site"
-import { getCloudinaryUrl } from "@/lib/cloudinary"
 
 const desktopImages: string[] = [
-  '/desktop-background/couple (1).jpg',
-  '/desktop-background/couple (2).jpg',
-  '/desktop-background/couple (3).jpg',
-  '/desktop-background/couple (4).jpg',
-  '/desktop-background/couple (5).jpg',
-].map((src) => getCloudinaryUrl(src, { width: 1920, quality: "auto" }))
+  "/desktop-background/couple (1).webp",
+  "/desktop-background/couple (2).webp",
+  "/desktop-background/couple (3).webp",
+  "/desktop-background/couple (4).webp",
+  "/desktop-background/couple (5).webp",
+]
 
 const mobileImages: string[] = [
-  '/mobile-background/couple (1).jpg',
-  '/mobile-background/couple (2).jpg',
-  '/mobile-background/couple (3).jpg',
-  '/mobile-background/couple (4).jpg',
-  '/mobile-background/couple (5).jpg',
-].map((src) => getCloudinaryUrl(src, { width: 768, quality: "auto" }))
+  "/mobile-background/couple (1).webp",
+  "/mobile-background/couple (2).webp",
+  "/mobile-background/couple (3).webp",
+  "/mobile-background/couple (4).webp",
+  "/mobile-background/couple (5).webp",
+]
 
 const SHOW_BUTTERFLIES = false
 

@@ -3,7 +3,7 @@
 import { Section } from "@/components/section"
 import { siteConfig } from "@/content/site"
 import { Cormorant_Garamond, Cinzel } from "next/font/google"
-import { CloudinaryImage } from "@/components/ui/cloudinary-image"
+import Image from 'next/image'
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -38,7 +38,7 @@ export function Welcome() {
     >
       {/* Corner floral decoration - same as countdown section */}
       <div className="absolute left-0 top-0 z-0 pointer-events-none">
-        <CloudinaryImage
+        <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
@@ -48,7 +48,7 @@ export function Welcome() {
         />
       </div>
       <div className="absolute right-0 top-0 z-0 pointer-events-none">
-        <CloudinaryImage
+        <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
@@ -58,7 +58,7 @@ export function Welcome() {
         />
       </div>
       <div className="absolute left-0 bottom-0 z-0 pointer-events-none">
-        <CloudinaryImage
+        <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}
@@ -68,7 +68,7 @@ export function Welcome() {
         />
       </div>
       <div className="absolute right-0 bottom-0 z-0 pointer-events-none">
-        <CloudinaryImage
+        <Image
           src="/decoration/flower-decoration-left-bottom-corner2.png"
           alt=""
           width={300}

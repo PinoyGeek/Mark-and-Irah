@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { siteConfig } from '@/content/site';
-import { CloudinaryImage } from '@/components/ui/cloudinary-image';
+import Image from 'next/image';
 
 interface HeroProps {
   onOpen: () => void;
@@ -10,19 +10,19 @@ interface HeroProps {
 
 
 const desktopImages: string[] = [
-  '/desktop-background/couple (5).jpg',
-  '/desktop-background/couple (6).jpg',
-  '/desktop-background/couple (7).jpg',
-  '/desktop-background/couple (8).jpg',
-  '/desktop-background/couple (9).jpg',
+  '/desktop-background/couple (5).webp',
+  '/desktop-background/couple (6).webp',
+  '/desktop-background/couple (7).webp',
+  '/desktop-background/couple (8).webp',
+  '/desktop-background/couple (9).webp',
 ];
 
 const mobileImages: string[] = [
-  '/mobile-background/couple (5).jpg',
-  '/mobile-background/couple (6).jpg',
-  '/mobile-background/couple (7).jpg',
-  '/mobile-background/couple (8).jpg',
-  '/mobile-background/couple (9).jpg',
+  '/mobile-background/couple (5).webp',
+  '/mobile-background/couple (6).webp',
+  '/mobile-background/couple (7).webp',
+  '/mobile-background/couple (8).webp',
+  '/mobile-background/couple (9).webp',
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
@@ -92,7 +92,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
               transition: 'opacity 1s ease-in-out, transform 1s ease-in-out'
             }}
           >
-            <CloudinaryImage
+            <Image
               src={src}
               alt="Couple"
               fill
@@ -162,7 +162,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
                 animation: contentVisible ? 'gentleFloat 3s ease-in-out infinite' : 'none'
               }}
             >
-              <CloudinaryImage
+              <Image
                 src={siteConfig.couple.monogram}
                 alt="Monogram"
                 fill

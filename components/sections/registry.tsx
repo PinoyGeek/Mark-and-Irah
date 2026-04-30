@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Section } from "@/components/section"
 import { Cinzel } from "next/font/google"
 import { siteConfig } from "@/content/site"
-import { CloudinaryImage } from "@/components/ui/cloudinary-image"
+import Image from 'next/image'
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -118,7 +118,7 @@ export function Registry() {
             {/* Outer decorative frame */}
             <div className="relative p-1 rounded-3xl bg-gradient-to-br from-motif-cream/20 via-motif-cream/10 to-motif-cream/5 shadow-[0_8px_40px_rgba(0,0,0,0.25)]">
               <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden bg-white shadow-inner">
-                <CloudinaryImage
+                <Image
                   src={activeItem.src}
                   alt={`QR code – ${activeItem.id}`}
                   fill

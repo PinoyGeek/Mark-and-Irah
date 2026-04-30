@@ -4,10 +4,9 @@ import { useEffect, useState } from "react"
 import { motion } from "motion/react"
 import { Instagram, Facebook, Twitter, Share2, Copy, Download, Check } from "lucide-react"
 import { Section } from "@/components/section"
-import Image from "next/image"
 import { QRCodeCanvas } from "qrcode.react"
 import { siteConfig } from "@/content/site"
-import { CloudinaryImage } from "@/components/ui/cloudinary-image"
+import Image from "next/image"
 import { Cormorant_Garamond, Cinzel } from "next/font/google"
 
 const cormorant = Cormorant_Garamond({
@@ -267,21 +266,21 @@ export function SnapShare() {
                     whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.25 }}
                   >
-                    <CloudinaryImage src="/mobile-background/couple (6).jpg" alt="Wedding moment 1" fill className="object-cover" style={{ imageOrientation: "from-image" }} />
+                    <Image src="/mobile-background/couple (6).webp" alt="Wedding moment 1" fill className="object-cover" style={{ imageOrientation: "from-image" }} />
                   </motion.div>
                   <motion.div
                     className="relative aspect-square rounded-lg sm:rounded-xl overflow-hidden shadow-md border-2 border-motif-medium/30 hover:border-motif-medium/50 transition-all"
                     whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.25 }}
                   >
-                    <CloudinaryImage src="/mobile-background/couple (7).jpg" alt="Wedding moment 2" fill className="object-cover" style={{ imageOrientation: "from-image" }} />
+                    <Image src="/mobile-background/couple (7).webp" alt="Wedding moment 2" fill className="object-cover" style={{ imageOrientation: "from-image" }} />
                   </motion.div>
                   <motion.div
                     className="relative col-span-2 aspect-[3/2] rounded-lg sm:rounded-xl overflow-hidden shadow-md border-2 border-motif-medium/30 hover:border-motif-medium/50 transition-all"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.25 }}
                   >
-                    <CloudinaryImage src="/desktop-background/couple (8).jpg" alt="Wedding moment 3" fill className="object-cover" />
+                    <Image src="/desktop-background/couple (8).webp" alt="Wedding moment 3" fill className="object-cover" />
                   </motion.div>
                 </div>
                 <p
@@ -488,7 +487,7 @@ export function SnapShare() {
                   <div className="mx-auto inline-flex flex-col items-center bg-white/90 backdrop-blur-sm p-2.5 sm:p-5 rounded-xl sm:rounded-2xl shadow-md border border-motif-cream/80 mb-3 sm:mb-4">
                     <div className="mb-2 sm:mb-3 p-1.5 sm:p-3 rounded-lg sm:rounded-xl bg-motif-cream border border-motif-cream/80">
                       <div className="bg-white p-1.5 sm:p-3 rounded-lg shadow-sm border border-motif-cream/80">
-                        <CloudinaryImage src="/QR/QRDrivea.png" alt="Google Drive QR Code" width={isMobile ? 130 : 200} height={isMobile ? 130 : 200} className="bg-white" />
+                        <Image src="/QR/QRDrivea.png" alt="Google Drive QR Code" width={isMobile ? 130 : 200} height={isMobile ? 130 : 200} className="bg-white" />
                       </div>
                     </div>
                     <p className={`${cormorant.className} text-motif-medium text-xs sm:text-sm`}>Scan with your camera app</p>

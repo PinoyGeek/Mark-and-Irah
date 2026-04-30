@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useRef, useEffect } from 'react'
-import { CloudinaryImage } from "@/components/ui/cloudinary-image"
+import Image from 'next/image'
 import { getCloudinaryVideoUrl } from "@/lib/cloudinary"
 import { Cinzel } from "next/font/google"
 import { useAudio } from "@/contexts/audio-context"
@@ -106,7 +106,7 @@ function MosaicGallery({
             style={{ animationDelay: `${i * 60}ms` }}
           >
             <div className="relative w-full overflow-hidden" style={{ aspectRatio: "5/4" }}>
-              <CloudinaryImage
+              <Image
                 src={item.src} alt={item.alt ?? ""} fill
                 className="object-cover transition-transform duration-700 ease-out will-change-transform
                   group-hover:scale-[1.07]"
@@ -132,7 +132,7 @@ function ImageBox({
   return (
     <div className={`relative overflow-hidden rounded-md ${className}`} style={{ aspectRatio }}>
       {src ? (
-        <CloudinaryImage
+        <Image
           src={src} alt={alt} fill
           className="object-cover transition-transform duration-500 hover:scale-[1.02]"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -412,7 +412,7 @@ export function LoveStoryNew() {
               {/* Avatar + name row */}
               <div className="flex items-center gap-3.5">
                 <div className={`w-14 h-14 sm:w-12 sm:h-12 relative rounded-full overflow-hidden flex-shrink-0 ring-2 ${ring} shadow-md`}>
-                  <CloudinaryImage src={src} alt={name} fill className="object-cover" sizes="56px" />
+                  <Image src={src} alt={name} fill className="object-cover" sizes="56px" />
                 </div>
                 <div>
                   <p className={`${cinzel.className} text-[0.62rem] tracking-[0.28em] uppercase ${nameColor} mb-0.5`}>
@@ -835,8 +835,8 @@ export function LoveStoryNew() {
             {/* Photo 1 */}
             <div className="relative overflow-hidden rounded-md shadow-md group"
               style={{ aspectRatio: "5/4" }}>
-              <CloudinaryImage
-                src="/assets/askingParents/pic 1.png" alt="Asking for courtship permission" fill
+              <Image
+                src="/assets/askingParents/pic 1.webp" alt="Asking for courtship permission" fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
                 sizes="(max-width: 640px) 100vw, 33vw"
               />
@@ -845,8 +845,8 @@ export function LoveStoryNew() {
             {/* Photo 2 */}
             <div className="relative overflow-hidden rounded-md shadow-md group"
               style={{ aspectRatio: "5/4" }}>
-              <CloudinaryImage
-                src="/assets/askingParents/pic 2.png" alt="Asking for courtship permission" fill
+              <Image
+                src="/assets/askingParents/pic 2.webp" alt="Asking for courtship permission" fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
                 sizes="(max-width: 640px) 100vw, 33vw"
               />
@@ -863,7 +863,7 @@ export function LoveStoryNew() {
                 preload="metadata"
                 aria-label="Asking courtship permission video"
               >
-                <source src={getCloudinaryVideoUrl("/assets/askingParents/asking courtship permission.mp4")} type="video/mp4" />
+                <source src="/assets/askingParents/asking courtship permission.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
@@ -885,10 +885,10 @@ export function LoveStoryNew() {
 
         {/* Opening mosaic – all 4 expressionLove images, none hidden (they fit cleanly) */}
         <MosaicGallery className="mb-4" items={[
-          { src: "/assets/expressionLove/6.png", alt: "Expressions of Love" },
-          { src: "/assets/expressionLove/7.png", alt: "Expressions of Love" },
-          { src: "/assets/expressionLove/8.png", alt: "Expressions of Love" },
-          { src: "/assets/expressionLove/9.png", alt: "Expressions of Love" },
+          { src: "/assets/expressionLove/6.webp", alt: "Expressions of Love" },
+          { src: "/assets/expressionLove/7.webp", alt: "Expressions of Love" },
+          { src: "/assets/expressionLove/8.webp", alt: "Expressions of Love" },
+          { src: "/assets/expressionLove/9.webp", alt: "Expressions of Love" },
         ]} />
 
         {/* ── Two-column quotes – gap-2 keeps columns tightly packed ── */}
@@ -899,7 +899,7 @@ export function LoveStoryNew() {
             <div className="flex items-center gap-3 py-2 border-b border-motif-accent/10 mb-1">
               <div className="w-11 h-11 md:w-13 md:h-13 relative rounded-full overflow-hidden flex-shrink-0
                 shadow-md ring-2 ring-motif-accent/25">
-                <CloudinaryImage src="/desktop-background/couple (12).jpg" alt="Mark" fill
+                <Image src="/desktop-background/couple (12).webp" alt="Mark" fill
                   className="object-cover" sizes="48px" />
               </div>
               <div>
@@ -917,12 +917,12 @@ export function LoveStoryNew() {
             {/* Photo pair fills space between quotes – keeps column flush with Irah's */}
             <div className="grid grid-cols-2 gap-1.5">
               <div className="relative overflow-hidden rounded-md shadow-sm group" style={{ aspectRatio: "5/4" }}>
-                <CloudinaryImage src="/desktop-background/couple (3).jpg" alt="Together" fill
+                <Image src="/desktop-background/couple (3).webp" alt="Together" fill
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
                   sizes="(max-width:640px) 50vw, 25vw" />
               </div>
               <div className="relative overflow-hidden rounded-md shadow-sm group" style={{ aspectRatio: "5/4" }}>
-                <CloudinaryImage src="/desktop-background/couple (4).jpg" alt="Together" fill
+                <Image src="/desktop-background/couple (4).webp" alt="Together" fill
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
                   sizes="(max-width:640px) 50vw, 25vw" />
               </div>
@@ -933,7 +933,7 @@ export function LoveStoryNew() {
 
             {/* Wide photo – fills remaining column gap */}
             <div className="relative overflow-hidden rounded-md shadow-sm group" style={{ aspectRatio: "5/4" }}>
-              <CloudinaryImage src="/desktop-background/couple (14).jpg" alt="Together" fill
+              <Image src="/desktop-background/couple (14).webp" alt="Together" fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
                 sizes="(max-width:640px) 100vw, 50vw" />
             </div>
@@ -944,7 +944,7 @@ export function LoveStoryNew() {
             <div className="flex items-center gap-3 py-2 border-b border-motif-soft/10 mb-1">
               <div className="w-11 h-11 md:w-13 md:h-13 relative rounded-full overflow-hidden flex-shrink-0
                 shadow-md ring-2 ring-motif-soft/25">
-                <CloudinaryImage src="/desktop-background/couple (13).jpg" alt="Irah" fill
+                <Image src="/desktop-background/couple (13).webp" alt="Irah" fill
                   className="object-cover" sizes="48px" />
               </div>
               <div>
@@ -1002,7 +1002,7 @@ export function LoveStoryNew() {
 
             {/* Fills any remaining column gap */}
             <div className="relative overflow-hidden rounded-md shadow-sm group" style={{ aspectRatio: "5/4" }}>
-              <CloudinaryImage src="/desktop-background/couple (15).jpg" alt="Together" fill
+              <Image src="/desktop-background/couple (15).webp" alt="Together" fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
                 sizes="(max-width:640px) 100vw, 50vw" />
             </div>
@@ -1027,7 +1027,7 @@ export function LoveStoryNew() {
           <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-2">
             <div className="relative overflow-hidden rounded-md shadow-sm hidden md:block group"
               style={{ aspectRatio: "5/4" }}>
-              <CloudinaryImage src="/assets/expressionLove/10.png" alt="Expression of Love" fill
+              <Image src="/assets/expressionLove/10.webp" alt="Expression of Love" fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
                 sizes="25vw" />
             </div>
@@ -1044,7 +1044,7 @@ export function LoveStoryNew() {
             </div> */}
             <div className="relative overflow-hidden rounded-md shadow-sm hidden md:block group"
               style={{ aspectRatio: "5/4" }}>
-              <CloudinaryImage src="/assets/expressionLove/11.png" alt="Expression of Love" fill
+              <Image src="/assets/expressionLove/11.webp" alt="Expression of Love" fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
                 sizes="25vw" />
             </div>
@@ -1053,9 +1053,9 @@ export function LoveStoryNew() {
 
         {/* Bottom mosaic – flush, no gaps */}
         <MosaicGallery className="mt-2" items={[
-          { src: "/assets/expressionLove/12.png",       alt: "Expression of Love" },
-          { src: "/desktop-background/couple (1).jpg",  alt: "Together" },
-          { src: "/desktop-background/couple (2).jpg",  alt: "Together" },
+          { src: "/assets/expressionLove/12.webp",       alt: "Expression of Love" },
+          { src: "/desktop-background/couple (1).webp",  alt: "Together" },
+          { src: "/desktop-background/couple (2).webp",  alt: "Together" },
         ]} />
       </Chapter>
 
@@ -1066,7 +1066,7 @@ export function LoveStoryNew() {
 
           {/* Closing portrait — full-width on mobile, capped on md+ */}
           <div className="mb-6">
-            <ImageBox src="/desktop-background/couple (16).jpg" alt="Mark and Irah together"
+            <ImageBox src="/desktop-background/couple (16).webp" alt="Mark and Irah together"
               aspectRatio="4/3" className="w-full md:max-w-sm md:mx-auto shadow-2xl border border-motif-silver/20 rounded-md"
               label="Add Closing Couple Photo" />
           </div>
@@ -1095,9 +1095,9 @@ export function LoveStoryNew() {
 
           {/* Final image pair — full width side by side */}
           <div className="grid grid-cols-2 gap-2 mt-2">
-            <ImageBox src="/desktop-background/couple (17).jpg" alt="Together"
+            <ImageBox src="/desktop-background/couple (17).webp" alt="Together"
               aspectRatio="4/5" className="w-full shadow-lg border border-motif-silver/20 rounded-md" />
-            <ImageBox src="/desktop-background/couple (4).jpg" alt="Mark and Irah"
+            <ImageBox src="/desktop-background/couple (4).webp" alt="Mark and Irah"
               aspectRatio="4/5" className="w-full shadow-lg border border-motif-silver/15 rounded-md" />
           </div>
 
