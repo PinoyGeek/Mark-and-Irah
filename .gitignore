@@ -28,6 +28,6 @@ yarn-error.log*
 next-env.d.ts
 
 # public assets (handled by Cloudinary)
-public/desktop-background/
-public/mobile-background/
-public/assets/
+# public/desktop-background/
+# public/mobile-background/
+# public/assets/
